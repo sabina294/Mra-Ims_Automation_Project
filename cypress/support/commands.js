@@ -1,0 +1,50 @@
+Cypress.Commands.add("imsId", (ims_id) => {
+  return cy.get(`[data-ims-id='${ims_id}']`);
+});
+
+Cypress.Commands.add("formController", (form_control_name) => {
+  return cy.get(`[formcontrolname='${form_control_name}']`);
+});
+
+Cypress.Commands.add(
+  "formArrayController",
+  (form_array_name, index, form_control_name) => {
+    return cy
+      .get(`[formarrayname="${form_array_name}"]`)
+      .eq(index)
+      .find(`[formcontrolname="${form_control_name}"]`);
+  }
+);
+
+Cypress.Commands.add("login", (login_url, username, password) => {
+  cy.window().then((win) => win.sessionStorage.clear());
+  cy.clearCookies();
+  cy.clearLocalStorage();
+
+  cy.visit(login_url);
+  cy.formController("user_id").type(username);
+  cy.formController("password").type(password);
+  cy.get("#submit-button").click();
+  cy.log(`Logging in as user : ${username}`);
+});
+
+Cypress.Commands.add("changeLanguage", (language) => {
+  cy.imsId("profile-menu").click();
+  cy.imsId(`btn-lang-${language}`).click();
+});
+
+Cypress.Commands.add("switchModule", (module) => {
+  cy.imsId("module-switcher").click();
+  cy.imsId(`module-${module}`).click();
+});
+
+Cypress.Commands.add("selectMenu", (menu, sub_menu) => {
+  cy.imsId(menu).click();
+  cy.imsId(sub_menu).click();
+});
+
+Cypress.Commands.add("logout", () => {
+  cy.imsId("profile-menu").click();
+  cy.imsId("btn-logout").click();
+  cy.log(`Successfully logout`);
+});

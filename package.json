@@ -1,0 +1,37 @@
+{
+  "name": "ims2-cypress-automation",
+  "version": "1.0.0",
+  "description": "End-to-end test automation using Cypress for IMS2 platform",
+  "main": "cypress.config.js",
+  "scripts": {
+    "cy:open": "cypress open",
+    "cy:run": "cypress run --headless",
+    "cy:run:loc": "cross-env CYPRESS_ENV=loc npx cypress run",
+    "cy:run:dev": "cross-env CYPRESS_ENV=dev npx cypress run",
+    "cy:run:prod": "cross-env CYPRESS_ENV=prod npx cypress run",
+    "cy:report": "node scripts/send-report.js",
+    "cy:test": "npm run cy:run && npm run cy:report"
+  },
+  "keywords": [
+    "cypress",
+    "e2e",
+    "automation",
+    "mochawesome",
+    "nodemailer",
+    "docker"
+  ],
+  "author": "Your Name",
+  "license": "ISC",
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "cypress": "^14.4.0",
+    "cypress-file-upload": "^5.0.8",
+    "cypress-mochawesome-reporter": "^3.8.2",
+    "dotenv": "^16.5.0",
+    "mochawesome": "^7.1.3",
+    "mochawesome-merge": "^4.3.0",
+    "mochawesome-report-generator": "^6.2.0",
+    "moment": "^2.29.1",
+    "nodemailer": "^6.9.15"
+  }
+}

@@ -1,0 +1,447 @@
+{
+  "credential": {
+    "mraAdminUserId": "mra-admin-2",
+    "mraAdminPassword": "123456",
+    "mraAdminName": "Rubayat Zaman",
+    "mfiAdminUserId": "tem-mfi-admin-automation",
+    "mfiAdminPassword": "123456"
+  },
+  "createdivisionFrom": {
+    "nameEn": "Test division",
+    "nameBn": "পরীক্ষা বিভাগ",
+    "Code": "66",
+    "establishedYear": "2024",
+    "messageSaveDivi": "Division has been saved",
+    "messageUpdateDivi": "Division has been updated"
+  },
+  "createdistrictFrom": {
+    "nameEn": "Dhaka",
+    "nameBn": "ঢাকা",
+    "Code": "2456",
+    "establishedYear": "2024",
+    "division": "Test division",
+    "messageSaveDis": "District has been saved",
+    "messageUpdateDis": "District has been updated"
+  },
+  "createthanaFrom": {
+    "nameEn": "Test Upazila",
+    "upCode": "8674",
+    "psCode": "6372",
+    "websiteLink": "www.test.com",
+    "district": "Dhaka",
+    "messageSaveUpa": "Thana has been saved",
+    "messageUpdateUpa": "Thana has been updated"
+  },
+  "createbankFrom": {
+    "nameEn": "DHAKA BANK LTD.",
+    "nameBn": "ঢাকা ব্যাংক লিমিটেড",
+    "website": "dhakabankltd.com",
+    "bankCode": "64",
+    "bankShortCode": "DHBL",
+    "messageSaveBa": "Do you wish to create a new Bank",
+    "messageUpdateBa": "Do you wish to update this Bank"
+  },
+  "createbankbranchFrom": {
+    "nameEn": "Test Branch",
+    "bank": "AGRANI BANK LTD.",
+    "messageSaveBaB": "Do you wish to create a new branch",
+    "messageUpdateBaB": "Do you wish to update this branch"
+  },
+  "createcontractPhaseFrom": {
+    "nameEn": "Requested",
+    "nameBn": "অনুরোধ",
+    "messageSaveCoPh": "Do you wish to create a new contact phase",
+    "messageUpdateCoPh": "Do you wish to update this contact phase"
+  },
+  "createeconomicPurposeFrom": {
+    "economicPurposeCode": "6754",
+    "nameEn": "Educational Expenses",
+    "nameBn": "শিক্ষাগত খরচ",
+    "economicSector": "Consumer Finance",
+    "economicActivity": "Consumer Finance",
+    "lendingCategory": "Industry",
+    "messageSaveEcPu": "Economic purpose has been saved",
+    "messageUpdateEcPu": "Economic purpose has been updated"
+  },
+  "createloanTypeFrom": {
+    "nameEn": "Multiple Installment",
+    "nameBn": "একাধিক কিস্তি",
+    "loanTypeId": "MI",
+    "productNatureId": "Regular",
+    "loanTypeDescription": "Done",
+    "messageSaveLoTy": "Loan type has been saved",
+    "messageUpdateLoTy": "Loan type has been updated"
+  },
+  "createpaymentPeriodFrom": {
+    "nameEn": "Test Period",
+    "nameBn": "পরীক্ষার সময়কাল",
+    "descriptionEn": "Test Period",
+    "descriptionBn": "পরীক্ষার সময়কাল",
+    "PaymentPeriodId": "TP",
+    "messageSavePaPe": "Payment period has been saved",
+    "messageUpdatePaPe": "Payment period has been updated"
+  },
+  "createpaymentMethodFrom": {
+    "nameEn": "Cash",
+    "nameBn": "নগদ",
+    "descriptionEn": "Cash",
+    "descriptionBn": "নগদ",
+    "PaymentMethodId": "test6473",
+    "messageSavePaMe": "Payment method has been saved",
+    "messageUpdatePaMe": "Payment method has been updated"
+  },
+  "createloanClassStatusFrom": {
+    "loanClassId": "Test status",
+    "loanClassNameEn": "Test status",
+    "loanClassNameBn": "পরীক্ষার অবস্থা",
+    "description": "Test status",
+    "messageSaveLoClSt": "Do you wish to create a new loan class status",
+    "messageUpdateLoClSt": "Do you wish to update this loan class status"
+  },
+  "updateloanChartFrom": {
+    "remarksNameEn": "Watchful",
+    "remarksNameBn": "সতর্ক",
+    "messageUpdateLoCh": "Do you wish to update this loan classification chart",
+    "messageEditLoCh": "Do you wish to update this loan classification chart"
+  },
+  "createOrgLegForm": {
+    "nameEn": "Organization",
+    "nameBn": "সংগঠন",
+    "messageSaveOrgLegForm": "Do you wish to create a new Organinzation Legal Form",
+    "messageUpdateOrgLegForm": "Do you wish to update this Organinzation Legal Form"
+  },
+  "createeducationFrom": {
+    "nameEn": "Post-Graduation",
+    "nameBn": "স্নাতকোত্তর",
+    "messageSaveEd": "Education has been saved",
+    "messageUpdateEd": "Education has been updated"
+  },
+  "creategenderFrom": {
+    "nameEn": "Female",
+    "nameBn": "মহিলা",
+    "genderId": "F1",
+    "messageSaveGe": "Gender has been saved",
+    "messageUpdateGe": "Gender has been updated"
+  },
+  "createmaritalstatusFrom": {
+    "nameEn": "Unmarried",
+    "nameBn": "অবিবাহিত",
+    "messageSaveMalSt": "Marital status has been saved",
+    "messageUpdateMaSt": "Marital status has been updated"
+  },
+  "createoccupationFrom": {
+    "nameEn": "Business",
+    "nameBn": "ব্যবসা",
+    "messageSaveOcc": "Do you wish to create a new occupation",
+    "messageUpdateOcc": "Do you wish to update this occupation"
+  },
+  "createremarksFrom": {
+    "nameEn": "Freedom Fighter",
+    "nameBn": "মুক্তিযোদ্ধা",
+    "messageSaveRem": "Do you wish to create a new remark",
+    "messageUpdateRem": "Do you wish to update this remark"
+  },
+  "createMfiManFrom": {
+    "mfiNameEn": "Test Mfi",
+    "licnceNo": "93873-87373-65674",
+    "mfiId": "5845",
+    "mnemonic": "TM",
+    "userName": "Sabina Yeasmin",
+    "loginId": "sabina",
+    "password": "Asdf1234",
+    "confirmPassword": "Asdf1234",
+    "messageSaveMfiManagement": "Mfi has been saved",
+    "messageUpdateMfiManagement": "Mfi has been updated"
+  },
+  "createEmployeeFrom": {
+    "employeeNameEn": "Test Employee",
+    "employeeMobileNo": "01887949170",
+    "nidNumber": "0003463473656",
+    "department": "Board of Directors",
+    "designation": "Director",
+    "division": "Sylhet Division",
+    "district": "Sunamganj",
+    "thana": "Dakshin Sunamganj",
+    "fatherNameEn": "Test Father",
+    "motherNameEn": "Test Mother",
+    "adressEn": "Sylhet",
+    "messageSaveEmployee": "Mra employee has been saved",
+    "messageUpdateEmployee": "Mra employee has been updated"
+  },
+  "createDepartmentFrom": {
+    "nameEn": "Test Department",
+    "selectStatus": "Inactive",
+    "statusSelect": "Active",
+    "messageSaveDepartment": "Mfi employee department has been saved",
+    "messageUpdateDepartment": "Mfi employee department has been updated"
+  },
+  "createDesignationFrom": {
+    "nameEn": "Test Designation",
+    "selectStatus": "Inactive",
+    "statusSelect": "Active",
+    "messageSaveDesignation": "Mfi employee designation has been saved",
+    "messageUpdateDesignation": "Mfi employee designation has been updated"
+  },
+  "createRegionFrom": {
+    "nameEn": "Test Region",
+    "nameBn": "পরীক্ষা অঞ্চল",
+    "regionCode": "65",
+    "selectStatus": "Inactive",
+    "statusSelect": "Active",
+    "messageSaveRegion": "Region has been saved",
+    "messageUpdateRegion": "Region has been updated"
+  },
+  "createZoneFrom": {
+    "nameEn": "Test Zone ",
+    "nameBn": "পরীক্ষা জোন ",
+    "regionName": "Dhaka",
+    "zoneCode": "65",
+    "selectStatus": "Inactive",
+    "statusSelect": "Active",
+    "messageSaveZone": "Zone has been saved",
+    "messageUpdateZone": "Zone has been updated"
+  },
+  "createAreaFrom": {
+    "nameEn": "Test Area ",
+    "nameBn": "পরীক্ষা এলাকা ",
+    "zoneName": "Dhaka",
+    "areaCode": "65",
+    "selectStatus": "Inactive",
+    "statusSelect": "Active",
+    "messageSaveArea": "Area has been saved",
+    "messageUpdateArea": "Area has been updated"
+  },
+  "createBankAccountFrom": {
+    "bankName": "AGRANI BANK LTD.",
+    "branchName": "BHANDARIA",
+    "accNameEn": "Sabina Yeasmin",
+    "accNameBn": "সাবিনা ইয়াসমিন",
+    "accountType": "Savings Account",
+    "accNumber": "0020672606",
+    "selectStatus": "Inactive",
+    "statusSelect": "Active",
+    "messageSaveBankAccount": "Mfi bank account has been saved",
+    "messageUpdateBankAccount": "Mfi bank account has been updated"
+  },
+  "createFeeConfigurationFrom": {
+    "FeeCollCode": "87",
+    "feeTypeNameEn": "Test Fee ",
+    "ammount": "3000",
+    "ledger": "Cash in Hand",
+    "selectStatus": "Inactive",
+    "statusSelect": "Active",
+    "messageSaveFeeConfig": "Mfi fee configuration has been saved",
+    "messageUpdateFeeConfig": "Mfi fee configuration has been updated"
+  },
+  "createAmountBasedLoanFrom": {
+    "officeTypeId": "Branch Office",
+    "roleName": "Branch Manager",
+    "minLoanAmount": "50000",
+    "maxLoanAmount": "100000",
+    "selectStatus": "Inactive",
+    "statusSelect": "Active",
+    "messageSaveAmountBasedLoan": "Mfi role wise loan amount approval has been saved",
+    "messageUpdateAmountBasedLoan": "Mfi role wise loan amount approval has been updated"
+  },
+  "createFundingOrganizationFrom": {
+    "FundingNameEn": "Test",
+    "idShortCode": "Test",
+    "fundingOrgType": "Savings Account",
+    "selectStatus": "Inactive",
+    "statusSelect": "Active",
+    "messageSaveFundingOrganization": "Mfi funding organization has been saved",
+    "messageUpdateFundingOrganization": "Mfi funding organization has been updated"
+  },
+  "createLoanFundFrom": {
+    "bankAccount": "Dhaka Zonal Office",
+    "fundingOrgId": "PKSF",
+    "amount": "30000",
+    "selectStatus": "Inactive",
+    "statusSelect": "Active",
+    "messageSaveLoanFund": "Mfi loan fund has been saved",
+    "messageUpdateLoanFund": "Mfi loan fund has been updated"
+  },
+  "createMfiProgramFrom": {
+    "programNameEn": "Test Mfi Program",
+    "programShortName": "TM",
+    "fundingCategory": "General Micro-Credit (GMC)",
+    "loanFund": "PKSF-1001",
+    "selectStatus": "Inactive",
+    "statusSelect": "Active",
+    "messageSaveMfiProgram": "Mfi program has been saved",
+    "messageUpdateMfiProgram": "Mfi program has been updated"
+  },
+  "createOfficeFrom": {
+    "officeNameEn": "Test Office",
+    "officeNameBn": "পরীক্ষা অফিস",
+    "officeType": "Branch Office",
+    "comOfficeId": "98765213",
+    "mobileNo": "01887949170",
+    "division": "Sylhet Division",
+    "district": "Sunamganj",
+    "upazila": "Tahirpur",
+    "adressEn": "Dhaka",
+    "latitude": "23.8103",
+    "longitude": "90.4125",
+    "areaNameEn": "Savar",
+    "divisionName": "Rangpur Division",
+    "districtName": "Panchagarh",
+    "upazilaName": "Tentulia",
+    "selectStatus": "Inactive",
+    "statusSelect": "Active",
+    "messageSaveOffice": "Office has been saved",
+    "messageUpdateOffice": "Office has been updated"
+  },
+  "createEmpMangFrom": {
+    "empNameEn": "Sabina Yeasmin",
+    "empMobileNo": "01887949170",
+    "nidNumber": "0003463473656",
+    "designation": "Branch Manager",
+    "officeNameEn": "1002 (Dhaka Regional Office)",
+    "fatherNameEn": "Test Father",
+    "motherNameEn": "Test Mother",
+    "division": "Sylhet Division",
+    "district": "Sunamganj",
+    "thana": "Tahirpur",
+    "adressEn": "Sylhet",
+    "selectStatus": "Inactive",
+    "statusSelect": "Active",
+    "messageSaveEmp": "Mfi employee has been saved",
+    "messageUpdateEmp": "Mfi employee has been updated"
+  },
+  "createSamityFrom": {
+    "samityNameEn": "Shyamoli kallyan Samity",
+    "samityNameBn": "শ্যামলী কল্যাণ সমিতি",
+    "samityType": "Female",
+    "office": "1019 (Amin Bazar)",
+    "fieldOfficer": "MD EBRAHIM",
+    "mfiProgram": "Jagoron",
+    "samityDay": "Sunday",
+    "samityFrequency": "Monthly",
+    "workingArea": "Amin Bazar",
+    "samityCode": "123456",
+    "maxMember": "30",
+    "adressEn": "Dhaka",
+    "geoAreaType": "Rural",
+    "selectStatus": "Inactive",
+    "statusSelect": "Active",
+    "messageSaveSamity": "Samity has been saved",
+    "messageUpdateSamity": "Samity has been updated"
+  },
+  "samityChangeFrom": {
+    "samityNameEn": "Nakol Mohila Samity",
+    "selectStatus": "Inactive",
+    "statusSelect": "Active",
+    "SelectOffice": "1019 (Amin Bazar)",
+    "messageSamityChange": "Samity field officer has been updated"
+  },
+  "samityDayChangeFrom": {
+    "samityNameEn": "Majhail Mohila Samity",
+    "selectStatus": "Inactive",
+    "statusSelect": "Active",
+    "SelectOffice": "1019 (Amin Bazar)",
+    "messageSamityDayChange": "Samity day has been updated"
+  },
+  "samityCloseFrom": {
+    "samityNameEn": "Ghoshgati Mohila Samity",
+    "selectStatus": "Inactive",
+    "statusSelect": "Active",
+    "SelectOffice": "1019 (Amin Bazar)",
+    "messageSamityClose": "Samity has been closed successfully."
+  },
+  "createMemberFrom": {
+    "office": "1019 (Amin Bazar)",
+    "smity": "1019-101 (Salepur Mohila Samity)",
+    "memberNameEn": "Sabina Yeasmin",
+    "mfiProgram": "Jagoron",
+    "occupation": "Business",
+    "memberMobileNo": "01887949170",
+    "nidNumber": "0003463473656",
+    "fatherNameEn": "Test Father",
+    "motherNameEn": "Test Mother",
+    "division": "Sylhet Division",
+    "district": "Moulvibazar",
+    "thana": "Sreemangal",
+    "adressEn": "Dhaka",
+    "selectStatus": "Inactive",
+    "statusSelect": "Active",
+    "messageSaveMember": "Member has been saved",
+    "messageApproveMember": "Member has been approved successfully",
+    "messageUpdateMember": "Member has been updated"
+  },
+  "rejectedMemberFrom": {
+    "memberNameEn": "Sabina Yeasmin",
+    "rejectRemarks": "Reject",
+    "SelectOffice": "1019 (Amin Bazar)",
+    "messageRejectedMember": "Reject member has been updated",
+    "messageUpdateRejectedMember": "Member has been updated"
+  },
+  "memberSamityTransferFrom": {
+    "memberNameEn": "Fariya",
+    "newSamityTransfer": "1028-101 (Barachala Mohila Samity)",
+    "selectStatus": "Inactive",
+    "statusSelect": "Active",
+    "SelectOffice": "1019 (Amin Bazar)",
+    "messagesamityTransfer": "Member samity transfer has been updated"
+  },
+  "memberPassbookFrom": {
+    "office": "1019 (Amin Bazar)",
+    "samity": "1019-101 (Salepur Mohila Samity)",
+    "member": "2-1002 (Samia)",
+    "account": "AGRO-1019-101-1002-1"
+  },
+  "loanProductFrom": {
+    "office": "1019 (Amin Bazar)",
+    "mfiProgram": "Jagoron",
+    "loanProductNameEn": "Test Loan Product",
+    "loanProductNameBn": "পরীক্ষার ঋণ পণ্য",
+    "productNature": "Regular",
+    "loanType": "Multiple Installment",
+    "repaymentFrequency": "Weekly",
+    "minimumLoanAmount": "5000",
+    "maximumLoanAmount": "10000",
+    "minimuminstallment": "45",
+    "defaultInstallment": "48",
+    "maximumInstallment": "50",
+    "interestCalculationRate": "Declining Balance with Equal Installments",
+    "serviceCharge": "15",
+    "selectStatus": "Inactive",
+    "statusSelect": "Active",
+    "SelectOffice": "1019 (Amin Bazar)",
+    "messageSaveLoanProduct": "Loan product has been saved",
+    "messageUpdateLoanProduct": "Do you want to update this loan product?"
+  },
+  "createLoanAccountFrom": {
+    "memberNameEn": "Zahra Ahmed",
+    "office": "1019 (Amin Bazar)",
+    "samity": "1019-102 (Chanpur Mohila Samity)",
+    "member": "1-1001 (Tanny Akther)",
+    "lendingCategory": "Industry",
+    "economicSector": "Industry",
+    "economicActivity": "Term Loan ( Other than Working Capital Financing)",
+    "economicPurpose": "Service Industries",
+    "loanProduct": "Jagoran",
+    "appliedLoanAmount": "50000",
+    "selectStatus": "Inactive",
+    "statusSelect": "Active",
+    "SelectOffice": "1019 (Amin Bazar)",
+    "messageSaveLoanAccount": "Loan account proposal has been saved",
+    "messageUpdateLoanAccount": "Do you want to update this loan account?"
+  },
+  "loanAccountManagementFrom": {
+    "samity": "Chhaya Mohila Samity",
+    "selectStatus": "Inactive",
+    "statusSelect": "Active",
+    "SelectOffice": "1019 (Amin Bazar)",
+    "messageLoanAccountManagement": "Loan account has been updated"
+  },
+  "createClientWelfareFrom": {
+    "selectOffice": "1020 (Ashulia)",
+    "selectSamity": "1020-101 (Ashulia Mohila Samity)",
+    "selectMember": "1-1001 (Fariya)",
+    "inputLoanAccount": "1020-101-1001-1",
+    "approveMessage": "Welfare Fund Authorization for Loan Account Is Successful",
+    "messageSaveLoanWelfareFund": "Are you sure want to collect welfare fund for this loan account?",
+    "messageUpdateLoanWelfareFund": "Do you want to update this loan welfare fund?"
+  }
+}
