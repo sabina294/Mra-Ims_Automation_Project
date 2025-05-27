@@ -11,6 +11,8 @@
     "nameBn": "পরীক্ষা বিভাগ",
     "Code": "66",
     "establishedYear": "2024",
+    "selectStatus": "Inactive",
+    "statusSelect": "Active",
     "messageSaveDivi": "Division has been saved",
     "messageUpdateDivi": "Division has been updated"
   },

@@ -1,0 +1,60 @@
+//  npx cypress run --spec cypress/e2e/mra-admin/03-division/division.cy.js --browser chrome --headed --reporter mochawesome
+import "cypress-file-upload";
+import { create_division } from "./division.po";
+
+describe("03. Division Grid list,Creation,View,Update,Inactive,Active,Search,Reset and Refresh Tests.", function () {
+  const baseURL = Cypress.env("BASE_URL");
+  const test_data = Cypress.env("TEST_DATA");
+
+  before(() => {
+    cy.fixture(test_data).then((d) => {
+      cy.login(
+        baseURL,
+        d.credential.mraAdminUserId,
+        d.credential.mraAdminPassword
+      );
+      cy.changeLanguage("english");
+      cy.switchModule("MFI");
+    });
+  });
+
+  after(() => {
+    cy.logout();
+  });
+
+  it("03.01. Verify that the Division List page loads successfully.", function () {
+    create_division.gridDivisionListPage();
+  });
+
+  it("03.02. To verify that a new Division can be successfully created when all required fields are filled with valid data by MRA-Admin role", function () {
+    create_division.createDivision();
+  });
+
+  it("03.03. To verify that the user can successfully view the detailed information of a Division, including all the relevant fields.", function () {
+    create_division.viewDivision();
+  });
+
+  it("03.04. To verify that the user can successfully edit an existing Division's information, including the Division Name, and Description. by MRA-Admin role", function () {
+    create_division.editDivision();
+  });
+
+  it("03.05. To verify that the user can filter the inactive Divisions using the Status Dropdown on the Division List page.", function () {
+    create_division.statusInactiveDropdownCheck();
+  });
+
+  it("03.06. Verify Filter Active Result by Status Dropdown", function () {
+    create_division.statusActiveDropdownCheck();
+  });
+
+  it("03.07. Verify Successful Search Result by division Name", function () {
+    create_division.searchInDivisionName();
+  });
+
+  it("03.08. Verify Successful Reset of Grid List Using the Reset Button on division Page.", function () {
+    create_division.gridResetButtonCheck();
+  });
+
+  it("03.09. Verify Successful Refresh of Grid List Using the Refresh Button on division Page.", function () {
+    create_division.gridRefreshButtonCheck();
+  });
+});

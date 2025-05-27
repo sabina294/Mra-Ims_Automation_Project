@@ -5,4 +5,4 @@ cypress/reports
 cypress/screenshots
 .vscode
 .idea
-env/
+downloads
