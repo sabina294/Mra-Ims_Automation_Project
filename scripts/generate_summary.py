@@ -23,7 +23,7 @@ SMTP_PORT = 587
 SMTP_USER = 'noreply.celac@gmail.com'
 SMTP_PASSWORD = 'abqvoxzuwixftzpd'
 EMAIL_FROM = 'noreply.celac@gmail.com'
-EMAIL_TO = ['tanim1109135@gmail.com']
+EMAIL_TO = ["tanim1109135@gmail.com", "sabina.yeasmin.9701@gmail.com", "moshiur251@gmail.com"]
 
 def format_duration_ms(duration_ms):
     total_seconds = int(round(duration_ms / 1000))
