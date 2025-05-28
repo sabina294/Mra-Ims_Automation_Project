@@ -6,6 +6,7 @@ import shutil
 from datetime import datetime, timedelta
 from zoneinfo import ZoneInfo
 from bs4 import BeautifulSoup
+from premailer import transform
 import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
