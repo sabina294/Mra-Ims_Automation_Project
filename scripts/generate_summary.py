@@ -17,12 +17,20 @@ BACKUP_FILE = './scripts/summary.html'
 CYPRESS_REPORT_DIR = './cypress/reports'
 
 # Email settings (configure before sending)
-SMTP_SERVER = 'smtp.example.com'
+SMTP_SERVER = 'smtp.gmail.com'
 SMTP_PORT = 587
 SMTP_USER = 'noreply.celac@gmail.com'
 SMTP_PASSWORD = 'abqvoxzuwixftzpd'
 EMAIL_FROM = 'noreply.celac@gmail.com'
 EMAIL_TO = ['tanim1109135@gmail.com']
+
+def format_duration_ms(duration_ms):
+    total_seconds = int(round(duration_ms / 1000))
+    minutes, seconds = divmod(total_seconds, 60)
+    if minutes > 0:
+        return f"{minutes}m {seconds}s"
+    else:
+        return f"{seconds}s"
 
 
 def get_cypress_summary_data(cypress_report_dir):
@@ -45,7 +53,7 @@ def get_cypress_summary_data(cypress_report_dir):
     skipped = stats.get("skipped", 0)
 
     duration_ms = stats.get("duration", 0)
-    duration = str(timedelta(milliseconds=duration_ms))
+    duration = format_duration_ms(duration_ms)
 
     start_time = stats.get("start", "")
     end_time = stats.get("end", "")
