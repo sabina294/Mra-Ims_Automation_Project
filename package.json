@@ -6,9 +6,8 @@
   "scripts": {
     "cy:open": "cypress open",
     "cy:run": "cypress run",
-    "loc": "cross-env CYPRESS_ENV=local npx cypress run",
     "dev": "cross-env CYPRESS_ENV=dev npx cypress run",
-    "prod": "cross-env CYPRESS_ENV=prod npx cypress run",
+    "auto": "cross-env CYPRESS_ENV=auto npx cypress run",
     "cy:report": "node scripts/send-report.js",
     "cy:test": "npm run cy:run && npm run cy:report"
   },
