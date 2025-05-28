@@ -4,22 +4,34 @@ import os
 import json
 import shutil
 from datetime import datetime, timedelta
+from zoneinfo import ZoneInfo
 from bs4 import BeautifulSoup
+import smtplib
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
 
+# === Configs ===
 SUMMARY_FILE = '/app/nginx/summary.html'
 REPORTS_DIR = '/app/nginx/reports'
 BACKUP_FILE = './scripts/summary.html'
-cypress_report_dir = './cypress/reports'
+CYPRESS_REPORT_DIR = './cypress/reports'
+
+# Email settings (configure before sending)
+SMTP_SERVER = 'smtp.example.com'
+SMTP_PORT = 587
+SMTP_USER = 'noreply.celac@gmail.com'
+SMTP_PASSWORD = 'abqvoxzuwixftzpd'
+EMAIL_FROM = 'noreply.celac@gmail.com'
+EMAIL_TO = ['tanim1109135@gmail.com']
+
 
 def get_cypress_summary_data(cypress_report_dir):
-    # Get the latest JSON file from the cypress/reports directory
     report_files = [f for f in os.listdir(cypress_report_dir) if f.endswith('.json')]
     if not report_files:
         raise FileNotFoundError("No Cypress JSON report files found.")
 
     latest_report_file = max(report_files, key=lambda x: os.path.getctime(os.path.join(cypress_report_dir, x)))
 
-    # Read the JSON content
     with open(os.path.join(cypress_report_dir, latest_report_file), 'r', encoding='utf-8') as f:
         report_data = json.load(f)
 
@@ -32,122 +44,112 @@ def get_cypress_summary_data(cypress_report_dir):
     pending = stats.get("pending", 0)
     skipped = stats.get("skipped", 0)
 
-    # Duration is in milliseconds, convert to HH:MM:SS format
     duration_ms = stats.get("duration", 0)
     duration = str(timedelta(milliseconds=duration_ms))
 
-    # Get start and end times (ISO 8601 format or timestamp)
     start_time = stats.get("start", "")
     end_time = stats.get("end", "")
 
-    # Optional: format start and end datetime strings for display if present
     if start_time:
         try:
-            start_dt = datetime.fromisoformat(start_time.rstrip('Z'))
-            start_time = start_dt.strftime('%Y-%m-%d %H:%M:%S')
-        except Exception:
-            pass  # keep original if parsing fails
-
-    if end_time:
-        try:
-            end_dt = datetime.fromisoformat(end_time.rstrip('Z'))
-            end_time = end_dt.strftime('%Y-%m-%d %H:%M:%S')
+            dt_utc = datetime.fromisoformat(start_time.rstrip('Z')).replace(tzinfo=ZoneInfo('UTC'))
+            dt_dhaka = dt_utc.astimezone(ZoneInfo('Asia/Dhaka'))
+            start_time = dt_dhaka.strftime('%Y-%m-%d %H:%M:%S')
         except Exception:
             pass
 
-    # Construct the report link (cypress/YYYY-MM-DD.html)
+    if end_time:
+        try:
+            dt_utc = datetime.fromisoformat(end_time.rstrip('Z')).replace(tzinfo=ZoneInfo('UTC'))
+            dt_dhaka = dt_utc.astimezone(ZoneInfo('Asia/Dhaka'))
+            end_time = dt_dhaka.strftime('%Y-%m-%d %H:%M:%S')
+        except Exception:
+            pass
+
     report_date = datetime.now().strftime('%Y-%m-%d')
-    report_link = f"cypress/{report_date}.html"
+    report_link = f"reports/{report_date}.html"
 
     return total_suites, total_tests, passed, failed, pending, skipped, duration, start_time, end_time, report_link
+
 
 def ensure_summary_file_exists():
     if not os.path.exists(SUMMARY_FILE):
         if os.path.exists(BACKUP_FILE):
             shutil.copy(BACKUP_FILE, SUMMARY_FILE)
+            print(f"Copied backup summary.html to {SUMMARY_FILE}")
         else:
-            raise FileNotFoundError(f"Neither {SUMMARY_FILE} nor {BACKUP_FILE} exist.")
+            raise FileNotFoundError(f"Neither {SUMMARY_FILE} nor backup {BACKUP_FILE} exist.")
+
 
 def add_summary_row_to_html(date_str, total_suites, total_tests, passed, failed, pending, skipped, duration, start_time, end_time, report_link):
-    # Open summary.html file
     with open(SUMMARY_FILE, 'r', encoding='utf-8') as f:
         soup = BeautifulSoup(f, 'html.parser')
 
-    # Update <h1> text with the latest update date
     h1_tag = soup.find('h1')
     if h1_tag:
-        h1_tag.string = f"IMS2 Test Result Summary Report"
+        h1_tag.string = "IMS2 Test Result Summary Report"
 
     tbody = soup.find('tbody')
     if tbody is None:
         raise ValueError("No <tbody> found in summary.html")
 
-    # Create new row with the Cypress test summary data
     new_row = soup.new_tag('tr')
 
-    def new_td(text, css_class=None):
+    def new_td(text, css_class=None, data_label=None):
         td = soup.new_tag('td')
         if css_class:
             td['class'] = css_class
-        td.string = str(text)
+        if data_label:
+            td['data-label'] = data_label
+        td.append(soup.new_string(str(text)))
         return td
 
-    # Serial No. placeholder, will update later
-    new_row.append(new_td(""))
+    new_row.append(new_td("", data_label="#"))
+    new_row.append(new_td(date_str, data_label="Date"))
+    new_row.append(new_td(total_suites, data_label="Total Suites"))
+    new_row.append(new_td(total_tests, data_label="Total Tests"))
+    new_row.append(new_td(passed, css_class='pass', data_label="Passed"))
+    new_row.append(new_td(failed, css_class='fail', data_label="Failed"))
+    new_row.append(new_td(pending, data_label="Pending"))
+    new_row.append(new_td(skipped, data_label="Skipped"))
+    new_row.append(new_td(duration, css_class='duration', data_label="Duration"))
+    new_row.append(new_td(start_time, data_label="Start"))
+    new_row.append(new_td(end_time, data_label="End"))
 
-    # Add the summary data into the row
-    new_row.append(new_td(date_str))
-    new_row.append(new_td(total_suites))
-    new_row.append(new_td(total_tests))
-    new_row.append(new_td(passed, css_class='pass'))
-    new_row.append(new_td(failed, css_class='fail'))
-    new_row.append(new_td(pending))
-    new_row.append(new_td(skipped))
-    new_row.append(new_td(duration, css_class='duration'))
-    new_row.append(new_td(start_time))
-    new_row.append(new_td(end_time))
-
-    # Add report link
-    td_link = soup.new_tag('td')
-    a_tag = soup.new_tag('a', href=report_link, target='_blank', **{'class': 'report-link'})
-    a_tag.string = 'View Report'
+    td_link = soup.new_tag('td', **{'class': 'report-link', 'data-label': 'Report Link'})
+    a_tag = soup.new_tag('a', href=report_link, target='_blank', rel='noopener noreferrer', **{'class': 'report-link'})
+    a_tag.string = 'View'
     td_link.append(a_tag)
     new_row.append(td_link)
 
-    # Insert new row at the top of tbody
     tbody.insert(0, new_row)
 
-    # Update Serial No. for all rows (first <td>)
-    rows = tbody.find_all('tr')
-    for idx, row in enumerate(rows, start=1):
+    # Update serial numbers
+    for idx, row in enumerate(tbody.find_all('tr'), start=1):
         first_td = row.find('td')
         if first_td:
-            first_td.string = str(idx)
+            first_td.string.replace_with(str(idx))
 
-    # Update footer with the updated time
     footer_tag = soup.find('footer', class_='footer-update')
     update_time = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
     footer_text = f"Last updated on {update_time}"
-
     if footer_tag:
-        footer_tag.string = footer_text
+        footer_tag.string.replace_with(footer_text)
     else:
         new_footer = soup.new_tag('footer', **{'class': 'footer-update'})
         new_footer.string = footer_text
         soup.body.append(new_footer)
 
-    # Write updated content back to summary.html
     with open(SUMMARY_FILE, 'w', encoding='utf-8') as f:
         f.write(str(soup.prettify(formatter="html")))
 
-    print(f"Added summary row for date {date_str}, updated <h1>, and footer in {SUMMARY_FILE}")
+    print(f"Added summary row for date {date_str}, updated header and footer in {SUMMARY_FILE}")
+
 
 def copy_report_to_nginx_reports(date_str, cypress_report_dir):
-    # Ensure the directory exists
     if not os.path.exists(REPORTS_DIR):
         os.makedirs(REPORTS_DIR)
 
-    # Copy the latest Cypress report (index.html) into the /app/nginx/reports directory
     source_report_path = os.path.join(cypress_report_dir, "index.html")
     destination_report_path = os.path.join(REPORTS_DIR, f"{date_str}.html")
 
@@ -157,20 +159,57 @@ def copy_report_to_nginx_reports(date_str, cypress_report_dir):
     shutil.copy(source_report_path, destination_report_path)
     print(f"Copied Cypress report to {destination_report_path}")
 
+
+def get_summary_html_content():
+    with open(SUMMARY_FILE, 'r', encoding='utf-8') as f:
+        return f.read()
+
+
+def send_email(subject, html_body, smtp_server, smtp_port, smtp_user, smtp_password, from_addr, to_addrs):
+    msg = MIMEMultipart('alternative')
+    msg['Subject'] = subject
+    msg['From'] = from_addr
+    msg['To'] = ', '.join(to_addrs)
+
+    part = MIMEText(html_body, 'html')
+    msg.attach(part)
+
+    try:
+        with smtplib.SMTP(smtp_server, smtp_port) as server:
+            server.starttls()
+            server.login(smtp_user, smtp_password)
+            server.sendmail(from_addr, to_addrs, msg.as_string())
+        print("Email sent successfully.")
+    except Exception as e:
+        print(f"Failed to send email: {e}")
+
+
 def main():
     date_str = datetime.now().strftime('%Y-%m-%d')
 
-    # Get Cypress summary data including new columns
-    total_suites, total_tests, passed, failed, pending, skipped, duration, start_time, end_time, report_link = get_cypress_summary_data(cypress_report_dir)
+    # Compose dynamic email subject with current date
+    subject = f"[IMS2-Cypress] Test Summary Report || {date_str}"
 
-    # Ensure the summary.html exists
+    total_suites, total_tests, passed, failed, pending, skipped, duration, start_time, end_time, report_link = get_cypress_summary_data(CYPRESS_REPORT_DIR)
+
     ensure_summary_file_exists()
 
-    # Add summary data to summary.html with new columns
     add_summary_row_to_html(date_str, total_suites, total_tests, passed, failed, pending, skipped, duration, start_time, end_time, report_link)
 
-    # Copy the Cypress report to the /app/nginx/reports directory
-    copy_report_to_nginx_reports(date_str, cypress_report_dir)
+    copy_report_to_nginx_reports(date_str, CYPRESS_REPORT_DIR)
+
+    html_body = get_summary_html_content()
+
+    send_email(
+        subject=subject,
+        html_body=html_body,
+        smtp_server=SMTP_SERVER,
+        smtp_port=SMTP_PORT,
+        smtp_user=SMTP_USER,
+        smtp_password=SMTP_PASSWORD,
+        from_addr=EMAIL_FROM,
+        to_addrs=EMAIL_TO
+    )
 
 if __name__ == "__main__":
     main()
