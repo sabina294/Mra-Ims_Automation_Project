@@ -21,7 +21,7 @@ COPY . .
 
 RUN chmod +x /app/scripts/entrypoint.sh
 
-RUN pip3 install beautifulsoup4 --break-system-packages
+RUN pip3 install beautifulsoup4 premailer --break-system-packages
 
 RUN npm install
 

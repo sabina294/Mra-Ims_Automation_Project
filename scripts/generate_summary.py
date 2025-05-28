@@ -206,7 +206,8 @@ def main():
 
     copy_report_to_nginx_reports(date_str, CYPRESS_REPORT_DIR)
 
-    html_body = get_summary_html_content()
+    raw_html = get_summary_html_content()
+    html_body = transform(raw_html)
 
     send_email(
         subject=subject,
