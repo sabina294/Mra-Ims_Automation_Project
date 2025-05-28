@@ -1,0 +1,7 @@
+.git
+node_modules
+.husky
+.angular
+.gitignore
+.gitlab-ci.yml
+README.md
