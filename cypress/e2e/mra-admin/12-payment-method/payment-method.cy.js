@@ -1,4 +1,6 @@
-// npx cypress run --spec cypress/e2e/mra-admin/12-payment-method/payment-method.cy.js --browser chrome --headed --reporter mochawesome
+// npx cypress open
+// npm run auto
+// npm run dev
 
 import "cypress-file-upload";
 import { create_payment_method } from "./payment-method.po";

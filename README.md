@@ -92,7 +92,16 @@ npm show mochawesome version
 ```sh
 npx cypress run --e2e --headed --reporter mochawesome
 ```
-### 12. Video Record
+### 12. Run env dev
+```sh
+npm run dev
+```
+### 13. Run env auto
+```sh
+npm run auto
+```
+
+### 14. Video Record
 #### if you want to record video, change `cypress.config.js` file
 > { "e2e" : { "video" : `true` }}
 
@@ -100,7 +109,7 @@ npx cypress run --e2e --headed --reporter mochawesome
 > { "e2e" : { "trashAssetsBeforeRuns" : `false` }}
 
 
-### 13. Install VLC video media player app in ubuntu.
+### 15. Install VLC video media player app in ubuntu.
 
 VLC Media Player is a free, open-source, and highly versatile multimedia player that supports nearly all audio and video formats, including DVDs, CDs, and network streams. It's widely used due to its speed, lightweight design, and powerful playback capabilities. VLC also offers advanced features such as subtitle synchronization, media conversion, and screen recording.
 

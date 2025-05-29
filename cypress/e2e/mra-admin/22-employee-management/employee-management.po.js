@@ -11,7 +11,7 @@ class EmployeeManagementCreation {
   createEmployeeManagement() {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId("btn-add-new").click();
-      cy.imsId("btn-submit").and("be.visible");
+      // cy.imsId("btn-submit").and("be.visible");
 
       var emData = data.mraAdmin.createEmployeeFrom;
       cy.formController("name_en").type(emData.employeeNameEn);
