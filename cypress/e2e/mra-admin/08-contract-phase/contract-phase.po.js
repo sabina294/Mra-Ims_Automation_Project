@@ -1,0 +1,99 @@
+class ContractPhaseCreation {
+  test_data = Cypress.env("TEST_DATA");
+
+  gridContractPhaseListPage() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.selectMenu("menu-configuration", "submenu-contract-phase");
+      cy.log("Successfully contract phase list page.");
+    });
+  }
+
+  createContractPhase() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("btn-add-new").click();
+      cy.imsId("btn-submit").and("be.visible");
+
+      var conPhaData = data.mraAdmin.createcontractPhaseFrom;
+      cy.formController("name_en").type(conPhaData.nameEn);
+      cy.formController("name_bn").type(conPhaData.nameBn);
+
+      cy.imsId("btn-submit").click();
+      cy.get("app-confirmation-modal")
+        .contains(conPhaData.messageSaveCoPh)
+        .and("be.visible");
+      cy.imsId("btn-yes").click();
+      cy.imsId("btn-ok").click();
+      cy.log("Successfully created contract phase");
+    });
+  }
+
+  viewContractPhase() {
+    cy.fixture(this.test_data).then((data) => {
+      var conPhaData = data.mraAdmin.createcontractPhaseFrom;
+      cy.formController("search_text").type(conPhaData.nameBn);
+      cy.imsId("toggle-action").first().click();
+      cy.imsId("btn-table-action-view").click();
+      cy.get("app-mra-mfi").contains(conPhaData.nameEn).and("be.visible");
+      cy.get("app-mra-mfi").contains(conPhaData.nameBn).and("be.visible");
+
+      cy.imsId("btn-go-back").click();
+      cy.log("Successfully viewed the contract phase list page");
+    });
+  }
+
+  editContractPhase() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("toggle-action").first().click();
+      cy.imsId("btn-table-action-edit").click();
+      cy.imsId("btn-submit").click();
+
+      var conPhaData = data.mraAdmin.createcontractPhaseFrom;
+      cy.get("app-confirmation-modal")
+        .contains(conPhaData.messageUpdateCoPh)
+        .and("be.visible");
+      cy.imsId("btn-yes").click();
+      cy.imsId("btn-ok").click();
+      cy.log("Contract phase updated successfully");
+    });
+  }
+
+  statusInactiveDropdownCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      var conPhaData = data.mraAdmin.createcontractPhaseFrom;
+      cy.imsId("btn-reset").click();
+      cy.formController("status").type(conPhaData.selectStatus).type("{enter}");
+      cy.log("contract phase status inactive dropdown check successfully");
+    });
+  }
+
+  statusActiveDropdownCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      var conPhaData = data.mraAdmin.createcontractPhaseFrom;
+      cy.formController("status").type(conPhaData.statusSelect).type("{enter}");
+      cy.log("contract phase status active dropdown check successfully");
+    });
+  }
+
+  searchInContractPhasetName() {
+    cy.fixture(this.test_data).then((data) => {
+      var conPhaData = data.mraAdmin.createcontractPhaseFrom;
+      cy.imsId("btn-reset").click();
+      cy.formController("search_text").type(conPhaData.nameEn);
+      cy.log("Successfully search in the contract phase");
+    });
+  }
+
+  gridResetButtonCheck() {
+    cy.imsId("btn-reset").click();
+    cy.log("Successful clean displaying.");
+  }
+
+  gridRefreshButtonCheck() {
+    cy.imsId("btn-refresh").click();
+    cy.log(
+      "successfully refresh page  displayed the grid list of the contract phase "
+    );
+  }
+}
+
+export const create_contract_phase = new ContractPhaseCreation();

@@ -1,0 +1,124 @@
+class MfiCreation {
+  test_data = Cypress.env("TEST_DATA");
+
+  gridMfiManagementListPage() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.selectMenu("menu-mfi-management", "menu-mfi-management");
+      cy.log("Successfully MFI management list page.");
+    });
+  }
+
+  createMfi() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("btn-add-new").click();
+      // cy.imsId('btn-submit').and('be.visible');
+
+      const generateLicenceNo = () => {
+        const rand = () => Math.floor(10000 + Math.random() * 90000);
+
+        const rand2 = () => Math.floor(10000 + Math.random() * 90000);
+
+        const rand3 = () => Math.floor(10000 + Math.random() * 90000);
+        return `${rand()}-${rand2()}-${rand3()}`;
+      };
+      const licnceNo = generateLicenceNo();
+      const mfiId = licnceNo.slice(-4);
+
+      var mfiData = data.mraAdmin.createMfiManFrom;
+      cy.formController("mfi_name_en").first().type(mfiData.mfiNameEn);
+      cy.formController("licence_no").type(licnceNo);
+      cy.formController("institute_id").type(mfiId.toString());
+      cy.formController("mnemonic").type(mfiData.mnemonic);
+      cy.formController("name_en").type(mfiData.userName);
+      cy.formController("login_id").type(mfiData.loginId);
+      cy.formController("password").type(mfiData.password);
+      cy.formController("confirm_password").type(mfiData.confirmPassword);
+
+      cy.imsId("btn-submit").click();
+
+      cy.imsId("btn-yes").click();
+      cy.get("app-confirmation-modal")
+        .contains(mfiData.messageSaveMfiManagement)
+        .and("be.visible");
+      cy.imsId("btn-ok").click();
+      cy.log("Successfully created MFI management");
+    });
+  }
+
+  viewMfi() {
+    cy.fixture(this.test_data).then((data) => {
+      var mfiData = data.mraAdmin.createMfiManFrom;
+
+      cy.formController("search_text").type(mfiData.mfiNameEn);
+      cy.imsId("toggle-action").first().click();
+      cy.imsId("btn-table-action-view").click();
+
+      cy.get("app-mra-mfi").contains(mfiData.mfiNameEn).and("be.visible");
+
+      cy.imsId("btn-go-back").click();
+      cy.log("Successfully viewed the MFI management list page");
+    });
+  }
+
+  editMfi() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("toggle-action").first().click();
+      cy.imsId("btn-table-action-edit").click();
+      cy.imsId("btn-submit").click();
+
+      var mfiData = data.mraAdmin.createMfiManFrom;
+      cy.imsId("btn-yes").click();
+
+      cy.get("app-confirmation-modal")
+        .contains(mfiData.messageUpdateMfiManagement)
+        .and("be.visible");
+      cy.imsId("btn-ok").click();
+
+      cy.log("MFI management updated successfully");
+    });
+  }
+
+  statusInactiveDropdownCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      var mfiData = data.mraAdmin.createMfiManFrom;
+      cy.imsId("btn-reset").click();
+      cy.formController("status")
+        .type(mfiData.selectStatus)
+        .type("{enter}");
+      cy.log("MFI management form status inactive dropdown check successfully");
+    });
+  }
+
+  statusActiveDropdownCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      var mfiData = data.mraAdmin.createMfiManFrom;
+      cy.formController("status")
+        .type(mfiData.statusSelect)
+        .type("{enter}");
+      cy.log("MFI management form status active dropdown check successfully");
+    });
+  }
+
+  searchInMfiManagementName() {
+    cy.fixture(this.test_data).then((data) => {
+      var mfiData = data.mraAdmin.createMfiManFrom;
+      cy.imsId("btn-reset").click();
+      cy.formController("search_text").type(mfiData.userName);
+      cy.log("Successfully search in the MFI management form");
+    });
+  }
+
+  gridResetButtonCheck() {
+    cy.imsId("btn-reset").click();
+    cy.log("Successful clean displaying.");
+  }
+
+  gridRefreshButtonCheck() {
+    cy.imsId("btn-refresh").click();
+    cy.log(
+      "successfully refresh page  displayed the grid list of the MFI management form "
+    );
+  }
+}
+
+export const create_mfi_management = new MfiCreation();

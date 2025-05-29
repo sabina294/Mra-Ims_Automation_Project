@@ -120,20 +120,26 @@
       "messageUpdateLoClSt": "Do you wish to update this loan class status"
     },
     "updateloanChartFrom": {
-      "remarksNameEn": "Watchful",
-      "remarksNameBn": "সতর্ক",
+      "chartNameEn": "Regular",
+      "chartNameBn": "নিয়মিত",
+      "selectStatus": "Inactive",
+      "statusSelect": "Active",
       "messageUpdateLoCh": "Do you wish to update this loan classification chart",
       "messageEditLoCh": "Do you wish to update this loan classification chart"
     },
     "createOrgLegForm": {
       "nameEn": "Organization",
       "nameBn": "সংগঠন",
+      "selectStatus": "Inactive",
+      "statusSelect": "Active",
       "messageSaveOrgLegForm": "Do you wish to create a new Organinzation Legal Form",
       "messageUpdateOrgLegForm": "Do you wish to update this Organinzation Legal Form"
     },
     "createeducationFrom": {
       "nameEn": "Post-Graduation",
       "nameBn": "স্নাতকোত্তর",
+      "selectStatus": "Inactive",
+      "statusSelect": "Active",
       "messageSaveEd": "Education has been saved",
       "messageUpdateEd": "Education has been updated"
     },
@@ -141,24 +147,32 @@
       "nameEn": "Female",
       "nameBn": "মহিলা",
       "genderId": "F1",
+      "selectStatus": "Inactive",
+      "statusSelect": "Active",
       "messageSaveGe": "Gender has been saved",
       "messageUpdateGe": "Gender has been updated"
     },
     "createmaritalstatusFrom": {
       "nameEn": "Unmarried",
       "nameBn": "অবিবাহিত",
+      "selectStatus": "Inactive",
+      "statusSelect": "Active",
       "messageSaveMalSt": "Marital status has been saved",
       "messageUpdateMaSt": "Marital status has been updated"
     },
     "createoccupationFrom": {
       "nameEn": "Business",
       "nameBn": "ব্যবসা",
+      "selectStatus": "Inactive",
+      "statusSelect": "Active",
       "messageSaveOcc": "Do you wish to create a new occupation",
       "messageUpdateOcc": "Do you wish to update this occupation"
     },
     "createremarksFrom": {
       "nameEn": "Freedom Fighter",
       "nameBn": "মুক্তিযোদ্ধা",
+      "selectStatus": "Inactive",
+      "statusSelect": "Active",
       "messageSaveRem": "Do you wish to create a new remark",
       "messageUpdateRem": "Do you wish to update this remark"
     },
@@ -171,6 +185,8 @@
       "loginId": "sabina",
       "password": "Asdf1234",
       "confirmPassword": "Asdf1234",
+      "selectStatus": "Inactive",
+      "statusSelect": "Active",
       "messageSaveMfiManagement": "Mfi has been saved",
       "messageUpdateMfiManagement": "Mfi has been updated"
     },
@@ -186,15 +202,12 @@
       "fatherNameEn": "Test Father",
       "motherNameEn": "Test Mother",
       "adressEn": "Sylhet",
+      "selectStatus": "Inactive",
+      "statusSelect": "Active",
       "messageSaveEmployee": "Mra employee has been saved",
       "messageUpdateEmployee": "Mra employee has been updated"
     }
   },
-
-
-
-
-
 
   "mfiAdmin": {
     "createDepartmentFrom": {
