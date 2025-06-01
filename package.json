@@ -4,8 +4,8 @@
   "description": "End-to-end test automation using Cypress for IMS2 platform",
   "main": "cypress.config.js",
   "scripts": {
-    "cy:open": "cypress open",
-    "cy:run": "cypress run",
+    "open": "cypress open",
+    "run": "cypress run",
     "dev": "cross-env CYPRESS_ENV=dev npx cypress run",
     "auto": "cross-env CYPRESS_ENV=auto npx cypress run",
     "cy:report": "node scripts/send-report.js",

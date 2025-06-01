@@ -3,6 +3,7 @@ import { assert } from "tcomb";
 class LoginTest {
   mraAdminLogin() {
     const baseURL = Cypress.env("BASE_URL");
+    cy.log("base url", baseURL);
     const test_data = Cypress.env("TEST_DATA");
 
     cy.fixture(test_data).then((data) => {

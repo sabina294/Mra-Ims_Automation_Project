@@ -1,11 +1,11 @@
-// npx cypress open
 // npm run auto
 // npm run dev
+// npx cypress run --spec cypress/e2e/mra-admin/08-contract-phase/contract-phase.cy.js --headed
 
 import "cypress-file-upload";
 import { create_contract_phase } from "./contract-phase.po";
 
-describe("08. Contract phase Grid list,Creation,View,Update,Inactive,Active,Search,Reset and Refresh Tests.", function () {
+describe("08. Contract phase Grid list,Creation,View,Update,Inactive,Active,Search,Reset,Refresh,create Reset,Validation Messages and Go back Tests.", function () {
   const baseURL = Cypress.env("BASE_URL");
   const test_data = Cypress.env("TEST_DATA");
 
@@ -59,5 +59,17 @@ describe("08. Contract phase Grid list,Creation,View,Update,Inactive,Active,Sear
 
   it("08.09. Verify Successful Refresh of Grid List Using the Refresh Button on Contract Phase Page.", function () {
     create_contract_phase.gridRefreshButtonCheck();
+  });
+
+  it("08.10. Verify that the Contract Phase creation reset button clears applied input terms.", function () {
+    create_contract_phase.createResetButtonCheck();
+  });
+
+  it("08.11. Verify that required field validation messages appear when mandatory fields are left empty.", function () {
+    create_contract_phase.createValidationMessageCheck();
+  });
+
+  it("08.12. Verify that clicking the Go Back button on the Contract Phase Create page navigates the user back to the Contract Phase List page.", function () {
+    create_contract_phase.createGoBackButtonCheck();
   });
 });

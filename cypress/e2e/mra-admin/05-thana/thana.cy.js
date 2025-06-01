@@ -1,11 +1,11 @@
-// npx cypress open
 // npm run auto
 // npm run dev
+// npx cypress run --spec cypress/e2e/mra-admin/05-thana/thana.cy.js --headed
 
 import "cypress-file-upload";
 import { create_thana } from "./thana.po";
 
-describe("05. Thana Grid list,Creation,View,Update,Inactive,Active,Search,Reset and Refresh Tests.", function () {
+describe("05. Thana Grid list,Creation,View,Update,Inactive,Active,Search,Reset,Refresh,create Reset,Validation Messages and Go back Tests.", function () {
   const baseURL = Cypress.env("BASE_URL");
   const test_data = Cypress.env("TEST_DATA");
 
@@ -59,5 +59,17 @@ describe("05. Thana Grid list,Creation,View,Update,Inactive,Active,Search,Reset 
 
   it("05.09. Verify Successful Refresh of Grid List Using the Refresh Button on Thana Page.", function () {
     create_thana.gridRefreshButtonCheck();
+  });
+
+  it("05.10. Verify that the Thana creation reset button clears applied input terms.", function () {
+    create_thana.createResetButtonCheck();
+  });
+
+  it("05.11. Verify that required field validation messages appear when mandatory fields are left empty.", function () {
+    create_thana.createValidationMessageCheck();
+  });
+
+  it("05.12. Verify that clicking the Go Back button on the Thana Create page navigates the user back to the Thana List page.", function () {
+    create_thana.createGoBackButtonCheck();
   });
 });

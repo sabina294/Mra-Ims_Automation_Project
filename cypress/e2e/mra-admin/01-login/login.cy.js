@@ -1,6 +1,6 @@
-// npx cypress open
 // npm run auto
 // npm run dev
+// npx cypress run --spec cypress/e2e/mra-admin/03-division/division.cy.js --headed
 
 import { login_test } from "./login.po";
 

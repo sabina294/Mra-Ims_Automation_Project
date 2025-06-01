@@ -1,11 +1,11 @@
-// npx cypress open
 // npm run auto
 // npm run dev
+// npx cypress run --spec cypress/e2e/mra-admin/07-bank-branch/bank-branch.cy.js --headed
 
 import "cypress-file-upload";
 import { create_bank_branch } from "./bank-branch.po";
 
-describe("07. Bank branch Grid list,Creation,View,Update,Inactive,Active,Search,Reset,Refresh and Bank Dropdown Tests.", function () {
+describe("07. Bank branch Grid list,Creation,View,Update,Inactive,Active,Search,Reset,Refresh,create Reset,Validation Messages and Go back Tests.", function () {
   const baseURL = Cypress.env("BASE_URL");
   const test_data = Cypress.env("TEST_DATA");
 
@@ -63,5 +63,17 @@ describe("07. Bank branch Grid list,Creation,View,Update,Inactive,Active,Search,
 
   it("07.10. Verify Bank Selection Functionality from Dropdown on Bank List Page", function () {
     create_bank_branch.selectBankDropdown();
+  });
+
+  it("07.11. Verify that the Bank Branch creation reset button clears applied input terms.", function () {
+    create_bank_branch.createResetButtonCheck();
+  });
+
+  it("07.12. Verify that required field validation messages appear when mandatory fields are left empty.", function () {
+    create_bank_branch.createValidationMessageCheck();
+  });
+
+  it("07.13. Verify that clicking the Go Back button on the Bank Branch Create page navigates the user back to the Bank Branch List page.", function () {
+    create_bank_branch.createGoBackButtonCheck();
   });
 });

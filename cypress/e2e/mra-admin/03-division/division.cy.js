@@ -1,11 +1,11 @@
-// npx cypress open
 // npm run auto
 // npm run dev
+// npx cypress run --spec cypress/e2e/mra-admin/03-division/division.cy.js --headed
 
 import "cypress-file-upload";
 import { create_division } from "./division.po";
 
-describe("03. Division Grid list,Creation,View,Update,Inactive,Active,Search,Reset and Refresh Tests.", function () {
+describe("03. Division Grid list,Creation,View,Update,Inactive,Active,Search,Reset,Refresh,create Reset,Validation Messages and Go back Tests.", function () {
   const baseURL = Cypress.env("BASE_URL");
   const test_data = Cypress.env("TEST_DATA");
 
@@ -59,5 +59,17 @@ describe("03. Division Grid list,Creation,View,Update,Inactive,Active,Search,Res
 
   it("03.09. Verify Successful Refresh of Grid List Using the Refresh Button on division Page.", function () {
     create_division.gridRefreshButtonCheck();
+  });
+
+  it("03.10. Verify that the division creation reset button clears applied input terms.", function () {
+    create_division.createResetButtonCheck();
+  });
+
+  it("03.11. Verify that required field validation messages appear when mandatory fields are left empty.", function () {
+    create_division.createValidationMessageCheck();
+  });
+
+  it("03.12. Verify that clicking the Go Back button on the Division Create page navigates the user back to the Division List page.", function () {
+    create_division.createGoBackButtonCheck();
   });
 });

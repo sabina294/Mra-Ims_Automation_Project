@@ -94,6 +94,31 @@ class ContractPhaseCreation {
       "successfully refresh page  displayed the grid list of the contract phase "
     );
   }
+
+  createResetButtonCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      var conPhaData = data.mraAdmin.createcontractPhaseFrom;
+      cy.imsId("btn-add-new").click();
+      cy.formController("name_en").type(conPhaData.nameEn);
+      cy.imsId("btn-reset").click();
+      cy.imsId("btn-go-back").click();
+      cy.log("Successful clean displaying.");
+    });
+  }
+
+  createValidationMessageCheck() {
+    cy.imsId("btn-add-new").click();
+    cy.imsId("btn-submit").click();
+    cy.imsId("btn-ok").click();
+    cy.imsId("btn-go-back").click();
+    cy.log("Successful validation message displaying.");
+  }
+
+  createGoBackButtonCheck() {
+    cy.imsId("btn-add-new").click();
+    cy.imsId("btn-go-back").click();
+    cy.log("Successful go back button check.");
+  }
 }
 
 export const create_contract_phase = new ContractPhaseCreation();
