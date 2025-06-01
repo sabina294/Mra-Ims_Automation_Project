@@ -1,4 +1,7 @@
-//  npx cypress run --spec cypress/e2e/mra-admin/03-division/division.cy.js --browser chrome --headed --reporter mochawesome
+// npx cypress open
+// npm run auto
+// npm run dev
+
 import "cypress-file-upload";
 import { create_division } from "./division.po";
 

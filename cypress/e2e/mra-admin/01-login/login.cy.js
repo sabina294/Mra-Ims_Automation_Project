@@ -1,6 +1,7 @@
-// npx cypress run
-// npx cypress run --spec cypress/e2e/mra-admin --browser chrome --headless --reporter mochawesome
-// npx cypress run --spec cypress/e2e/mra-admin/01-login/login.cy.js --browser chrome --headed --reporter mochawesome
+// npx cypress open
+// npm run auto
+// npm run dev
+
 import { login_test } from "./login.po";
 
 describe("01. Login Test", function () {

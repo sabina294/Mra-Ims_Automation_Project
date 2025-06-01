@@ -1,4 +1,6 @@
-// npx cypress run --spec cypress/e2e/mra-admin/02-logout/logout.cy.js --browser chrome --headed --reporter mochawesome
+// npx cypress open
+// npm run auto
+// npm run dev
 
 import { logout_page } from "./logout.po";
 

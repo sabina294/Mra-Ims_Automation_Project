@@ -1,4 +1,6 @@
-// npx cypress run --spec cypress/e2e/mra-admin/08-contract-phase/contract-phase.cy.js --browser chrome --headed --reporter mochawesome
+// npx cypress open
+// npm run auto
+// npm run dev
 
 import "cypress-file-upload";
 import { create_contract_phase } from "./contract-phase.po";

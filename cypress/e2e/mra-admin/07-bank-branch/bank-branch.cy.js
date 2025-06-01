@@ -1,4 +1,6 @@
-// npx cypress run --spec cypress/e2e/mra-admin/07-bank-branch/bank-branch.cy.js --browser chrome --headed --reporter mochawesome
+// npx cypress open
+// npm run auto
+// npm run dev
 
 import "cypress-file-upload";
 import { create_bank_branch } from "./bank-branch.po";
