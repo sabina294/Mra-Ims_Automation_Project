@@ -1,9 +1,11 @@
-// npx cypress run --spec cypress/e2e/mra-admin/15-organization-legal-form/organization-legal-form.cy.js --browser chrome --headed --reporter mochawesome
+// npm run auto
+// npm run dev
+// npx cypress run --spec cypress/e2e/mra-admin/15-organization-legal-form/organization-legal-form.cy.js --headed
 
 import "cypress-file-upload";
 import { create_organization_legal_form } from "./organization-legal-form.po";
 
-describe("15. Organization Legal Form Grid list,Creation,View,Update,Inactive,Active,Search,Reset and Refresh Tests.", function () {
+describe("15. Organization Legal Form Grid list,Creation,View,Update,Inactive,Active,Search,Reset,Refresh,create Reset,Validation Messages and Go back Tests.", function () {
   const baseURL = Cypress.env("BASE_URL");
   const test_data = Cypress.env("TEST_DATA");
 
@@ -57,5 +59,17 @@ describe("15. Organization Legal Form Grid list,Creation,View,Update,Inactive,Ac
 
   it("15.09. Verify Successful Refresh of Grid List Using the Refresh Button on Organization Legal From Page.", function () {
     create_organization_legal_form.gridRefreshButtonCheck();
+  });
+
+  it("15.10. Verify that the Organization Legel From creation reset button clears applied input terms.", function () {
+    create_organization_legal_form.createResetButtonCheck();
+  });
+
+  it("15.11. Verify that required field validation messages appear when mandatory fields are left empty.", function () {
+    create_organization_legal_form.createValidationMessageCheck();
+  });
+
+  it("15.12. Verify that clicking the Go Back button on the Organization Legel From Create page navigates the user back to the Organization Legel From List page.", function () {
+    create_organization_legal_form.createGoBackButtonCheck();
   });
 });

@@ -1,11 +1,11 @@
-// npx cypress open
 // npm run auto
 // npm run dev
+// npx cypress run --spec cypress/e2e/mra-admin/12-payment-method/payment-method.cy.js --headed
 
 import "cypress-file-upload";
 import { create_payment_method } from "./payment-method.po";
 
-describe("12. Payment method Grid list,Creation,View,Update,Inactive,Active,Search,Reset and Refresh Tests.", function () {
+describe("12. Payment method Grid list,Creation,View,Update,Inactive,Active,Search,Reset,Refresh,create Reset,Validation Messages and Go back Tests.", function () {
   const baseURL = Cypress.env("BASE_URL");
   const test_data = Cypress.env("TEST_DATA");
 
@@ -59,5 +59,17 @@ describe("12. Payment method Grid list,Creation,View,Update,Inactive,Active,Sear
 
   it("12.09. Verify Successful Refresh of Grid List Using the Refresh Button on Payment Method Page.", function () {
     create_payment_method.gridRefreshButtonCheck();
+  });
+
+  it("12.10. Verify that the Payment Method creation reset button clears applied input terms.", function () {
+    create_payment_method.createResetButtonCheck();
+  });
+
+  it("12.11. Verify that required field validation messages appear when mandatory fields are left empty.", function () {
+    create_payment_method.createValidationMessageCheck();
+  });
+
+  it("12.12. Verify that clicking the Go Back button on the Payment Method Create page navigates the user back to the Payment Method List page.", function () {
+    create_payment_method.createGoBackButtonCheck();
   });
 });

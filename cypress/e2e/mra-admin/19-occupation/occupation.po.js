@@ -65,7 +65,9 @@ class OccupationCreation {
     cy.fixture(this.test_data).then((data) => {
       var occupationData = data.mraAdmin.createoccupationFrom;
       cy.imsId("btn-reset").click();
-      cy.formController("status").type(occupationData.selectStatus).type("{enter}");
+      cy.formController("status")
+        .type(occupationData.selectStatus)
+        .type("{enter}");
       cy.log("occupation form status inactive dropdown check successfully");
     });
   }
@@ -73,7 +75,9 @@ class OccupationCreation {
   statusActiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       var occupationData = data.mraAdmin.createoccupationFrom;
-      cy.formController("status").type(occupationData.statusSelect).type("{enter}");
+      cy.formController("status")
+        .type(occupationData.statusSelect)
+        .type("{enter}");
       cy.log("occupation form status active dropdown check successfully");
     });
   }
@@ -97,6 +101,31 @@ class OccupationCreation {
     cy.log(
       "successfully refresh page  displayed the grid list of the occupation form "
     );
+  }
+
+  createResetButtonCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      var occupationData = data.mraAdmin.createoccupationFrom;
+      cy.imsId("btn-add-new").click();
+      cy.formController("name_en").type(occupationData.nameEn);
+      cy.imsId("btn-reset").click();
+      cy.imsId("btn-go-back").click();
+      cy.log("Successful clean displaying.");
+    });
+  }
+
+  createValidationMessageCheck() {
+    cy.imsId("btn-add-new").click();
+    cy.imsId("btn-submit").click();
+    cy.imsId("btn-ok").click();
+    cy.imsId("btn-go-back").click();
+    cy.log("Successful validation message displaying.");
+  }
+
+  createGoBackButtonCheck() {
+    cy.imsId("btn-add-new").click();
+    cy.imsId("btn-go-back").click();
+    cy.log("Successful go back button check.");
   }
 }
 

@@ -99,6 +99,31 @@ class GenderCreation {
       "successfully refresh page  displayed the grid list of the gender form "
     );
   }
+
+  createResetButtonCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      var genderData = data.mraAdmin.creategenderFrom;
+      cy.imsId("btn-add-new").click();
+      cy.formController("name_en").type(genderData.nameEn);
+      cy.imsId("btn-reset").click();
+      cy.imsId("btn-go-back").click();
+      cy.log("Successful clean displaying.");
+    });
+  }
+
+  createValidationMessageCheck() {
+    cy.imsId("btn-add-new").click();
+    cy.imsId("btn-submit").click();
+    cy.imsId("btn-ok").click();
+    cy.imsId("btn-go-back").click();
+    cy.log("Successful validation message displaying.");
+  }
+
+  createGoBackButtonCheck() {
+    cy.imsId("btn-add-new").click();
+    cy.imsId("btn-go-back").click();
+    cy.log("Successful go back button check.");
+  }
 }
 
 export const create_gender = new GenderCreation();

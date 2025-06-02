@@ -59,7 +59,7 @@ class OrganizationLegalFormCreation {
       cy.log("Organization legal form updated successfully");
     });
   }
-  
+
   statusInactiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       var orgLegalFormData = data.mraAdmin.createOrgLegForm;
@@ -104,6 +104,31 @@ class OrganizationLegalFormCreation {
     cy.log(
       "successfully refresh page  displayed the grid list of the Organization legal form "
     );
+  }
+
+  createResetButtonCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      var orgLegalFormData = data.mraAdmin.createOrgLegForm;
+      cy.imsId("btn-add-new").click();
+      cy.formController("name_en").type(orgLegalFormData.nameEn);
+      cy.imsId("btn-reset").click();
+      cy.imsId("btn-go-back").click();
+      cy.log("Successful clean displaying.");
+    });
+  }
+
+  createValidationMessageCheck() {
+    cy.imsId("btn-add-new").click();
+    cy.imsId("btn-submit").click();
+    cy.imsId("btn-ok").click();
+    cy.imsId("btn-go-back").click();
+    cy.log("Successful validation message displaying.");
+  }
+
+  createGoBackButtonCheck() {
+    cy.imsId("btn-add-new").click();
+    cy.imsId("btn-go-back").click();
+    cy.log("Successful go back button check.");
   }
 }
 

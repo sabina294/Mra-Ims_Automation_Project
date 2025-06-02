@@ -1,11 +1,11 @@
-// npx cypress open
 // npm run auto
 // npm run dev
+// npx cypress run --spec cypress/e2e/mra-admin/09-economic-purpose/economic-purpose.cy.js --headed
 
 import "cypress-file-upload";
 import { create_economic_purpose } from "./economic-purpose.po";
 
-describe("09. Economic purpose Grid list,Creation,View,Update,Inactive,Active,Search,Reset and Refresh Tests.", function () {
+describe("09. Economic purpose Grid list,Creation,View,Update,Inactive,Active,Search,Reset,Refresh,create Reset,Validation Messages and Go back Tests.", function () {
   const baseURL = Cypress.env("BASE_URL");
   const test_data = Cypress.env("TEST_DATA");
 
@@ -59,5 +59,16 @@ describe("09. Economic purpose Grid list,Creation,View,Update,Inactive,Active,Se
 
   it("09.09. Verify Successful Refresh of Grid List Using the Refresh Button on Economic Purpose Page.", function () {
     create_economic_purpose.gridRefreshButtonCheck();
+  });
+  it("09.10. Verify that the Economic Purpose creation reset button clears applied input terms.", function () {
+    create_economic_purpose.createResetButtonCheck();
+  });
+
+  it("09.11. Verify that required field validation messages appear when mandatory fields are left empty.", function () {
+    create_economic_purpose.createValidationMessageCheck();
+  });
+
+  it("09.12. Verify that clicking the Go Back button on the Economic Purpose Create page navigates the user back to the Economic Purpose List page.", function () {
+    create_economic_purpose.createGoBackButtonCheck();
   });
 });

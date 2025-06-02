@@ -60,7 +60,7 @@ class RemarksCreation {
       cy.log("Remarks updated successfully");
     });
   }
-  
+
   statusInactiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       var remarksData = data.mraAdmin.createremarksFrom;
@@ -101,6 +101,31 @@ class RemarksCreation {
     cy.log(
       "successfully refresh page  displayed the grid list of the remarks form "
     );
+  }
+
+  createResetButtonCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      var remarksData = data.mraAdmin.createremarksFrom;
+      cy.imsId("btn-add-new").click();
+      cy.formController("name_en").type(remarksData.nameEn);
+      cy.imsId("btn-reset").click();
+      cy.imsId("btn-go-back").click();
+      cy.log("Successful clean displaying.");
+    });
+  }
+
+  createValidationMessageCheck() {
+    cy.imsId("btn-add-new").click();
+    cy.imsId("btn-submit").click();
+    cy.imsId("btn-ok").click();
+    cy.imsId("btn-go-back").click();
+    cy.log("Successful validation message displaying.");
+  }
+
+  createGoBackButtonCheck() {
+    cy.imsId("btn-add-new").click();
+    cy.imsId("btn-go-back").click();
+    cy.log("Successful go back button check.");
   }
 }
 

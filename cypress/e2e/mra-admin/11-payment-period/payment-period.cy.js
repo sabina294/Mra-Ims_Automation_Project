@@ -1,11 +1,11 @@
-// npx cypress open
 // npm run auto
 // npm run dev
+// npx cypress run --spec cypress/e2e/mra-admin/11-payment-period/payment-period.cy.js --headed
 
 import "cypress-file-upload";
 import { create_payment_period } from "./payment-period.po";
 
-describe("11. Payment period Grid list,Creation,View,Update,Inactive,Active,Search,Reset and Refresh Tests.", function () {
+describe("11. Payment period Grid list,Creation,View,Update,Inactive,Active,Search,Reset,Refresh,create Reset,Validation Messages and Go back Tests.", function () {
   const baseURL = Cypress.env("BASE_URL");
   const test_data = Cypress.env("TEST_DATA");
 
@@ -59,5 +59,17 @@ describe("11. Payment period Grid list,Creation,View,Update,Inactive,Active,Sear
 
   it("11.09. Verify Successful Refresh of Grid List Using the Refresh Button on Payment Period Page.", function () {
     create_payment_period.gridRefreshButtonCheck();
+  });
+
+  it("11.10. Verify that the Payment Period creation reset button clears applied input terms.", function () {
+    create_payment_period.createResetButtonCheck();
+  });
+
+  it("11.11. Verify that required field validation messages appear when mandatory fields are left empty.", function () {
+    create_payment_period.createValidationMessageCheck();
+  });
+
+  it("11.12. Verify that clicking the Go Back button on the Payment Period Create page navigates the user back to the Payment Period List page.", function () {
+    create_payment_period.createGoBackButtonCheck();
   });
 });

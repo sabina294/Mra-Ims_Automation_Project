@@ -82,9 +82,7 @@ class MfiCreation {
     cy.fixture(this.test_data).then((data) => {
       var mfiData = data.mraAdmin.createMfiManFrom;
       cy.imsId("btn-reset").click();
-      cy.formController("status")
-        .type(mfiData.selectStatus)
-        .type("{enter}");
+      cy.formController("status").type(mfiData.selectStatus).type("{enter}");
       cy.log("MFI management form status inactive dropdown check successfully");
     });
   }
@@ -92,9 +90,7 @@ class MfiCreation {
   statusActiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       var mfiData = data.mraAdmin.createMfiManFrom;
-      cy.formController("status")
-        .type(mfiData.statusSelect)
-        .type("{enter}");
+      cy.formController("status").type(mfiData.statusSelect).type("{enter}");
       cy.log("MFI management form status active dropdown check successfully");
     });
   }
@@ -118,6 +114,31 @@ class MfiCreation {
     cy.log(
       "successfully refresh page  displayed the grid list of the MFI management form "
     );
+  }
+
+  createResetButtonCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      var mfiData = data.mraAdmin.createMfiManFrom;
+      cy.imsId("btn-add-new").click();
+      cy.formController("name_en").type(mfiData.mfiNameEn);
+      cy.imsId("btn-reset").click();
+      cy.imsId("btn-go-back").click();
+      cy.log("Successful clean displaying.");
+    });
+  }
+
+  createValidationMessageCheck() {
+    cy.imsId("btn-add-new").click();
+    cy.imsId("btn-submit").click();
+    cy.imsId("btn-ok").click();
+    cy.imsId("btn-go-back").click();
+    cy.log("Successful validation message displaying.");
+  }
+
+  createGoBackButtonCheck() {
+    cy.imsId("btn-add-new").click();
+    cy.imsId("btn-go-back").click();
+    cy.log("Successful go back button check.");
   }
 }
 

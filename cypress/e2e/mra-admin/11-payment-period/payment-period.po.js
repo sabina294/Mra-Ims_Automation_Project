@@ -113,6 +113,31 @@ class PaymentPeriodCreation {
       "successfully refresh page  displayed the grid list of the Payment period "
     );
   }
+
+  createResetButtonCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      var payPerData = data.mraAdmin.createpaymentPeriodFrom;
+      cy.imsId("btn-add-new").click();
+      cy.formController("name_en").type(payPerData.nameEn);
+      cy.imsId("btn-reset").click();
+      cy.imsId("btn-go-back").click();
+      cy.log("Successful clean displaying.");
+    });
+  }
+
+  createValidationMessageCheck() {
+    cy.imsId("btn-add-new").click();
+    cy.imsId("btn-submit").click();
+    cy.imsId("btn-ok").click();
+    cy.imsId("btn-go-back").click();
+    cy.log("Successful validation message displaying.");
+  }
+
+  createGoBackButtonCheck() {
+    cy.imsId("btn-add-new").click();
+    cy.imsId("btn-go-back").click();
+    cy.log("Successful go back button check.");
+  }
 }
 
 export const create_payment_period = new PaymentPeriodCreation();

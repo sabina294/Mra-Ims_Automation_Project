@@ -1,9 +1,11 @@
-// npx cypress run --spec cypress/e2e/mra-admin/16-education/education.cy.js --browser chrome --headed --reporter mochawesome
+// npm run auto
+// npm run dev
+// npx cypress run --spec cypress/e2e/mra-admin/16-education/education.cy.js --headed
 
 import "cypress-file-upload";
 import { create_education } from "./education.po";
 
-describe("16. Education Grid list,Creation,View,Update,Inactive,Active,Search,Reset and Refresh Tests.", function () {
+describe("16. Education Grid list,Creation,View,Update,Inactive,Active,Search,Reset,Refresh,create Reset,Validation Messages and Go back Tests.", function () {
   const baseURL = Cypress.env("BASE_URL");
   const test_data = Cypress.env("TEST_DATA");
 
@@ -57,5 +59,17 @@ describe("16. Education Grid list,Creation,View,Update,Inactive,Active,Search,Re
 
   it("16.09. Verify Successful Refresh of Grid List Using the Refresh Button on Education Page.", function () {
     create_education.gridRefreshButtonCheck();
+  });
+
+  it("16.10. Verify that the Education creation reset button clears applied input terms.", function () {
+    create_education.createResetButtonCheck();
+  });
+
+  it("16.11. Verify that required field validation messages appear when mandatory fields are left empty.", function () {
+    create_education.createValidationMessageCheck();
+  });
+
+  it("16.12. Verify that clicking the Go Back button on the Education Create page navigates the user back to the Education List page.", function () {
+    create_education.createGoBackButtonCheck();
   });
 });

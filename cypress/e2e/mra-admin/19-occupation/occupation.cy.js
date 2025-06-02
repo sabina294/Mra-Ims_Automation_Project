@@ -1,9 +1,11 @@
-// npx cypress run --spec cypress/e2e/mra-admin/19-occupation/occupation.cy.js --browser chrome --headed --reporter mochawesome
+// npm run auto
+// npm run dev
+// npx cypress run --spec cypress/e2e/mra-admin/19-occupation/occupation.cy.js --headed
 
 import "cypress-file-upload";
 import { create_occupation } from "./occupation.po";
 
-describe("19. Occupation Grid list,Creation,View,Update,Inactive,Active,Search,Reset and Refresh Tests.", function () {
+describe("19. Occupation Grid list,Creation,View,Update,Inactive,Active,Search,Reset,Refresh,create Reset,Validation Messages and Go back Tests.", function () {
   const baseURL = Cypress.env("BASE_URL");
   const test_data = Cypress.env("TEST_DATA");
 
@@ -57,5 +59,17 @@ describe("19. Occupation Grid list,Creation,View,Update,Inactive,Active,Search,R
 
   it("19.09. Verify Successful Refresh of Grid List Using the Refresh Button on Occupation Page.", function () {
     create_occupation.gridRefreshButtonCheck();
+  });
+
+  it("19.10. Verify that the Occupation creation reset button clears applied input terms.", function () {
+    create_occupation.createResetButtonCheck();
+  });
+
+  it("19.11. Verify that required field validation messages appear when mandatory fields are left empty.", function () {
+    create_occupation.createValidationMessageCheck();
+  });
+
+  it("19.12. Verify that clicking the Go Back button on the Occupation Create page navigates the user back to the Occupation List page.", function () {
+    create_occupation.createGoBackButtonCheck();
   });
 });

@@ -1,5 +1,5 @@
 {
-  "baseURL": "https://ims2-local.mra.gov.bd/",
+  "baseURL": "https://ims2-dev.celloscope.net/",
   "credential": {
     "mraAdminUserId": "mra-admin-2",
     "mraAdminPassword": "123456",

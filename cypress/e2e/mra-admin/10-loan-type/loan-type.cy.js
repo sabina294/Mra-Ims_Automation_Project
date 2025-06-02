@@ -1,11 +1,11 @@
-// npx cypress open
 // npm run auto
 // npm run dev
+// npx cypress run --spec cypress/e2e/mra-admin/10-loan-type/loan-type.cy.js --headed
 
 import "cypress-file-upload";
 import { create_loan_type } from "./loan-type.po";
 
-describe("10. Loan type Grid list,Creation,View,Update,Inactive,Active,Search,Reset and Refresh Tests.", function () {
+describe("10. Loan type Grid list,Creation,View,Update,Inactive,Active,Search,Reset,Refresh,create Reset,Validation Messages and Go back Tests.", function () {
   const baseURL = Cypress.env("BASE_URL");
   const test_data = Cypress.env("TEST_DATA");
 
@@ -59,5 +59,17 @@ describe("10. Loan type Grid list,Creation,View,Update,Inactive,Active,Search,Re
 
   it("10.09. Verify Successful Refresh of Grid List Using the Refresh Button on Loan Type Page.", function () {
     create_loan_type.gridRefreshButtonCheck();
+  });
+
+  it("10.10. Verify that the Loan Type creation reset button clears applied input terms.", function () {
+    create_loan_type.createResetButtonCheck();
+  });
+
+  it("10.11. Verify that required field validation messages appear when mandatory fields are left empty.", function () {
+    create_loan_type.createValidationMessageCheck();
+  });
+
+  it("10.12. Verify that clicking the Go Back button on the Loan Type Create page navigates the user back to the Loan Type List page.", function () {
+    create_loan_type.createGoBackButtonCheck();
   });
 });

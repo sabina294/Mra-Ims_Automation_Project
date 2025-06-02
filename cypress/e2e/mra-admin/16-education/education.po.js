@@ -1,7 +1,7 @@
 class EducationCreation {
   test_data = Cypress.env("TEST_DATA");
 
-   gridEducationListPage() {
+  gridEducationListPage() {
     cy.fixture(this.test_data).then((data) => {
       cy.selectMenu("menu-configuration", "submenu-organization-legal-form");
       cy.log("Successfully education list page.");
@@ -61,28 +61,20 @@ class EducationCreation {
     });
   }
 
-   statusInactiveDropdownCheck() {
+  statusInactiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       var eduData = data.mraAdmin.createeducationFrom;
       cy.imsId("btn-reset").click();
-      cy.formController("status")
-        .type(eduData.selectStatus)
-        .type("{enter}");
-      cy.log(
-        "education form status inactive dropdown check successfully"
-      );
+      cy.formController("status").type(eduData.selectStatus).type("{enter}");
+      cy.log("education form status inactive dropdown check successfully");
     });
   }
 
   statusActiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       var eduData = data.mraAdmin.createeducationFrom;
-      cy.formController("status")
-        .type(eduData.statusSelect)
-        .type("{enter}");
-      cy.log(
-        "education form status active dropdown check successfully"
-      );
+      cy.formController("status").type(eduData.statusSelect).type("{enter}");
+      cy.log("education form status active dropdown check successfully");
     });
   }
 
@@ -105,6 +97,31 @@ class EducationCreation {
     cy.log(
       "successfully refresh page  displayed the grid list of the education form "
     );
+  }
+
+  createResetButtonCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      var eduData = data.mraAdmin.createeducationFrom;
+      cy.imsId("btn-add-new").click();
+      cy.formController("name_en").type(eduData.nameEn);
+      cy.imsId("btn-reset").click();
+      cy.imsId("btn-go-back").click();
+      cy.log("Successful clean displaying.");
+    });
+  }
+
+  createValidationMessageCheck() {
+    cy.imsId("btn-add-new").click();
+    cy.imsId("btn-submit").click();
+    cy.imsId("btn-ok").click();
+    cy.imsId("btn-go-back").click();
+    cy.log("Successful validation message displaying.");
+  }
+
+  createGoBackButtonCheck() {
+    cy.imsId("btn-add-new").click();
+    cy.imsId("btn-go-back").click();
+    cy.log("Successful go back button check.");
   }
 }
 

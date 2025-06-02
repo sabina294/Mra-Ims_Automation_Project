@@ -1,9 +1,11 @@
-// npx cypress run --spec cypress/e2e/mra-admin/13-loan-class-status/loan-class-status.cy.js --browser chrome --headed --reporter mochawesome
+// npm run auto
+// npm run dev
+// npx cypress run --spec cypress/e2e/mra-admin/13-loan-class-status/loan-class-status.cy.js --headed
 
 import "cypress-file-upload";
 import { create_loan_class_status } from "./loan-class-status.po";
 
-describe("13. Loan class status Grid list,Creation,View,Update,Inactive,Active,Search,Reset and Refresh Tests.", function () {
+describe("13. Loan class status Grid list,Creation,View,Update,Inactive,Active,Search,Reset,Refresh,create Reset,Validation Messages and Go back Tests.", function () {
   const baseURL = Cypress.env("BASE_URL");
   const test_data = Cypress.env("TEST_DATA");
 
@@ -57,5 +59,17 @@ describe("13. Loan class status Grid list,Creation,View,Update,Inactive,Active,S
 
   it("13.09. Verify Successful Refresh of Grid List Using the Refresh Button on Loan Class Status Page.", function () {
     create_loan_class_status.gridRefreshButtonCheck();
+  });
+
+  it("13.10. Verify that the Loan Class Status creation reset button clears applied input terms.", function () {
+    create_loan_class_status.createResetButtonCheck();
+  });
+
+  it("13.11. Verify that required field validation messages appear when mandatory fields are left empty.", function () {
+    create_loan_class_status.createValidationMessageCheck();
+  });
+
+  it("13.12. Verify that clicking the Go Back button on the Loan Class Status Create page navigates the user back to the Loan Class Status List page.", function () {
+    create_loan_class_status.createGoBackButtonCheck();
   });
 });

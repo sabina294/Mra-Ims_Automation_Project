@@ -1,9 +1,11 @@
-// npx cypress run --spec cypress/e2e/mra-admin/18-marital-status/marital-status.cy.js --browser chrome --headed --reporter mochawesome
+// npm run auto
+// npm run dev
+// npx cypress run --spec cypress/e2e/mra-admin/18-marital-status/marital-status.cy.js --headed
 
 import "cypress-file-upload";
 import { create_marital_status } from "./marital-status.po";
 
-describe("18. Marital Status Grid list,Creation,View,Update,Inactive,Active,Search,Reset and Refresh Tests.", function () {
+describe("18. Marital Status Grid list,Creation,View,Update,Inactive,Active,Search,Reset,Refresh,create Reset,Validation Messages and Go back Tests.", function () {
   const baseURL = Cypress.env("BASE_URL");
   const test_data = Cypress.env("TEST_DATA");
 
@@ -57,5 +59,17 @@ describe("18. Marital Status Grid list,Creation,View,Update,Inactive,Active,Sear
 
   it("18.09. Verify Successful Refresh of Grid List Using the Refresh Button on Marital Status Page.", function () {
     create_marital_status.gridRefreshButtonCheck();
+  });
+
+  it("18.10. Verify that the Marital Status creation reset button clears applied input terms.", function () {
+    create_marital_status.createResetButtonCheck();
+  });
+
+  it("18.11. Verify that required field validation messages appear when mandatory fields are left empty.", function () {
+    create_marital_status.createValidationMessageCheck();
+  });
+
+  it("18.12. Verify that clicking the Go Back button on the Marital Status Create page navigates the user back to the Marital Status List page.", function () {
+    create_marital_status.createGoBackButtonCheck();
   });
 });

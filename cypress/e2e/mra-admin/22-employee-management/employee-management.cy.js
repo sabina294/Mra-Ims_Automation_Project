@@ -1,9 +1,11 @@
-// npx cypress run --spec cypress/e2e/mra-admin/22-employee-management/employee-management.cy.js --browser chrome --headed --reporter mochawesome
+// npm run auto
+// npm run dev
+// npx cypress run --spec cypress/e2e/mra-admin/22-employee-management/employee-management.cy.js --headed
 
 import "cypress-file-upload";
 import { create_employee_management } from "./employee-management.po";
 
-describe("22. employee management Grid list,Creation,View,Update,Inactive,Active,Search,Reset and Refresh Tests.", function () {
+describe("22. employee management Grid list,Creation,View,Update,Inactive,Active,Search,Reset,Refresh,create Reset,Validation Messages and Go back Tests.", function () {
   const baseURL = Cypress.env("BASE_URL");
   const test_data = Cypress.env("TEST_DATA");
 
@@ -22,15 +24,15 @@ describe("22. employee management Grid list,Creation,View,Update,Inactive,Active
     cy.logout();
   });
 
-  it("22.01. Verify that the Employee  Management List page loads successfully.", function () {
+  it("22.01. Verify that the Employee Management List page loads successfully.", function () {
     create_employee_management.gridEmployeeListPage();
   });
 
-  it("22.02. To verify that a new Employee  Management can be successfully created when all required fields are filled with valid data.", function () {
+  it("22.02. To verify that a new Employee Management can be successfully created when all required fields are filled with valid data.", function () {
     create_employee_management.createEmployeeManagement();
   });
 
-  it("22.03. To verify that the user can successfully edit an existing Employee  Management information, including the Employee  Management Name, and Description..", function () {
+  it("22.03. To verify that the user can successfully edit an existing Employee Management information, including the Employee  Management Name, and Description..", function () {
     create_employee_management.viewEmployeeManagement();
   });
 
@@ -38,7 +40,7 @@ describe("22. employee management Grid list,Creation,View,Update,Inactive,Active
     create_employee_management.editEmployeeManagement();
   });
 
-  it("22.05. To verify that the user can filter the inactive Employee  Managements using the Status Dropdown on the Employee  Management List page.", function () {
+  it("22.05. To verify that the user can filter the inactive Employee Managements using the Status Dropdown on the Employee  Management List page.", function () {
     create_employee_management.statusInactiveDropdownCheck();
   });
 
@@ -46,15 +48,27 @@ describe("22. employee management Grid list,Creation,View,Update,Inactive,Active
     create_employee_management.statusActiveDropdownCheck();
   });
 
-  it("22.07. Verify Successful Search Result by Employee  Management Name", function () {
+  it("22.07. Verify Successful Search Result by Employee Management Name", function () {
     create_employee_management.searchInEmployeeName();
   });
 
-  it("22.08. Verify Successful Reset of Grid List Using the Reset Button on Employee  Management Page.", function () {
+  it("22.08. Verify Successful Reset of Grid List Using the Reset Button on Employee Management Page.", function () {
     create_employee_management.gridResetButtonCheck();
   });
 
-  it("22.09. Verify Successful Refresh of Grid List Using the Refresh Button on Employee  Management Page.", function () {
+  it("22.09. Verify Successful Refresh of Grid List Using the Refresh Button on Employee Management Page.", function () {
     create_employee_management.gridRefreshButtonCheck();
+  });
+
+  it("22.10. Verify that the Employee Management creation reset button clears applied input terms.", function () {
+    create_employee_management.createResetButtonCheck();
+  });
+
+  it("22.11. Verify that required field validation messages appear when mandatory fields are left empty.", function () {
+    create_employee_management.createValidationMessageCheck();
+  });
+
+  it("22.12. Verify that clicking the Go Back button on the Employee Management Create page navigates the user back to the Employee Management List page.", function () {
+    create_employee_management.createGoBackButtonCheck();
   });
 });

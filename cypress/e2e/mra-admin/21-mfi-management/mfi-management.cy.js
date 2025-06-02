@@ -1,9 +1,11 @@
-// npx cypress run --spec cypress/e2e/mra-admin/21-mfi-management/mfi-management.cy.js --browser chrome --headed --reporter mochawesome
+// npm run auto
+// npm run dev
+// npx cypress run --spec cypress/e2e/mra-admin/21-mfi-management/mfi-management.cy.js --headed
 
 import "cypress-file-upload";
 import { create_mfi_management } from "./mfi-management.po";
 
-describe("21. MFI management Grid list,Creation,View,Update,Inactive,Active,Search,Reset and Refresh Tests.", function () {
+describe("21. MFI management Grid list,Creation,View,Update,Inactive,Active,Search,Reset,Refresh,create Reset,Validation Messages and Go back Tests.", function () {
   const baseURL = Cypress.env("BASE_URL");
   const test_data = Cypress.env("TEST_DATA");
 
@@ -57,5 +59,17 @@ describe("21. MFI management Grid list,Creation,View,Update,Inactive,Active,Sear
 
   it("21.09. Verify Successful Refresh of Grid List Using the Refresh Button on MFI  Management Page.", function () {
     create_mfi_management.gridRefreshButtonCheck();
+  });
+
+  it("21.10. Verify that the MFI Management creation reset button clears applied input terms.", function () {
+    create_mfi_management.createResetButtonCheck();
+  });
+
+  it("21.11. Verify that required field validation messages appear when mandatory fields are left empty.", function () {
+    create_mfi_management.createValidationMessageCheck();
+  });
+
+  it("21.12. Verify that clicking the Go Back button on the MFI Management Create page navigates the user back to the MFI Management List page.", function () {
+    create_mfi_management.createGoBackButtonCheck();
   });
 });

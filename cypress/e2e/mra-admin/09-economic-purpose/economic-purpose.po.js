@@ -106,6 +106,31 @@ class EconomicPurposeCreation {
       "successfully refresh page  displayed the grid list of the economic purpose "
     );
   }
+
+  createResetButtonCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      var ecoPurData = data.mraAdmin.createeconomicPurposeFrom;
+      cy.imsId("btn-add-new").click();
+      cy.formController("name_en").type(ecoPurData.nameEn);
+      cy.imsId("btn-reset").click();
+      cy.imsId("btn-go-back").click();
+      cy.log("Successful clean displaying.");
+    });
+  }
+
+  createValidationMessageCheck() {
+    cy.imsId("btn-add-new").click();
+    cy.imsId("btn-submit").click();
+    cy.imsId("btn-ok").click();
+    cy.imsId("btn-go-back").click();
+    cy.log("Successful validation message displaying.");
+  }
+
+  createGoBackButtonCheck() {
+    cy.imsId("btn-add-new").click();
+    cy.imsId("btn-go-back").click();
+    cy.log("Successful go back button check.");
+  }
 }
 
 export const create_economic_purpose = new EconomicPurposeCreation();
