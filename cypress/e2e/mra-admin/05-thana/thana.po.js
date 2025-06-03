@@ -15,6 +15,10 @@ class ThanaCreation {
 
       var upaData = data.mraAdmin.createthanaFrom;
       cy.formController("name_en").type(upaData.nameEn);
+      cy.formController("name_bn").type(upaData.nameBn);
+      cy.formController("upazila_code").type(upaData.upaCode);
+      cy.formController("postal_code").type(upaData.postCode);
+      cy.formController("website").type(upaData.webSite);
       cy.formController("district_oid").type(upaData.district).type("{enter}");
 
       cy.imsId("btn-submit").click();
@@ -115,6 +119,27 @@ class ThanaCreation {
     cy.imsId("btn-add-new").click();
     cy.imsId("btn-go-back").click();
     cy.log("Successful go back button check.");
+  }
+
+  createWithoutMandatoryField() {
+    cy.fixture(this.test_data).then((data) => {
+      var upaData = data.mraAdmin.createthanaFrom;
+      cy.imsId("btn-add-new").click();
+      cy.formController("name_bn").type(upaData.nameBn);
+      cy.formController("upazila_code").type(upaData.upaCode);
+      cy.formController("postal_code").type(upaData.postCode);
+      cy.formController("website").type(upaData.webSite);
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-ok").click();
+      cy.imsId("btn-go-back").click();
+      cy.log("Successful cannot creation thana without mandatory field..");
+    });
+  }
+
+  gridLanguageSwitchCheck() {
+    cy.imsId("profile-menu").click();
+    cy.imsId("btn-lang-bangla").click();
+    cy.log("Unsccessful switch bangla language check.");
   }
 }
 

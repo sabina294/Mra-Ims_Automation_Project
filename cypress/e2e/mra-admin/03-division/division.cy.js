@@ -5,7 +5,7 @@
 import "cypress-file-upload";
 import { create_division } from "./division.po";
 
-describe("03. Division Grid list,Creation,View,Update,Inactive,Active,Search,Reset,Refresh,create Reset,Validation Messages and Go back Tests.", function () {
+describe("03. Division Grid list,Creation,View,Update,Inactive,Active,Search,Reset,Refresh,create Reset,submit button Validation Messages,Go back and Language switch bangla Tests.", function () {
   const baseURL = Cypress.env("BASE_URL");
   const test_data = Cypress.env("TEST_DATA");
 
@@ -71,5 +71,9 @@ describe("03. Division Grid list,Creation,View,Update,Inactive,Active,Search,Res
 
   it("03.12. Verify that clicking the Go Back button on the Division Create page navigates the user back to the Division List page.", function () {
     create_division.createGoBackButtonCheck();
+  });
+
+  it("03.13. Verify that the grid list content successfully switches from English to Bangla.", function () {
+    create_division.gridLanguageSwitchCheck();
   });
 });

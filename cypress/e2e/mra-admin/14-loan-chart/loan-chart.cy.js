@@ -5,7 +5,7 @@
 import "cypress-file-upload";
 import { update_loan_chart } from "./loan-chart.po";
 
-describe("14. Loan classification chart Grid list,Update,View,Inactive,Active,Search,Reset,Refresh,create Reset,Validation Messages and Go back Tests.", function () {
+describe("14. Loan classification chart Grid list,Update,View,Inactive,Active,Search,Reset,Refresh,create Reset,Go back and Language switch bangla Tests.", function () {
   const baseURL = Cypress.env("BASE_URL");
   const test_data = Cypress.env("TEST_DATA");
 
@@ -60,4 +60,9 @@ describe("14. Loan classification chart Grid list,Update,View,Inactive,Active,Se
   it("14.09. Verify that clicking the Go Back button on the Loan Chart Create page navigates the user back to the Loan Chart List page.", function () {
     update_loan_chart.createGoBackButtonCheck();
   });
+
+  it("14.10. Verify that the grid list content successfully switches from English to Bangla.", function () {
+    update_loan_chart.gridLanguageSwitchCheck();
+  });
+  
 });

@@ -5,7 +5,7 @@
 import "cypress-file-upload";
 import { create_mfi_management } from "./mfi-management.po";
 
-describe("21. MFI management Grid list,Creation,View,Update,Inactive,Active,Search,Reset,Refresh,create Reset,Validation Messages and Go back Tests.", function () {
+describe("21. MFI management Grid list,Creation,View,Update,Inactive,Active,Search,Reset,Refresh,create Reset,submit button Validation Messages,Go back and Language switch bangla Tests.", function () {
   const baseURL = Cypress.env("BASE_URL");
   const test_data = Cypress.env("TEST_DATA");
 
@@ -71,5 +71,13 @@ describe("21. MFI management Grid list,Creation,View,Update,Inactive,Active,Sear
 
   it("21.12. Verify that clicking the Go Back button on the MFI Management Create page navigates the user back to the MFI Management List page.", function () {
     create_mfi_management.createGoBackButtonCheck();
+  });
+
+  it("21.13. Verify successful MFI Management creation without mandatory field.", function () {
+    create_mfi_management.createWithoutMandatoryField();
+  });
+
+  it("21.14. Verify that the grid list content successfully switches from English to Bangla.", function () {
+    create_mfi_management.gridLanguageSwitchCheck();
   });
 });

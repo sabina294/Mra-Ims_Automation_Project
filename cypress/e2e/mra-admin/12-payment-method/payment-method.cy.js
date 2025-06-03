@@ -5,7 +5,7 @@
 import "cypress-file-upload";
 import { create_payment_method } from "./payment-method.po";
 
-describe("12. Payment method Grid list,Creation,View,Update,Inactive,Active,Search,Reset,Refresh,create Reset,Validation Messages and Go back Tests.", function () {
+describe("12. Payment method Grid list,Creation,View,Update,Inactive,Active,Search,Reset,Refresh,create Reset,submit button Validation Messages,Go back and Language switch bangla Tests.", function () {
   const baseURL = Cypress.env("BASE_URL");
   const test_data = Cypress.env("TEST_DATA");
 
@@ -71,5 +71,13 @@ describe("12. Payment method Grid list,Creation,View,Update,Inactive,Active,Sear
 
   it("12.12. Verify that clicking the Go Back button on the Payment Method Create page navigates the user back to the Payment Method List page.", function () {
     create_payment_method.createGoBackButtonCheck();
+  });
+
+  it("12.13. Verify successful payment method creation without mandatory field.", function () {
+    create_payment_method.createWithoutMandatoryField();
+  });
+
+  it("12.14. Verify that the grid list content successfully switches from English to Bangla.", function () {
+    create_payment_method.gridLanguageSwitchCheck();
   });
 });

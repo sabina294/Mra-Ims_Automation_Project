@@ -15,11 +15,25 @@ class BankBranchCreation {
 
       var bankBData = data.mraAdmin.createbankbranchFrom;
       cy.formController("name_en").type(bankBData.nameEn);
+      // cy.formController("name_bn").type(bankBData.nameBn);
+      // cy.formController("branch_code").type(bankBData.branchCode);
       cy.formController("bank_oid").type(bankBData.bank).type("{enter}");
+      // cy.formController("working_days").type(bankBData.workingDays);
+      // cy.formController("district_oid")
+      //   .type(bankBData.district)
+      //   .type("{enter}");
+      // cy.formController("address_en").type(bankBData.branchAdressEn);
+      // cy.formController("address_bn").type(bankBData.branchAdressBn);
+      // cy.formController("telephone").type(bankBData.telephoneNumber);
+      // cy.formController("fax").type(bankBData.faxNo);
+      // cy.formController("routing_number").type(bankBData.routingNo);
+      // cy.formController("swift_code").type(bankBData.swiftCode);
+      // cy.formController("email").type(bankBData.email);
+      // cy.formController("date_of_opening").click();
+      // cy.contains("4").click();
 
       cy.imsId("btn-submit").click();
       cy.imsId("btn-yes").click();
-
       cy.get("app-confirmation-modal")
         .contains(bankBData.messageSaveBaB)
         .and("be.visible");
@@ -40,11 +54,10 @@ class BankBranchCreation {
 
   editBankBranch() {
     cy.fixture(this.test_data).then((data) => {
+      var bankBData = data.mraAdmin.createbankbranchFrom;
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-edit").click();
       cy.imsId("btn-submit").click();
-
-      var bankBData = data.mraAdmin.createbankbranchFrom;
       cy.imsId("btn-yes").click();
 
       cy.get("app-confirmation-modal")
@@ -124,6 +137,38 @@ class BankBranchCreation {
     cy.imsId("btn-add-new").click();
     cy.imsId("btn-go-back").click();
     cy.log("Successful go back button check.");
+  }
+
+  createWithoutMandatoryField() {
+    cy.fixture(this.test_data).then((data) => {
+      var bankBData = data.mraAdmin.createbankbranchFrom;
+      cy.imsId("btn-add-new").click();
+      cy.formController("name_bn").type(bankBData.nameBn);
+      cy.formController("branch_code").type(bankBData.branchCode);
+      cy.formController("working_days").type(bankBData.workingDays);
+      cy.formController("district_oid")
+        .type(bankBData.district)
+        .type("{enter}");
+      cy.formController("address_en").type(bankBData.branchAdressEn);
+      cy.formController("address_bn").type(bankBData.branchAdressBn);
+      cy.formController("telephone").type(bankBData.telephoneNumber);
+      cy.formController("fax").type(bankBData.faxNo);
+      cy.formController("routing_number").type(bankBData.routingNo);
+      cy.formController("swift_code").type(bankBData.swiftCode);
+      cy.formController("email").type(bankBData.email);
+      cy.formController("date_of_opening").click();
+      cy.contains("4").click();
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-ok").click();
+      cy.imsId("btn-go-back").click();
+      cy.log("Successful cannot creation bank branch without mandatory field.");
+    });
+  }
+  
+  gridLanguageSwitchCheck() {
+    cy.imsId("profile-menu").click();
+    cy.imsId("btn-lang-bangla").click();
+    cy.log("Unsccessful switch bangla language check.");
   }
 }
 

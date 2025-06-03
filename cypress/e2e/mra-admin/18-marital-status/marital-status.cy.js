@@ -5,7 +5,7 @@
 import "cypress-file-upload";
 import { create_marital_status } from "./marital-status.po";
 
-describe("18. Marital Status Grid list,Creation,View,Update,Inactive,Active,Search,Reset,Refresh,create Reset,Validation Messages and Go back Tests.", function () {
+describe("18. Marital Status Grid list,Creation,View,Update,Inactive,Active,Search,Reset,Refresh,create Reset,submit button Validation Messages,Go back and Language switch bangla Tests.", function () {
   const baseURL = Cypress.env("BASE_URL");
   const test_data = Cypress.env("TEST_DATA");
 
@@ -71,5 +71,9 @@ describe("18. Marital Status Grid list,Creation,View,Update,Inactive,Active,Sear
 
   it("18.12. Verify that clicking the Go Back button on the Marital Status Create page navigates the user back to the Marital Status List page.", function () {
     create_marital_status.createGoBackButtonCheck();
+  });
+
+  it("18.13. Verify that the grid list content successfully switches from English to Bangla.", function () {
+    create_marital_status.gridLanguageSwitchCheck();
   });
 });

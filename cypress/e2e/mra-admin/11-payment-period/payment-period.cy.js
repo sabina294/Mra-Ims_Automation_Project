@@ -5,7 +5,7 @@
 import "cypress-file-upload";
 import { create_payment_period } from "./payment-period.po";
 
-describe("11. Payment period Grid list,Creation,View,Update,Inactive,Active,Search,Reset,Refresh,create Reset,Validation Messages and Go back Tests.", function () {
+describe("11. Payment period Grid list,Creation,View,Update,Inactive,Active,Search,Reset,Refresh,create Reset,submit button Validation Messages,Go back and Language switch bangla Tests.", function () {
   const baseURL = Cypress.env("BASE_URL");
   const test_data = Cypress.env("TEST_DATA");
 
@@ -71,5 +71,13 @@ describe("11. Payment period Grid list,Creation,View,Update,Inactive,Active,Sear
 
   it("11.12. Verify that clicking the Go Back button on the Payment Period Create page navigates the user back to the Payment Period List page.", function () {
     create_payment_period.createGoBackButtonCheck();
+  });
+
+  it("11.13. Verify successful payment period creation without mandatory field.", function () {
+    create_payment_period.createWithoutMandatoryField();
+  });
+
+  it("11.14. Verify that the grid list content successfully switches from English to Bangla.", function () {
+    create_payment_period.gridLanguageSwitchCheck();
   });
 });

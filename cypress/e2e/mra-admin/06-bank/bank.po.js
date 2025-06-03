@@ -123,6 +123,25 @@ class BankCreation {
     cy.imsId("btn-go-back").click();
     cy.log("Successful go back button check.");
   }
+
+  createWithoutMandatoryField() {
+    cy.fixture(this.test_data).then((data) => {
+      var bankData = data.mraAdmin.createbankFrom;
+      cy.imsId("btn-add-new").click();
+      cy.formController("bank_code").type(bankData.bankCode);
+      cy.formController("bank_short_code").type(bankData.bankShortCode);
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-ok").click();
+      cy.imsId("btn-go-back").click();
+      cy.log("Successful cannot creation bank without mandatory field..");
+    });
+  }
+
+  gridLanguageSwitchCheck() {
+    cy.imsId("profile-menu").click();
+    cy.imsId("btn-lang-bangla").click();
+    cy.log("Unsccessful switch bangla language check.");
+  }
 }
 
 export const create_bank = new BankCreation();

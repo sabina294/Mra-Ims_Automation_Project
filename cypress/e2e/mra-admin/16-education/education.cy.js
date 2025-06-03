@@ -5,7 +5,7 @@
 import "cypress-file-upload";
 import { create_education } from "./education.po";
 
-describe("16. Education Grid list,Creation,View,Update,Inactive,Active,Search,Reset,Refresh,create Reset,Validation Messages and Go back Tests.", function () {
+describe("16. Education Grid list,Creation,View,Update,Inactive,Active,Search,Reset,Refresh,create Reset,submit button Validation Messages,Go back and Language switch bangla Tests.", function () {
   const baseURL = Cypress.env("BASE_URL");
   const test_data = Cypress.env("TEST_DATA");
 
@@ -71,5 +71,9 @@ describe("16. Education Grid list,Creation,View,Update,Inactive,Active,Search,Re
 
   it("16.12. Verify that clicking the Go Back button on the Education Create page navigates the user back to the Education List page.", function () {
     create_education.createGoBackButtonCheck();
+  });
+
+  it("16.13. Verify that the grid list content successfully switches from English to Bangla.", function () {
+    create_education.gridLanguageSwitchCheck();
   });
 });

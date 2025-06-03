@@ -5,7 +5,7 @@
 import "cypress-file-upload";
 import { create_remarks } from "./remarks.po";
 
-describe("20. Remarks Grid list,Creation,View,Update,Inactive,Active,Search,Reset,Refresh,create Reset,Validation Messages and Go back Tests.", function () {
+describe("20. Remarks Grid list,Creation,View,Update,Inactive,Active,Search,Reset,Refresh,create Reset,submit button Validation Messages,Go back and Language switch bangla Tests.", function () {
   const baseURL = Cypress.env("BASE_URL");
   const test_data = Cypress.env("TEST_DATA");
 
@@ -71,5 +71,9 @@ describe("20. Remarks Grid list,Creation,View,Update,Inactive,Active,Search,Rese
 
   it("20.12. Verify that clicking the Go Back button on the Remarks Create page navigates the user back to the Remarks List page.", function () {
     create_remarks.createGoBackButtonCheck();
+  });
+
+  it("20.13. Verify that the grid list content successfully switches from English to Bangla.", function () {
+    create_remarks.gridLanguageSwitchCheck();
   });
 });

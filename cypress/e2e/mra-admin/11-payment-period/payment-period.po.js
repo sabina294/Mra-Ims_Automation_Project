@@ -138,6 +138,25 @@ class PaymentPeriodCreation {
     cy.imsId("btn-go-back").click();
     cy.log("Successful go back button check.");
   }
+
+  createWithoutMandatoryField() {
+    cy.fixture(this.test_data).then((data) => {
+      var payPerData = data.mraAdmin.createpaymentPeriodFrom;
+      cy.imsId("btn-add-new").click();
+      cy.formController("name_bn").type(payPerData.nameBn);
+      cy.formController("description_bn").type(payPerData.descriptionBn);
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-ok").click();
+      cy.imsId("btn-go-back").click();
+      cy.log("Successful cannot creation payment period without mandatory field..");
+    });
+  }
+
+  gridLanguageSwitchCheck() {
+    cy.imsId("profile-menu").click();
+    cy.imsId("btn-lang-bangla").click();
+    cy.log("Unsccessful switch bangla language check.");
+  }
 }
 
 export const create_payment_period = new PaymentPeriodCreation();

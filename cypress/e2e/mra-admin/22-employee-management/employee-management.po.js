@@ -15,6 +15,7 @@ class EmployeeManagementCreation {
 
       var emData = data.mraAdmin.createEmployeeFrom;
       cy.formController("name_en").type(emData.employeeNameEn);
+      cy.formController("name_bn").type(emData.employeeNameBn);
       cy.formController("date_of_birth").click();
       cy.contains("24").click();
       cy.formController("gender").click();
@@ -22,6 +23,7 @@ class EmployeeManagementCreation {
         ".ant-form-item-control-input-content > .ant-radio-group > :nth-child(1) > .ant-radio > .ant-radio-input"
       ).click();
       cy.formController("contactNo").type(emData.employeeMobileNo);
+      cy.formController("tin_no").type(emData.tinNo);
       cy.get("#nz-tabs-0-tab-1").click();
       cy.formController("nid_number").type(emData.nidNumber);
       cy.get("#nz-tabs-0-tab-2").click();
@@ -46,9 +48,9 @@ class EmployeeManagementCreation {
       cy.imsId("ck-box").click();
       cy.get("#nz-tabs-0-tab-5").click();
       cy.imsId("btn_photo_image_id").attachFile("employeePhoto.jpg");
-      cy.wait(3000);
+      cy.wait(2000);
       cy.imsId("btn_nid_front_doc_id").attachFile("nidPhoto.jpg");
-      cy.wait(3000);
+      cy.wait(2000);
       cy.imsId("btn-submit").click();
       cy.imsId("btn-yes").click();
       cy.get("app-confirmation-modal")
@@ -154,6 +156,12 @@ class EmployeeManagementCreation {
     cy.imsId("btn-add-new").click();
     cy.imsId("btn-go-back").click();
     cy.log("Successful go back button check.");
+  }
+
+  gridLanguageSwitchCheck() {
+    cy.imsId("profile-menu").click();
+    cy.imsId("btn-lang-bangla").click();
+    cy.log("Unsccessful switch bangla language check.");
   }
 }
 

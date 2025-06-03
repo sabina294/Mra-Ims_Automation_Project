@@ -5,7 +5,7 @@
 import "cypress-file-upload";
 import { create_contract_phase } from "./contract-phase.po";
 
-describe("08. Contract phase Grid list,Creation,View,Update,Inactive,Active,Search,Reset,Refresh,create Reset,Validation Messages and Go back Tests.", function () {
+describe("08. Contract phase Grid list,Creation,View,Update,Inactive,Active,Search,Reset,Refresh,create Reset,submit button Validation Messages,Go back and Language switch bangla Tests.", function () {
   const baseURL = Cypress.env("BASE_URL");
   const test_data = Cypress.env("TEST_DATA");
 
@@ -71,5 +71,9 @@ describe("08. Contract phase Grid list,Creation,View,Update,Inactive,Active,Sear
 
   it("08.12. Verify that clicking the Go Back button on the Contract Phase Create page navigates the user back to the Contract Phase List page.", function () {
     create_contract_phase.createGoBackButtonCheck();
+  });
+
+  it("08.13. Verify that the grid list content successfully switches from English to Bangla.", function () {
+    create_contract_phase.gridLanguageSwitchCheck();
   });
 });

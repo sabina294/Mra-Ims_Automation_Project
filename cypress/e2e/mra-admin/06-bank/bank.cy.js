@@ -5,7 +5,7 @@
 import "cypress-file-upload";
 import { create_bank } from "./bank.po";
 
-describe("06. Bank Grid list,Creation,View,Update,Inactive,Active,Search,Reset,Refresh,create Reset,Validation Messages and Go back Tests.", function () {
+describe("06. Bank Grid list,Creation,View,Update,Inactive,Active,Search,Reset,Refresh,create Reset,submit button Validation Messages,Go back and Language switch bangla Tests.", function () {
   const baseURL = Cypress.env("BASE_URL");
   const test_data = Cypress.env("TEST_DATA");
 
@@ -71,5 +71,13 @@ describe("06. Bank Grid list,Creation,View,Update,Inactive,Active,Search,Reset,R
 
   it("06.12. Verify that clicking the Go Back button on the bank Create page navigates the user back to the bank List page.", function () {
     create_bank.createGoBackButtonCheck();
+  });
+
+  it("06.13. Verify successful bank creation without mandatory field.", function () {
+    create_bank.createWithoutMandatoryField();
+  });
+
+  it("06.14. Verify that the grid list content successfully switches from English to Bangla.", function () {
+    create_bank.gridLanguageSwitchCheck();
   });
 });

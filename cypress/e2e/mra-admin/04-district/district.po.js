@@ -15,9 +15,11 @@ class DistrictCreation {
 
       var disData = data.mraAdmin.createdistrictFrom;
       cy.formController("name_en").type(disData.nameEn);
+      cy.formController("name_bn").type(disData.nameBn);
       cy.formController("district_code").type(disData.Code);
       cy.formController("establish_year").type(disData.establishedYear);
       cy.formController("division_oid").type(disData.division).type("{enter}");
+
       cy.imsId("btn-submit").click();
       cy.imsId("btn-yes").click();
       cy.get("app-confirmation-modal")
@@ -118,6 +120,24 @@ class DistrictCreation {
     cy.imsId("btn-add-new").click();
     cy.imsId("btn-go-back").click();
     cy.log("Successful go back button check.");
+  }
+
+  createWithoutMandatoryField() {
+    cy.fixture(this.test_data).then((data) => {
+      var disData = data.mraAdmin.createdistrictFrom;
+      cy.imsId("btn-add-new").click();
+      cy.formController("name_bn").type(disData.nameBn);
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-ok").click();
+      cy.imsId("btn-go-back").click();
+      cy.log("Successful cannot creation district without mandatory field.");
+    });
+  }
+
+  gridLanguageSwitchCheck() {
+    cy.imsId("profile-menu").click();
+    cy.imsId("btn-lang-bangla").click();
+    cy.log("Successful switch bangla language check.");
   }
 }
 

@@ -12,14 +12,15 @@ class DivisionCreation {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId("btn-add-new").click();
       cy.imsId("btn-submit").and("be.visible");
+
       var divData = data.mraAdmin.createdivisionFrom;
       cy.formController("name_en").type(divData.nameEn);
       cy.formController("name_bn").type(divData.nameBn);
       cy.formController("division_code").type(divData.Code);
       cy.formController("establish_year").type(divData.establishedYear);
+
       cy.imsId("btn-submit").click();
       cy.imsId("btn-yes").click();
-
       cy.get("app-confirmation-modal")
         .contains(divData.messageSaveDivi)
         .and("be.visible");
@@ -120,6 +121,12 @@ class DivisionCreation {
     cy.imsId("btn-add-new").click();
     cy.imsId("btn-go-back").click();
     cy.log("Successful go back button check.");
+  }
+
+  gridLanguageSwitchCheck() {
+    cy.imsId("profile-menu").click();
+    cy.imsId("btn-lang-bangla").click();
+    cy.log("Successful switch bangla language check.");
   }
 }
 

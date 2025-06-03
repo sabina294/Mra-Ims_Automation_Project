@@ -22,11 +22,10 @@ class LoanClassStatusCreation {
       cy.formController("name_bn").type(loanClasStaData.loanClassNameBn);
       cy.formController("description").type(loanClasStaData.description);
       cy.imsId("btn-submit").click();
-
+      cy.imsId("btn-yes").click();
       cy.get("app-confirmation-modal")
         .contains(loanClasStaData.messageSaveLoClSt)
         .and("be.visible");
-      cy.imsId("btn-yes").click();
       cy.imsId("btn-ok").click();
 
       cy.log("Successfully created loan class status");
@@ -54,15 +53,15 @@ class LoanClassStatusCreation {
 
   editLoanClassStatus() {
     cy.fixture(this.test_data).then((data) => {
+      var loanClasStaData = data.mraAdmin.createloanClassStatusFrom;
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-edit").click();
       cy.imsId("btn-submit").click();
+      cy.imsId("btn-yes").click();
 
-      var loanClasStaData = data.mraAdmin.createloanClassStatusFrom;
       cy.get("app-confirmation-modal")
         .contains(loanClasStaData.messageUpdateLoClSt)
         .and("be.visible");
-      cy.imsId("btn-yes").click();
       cy.imsId("btn-ok").click();
 
       cy.log("Loan class status updated successfully");
@@ -134,6 +133,26 @@ class LoanClassStatusCreation {
     cy.imsId("btn-add-new").click();
     cy.imsId("btn-go-back").click();
     cy.log("Successful go back button check.");
+  }
+
+  createWithoutMandatoryField() {
+    cy.fixture(this.test_data).then((data) => {
+      var loanClasStaData = data.mraAdmin.createloanClassStatusFrom;
+      cy.imsId("btn-add-new").click();
+      cy.formController("name_bn").type(loanClasStaData.loanClassNameBn);
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-ok").click();
+      cy.imsId("btn-go-back").click();
+      cy.log(
+        "Successful cannot creation loan class status without mandatory field."
+      );
+    });
+  }
+
+  gridLanguageSwitchCheck() {
+    cy.imsId("profile-menu").click();
+    cy.imsId("btn-lang-bangla").click();
+    cy.log("Unsccessful switch bangla language check.");
   }
 }
 

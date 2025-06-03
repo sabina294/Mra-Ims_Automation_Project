@@ -36,14 +36,12 @@ class LoanChartUpdate {
       cy.log("Successfully viewed the loanchart list page");
     });
   }
-  
+
   statusInactiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       var loChart = data.mraAdmin.updateloanChartFrom;
       cy.imsId("btn-reset").click();
-      cy.formController("status")
-        .type(loChart.selectStatus)
-        .type("{enter}");
+      cy.formController("status").type(loChart.selectStatus).type("{enter}");
       cy.log("Loanchart update inactive dropdown check successfully");
     });
   }
@@ -51,9 +49,7 @@ class LoanChartUpdate {
   statusActiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       var loChart = data.mraAdmin.updateloanChartFrom;
-      cy.formController("status")
-        .type(loChart.statusSelect)
-        .type("{enter}");
+      cy.formController("status").type(loChart.statusSelect).type("{enter}");
       cy.log("Loanchart update active dropdown check successfully");
     });
   }
@@ -79,10 +75,16 @@ class LoanChartUpdate {
     );
   }
 
-   createGoBackButtonCheck() {
+  createGoBackButtonCheck() {
     cy.imsId("btn-add-new").click();
     cy.imsId("btn-go-back").click();
     cy.log("Successful go back button check.");
+  }
+
+  gridLanguageSwitchCheck() {
+    cy.imsId("profile-menu").click();
+    cy.imsId("btn-lang-bangla").click();
+    cy.log("Unsccessful switch bangla language check.");
   }
 }
 

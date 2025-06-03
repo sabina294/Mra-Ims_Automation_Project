@@ -5,7 +5,7 @@
 import "cypress-file-upload";
 import { create_loan_class_status } from "./loan-class-status.po";
 
-describe("13. Loan class status Grid list,Creation,View,Update,Inactive,Active,Search,Reset,Refresh,create Reset,Validation Messages and Go back Tests.", function () {
+describe("13. Loan class status Grid list,Creation,View,Update,Inactive,Active,Search,Reset,Refresh,create Reset,submit button Validation Messages,Go back and Language switch bangla Tests.", function () {
   const baseURL = Cypress.env("BASE_URL");
   const test_data = Cypress.env("TEST_DATA");
 
@@ -71,5 +71,13 @@ describe("13. Loan class status Grid list,Creation,View,Update,Inactive,Active,S
 
   it("13.12. Verify that clicking the Go Back button on the Loan Class Status Create page navigates the user back to the Loan Class Status List page.", function () {
     create_loan_class_status.createGoBackButtonCheck();
+  });
+
+  it("13.13. Verify successful loan class status creation without mandatory field.", function () {
+    create_loan_class_status.createWithoutMandatoryField();
+  });
+
+  it("13.14. Verify that the grid list content successfully switches from English to Bangla.", function () {
+    create_loan_class_status.gridLanguageSwitchCheck();
   });
 });
