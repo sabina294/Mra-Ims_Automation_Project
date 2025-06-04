@@ -73,8 +73,8 @@
       "messageUpdateBaB": "Bank branch has been updated"
     },
     "createcontractPhaseFrom": {
-      "nameEn": "Requested",
-      "nameBn": "অনুরোধ",
+      "nameEn": "Test Requested",
+      "nameBn": "পরীক্ষার অনুরোধ",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
       "messageSaveCoPh": "Do you wish to create a new contact phase",
@@ -136,16 +136,16 @@
       "messageUpdateLoClSt": "Loan class status has been updated"
     },
     "updateloanChartFrom": {
-      "chartNameEn": "Regular",
-      "chartNameBn": "নিয়মিত",
+      "chartNameEn": "Test Regular",
+      "chartNameBn": "নিয়মিত পরীক্ষা",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
       "messageUpdateLoCh": "Do you wish to update this loan classification chart",
       "messageEditLoCh": "Do you wish to update this loan classification chart"
     },
     "createOrgLegForm": {
-      "nameEn": "Organization",
-      "nameBn": "সংগঠন",
+      "nameEn": "Test Organization",
+      "nameBn": "পরীক্ষা সংগঠন",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
       "messageSaveOrgLegForm": "Do you wish to create a new Organinzation Legal Form",
@@ -177,16 +177,16 @@
       "messageUpdateMaSt": "Marital status has been updated"
     },
     "createoccupationFrom": {
-      "nameEn": "Business",
-      "nameBn": "ব্যবসা",
+      "nameEn": "Test Business",
+      "nameBn": "পরীক্ষামূলক ব্যবসা",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
       "messageSaveOcc": "Do you wish to create a new occupation",
       "messageUpdateOcc": "Do you wish to update this occupation"
     },
     "createremarksFrom": {
-      "nameEn": "Freedom Fighter",
-      "nameBn": "মুক্তিযোদ্ধা",
+      "nameEn": "Test Freedom Fighter",
+      "nameBn": "টেস্ট ফ্রিডম ফাইটার",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
       "messageSaveRem": "Do you wish to create a new remark",
