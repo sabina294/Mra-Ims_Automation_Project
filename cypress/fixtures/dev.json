@@ -136,8 +136,8 @@
       "messageUpdateLoClSt": "Loan class status has been updated"
     },
     "updateloanChartFrom": {
-      "chartNameEn": "Test Regular",
-      "chartNameBn": "নিয়মিত পরীক্ষা",
+      "chartNameEn": "Regular",
+      "chartNameBn": "নিয়মিত",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
       "messageUpdateLoCh": "Do you wish to update this loan classification chart",
