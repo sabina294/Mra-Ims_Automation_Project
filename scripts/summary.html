@@ -30,6 +30,42 @@
     .website-link a:hover {
       text-decoration: underline;
     }
+    .guideline-card {
+      background-color: #ffffff;
+      border-left: 6px solid #2980b9;
+      border-radius: 8px;
+      box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.05);
+      padding: 0;
+      margin: 24px auto;
+      max-width: 900px;
+    }
+    .guideline-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 24px;
+      cursor: pointer;
+      font-size: 18px;
+      color: #2c3e50;
+      font-weight: bold;
+    }
+    .guideline-header:hover {
+      background-color: #f0f6fb;
+    }
+    .guideline-content {
+      display: none;
+      padding: 0 24px 16px 24px;
+    }
+    .guideline-content ul {
+      padding-left: 20px;
+      margin: 0;
+    }
+    .guideline-content li {
+      font-size: 16px;
+      line-height: 1.6;
+      margin-bottom: 6px;
+      color: #34495e;
+    }
     .table-container {
       max-width: 100%;
       background: #ffffff;
@@ -87,12 +123,38 @@
       font-style: italic;
     }
   </style>
+  <script>
+    function toggleGuideline() {
+      const content = document.getElementById("guideline-content");
+      const toggleIcon = document.getElementById("toggle-icon");
+      if (content.style.display === "block") {
+        content.style.display = "none";
+        toggleIcon.textContent = "▼";
+      } else {
+        content.style.display = "block";
+        toggleIcon.textContent = "▲";
+      }
+    }
+  </script>
 </head>
 <body>
   <h1>Cypress Test Result Summary Report</h1>
   <p class="website-link">
     <a href="https://ims2-cypress.com" target="_blank">ims2-cypress.com</a>
   </p>
+
+  <div class="guideline-card" role="region" aria-label="Deployment Instructions">
+    <div class="guideline-header" onclick="toggleGuideline()">
+      Deployment Instructions <span id="toggle-icon">▼</span>
+    </div>
+    <div class="guideline-content" id="guideline-content">
+      <ul>
+        <li>Map the deployment IP(172.16.6.137) in your <code>/etc/hosts</code> file with the domains <strong>ims2-auto.com</strong> and <strong>ims2-cypress.com</strong>.</li>
+        <li>Import the certificate files <strong>02-ims-nginx/config/auto/cert/web/web.crt</strong> and <strong>02-ims-nginx/config/auto/cert/cypress/cypress.crt</strong> into your local browser to avoid HTTPS security warnings.</li>
+      </ul>
+    </div>
+  </div>
+
   <div class="table-container" role="region" aria-label="Test result summary table container">
     <table aria-label="Cypress test result summary" id="result-summary">
       <thead>
@@ -116,6 +178,7 @@
       </tbody>
     </table>
   </div>
+
   <footer class="footer-update" role="contentinfo">
     Last updated on 2025-05-25 18:39:16
   </footer>
