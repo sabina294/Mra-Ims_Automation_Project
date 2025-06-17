@@ -1,0 +1,79 @@
+// npm run auto
+// npm run dev
+// npx cypress run --spec cypress/e2e/mra-admin/9-loan-type/loan-type.cy.js --headed
+
+import "cypress-file-upload";
+import { create_loan_type } from "./loan-type.po";
+
+describe("9. Loan type Grid list,Creation,View,Update,Inactive,Active,Search,Reset,Refresh,create Reset,submit button Validation Messages,Go back and Language switch bangla Tests.", function () {
+  const baseURL = Cypress.env("BASE_URL");
+  const test_data = Cypress.env("TEST_DATA");
+
+  before(() => {
+    cy.fixture(test_data).then((d) => {
+      cy.login(
+        baseURL,
+        d.credential.mraAdminUserId,
+        d.credential.mraAdminPassword
+      );
+      cy.changeLanguage("english");
+      cy.switchModule("MFI");
+    });
+  });
+
+  after(() => {
+    cy.logout();
+  });
+
+  it("9.01. Verify that the Loan Type List page loads successfully.", function () {
+    create_loan_type.gridLoanTypeListPage();
+  });
+
+  it("9.02. To verify that a new Loan Type can be successfully created when all required fields are filled with valid data.", function () {
+    create_loan_type.createLoanType();
+  });
+
+  it("9.03. To verify that the user can successfully edit an existing Loan Type information, including the Loan Type Name, and Description..", function () {
+    create_loan_type.viewLoanType();
+  });
+
+  it("9.04. should update the Loan Type with valid information by MRA-Admin role", function () {
+    create_loan_type.editLoanType();
+  });
+
+  it("9.05. To verify that the user can filter the inactive Loan Types using the Status Dropdown on the Loan Type List page.", function () {
+    create_loan_type.statusInactiveDropdownCheck();
+  });
+
+  it("9.06. Verify Filter Active Result by Status Dropdown", function () {
+    create_loan_type.statusActiveDropdownCheck();
+  });
+
+  it("9.07. Verify Successful Search Result by Loan Type Name", function () {
+    create_loan_type.searchInLoanTypeName();
+  });
+
+  it("9.08. Verify Successful Reset of Grid List Using the Reset Button on Loan Type Page.", function () {
+    create_loan_type.gridResetButtonCheck();
+  });
+
+  it("9.09. Verify Successful Refresh of Grid List Using the Refresh Button on Loan Type Page.", function () {
+    create_loan_type.gridRefreshButtonCheck();
+  });
+
+  it("9.10. Verify that the Loan Type creation reset button clears applied input terms.", function () {
+    create_loan_type.createResetButtonCheck();
+  });
+
+  it("9.11. Verify that required field validation messages appear when mandatory fields are left empty.", function () {
+    create_loan_type.createValidationMessageCheck();
+  });
+
+  it("9.12. Verify that clicking the Go Back button on the Loan Type Create page navigates the user back to the Loan Type List page.", function () {
+    create_loan_type.createGoBackButtonCheck();
+  });
+
+  it("9.13. Verify that the grid list content successfully switches from English to Bangla.", function () {
+    create_loan_type.gridLanguageSwitchCheck();
+  });
+});

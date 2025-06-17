@@ -1,0 +1,83 @@
+// npm run auto
+// npm run dev
+// npx cypress run --spec cypress/e2e/mra-admin/12-loan-class-status/loan-class-status.cy.js --headed
+
+import "cypress-file-upload";
+import { create_loan_class_status } from "./loan-class-status.po";
+
+describe("12. Loan class status Grid list,Creation,View,Update,Inactive,Active,Search,Reset,Refresh,create Reset,submit button Validation Messages,Go back and Language switch bangla Tests.", function () {
+  const baseURL = Cypress.env("BASE_URL");
+  const test_data = Cypress.env("TEST_DATA");
+
+  before(() => {
+    cy.fixture(test_data).then((d) => {
+      cy.login(
+        baseURL,
+        d.credential.mraAdminUserId,
+        d.credential.mraAdminPassword
+      );
+      cy.changeLanguage("english");
+      cy.switchModule("MFI");
+    });
+  });
+
+  after(() => {
+    cy.logout();
+  });
+
+  it("12.01. Verify that the Loan Class Status List page loads successfully.", function () {
+    create_loan_class_status.gridLoanClassStatusListPage();
+  });
+
+  it("12.02. To verify that a new Loan Class Status can be successfully created when all required fields are filled with valid data.", function () {
+    create_loan_class_status.createLoanClassStatus();
+  });
+
+  it("12.03. To verify that the user can successfully edit an existing Loan Class Status information, including the Loan Class Status Name, and Description..", function () {
+    create_loan_class_status.viewLoanClassStatus();
+  });
+
+  it("12.04. should update the Loan Class Status with valid information by MRA-Admin role", function () {
+    create_loan_class_status.editLoanClassStatus();
+  });
+
+  it("12.05. To verify that the user can filter the inactive Loan Class Statuss using the Status Dropdown on the Loan Class Status List page.", function () {
+    create_loan_class_status.statusInactiveDropdownCheck();
+  });
+
+  it("12.06. Verify Filter Active Result by Status Dropdown", function () {
+    create_loan_class_status.statusActiveDropdownCheck();
+  });
+
+  it("12.07. Verify Successful Search Result by Loan Class Status Name", function () {
+    create_loan_class_status.searchInPaymentMethodName();
+  });
+
+  it("12.08. Verify Successful Reset of Grid List Using the Reset Button on Loan Class Status Page.", function () {
+    create_loan_class_status.gridResetButtonCheck();
+  });
+
+  it("12.09. Verify Successful Refresh of Grid List Using the Refresh Button on Loan Class Status Page.", function () {
+    create_loan_class_status.gridRefreshButtonCheck();
+  });
+
+  it("12.10. Verify that the Loan Class Status creation reset button clears applied input terms.", function () {
+    create_loan_class_status.createResetButtonCheck();
+  });
+
+  it("12.11. Verify that required field validation messages appear when mandatory fields are left empty.", function () {
+    create_loan_class_status.createValidationMessageCheck();
+  });
+
+  it("12.12. Verify that clicking the Go Back button on the Loan Class Status Create page navigates the user back to the Loan Class Status List page.", function () {
+    create_loan_class_status.createGoBackButtonCheck();
+  });
+
+  it("12.13. Verify successful loan class status creation without mandatory field.", function () {
+    create_loan_class_status.createWithoutMandatoryField();
+  });
+
+  it("12.14. Verify that the grid list content successfully switches from English to Bangla.", function () {
+    create_loan_class_status.gridLanguageSwitchCheck();
+  });
+});
