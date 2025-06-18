@@ -5,7 +5,7 @@
 import "cypress-file-upload";
 import { create_loan_class_status } from "./loan-class-status.po";
 
-describe("12. Loan class status Grid list,Creation,View,Update,Inactive,Active,Search,Reset,Refresh,create Reset,submit button Validation Messages,Go back and Language switch bangla Tests.", function () {
+describe("12. Loan class status Grid list,Creation,View,Update,Inactive,Active,Search,Reset,Refresh,All field,Without one field,create Reset,Submit button Validation Messages,Go back and Language switch bangla Tests.", function () {
   const baseURL = Cypress.env("BASE_URL");
   const test_data = Cypress.env("TEST_DATA");
 
@@ -61,23 +61,31 @@ describe("12. Loan class status Grid list,Creation,View,Update,Inactive,Active,S
     create_loan_class_status.gridRefreshButtonCheck();
   });
 
-  it("12.10. Verify that the Loan Class Status creation reset button clears applied input terms.", function () {
+  it("12.10. Verify that a new loan class status can be successfully created when all fields are filled with valid data.", function () {
+    create_loan_class_status.createAllField();
+  });
+
+  it("12.11. Verify check if loan class status can be create without one mandatory field.", function () {
+    create_loan_class_status.createWithoutOneMandatoryField();
+  });
+
+  it("12.12. Verify that the Loan Class Status creation reset button clears applied input terms.", function () {
     create_loan_class_status.createResetButtonCheck();
   });
 
-  it("12.11. Verify that required field validation messages appear when mandatory fields are left empty.", function () {
+  it("12.13. Verify that required field validation messages appear when mandatory fields are left empty.", function () {
     create_loan_class_status.createValidationMessageCheck();
   });
 
-  it("12.12. Verify that clicking the Go Back button on the Loan Class Status Create page navigates the user back to the Loan Class Status List page.", function () {
+  it("12.14. Verify that clicking the Go Back button on the Loan Class Status Create page navigates the user back to the Loan Class Status List page.", function () {
     create_loan_class_status.createGoBackButtonCheck();
   });
 
-  it("12.13. Verify successful loan class status creation without mandatory field.", function () {
+  it("12.15. Verify successful loan class status creation without mandatory field.", function () {
     create_loan_class_status.createWithoutMandatoryField();
   });
 
-  it("12.14. Verify that the grid list content successfully switches from English to Bangla.", function () {
+  it("12.16. Verify that the grid list content successfully switches from English to Bangla.", function () {
     create_loan_class_status.gridLanguageSwitchCheck();
   });
 });

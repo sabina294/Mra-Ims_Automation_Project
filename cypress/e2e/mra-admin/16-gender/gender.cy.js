@@ -5,7 +5,7 @@
 import "cypress-file-upload";
 import { create_gender } from "./gender.po";
 
-describe("16. Gender Grid list,Creation,View,Update,Inactive,Active,Search,Reset,Refresh,create Reset,submit button Validation Messages,Go back and Language switch bangla Tests.", function () {
+describe("16. Gender Grid list,Creation,View,Update,Inactive,Active,Search,Reset,Refresh,Without one field,Create Reset,Submit button Validation Messages,Go back and Language switch bangla Tests.", function () {
   const baseURL = Cypress.env("BASE_URL");
   const test_data = Cypress.env("TEST_DATA");
 
@@ -61,19 +61,23 @@ describe("16. Gender Grid list,Creation,View,Update,Inactive,Active,Search,Reset
     create_gender.gridRefreshButtonCheck();
   });
 
-  it("16.10. Verify that the Gender creation reset button clears applied input terms.", function () {
+  it("16.10. Verify check if gender can be create without one mandatory field.", function () {
+    create_gender.createWithoutOneMandatoryField();
+  });
+
+  it("16.11. Verify that the Gender creation reset button clears applied input terms.", function () {
     create_gender.createResetButtonCheck();
   });
 
-  it("16.11. Verify that required field validation messages appear when mandatory fields are left empty.", function () {
+  it("16.12. Verify that required field validation messages appear when mandatory fields are left empty.", function () {
     create_gender.createValidationMessageCheck();
   });
 
-  it("16.12. Verify that clicking the Go Back button on the Gender Create page navigates the user back to the Gender List page.", function () {
+  it("16.13. Verify that clicking the Go Back button on the Gender Create page navigates the user back to the Gender List page.", function () {
     create_gender.createGoBackButtonCheck();
   });
 
-  it("16.13. Verify that the grid list content successfully switches from English to Bangla.", function () {
+  it("16.14. Verify that the grid list content successfully switches from English to Bangla.", function () {
     create_gender.gridLanguageSwitchCheck();
   });
 });

@@ -5,7 +5,7 @@
 import "cypress-file-upload";
 import { create_economic_purpose } from "./economic-purpose.po";
 
-describe("08. Economic purpose Grid list,Creation,View,Update,Inactive,Active,Search,Reset,Refresh,create Reset,submit button Validation Messages,Go back and Language switch bangla Tests.", function () {
+describe("08. Economic purpose Grid list,Creation,View,Update,Inactive,Active,Search,Reset,Refresh,Pagination,Without one field,Create Reset,Submit button Validation Messages,Go back and Language switch bangla Tests.", function () {
   const baseURL = Cypress.env("BASE_URL");
   const test_data = Cypress.env("TEST_DATA");
 
@@ -65,19 +65,23 @@ describe("08. Economic purpose Grid list,Creation,View,Update,Inactive,Active,Se
     create_economic_purpose.paginationCheck();
   });
 
-  it("08.11. Verify that the Economic Purpose creation reset button clears applied input terms.", function () {
+  it("08.11. Verify check if economic purpose can be create without one mandatory field.", function () {
+    create_economic_purpose.createWithoutOneMandatoryField();
+  });
+
+  it("08.12. Verify that the Economic Purpose creation reset button clears applied input terms.", function () {
     create_economic_purpose.createResetButtonCheck();
   });
 
-  it("08.12. Verify that required field validation messages appear when mandatory fields are left empty.", function () {
+  it("08.13. Verify that required field validation messages appear when mandatory fields are left empty.", function () {
     create_economic_purpose.createValidationMessageCheck();
   });
 
-  it("08.13. Verify that clicking the Go Back button on the Economic Purpose Create page navigates the user back to the Economic Purpose List page.", function () {
+  it("08.14. Verify that clicking the Go Back button on the Economic Purpose Create page navigates the user back to the Economic Purpose List page.", function () {
     create_economic_purpose.createGoBackButtonCheck();
   });
 
-  it("08.14. Verify that the grid list content successfully switches from English to Bangla.", function () {
+  it("08.15. Verify that the grid list content successfully switches from English to Bangla.", function () {
     create_economic_purpose.gridLanguageSwitchCheck();
   });
 });

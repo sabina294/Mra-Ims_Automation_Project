@@ -5,7 +5,7 @@
 import "cypress-file-upload";
 import { create_district } from "./district.po";
 
-describe("03. District Grid list,Creation,View,Update,Inactive,Active,Search,Reset,Refresh,create Reset,submit button Validation Messages,Go back and Language switch bangla Tests.", function () {
+describe("03. District Grid list,Creation,View,Update,Inactive,Active,Search,Reset,Refresh,Pagination,All field,Without one field,Create Reset,Submit button Validation Messages,Go back and Language switch bangla Tests.", function () {
   const baseURL = Cypress.env("BASE_URL");
   const test_data = Cypress.env("TEST_DATA");
 
@@ -61,27 +61,35 @@ describe("03. District Grid list,Creation,View,Update,Inactive,Active,Search,Res
     create_district.gridRefreshButtonCheck();
   });
 
-  it("03.10.Verify pagination works correctly on last page of the district list", function () {
+  it("03.10. Verify pagination works correctly on last page of the district list", function () {
     create_district.paginationCheck();
   });
 
-  it("03.11. Verify that the District creation reset button clears applied input terms.", function () {
+  it("03.11. Verify that a new District can be successfully created when all fields are filled with valid data.", function () {
+    create_district.createAllField();
+  });
+
+  it("03.12. Verify check if division can be create without one mandatory field.", function () {
+    create_district.createWithoutOneMandatoryField();
+  });
+
+  it("03.13. Verify that the District creation reset button clears applied input terms.", function () {
     create_district.createResetButtonCheck();
   });
 
-  it("03.12. Verify that required field validation messages appear when mandatory fields are left empty.", function () {
+  it("03.14. Verify that required field validation messages appear when mandatory fields are left empty.", function () {
     create_district.createValidationMessageCheck();
   });
 
-  it("03.13. Verify that clicking the Go Back button on the District Create page navigates the user back to the District List page.", function () {
+  it("03.15. Verify that clicking the Go Back button on the District Create page navigates the user back to the District List page.", function () {
     create_district.createGoBackButtonCheck();
   });
 
-  it("03.14. Verify successful district creation without mandatory field.", function () {
+  it("03.16. Verify successful district creation without mandatory field.", function () {
     create_district.createWithoutMandatoryField();
   });
 
-  it("03.15. Verify that the grid list content successfully switches from English to Bangla.", function () {
+  it("03.17. Verify that the grid list content successfully switches from English to Bangla.", function () {
     create_district.gridLanguageSwitchCheck();
   });
 });

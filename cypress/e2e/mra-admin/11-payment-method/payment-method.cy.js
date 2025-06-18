@@ -5,7 +5,7 @@
 import "cypress-file-upload";
 import { create_payment_method } from "./payment-method.po";
 
-describe("11. Payment method Grid list,Creation,View,Update,Inactive,Active,Search,Reset,Refresh,create Reset,submit button Validation Messages,Go back and Language switch bangla Tests.", function () {
+describe("11. Payment method Grid list,Creation,View,Update,Inactive,Active,Search,Reset,Refresh,All field,Without one field,Create Reset,Submit button Validation Messages,Go back and Language switch bangla Tests.", function () {
   const baseURL = Cypress.env("BASE_URL");
   const test_data = Cypress.env("TEST_DATA");
 
@@ -61,23 +61,31 @@ describe("11. Payment method Grid list,Creation,View,Update,Inactive,Active,Sear
     create_payment_method.gridRefreshButtonCheck();
   });
 
-  it("11.10. Verify that the Payment Method creation reset button clears applied input terms.", function () {
+  it("11.10. Verify that a new payment method can be successfully created when all fields are filled with valid data.", function () {
+    create_payment_method.createAllField();
+  });
+
+  it("11.11. Verify check if payment method can be create without one mandatory field.", function () {
+    create_payment_method.createWithoutOneMandatoryField();
+  });
+
+  it("11.12. Verify that the Payment Method creation reset button clears applied input terms.", function () {
     create_payment_method.createResetButtonCheck();
   });
 
-  it("11.11. Verify that required field validation messages appear when mandatory fields are left empty.", function () {
+  it("11.13. Verify that required field validation messages appear when mandatory fields are left empty.", function () {
     create_payment_method.createValidationMessageCheck();
   });
 
-  it("11.12. Verify that clicking the Go Back button on the Payment Method Create page navigates the user back to the Payment Method List page.", function () {
+  it("11.14. Verify that clicking the Go Back button on the Payment Method Create page navigates the user back to the Payment Method List page.", function () {
     create_payment_method.createGoBackButtonCheck();
   });
 
-  it("11.13. Verify successful payment method creation without mandatory field.", function () {
+  it("11.15. Verify successful payment method creation without mandatory field.", function () {
     create_payment_method.createWithoutMandatoryField();
   });
 
-  it("11.14. Verify that the grid list content successfully switches from English to Bangla.", function () {
+  it("11.16. Verify that the grid list content successfully switches from English to Bangla.", function () {
     create_payment_method.gridLanguageSwitchCheck();
   });
 });

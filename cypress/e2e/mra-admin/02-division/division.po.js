@@ -97,10 +97,23 @@ class DivisionCreation {
       "successfully refresh page  displayed the grid list of the division "
     );
   }
+  
+  createWithoutOneMandatoryField() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("btn-add-new").click();
+      cy.imsId("btn-submit").and("be.visible");
 
-   paginationCheck() {
-    cy.get('[title="2"] > .ng-star-inserted').click();
-    cy.log("Division pagination check successfully");
+      var divData = data.mraAdmin.createdivisionFrom;
+      cy.formController("name_bn").type(divData.nameBn);
+      cy.formController("division_code").type(divData.Code);
+      cy.formController("establish_year").type(divData.establishedYear);
+
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-ok").click();
+      cy.imsId("btn-go-back").click();
+
+      cy.log("Successful cannot creation division without one mandatory field.");
+    });
   }
 
   createResetButtonCheck() {
@@ -110,7 +123,7 @@ class DivisionCreation {
       cy.formController("name_en").type(divData.nameEn);
       cy.imsId("btn-reset").click();
       cy.imsId("btn-go-back").click();
-      cy.log("Successful clean displaying.");
+      cy.log("Successful reset button clean displaying.");
     });
   }
 

@@ -3,14 +3,13 @@ class MaritalStatusCreation {
 
   gridMaritalStatusListPage() {
     cy.fixture(this.test_data).then((data) => {
-      cy.selectMenu("menu-configuration", "submenu-gender");
+      cy.selectMenu("menu-configuration", "submenu-marital-status");
       cy.log("Successfully marital status list page.");
     });
   }
 
   createMaritalStatus() {
     cy.fixture(this.test_data).then((data) => {
-      cy.selectMenu("menu-configuration", "submenu-marital-status");
       cy.imsId("btn-add-new").click();
       cy.imsId("btn-submit").and("be.visible");
 
@@ -107,9 +106,22 @@ class MaritalStatusCreation {
     );
   }
 
-  paginationCheck() {
-    cy.get('[title="2"] > .ng-star-inserted').click();
-    cy.log("Marital status pagination check successfully");
+  createWithoutOneMandatoryField() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("btn-add-new").click();
+      cy.imsId("btn-submit").and("be.visible");
+
+      var maritalStatusData = data.mraAdmin.createmaritalstatusFrom;
+      cy.formController("description_en").type(maritalStatusData.nameEn);
+
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-ok").click();
+      cy.imsId("btn-go-back").click();
+
+      cy.log(
+        "Successful cannot creation education without one mandatory field."
+      );
+    });
   }
 
   createResetButtonCheck() {

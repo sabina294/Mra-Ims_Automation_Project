@@ -5,7 +5,7 @@
 import "cypress-file-upload";
 import { create_payment_period } from "./payment-period.po";
 
-describe("10. Payment period Grid list,Creation,View,Update,Inactive,Active,Search,Reset,Refresh,create Reset,submit button Validation Messages,Go back and Language switch bangla Tests.", function () {
+describe("10. Payment period Grid list,Creation,View,Update,Inactive,Active,Search,Reset,Refresh,Pagination,All field,Without one field,Create Reset,Submit button Validation Messages,Go back and Language switch bangla Tests.", function () {
   const baseURL = Cypress.env("BASE_URL");
   const test_data = Cypress.env("TEST_DATA");
 
@@ -65,23 +65,31 @@ describe("10. Payment period Grid list,Creation,View,Update,Inactive,Active,Sear
     create_payment_period.paginationCheck();
   });
 
-  it("10.11. Verify that the Payment Period creation reset button clears applied input terms.", function () {
+  it("10.11. Verify that a new payment period can be successfully created when all fields are filled with valid data.", function () {
+    create_payment_period.createAllField();
+  });
+
+  it("10.12. Verify check if payment period can be create without one mandatory field.", function () {
+    create_payment_period.createWithoutOneMandatoryField();
+  });
+
+  it("10.13. Verify that the Payment Period creation reset button clears applied input terms.", function () {
     create_payment_period.createResetButtonCheck();
   });
 
-  it("10.12. Verify that required field validation messages appear when mandatory fields are left empty.", function () {
+  it("10.14. Verify that required field validation messages appear when mandatory fields are left empty.", function () {
     create_payment_period.createValidationMessageCheck();
   });
 
-  it("10.13. Verify that clicking the Go Back button on the Payment Period Create page navigates the user back to the Payment Period List page.", function () {
+  it("10.15. Verify that clicking the Go Back button on the Payment Period Create page navigates the user back to the Payment Period List page.", function () {
     create_payment_period.createGoBackButtonCheck();
   });
 
-  it("10.14. Verify successful payment period creation without mandatory field.", function () {
+  it("10.16. Verify successful payment period creation without mandatory field.", function () {
     create_payment_period.createWithoutMandatoryField();
   });
 
-  it("10.15. Verify that the grid list content successfully switches from English to Bangla.", function () {
+  it("10.17. Verify that the grid list content successfully switches from English to Bangla.", function () {
     create_payment_period.gridLanguageSwitchCheck();
   });
 });

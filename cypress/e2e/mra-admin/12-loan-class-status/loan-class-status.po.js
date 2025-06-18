@@ -19,7 +19,6 @@ class LoanClassStatusCreation {
 
       cy.formController("loan_class_status_id").type(loanClassId);
       cy.formController("name_en").type(loanClasStaData.loanClassNameEn);
-      cy.formController("name_bn").type(loanClasStaData.loanClassNameBn);
       cy.formController("description").type(loanClasStaData.description);
       cy.imsId("btn-submit").click();
       cy.imsId("btn-yes").click();
@@ -108,6 +107,51 @@ class LoanClassStatusCreation {
     cy.log(
       "successfully refresh page  displayed the grid list of the loan class status "
     );
+  }
+
+   createAllField() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("btn-add-new").click();
+      cy.imsId("btn-submit").and("be.visible");
+
+      var loanClasStaData = data.mraAdmin.createloanClassStatusFrom;
+      var randomNumber = Math.floor(1000 + Math.random() * 9000);
+      var loanClassId = loanClasStaData.loanClassId + "-" + randomNumber;
+
+      cy.formController("loan_class_status_id").type(loanClassId);
+      cy.formController("name_en").type(loanClasStaData.loanClassNameEn);
+      cy.formController("name_bn").type(loanClasStaData.loanClassNameBn);
+      cy.formController("description").type(loanClasStaData.description);
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-yes").click();
+      cy.get("app-confirmation-modal")
+        .contains(loanClasStaData.messageSaveLoClSt)
+        .and("be.visible");
+      cy.imsId("btn-ok").click();
+
+      cy.log("Successfully created loan class status all field");
+    });
+  }
+
+   createWithoutOneMandatoryField() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("btn-add-new").click();
+      cy.imsId("btn-submit").and("be.visible");
+
+      var loanClasStaData = data.mraAdmin.createloanClassStatusFrom;
+      var randomNumber = Math.floor(1000 + Math.random() * 9000);
+      var loanClassId = loanClasStaData.loanClassId + "-" + randomNumber;
+
+      cy.formController("loan_class_status_id").type(loanClassId);
+      cy.formController("name_bn").type(loanClasStaData.loanClassNameBn);
+      cy.formController("description").type(loanClasStaData.description);
+      
+     cy.imsId("btn-submit").click();
+      cy.imsId("btn-ok").click();
+      cy.imsId("btn-go-back").click();
+
+      cy.log("Successful cannot creation loan class status without one mandatory field");
+    });
   }
 
   createResetButtonCheck() {

@@ -5,7 +5,7 @@
 import "cypress-file-upload";
 import { create_thana } from "./thana.po";
 
-describe("04. Thana Grid list,Creation,View,Update,Inactive,Active,Search,Reset,Refresh,create Reset,submit button Validation Messages,Go back and Language switch bangla Tests.", function () {
+describe("04. Thana Grid list,Creation,View,Update,Inactive,Active,Search,Reset,Refresh,Pagination,All field,Without one field,Create Reset,Submit button Validation Messages,Go back and Language switch bangla Tests.", function () {
   const baseURL = Cypress.env("BASE_URL");
   const test_data = Cypress.env("TEST_DATA");
 
@@ -65,23 +65,31 @@ describe("04. Thana Grid list,Creation,View,Update,Inactive,Active,Search,Reset,
     create_thana.paginationCheck();
   });
 
-  it("04.11. Verify that the Thana creation reset button clears applied input terms.", function () {
+  it("04.11. Verify that a new Thana can be successfully created when all fields are filled with valid data.", function () {
+    create_thana.createAllField();
+  });
+
+  it("04.12. Verify check if thana can be create without one mandatory field.", function () {
+    create_thana.createWithoutOneMandatoryField();
+  });
+
+  it("04.13. Verify that the Thana creation reset button clears applied input terms.", function () {
     create_thana.createResetButtonCheck();
   });
 
-  it("04.12. Verify that required field validation messages appear when mandatory fields are left empty.", function () {
+  it("04.14. Verify that required field validation messages appear when mandatory fields are left empty.", function () {
     create_thana.createValidationMessageCheck();
   });
 
-  it("04.13. Verify that clicking the Go Back button on the Thana Create page navigates the user back to the Thana List page.", function () {
+  it("04.15. Verify that clicking the Go Back button on the Thana Create page navigates the user back to the Thana List page.", function () {
     create_thana.createGoBackButtonCheck();
   });
 
-  it("04.14. Verify successful thana creation without mandatory field.", function () {
+  it("04.16. Verify successful thana creation without mandatory field.", function () {
     create_thana.createWithoutMandatoryField();
   });
 
-  it("04.15. Verify that the grid list content successfully switches from English to Bangla.", function () {
+  it("04.17. Verify that the grid list content successfully switches from English to Bangla.", function () {
     create_thana.gridLanguageSwitchCheck();
   });
 });

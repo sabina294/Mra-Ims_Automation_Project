@@ -5,7 +5,7 @@
 import "cypress-file-upload";
 import { create_bank_branch } from "./bank-branch.po";
 
-describe("06. Bank branch Grid list,Creation,View,Update,Inactive,Active,Search,Reset,Refresh,create Reset,submit button Validation Messages,Go back and Language switch bangla Tests.", function () {
+describe("06. Bank branch Grid list,Creation,View,Update,Inactive,Active,Search,Reset,Refresh,Pagination,All field,Without one field,Create Reset,Submit button Validation Messages,Go back and Language switch bangla Tests.", function () {
   const baseURL = Cypress.env("BASE_URL");
   const test_data = Cypress.env("TEST_DATA");
 
@@ -65,27 +65,35 @@ describe("06. Bank branch Grid list,Creation,View,Update,Inactive,Active,Search,
     create_bank_branch.paginationCheck();
   });
 
-  it("06.11. Verify Bank Selection Functionality from Dropdown on Bank List Page", function () {
+  it("06.11. Verify that a new Bank branch can be successfully created when all fields are filled with valid data.", function () {
+    create_bank_branch.createAllField();
+  });
+
+  it("06.12. Verify check if Bank branch can be create without one mandatory field.", function () {
+    create_bank_branch.createWithoutOneMandatoryField();
+  });
+
+  it("06.13. Verify Bank Selection Functionality from Dropdown on Bank List Page", function () {
     create_bank_branch.selectBankDropdown();
   });
 
-  it("06.12. Verify that the Bank Branch creation reset button clears applied input terms.", function () {
+  it("06.14. Verify that the Bank Branch creation reset button clears applied input terms.", function () {
     create_bank_branch.createResetButtonCheck();
   });
 
-  it("06.13. Verify that required field validation messages appear when mandatory fields are left empty.", function () {
+  it("06.15. Verify that required field validation messages appear when mandatory fields are left empty.", function () {
     create_bank_branch.createValidationMessageCheck();
   });
 
-  it("06.14. Verify that clicking the Go Back button on the Bank Branch Create page navigates the user back to the Bank Branch List page.", function () {
+  it("06.16. Verify that clicking the Go Back button on the Bank Branch Create page navigates the user back to the Bank Branch List page.", function () {
     create_bank_branch.createGoBackButtonCheck();
   });
 
-  it("06.15. Verify successful bank branch creation without mandatory field.", function () {
+  it("06.17. Verify successful bank branch creation without mandatory field.", function () {
     create_bank_branch.createWithoutMandatoryField();
   });
 
-  it("06.16. Verify that the grid list content successfully switches from English to Bangla.", function () {
+  it("06.18. Verify that the grid list content successfully switches from English to Bangla.", function () {
     create_bank_branch.gridLanguageSwitchCheck();
   });
 });

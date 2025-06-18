@@ -5,7 +5,7 @@
 import "cypress-file-upload";
 import { create_contract_phase } from "./contract-phase.po";
 
-describe("07. Contract phase Grid list,Creation,View,Update,Inactive,Active,Search,Reset,Refresh,create Reset,submit button Validation Messages,Go back and Language switch bangla Tests.", function () {
+describe("07. Contract phase Grid list,Creation,View,Update,Inactive,Active,Search,Reset,Refresh,Without one field,Create Reset,Submit button Validation Messages,Go back and Language switch bangla Tests.", function () {
   const baseURL = Cypress.env("BASE_URL");
   const test_data = Cypress.env("TEST_DATA");
 
@@ -61,19 +61,23 @@ describe("07. Contract phase Grid list,Creation,View,Update,Inactive,Active,Sear
     create_contract_phase.gridRefreshButtonCheck();
   });
 
-  it("07.10. Verify that the Contract Phase creation reset button clears applied input terms.", function () {
+  it("07.10. Verify check if contract phase can be create without one mandatory field.", function () {
+    create_contract_phase.createWithoutOneMandatoryField();
+  });
+
+  it("07.11. Verify that the Contract Phase creation reset button clears applied input terms.", function () {
     create_contract_phase.createResetButtonCheck();
   });
 
-  it("07.11. Verify that required field validation messages appear when mandatory fields are left empty.", function () {
+  it("07.12. Verify that required field validation messages appear when mandatory fields are left empty.", function () {
     create_contract_phase.createValidationMessageCheck();
   });
 
-  it("07.12. Verify that clicking the Go Back button on the Contract Phase Create page navigates the user back to the Contract Phase List page.", function () {
+  it("07.13. Verify that clicking the Go Back button on the Contract Phase Create page navigates the user back to the Contract Phase List page.", function () {
     create_contract_phase.createGoBackButtonCheck();
   });
 
-  it("07.13. Verify that the grid list content successfully switches from English to Bangla.", function () {
+  it("07.14. Verify that the grid list content successfully switches from English to Bangla.", function () {
     create_contract_phase.gridLanguageSwitchCheck();
   });
 });

@@ -5,7 +5,7 @@
 import "cypress-file-upload";
 import { create_occupation } from "./occupation.po";
 
-describe("18. Occupation Grid list,Creation,View,Update,Inactive,Active,Search,Reset,Refresh,create Reset,submit button Validation Messages,Go back and Language switch bangla Tests.", function () {
+describe("18. Occupation Grid list,Creation,View,Update,Inactive,Active,Search,Reset,Refresh,Without one field,Create Reset,Submit button Validation Messages,Go back and Language switch bangla Tests.", function () {
   const baseURL = Cypress.env("BASE_URL");
   const test_data = Cypress.env("TEST_DATA");
 
@@ -61,19 +61,23 @@ describe("18. Occupation Grid list,Creation,View,Update,Inactive,Active,Search,R
     create_occupation.gridRefreshButtonCheck();
   });
 
-  it("18.10. Verify that the Occupation creation reset button clears applied input terms.", function () {
+  it("18.10. Verify check if occupation can be create without one mandatory field.", function () {
+    create_occupation.createWithoutOneMandatoryField();
+  });
+
+  it("18.11. Verify that the Occupation creation reset button clears applied input terms.", function () {
     create_occupation.createResetButtonCheck();
   });
 
-  it("18.11. Verify that required field validation messages appear when mandatory fields are left empty.", function () {
+  it("18.12. Verify that required field validation messages appear when mandatory fields are left empty.", function () {
     create_occupation.createValidationMessageCheck();
   });
 
-  it("18.12. Verify that clicking the Go Back button on the Occupation Create page navigates the user back to the Occupation List page.", function () {
+  it("18.13. Verify that clicking the Go Back button on the Occupation Create page navigates the user back to the Occupation List page.", function () {
     create_occupation.createGoBackButtonCheck();
   });
 
-  it("18.13. Verify that the grid list content successfully switches from English to Bangla.", function () {
+  it("18.14. Verify that the grid list content successfully switches from English to Bangla.", function () {
     create_occupation.gridLanguageSwitchCheck();
   });
 });

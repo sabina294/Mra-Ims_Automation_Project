@@ -18,9 +18,7 @@ class PaymentMethodCreation {
       var payMethodId = payMetData.PaymentMethodId + "-" + randomNumber;
 
       cy.formController("name_en").type(payMetData.nameEn);
-      cy.formController("name_bn").type(payMetData.nameBn);
       cy.formController("description_en").type(payMetData.descriptionEn);
-      cy.formController("description_bn").type(payMetData.descriptionBn);
       cy.formController("pay_method_id").type(payMethodId);
       cy.imsId("btn-submit").click();
       cy.imsId("btn-yes").click();
@@ -42,7 +40,6 @@ class PaymentMethodCreation {
       cy.imsId("btn-table-action-view").click();
 
       cy.get("app-mra-mfi").contains(payMetData.nameEn).and("be.visible");
-      cy.get("app-mra-mfi").contains(payMetData.nameBn).and("be.visible");
       cy.get("app-mra-mfi")
         .contains(payMetData.descriptionEn)
         .and("be.visible");
@@ -107,6 +104,56 @@ class PaymentMethodCreation {
     );
   }
 
+  createAllField() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("btn-add-new").click();
+      cy.imsId("btn-submit").and("be.visible");
+
+      var payMetData = data.mraAdmin.createpaymentMethodFrom;
+      var randomNumber = Math.floor(1000 + Math.random() * 9000);
+      var payMethodId = payMetData.PaymentMethodId + "-" + randomNumber;
+
+      cy.formController("name_en").type(payMetData.nameEn);
+      cy.formController("name_bn").type(payMetData.nameBn);
+      cy.formController("description_en").type(payMetData.descriptionEn);
+      cy.formController("description_bn").type(payMetData.descriptionBn);
+      cy.formController("pay_method_id").type(payMethodId);
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-yes").click();
+
+      cy.get("app-confirmation-modal")
+        .contains(payMetData.messageSavePaMe)
+        .and("be.visible");
+      cy.imsId("btn-ok").click();
+
+      cy.log("Successfully created payment method all field");
+    });
+  }
+
+  createWithoutOneMandatoryField() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("btn-add-new").click();
+      cy.imsId("btn-submit").and("be.visible");
+
+      var payMetData = data.mraAdmin.createpaymentMethodFrom;
+      var randomNumber = Math.floor(1000 + Math.random() * 9000);
+      var payMethodId = payMetData.PaymentMethodId + "-" + randomNumber;
+
+      cy.formController("name_bn").type(payMetData.nameBn);
+      cy.formController("description_en").type(payMetData.descriptionEn);
+      cy.formController("description_bn").type(payMetData.descriptionBn);
+      cy.formController("pay_method_id").type(payMethodId);
+
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-ok").click();
+      cy.imsId("btn-go-back").click();
+
+      cy.log(
+        "Successful cannot creation payment method without one mandatory field."
+      );
+    });
+  }
+
   createResetButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
       var payMetData = data.mraAdmin.createpaymentMethodFrom;
@@ -141,7 +188,9 @@ class PaymentMethodCreation {
       cy.imsId("btn-submit").click();
       cy.imsId("btn-ok").click();
       cy.imsId("btn-go-back").click();
-      cy.log("Successful cannot creation payment method without mandatory field.");
+      cy.log(
+        "Successful cannot creation payment method without mandatory field."
+      );
     });
   }
 

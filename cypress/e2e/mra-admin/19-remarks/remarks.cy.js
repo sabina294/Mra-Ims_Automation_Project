@@ -61,19 +61,23 @@ describe("19. Remarks Grid list,Creation,View,Update,Inactive,Active,Search,Rese
     create_remarks.gridRefreshButtonCheck();
   });
 
-  it("19.10. Verify that the Remarks creation reset button clears applied input terms.", function () {
+  it("19.10. Verify check if remarks can be create without one mandatory field.", function () {
+    create_remarks.createWithoutOneMandatoryField();
+  });
+
+  it("19.11. Verify that the Remarks creation reset button clears applied input terms.", function () {
     create_remarks.createResetButtonCheck();
   });
 
-  it("19.11. Verify that required field validation messages appear when mandatory fields are left empty.", function () {
+  it("19.12. Verify that required field validation messages appear when mandatory fields are left empty.", function () {
     create_remarks.createValidationMessageCheck();
   });
 
-  it("19.12. Verify that clicking the Go Back button on the Remarks Create page navigates the user back to the Remarks List page.", function () {
+  it("19.13. Verify that clicking the Go Back button on the Remarks Create page navigates the user back to the Remarks List page.", function () {
     create_remarks.createGoBackButtonCheck();
   });
 
-  it("19.13. Verify that the grid list content successfully switches from English to Bangla.", function () {
+  it("19.14. Verify that the grid list content successfully switches from English to Bangla.", function () {
     create_remarks.gridLanguageSwitchCheck();
   });
 });

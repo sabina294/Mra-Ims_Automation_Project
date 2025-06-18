@@ -5,7 +5,7 @@
 import "cypress-file-upload";
 import { create_education } from "./education.po";
 
-describe("15. Education Grid list,Creation,View,Update,Inactive,Active,Search,Reset,Refresh,create Reset,submit button Validation Messages,Go back and Language switch bangla Tests.", function () {
+describe("15. Education Grid list,Creation,View,Update,Inactive,Active,Search,Reset,Refresh,Without one field,Create Reset,Submit button Validation Messages,Go back and Language switch bangla Tests.", function () {
   const baseURL = Cypress.env("BASE_URL");
   const test_data = Cypress.env("TEST_DATA");
 
@@ -61,19 +61,23 @@ describe("15. Education Grid list,Creation,View,Update,Inactive,Active,Search,Re
     create_education.gridRefreshButtonCheck();
   });
 
-  it("15.10. Verify that the Education creation reset button clears applied input terms.", function () {
+  it("15.10. Verify check if education can be create without one mandatory field.", function () {
+    create_education.createWithoutOneMandatoryField();
+  });
+
+  it("15.11. Verify that the Education creation reset button clears applied input terms.", function () {
     create_education.createResetButtonCheck();
   });
 
-  it("15.11. Verify that required field validation messages appear when mandatory fields are left empty.", function () {
+  it("15.12. Verify that required field validation messages appear when mandatory fields are left empty.", function () {
     create_education.createValidationMessageCheck();
   });
 
-  it("15.12. Verify that clicking the Go Back button on the Education Create page navigates the user back to the Education List page.", function () {
+  it("15.13. Verify that clicking the Go Back button on the Education Create page navigates the user back to the Education List page.", function () {
     create_education.createGoBackButtonCheck();
   });
 
-  it("15.13. Verify that the grid list content successfully switches from English to Bangla.", function () {
+  it("15.14. Verify that the grid list content successfully switches from English to Bangla.", function () {
     create_education.gridLanguageSwitchCheck();
   });
 });

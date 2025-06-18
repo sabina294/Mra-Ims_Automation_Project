@@ -5,7 +5,7 @@
 import "cypress-file-upload";
 import { create_marital_status } from "./marital-status.po";
 
-describe("17. Marital Status Grid list,Creation,View,Update,Inactive,Active,Search,Reset,Refresh,create Reset,submit button Validation Messages,Go back and Language switch bangla Tests.", function () {
+describe("17. Marital Status Grid list,Creation,View,Update,Inactive,Active,Search,Reset,Refresh,Pagination,Without one field,Create Reset,Submit button Validation Messages,Go back and Language switch bangla Tests.", function () {
   const baseURL = Cypress.env("BASE_URL");
   const test_data = Cypress.env("TEST_DATA");
 
@@ -61,8 +61,8 @@ describe("17. Marital Status Grid list,Creation,View,Update,Inactive,Active,Sear
     create_marital_status.gridRefreshButtonCheck();
   });
 
-  it("17.10.Verify pagination works correctly on last page of the marital status list", function () {
-    create_marital_status.paginationCheck();
+  it("17.10. Verify check if marital status can be create without one mandatory field.", function () {
+    create_marital_status.createWithoutOneMandatoryField();
   });
 
   it("17.11. Verify that the Marital Status creation reset button clears applied input terms.", function () {

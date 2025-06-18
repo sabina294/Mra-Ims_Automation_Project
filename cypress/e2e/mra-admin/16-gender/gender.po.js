@@ -100,6 +100,25 @@ class GenderCreation {
     );
   }
 
+  createWithoutOneMandatoryField() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("btn-add-new").click();
+      cy.imsId("btn-submit").and("be.visible");
+
+      var genderData = data.mraAdmin.creategenderFrom;
+      cy.formController("name_en").type(genderData.nameEn);
+      cy.formController("gender_id").type(genderData.genderId);
+      
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-ok").click();
+      cy.imsId("btn-go-back").click();
+
+      cy.log(
+        "Successful cannot creation education without one mandatory field."
+      );
+    });
+  }
+
   createResetButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
       var genderData = data.mraAdmin.creategenderFrom;

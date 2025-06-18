@@ -112,6 +112,30 @@ class EconomicPurposeCreation {
     cy.log("Economic purpose pagination check successfully");
   }
 
+  createWithoutOneMandatoryField() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("btn-add-new").click();
+      cy.imsId("btn-submit").and("be.visible");
+
+      var ecoPurData = data.mraAdmin.createeconomicPurposeFrom;
+      cy.formController("mra_code").type(ecoPurData.economicPurposeCode);
+      cy.formController("name_bn").type(ecoPurData.nameBn);
+      cy.formController("sector").type(ecoPurData.economicSector);
+      cy.formController("econ_activity").type(ecoPurData.economicActivity);
+      cy.formController("lending_category_id")
+        .type(ecoPurData.lendingCategory)
+        .type("{enter}");
+
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-ok").click();
+      cy.imsId("btn-go-back").click();
+
+      cy.log(
+        "Successful cannot creation economic purpose without one mandatory field"
+      );
+    });
+  }
+
   createResetButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
       var ecoPurData = data.mraAdmin.createeconomicPurposeFrom;

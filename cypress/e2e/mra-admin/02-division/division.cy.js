@@ -5,7 +5,7 @@
 import "cypress-file-upload";
 import { create_division } from "./division.po";
 
-describe("02. Division Grid list,Creation,View,Update,Inactive,Active,Search,Reset,Refresh,create Reset,submit button Validation Messages,Go back and Language switch bangla Tests.", function () {
+describe("02. Division Grid list,Creation,View,Update,Inactive,Active,Search,Reset,Refresh,Pagination,Without one field,Create Reset,Submit button Validation Messages,Go back and Language switch bangla Tests.", function () {
   const baseURL = Cypress.env("BASE_URL");
   const test_data = Cypress.env("TEST_DATA");
 
@@ -61,8 +61,8 @@ describe("02. Division Grid list,Creation,View,Update,Inactive,Active,Search,Res
     create_division.gridRefreshButtonCheck();
   });
 
-  it("02.10.Verify pagination works correctly on last page of the division list", function () {
-    create_division.paginationCheck();
+  it("02.10. Verify check if division can be create without one mandatory field.", function () {
+    create_division.createWithoutOneMandatoryField();
   });
 
   it("02.11. Verify that the division creation reset button clears applied input terms.", function () {

@@ -5,7 +5,7 @@
 import "cypress-file-upload";
 import { create_bank } from "./bank.po";
 
-describe("05. Bank Grid list,Creation,View,Update,Inactive,Active,Search,Reset,Refresh,create Reset,submit button Validation Messages,Go back and Language switch bangla Tests.", function () {
+describe("05. Bank Grid list,Creation,View,Update,Inactive,Active,Search,Reset,Refresh,Pagination,All field,Without one field,Create Reset,Submit button Validation Messages,Go back and Language switch bangla Tests.", function () {
   const baseURL = Cypress.env("BASE_URL");
   const test_data = Cypress.env("TEST_DATA");
 
@@ -65,23 +65,31 @@ describe("05. Bank Grid list,Creation,View,Update,Inactive,Active,Search,Reset,R
     create_bank.paginationCheck();
   });
 
-  it("05.11. Verify that the bank creation reset button clears applied input terms.", function () {
+  it("05.11. Verify that a new Bank can be successfully created when all fields are filled with valid data.", function () {
+    create_bank.createAllField();
+  });
+
+  it("05.12. Verify check if Bank can be create without one mandatory field.", function () {
+    create_bank.createWithoutOneMandatoryField();
+  });
+
+  it("05.13. Verify that the bank creation reset button clears applied input terms.", function () {
     create_bank.createResetButtonCheck();
   });
 
-  it("05.12. Verify that required field validation messages appear when mandatory fields are left empty.", function () {
+  it("05.14. Verify that required field validation messages appear when mandatory fields are left empty.", function () {
     create_bank.createValidationMessageCheck();
   });
 
-  it("05.13. Verify that clicking the Go Back button on the bank Create page navigates the user back to the bank List page.", function () {
+  it("05.15. Verify that clicking the Go Back button on the bank Create page navigates the user back to the bank List page.", function () {
     create_bank.createGoBackButtonCheck();
   });
 
-  it("05.14. Verify successful bank creation without mandatory field.", function () {
+  it("05.16. Verify successful bank creation without mandatory field.", function () {
     create_bank.createWithoutMandatoryField();
   });
 
-  it("05.15. Verify that the grid list content successfully switches from English to Bangla.", function () {
+  it("05.17. Verify that the grid list content successfully switches from English to Bangla.", function () {
     create_bank.gridLanguageSwitchCheck();
   });
 });

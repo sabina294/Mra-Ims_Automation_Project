@@ -17,9 +17,6 @@ class BankCreation {
       cy.formController("name_en").type(bankData.nameEn);
       cy.formController("name_bn").type(bankData.nameBn);
       cy.formController("website").type(bankData.website);
-      cy.formController("bank_code").type(bankData.bankCode);
-      cy.formController("bank_short_code").type(bankData.bankShortCode);
-
       cy.imsId("btn-submit").click();
       cy.imsId("btn-yes").click();
 
@@ -99,10 +96,51 @@ class BankCreation {
     cy.log("successfully refresh page  displayed the grid list of the Bank ");
   }
 
-
-   paginationCheck() {
+  paginationCheck() {
     cy.get('[title="5"] > .ng-star-inserted').click();
     cy.log("Bank pagination check successfully");
+  }
+
+  createAllField() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("btn-add-new").click();
+      // cy.imsId("btn-submit").and("be.visible");
+
+      var bankData = data.mraAdmin.createbankFrom;
+      cy.formController("name_en").type(bankData.nameEn);
+      cy.formController("name_bn").type(bankData.nameBn);
+      cy.formController("website").type(bankData.website);
+      cy.formController("bank_code").type(bankData.bankCode);
+      cy.formController("bank_short_code").type(bankData.bankShortCode);
+
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-yes").click();
+
+      cy.get("app-confirmation-modal")
+        .contains(bankData.messageSaveBa)
+        .and("be.visible");
+      cy.imsId("btn-ok").click();
+      cy.log("Successfully created bank all field");
+    });
+  }
+
+  createWithoutOneMandatoryField() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("btn-add-new").click();
+      // cy.imsId("btn-submit").and("be.visible");
+
+      var bankData = data.mraAdmin.createbankFrom;
+      cy.formController("name_bn").type(bankData.nameBn);
+      cy.formController("website").type(bankData.website);
+      cy.formController("bank_code").type(bankData.bankCode);
+      cy.formController("bank_short_code").type(bankData.bankShortCode);
+
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-ok").click();
+      cy.imsId("btn-go-back").click();
+
+      cy.log("Successful cannot creation bank without one mandatory field.");
+    });
   }
 
   createResetButtonCheck() {

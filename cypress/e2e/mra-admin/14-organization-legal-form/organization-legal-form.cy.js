@@ -5,7 +5,7 @@
 import "cypress-file-upload";
 import { create_organization_legal_form } from "./organization-legal-form.po";
 
-describe("14. Organization Legal Form Grid list,Creation,View,Update,Inactive,Active,Search,Reset,Refresh,create Reset,submit button Validation Messages,Go back and Language switch bangla Tests.", function () {
+describe("14. Organization Legal Form Grid list,Creation,View,Update,Inactive,Active,Search,Reset,Refresh,Without one field,Create Reset,Submit button Validation Messages,Go back and Language switch bangla Tests.", function () {
   const baseURL = Cypress.env("BASE_URL");
   const test_data = Cypress.env("TEST_DATA");
 
@@ -61,19 +61,23 @@ describe("14. Organization Legal Form Grid list,Creation,View,Update,Inactive,Ac
     create_organization_legal_form.gridRefreshButtonCheck();
   });
 
-  it("14.10. Verify that the Organization Legel From creation reset button clears applied input terms.", function () {
+  it("14.10. Verify check if organization legal from can be create without one mandatory field.", function () {
+    create_organization_legal_form.createWithoutOneMandatoryField();
+  });
+
+  it("14.11. Verify that the Organization Legel From creation reset button clears applied input terms.", function () {
     create_organization_legal_form.createResetButtonCheck();
   });
 
-  it("14.11. Verify that required field validation messages appear when mandatory fields are left empty.", function () {
+  it("14.12. Verify that required field validation messages appear when mandatory fields are left empty.", function () {
     create_organization_legal_form.createValidationMessageCheck();
   });
 
-  it("14.12. Verify that clicking the Go Back button on the Organization Legel From Create page navigates the user back to the Organization Legel From List page.", function () {
+  it("14.13. Verify that clicking the Go Back button on the Organization Legel From Create page navigates the user back to the Organization Legel From List page.", function () {
     create_organization_legal_form.createGoBackButtonCheck();
   });
 
-  it("14.13. Verify that the grid list content successfully switches from English to Bangla.", function () {
+  it("14.14. Verify that the grid list content successfully switches from English to Bangla.", function () {
     create_organization_legal_form.gridLanguageSwitchCheck();
   });
 });

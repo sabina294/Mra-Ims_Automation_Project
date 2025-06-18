@@ -3,14 +3,13 @@ class EducationCreation {
 
   gridEducationListPage() {
     cy.fixture(this.test_data).then((data) => {
-      cy.selectMenu("menu-configuration", "submenu-organization-legal-form");
+      cy.selectMenu("menu-configuration", "submenu-education");
       cy.log("Successfully education list page.");
     });
   }
 
   createEducation() {
     cy.fixture(this.test_data).then((data) => {
-      cy.selectMenu("menu-configuration", "submenu-education");
       cy.imsId("btn-add-new").click();
       cy.imsId("btn-submit").and("be.visible");
 
@@ -98,6 +97,23 @@ class EducationCreation {
       "successfully refresh page  displayed the grid list of the education form "
     );
   }
+
+  createWithoutOneMandatoryField() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("btn-add-new").click();
+      cy.imsId("btn-submit").and("be.visible");
+
+      var eduData = data.mraAdmin.createeducationFrom;
+      cy.formController("name_bn").type(eduData.nameBn);
+
+     cy.imsId("btn-submit").click();
+      cy.imsId("btn-ok").click();
+      cy.imsId("btn-go-back").click();
+
+      cy.log("Successful cannot creation education without one mandatory field.");
+    });
+  }
+
 
   createResetButtonCheck() {
     cy.fixture(this.test_data).then((data) => {

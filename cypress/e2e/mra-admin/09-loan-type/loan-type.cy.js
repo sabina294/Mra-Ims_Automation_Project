@@ -1,11 +1,11 @@
 // npm run auto
 // npm run dev
-// npx cypress run --spec cypress/e2e/mra-admin/9-loan-type/loan-type.cy.js --headed
+// npx cypress run --spec cypress/e2e/mra-admin/09-loan-type/loan-type.cy.js --headed
 
 import "cypress-file-upload";
 import { create_loan_type } from "./loan-type.po";
 
-describe("9. Loan type Grid list,Creation,View,Update,Inactive,Active,Search,Reset,Refresh,create Reset,submit button Validation Messages,Go back and Language switch bangla Tests.", function () {
+describe("9. Loan type Grid list,Creation,View,Update,Inactive,Active,Search,Reset,Refresh,Without one field,Create Reset,Submit button Validation Messages,Go back and Language switch bangla Tests.", function () {
   const baseURL = Cypress.env("BASE_URL");
   const test_data = Cypress.env("TEST_DATA");
 
@@ -61,19 +61,23 @@ describe("9. Loan type Grid list,Creation,View,Update,Inactive,Active,Search,Res
     create_loan_type.gridRefreshButtonCheck();
   });
 
-  it("9.10. Verify that the Loan Type creation reset button clears applied input terms.", function () {
+  it("09.10. Verify check if loan type can be create without one mandatory field.", function () {
+    create_loan_type.createWithoutOneMandatoryField();
+  });
+
+  it("9.11. Verify that the Loan Type creation reset button clears applied input terms.", function () {
     create_loan_type.createResetButtonCheck();
   });
 
-  it("9.11. Verify that required field validation messages appear when mandatory fields are left empty.", function () {
+  it("9.12. Verify that required field validation messages appear when mandatory fields are left empty.", function () {
     create_loan_type.createValidationMessageCheck();
   });
 
-  it("9.12. Verify that clicking the Go Back button on the Loan Type Create page navigates the user back to the Loan Type List page.", function () {
+  it("9.13. Verify that clicking the Go Back button on the Loan Type Create page navigates the user back to the Loan Type List page.", function () {
     create_loan_type.createGoBackButtonCheck();
   });
 
-  it("9.13. Verify that the grid list content successfully switches from English to Bangla.", function () {
+  it("9.14. Verify that the grid list content successfully switches from English to Bangla.", function () {
     create_loan_type.gridLanguageSwitchCheck();
   });
 });

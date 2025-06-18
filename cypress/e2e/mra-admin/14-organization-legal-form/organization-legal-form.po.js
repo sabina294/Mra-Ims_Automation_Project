@@ -106,6 +106,24 @@ class OrganizationLegalFormCreation {
     );
   }
 
+  createWithoutOneMandatoryField() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("btn-add-new").click();
+      cy.imsId("btn-submit").and("be.visible");
+
+      var orgLegalFormData = data.mraAdmin.createOrgLegForm;
+      cy.formController("name_bn").type(orgLegalFormData.nameBn);
+
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-ok").click();
+      cy.imsId("btn-go-back").click();
+
+      cy.log(
+        "Successful cannot creation education without one mandatory field."
+      );
+    });
+  }
+
   createResetButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
       var orgLegalFormData = data.mraAdmin.createOrgLegForm;
