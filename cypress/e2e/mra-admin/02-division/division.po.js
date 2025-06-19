@@ -140,7 +140,7 @@ class DivisionCreation {
     });
   }
 
-    editResetButton() {
+  editResetButton() {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-edit").click();
@@ -149,6 +149,33 @@ class DivisionCreation {
 
       cy.log("Successful clean displaying");
     });
+  }
+
+  editSubmitButton() {
+    cy.fixture(this.test_data).then((data) => {
+      var divData = data.mraAdmin.createdivisionFrom;
+      cy.imsId("toggle-action").first().click();
+      cy.imsId("btn-table-action-edit").click();
+      cy.imsId("btn-reset").click();
+      cy.formController("name_en").type(divData.nameEn);
+      cy.formController("name_bn").type(divData.nameBn);
+      cy.formController("division_code").type(divData.Code);
+      cy.formController("establish_year").type(divData.establishedYear);
+      cy.formController("status").click();
+      cy.contains("Active").click();
+
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-yes").click();
+      cy.imsId("btn-ok").click();
+      cy.log("Successfully updated division");
+    });
+  }
+
+  editGoBackButton() {
+    cy.imsId("toggle-action").first().click();
+    cy.imsId("btn-table-action-edit").click();
+    cy.imsId("btn-go-back").click();
+    cy.log("Successful edit go back button check.");
   }
 
   statusInactiveDropdownCheck() {

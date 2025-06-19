@@ -171,7 +171,7 @@ class PaymentMethodCreation {
 
   paginationCheck() {
     cy.get('[title="2"] > .ng-star-inserted').click();
-    cy.log("District pagination check successfully");
+    cy.log("Payment method pagination check successfully");
   }
 
   createResetButtonCheck() {

@@ -69,43 +69,51 @@ describe("03. District Test.", function () {
     create_district.editResetButton();
   });
 
-  it("03.12. Verify the user can filter inactive districts using the status dropdown on the district list page.", function () {
+  it("03.12. Verify the district edit submit button functions correctly.", function () {
+    create_district.editSubmitButton();
+  });
+
+  it("03.13. Verify that clicking the go back button on the district edit page redirects the user to the district list page.", function () {
+    create_district.editGoBackButton();
+  });
+
+  it("03.14. Verify the user can filter inactive districts using the status dropdown on the district list page.", function () {
     create_district.statusInactiveDropdownCheck();
   });
 
-  it("03.13. Verify the active result is filtered correctly by the status dropdown.", function () {
+  it("03.15. Verify the active result is filtered correctly by the status dropdown.", function () {
     create_district.statusActiveDropdownCheck();
   });
 
-  it("03.14. Verify the search returns correct results when searching by district name.", function () {
+  it("03.16. Verify the search returns correct results when searching by district name.", function () {
     create_district.searchInDistrictName();
   });
 
-  it("03.15. Verify the grid list resets successfully when the reset button is clicked on the district page.", function () {
+  it("03.17. Verify the grid list resets successfully when the reset button is clicked on the district page.", function () {
     create_district.gridResetButtonCheck();
   });
 
-  it("03.16. Verify that the grid list is refreshed successfully when the refresh button is clicked on the district page.", function () {
+  it("03.18. Verify that the grid list is refreshed successfully when the refresh button is clicked on the district page.", function () {
     create_district.gridRefreshButtonCheck();
   });
 
-  it("03.17. Verify pagination functions as expected on the last page of the district list.", function () {
+  it("03.19. Verify pagination functions as expected on the last page of the district list.", function () {
     create_district.paginationCheck();
   });
 
-  it("03.18. Verify the district creation reset button clears all entered input values.", function () {
+  it("03.20. Verify the district creation reset button clears all entered input values.", function () {
     create_district.createResetButtonCheck();
   });
 
-  it("03.19. Verify validation messages appear for required fields when the submit button is clicked with empty inputs.", function () {
+  it("03.21. Verify validation messages appear for required fields when the submit button is clicked with empty inputs.", function () {
     create_district.createValidationMessageCheck();
   });
 
-  it("03.20. Verify that clicking the go back button on the district create page redirects the user to the district list page.", function () {
+  it("03.22. Verify that clicking the go back button on the district create page redirects the user to the district list page.", function () {
     create_district.createGoBackButtonCheck();
   });
 
-  it("03.21. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("03.23. Verify check that the grid list content changes correctly from english to bangla.", function () {
     create_district.gridLanguageSwitchCheck();
   });
 });
