@@ -18,7 +18,7 @@ describe("22. Logout Test", function () {
     });
   });
 
-  it("22.01. should log out successfully", function () {
+  it("22.01. Verify the user can log out successfully.", function () {
     logout_page.logout();
   });
 });

@@ -11,7 +11,7 @@ describe("01. Login Test", function () {
     cy.clearLocalStorage();
   });
 
-  it("01.01. should log in successfully with valid MRA Admin credentials", function () {
+  it("01.01. Verify login successfully with valid credentials.", function () {
     login_test.mraAdminLogin();
   });
 });

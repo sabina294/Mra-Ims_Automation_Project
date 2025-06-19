@@ -31,6 +31,27 @@ class LoanTypeCreation {
     });
   }
 
+  createWithoutOneMandatoryField() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("btn-add-new").click();
+      cy.imsId("btn-submit").and("be.visible");
+
+      var loanTData = data.mraAdmin.createloanTypeFrom;
+      cy.formController("name_bn").type(loanTData.nameBn);
+      cy.formController("loan_type_id").type(loanTData.loanTypeId);
+      cy.formController("product_nature_id").type(loanTData.productNatureId);
+      cy.formController("description").type(loanTData.loanTypeDescription);
+
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-ok").click();
+      cy.imsId("btn-go-back").click();
+
+      cy.log(
+        "Successful cannot creation contract phase without one mandatory field."
+      );
+    });
+  }
+
   viewLoanType() {
     cy.fixture(this.test_data).then((data) => {
       var loanTData = data.mraAdmin.createloanTypeFrom;
@@ -99,27 +120,6 @@ class LoanTypeCreation {
     cy.log(
       "successfully refresh page  displayed the grid list of the Loan Type "
     );
-  }
-
-  createWithoutOneMandatoryField() {
-    cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      cy.imsId("btn-submit").and("be.visible");
-
-      var loanTData = data.mraAdmin.createloanTypeFrom;
-      cy.formController("name_bn").type(loanTData.nameBn);
-      cy.formController("loan_type_id").type(loanTData.loanTypeId);
-      cy.formController("product_nature_id").type(loanTData.productNatureId);
-      cy.formController("description").type(loanTData.loanTypeDescription);
-
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-ok").click();
-      cy.imsId("btn-go-back").click();
-
-      cy.log(
-        "Successful cannot creation contract phase without one mandatory field."
-      );
-    });
   }
 
   createResetButtonCheck() {

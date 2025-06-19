@@ -28,6 +28,24 @@ class EducationCreation {
     });
   }
 
+  createWithoutOneMandatoryField() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("btn-add-new").click();
+      cy.imsId("btn-submit").and("be.visible");
+
+      var eduData = data.mraAdmin.createeducationFrom;
+      cy.formController("name_bn").type(eduData.nameBn);
+
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-ok").click();
+      cy.imsId("btn-go-back").click();
+
+      cy.log(
+        "Successful cannot creation education without one mandatory field."
+      );
+    });
+  }
+
   viewEducation() {
     cy.fixture(this.test_data).then((data) => {
       var eduData = data.mraAdmin.createeducationFrom;
@@ -97,23 +115,6 @@ class EducationCreation {
       "successfully refresh page  displayed the grid list of the education form "
     );
   }
-
-  createWithoutOneMandatoryField() {
-    cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      cy.imsId("btn-submit").and("be.visible");
-
-      var eduData = data.mraAdmin.createeducationFrom;
-      cy.formController("name_bn").type(eduData.nameBn);
-
-     cy.imsId("btn-submit").click();
-      cy.imsId("btn-ok").click();
-      cy.imsId("btn-go-back").click();
-
-      cy.log("Successful cannot creation education without one mandatory field.");
-    });
-  }
-
 
   createResetButtonCheck() {
     cy.fixture(this.test_data).then((data) => {

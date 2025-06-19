@@ -29,6 +29,86 @@ class DivisionCreation {
     });
   }
 
+  createWithoutNameEn() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("btn-add-new").click();
+      cy.imsId("btn-submit").and("be.visible");
+
+      var divData = data.mraAdmin.createdivisionFrom;
+      cy.formController("name_bn").type(divData.nameBn);
+      cy.formController("division_code").type(divData.Code);
+      cy.formController("establish_year").type(divData.establishedYear);
+
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-ok").click();
+      cy.imsId("btn-go-back").click();
+
+      cy.log(
+        "Successful cannot creation division without one mandatory field."
+      );
+    });
+  }
+
+  createWithoutNameBn() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("btn-add-new").click();
+      cy.imsId("btn-submit").and("be.visible");
+
+      var divData = data.mraAdmin.createdivisionFrom;
+      cy.formController("name_en").type(divData.nameEn);
+      cy.formController("division_code").type(divData.Code);
+      cy.formController("establish_year").type(divData.establishedYear);
+
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-ok").click();
+      cy.imsId("btn-go-back").click();
+
+      cy.log(
+        "Successful cannot creation division without one mandatory field."
+      );
+    });
+  }
+
+  createWithoutDivisionCode() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("btn-add-new").click();
+      cy.imsId("btn-submit").and("be.visible");
+
+      var divData = data.mraAdmin.createdivisionFrom;
+      cy.formController("name_en").type(divData.nameEn);
+      cy.formController("name_bn").type(divData.nameBn);
+      cy.formController("establish_year").type(divData.establishedYear);
+
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-ok").click();
+      cy.imsId("btn-go-back").click();
+
+      cy.log(
+        "Successful cannot creation division without one mandatory field."
+      );
+    });
+  }
+
+  createWithoutEstabYear() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("btn-add-new").click();
+      cy.imsId("btn-submit").and("be.visible");
+
+      var divData = data.mraAdmin.createdivisionFrom;
+      cy.formController("name_en").type(divData.nameEn);
+      cy.formController("name_bn").type(divData.nameBn);
+      cy.formController("division_code").type(divData.Code);
+
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-ok").click();
+      cy.imsId("btn-go-back").click();
+
+      cy.log(
+        "Successful cannot creation division without one mandatory field."
+      );
+    });
+  }
+
   viewDivision() {
     cy.fixture(this.test_data).then((data) => {
       var divData = data.mraAdmin.createdivisionFrom;
@@ -57,6 +137,17 @@ class DivisionCreation {
         .and("be.visible");
       cy.imsId("btn-ok").click();
       cy.log("Division updated successfully");
+    });
+  }
+
+    editResetButton() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("toggle-action").first().click();
+      cy.imsId("btn-table-action-edit").click();
+      cy.imsId("btn-reset").click();
+      cy.imsId("btn-go-back").click();
+
+      cy.log("Successful clean displaying");
     });
   }
 
@@ -96,24 +187,6 @@ class DivisionCreation {
     cy.log(
       "successfully refresh page  displayed the grid list of the division "
     );
-  }
-  
-  createWithoutOneMandatoryField() {
-    cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      cy.imsId("btn-submit").and("be.visible");
-
-      var divData = data.mraAdmin.createdivisionFrom;
-      cy.formController("name_bn").type(divData.nameBn);
-      cy.formController("division_code").type(divData.Code);
-      cy.formController("establish_year").type(divData.establishedYear);
-
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-ok").click();
-      cy.imsId("btn-go-back").click();
-
-      cy.log("Successful cannot creation division without one mandatory field.");
-    });
   }
 
   createResetButtonCheck() {

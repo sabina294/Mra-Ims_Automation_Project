@@ -5,7 +5,7 @@
 import "cypress-file-upload";
 import { create_organization_legal_form } from "./organization-legal-form.po";
 
-describe("14. Organization Legal Form Grid list,Creation,View,Update,Inactive,Active,Search,Reset,Refresh,Without one field,Create Reset,Submit button Validation Messages,Go back and Language switch bangla Tests.", function () {
+describe("14. Organization Legal Form Test.", function () {
   const baseURL = Cypress.env("BASE_URL");
   const test_data = Cypress.env("TEST_DATA");
 
@@ -25,59 +25,59 @@ describe("14. Organization Legal Form Grid list,Creation,View,Update,Inactive,Ac
     cy.logout();
   });
 
-  it("14.01. Verify that the Organization Legal From List page loads successfully.", function () {
+  it("14.01. Verify the organization legal form list page loads without errors.", function () {
     create_organization_legal_form.gridOrganizationLegalFromListPage();
   });
 
-  it("14.02. To verify that a new Organization Legal From can be successfully created when all required fields are filled with valid data.", function () {
+  it("14.02. Verify a new organization legal form is created successfully when all required fields are filled with valid data.", function () {
     create_organization_legal_form.createOrganizationLegalForm();
   });
 
-  it("14.03. To verify that the user can successfully edit an existing Organization Legal From information, including the Organization Legal From Name, and Description..", function () {
-    create_organization_legal_form.viewOrganizationLegalForm();
-  });
-
-  it("14.04. should update the Organization Legal From with valid information by MRA-Admin role", function () {
-    create_organization_legal_form.editOrganizationLegalForm();
-  });
-
-  it("14.05. To verify that the user can filter the inactive Organization Legal Froms using the Status Dropdown on the Organization Legal From List page.", function () {
-    create_organization_legal_form.statusInactiveDropdownCheck();
-  });
-
-  it("14.06. Verify Filter Active Result by Status Dropdown", function () {
-    create_organization_legal_form.statusActiveDropdownCheck();
-  });
-
-  it("14.07. Verify Successful Search Result by Organization Legal From Name", function () {
-    create_organization_legal_form.searchInOrganizationLegalFromName();
-  });
-
-  it("14.08. Verify Successful Reset of Grid List Using the Reset Button on Organization Legal From Page.", function () {
-    create_organization_legal_form.gridResetButtonCheck();
-  });
-
-  it("14.09. Verify Successful Refresh of Grid List Using the Refresh Button on Organization Legal From Page.", function () {
-    create_organization_legal_form.gridRefreshButtonCheck();
-  });
-
-  it("14.10. Verify check if organization legal from can be create without one mandatory field.", function () {
+  it("14.03. Verify check if a organization legal form cannot be created when a mandatory field is missing.", function () {
     create_organization_legal_form.createWithoutOneMandatoryField();
   });
 
-  it("14.11. Verify that the Organization Legel From creation reset button clears applied input terms.", function () {
+  it("14.04. Verify the user can view all relevant details of a organization legal form, including its associated fields.", function () {
+    create_organization_legal_form.viewOrganizationLegalForm();
+  });
+
+  it("14.05. Verify the organization legal form name and description can be edited successfully.", function () {
+    create_organization_legal_form.editOrganizationLegalForm();
+  });
+
+  it("14.06. Verify the user can filter inactive organization legal forms using the status dropdown on the organization legal form list page.", function () {
+    create_organization_legal_form.statusInactiveDropdownCheck();
+  });
+
+  it("14.07. Verify the active result is filtered correctly by the status dropdown.", function () {
+    create_organization_legal_form.statusActiveDropdownCheck();
+  });
+
+  it("14.08. Verify the search returns correct results when searching by organization legal form name.", function () {
+    create_organization_legal_form.searchInOrganizationLegalFromName();
+  });
+
+  it("14.09. Verify the grid list resets successfully when the reset button is clicked on the organization legal form page.", function () {
+    create_organization_legal_form.gridResetButtonCheck();
+  });
+
+  it("14.10. Verify that the grid list is refreshed successfully when the refresh button is clicked on the organization legal form page.", function () {
+    create_organization_legal_form.gridRefreshButtonCheck();
+  });
+
+  it("14.11. Verify the organization legal form creation reset button clears all entered input values.", function () {
     create_organization_legal_form.createResetButtonCheck();
   });
 
-  it("14.12. Verify that required field validation messages appear when mandatory fields are left empty.", function () {
+  it("14.12. Verify validation messages appear for required fields when the submit button is clicked with empty inputs.", function () {
     create_organization_legal_form.createValidationMessageCheck();
   });
 
-  it("14.13. Verify that clicking the Go Back button on the Organization Legel From Create page navigates the user back to the Organization Legel From List page.", function () {
+  it("14.13. Verify that clicking the go back button on the organization legal form create page redirects the user to the organization legal form list page.", function () {
     create_organization_legal_form.createGoBackButtonCheck();
   });
 
-  it("14.14. Verify that the grid list content successfully switches from English to Bangla.", function () {
+  it("14.14. Verify check that the grid list content changes correctly from english to bangla.", function () {
     create_organization_legal_form.gridLanguageSwitchCheck();
   });
 });

@@ -5,7 +5,7 @@
 import "cypress-file-upload";
 import { create_employee_management } from "./employee-management.po";
 
-describe("21. employee management Grid list,Creation,View,Update,Inactive,Active,Search,Reset,Refresh,create Reset,submit button Validation Messages,Go back and Language switch bangla Tests.", function () {
+describe("21. Employee Management Test.", function () {
   const baseURL = Cypress.env("BASE_URL");
   const test_data = Cypress.env("TEST_DATA");
 
@@ -24,55 +24,55 @@ describe("21. employee management Grid list,Creation,View,Update,Inactive,Active
     cy.logout();
   });
 
-  it("21.01. Verify that the Employee Management List page loads successfully.", function () {
+  it("21.01. Verify the employee management list page loads correctly.", function () {
     create_employee_management.gridEmployeeListPage();
   });
 
-  it("21.02. To verify that a new Employee Management can be successfully created when all required fields are filled with valid data.", function () {
+  it("21.02. Verify a new employee management record is created successfully when all required fields are filled with valid data.", function () {
     create_employee_management.createEmployeeManagement();
   });
 
-  it("21.03. To verify that the user can successfully edit an existing Employee Management information, including the Employee  Management Name, and Description..", function () {
+  it("21.03. Verify the user can successfully edit the employee management information, including the name and description.", function () {
     create_employee_management.viewEmployeeManagement();
   });
 
-  it("21.04. should update the Employee  Management with valid information by MRA-Admin role", function () {
+  it("21.04. Verify that the employee management is updated with valid information.", function () {
     create_employee_management.editEmployeeManagement();
   });
 
-  it("21.05. To verify that the user can filter the inactive Employee Managements using the Status Dropdown on the Employee  Management List page.", function () {
+  it("21.05. Verify the user can filter inactive employee records using the status dropdown on the Employee Management List page.", function () {
     create_employee_management.statusInactiveDropdownCheck();
   });
 
-  it("21.06. Verify Filter Active Result by Status Dropdown", function () {
+  it("21.06. Verify check if the filter for active results works correctly with the status dropdown.", function () {
     create_employee_management.statusActiveDropdownCheck();
   });
 
-  it("21.07. Verify Successful Search Result by Employee Management Name", function () {
+  it("21.07. Verify that the search results are displayed correctly when searching by employee management name.", function () {
     create_employee_management.searchInEmployeeName();
   });
 
-  it("21.08. Verify Successful Reset of Grid List Using the Reset Button on Employee Management Page.", function () {
+  it("21.08. Verify the grid list resets successfully when the reset button is clicked on the employee management page.", function () {
     create_employee_management.gridResetButtonCheck();
   });
 
-  it("21.09. Verify Successful Refresh of Grid List Using the Refresh Button on Employee Management Page.", function () {
+  it("21.09. Verify that the grid list is refreshed successfully when the refresh button is clicked on the employee management page.", function () {
     create_employee_management.gridRefreshButtonCheck();
   });
 
-  it("21.10. Verify that the Employee Management creation reset button clears applied input terms.", function () {
+  it("21.10. Verify the employee management creation reset button clears all entered input values.", function () {
     create_employee_management.createResetButtonCheck();
   });
 
-  it("21.11. Verify that required field validation messages appear when mandatory fields are left empty.", function () {
+  it("21.11. Verify validation messages appear for required fields when the submit button is clicked with empty inputs.", function () {
     create_employee_management.createValidationMessageCheck();
   });
 
-  it("21.12. Verify that clicking the Go Back button on the Employee Management Create page navigates the user back to the Employee Management List page.", function () {
+  it("21.12. Verify that clicking the go back button on the employee management create page redirects the user to the employee management list page.", function () {
     create_employee_management.createGoBackButtonCheck();
   });
 
-  it("21.13. Verify that the grid list content successfully switches from English to Bangla.", function () {
+  it("21.13. Verify check that the grid list content changes correctly from english to bangla.", function () {
     create_employee_management.gridLanguageSwitchCheck();
   });
 });

@@ -5,7 +5,7 @@
 import "cypress-file-upload";
 import { create_loan_type } from "./loan-type.po";
 
-describe("9. Loan type Grid list,Creation,View,Update,Inactive,Active,Search,Reset,Refresh,Without one field,Create Reset,Submit button Validation Messages,Go back and Language switch bangla Tests.", function () {
+describe("9. Loan Type Test.", function () {
   const baseURL = Cypress.env("BASE_URL");
   const test_data = Cypress.env("TEST_DATA");
 
@@ -25,59 +25,59 @@ describe("9. Loan type Grid list,Creation,View,Update,Inactive,Active,Search,Res
     cy.logout();
   });
 
-  it("9.01. Verify that the Loan Type List page loads successfully.", function () {
+  it("09.01. Verify the loan type list page loads without errors.", function () {
     create_loan_type.gridLoanTypeListPage();
   });
 
-  it("9.02. To verify that a new Loan Type can be successfully created when all required fields are filled with valid data.", function () {
+  it("09.02. Verify a new loan type is created successfully when all required fields are filled with valid data.", function () {
     create_loan_type.createLoanType();
   });
 
-  it("9.03. To verify that the user can successfully edit an existing Loan Type information, including the Loan Type Name, and Description..", function () {
-    create_loan_type.viewLoanType();
-  });
-
-  it("9.04. should update the Loan Type with valid information by MRA-Admin role", function () {
-    create_loan_type.editLoanType();
-  });
-
-  it("9.05. To verify that the user can filter the inactive Loan Types using the Status Dropdown on the Loan Type List page.", function () {
-    create_loan_type.statusInactiveDropdownCheck();
-  });
-
-  it("9.06. Verify Filter Active Result by Status Dropdown", function () {
-    create_loan_type.statusActiveDropdownCheck();
-  });
-
-  it("9.07. Verify Successful Search Result by Loan Type Name", function () {
-    create_loan_type.searchInLoanTypeName();
-  });
-
-  it("9.08. Verify Successful Reset of Grid List Using the Reset Button on Loan Type Page.", function () {
-    create_loan_type.gridResetButtonCheck();
-  });
-
-  it("9.09. Verify Successful Refresh of Grid List Using the Refresh Button on Loan Type Page.", function () {
-    create_loan_type.gridRefreshButtonCheck();
-  });
-
-  it("09.10. Verify check if loan type can be create without one mandatory field.", function () {
+  it("09.03. Verify check if a loan type cannot be created when a mandatory field is missing.", function () {
     create_loan_type.createWithoutOneMandatoryField();
   });
 
-  it("9.11. Verify that the Loan Type creation reset button clears applied input terms.", function () {
+  it("09.04. Verify the user can view all relevant details of a loan type, including its associated fields.", function () {
+    create_loan_type.viewLoanType();
+  });
+
+  it("09.05. Verify the loan type name and description can be edited successfully.", function () {
+    create_loan_type.editLoanType();
+  });
+
+  it("09.06. Verify the user can filter inactive loan types using the status dropdown on the loan type list page.", function () {
+    create_loan_type.statusInactiveDropdownCheck();
+  });
+
+  it("09.07. Verify the active result is filtered correctly by the status dropdown.", function () {
+    create_loan_type.statusActiveDropdownCheck();
+  });
+
+  it("09.08. Verify the search returns correct results when searching by loan type name.", function () {
+    create_loan_type.searchInLoanTypeName();
+  });
+
+  it("09.09. Verify the grid list resets successfully when the reset button is clicked on the loan type page.", function () {
+    create_loan_type.gridResetButtonCheck();
+  });
+
+  it("09.10. Verify that the grid list is refreshed successfully when the refresh button is clicked on the loan type page.", function () {
+    create_loan_type.gridRefreshButtonCheck();
+  });
+
+  it("09.11. Verify the loan type creation reset button clears all entered input values.", function () {
     create_loan_type.createResetButtonCheck();
   });
 
-  it("9.12. Verify that required field validation messages appear when mandatory fields are left empty.", function () {
+  it("09.12. Verify validation messages appear for required fields when the submit button is clicked with empty inputs.", function () {
     create_loan_type.createValidationMessageCheck();
   });
 
-  it("9.13. Verify that clicking the Go Back button on the Loan Type Create page navigates the user back to the Loan Type List page.", function () {
+  it("09.13. Verify that clicking the go back button on the loan type create page redirects the user to the loan type list page.", function () {
     create_loan_type.createGoBackButtonCheck();
   });
 
-  it("9.14. Verify that the grid list content successfully switches from English to Bangla.", function () {
+  it("09.14. Verify check that the grid list content changes correctly from english to bangla.", function () {
     create_loan_type.gridLanguageSwitchCheck();
   });
 });

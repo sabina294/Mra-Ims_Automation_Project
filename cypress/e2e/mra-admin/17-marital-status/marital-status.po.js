@@ -28,6 +28,24 @@ class MaritalStatusCreation {
     });
   }
 
+  createWithoutOneMandatoryField() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("btn-add-new").click();
+      cy.imsId("btn-submit").and("be.visible");
+
+      var maritalStatusData = data.mraAdmin.createmaritalstatusFrom;
+      cy.formController("description_en").type(maritalStatusData.nameEn);
+
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-ok").click();
+      cy.imsId("btn-go-back").click();
+
+      cy.log(
+        "Successful cannot creation education without one mandatory field."
+      );
+    });
+  }
+
   viewMaritalStatus() {
     cy.fixture(this.test_data).then((data) => {
       var maritalStatusData = data.mraAdmin.createmaritalstatusFrom;
@@ -104,24 +122,6 @@ class MaritalStatusCreation {
     cy.log(
       "successfully refresh page  displayed the grid list of the marital form "
     );
-  }
-
-  createWithoutOneMandatoryField() {
-    cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      cy.imsId("btn-submit").and("be.visible");
-
-      var maritalStatusData = data.mraAdmin.createmaritalstatusFrom;
-      cy.formController("description_en").type(maritalStatusData.nameEn);
-
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-ok").click();
-      cy.imsId("btn-go-back").click();
-
-      cy.log(
-        "Successful cannot creation education without one mandatory field."
-      );
-    });
   }
 
   createResetButtonCheck() {

@@ -28,6 +28,24 @@ class OccupationCreation {
     });
   }
 
+  createWithoutOneMandatoryField() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("btn-add-new").click();
+      cy.imsId("btn-submit").and("be.visible");
+
+      var occupationData = data.mraAdmin.createoccupationFrom;
+      cy.formController("name_bn").type(occupationData.nameBn);
+
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-ok").click();
+      cy.imsId("btn-go-back").click();
+
+      cy.log(
+        "Successful cannot creation education without one mandatory field."
+      );
+    });
+  }
+
   viewOccupation() {
     cy.fixture(this.test_data).then((data) => {
       var occupationData = data.mraAdmin.createoccupationFrom;
@@ -101,24 +119,6 @@ class OccupationCreation {
     cy.log(
       "successfully refresh page  displayed the grid list of the occupation form "
     );
-  }
-
-  createWithoutOneMandatoryField() {
-    cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      cy.imsId("btn-submit").and("be.visible");
-
-      var occupationData = data.mraAdmin.createoccupationFrom;
-      cy.formController("name_bn").type(occupationData.nameBn);
-
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-ok").click();
-      cy.imsId("btn-go-back").click();
-
-      cy.log(
-        "Successful cannot creation education without one mandatory field."
-      );
-    });
   }
 
   createResetButtonCheck() {

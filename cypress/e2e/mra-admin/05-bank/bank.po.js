@@ -28,6 +28,61 @@ class BankCreation {
     });
   }
 
+  createAllField() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("btn-add-new").click();
+      // cy.imsId("btn-submit").and("be.visible");
+
+      var bankData = data.mraAdmin.createbankFrom;
+      cy.formController("name_en").type(bankData.nameEn);
+      cy.formController("name_bn").type(bankData.nameBn);
+      cy.formController("website").type(bankData.website);
+      cy.formController("bank_code").type(bankData.bankCode);
+      cy.formController("bank_short_code").type(bankData.bankShortCode);
+
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-yes").click();
+
+      cy.get("app-confirmation-modal")
+        .contains(bankData.messageSaveBa)
+        .and("be.visible");
+      cy.imsId("btn-ok").click();
+      cy.log("Successfully created bank all field");
+    });
+  }
+
+  createWithoutOneMandatoryField() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("btn-add-new").click();
+      // cy.imsId("btn-submit").and("be.visible");
+
+      var bankData = data.mraAdmin.createbankFrom;
+      cy.formController("name_bn").type(bankData.nameBn);
+      cy.formController("website").type(bankData.website);
+      cy.formController("bank_code").type(bankData.bankCode);
+      cy.formController("bank_short_code").type(bankData.bankShortCode);
+
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-ok").click();
+      cy.imsId("btn-go-back").click();
+
+      cy.log("Successful cannot creation bank without one mandatory field.");
+    });
+  }
+
+  createWithoutMandatoryField() {
+    cy.fixture(this.test_data).then((data) => {
+      var bankData = data.mraAdmin.createbankFrom;
+      cy.imsId("btn-add-new").click();
+      cy.formController("bank_code").type(bankData.bankCode);
+      cy.formController("bank_short_code").type(bankData.bankShortCode);
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-ok").click();
+      cy.imsId("btn-go-back").click();
+      cy.log("Successful cannot creation bank without mandatory field..");
+    });
+  }
+
   viewBank() {
     cy.fixture(this.test_data).then((data) => {
       var bankData = data.mraAdmin.createbankFrom;
@@ -101,48 +156,6 @@ class BankCreation {
     cy.log("Bank pagination check successfully");
   }
 
-  createAllField() {
-    cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      // cy.imsId("btn-submit").and("be.visible");
-
-      var bankData = data.mraAdmin.createbankFrom;
-      cy.formController("name_en").type(bankData.nameEn);
-      cy.formController("name_bn").type(bankData.nameBn);
-      cy.formController("website").type(bankData.website);
-      cy.formController("bank_code").type(bankData.bankCode);
-      cy.formController("bank_short_code").type(bankData.bankShortCode);
-
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-yes").click();
-
-      cy.get("app-confirmation-modal")
-        .contains(bankData.messageSaveBa)
-        .and("be.visible");
-      cy.imsId("btn-ok").click();
-      cy.log("Successfully created bank all field");
-    });
-  }
-
-  createWithoutOneMandatoryField() {
-    cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      // cy.imsId("btn-submit").and("be.visible");
-
-      var bankData = data.mraAdmin.createbankFrom;
-      cy.formController("name_bn").type(bankData.nameBn);
-      cy.formController("website").type(bankData.website);
-      cy.formController("bank_code").type(bankData.bankCode);
-      cy.formController("bank_short_code").type(bankData.bankShortCode);
-
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-ok").click();
-      cy.imsId("btn-go-back").click();
-
-      cy.log("Successful cannot creation bank without one mandatory field.");
-    });
-  }
-
   createResetButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
       var bankData = data.mraAdmin.createbankFrom;
@@ -166,19 +179,6 @@ class BankCreation {
     cy.imsId("btn-add-new").click();
     cy.imsId("btn-go-back").click();
     cy.log("Successful go back button check.");
-  }
-
-  createWithoutMandatoryField() {
-    cy.fixture(this.test_data).then((data) => {
-      var bankData = data.mraAdmin.createbankFrom;
-      cy.imsId("btn-add-new").click();
-      cy.formController("bank_code").type(bankData.bankCode);
-      cy.formController("bank_short_code").type(bankData.bankShortCode);
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-ok").click();
-      cy.imsId("btn-go-back").click();
-      cy.log("Successful cannot creation bank without mandatory field..");
-    });
   }
 
   gridLanguageSwitchCheck() {

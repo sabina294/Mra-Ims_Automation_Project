@@ -44,6 +44,120 @@ class MfiCreation {
     });
   }
 
+  createAllField() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("btn-add-new").click();
+      // cy.imsId('btn-submit').and('be.visible');
+
+      const generateLicenceNo = () => {
+        const rand = () => Math.floor(10000 + Math.random() * 90000);
+
+        const rand2 = () => Math.floor(10000 + Math.random() * 90000);
+
+        const rand3 = () => Math.floor(10000 + Math.random() * 90000);
+        return `${rand()}-${rand2()}-${rand3()}`;
+      };
+      const licnceNo = generateLicenceNo();
+      const mfiId = licnceNo.slice(-4);
+
+      var mfiData = data.mraAdmin.createMfiManFrom;
+      cy.formController("mfi_name_en").first().type(mfiData.mfiNameEn);
+      cy.formController("mfi_name_bn").first().type(mfiData.mfiNmaeBn);
+      cy.formController("licence_no").type(licnceNo);
+      cy.formController("institute_id").type(mfiId.toString());
+      cy.formController("mnemonic").type(mfiData.mnemonic);
+      cy.formController("formation").type(mfiData.formation);
+      cy.formController("website").type(mfiData.webSite);
+      cy.formController("email").type(mfiData.email);
+      cy.formController("contact_no").type(mfiData.contactNo);
+      cy.formController("address_en").type(mfiData.adressEn);
+      cy.formController("address_bn").type(mfiData.adressBn);
+      cy.formController("name_en").type(mfiData.userName);
+      cy.formController("name_bn").type(mfiData.userNameBn);
+      cy.formController("user_email").type(mfiData.userEmail);
+      cy.formController("user_contact_no").type(mfiData.userContractNo);
+      cy.formController("login_id").type(mfiData.loginId);
+      cy.formController("password").type(mfiData.password);
+      cy.formController("confirm_password").type(mfiData.confirmPassword);
+
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-yes").click();
+      cy.get("app-confirmation-modal")
+        .contains(mfiData.messageSaveMfiManagement)
+        .and("be.visible");
+      cy.imsId("btn-ok").click();
+      cy.log("Successfully created MFI management all field");
+    });
+  }
+
+  createWithoutOneMandatoryField() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("btn-add-new").click();
+      // cy.imsId('btn-submit').and('be.visible');
+
+      const generateLicenceNo = () => {
+        const rand = () => Math.floor(10000 + Math.random() * 90000);
+
+        const rand2 = () => Math.floor(10000 + Math.random() * 90000);
+
+        const rand3 = () => Math.floor(10000 + Math.random() * 90000);
+        return `${rand()}-${rand2()}-${rand3()}`;
+      };
+      const licnceNo = generateLicenceNo();
+      const mfiId = licnceNo.slice(-4);
+
+      var mfiData = data.mraAdmin.createMfiManFrom;
+      cy.formController("mfi_name_bn").first().type(mfiData.mfiNmaeBn);
+      cy.formController("licence_no").type(licnceNo);
+      cy.formController("institute_id").type(mfiId.toString());
+      cy.formController("mnemonic").type(mfiData.mnemonic);
+      cy.formController("formation").type(mfiData.formation);
+      cy.formController("website").type(mfiData.webSite);
+      cy.formController("email").type(mfiData.email);
+      cy.formController("contact_no").type(mfiData.contactNo);
+      cy.formController("address_en").type(mfiData.adressEn);
+      cy.formController("address_bn").type(mfiData.adressBn);
+      cy.formController("name_en").type(mfiData.userName);
+      cy.formController("name_bn").type(mfiData.userNameBn);
+      cy.formController("user_email").type(mfiData.userEmail);
+      cy.formController("user_contact_no").type(mfiData.userContractNo);
+      cy.formController("login_id").type(mfiData.loginId);
+      cy.formController("password").type(mfiData.password);
+      cy.formController("confirm_password").type(mfiData.confirmPassword);
+
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-ok").click();
+      cy.imsId("btn-go-back").click();
+
+      cy.log(
+        "Successful cannot creation mfi management without one mandatory field."
+      );
+    });
+  }
+
+  createWithoutMandatoryField() {
+    cy.fixture(this.test_data).then((data) => {
+      var mfiData = data.mraAdmin.createMfiManFrom;
+      cy.imsId("btn-add-new").click();
+      cy.formController("mfi_name_bn").first().type(mfiData.mfiNmaeBn);
+      cy.formController("formation").type(mfiData.formation);
+      cy.formController("website").type(mfiData.webSite);
+      cy.formController("email").type(mfiData.email);
+      cy.formController("contact_no").type(mfiData.contactNo);
+      cy.formController("address_en").type(mfiData.adressEn);
+      cy.formController("address_bn").type(mfiData.adressBn);
+      cy.formController("name_bn").type(mfiData.userNameBn);
+      cy.formController("user_email").type(mfiData.userEmail);
+      cy.formController("user_contact_no").type(mfiData.userContractNo);
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-ok").click();
+      cy.imsId("btn-go-back").click();
+      cy.log(
+        "Successful cannot creation mfi management without mandatory field."
+      );
+    });
+  }
+
   viewMfi() {
     cy.fixture(this.test_data).then((data) => {
       var mfiData = data.mraAdmin.createMfiManFrom;
@@ -114,95 +228,6 @@ class MfiCreation {
       "successfully refresh page  displayed the grid list of the MFI management form "
     );
   }
- 
-   createAllField() {
-    cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      // cy.imsId('btn-submit').and('be.visible');
-
-      const generateLicenceNo = () => {
-        const rand = () => Math.floor(10000 + Math.random() * 90000);
-
-        const rand2 = () => Math.floor(10000 + Math.random() * 90000);
-
-        const rand3 = () => Math.floor(10000 + Math.random() * 90000);
-        return `${rand()}-${rand2()}-${rand3()}`;
-      };
-      const licnceNo = generateLicenceNo();
-      const mfiId = licnceNo.slice(-4);
-
-      var mfiData = data.mraAdmin.createMfiManFrom;
-      cy.formController("mfi_name_en").first().type(mfiData.mfiNameEn);
-      cy.formController("mfi_name_bn").first().type(mfiData.mfiNmaeBn);
-      cy.formController("licence_no").type(licnceNo);
-      cy.formController("institute_id").type(mfiId.toString());
-      cy.formController("mnemonic").type(mfiData.mnemonic);
-      cy.formController("formation").type(mfiData.formation);
-      cy.formController("website").type(mfiData.webSite);
-      cy.formController("email").type(mfiData.email);
-      cy.formController("contact_no").type(mfiData.contactNo);
-      cy.formController("address_en").type(mfiData.adressEn);
-      cy.formController("address_bn").type(mfiData.adressBn);
-      cy.formController("name_en").type(mfiData.userName);
-      cy.formController("name_bn").type(mfiData.userNameBn);
-      cy.formController("user_email").type(mfiData.userEmail);
-      cy.formController("user_contact_no").type(mfiData.userContractNo);
-      cy.formController("login_id").type(mfiData.loginId);
-      cy.formController("password").type(mfiData.password);
-      cy.formController("confirm_password").type(mfiData.confirmPassword);
-
-    cy.imsId("btn-submit").click();
-      cy.imsId("btn-yes").click();
-      cy.get("app-confirmation-modal")
-        .contains(mfiData.messageSaveMfiManagement)
-        .and("be.visible");
-      cy.imsId("btn-ok").click();
-      cy.log("Successfully created MFI management all field");
-    });
-  }
-  
-   createWithoutOneMandatoryField() {
-    cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      // cy.imsId('btn-submit').and('be.visible');
-
-      const generateLicenceNo = () => {
-        const rand = () => Math.floor(10000 + Math.random() * 90000);
-
-        const rand2 = () => Math.floor(10000 + Math.random() * 90000);
-
-        const rand3 = () => Math.floor(10000 + Math.random() * 90000);
-        return `${rand()}-${rand2()}-${rand3()}`;
-      };
-      const licnceNo = generateLicenceNo();
-      const mfiId = licnceNo.slice(-4);
-
-      var mfiData = data.mraAdmin.createMfiManFrom;
-      cy.formController("mfi_name_bn").first().type(mfiData.mfiNmaeBn);
-      cy.formController("licence_no").type(licnceNo);
-      cy.formController("institute_id").type(mfiId.toString());
-      cy.formController("mnemonic").type(mfiData.mnemonic);
-      cy.formController("formation").type(mfiData.formation);
-      cy.formController("website").type(mfiData.webSite);
-      cy.formController("email").type(mfiData.email);
-      cy.formController("contact_no").type(mfiData.contactNo);
-      cy.formController("address_en").type(mfiData.adressEn);
-      cy.formController("address_bn").type(mfiData.adressBn);
-      cy.formController("name_en").type(mfiData.userName);
-      cy.formController("name_bn").type(mfiData.userNameBn);
-      cy.formController("user_email").type(mfiData.userEmail);
-      cy.formController("user_contact_no").type(mfiData.userContractNo);
-      cy.formController("login_id").type(mfiData.loginId);
-      cy.formController("password").type(mfiData.password);
-      cy.formController("confirm_password").type(mfiData.confirmPassword);
-
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-ok").click();
-      cy.imsId("btn-go-back").click();
-
-      cy.log("Successful cannot creation mfi management without one mandatory field.");
-    });
-  }
 
   createResetButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
@@ -227,29 +252,6 @@ class MfiCreation {
     cy.imsId("btn-add-new").click();
     cy.imsId("btn-go-back").click();
     cy.log("Successful go back button check.");
-  }
-
-  createWithoutMandatoryField() {
-    cy.fixture(this.test_data).then((data) => {
-      var mfiData = data.mraAdmin.createMfiManFrom;
-      cy.imsId("btn-add-new").click();
-      cy.formController("mfi_name_bn").first().type(mfiData.mfiNmaeBn);
-      cy.formController("formation").type(mfiData.formation);
-      cy.formController("website").type(mfiData.webSite);
-      cy.formController("email").type(mfiData.email);
-      cy.formController("contact_no").type(mfiData.contactNo);
-      cy.formController("address_en").type(mfiData.adressEn);
-      cy.formController("address_bn").type(mfiData.adressBn);
-      cy.formController("name_bn").type(mfiData.userNameBn);
-      cy.formController("user_email").type(mfiData.userEmail);
-      cy.formController("user_contact_no").type(mfiData.userContractNo);
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-ok").click();
-      cy.imsId("btn-go-back").click();
-      cy.log(
-        "Successful cannot creation mfi management without mandatory field."
-      );
-    });
   }
 
   gridLanguageSwitchCheck() {

@@ -27,6 +27,64 @@ class ThanaCreation {
     });
   }
 
+  createAllField() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("btn-add-new").click();
+      cy.imsId("btn-submit").and("be.visible");
+
+      var upaData = data.mraAdmin.createthanaFrom;
+      cy.formController("name_en").type(upaData.nameEn);
+      cy.formController("name_bn").type(upaData.nameBn);
+      cy.formController("upazila_code").type(upaData.upaCode);
+      cy.formController("postal_code").type(upaData.postCode);
+      cy.formController("website").type(upaData.webSite);
+      cy.formController("district_oid").type(upaData.district).type("{enter}");
+
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-yes").click();
+      cy.get("app-confirmation-modal")
+        .contains(upaData.messageSaveUpa)
+        .and("be.visible");
+      cy.imsId("btn-ok").click();
+      cy.log("Successfully created thana all field");
+    });
+  }
+
+  createWithoutOneMandatoryField() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("btn-add-new").click();
+      cy.imsId("btn-submit").and("be.visible");
+
+      var upaData = data.mraAdmin.createthanaFrom;
+      cy.formController("name_bn").type(upaData.nameBn);
+      cy.formController("upazila_code").type(upaData.upaCode);
+      cy.formController("postal_code").type(upaData.postCode);
+      cy.formController("website").type(upaData.webSite);
+      cy.formController("district_oid").type(upaData.district).type("{enter}");
+
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-ok").click();
+      cy.imsId("btn-go-back").click();
+
+      cy.log("Successful cannot creation thana without one mandatory field.");
+    });
+  }
+
+  createWithoutMandatoryField() {
+    cy.fixture(this.test_data).then((data) => {
+      var upaData = data.mraAdmin.createthanaFrom;
+      cy.imsId("btn-add-new").click();
+      cy.formController("name_bn").type(upaData.nameBn);
+      cy.formController("upazila_code").type(upaData.upaCode);
+      cy.formController("postal_code").type(upaData.postCode);
+      cy.formController("website").type(upaData.webSite);
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-ok").click();
+      cy.imsId("btn-go-back").click();
+      cy.log("Successful cannot creation thana without mandatory field..");
+    });
+  }
+
   viewThana() {
     cy.fixture(this.test_data).then((data) => {
       var upaData = data.mraAdmin.createthanaFrom;
@@ -97,49 +155,6 @@ class ThanaCreation {
     cy.log("Thana pagination check successfully");
   }
 
-  createAllField() {
-    cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      cy.imsId("btn-submit").and("be.visible");
-
-      var upaData = data.mraAdmin.createthanaFrom;
-      cy.formController("name_en").type(upaData.nameEn);
-      cy.formController("name_bn").type(upaData.nameBn);
-      cy.formController("upazila_code").type(upaData.upaCode);
-      cy.formController("postal_code").type(upaData.postCode);
-      cy.formController("website").type(upaData.webSite);
-      cy.formController("district_oid").type(upaData.district).type("{enter}");
-
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-yes").click();
-      cy.get("app-confirmation-modal")
-        .contains(upaData.messageSaveUpa)
-        .and("be.visible");
-      cy.imsId("btn-ok").click();
-      cy.log("Successfully created thana all field");
-    });
-  }
-
-  createWithoutOneMandatoryField() {
-    cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      cy.imsId("btn-submit").and("be.visible");
-
-      var upaData = data.mraAdmin.createthanaFrom;
-      cy.formController("name_bn").type(upaData.nameBn);
-      cy.formController("upazila_code").type(upaData.upaCode);
-      cy.formController("postal_code").type(upaData.postCode);
-      cy.formController("website").type(upaData.webSite);
-      cy.formController("district_oid").type(upaData.district).type("{enter}");
-
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-ok").click();
-      cy.imsId("btn-go-back").click();
-
-      cy.log("Successful cannot creation thana without one mandatory field.");
-    });
-  }
-
   createResetButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
       var upaData = data.mraAdmin.createthanaFrom;
@@ -163,21 +178,6 @@ class ThanaCreation {
     cy.imsId("btn-add-new").click();
     cy.imsId("btn-go-back").click();
     cy.log("Successful go back button check.");
-  }
-
-  createWithoutMandatoryField() {
-    cy.fixture(this.test_data).then((data) => {
-      var upaData = data.mraAdmin.createthanaFrom;
-      cy.imsId("btn-add-new").click();
-      cy.formController("name_bn").type(upaData.nameBn);
-      cy.formController("upazila_code").type(upaData.upaCode);
-      cy.formController("postal_code").type(upaData.postCode);
-      cy.formController("website").type(upaData.webSite);
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-ok").click();
-      cy.imsId("btn-go-back").click();
-      cy.log("Successful cannot creation thana without mandatory field..");
-    });
   }
 
   gridLanguageSwitchCheck() {

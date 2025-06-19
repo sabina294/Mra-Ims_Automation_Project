@@ -5,7 +5,7 @@
 import "cypress-file-upload";
 import { create_district } from "./district.po";
 
-describe("03. District Grid list,Creation,View,Update,Inactive,Active,Search,Reset,Refresh,Pagination,All field,Without one field,Create Reset,Submit button Validation Messages,Go back and Language switch bangla Tests.", function () {
+describe("03. District Test.", function () {
   const baseURL = Cypress.env("BASE_URL");
   const test_data = Cypress.env("TEST_DATA");
 
@@ -25,71 +25,87 @@ describe("03. District Grid list,Creation,View,Update,Inactive,Active,Search,Res
     cy.logout();
   });
 
-  it("03.01. Verify that the District List page loads successfully.", function () {
+  it("03.01. Verify the district list page loads without errors.", function () {
     create_district.gridDistrictListPage();
   });
 
-  it("03.02. To verify that a new District can be successfully created when all required fields are filled with valid data.", function () {
+  it("03.02. Verify a new district is created successfully when all required fields are filled with valid data.", function () {
     create_district.createDistrict();
   });
 
-  it("03.03. To verify that the user can successfully edit an existing District information, including the District Name, and Description..", function () {
-    create_district.viewDistrict();
-  });
-
-  it("03.04. should update the district with valid information by MRA-Admin role", function () {
-    create_district.editDistrict();
-  });
-
-  it("03.05. To verify that the user can filter the inactive Districts using the Status Dropdown on the District List page.", function () {
-    create_district.statusInactiveDropdownCheck();
-  });
-
-  it("03.06. Verify Filter Active Result by Status Dropdown", function () {
-    create_district.statusActiveDropdownCheck();
-  });
-
-  it("03.07. Verify Successful Search Result by District Name", function () {
-    create_district.searchInDistrictName();
-  });
-
-  it("03.08. Verify Successful Reset of Grid List Using the Reset Button on District Page.", function () {
-    create_district.gridResetButtonCheck();
-  });
-
-  it("03.09. Verify Successful Refresh of Grid List Using the Refresh Button on District Page.", function () {
-    create_district.gridRefreshButtonCheck();
-  });
-
-  it("03.10. Verify pagination works correctly on last page of the district list", function () {
-    create_district.paginationCheck();
-  });
-
-  it("03.11. Verify that a new District can be successfully created when all fields are filled with valid data.", function () {
+  it("03.03. Verify a new district is created successfully when all fields are filled with valid data.", function () {
     create_district.createAllField();
   });
 
-  it("03.12. Verify check if division can be create without one mandatory field.", function () {
-    create_district.createWithoutOneMandatoryField();
+  it("03.04. Verify that a district cannot be created without a district name english, even if the district name,code,established year, and division are valid.", function () {
+    create_district.createWithoutNameEn();
   });
 
-  it("03.13. Verify that the District creation reset button clears applied input terms.", function () {
+  it("03.05. Verify that a district cannot be created without a district name bangla, even if the district name,code,year,division are valid.", function () {
+    create_district.createWithoutNameBn();
+  });
+
+  it("03.06. Verify that a district cannot be created without a district code, even if the district name,year and division are valid.", function () {
+    create_district.createWithoutDisCode();
+  });
+
+  it("03.07. Verify that a district cannot be created without established year, even if the district name,code,division are valid.", function () {
+    create_district.createWithoutEstabYear();
+  });
+
+  it("03.08. Verify that a district cannot be created without division, even if the district name,code,year are valid.", function () {
+    create_district.createWithoutDivision();
+  });
+
+  it("03.09. Verify the user can view all relevant details of a district, including its associated fields.", function () {
+    create_district.viewDistrict();
+  });
+
+  it("03.10. Verify the district name and description can be edited successfully.", function () {
+    create_district.editDistrict();
+  });
+
+  it("03.11. Verify the district edit reset button functions correctly.", function () {
+    create_district.editResetButton();
+  });
+
+  it("03.12. Verify the user can filter inactive districts using the status dropdown on the district list page.", function () {
+    create_district.statusInactiveDropdownCheck();
+  });
+
+  it("03.13. Verify the active result is filtered correctly by the status dropdown.", function () {
+    create_district.statusActiveDropdownCheck();
+  });
+
+  it("03.14. Verify the search returns correct results when searching by district name.", function () {
+    create_district.searchInDistrictName();
+  });
+
+  it("03.15. Verify the grid list resets successfully when the reset button is clicked on the district page.", function () {
+    create_district.gridResetButtonCheck();
+  });
+
+  it("03.16. Verify that the grid list is refreshed successfully when the refresh button is clicked on the district page.", function () {
+    create_district.gridRefreshButtonCheck();
+  });
+
+  it("03.17. Verify pagination functions as expected on the last page of the district list.", function () {
+    create_district.paginationCheck();
+  });
+
+  it("03.18. Verify the district creation reset button clears all entered input values.", function () {
     create_district.createResetButtonCheck();
   });
 
-  it("03.14. Verify that required field validation messages appear when mandatory fields are left empty.", function () {
+  it("03.19. Verify validation messages appear for required fields when the submit button is clicked with empty inputs.", function () {
     create_district.createValidationMessageCheck();
   });
 
-  it("03.15. Verify that clicking the Go Back button on the District Create page navigates the user back to the District List page.", function () {
+  it("03.20. Verify that clicking the go back button on the district create page redirects the user to the district list page.", function () {
     create_district.createGoBackButtonCheck();
   });
 
-  it("03.16. Verify successful district creation without mandatory field.", function () {
-    create_district.createWithoutMandatoryField();
-  });
-
-  it("03.17. Verify that the grid list content successfully switches from English to Bangla.", function () {
+  it("03.21. Verify check that the grid list content changes correctly from english to bangla.", function () {
     create_district.gridLanguageSwitchCheck();
   });
 });
