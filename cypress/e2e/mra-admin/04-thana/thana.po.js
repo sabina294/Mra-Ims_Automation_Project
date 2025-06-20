@@ -114,6 +114,51 @@ class ThanaCreation {
     });
   }
 
+  editResetButton() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("toggle-action").first().click();
+      cy.imsId("btn-table-action-edit").click();
+      cy.imsId("btn-reset").click();
+      cy.imsId("btn-go-back").click();
+
+      cy.log("Successful clean displaying");
+    });
+  }
+
+  editSubmitButton() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("toggle-action").first().click();
+      cy.imsId("btn-table-action-edit").click();
+      cy.imsId("btn-reset").click();
+
+      var upaData = data.mraAdmin.createthanaFrom;
+      cy.formController("name_en").type(upaData.nameEn);
+      cy.formController("name_bn").type(upaData.nameBn);
+      cy.formController("upazila_code").type(upaData.upaCode);
+      cy.formController("postal_code").type(upaData.postCode);
+      cy.formController("website").type(upaData.webSite);
+      cy.formController("district_oid").type(upaData.district).type("{enter}");
+      cy.formController("type").click();
+      cy.get('[title="Upazila"] > .ant-select-item-option-content').click();
+      cy.formController("status").click();
+      cy.contains("Active").click();
+
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-yes").click();
+      cy.imsId("btn-ok").click();
+      cy.log("Successfully updated thana");
+    });
+  }
+
+  editGoBackButton() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("toggle-action").first().click();
+      cy.imsId("btn-table-action-edit").click();
+      cy.imsId("btn-go-back").click();
+      cy.log("Successful edit go back button check.");
+    });
+  }
+
   statusInactiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       var upaData = data.mraAdmin.createthanaFrom;

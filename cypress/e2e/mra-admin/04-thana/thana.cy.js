@@ -53,43 +53,55 @@ describe("04. Thana Test.", function () {
     create_thana.editThana();
   });
 
-  it("04.08. Verify the user can filter inactive thanas using the status dropdown on the thana list page.", function () {
+  it("04.08. Verify the thana edit reset button functions correctly.", function () {
+    create_thana.editResetButton();
+  });
+
+  it("04.09. Verify the thana edit submit button functions correctly.", function () {
+    create_thana.editSubmitButton();
+  });
+
+  it("04.10. Verify that clicking the go back button on the thana edit page redirects the user to the thana list page.", function () {
+    create_thana.editGoBackButton();
+  });
+
+  it("04.11. Verify the user can filter inactive thanas using the status dropdown on the thana list page.", function () {
     create_thana.statusInactiveDropdownCheck();
   });
 
-  it("04.09. Verify the active result is filtered correctly by the status dropdown.", function () {
+  it("04.12. Verify the active result is filtered correctly by the status dropdown.", function () {
     create_thana.statusActiveDropdownCheck();
   });
 
-  it("04.10. Verify the search returns correct results when searching by thana name.", function () {
+  it("04.12. Verify the search returns correct results when searching by thana name.", function () {
     create_thana.searchInThanaName();
   });
 
-  it("04.11. Verify the grid list resets successfully when the reset button is clicked on the thana page.", function () {
+  it("04.13. Verify the grid list resets successfully when the reset button is clicked on the thana page.", function () {
     create_thana.gridResetButtonCheck();
   });
 
-  it("04.12. Verify that the grid list is refreshed successfully when the refresh button is clicked on the thana page.", function () {
+  it("04.14. Verify that the grid list is refreshed successfully when the refresh button is clicked on the thana page.", function () {
     create_thana.gridRefreshButtonCheck();
   });
 
-  it("04.14. Verify pagination functions as expected on the last page of the thana list.", function () {
+  it("04.15. Verify pagination functions as expected on the last page of the thana list.", function () {
     create_thana.paginationCheck();
   });
 
-  it("04.14. Verify the thana creation reset button clears all entered input values.", function () {
+  it("04.16. Verify the thana creation reset button clears all entered input values.", function () {
     create_thana.createResetButtonCheck();
   });
 
-  it("04.15. Verify validation messages appear for required fields when the submit button is clicked with empty inputs.", function () {
+  it("04.17. Verify validation messages appear for required fields when the submit button is clicked with empty inputs.", function () {
     create_thana.createValidationMessageCheck();
   });
 
-  it("04.16. Verify that clicking the go back button on the thana create page redirects the user to the thana list page.", function () {
+  it("04.18. Verify that clicking the go back button on the thana create page redirects the user to the thana list page.", function () {
     create_thana.createGoBackButtonCheck();
   });
 
-  it("04.17. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("04.19. Verify check that the grid list content changes correctly from english to bangla.", function () {
     create_thana.gridLanguageSwitchCheck();
   });
 });
