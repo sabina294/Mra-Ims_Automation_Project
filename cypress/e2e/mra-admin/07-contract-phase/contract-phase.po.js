@@ -74,6 +74,44 @@ class ContractPhaseCreation {
     });
   }
 
+  editResetButton() {
+    cy.imsId("toggle-action").first().click();
+    cy.imsId("btn-table-action-edit").click();
+    cy.imsId("btn-reset").click();
+    cy.imsId("btn-go-back").click();
+
+    cy.log("Successful clean displaying");
+  }
+
+  editSubmitButton() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("toggle-action").first().click();
+      cy.imsId("btn-table-action-edit").click();
+      cy.imsId("btn-reset").click();
+
+      var conPhaData = data.mraAdmin.createcontractPhaseFrom;
+      cy.formController("name_en").type(conPhaData.nameEn);
+      cy.formController("name_bn").type(conPhaData.nameBn);
+      cy.formController("status").click();
+      cy.contains("Active").click();
+
+      cy.imsId("btn-submit").click();
+      cy.get("app-confirmation-modal")
+        .contains(conPhaData.messageUpdateCoPh)
+        .and("be.visible");
+      cy.imsId("btn-yes").click();
+      cy.imsId("btn-ok").click();
+      cy.log("Successfully updated contract phase");
+    });
+  }
+
+  editGoBackButton() {
+    cy.imsId("toggle-action").first().click();
+    cy.imsId("btn-table-action-edit").click();
+    cy.imsId("btn-go-back").click();
+    cy.log("Successful edit go back button check.");
+  }
+
   statusInactiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       var conPhaData = data.mraAdmin.createcontractPhaseFrom;

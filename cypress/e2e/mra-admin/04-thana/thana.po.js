@@ -115,14 +115,12 @@ class ThanaCreation {
   }
 
   editResetButton() {
-    cy.fixture(this.test_data).then((data) => {
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-edit").click();
       cy.imsId("btn-reset").click();
       cy.imsId("btn-go-back").click();
 
       cy.log("Successful clean displaying");
-    });
   }
 
   editSubmitButton() {
@@ -151,12 +149,11 @@ class ThanaCreation {
   }
 
   editGoBackButton() {
-    cy.fixture(this.test_data).then((data) => {
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-edit").click();
       cy.imsId("btn-go-back").click();
       cy.log("Successful edit go back button check.");
-    });
+    
   }
 
   statusInactiveDropdownCheck() {

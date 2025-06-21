@@ -53,47 +53,59 @@ describe("06. Bank Branch Test.", function () {
     create_bank_branch.editBankBranch();
   });
 
-  it("06.08. Verify the user can filter inactive banks using the status dropdown on the bank branch list page.", function () {
+  it("06.08. Verify the bank branch edit reset button functions correctly.", function () {
+    create_bank_branch.editResetButton();
+  });
+
+  // it("06.09. Verify the bank branch edit submit button functions correctly.", function () {
+  //   create_bank.editSubmitButton();
+  // });
+
+  it("06.10. Verify that clicking the go back button on the bank branch  edit page redirects the user to the bank branch list page.", function () {
+    create_bank_branch.editGoBackButton();
+  });
+
+  it("06.11. Verify the user can filter inactive banks using the status dropdown on the bank branch list page.", function () {
     create_bank_branch.statusInactiveDropdownCheck();
   });
 
-  it("06.09. Verify the active result is filtered correctly by the status dropdown.", function () {
+  it("06.12. Verify the active result is filtered correctly by the status dropdown.", function () {
     create_bank_branch.statusActiveDropdownCheck();
   });
 
-  it("06.10. Verify check that the bank branch selection works correctly from the dropdown on the bank list page.", function () {
+  it("06.12. Verify check that the bank branch selection works correctly from the dropdown on the bank list page.", function () {
     create_bank_branch.selectBankDropdown();
   });
 
-  it("06.11. Verify the search returns correct results when searching by bank  branch name.", function () {
+  it("06.13. Verify the search returns correct results when searching by bank  branch name.", function () {
     create_bank_branch.searchInBankBranchName();
   });
 
-  it("06.12. Verify the grid list resets successfully when the reset button is clicked on the bank branch page.", function () {
+  it("06.14. Verify the grid list resets successfully when the reset button is clicked on the bank branch page.", function () {
     create_bank_branch.gridResetButtonCheck();
   });
 
-  it("06.13. Verify that the grid list is refreshed successfully when the refresh button is clicked on the bank branch page.", function () {
+  it("06.15. Verify that the grid list is refreshed successfully when the refresh button is clicked on the bank branch page.", function () {
     create_bank_branch.gridRefreshButtonCheck();
   });
 
-  it("06.14. Verify pagination functions as expected on the last page of the bank branch list.", function () {
+  it("06.16. Verify pagination functions as expected on the last page of the bank branch list.", function () {
     create_bank_branch.paginationCheck();
   });
 
-  it("06.15. Verify the bank branch creation reset button clears all entered input values.", function () {
+  it("06.17. Verify the bank branch creation reset button clears all entered input values.", function () {
     create_bank_branch.createResetButtonCheck();
   });
 
-  it("06.16. Verify validation messages appear for required fields when the submit button is clicked with empty inputs.", function () {
+  it("06.18. Verify validation messages appear for required fields when the submit button is clicked with empty inputs.", function () {
     create_bank_branch.createValidationMessageCheck();
   });
 
-  it("06.17. Verify that clicking the go back button on the bank branch create page redirects the user to the bank branch list page.", function () {
+  it("06.19. Verify that clicking the go back button on the bank branch create page redirects the user to the bank branch list page.", function () {
     create_bank_branch.createGoBackButtonCheck();
   });
 
-  it("06.18. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("06.20. Verify check that the grid list content changes correctly from english to bangla.", function () {
     create_bank_branch.gridLanguageSwitchCheck();
   });
 });
