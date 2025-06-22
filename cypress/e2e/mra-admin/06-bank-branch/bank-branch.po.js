@@ -112,6 +112,11 @@ class BankBranchCreation {
     });
   }
 
+  actionButtonCheck() {
+    cy.imsId("toggle-action").first().click();
+    cy.log("Action button clicked successfully on the bank branch list page.");
+  }
+
   viewBankBranch() {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId("toggle-action").first().click();
@@ -170,7 +175,6 @@ class BankBranchCreation {
       cy.imsId("btn-ok").click();
       cy.imsId("btn-go-back").click();
       cy.log("Successfully updated bank branch");
-
     });
   }
 

@@ -44,6 +44,11 @@ class RemarksCreation {
     });
   }
 
+  actionButtonCheck() {
+    cy.imsId("toggle-action").first().click();
+    cy.log("Action button clicked successfully on the remarks list page.");
+  }
+
   viewRemarks() {
     cy.fixture(this.test_data).then((data) => {
       var remarksData = data.mraAdmin.createremarksFrom;
@@ -75,6 +80,45 @@ class RemarksCreation {
 
       cy.log("Remarks updated successfully");
     });
+  }
+
+  editResetButton() {
+    cy.imsId("toggle-action").first().click();
+    cy.imsId("btn-table-action-edit").click();
+    cy.imsId("btn-reset").click();
+    cy.imsId("btn-go-back").click();
+
+    cy.log("Successful clean displaying");
+  }
+
+  editSubmitButton() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("toggle-action").first().click();
+      cy.imsId("btn-table-action-edit").click();
+      cy.imsId("btn-reset").click();
+
+      var remarksData = data.mraAdmin.createremarksFrom;
+      cy.formController("name_en").type(remarksData.nameEn);
+      cy.formController("name_bn").type(remarksData.nameBn);
+      cy.formController("status").click();
+      cy.contains("Active").click();
+      cy.imsId("btn-submit").click();
+
+      cy.get("app-confirmation-modal")
+        .contains(remarksData.messageUpdateRem)
+        .and("be.visible");
+      cy.imsId("btn-yes").click();
+      cy.imsId("btn-ok").click();
+
+      cy.log("Successfully updated remarks");
+    });
+  }
+
+  editGoBackButton() {
+    cy.imsId("toggle-action").first().click();
+    cy.imsId("btn-table-action-edit").click();
+    cy.imsId("btn-go-back").click();
+    cy.log("Successful edit go back button check.");
   }
 
   statusInactiveDropdownCheck() {

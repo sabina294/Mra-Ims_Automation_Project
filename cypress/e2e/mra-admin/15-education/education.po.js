@@ -46,6 +46,11 @@ class EducationCreation {
     });
   }
 
+  actionButtonCheck() {
+    cy.imsId("toggle-action").first().click();
+    cy.log("Action button clicked successfully on the education list page.");
+  }
+
   viewEducation() {
     cy.fixture(this.test_data).then((data) => {
       var eduData = data.mraAdmin.createeducationFrom;
@@ -76,6 +81,45 @@ class EducationCreation {
 
       cy.log("Education updated successfully");
     });
+  }
+
+  editResetButton() {
+    cy.imsId("toggle-action").first().click();
+    cy.imsId("btn-table-action-edit").click();
+    cy.imsId("btn-reset").click();
+    cy.imsId("btn-go-back").click();
+
+    cy.log("Successful clean displaying");
+  }
+
+  editSubmitButton() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("toggle-action").first().click();
+      cy.imsId("btn-table-action-edit").click();
+      cy.imsId("btn-reset").click();
+
+      var eduData = data.mraAdmin.createeducationFrom;
+      cy.formController("name_en").type(eduData.nameEn);
+      cy.formController("name_bn").type(eduData.nameBn);
+      cy.formController("status").click();
+      cy.contains("Active").click();
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-yes").click();
+
+      cy.get("app-confirmation-modal")
+        .contains(eduData.messageUpdateEd)
+        .and("be.visible");
+      cy.imsId("btn-ok").click();
+
+      cy.log("Successfully created education");
+    });
+  }
+
+  editGoBackButton() {
+    cy.imsId("toggle-action").first().click();
+    cy.imsId("btn-table-action-edit").click();
+    cy.imsId("btn-go-back").click();
+    cy.log("Successful edit go back button check.");
   }
 
   statusInactiveDropdownCheck() {

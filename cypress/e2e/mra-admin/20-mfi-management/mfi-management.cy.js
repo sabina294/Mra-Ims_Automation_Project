@@ -33,7 +33,7 @@ describe("20. MFI Management Test.", function () {
     create_mfi_management.createMfi();
   });
 
-  it("20.20. Verify a new mfi management is created successfully when all fields are filled with valid data.", function () {
+  it("20.03. Verify a new mfi management is created successfully when all fields are filled with valid data.", function () {
     create_mfi_management.createAllField();
   });
 
@@ -45,31 +45,35 @@ describe("20. MFI Management Test.", function () {
     create_mfi_management.createWithoutMandatoryField();
   });
 
-  it("20.06. Verify the user can view all relevant details of a mfi management, including its associated fields.", function () {
+  it("20.06. Verify successfully performs the action when the action button is clicked.", function () {
+    create_mfi_management.actionButtonCheck();
+  });
+
+  it("20.07. Verify the user can view all relevant details of a mfi management, including its associated fields.", function () {
     create_mfi_management.viewMfi();
   });
 
-  it("20.07. Verify the mfi management name and description can be edited successfully.", function () {
+  it("20.08. Verify the mfi management name and description can be edited successfully.", function () {
     create_mfi_management.editMfi();
   });
 
-  it("20.08. Verify the user can filter inactive mfi managements using the status dropdown on the mfi management list page.", function () {
+  it("20.09. Verify the user can filter inactive mfi managements using the status dropdown on the mfi management list page.", function () {
     create_mfi_management.statusInactiveDropdownCheck();
   });
 
-  it("20.09. Verify the active result is filtered correctly by the status dropdown.", function () {
+  it("20.10. Verify the active result is filtered correctly by the status dropdown.", function () {
     create_mfi_management.statusActiveDropdownCheck();
   });
 
-  it("20.10. Verify the search returns correct results when searching by mfi management name.", function () {
+  it("20.11. Verify the search returns correct results when searching by mfi management name.", function () {
     create_mfi_management.searchInMfiManagementName();
   });
 
-  it("20.11. Verify the grid list resets successfully when the reset button is clicked on the mfi management page.", function () {
+  it("20.12. Verify the grid list resets successfully when the reset button is clicked on the mfi management page.", function () {
     create_mfi_management.gridResetButtonCheck();
   });
 
-  it("20.12. Verify that the grid list is refreshed successfully when the refresh button is clicked on the mfi management page.", function () {
+  it("20.13. Verify that the grid list is refreshed successfully when the refresh button is clicked on the mfi management page.", function () {
     create_mfi_management.gridRefreshButtonCheck();
   });
 

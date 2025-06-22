@@ -85,6 +85,11 @@ class ThanaCreation {
     });
   }
 
+  actionButtonCheck() {
+    cy.imsId("toggle-action").first().click();
+    cy.log("Action button clicked successfully on the thana list page.");
+  }
+
   viewThana() {
     cy.fixture(this.test_data).then((data) => {
       var upaData = data.mraAdmin.createthanaFrom;
@@ -115,12 +120,12 @@ class ThanaCreation {
   }
 
   editResetButton() {
-      cy.imsId("toggle-action").first().click();
-      cy.imsId("btn-table-action-edit").click();
-      cy.imsId("btn-reset").click();
-      cy.imsId("btn-go-back").click();
+    cy.imsId("toggle-action").first().click();
+    cy.imsId("btn-table-action-edit").click();
+    cy.imsId("btn-reset").click();
+    cy.imsId("btn-go-back").click();
 
-      cy.log("Successful clean displaying");
+    cy.log("Successful clean displaying");
   }
 
   editSubmitButton() {
@@ -149,11 +154,10 @@ class ThanaCreation {
   }
 
   editGoBackButton() {
-      cy.imsId("toggle-action").first().click();
-      cy.imsId("btn-table-action-edit").click();
-      cy.imsId("btn-go-back").click();
-      cy.log("Successful edit go back button check.");
-    
+    cy.imsId("toggle-action").first().click();
+    cy.imsId("btn-table-action-edit").click();
+    cy.imsId("btn-go-back").click();
+    cy.log("Successful edit go back button check.");
   }
 
   statusInactiveDropdownCheck() {

@@ -49,59 +49,63 @@ describe("02. Division Test.", function () {
     create_division.createWithoutEstabYear();
   });
 
-  it("02.07. Verify the user can view all relevant details of a division, including its associated fields.", function () {
+  it("02.07. Verify successfully performs the action when the action button is clicked.", function () {
+    create_division.actionButtonCheck();
+  });
+
+  it("02.08. Verify the user can view all relevant details of a division, including its associated fields.", function () {
     create_division.viewDivision();
   });
 
-  it("02.08. Verify the division name and description can be edited successfully.", function () {
+  it("02.09. Verify the division name and description can be edited successfully.", function () {
     create_division.editDivision();
   });
 
-  it("02.09. Verify the division edit reset button functions correctly.", function () {
+  it("02.10. Verify the division edit reset button functions correctly.", function () {
     create_division.editResetButton();
   });
 
-  it("02.10. Verify the division edit submit button functions correctly.", function () {
+  it("02.11. Verify the division edit submit button functions correctly.", function () {
     create_division.editSubmitButton();
   });
 
-  it("02.11. Verify that clicking the go back button on the division edit page redirects the user to the division list page.", function () {
+  it("02.12. Verify that clicking the go back button on the division edit page redirects the user to the division list page.", function () {
     create_division.editGoBackButton();
   });
 
-  it("02.12. Verify the user can filter inactive divisions using the status dropdown on the division list page.", function () {
+  it("02.13. Verify the user can filter inactive divisions using the status dropdown on the division list page.", function () {
     create_division.statusInactiveDropdownCheck();
   });
 
-  it("02.13. Verify the active result is filtered correctly by the status dropdown.", function () {
+  it("02.14. Verify the active result is filtered correctly by the status dropdown.", function () {
     create_division.statusActiveDropdownCheck();
   });
 
-  it("02.14. Verify the search returns correct results when searching by division name.", function () {
+  it("02.15. Verify the search returns correct results when searching by division name.", function () {
     create_division.searchInDivisionName();
   });
 
-  it("02.15. Verify the grid list resets successfully when the reset button is clicked on the division page.", function () {
+  it("02.16. Verify the grid list resets successfully when the reset button is clicked on the division page.", function () {
     create_division.gridResetButtonCheck();
   });
 
-  it("02.16. Verify that the grid list is refreshed successfully when the refresh button is clicked on the division page.", function () {
+  it("02.17. Verify that the grid list is refreshed successfully when the refresh button is clicked on the division page.", function () {
     create_division.gridRefreshButtonCheck();
   });
 
-  it("02.17. Verify the division creation reset button clears all entered input values.", function () {
+  it("02.18. Verify the division creation reset button clears all entered input values.", function () {
     create_division.createResetButtonCheck();
   });
 
-  it("02.18. Verify validation messages appear for required fields when the submit button is clicked with empty inputs.", function () {
+  it("02.19. Verify validation messages appear for required fields when the submit button is clicked with empty inputs.", function () {
     create_division.createValidationMessageCheck();
   });
 
-  it("02.19. Verify that clicking the go back button on the division create page redirects the user to the division list page.", function () {
+  it("02.20. Verify that clicking the go back button on the division create page redirects the user to the division list page.", function () {
     create_division.createGoBackButtonCheck();
   });
 
-  it("02.20. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("02.21. Verify check that the grid list content changes correctly from english to bangla.", function () {
     create_division.gridLanguageSwitchCheck();
   });
 });

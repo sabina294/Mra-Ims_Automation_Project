@@ -21,9 +21,15 @@ class LoanChartUpdate {
       cy.imsId("btn-yes").click();
       cy.imsId("btn-ok").click();
 
-      cy.log("Successfully updated loanchart");
+      cy.log("Successfully updated loan chart");
     });
   }
+
+  actionButtonCheck() {
+    cy.imsId("toggle-action").first().click();
+    cy.log("Action button clicked successfully on the loan chart list page.");
+  }
+
   viewloanchart() {
     cy.fixture(this.test_data).then((data) => {
       var loChart = data.mraAdmin.updateloanChartFrom;
@@ -35,6 +41,22 @@ class LoanChartUpdate {
       cy.imsId("btn-go-back").click();
       cy.log("Successfully viewed the loanchart list page");
     });
+  }
+
+  editResetButton() {
+    cy.imsId("toggle-action").first().click();
+    cy.imsId("btn-table-action-edit").click();
+    cy.imsId("btn-reset").click();
+    cy.imsId("btn-go-back").click();
+
+    cy.log("Successful clean displaying");
+  }
+
+  editGoBackButton() {
+    cy.imsId("toggle-action").first().click();
+    cy.imsId("btn-table-action-edit").click();
+    cy.imsId("btn-go-back").click();
+    cy.log("Successful edit go back button check.");
   }
 
   statusInactiveDropdownCheck() {

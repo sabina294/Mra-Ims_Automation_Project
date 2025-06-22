@@ -83,6 +83,11 @@ class BankCreation {
     });
   }
 
+  actionButtonCheck() {
+    cy.imsId("toggle-action").first().click();
+    cy.log("Action button clicked successfully on the bank list page.");
+  }
+
   viewBank() {
     cy.fixture(this.test_data).then((data) => {
       var bankData = data.mraAdmin.createbankFrom;
@@ -116,13 +121,12 @@ class BankCreation {
   }
 
   editResetButton() {
-      cy.imsId("toggle-action").first().click();
-      cy.imsId("btn-table-action-edit").click();
-      cy.imsId("btn-reset").click();
-      cy.imsId("btn-go-back").click();
+    cy.imsId("toggle-action").first().click();
+    cy.imsId("btn-table-action-edit").click();
+    cy.imsId("btn-reset").click();
+    cy.imsId("btn-go-back").click();
 
-      cy.log("Successful clean displaying");
-    
+    cy.log("Successful clean displaying");
   }
 
   editSubmitButton() {
@@ -143,7 +147,6 @@ class BankCreation {
       cy.formController("isQcashEnabled").click();
       cy.formController("isNpsbEnabled").click();
 
-
       cy.imsId("btn-submit").click();
       cy.imsId("btn-yes").click();
       cy.imsId("btn-ok").click();
@@ -153,11 +156,10 @@ class BankCreation {
   }
 
   editGoBackButton() {
-      cy.imsId("toggle-action").first().click();
-      cy.imsId("btn-table-action-edit").click();
-      cy.imsId("btn-go-back").click();
-      cy.log("Successful edit go back button check.");
-   
+    cy.imsId("toggle-action").first().click();
+    cy.imsId("btn-table-action-edit").click();
+    cy.imsId("btn-go-back").click();
+    cy.log("Successful edit go back button check.");
   }
 
   statusInactiveDropdownCheck() {

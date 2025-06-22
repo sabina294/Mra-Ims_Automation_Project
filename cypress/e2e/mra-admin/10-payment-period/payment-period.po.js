@@ -99,6 +99,13 @@ class PaymentPeriodCreation {
     });
   }
 
+  actionButtonCheck() {
+    cy.imsId("toggle-action").first().click();
+    cy.log(
+      "Action button clicked successfully on the payment period list page."
+    );
+  }
+
   viewPaymentPeriod() {
     cy.fixture(this.test_data).then((data) => {
       var payPerData = data.mraAdmin.createpaymentPeriodFrom;
@@ -134,6 +141,49 @@ class PaymentPeriodCreation {
 
       cy.log("Payment period updated successfully");
     });
+  }
+
+  editResetButton() {
+    cy.imsId("toggle-action").first().click();
+    cy.imsId("btn-table-action-edit").click();
+    cy.imsId("btn-reset").click();
+    cy.imsId("btn-go-back").click();
+
+    cy.log("Successful clean displaying");
+  }
+
+  editSubmitButton() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("toggle-action").first().click();
+      cy.imsId("btn-table-action-edit").click();
+      cy.imsId("btn-reset").click();
+
+      var payPerData = data.mraAdmin.createpaymentPeriodFrom;
+      var randomNumber = Math.floor(1000 + Math.random() * 9000);
+      var PaymentPeriodId = payPerData.PaymentPeriodId + "-" + randomNumber;
+
+      cy.formController("name_en").type(payPerData.nameEn);
+      cy.formController("description_en").type(payPerData.descriptionEn);
+      cy.formController("payment_period_id").type(PaymentPeriodId);
+      cy.formController("status").click();
+      cy.contains("Active").click();
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-yes").click();
+
+      cy.get("app-confirmation-modal")
+        .contains(payPerData.messageUpdatePaPe)
+        .and("be.visible");
+      cy.imsId("btn-ok").click();
+
+      cy.log("Successfully updated payment period");
+    });
+  }
+
+  editGoBackButton() {
+    cy.imsId("toggle-action").first().click();
+    cy.imsId("btn-table-action-edit").click();
+    cy.imsId("btn-go-back").click();
+    cy.log("Successful edit go back button check.");
   }
 
   statusInactiveDropdownCheck() {

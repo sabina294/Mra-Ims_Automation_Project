@@ -52,6 +52,11 @@ class LoanTypeCreation {
     });
   }
 
+  actionButtonCheck() {
+    cy.imsId("toggle-action").first().click();
+    cy.log("Action button clicked successfully on the loan type list page.");
+  }
+
   viewLoanType() {
     cy.fixture(this.test_data).then((data) => {
       var loanTData = data.mraAdmin.createloanTypeFrom;
@@ -82,6 +87,48 @@ class LoanTypeCreation {
 
       cy.log("Loan type updated successfully");
     });
+  }
+
+  editResetButton() {
+    cy.imsId("toggle-action").first().click();
+    cy.imsId("btn-table-action-edit").click();
+    cy.imsId("btn-reset").click();
+    cy.imsId("btn-go-back").click();
+
+    cy.log("Successful clean displaying");
+  }
+
+  editSubmitButton() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("toggle-action").first().click();
+      cy.imsId("btn-table-action-edit").click();
+      cy.imsId("btn-reset").click();
+
+      var loanTData = data.mraAdmin.createloanTypeFrom;
+      cy.formController("name_en").type(loanTData.nameEn);
+      cy.formController("name_bn").type(loanTData.nameBn);
+      cy.formController("loan_type_id").type(loanTData.loanTypeId);
+      cy.formController("product_nature_id").type(loanTData.productNatureId);
+      cy.formController("description").type(loanTData.loanTypeDescription);
+      cy.formController("status").click();
+      cy.contains("Active").click();
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-yes").click();
+
+      cy.get("app-confirmation-modal")
+        .contains(loanTData.messageUpdateLoTy)
+        .and("be.visible");
+      cy.imsId("btn-ok").click();
+
+      cy.log("Successfully updated loan type");
+    });
+  }
+
+  editGoBackButton() {
+    cy.imsId("toggle-action").first().click();
+    cy.imsId("btn-table-action-edit").click();
+    cy.imsId("btn-go-back").click();
+    cy.log("Successful edit go back button check.");
   }
 
   statusInactiveDropdownCheck() {

@@ -45,63 +45,67 @@ describe("05. Bank Test.", function () {
     create_bank.createWithoutMandatoryField();
   });
 
-  it("05.06. Verify the user can view all relevant details of a bank, including its associated fields.", function () {
+  it("05.06. Verify successfully performs the action when the action button is clicked.", function () {
+    create_bank.actionButtonCheck();
+  });
+
+  it("05.07. Verify the user can view all relevant details of a bank, including its associated fields.", function () {
     create_bank.viewBank();
   });
 
-  it("05.07. Verify the bank name and description can be edited successfully.", function () {
+  it("05.08. Verify the bank name and description can be edited successfully.", function () {
     create_bank.editBank();
   });
 
-  it("05.08. Verify the bank edit reset button functions correctly.", function () {
+  it("05.09. Verify the bank edit reset button functions correctly.", function () {
     create_bank.editResetButton();
   });
 
-  // it("05.09. Verify the bank edit submit button functions correctly.", function () {
+  // it("05.10. Verify the bank edit submit button functions correctly.", function () {
   //   create_bank.editSubmitButton();
   // });
 
-  it("05.10. Verify that clicking the go back button on the bank edit page redirects the user to the bank list page.", function () {
+  it("05.11. Verify that clicking the go back button on the bank edit page redirects the user to the bank list page.", function () {
     create_bank.editGoBackButton();
   });
 
-  it("05.11. Verify the user can filter inactive banks using the status dropdown on the bank list page.", function () {
+  it("05.12. Verify the user can filter inactive banks using the status dropdown on the bank list page.", function () {
     create_bank.statusInactiveDropdownCheck();
   });
 
-  it("05.12. Verify the active result is filtered correctly by the status dropdown.", function () {
+  it("05.13. Verify the active result is filtered correctly by the status dropdown.", function () {
     create_bank.statusActiveDropdownCheck();
   });
 
-  it("05.13. Verify the search returns correct results when searching by bank name.", function () {
+  it("05.14. Verify the search returns correct results when searching by bank name.", function () {
     create_bank.searchInBankName();
   });
 
-  it("05.14. Verify the grid list resets successfully when the reset button is clicked on the bank page.", function () {
+  it("05.15. Verify the grid list resets successfully when the reset button is clicked on the bank page.", function () {
     create_bank.gridResetButtonCheck();
   });
 
-  it("05.15. Verify that the grid list is refreshed successfully when the refresh button is clicked on the bank page.", function () {
+  it("05.16. Verify that the grid list is refreshed successfully when the refresh button is clicked on the bank page.", function () {
     create_bank.gridRefreshButtonCheck();
   });
 
-  it("05.16. Verify pagination functions as expected on the last page of the bank list.", function () {
+  it("05.17. Verify pagination functions as expected on the last page of the bank list.", function () {
     create_bank.paginationCheck();
   });
 
-  it("05.17. Verify the bank creation reset button clears all entered input values.", function () {
+  it("05.18. Verify the bank creation reset button clears all entered input values.", function () {
     create_bank.createResetButtonCheck();
   });
 
-  it("05.18. Verify validation messages appear for required fields when the submit button is clicked with empty inputs.", function () {
+  it("05.19. Verify validation messages appear for required fields when the submit button is clicked with empty inputs.", function () {
     create_bank.createValidationMessageCheck();
   });
 
-  it("05.19. Verify that clicking the go back button on the bank create page redirects the user to the bank list page.", function () {
+  it("05.20. Verify that clicking the go back button on the bank create page redirects the user to the bank list page.", function () {
     create_bank.createGoBackButtonCheck();
   });
 
-  it("05.20. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("05.21. Verify check that the grid list content changes correctly from english to bangla.", function () {
     create_bank.gridLanguageSwitchCheck();
   });
 });

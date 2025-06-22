@@ -92,6 +92,13 @@ class LoanClassStatusCreation {
     });
   }
 
+  actionButtonCheck() {
+    cy.imsId("toggle-action").first().click();
+    cy.log(
+      "Action button clicked successfully on the loan class status list page."
+    );
+  }
+
   viewLoanClassStatus() {
     cy.fixture(this.test_data).then((data) => {
       var loanClasStaData = data.mraAdmin.createloanClassStatusFrom;
@@ -126,6 +133,50 @@ class LoanClassStatusCreation {
 
       cy.log("Loan class status updated successfully");
     });
+  }
+
+  editResetButton() {
+    cy.imsId("toggle-action").first().click();
+    cy.imsId("btn-table-action-edit").click();
+    cy.imsId("btn-reset").click();
+    cy.imsId("btn-go-back").click();
+
+    cy.log("Successful clean displaying");
+  }
+
+  editSubmitButton() {
+    cy.fixture(this.test_data).then((data) => {
+      var loanClasStaData = data.mraAdmin.createloanClassStatusFrom;
+      cy.imsId("toggle-action").first().click();
+      cy.imsId("btn-table-action-edit").click();
+      cy.imsId("btn-reset").click();
+
+      var loanClasStaData = data.mraAdmin.createloanClassStatusFrom;
+      var randomNumber = Math.floor(1000 + Math.random() * 9000);
+      var loanClassId = loanClasStaData.loanClassId + "-" + randomNumber;
+
+      cy.formController("loan_class_status_id").type(loanClassId);
+      cy.formController("name_en").type(loanClasStaData.loanClassNameEn);
+      cy.formController("name_bn").type(loanClasStaData.loanClassNameBn);
+      cy.formController("description").type(loanClasStaData.description);
+      cy.formController("status").click();
+      cy.contains("Active").click();
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-yes").click();
+      cy.get("app-confirmation-modal")
+        .contains(loanClasStaData.messageUpdateLoClSt)
+        .and("be.visible");
+      cy.imsId("btn-ok").click();
+
+      cy.log("Successfully updated loan class status all field");
+    });
+  }
+
+  editGoBackButton() {
+    cy.imsId("toggle-action").first().click();
+    cy.imsId("btn-table-action-edit").click();
+    cy.imsId("btn-go-back").click();
+    cy.log("Successful edit go back button check.");
   }
 
   statusInactiveDropdownCheck() {

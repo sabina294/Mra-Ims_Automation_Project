@@ -62,6 +62,13 @@ class EmployeeManagementCreation {
     });
   }
 
+  actionButtonCheck() {
+    cy.imsId("toggle-action").first().click();
+    cy.log(
+      "Action button clicked successfully on the employee management list page."
+    );
+  }
+
   viewEmployeeManagement() {
     cy.fixture(this.test_data).then((data) => {
       var emData = data.mraAdmin.createEmployeeFrom;

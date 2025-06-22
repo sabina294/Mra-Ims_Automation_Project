@@ -109,6 +109,11 @@ class DivisionCreation {
     });
   }
 
+  actionButtonCheck() {
+    cy.imsId("toggle-action").first().click();
+    cy.log("Action button clicked successfully on the division list page.");
+  }
+
   viewDivision() {
     cy.fixture(this.test_data).then((data) => {
       var divData = data.mraAdmin.createdivisionFrom;
@@ -141,13 +146,12 @@ class DivisionCreation {
   }
 
   editResetButton() {
-      cy.imsId("toggle-action").first().click();
-      cy.imsId("btn-table-action-edit").click();
-      cy.imsId("btn-reset").click();
-      cy.imsId("btn-go-back").click();
+    cy.imsId("toggle-action").first().click();
+    cy.imsId("btn-table-action-edit").click();
+    cy.imsId("btn-reset").click();
+    cy.imsId("btn-go-back").click();
 
-      cy.log("Successful clean displaying");
-   
+    cy.log("Successful clean displaying");
   }
 
   editSubmitButton() {

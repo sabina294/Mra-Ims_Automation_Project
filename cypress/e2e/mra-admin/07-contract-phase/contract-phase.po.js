@@ -44,6 +44,11 @@ class ContractPhaseCreation {
     });
   }
 
+   actionButtonCheck() {
+    cy.imsId("toggle-action").first().click();
+    cy.log("Action button clicked successfully on the contract phase list page.");
+  }
+
   viewContractPhase() {
     cy.fixture(this.test_data).then((data) => {
       var conPhaData = data.mraAdmin.createcontractPhaseFrom;

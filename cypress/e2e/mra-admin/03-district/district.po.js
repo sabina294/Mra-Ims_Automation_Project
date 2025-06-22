@@ -168,6 +168,11 @@ class DistrictCreation {
     });
   }
 
+  actionButtonCheck() {
+    cy.imsId("toggle-action").first().click();
+    cy.log("Action button clicked successfully on the district list page.");
+  }
+
   viewDistrict() {
     cy.fixture(this.test_data).then((data) => {
       var disData = data.mraAdmin.createdistrictFrom;
@@ -198,13 +203,12 @@ class DistrictCreation {
   }
 
   editResetButton() {
-      cy.imsId("toggle-action").first().click();
-      cy.imsId("btn-table-action-edit").click();
-      cy.imsId("btn-reset").click();
-      cy.imsId("btn-go-back").click();
+    cy.imsId("toggle-action").first().click();
+    cy.imsId("btn-table-action-edit").click();
+    cy.imsId("btn-reset").click();
+    cy.imsId("btn-go-back").click();
 
-      cy.log("Successful clean displaying");
-    
+    cy.log("Successful clean displaying");
   }
 
   editSubmitButton() {

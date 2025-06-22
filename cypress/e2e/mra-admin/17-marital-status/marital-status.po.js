@@ -46,6 +46,13 @@ class MaritalStatusCreation {
     });
   }
 
+  actionButtonCheck() {
+    cy.imsId("toggle-action").first().click();
+    cy.log(
+      "Action button clicked successfully on the marital status list page."
+    );
+  }
+
   viewMaritalStatus() {
     cy.fixture(this.test_data).then((data) => {
       var maritalStatusData = data.mraAdmin.createmaritalstatusFrom;
@@ -80,6 +87,45 @@ class MaritalStatusCreation {
 
       cy.log("Marital status updated successfully");
     });
+  }
+
+  editResetButton() {
+    cy.imsId("toggle-action").first().click();
+    cy.imsId("btn-table-action-edit").click();
+    cy.imsId("btn-reset").click();
+    cy.imsId("btn-go-back").click();
+
+    cy.log("Successful clean displaying");
+  }
+
+  editSubmitButton() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("toggle-action").first().click();
+      cy.imsId("btn-table-action-edit").click();
+      cy.imsId("btn-reset").click();
+
+      var maritalStatusData = data.mraAdmin.createmaritalstatusFrom;
+      cy.formController("description_en").type(maritalStatusData.nameEn);
+      cy.formController("description_bn").type(maritalStatusData.nameBn);
+      cy.formController("status").click();
+      cy.contains("Active").click();
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-yes").click();
+
+      cy.get("app-confirmation-modal")
+        .contains(maritalStatusData.messageUpdateMaSt)
+        .and("be.visible");
+      cy.imsId("btn-ok").click();
+
+      cy.log("Successfully updated marital status");
+    });
+  }
+
+  editGoBackButton() {
+    cy.imsId("toggle-action").first().click();
+    cy.imsId("btn-table-action-edit").click();
+    cy.imsId("btn-go-back").click();
+    cy.log("Successful edit go back button check.");
   }
 
   statusInactiveDropdownCheck() {

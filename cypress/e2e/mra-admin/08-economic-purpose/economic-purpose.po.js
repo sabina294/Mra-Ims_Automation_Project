@@ -58,6 +58,13 @@ class EconomicPurposeCreation {
     });
   }
 
+  actionButtonCheck() {
+    cy.imsId("toggle-action").first().click();
+    cy.log(
+      "Action button clicked successfully on the economic purpose list page."
+    );
+  }
+
   viewEconomicPurpose() {
     cy.fixture(this.test_data).then((data) => {
       var ecoPurData = data.mraAdmin.createeconomicPurposeFrom;
@@ -91,6 +98,51 @@ class EconomicPurposeCreation {
 
       cy.log("Economic purpose updated successfully");
     });
+  }
+
+  editResetButton() {
+    cy.imsId("toggle-action").first().click();
+    cy.imsId("btn-table-action-edit").click();
+    cy.imsId("btn-reset").click();
+    cy.imsId("btn-go-back").click();
+
+    cy.log("Successful clean displaying");
+  }
+
+  editSubmitButton() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("toggle-action").first().click();
+      cy.imsId("btn-table-action-edit").click();
+      cy.imsId("btn-reset").click();
+
+      var ecoPurData = data.mraAdmin.createeconomicPurposeFrom;
+      cy.formController("mra_code").type(ecoPurData.economicPurposeCode);
+      cy.formController("name_en").type(ecoPurData.nameEn);
+      cy.formController("name_bn").type(ecoPurData.nameBn);
+      cy.formController("sector").type(ecoPurData.economicSector);
+      cy.formController("econ_activity").type(ecoPurData.economicActivity);
+      cy.formController("lending_category_id")
+        .type(ecoPurData.lendingCategory)
+        .type("{enter}");
+      cy.formController("status").click();
+      cy.contains("Active").click();
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-yes").click();
+
+      cy.get("app-confirmation-modal")
+        .contains(ecoPurData.messageUpdateEcPu)
+        .and("be.visible");
+      cy.imsId("btn-ok").click();
+
+      cy.log("Successfully updated economic purpose");
+    });
+  }
+
+  editGoBackButton() {
+    cy.imsId("toggle-action").first().click();
+    cy.imsId("btn-table-action-edit").click();
+    cy.imsId("btn-go-back").click();
+    cy.log("Successful edit go back button check.");
   }
 
   statusInactiveDropdownCheck() {

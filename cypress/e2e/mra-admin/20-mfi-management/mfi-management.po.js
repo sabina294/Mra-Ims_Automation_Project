@@ -158,6 +158,13 @@ class MfiCreation {
     });
   }
 
+  actionButtonCheck() {
+    cy.imsId("toggle-action").first().click();
+    cy.log(
+      "Action button clicked successfully on the mfi management list page."
+    );
+  }
+
   viewMfi() {
     cy.fixture(this.test_data).then((data) => {
       var mfiData = data.mraAdmin.createMfiManFrom;

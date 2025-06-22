@@ -46,6 +46,13 @@ class OrganizationLegalFormCreation {
     });
   }
 
+  actionButtonCheck() {
+    cy.imsId("toggle-action").first().click();
+    cy.log(
+      "Action button clicked successfully on the organization legal form list page."
+    );
+  }
+
   viewOrganizationLegalForm() {
     cy.fixture(this.test_data).then((data) => {
       var orgLegalFormData = data.mraAdmin.createOrgLegForm;
@@ -76,6 +83,45 @@ class OrganizationLegalFormCreation {
 
       cy.log("Organization legal form updated successfully");
     });
+  }
+
+  editResetButton() {
+    cy.imsId("toggle-action").first().click();
+    cy.imsId("btn-table-action-edit").click();
+    cy.imsId("btn-reset").click();
+    cy.imsId("btn-go-back").click();
+
+    cy.log("Successful clean displaying");
+  }
+
+  editSubmitButton() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("toggle-action").first().click();
+      cy.imsId("btn-table-action-edit").click();
+      cy.imsId("btn-reset").click();
+
+      var orgLegalFormData = data.mraAdmin.createOrgLegForm;
+      cy.formController("name_en").type(orgLegalFormData.nameEn);
+      cy.formController("name_bn").type(orgLegalFormData.nameBn);
+      cy.formController("status").click();
+      cy.contains("Active").click();
+      cy.imsId("btn-submit").click();
+
+      cy.get("app-confirmation-modal")
+        .contains(orgLegalFormData.messageUpdateOrgLegForm)
+        .and("be.visible");
+      cy.imsId("btn-yes").click();
+      cy.imsId("btn-ok").click();
+
+      cy.log("Successfully created organization legal form");
+    });
+  }
+
+  editGoBackButton() {
+    cy.imsId("toggle-action").first().click();
+    cy.imsId("btn-table-action-edit").click();
+    cy.imsId("btn-go-back").click();
+    cy.log("Successful edit go back button check.");
   }
 
   statusInactiveDropdownCheck() {

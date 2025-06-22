@@ -37,47 +37,63 @@ describe("18. Occupation Test.", function () {
     create_occupation.createWithoutOneMandatoryField();
   });
 
-  it("18.04. Verify the user can view all relevant details of a occupation, including its associated fields.", function () {
+  it("18.04. Verify successfully performs the action when the action button is clicked.", function () {
+    create_occupation.actionButtonCheck();
+  });
+
+  it("18.05. Verify the user can view all relevant details of a occupation, including its associated fields.", function () {
     create_occupation.viewOccupation();
   });
 
-  it("18.05. Verify the occupation name and description can be edited successfully.", function () {
+  it("18.06. Verify the occupation name and description can be edited successfully.", function () {
     create_occupation.editOccupation();
   });
 
-  it("18.06. Verify the user can filter inactive occupations using the status dropdown on the occupation list page.", function () {
+  it("18.07. Verify the occupation edit reset button functions correctly.", function () {
+    create_occupation.editResetButton();
+  });
+
+  it("18.08. Verify the occupation edit submit button functions correctly.", function () {
+    create_occupation.editSubmitButton();
+  });
+
+  it("18.09. Verify that clicking the go back button on the occupation edit page redirects the user to the occupation list page.", function () {
+    create_occupation.editGoBackButton();
+  });
+
+  it("18.10. Verify the user can filter inactive occupations using the status dropdown on the occupation list page.", function () {
     create_occupation.statusInactiveDropdownCheck();
   });
 
-  it("18.07. Verify the active result is filtered correctly by the status dropdown.", function () {
+  it("18.11. Verify the active result is filtered correctly by the status dropdown.", function () {
     create_occupation.statusActiveDropdownCheck();
   });
 
-  it("18.08. Verify the search returns correct results when searching by occupation name.", function () {
+  it("18.12. Verify the search returns correct results when searching by occupation name.", function () {
     create_occupation.searchInOccupationName();
   });
 
-  it("18.09. Verify the grid list resets successfully when the reset button is clicked on the occupation page.", function () {
+  it("18.13. Verify the grid list resets successfully when the reset button is clicked on the occupation page.", function () {
     create_occupation.gridResetButtonCheck();
   });
 
-  it("18.10. Verify that the grid list is refreshed successfully when the refresh button is clicked on the occupation page.", function () {
+  it("18.14. Verify that the grid list is refreshed successfully when the refresh button is clicked on the occupation page.", function () {
     create_occupation.gridRefreshButtonCheck();
   });
 
-  it("18.11. Verify the occupation creation reset button clears all entered input values.", function () {
+  it("18.15. Verify the occupation creation reset button clears all entered input values.", function () {
     create_occupation.createResetButtonCheck();
   });
 
-  it("18.12. Verify validation messages appear for required fields when the submit button is clicked with empty inputs.", function () {
+  it("18.16. Verify validation messages appear for required fields when the submit button is clicked with empty inputs.", function () {
     create_occupation.createValidationMessageCheck();
   });
 
-  it("18.13. Verify that clicking the go back button on the occupation create page redirects the user to the occupation list page.", function () {
+  it("18.17. Verify that clicking the go back button on the occupation create page redirects the user to the occupation list page.", function () {
     create_occupation.createGoBackButtonCheck();
   });
 
-  it("18.14. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("18.18. Verify check that the grid list content changes correctly from english to bangla.", function () {
     create_occupation.gridLanguageSwitchCheck();
   });
 });

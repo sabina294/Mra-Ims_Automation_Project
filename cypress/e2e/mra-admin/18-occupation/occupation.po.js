@@ -46,6 +46,11 @@ class OccupationCreation {
     });
   }
 
+  actionButtonCheck() {
+    cy.imsId("toggle-action").first().click();
+    cy.log("Action button clicked successfully on the occupation list page.");
+  }
+
   viewOccupation() {
     cy.fixture(this.test_data).then((data) => {
       var occupationData = data.mraAdmin.createoccupationFrom;
@@ -77,6 +82,45 @@ class OccupationCreation {
 
       cy.log("Occupation updated successfully");
     });
+  }
+
+  editResetButton() {
+    cy.imsId("toggle-action").first().click();
+    cy.imsId("btn-table-action-edit").click();
+    cy.imsId("btn-reset").click();
+    cy.imsId("btn-go-back").click();
+
+    cy.log("Successful clean displaying");
+  }
+
+  editSubmitButton() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("toggle-action").first().click();
+      cy.imsId("btn-table-action-edit").click();
+      cy.imsId("btn-reset").click();
+
+      var occupationData = data.mraAdmin.createoccupationFrom;
+      cy.formController("name_en").type(occupationData.nameEn);
+      cy.formController("name_bn").type(occupationData.nameBn);
+      cy.formController("status").click();
+      cy.contains("Active").click();
+      cy.imsId("btn-submit").click();
+
+      cy.get("app-confirmation-modal")
+        .contains(occupationData.messageUpdateOcc)
+        .and("be.visible");
+      cy.imsId("btn-yes").click();
+      cy.imsId("btn-ok").click();
+
+      cy.log("Successfully updated occupation");
+    });
+  }
+
+  editGoBackButton() {
+    cy.imsId("toggle-action").first().click();
+    cy.imsId("btn-table-action-edit").click();
+    cy.imsId("btn-go-back").click();
+    cy.log("Successful edit go back button check.");
   }
 
   statusInactiveDropdownCheck() {
