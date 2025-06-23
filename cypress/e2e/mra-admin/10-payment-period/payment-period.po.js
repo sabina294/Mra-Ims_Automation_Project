@@ -126,6 +126,15 @@ class PaymentPeriodCreation {
     });
   }
 
+  turnOffOnEditMode() {
+    cy.imsId("toggle-action").first().click();
+    cy.imsId("btn-table-action-edit").click();
+    cy.imsId("switch-button").click();
+    cy.imsId("btn-go-back").click();
+
+    cy.log("Payment period form Edit Mode toggled successfully");
+  }
+
   editPaymentPeriod() {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId("toggle-action").first().click();
@@ -165,8 +174,8 @@ class PaymentPeriodCreation {
       cy.formController("name_en").type(payPerData.nameEn);
       cy.formController("description_en").type(payPerData.descriptionEn);
       cy.formController("payment_period_id").type(PaymentPeriodId);
-      cy.formController("status").click();
-      cy.contains("Active").click();
+      cy.formController("status").type(payPerData.status).type("{enter}");
+
       cy.imsId("btn-submit").click();
       cy.imsId("btn-yes").click();
 

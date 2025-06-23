@@ -109,6 +109,28 @@ class DivisionCreation {
     });
   }
 
+  createWithoutStatus() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("btn-add-new").click();
+      cy.imsId("btn-submit").and("be.visible");
+
+      var divData = data.mraAdmin.createdivisionFrom;
+      cy.imsId("btn-reset").click();
+      cy.formController("name_en").type(divData.nameEn);
+      cy.formController("name_bn").type(divData.nameBn);
+      cy.formController("division_code").type(divData.Code);
+      cy.formController("establish_year").type(divData.establishedYear);
+
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-ok").click();
+      cy.imsId("btn-go-back").click();
+
+      cy.log(
+        "Successful cannot creation division without one mandatory field."
+      );
+    });
+  }
+
   actionButtonCheck() {
     cy.imsId("toggle-action").first().click();
     cy.log("Action button clicked successfully on the division list page.");
@@ -145,6 +167,16 @@ class DivisionCreation {
     });
   }
 
+  turnOffEditMode() {
+    cy.imsId("toggle-action").first().click();
+    cy.imsId("btn-table-action-edit").click();
+    cy.imsId("switch-button").click();
+    cy.imsId("btn-go-back").click();
+
+    cy.log("Division form Edit Mode toggled successfully");
+
+  }
+
   editResetButton() {
     cy.imsId("toggle-action").first().click();
     cy.imsId("btn-table-action-edit").click();
@@ -164,11 +196,13 @@ class DivisionCreation {
       cy.formController("name_bn").type(divData.nameBn);
       cy.formController("division_code").type(divData.Code);
       cy.formController("establish_year").type(divData.establishedYear);
-      cy.formController("status").click();
-      cy.contains("Active").click();
+      cy.formController("status").type(divData.status).type("{enter}");
 
       cy.imsId("btn-submit").click();
       cy.imsId("btn-yes").click();
+      cy.get("app-confirmation-modal")
+        .contains(divData.messageUpdateDivi)
+        .and("be.visible");
       cy.imsId("btn-ok").click();
       cy.log("Successfully updated division");
     });

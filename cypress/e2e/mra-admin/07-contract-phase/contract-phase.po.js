@@ -44,9 +44,11 @@ class ContractPhaseCreation {
     });
   }
 
-   actionButtonCheck() {
+  actionButtonCheck() {
     cy.imsId("toggle-action").first().click();
-    cy.log("Action button clicked successfully on the contract phase list page.");
+    cy.log(
+      "Action button clicked successfully on the contract phase list page."
+    );
   }
 
   viewContractPhase() {
@@ -61,6 +63,15 @@ class ContractPhaseCreation {
       cy.imsId("btn-go-back").click();
       cy.log("Successfully viewed the contract phase list page");
     });
+  }
+
+  turnOffOnEditMode() {
+    cy.imsId("toggle-action").first().click();
+    cy.imsId("btn-table-action-edit").click();
+    cy.imsId("switch-button").click();
+    cy.imsId("btn-go-back").click();
+
+    cy.log("Contract phase form Edit Mode toggled successfully");
   }
 
   editContractPhase() {
@@ -97,8 +108,7 @@ class ContractPhaseCreation {
       var conPhaData = data.mraAdmin.createcontractPhaseFrom;
       cy.formController("name_en").type(conPhaData.nameEn);
       cy.formController("name_bn").type(conPhaData.nameBn);
-      cy.formController("status").click();
-      cy.contains("Active").click();
+      cy.formController("status").type(conPhaData.status).type("{enter}");
 
       cy.imsId("btn-submit").click();
       cy.get("app-confirmation-modal")

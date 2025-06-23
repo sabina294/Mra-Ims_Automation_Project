@@ -53,51 +53,55 @@ describe("10. Payment Period Test.", function () {
     create_payment_period.viewPaymentPeriod();
   });
 
-  it("10.08. Verify the payment period name and description can be edited successfully.", function () {
+  // it("10.08. Verify that the payment period forms edit mode can be toggled on and off all fields should be disabled or return to view-only mode.", function () {
+  //   create_payment_period.turnOffOnEditMode();
+  // });
+
+  it("10.09. Verify the payment period name and description can be edited successfully.", function () {
     create_payment_period.editPaymentPeriod();
   });
 
-  it("10.09. Verify the payment period edit reset button functions correctly.", function () {
+  it("10.10. Verify the payment period edit reset button functions correctly.", function () {
     create_payment_period.editResetButton();
   });
 
-  it("10.10. Verify the payment period edit submit button functions correctly.", function () {
+  it("10.11. Verify the payment period edit submit button functions correctly.", function () {
     create_payment_period.editSubmitButton();
   });
 
-  it("10.11. Verify that clicking the go back button on the payment period edit page redirects the user to the payment period  list page.", function () {
+  it("10.12. Verify that clicking the go back button on the payment period edit page redirects the user to the payment period  list page.", function () {
     create_payment_period.editGoBackButton();
   });
 
-  it("10.12. Verify the user can filter inactive payment periods using the status dropdown on the payment period list page.", function () {
+  it("10.13. Verify the user can filter inactive payment periods using the status dropdown on the payment period list page.", function () {
     create_payment_period.statusInactiveDropdownCheck();
   });
 
-  it("10.13. Verify the active result is filtered correctly by the status dropdown.", function () {
+  it("10.14. Verify the active result is filtered correctly by the status dropdown.", function () {
     create_payment_period.statusActiveDropdownCheck();
   });
 
-  it("10.14. Verify the search returns correct results when searching by payment period name.", function () {
+  it("10.15. Verify the search returns correct results when searching by payment period name.", function () {
     create_payment_period.searchInPaymentPeriodName();
   });
 
-  it("10.15. Verify the grid list resets successfully when the reset button is clicked on the payment period page.", function () {
+  it("10.16. Verify the grid list resets successfully when the reset button is clicked on the payment period page.", function () {
     create_payment_period.gridResetButtonCheck();
   });
 
-  it("10.16. Verify that the grid list is refreshed successfully when the refresh button is clicked on the payment period page.", function () {
+  it("10.17. Verify that the grid list is refreshed successfully when the refresh button is clicked on the payment period page.", function () {
     create_payment_period.gridRefreshButtonCheck();
   });
 
-  it("10.17. Verify pagination functions as expected on the last page of the payment period list.", function () {
+  it("10.18. Verify pagination functions as expected on the last page of the payment period list.", function () {
     create_payment_period.paginationCheck();
   });
 
-  it("10.18. Verify the payment period creation reset button clears all entered input values.", function () {
+  it("10.19. Verify the payment period creation reset button clears all entered input values.", function () {
     create_payment_period.createResetButtonCheck();
   });
 
-  it("10.19. Verify validation messages appear for required fields when the submit button is clicked with empty inputs.", function () {
+  it("10.20. Verify validation messages appear for required fields when the submit button is clicked with empty inputs.", function () {
     create_payment_period.createValidationMessageCheck();
   });
 

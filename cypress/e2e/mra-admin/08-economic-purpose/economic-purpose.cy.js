@@ -33,67 +33,99 @@ describe("08. Economic Purpose Test.", function () {
     create_economic_purpose.createEconomicPurpose();
   });
 
-  it("08.03. Verify check if a economic purpose cannot be created when a mandatory field is missing.", function () {
+  it("08.03. Verify that a economic purpose cannot be created without a economic purpose code, even if the economic purpose name en,bn,sector,activity,category,status,are valid.", function () {
+    create_economic_purpose.createWithoutEcoPurCode();
+  });
+
+  it("08.04. Verify that a economic purpose cannot be created without a economic purpose name en, even if the economic purpose code,name bn,sector,activity,category,status,are valid.", function () {
+    create_economic_purpose.createWithoutEcoPurNameEn();
+  });
+
+  it("08.05. Verify that a economic purpose cannot be created without economic purpose name bn, even if the economic purpose code,name en,sector,activity,category,status,are valid.", function () {
+    create_economic_purpose.createWithoutEcoPurNameBn();
+  });
+
+  it("08.06. Verify that a economic purpose cannot be created without economic purpose sector,even if the economic purpose code,name en,bn,activity,category,status,are valid.", function () {
+    create_economic_purpose.createWithoutEcoPurSector();
+  });
+
+  it("08.07. Verify that a economic purpose cannot be created without economic purpose activity,even if the economic purpose code,name en,bn,sector,category,status,are valid.", function () {
+    create_economic_purpose.createWithoutEcoPurActivity();
+  });
+
+  it("08.08. Verify that a economic purpose cannot be created without economic purpose category,even if the economic purpose code,name en,bn,sector,status,are valid.", function () {
+    create_economic_purpose.createWithoutEcoPurCategory();
+  });
+
+  it("08.09. Verify that a economic purpose cannot be created without economic purpose status,even if the economic purpose code,name en,bn,sector,category,are valid.", function () {
+    create_economic_purpose.createWithoutEcoPurStatus();
+  });
+
+  it("08.10. Verify check if a economic purpose cannot be created when a mandatory field is missing.", function () {
     create_economic_purpose.createWithoutOneMandatoryField();
   });
 
-  it("08.04. Verify successfully performs the action when the action button is clicked.", function () {
+  it("08.11. Verify successfully performs the action when the action button is clicked.", function () {
     create_economic_purpose.actionButtonCheck();
   });
 
-  it("08.05. Verify the user can view all relevant details of a economic purpose, including its associated fields.", function () {
+  it("08.12. Verify the user can view all relevant details of a economic purpose, including its associated fields.", function () {
     create_economic_purpose.viewEconomicPurpose();
   });
 
-  it("08.06. Verify the economic purpose name and description can be edited successfully.", function () {
+  // it("08.13. Verify that the economic purpose forms edit mode can be toggled on and off all fields should be disabled or return to view-only mode.", function () {
+  //   create_economic_purpose.turnOffOnEditMode();
+  // });
+
+  it("08.14. Verify the economic purpose name and description can be edited successfully.", function () {
     create_economic_purpose.editEconomicPurpose();
   });
 
-  it("08.07. Verify the economic purpose edit reset button functions correctly.", function () {
+  it("08.15. Verify the economic purpose edit reset button functions correctly.", function () {
     create_economic_purpose.editResetButton();
   });
 
-  it("08.08. Verify the economic purpose edit submit button functions correctly.", function () {
+  it("08.16. Verify the economic purpose edit submit button functions correctly.", function () {
     create_economic_purpose.editSubmitButton();
   });
 
-  it("08.09. Verify that clicking the go back button on the economic purpose edit page redirects the user to the economic purpose list page.", function () {
+  it("08.17. Verify that clicking the go back button on the economic purpose edit page redirects the user to the economic purpose list page.", function () {
     create_economic_purpose.editGoBackButton();
   });
 
-  it("08.10. Verify the user can filter inactive economic purposes using the status dropdown on the economic purpose list page.", function () {
+  it("08.18. Verify the user can filter inactive economic purposes using the status dropdown on the economic purpose list page.", function () {
     create_economic_purpose.statusInactiveDropdownCheck();
   });
 
-  it("08.11. Verify the active result is filtered correctly by the status dropdown.", function () {
+  it("08.19. Verify the active result is filtered correctly by the status dropdown.", function () {
     create_economic_purpose.statusActiveDropdownCheck();
   });
 
-  it("08.12. Verify the search returns correct results when searching by economic purpose name.", function () {
+  it("08.20. Verify the search returns correct results when searching by economic purpose name.", function () {
     create_economic_purpose.searchInEconomicPurposetName();
   });
 
-  it("08.13. Verify the grid list resets successfully when the reset button is clicked on the economic purpose page.", function () {
+  it("08.21. Verify the grid list resets successfully when the reset button is clicked on the economic purpose page.", function () {
     create_economic_purpose.gridResetButtonCheck();
   });
 
-  it("08.14. Verify that the grid list is refreshed successfully when the refresh button is clicked on the economic purpose page.", function () {
+  it("08.22. Verify that the grid list is refreshed successfully when the refresh button is clicked on the economic purpose page.", function () {
     create_economic_purpose.gridRefreshButtonCheck();
   });
 
-  it("08.15. Verify the economic purpose creation reset button clears all entered input values.", function () {
+  it("08.23. Verify the economic purpose creation reset button clears all entered input values.", function () {
     create_economic_purpose.createResetButtonCheck();
   });
 
-  it("08.16. Verify validation messages appear for required fields when the submit button is clicked with empty inputs.", function () {
+  it("08.24. Verify validation messages appear for required fields when the submit button is clicked with empty inputs.", function () {
     create_economic_purpose.createValidationMessageCheck();
   });
 
-  it("08.17. Verify that clicking the go back button on the economic purpose create page redirects the user to the economic purpose list page.", function () {
+  it("08.25. Verify that clicking the go back button on the economic purpose create page redirects the user to the economic purpose list page.", function () {
     create_economic_purpose.createGoBackButtonCheck();
   });
 
-  it("08.18. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("08.26. Verify check that the grid list content changes correctly from english to bangla.", function () {
     create_economic_purpose.gridLanguageSwitchCheck();
   });
 });

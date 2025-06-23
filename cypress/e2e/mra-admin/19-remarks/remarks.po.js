@@ -65,6 +65,15 @@ class RemarksCreation {
     });
   }
 
+  turnOffOnEditMode() {
+    cy.imsId("toggle-action").first().click();
+    cy.imsId("btn-table-action-edit").click();
+    cy.imsId("switch-button").click();
+    cy.imsId("btn-go-back").click();
+
+    cy.log("Remarks form Edit Mode toggled successfully");
+  }
+
   editRemarks() {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId("toggle-action").first().click();
@@ -100,10 +109,9 @@ class RemarksCreation {
       var remarksData = data.mraAdmin.createremarksFrom;
       cy.formController("name_en").type(remarksData.nameEn);
       cy.formController("name_bn").type(remarksData.nameBn);
-      cy.formController("status").click();
-      cy.contains("Active").click();
-      cy.imsId("btn-submit").click();
+      cy.formController("status").type(remarksData.status).type("{enter}");
 
+      cy.imsId("btn-submit").click();
       cy.get("app-confirmation-modal")
         .contains(remarksData.messageUpdateRem)
         .and("be.visible");

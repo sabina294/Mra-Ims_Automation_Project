@@ -121,6 +121,15 @@ class PaymentMethodCreation {
     });
   }
 
+  turnOffOnEditMode() {
+    cy.imsId("toggle-action").first().click();
+    cy.imsId("btn-table-action-edit").click();
+    cy.imsId("switch-button").click();
+    cy.imsId("btn-go-back").click();
+
+    cy.log("Payment method form Edit Mode toggled successfully");
+  }
+
   editPaymentMethod() {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId("toggle-action").first().click();
@@ -160,8 +169,8 @@ class PaymentMethodCreation {
       cy.formController("name_en").type(payMetData.nameEn);
       cy.formController("description_en").type(payMetData.descriptionEn);
       cy.formController("pay_method_id").type(payMethodId);
-      cy.formController("status").click();
-      cy.contains("Active").click();
+      cy.formController("status").type(payMetData.status).type("{enter}");
+
       cy.imsId("btn-submit").click();
       cy.imsId("btn-yes").click();
 
@@ -217,11 +226,6 @@ class PaymentMethodCreation {
     cy.log(
       "successfully refresh page  displayed the grid list of the Payment method "
     );
-  }
-
-  paginationCheck() {
-    cy.get('[title="2"] > .ng-star-inserted').click();
-    cy.log("Payment method pagination check successfully");
   }
 
   createResetButtonCheck() {

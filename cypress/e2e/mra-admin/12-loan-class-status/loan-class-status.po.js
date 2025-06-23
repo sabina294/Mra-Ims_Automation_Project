@@ -118,6 +118,15 @@ class LoanClassStatusCreation {
     });
   }
 
+  turnOffOnEditMode() {
+    cy.imsId("toggle-action").first().click();
+    cy.imsId("btn-table-action-edit").click();
+    cy.imsId("switch-button").click();
+    cy.imsId("btn-go-back").click();
+
+    cy.log("Payment method form Edit Mode toggled successfully");
+  }
+
   editLoanClassStatus() {
     cy.fixture(this.test_data).then((data) => {
       var loanClasStaData = data.mraAdmin.createloanClassStatusFrom;
@@ -159,8 +168,8 @@ class LoanClassStatusCreation {
       cy.formController("name_en").type(loanClasStaData.loanClassNameEn);
       cy.formController("name_bn").type(loanClasStaData.loanClassNameBn);
       cy.formController("description").type(loanClasStaData.description);
-      cy.formController("status").click();
-      cy.contains("Active").click();
+      cy.formController("status").type(loanClasStaData.status).type("{enter}");
+
       cy.imsId("btn-submit").click();
       cy.imsId("btn-yes").click();
       cy.get("app-confirmation-modal")

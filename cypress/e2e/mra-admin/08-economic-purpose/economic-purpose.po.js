@@ -34,6 +34,167 @@ class EconomicPurposeCreation {
     });
   }
 
+  createWithoutEcoPurCode() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("btn-add-new").click();
+      cy.imsId("btn-submit").and("be.visible");
+
+      var ecoPurData = data.mraAdmin.createeconomicPurposeFrom;
+      cy.formController("name_en").type(ecoPurData.nameEn);
+      cy.formController("name_bn").type(ecoPurData.nameBn);
+      cy.formController("sector").type(ecoPurData.economicSector);
+      cy.formController("econ_activity").type(ecoPurData.economicActivity);
+      cy.formController("lending_category_id")
+        .type(ecoPurData.lendingCategory)
+        .type("{enter}");
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-ok").click();
+      cy.imsId("btn-go-back").click();
+
+      cy.log(
+        "Successful cannot creation division without one mandatory field."
+      );
+    });
+  }
+
+  createWithoutEcoPurNameEn() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("btn-add-new").click();
+      cy.imsId("btn-submit").and("be.visible");
+
+      var ecoPurData = data.mraAdmin.createeconomicPurposeFrom;
+      cy.formController("mra_code").type(ecoPurData.economicPurposeCode);
+      cy.formController("name_bn").type(ecoPurData.nameBn);
+      cy.formController("sector").type(ecoPurData.economicSector);
+      cy.formController("econ_activity").type(ecoPurData.economicActivity);
+      cy.formController("lending_category_id")
+        .type(ecoPurData.lendingCategory)
+        .type("{enter}");
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-ok").click();
+      cy.imsId("btn-go-back").click();
+
+      cy.log(
+        "Successful cannot creation division without one mandatory field."
+      );
+    });
+  }
+
+  createWithoutEcoPurNameBn() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("btn-add-new").click();
+      cy.imsId("btn-submit").and("be.visible");
+
+      var ecoPurData = data.mraAdmin.createeconomicPurposeFrom;
+      cy.formController("mra_code").type(ecoPurData.economicPurposeCode);
+      cy.formController("name_en").type(ecoPurData.nameEn);
+      cy.formController("sector").type(ecoPurData.economicSector);
+      cy.formController("econ_activity").type(ecoPurData.economicActivity);
+      cy.formController("lending_category_id")
+        .type(ecoPurData.lendingCategory)
+        .type("{enter}");
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-ok").click();
+      cy.imsId("btn-go-back").click();
+
+      cy.log(
+        "Successful cannot creation division without one mandatory field."
+      );
+    });
+  }
+
+  createWithoutEcoPurSector() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("btn-add-new").click();
+      cy.imsId("btn-submit").and("be.visible");
+
+      var ecoPurData = data.mraAdmin.createeconomicPurposeFrom;
+      cy.formController("mra_code").type(ecoPurData.economicPurposeCode);
+      cy.formController("name_en").type(ecoPurData.nameEn);
+      cy.formController("name_bn").type(ecoPurData.nameBn);
+      cy.formController("econ_activity").type(ecoPurData.economicActivity);
+      cy.formController("lending_category_id")
+        .type(ecoPurData.lendingCategory)
+        .type("{enter}");
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-ok").click();
+      cy.imsId("btn-go-back").click();
+
+      cy.log(
+        "Successful cannot creation division without one mandatory field."
+      );
+    });
+  }
+
+  createWithoutEcoPurActivity() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("btn-add-new").click();
+      cy.imsId("btn-submit").and("be.visible");
+
+      var ecoPurData = data.mraAdmin.createeconomicPurposeFrom;
+      cy.formController("mra_code").type(ecoPurData.economicPurposeCode);
+      cy.formController("name_en").type(ecoPurData.nameEn);
+      cy.formController("name_bn").type(ecoPurData.nameBn);
+      cy.formController("sector").type(ecoPurData.economicSector);
+      cy.formController("lending_category_id")
+        .type(ecoPurData.lendingCategory)
+        .type("{enter}");
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-ok").click();
+      cy.imsId("btn-go-back").click();
+
+      cy.log(
+        "Successful cannot creation division without one mandatory field."
+      );
+    });
+  }
+
+  createWithoutEcoPurCategory() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("btn-add-new").click();
+      cy.imsId("btn-submit").and("be.visible");
+
+      var ecoPurData = data.mraAdmin.createeconomicPurposeFrom;
+      cy.formController("mra_code").type(ecoPurData.economicPurposeCode);
+      cy.formController("name_en").type(ecoPurData.nameEn);
+      cy.formController("name_bn").type(ecoPurData.nameBn);
+      cy.formController("sector").type(ecoPurData.economicSector);
+      cy.formController("econ_activity").type(ecoPurData.economicActivity);
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-ok").click();
+      cy.imsId("btn-go-back").click();
+
+      cy.log(
+        "Successful cannot creation division without one mandatory field."
+      );
+    });
+  }
+
+  createWithoutEcoPurStatus() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("btn-add-new").click();
+      cy.imsId("btn-submit").and("be.visible");
+
+      var ecoPurData = data.mraAdmin.createeconomicPurposeFrom;
+      cy.imsId("btn-reset").click();
+      cy.formController("mra_code").type(ecoPurData.economicPurposeCode);
+      cy.formController("name_en").type(ecoPurData.nameEn);
+      cy.formController("name_bn").type(ecoPurData.nameBn);
+      cy.formController("sector").type(ecoPurData.economicSector);
+      cy.formController("econ_activity").type(ecoPurData.economicActivity);
+      cy.formController("lending_category_id")
+        .type(ecoPurData.lendingCategory)
+        .type("{enter}");
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-ok").click();
+      cy.imsId("btn-go-back").click();
+
+      cy.log(
+        "Successful cannot creation division without one mandatory field."
+      );
+    });
+  }
+
   createWithoutOneMandatoryField() {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId("btn-add-new").click();
@@ -83,6 +244,15 @@ class EconomicPurposeCreation {
     });
   }
 
+  turnOffOnEditMode() {
+    cy.imsId("toggle-action").first().click();
+    cy.imsId("btn-table-action-edit").click();
+    cy.imsId("switch-button").click();
+    cy.imsId("btn-go-back").click();
+
+    cy.log("Economic purpose form Edit Mode toggled successfully");
+  }
+
   editEconomicPurpose() {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId("toggle-action").first().click();
@@ -124,8 +294,8 @@ class EconomicPurposeCreation {
       cy.formController("lending_category_id")
         .type(ecoPurData.lendingCategory)
         .type("{enter}");
-      cy.formController("status").click();
-      cy.contains("Active").click();
+      cy.formController("status").type(ecoPurData.status).type("{enter}");
+
       cy.imsId("btn-submit").click();
       cy.imsId("btn-yes").click();
 

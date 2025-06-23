@@ -69,6 +69,15 @@ class GenderCreation {
     });
   }
 
+  turnOffOnEditMode() {
+    cy.imsId("toggle-action").first().click();
+    cy.imsId("btn-table-action-edit").click();
+    cy.imsId("switch-button").click();
+    cy.imsId("btn-go-back").click();
+
+    cy.log("Gender form Edit Mode toggled successfully");
+  }
+
   editGender() {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId("toggle-action").first().click();
@@ -105,8 +114,8 @@ class GenderCreation {
       cy.formController("name_en").type(genderData.nameEn);
       cy.formController("name_bn").type(genderData.nameBn);
       cy.formController("gender_id").type(genderData.genderId);
-      cy.formController("status").click();
-      cy.contains("Active").click();
+      cy.formController("status").type(genderData.status).type("{enter}");
+
       cy.imsId("btn-submit").click();
       cy.imsId("btn-yes").click();
 

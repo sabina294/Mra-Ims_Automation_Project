@@ -53,17 +53,17 @@ describe("05. Bank Test.", function () {
     create_bank.viewBank();
   });
 
-  it("05.08. Verify the bank name and description can be edited successfully.", function () {
+  // it("05.08. Verify that the bank forms edit mode can be toggled on and off all fields should be disabled or return to view-only mode.", function () {
+  //   create_bank.turnOffOnEditMode();
+  // });
+
+  it("05.09. Verify the bank name and description can be edited successfully.", function () {
     create_bank.editBank();
   });
 
-  it("05.09. Verify the bank edit reset button functions correctly.", function () {
+  it("05.10. Verify the bank edit reset button functions correctly.", function () {
     create_bank.editResetButton();
   });
-
-  // it("05.10. Verify the bank edit submit button functions correctly.", function () {
-  //   create_bank.editSubmitButton();
-  // });
 
   it("05.11. Verify that clicking the go back button on the bank edit page redirects the user to the bank list page.", function () {
     create_bank.editGoBackButton();

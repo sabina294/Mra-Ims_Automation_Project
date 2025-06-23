@@ -72,6 +72,15 @@ class MaritalStatusCreation {
     });
   }
 
+  turnOffOnEditMode() {
+    cy.imsId("toggle-action").first().click();
+    cy.imsId("btn-table-action-edit").click();
+    cy.imsId("switch-button").click();
+    cy.imsId("btn-go-back").click();
+
+    cy.log("Marital status form Edit Mode toggled successfully");
+  }
+
   editMaritalStatus() {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId("toggle-action").first().click();
@@ -107,8 +116,10 @@ class MaritalStatusCreation {
       var maritalStatusData = data.mraAdmin.createmaritalstatusFrom;
       cy.formController("description_en").type(maritalStatusData.nameEn);
       cy.formController("description_bn").type(maritalStatusData.nameBn);
-      cy.formController("status").click();
-      cy.contains("Active").click();
+      cy.formController("status")
+        .type(maritalStatusData.status)
+        .type("{enter}");
+
       cy.imsId("btn-submit").click();
       cy.imsId("btn-yes").click();
 

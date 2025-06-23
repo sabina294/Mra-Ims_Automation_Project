@@ -82,6 +82,15 @@ class EmployeeManagementCreation {
     });
   }
 
+  turnOffOnEditMode() {
+    cy.imsId("toggle-action").first().click();
+    cy.imsId("btn-table-action-edit").click();
+    cy.imsId("switch-button").click();
+    cy.imsId("btn-go-back").click();
+
+    cy.log("Employee management form Edit Mode toggled successfully");
+  }
+
   editEmployeeManagement() {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId("toggle-action").first().click();

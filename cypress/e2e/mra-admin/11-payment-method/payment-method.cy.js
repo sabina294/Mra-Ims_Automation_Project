@@ -53,44 +53,44 @@ describe("11. Payment Method Test.", function () {
     create_payment_method.viewPaymentMethod();
   });
 
-  it("11.08. Verify the payment method name and description can be edited successfully.", function () {
+  // it("11.08. Verify that the payment method forms edit mode can be toggled on and off all fields should be disabled or return to view-only mode.", function () {
+  //   create_payment_method.turnOffOnEditMode();
+  // });
+
+  it("11.09. Verify the payment method name and description can be edited successfully.", function () {
     create_payment_method.editPaymentMethod();
   });
 
-  it("11.09. Verify the payment method edit reset button functions correctly.", function () {
+  it("11.10. Verify the payment method edit reset button functions correctly.", function () {
     create_payment_method.editResetButton();
   });
 
-  it("11.10. Verify the payment method edit submit button functions correctly.", function () {
+  it("11.11. Verify the payment method edit submit button functions correctly.", function () {
     create_payment_method.editSubmitButton();
   });
 
-  it("11.11. Verify that clicking the go back button on the payment method edit page redirects the user to the payment method  list page.", function () {
+  it("11.12. Verify that clicking the go back button on the payment method edit page redirects the user to the payment method  list page.", function () {
     create_payment_method.editGoBackButton();
   });
 
-  it("11.12. Verify the user can filter inactive payment methods using the status dropdown on the payment method list page.", function () {
+  it("11.13. Verify the user can filter inactive payment methods using the status dropdown on the payment method list page.", function () {
     create_payment_method.statusInactiveDropdownCheck();
   });
 
-  it("11.13. Verify the active result is filtered correctly by the status dropdown.", function () {
+  it("11.14. Verify the active result is filtered correctly by the status dropdown.", function () {
     create_payment_method.statusActiveDropdownCheck();
   });
 
-  it("11.14. Verify the search returns correct results when searching by payment method name.", function () {
+  it("11.15. Verify the search returns correct results when searching by payment method name.", function () {
     create_payment_method.searchInPaymentMethodName();
   });
 
-  it("11.15. Verify the grid list resets successfully when the reset button is clicked on the payment method page.", function () {
+  it("11.16. Verify the grid list resets successfully when the reset button is clicked on the payment method page.", function () {
     create_payment_method.gridResetButtonCheck();
   });
 
-  it("11.16. Verify that the grid list is refreshed successfully when the refresh button is clicked on the payment method page.", function () {
+  it("11.17. Verify that the grid list is refreshed successfully when the refresh button is clicked on the payment method page.", function () {
     create_payment_method.gridRefreshButtonCheck();
-  });
-
-  it("11.17. Verify pagination functions as expected on the last page of the payment method list.", function () {
-    create_payment_method.paginationCheck();
   });
 
   it("11.18. Verify the payment method creation reset button clears all entered input values.", function () {

@@ -67,6 +67,15 @@ class OccupationCreation {
     });
   }
 
+  turnOffOnEditMode() {
+    cy.imsId("toggle-action").first().click();
+    cy.imsId("btn-table-action-edit").click();
+    cy.imsId("switch-button").click();
+    cy.imsId("btn-go-back").click();
+
+    cy.log("Occupation form Edit Mode toggled successfully");
+  }
+
   editOccupation() {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId("toggle-action").first().click();
@@ -102,8 +111,8 @@ class OccupationCreation {
       var occupationData = data.mraAdmin.createoccupationFrom;
       cy.formController("name_en").type(occupationData.nameEn);
       cy.formController("name_bn").type(occupationData.nameBn);
-      cy.formController("status").click();
-      cy.contains("Active").click();
+      cy.formController("status").type(occupationData.status).type("{enter}");
+
       cy.imsId("btn-submit").click();
 
       cy.get("app-confirmation-modal")

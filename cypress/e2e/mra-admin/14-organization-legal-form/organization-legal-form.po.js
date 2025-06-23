@@ -68,6 +68,15 @@ class OrganizationLegalFormCreation {
     });
   }
 
+  turnOffOnEditMode() {
+    cy.imsId("toggle-action").first().click();
+    cy.imsId("btn-table-action-edit").click();
+    cy.imsId("switch-button").click();
+    cy.imsId("btn-go-back").click();
+
+    cy.log("Organization legal form Edit Mode toggled successfully");
+  }
+
   editOrganizationLegalForm() {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId("toggle-action").first().click();
@@ -103,8 +112,8 @@ class OrganizationLegalFormCreation {
       var orgLegalFormData = data.mraAdmin.createOrgLegForm;
       cy.formController("name_en").type(orgLegalFormData.nameEn);
       cy.formController("name_bn").type(orgLegalFormData.nameBn);
-      cy.formController("status").click();
-      cy.contains("Active").click();
+      cy.formController("status").type(orgLegalFormData.status).type("{enter}");
+
       cy.imsId("btn-submit").click();
 
       cy.get("app-confirmation-modal")

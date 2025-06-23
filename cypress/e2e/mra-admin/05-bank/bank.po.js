@@ -103,6 +103,15 @@ class BankCreation {
     });
   }
 
+    turnOffOnEditMode() {
+    cy.imsId("toggle-action").first().click();
+    cy.imsId("btn-table-action-edit").click();
+    cy.imsId("switch-button").click();
+    cy.imsId("btn-go-back").click();
+
+    cy.log("Bank form Edit Mode toggled successfully");
+  }
+
   editBank() {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId("toggle-action").first().click();
@@ -127,32 +136,6 @@ class BankCreation {
     cy.imsId("btn-go-back").click();
 
     cy.log("Successful clean displaying");
-  }
-
-  editSubmitButton() {
-    cy.fixture(this.test_data).then((data) => {
-      cy.imsId("toggle-action").first().click();
-      cy.imsId("btn-table-action-edit").click();
-      cy.imsId("btn-reset").click();
-
-      var bankData = data.mraAdmin.createbankFrom;
-      cy.formController("name_en").type(bankData.nameEn);
-      cy.formController("name_bn").type(bankData.nameBn);
-      cy.formController("website").type(bankData.website);
-      cy.formController("bank_code").type(bankData.bankCode);
-      cy.formController("bank_short_code").type(bankData.bankShortCode);
-      cy.formController("status").click();
-      cy.contains("Active").click();
-      cy.formController("isBeftnEnabled").click();
-      cy.formController("isQcashEnabled").click();
-      cy.formController("isNpsbEnabled").click();
-
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-yes").click();
-      cy.imsId("btn-ok").click();
-
-      cy.log("Successfully updated bank");
-    });
   }
 
   editGoBackButton() {

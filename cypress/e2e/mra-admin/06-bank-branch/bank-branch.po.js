@@ -127,6 +127,15 @@ class BankBranchCreation {
     });
   }
 
+    turnOffOnEditMode() {
+    cy.imsId("toggle-action").first().click();
+    cy.imsId("btn-table-action-edit").click();
+    cy.imsId("switch-button").click();
+    cy.imsId("btn-go-back").click();
+
+    cy.log("Bank branch form Edit Mode toggled successfully");
+  }
+
   editBankBranch() {
     cy.fixture(this.test_data).then((data) => {
       var bankBData = data.mraAdmin.createbankbranchFrom;
@@ -150,32 +159,6 @@ class BankBranchCreation {
     cy.imsId("btn-go-back").click();
 
     cy.log("Successful clean displaying");
-  }
-
-  editSubmitButton() {
-    cy.fixture(this.test_data).then((data) => {
-      var bankBData = data.mraAdmin.createbankbranchFrom;
-      cy.imsId("toggle-action").first().click();
-      cy.imsId("btn-table-action-edit").click();
-      cy.imsId("btn-reset").click();
-      cy.formController("name_bn").type(bankBData.nameBn);
-      cy.formController("branch_code").type(bankBData.branchCode);
-      cy.formController("working_days").type(bankBData.workingDays);
-      cy.formController("address_en").type(bankBData.branchAdressEn);
-      cy.formController("address_bn").type(bankBData.branchAdressBn);
-      cy.formController("telephone").type(bankBData.telephoneNumber);
-      cy.formController("fax").type(bankBData.faxNo);
-      cy.formController("routing_number").type(bankBData.routingNo);
-      cy.formController("swift_code").type(bankBData.swiftCode);
-      cy.formController("email").type(bankBData.email);
-      cy.formController("date_of_opening").click();
-      cy.contains("4").click();
-
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-ok").click();
-      cy.imsId("btn-go-back").click();
-      cy.log("Successfully updated bank branch");
-    });
   }
 
   editGoBackButton() {

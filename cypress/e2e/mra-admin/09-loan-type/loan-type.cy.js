@@ -45,55 +45,59 @@ describe("9. Loan Type Test.", function () {
     create_loan_type.viewLoanType();
   });
 
-  it("09.06. Verify the loan type name and description can be edited successfully.", function () {
+  // it("09.06. Verify that the Loan type forms edit mode can be toggled on and off all fields should be disabled or return to view-only mode.", function () {
+  //   create_loan_type.turnOffOnEditMode();
+  // });
+
+  it("09.07. Verify the loan type name and description can be edited successfully.", function () {
     create_loan_type.editLoanType();
   });
 
-  it("09.07. Verify the loan type edit reset button functions correctly.", function () {
+  it("09.08. Verify the loan type edit reset button functions correctly.", function () {
     create_loan_type.editResetButton();
   });
 
-  it("09.08. Verify the loan type edit submit button functions correctly.", function () {
+  it("09.09. Verify the loan type edit submit button functions correctly.", function () {
     create_loan_type.editSubmitButton();
   });
 
-  it("09.09. Verify that clicking the go back button on the loan type edit page redirects the user to the loan type list page.", function () {
+  it("09.10. Verify that clicking the go back button on the loan type edit page redirects the user to the loan type list page.", function () {
     create_loan_type.editGoBackButton();
   });
 
-  it("09.10. Verify the user can filter inactive loan types using the status dropdown on the loan type list page.", function () {
+  it("09.11. Verify the user can filter inactive loan types using the status dropdown on the loan type list page.", function () {
     create_loan_type.statusInactiveDropdownCheck();
   });
 
-  it("09.11. Verify the active result is filtered correctly by the status dropdown.", function () {
+  it("09.12. Verify the active result is filtered correctly by the status dropdown.", function () {
     create_loan_type.statusActiveDropdownCheck();
   });
 
-  it("09.12. Verify the search returns correct results when searching by loan type name.", function () {
+  it("09.13. Verify the search returns correct results when searching by loan type name.", function () {
     create_loan_type.searchInLoanTypeName();
   });
 
-  it("09.13. Verify the grid list resets successfully when the reset button is clicked on the loan type page.", function () {
+  it("09.14. Verify the grid list resets successfully when the reset button is clicked on the loan type page.", function () {
     create_loan_type.gridResetButtonCheck();
   });
 
-  it("09.14. Verify that the grid list is refreshed successfully when the refresh button is clicked on the loan type page.", function () {
+  it("09.15. Verify that the grid list is refreshed successfully when the refresh button is clicked on the loan type page.", function () {
     create_loan_type.gridRefreshButtonCheck();
   });
 
-  it("09.15. Verify the loan type creation reset button clears all entered input values.", function () {
+  it("09.16. Verify the loan type creation reset button clears all entered input values.", function () {
     create_loan_type.createResetButtonCheck();
   });
 
-  it("09.16. Verify validation messages appear for required fields when the submit button is clicked with empty inputs.", function () {
+  it("09.17. Verify validation messages appear for required fields when the submit button is clicked with empty inputs.", function () {
     create_loan_type.createValidationMessageCheck();
   });
 
-  it("09.17. Verify that clicking the go back button on the loan type create page redirects the user to the loan type list page.", function () {
+  it("09.18. Verify that clicking the go back button on the loan type create page redirects the user to the loan type list page.", function () {
     create_loan_type.createGoBackButtonCheck();
   });
 
-  it("09.18. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("09.19. Verify check that the grid list content changes correctly from english to bangla.", function () {
     create_loan_type.gridLanguageSwitchCheck();
   });
 });

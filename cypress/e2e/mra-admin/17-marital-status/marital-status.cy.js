@@ -45,55 +45,59 @@ describe("17. Marital Status Test.", function () {
     create_marital_status.viewMaritalStatus();
   });
 
-  it("17.06. Verify the marital status name and description can be edited successfully.", function () {
+  // it("17.06. Verify that the marital status forms edit mode can be toggled on and off all fields should be disabled or return to view-only mode.", function () {
+  //   create_marital_status.turnOffOnEditMode();
+  // });
+
+  it("17.07. Verify the marital status name and description can be edited successfully.", function () {
     create_marital_status.editMaritalStatus();
   });
 
-  it("17.07. Verify the marital status edit reset button functions correctly.", function () {
+  it("17.08. Verify the marital status edit reset button functions correctly.", function () {
     create_marital_status.editResetButton();
   });
 
-  it("17.08. Verify the marital status edit submit button functions correctly.", function () {
+  it("17.09. Verify the marital status edit submit button functions correctly.", function () {
     create_marital_status.editSubmitButton();
   });
 
-  it("17.09. Verify that clicking the go back button on the marital status edit page redirects the user to the marital status list page.", function () {
+  it("17.10. Verify that clicking the go back button on the marital status edit page redirects the user to the marital status list page.", function () {
     create_marital_status.editGoBackButton();
   });
 
-  it("17.10. Verify the user can filter inactive marital status using the status dropdown on the marital status list page.", function () {
+  it("17.11. Verify the user can filter inactive marital status using the status dropdown on the marital status list page.", function () {
     create_marital_status.statusInactiveDropdownCheck();
   });
 
-  it("17.11. Verify the active result is filtered correctly by the status dropdown.", function () {
+  it("17.12. Verify the active result is filtered correctly by the status dropdown.", function () {
     create_marital_status.statusActiveDropdownCheck();
   });
 
-  it("17.12. Verify the search returns correct results when searching by marital status name.", function () {
+  it("17.13. Verify the search returns correct results when searching by marital status name.", function () {
     create_marital_status.searchInMaritalStatusName();
   });
 
-  it("17.13. Verify the grid list resets successfully when the reset button is clicked on the marital status page.", function () {
+  it("17.14. Verify the grid list resets successfully when the reset button is clicked on the marital status page.", function () {
     create_marital_status.gridResetButtonCheck();
   });
 
-  it("17.14. Verify that the grid list is refreshed successfully when the refresh button is clicked on the marital status page.", function () {
+  it("17.15. Verify that the grid list is refreshed successfully when the refresh button is clicked on the marital status page.", function () {
     create_marital_status.gridRefreshButtonCheck();
   });
 
-  it("17.15. Verify the marital status creation reset button clears all entered input values.", function () {
+  it("17.16. Verify the marital status creation reset button clears all entered input values.", function () {
     create_marital_status.createResetButtonCheck();
   });
 
-  it("17.16. Verify validation messages appear for required fields when the submit button is clicked with empty inputs.", function () {
+  it("17.17. Verify validation messages appear for required fields when the submit button is clicked with empty inputs.", function () {
     create_marital_status.createValidationMessageCheck();
   });
 
-  it("17.17. Verify that clicking the go back button on the marital status create page redirects the user to the marital status list page.", function () {
+  it("17.18. Verify that clicking the go back button on the marital status create page redirects the user to the marital status list page.", function () {
     create_marital_status.createGoBackButtonCheck();
   });
 
-  it("17.18. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("17.19. Verify check that the grid list content changes correctly from english to bangla.", function () {
     create_marital_status.gridLanguageSwitchCheck();
   });
 });

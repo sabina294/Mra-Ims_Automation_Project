@@ -72,6 +72,15 @@ class LoanTypeCreation {
     });
   }
 
+  turnOffOnEditMode() {
+    cy.imsId("toggle-action").first().click();
+    cy.imsId("btn-table-action-edit").click();
+    cy.imsId("switch-button").click();
+    cy.imsId("btn-go-back").click();
+
+    cy.log("Loan Type form Edit Mode toggled successfully");
+  }
+
   editLoanType() {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId("toggle-action").first().click();
@@ -110,8 +119,8 @@ class LoanTypeCreation {
       cy.formController("loan_type_id").type(loanTData.loanTypeId);
       cy.formController("product_nature_id").type(loanTData.productNatureId);
       cy.formController("description").type(loanTData.loanTypeDescription);
-      cy.formController("status").click();
-      cy.contains("Active").click();
+      cy.formController("status").type(loanTData.status).type("{enter}");
+
       cy.imsId("btn-submit").click();
       cy.imsId("btn-yes").click();
 

@@ -66,6 +66,15 @@ class EducationCreation {
     });
   }
 
+  turnOffOnEditMode() {
+    cy.imsId("toggle-action").first().click();
+    cy.imsId("btn-table-action-edit").click();
+    cy.imsId("switch-button").click();
+    cy.imsId("btn-go-back").click();
+
+    cy.log("Education form Edit Mode toggled successfully");
+  }
+
   editEducation() {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId("toggle-action").first().click();
@@ -101,8 +110,8 @@ class EducationCreation {
       var eduData = data.mraAdmin.createeducationFrom;
       cy.formController("name_en").type(eduData.nameEn);
       cy.formController("name_bn").type(eduData.nameBn);
-      cy.formController("status").click();
-      cy.contains("Active").click();
+      cy.formController("status").type(eduData.status).type("{enter}");
+
       cy.imsId("btn-submit").click();
       cy.imsId("btn-yes").click();
 

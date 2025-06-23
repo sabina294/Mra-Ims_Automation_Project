@@ -156,6 +156,25 @@ class DistrictCreation {
     });
   }
 
+  createWithoutStatus() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("btn-add-new").click();
+      cy.imsId("btn-submit").and("be.visible");
+      var disData = data.mraAdmin.createdistrictFrom;
+      cy.imsId("btn-reset").click();
+      cy.formController("name_en").type(disData.nameEn);
+      cy.formController("name_bn").type(disData.nameBn);
+      cy.formController("district_code").type(disData.Code);
+      cy.formController("establish_year").type(disData.establishedYear);
+      cy.formController("division_oid").type(disData.division).type("{enter}");
+
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-ok").click();
+      cy.imsId("btn-go-back").click();
+      cy.log("Successful cannot creation district without mandatory field.");
+    });
+  }
+
   createWithoutMandatoryField() {
     cy.fixture(this.test_data).then((data) => {
       var disData = data.mraAdmin.createdistrictFrom;
@@ -184,6 +203,15 @@ class DistrictCreation {
       cy.imsId("btn-go-back").click();
       cy.log("Successfully viewed the district list page");
     });
+  }
+
+  turnOffOnEditMode() {
+    cy.imsId("toggle-action").first().click();
+    cy.imsId("btn-table-action-edit").click();
+    cy.imsId("switch-button").click();
+    cy.imsId("btn-go-back").click();
+
+    cy.log("District form Edit Mode toggled successfully");
   }
 
   editDistrict() {
@@ -222,9 +250,7 @@ class DistrictCreation {
       cy.formController("district_code").type(disData.Code);
       cy.formController("establish_year").type(disData.establishedYear);
       cy.formController("division_oid").type(disData.division).type("{enter}");
-
-      cy.formController("status").click();
-      cy.contains("Active").click();
+      cy.formController("status").type(disData.status).type("{enter}");
 
       cy.imsId("btn-submit").click();
       cy.imsId("btn-yes").click();
