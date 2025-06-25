@@ -9,6 +9,7 @@ describe("13. Loan Cassification Chart Test.", function () {
   const baseURL = Cypress.env("BASE_URL");
   const test_data = Cypress.env("TEST_DATA");
 
+
   before(() => {
     cy.fixture(test_data).then((d) => {
       cy.login(

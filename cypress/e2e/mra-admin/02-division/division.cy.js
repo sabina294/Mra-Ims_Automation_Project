@@ -33,23 +33,23 @@ describe("02. Division Test.", function () {
     create_division.createDivision();
   });
 
-  it("02.03. Verify that a division cannot be created without a division name english, even if the division name,code,established year,are valid.", function () {
+  it("02.03. Verify that a division cannot be created without a division name english, even if all other fields are valid.", function () {
     create_division.createWithoutNameEn();
   });
 
-  it("02.04. Verify that a division cannot be created without a division name bangla, even if the division name,code,year, are valid.", function () {
+  it("02.04. Verify that a division cannot be created without a division name bangla, even if all other fields are valid.", function () {
     create_division.createWithoutNameBn();
   });
 
-  it("02.05. Verify that a division cannot be created without a division code, even if the division name,year, are valid.", function () {
+  it("02.05. Verify that a division cannot be created without a division code, even if all other fields are valid.", function () {
     create_division.createWithoutDivisionCode();
   });
 
-  it("02.06. Verify that a division cannot be created without established year, even if the division name,code, are valid.", function () {
+  it("02.06. Verify that a division cannot be created without established year, even if all other fields are valid.", function () {
     create_division.createWithoutEstabYear();
   });
 
-  it("02.07. Verify that a division cannot be created without status, even if the division name,code, are valid.", function () {
+  it("02.07. Verify that a division cannot be created without status, even if all other fields are valid.", function () {
     create_division.createWithoutStatus();
   });
 
@@ -61,9 +61,9 @@ describe("02. Division Test.", function () {
     create_division.viewDivision();
   });
 
-  // it("02.10. Verify that the division forms edit mode can be toggled on and off all fields should be disabled or return to view-only mode.", function () {
-  //   create_division.turnOffEditMode();
-  // });
+  it("02.10. Verify that the division forms edit mode can be toggled on and off all fields should be disabled or return to view-only mode.", function () {
+    create_division.turnOffEditMode();
+  });
 
   it("02.11. Verify the division name and description can be edited successfully.", function () {
     create_division.editDivision();

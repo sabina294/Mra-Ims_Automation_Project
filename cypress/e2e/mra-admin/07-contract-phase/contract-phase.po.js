@@ -27,6 +27,63 @@ class ContractPhaseCreation {
     });
   }
 
+  createWithoutNameEn() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("btn-add-new").click();
+      cy.imsId("btn-submit").and("be.visible");
+
+      var conPhaData = data.mraAdmin.createcontractPhaseFrom;
+      cy.formController("name_bn").type(conPhaData.nameBn);
+
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-ok").click();
+      cy.imsId("btn-go-back").click();
+
+      cy.log(
+        "Successful cannot creation contract phase without one mandatory field."
+      );
+    });
+  }
+
+  createWithoutNameBn() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("btn-add-new").click();
+      cy.imsId("btn-submit").and("be.visible");
+
+      var conPhaData = data.mraAdmin.createcontractPhaseFrom;
+      cy.formController("name_en").type(conPhaData.nameEn);
+
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-ok").click();
+      cy.imsId("btn-go-back").click();
+
+      cy.log(
+        "Successful cannot creation contract phase without one mandatory field."
+      );
+    });
+  }
+
+  createWithoutStatus() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("btn-add-new").click();
+      cy.imsId("btn-submit").and("be.visible");
+      cy.imsId("btn-reset").click();
+
+      var conPhaData = data.mraAdmin.createcontractPhaseFrom;
+      cy.formController("name_en").type(conPhaData.nameEn);
+      cy.formController("name_bn").type(conPhaData.nameBn);
+
+     cy.imsId("btn-submit").click();
+      cy.imsId("btn-ok").click();
+      cy.imsId("btn-go-back").click();
+
+      cy.log(
+        "Successful cannot creation contract phase without one mandatory field."
+      );
+    
+    });
+  }
+
   createWithoutOneMandatoryField() {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId("btn-add-new").click();

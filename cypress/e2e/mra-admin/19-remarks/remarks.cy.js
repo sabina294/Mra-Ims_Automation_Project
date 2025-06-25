@@ -33,15 +33,15 @@ describe("19. Remarks Test.", function () {
     create_remarks.createRemarks();
   });
 
-  it("19.03. Verify creating a remark without an English name en, even if the remarks name bn,status,are valid.", function () {
+  it("19.03. Verify creating a remark without an name en,even if all other fields are valid.", function () {
     create_remarks.createWithoutNameEn();
   });
 
-  it("19.04. Verify creating a remark without an English name bn, even if the remarks name en,status,are valid.", function () {
+  it("19.04. Verify creating a remark without an name bn,even if all other fields are valid.", function () {
     create_remarks.createWithoutNameBn();
   });
 
-  it("19.05. Verify creating a remark without an status, even if the remarks name en,bn,are valid.", function () {
+  it("19.05. Verify creating a remark without an status,even if all other fields are valid.", function () {
     create_remarks.createWithoutStatus();
   });
 
@@ -57,9 +57,9 @@ describe("19. Remarks Test.", function () {
     create_remarks.viewRemarks();
   });
 
-  // it("19.09. Verify that the remarks forms edit mode can be toggled on and off all fields should be disabled or return to view-only mode.", function () {
-  //   create_remarks.turnOffOnEditMode();
-  // });
+  it("19.09. Verify that the remarks forms edit mode can be toggled on and off all fields should be disabled or return to view-only mode.", function () {
+    create_remarks.turnOffOnEditMode();
+  });
 
   it("19.10. Verify the remarks name and description can be edited successfully.", function () {
     create_remarks.editRemarks();

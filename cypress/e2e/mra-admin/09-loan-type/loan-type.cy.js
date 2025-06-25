@@ -45,9 +45,9 @@ describe("9. Loan Type Test.", function () {
     create_loan_type.viewLoanType();
   });
 
-  // it("09.06. Verify that the Loan type forms edit mode can be toggled on and off all fields should be disabled or return to view-only mode.", function () {
-  //   create_loan_type.turnOffOnEditMode();
-  // });
+  it("09.06. Verify that the Loan type forms edit mode can be toggled on and off all fields should be disabled or return to view-only mode.", function () {
+    create_loan_type.turnOffOnEditMode();
+  });
 
   it("09.07. Verify the loan type name and description can be edited successfully.", function () {
     create_loan_type.editLoanType();

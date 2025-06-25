@@ -33,15 +33,15 @@ describe("18. Occupation Test.", function () {
     create_occupation.createOccupation();
   });
 
-  it("18.03. Verify creating a occupation without an English name en, even if the occupation name bn,status,are valid.", function () {
+  it("18.03. Verify creating a occupation without an name en,even if all other fields are valid.", function () {
     create_occupation.createWithoutNameEn();
   });
 
-  it("18.04. Verify creating a occupation without an English name bn, even if the occupation name en,status,are valid.", function () {
+  it("18.04. Verify creating a occupation without an name bn,even if all other fields are valid.", function () {
     create_occupation.createWithoutNameBn();
   });
 
-  it("18.05. Verify creating a occupation without an status, even if the occupation name en,bn,are valid.", function () {
+  it("18.05. Verify creating a occupation without an status,even if all other fields are valid.", function () {
     create_occupation.createWithoutStatus();
   });
 
@@ -57,9 +57,9 @@ describe("18. Occupation Test.", function () {
     create_occupation.viewOccupation();
   });
 
-  // it("18.09. Verify that the occupation forms edit mode can be toggled on and off all fields should be disabled or return to view-only mode.", function () {
-  //   create_occupation.turnOffOnEditMode();
-  // });
+  it("18.09. Verify that the occupation forms edit mode can be toggled on and off all fields should be disabled or return to view-only mode.", function () {
+    create_occupation.turnOffOnEditMode();
+  });
 
   it("18.10. Verify the occupation name and description can be edited successfully.", function () {
     create_occupation.editOccupation();

@@ -28,6 +28,59 @@ class MaritalStatusCreation {
     });
   }
 
+  createWithoutNameEn() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("btn-add-new").click();
+      cy.imsId("btn-submit").and("be.visible");
+
+      var maritalStatusData = data.mraAdmin.createmaritalstatusFrom;
+      cy.formController("description_bn").type(maritalStatusData.nameBn);
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-ok").click();
+      cy.imsId("btn-go-back").click();
+
+      cy.log(
+        "Successful cannot creation marital status without one mandatory field."
+      );
+    });
+  }
+
+  createWithoutNameBn() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("btn-add-new").click();
+      cy.imsId("btn-submit").and("be.visible");
+
+      var maritalStatusData = data.mraAdmin.createmaritalstatusFrom;
+      cy.formController("description_en").type(maritalStatusData.nameEn);
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-ok").click();
+      cy.imsId("btn-go-back").click();
+
+      cy.log(
+        "Successful cannot creation marital status without one mandatory field."
+      );
+    });
+  }
+
+  createWithoutStatus() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("btn-add-new").click();
+      cy.imsId("btn-submit").and("be.visible");
+      cy.imsId("btn-reset").click();
+
+      var maritalStatusData = data.mraAdmin.createmaritalstatusFrom;
+      cy.formController("description_en").type(maritalStatusData.nameEn);
+      cy.formController("description_bn").type(maritalStatusData.nameBn);
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-ok").click();
+      cy.imsId("btn-go-back").click();
+
+      cy.log(
+        "Successful cannot creation marital status without one mandatory field."
+      );
+    });
+  }
+
   createWithoutOneMandatoryField() {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId("btn-add-new").click();
@@ -41,7 +94,7 @@ class MaritalStatusCreation {
       cy.imsId("btn-go-back").click();
 
       cy.log(
-        "Successful cannot creation education without one mandatory field."
+        "Successful cannot creation marital status without one mandatory field."
       );
     });
   }

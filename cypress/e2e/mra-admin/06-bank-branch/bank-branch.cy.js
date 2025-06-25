@@ -53,9 +53,9 @@ describe("06. Bank Branch Test.", function () {
     create_bank_branch.viewBankBranch();
   });
 
-  // it("06.08. Verify that the bank branch forms edit mode can be toggled on and off all fields should be disabled or return to view-only mode.", function () {
-  //   create_bank_branch.turnOffOnEditMode();
-  // });
+  it("06.08. Verify that the bank branch forms edit mode can be toggled on and off all fields should be disabled or return to view-only mode.", function () {
+    create_bank_branch.turnOffOnEditMode();
+  });
 
   it("06.09. Verify the bank branch name and description can be edited successfully.", function () {
     create_bank_branch.editBankBranch();

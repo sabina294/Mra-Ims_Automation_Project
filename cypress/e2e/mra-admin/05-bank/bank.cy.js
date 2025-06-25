@@ -53,9 +53,9 @@ describe("05. Bank Test.", function () {
     create_bank.viewBank();
   });
 
-  // it("05.08. Verify that the bank forms edit mode can be toggled on and off all fields should be disabled or return to view-only mode.", function () {
-  //   create_bank.turnOffOnEditMode();
-  // });
+  it("05.08. Verify that the bank forms edit mode can be toggled on and off all fields should be disabled or return to view-only mode.", function () {
+    create_bank.turnOffOnEditMode();
+  });
 
   it("05.09. Verify the bank name and description can be edited successfully.", function () {
     create_bank.editBank();

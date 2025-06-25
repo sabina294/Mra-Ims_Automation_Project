@@ -33,35 +33,35 @@ describe("04. Thana Test.", function () {
     create_thana.createThana();
   });
 
-  it("04.03. Verify that a thana cannot be created without a upazila name english, even if the upazila name bn,code,postal code,website,type,district,status,are valid.", function () {
+  it("04.03. Verify that a thana cannot be created without a upazila name english,even if all other fields are valid.", function () {
     create_thana.createWithoutNameEn();
   });
 
-  it("04.04. Verify that a thana cannot be created without a upazila name bangla, even if the upazila name en,code,postal code,website,type,district,status, are valid.", function () {
+  it("04.04. Verify that a thana cannot be created without a upazila name bangla,even if all other fields are valid.", function () {
     create_thana.createWithoutNameBn();
   });
 
-  it("04.05. Verify that a thana cannot be created without a upazila code, even if the upazila name en,bn,code,postal code,website,type,district,status are valid.", function () {
+  it("04.05. Verify that a thana cannot be created without a upazila code,even if all other fields are valid.", function () {
     create_thana.createWithoutUpazilaCode();
   });
 
-  it("04.06. Verify that a thana cannot be created without a postal code, even if the upazila name en,bn,code,website,type,district,status are valid.", function () {
+  it("04.06. Verify that a thana cannot be created without a postal code,even if all other fields are valid.", function () {
     create_thana.createWithoutPostalCode();
   });
 
-  it("04.07. Verify that a thana cannot be created without a website, even if the upazila name en,bn,code,postal code,type,district,status are valid.", function () {
+  it("04.07. Verify that a thana cannot be created without a website,even if all other fields are valid.", function () {
     create_thana.createWithoutWebsite();
   });
 
-  it("04.08. Verify that a thana cannot be created without a upazila type, even if the upazila name en,bn,code,postal code,district,status are valid.", function () {
+  it("04.08. Verify that a thana cannot be created without a upazila type,even if all other fields are valid.", function () {
     create_thana.createWithoutUpazilaType();
   });
 
-  it("04.09. Verify that a thana cannot be created without a district, even if the upazila name en,bn,code,postal code,website,status are valid.", function () {
+  it("04.09. Verify that a thana cannot be created without a district,even if all other fields are valid.", function () {
     create_thana.createWithoutDistrict();
   });
 
-  it("04.10. Verify that a thana cannot be created without a status, even if the upazila name en,bn,code,postal code,website, are valid.", function () {
+  it("04.10. Verify that a thana cannot be created without a status,even if all other fields are valid.", function () {
     create_thana.createWithoutStatus();
   });
 
@@ -85,9 +85,9 @@ describe("04. Thana Test.", function () {
     create_thana.viewThana();
   });
 
-  // it("04.16. Verify that the thana forms edit mode can be toggled on and off all fields should be disabled or return to view-only mode.", function () {
-  //   create_thana.turnOffOnEditMode();
-  // });
+  it("04.16. Verify that the thana forms edit mode can be toggled on and off all fields should be disabled or return to view-only mode.", function () {
+    create_thana.turnOffOnEditMode();
+  });
 
   it("04.17. Verify the thana name and description can be edited successfully.", function () {
     create_thana.editThana();

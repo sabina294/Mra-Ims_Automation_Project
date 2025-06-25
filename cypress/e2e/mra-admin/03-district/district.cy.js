@@ -37,27 +37,27 @@ describe("03. District Test.", function () {
     create_district.createAllField();
   });
 
-  it("03.04. Verify that a district cannot be created without a district name english, even if the district name,code,established year, and division are valid.", function () {
+  it("03.04. Verify that a district cannot be created without a district name english,even if all other fields are valid.", function () {
     create_district.createWithoutNameEn();
   });
 
-  it("03.05. Verify that a district cannot be created without a district name bangla, even if the district name,code,year,division are valid.", function () {
+  it("03.05. Verify that a district cannot be created without a district name bangla,even if all other fields are valid.", function () {
     create_district.createWithoutNameBn();
   });
 
-  it("03.06. Verify that a district cannot be created without a district code, even if the district name,year and division are valid.", function () {
+  it("03.06. Verify that a district cannot be created without a district code,even if all other fields are valid.", function () {
     create_district.createWithoutDisCode();
   });
 
-  it("03.07. Verify that a district cannot be created without established year, even if the district name,code,division are valid.", function () {
+  it("03.07. Verify that a district cannot be created without established year,even if all other fields are valid.", function () {
     create_district.createWithoutEstabYear();
   });
 
-  it("03.08. Verify that a district cannot be created without division, even if the district name,code,year are valid.", function () {
+  it("03.08. Verify that a district cannot be created without division,even if all other fields are valid.", function () {
     create_district.createWithoutDivision();
   });
 
-  it("03.09. Verify that a district cannot be created without status, even if the district name,code, are valid.", function () {
+  it("03.09. Verify that a district cannot be created without status,even if all other fields are valid.", function () {
     create_district.createWithoutStatus();
   });
 
@@ -69,9 +69,9 @@ describe("03. District Test.", function () {
     create_district.viewDistrict();
   });
 
-  // it("03.12. Verify that the district forms edit mode can be toggled on and off all fields should be disabled or return to view-only mode.", function () {
-  //   create_district.turnOffOnEditMode();
-  // });
+  it("03.12. Verify that the district forms edit mode can be toggled on and off all fields should be disabled or return to view-only mode.", function () {
+    create_district.turnOffOnEditMode();
+  });
 
   it("03.13. Verify the district name and description can be edited successfully.", function () {
     create_district.editDistrict();

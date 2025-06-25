@@ -33,6 +33,156 @@ class PaymentPeriodCreation {
     });
   }
 
+  createWithoutNameEn() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("btn-add-new").click();
+      cy.imsId("btn-submit").and("be.visible");
+
+      var payPerData = data.mraAdmin.createpaymentPeriodFrom;
+      var randomNumber = Math.floor(1000 + Math.random() * 9000);
+      var PaymentPeriodId = payPerData.PaymentPeriodId + "-" + randomNumber;
+
+      cy.formController("name_bn").type(payPerData.nameBn);
+      cy.formController("description_en").type(payPerData.descriptionEn);
+      cy.formController("description_bn").type(payPerData.descriptionBn);
+      cy.formController("payment_period_id").type(PaymentPeriodId);
+
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-ok").click();
+      cy.imsId("btn-go-back").click();
+
+      cy.log(
+        "Successful cannot creation payment period without one mandatory field."
+      );
+    });
+  }
+
+  createWithoutNameBn() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("btn-add-new").click();
+      cy.imsId("btn-submit").and("be.visible");
+
+      var payPerData = data.mraAdmin.createpaymentPeriodFrom;
+      var randomNumber = Math.floor(1000 + Math.random() * 9000);
+      var PaymentPeriodId = payPerData.PaymentPeriodId + "-" + randomNumber;
+
+      cy.formController("name_en").type(payPerData.nameEn);
+      cy.formController("description_en").type(payPerData.descriptionEn);
+      cy.formController("description_bn").type(payPerData.descriptionBn);
+      cy.formController("payment_period_id").type(PaymentPeriodId);
+
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-yes").click();
+
+      cy.get("app-confirmation-modal")
+        .contains(payPerData.messageSavePaPe)
+        .and("be.visible");
+      cy.imsId("btn-ok").click();
+
+      cy.log("Successfully created payment period all field");
+    });
+  }
+
+  createWithoutDiscriptionEn() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("btn-add-new").click();
+      cy.imsId("btn-submit").and("be.visible");
+
+      var payPerData = data.mraAdmin.createpaymentPeriodFrom;
+      var randomNumber = Math.floor(1000 + Math.random() * 9000);
+      var PaymentPeriodId = payPerData.PaymentPeriodId + "-" + randomNumber;
+
+      cy.formController("name_en").type(payPerData.nameEn);
+      cy.formController("name_bn").type(payPerData.nameBn);
+      cy.formController("description_bn").type(payPerData.descriptionBn);
+      cy.formController("payment_period_id").type(PaymentPeriodId);
+
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-ok").click();
+      cy.imsId("btn-go-back").click();
+
+      cy.log(
+        "Successful cannot creation payment period without one mandatory field."
+      );
+    });
+  }
+
+  createWithoutDiscriptionBn() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("btn-add-new").click();
+      cy.imsId("btn-submit").and("be.visible");
+
+      var payPerData = data.mraAdmin.createpaymentPeriodFrom;
+      var randomNumber = Math.floor(1000 + Math.random() * 9000);
+      var PaymentPeriodId = payPerData.PaymentPeriodId + "-" + randomNumber;
+
+      cy.formController("name_en").type(payPerData.nameEn);
+      cy.formController("name_bn").type(payPerData.nameBn);
+      cy.formController("description_en").type(payPerData.descriptionEn);
+      cy.formController("payment_period_id").type(PaymentPeriodId);
+
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-yes").click();
+
+      cy.get("app-confirmation-modal")
+        .contains(payPerData.messageSavePaPe)
+        .and("be.visible");
+      cy.imsId("btn-ok").click();
+
+      cy.log("Successfully created payment period all field");
+    });
+  }
+
+  createWithoutPayId() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("btn-add-new").click();
+      cy.imsId("btn-submit").and("be.visible");
+
+      var payPerData = data.mraAdmin.createpaymentPeriodFrom;
+      var randomNumber = Math.floor(1000 + Math.random() * 9000);
+      var PaymentPeriodId = payPerData.PaymentPeriodId + "-" + randomNumber;
+
+      cy.formController("name_en").type(payPerData.nameEn);
+      cy.formController("name_bn").type(payPerData.nameBn);
+      cy.formController("description_en").type(payPerData.descriptionEn);
+      cy.formController("description_bn").type(payPerData.descriptionBn);
+
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-ok").click();
+      cy.imsId("btn-go-back").click();
+
+      cy.log(
+        "Successful cannot creation payment period without one mandatory field."
+      );
+    });
+  }
+
+  createWithoutStatus() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("btn-add-new").click();
+      cy.imsId("btn-submit").and("be.visible");
+      cy.imsId("btn-reset").click();
+
+      var payPerData = data.mraAdmin.createpaymentPeriodFrom;
+      var randomNumber = Math.floor(1000 + Math.random() * 9000);
+      var PaymentPeriodId = payPerData.PaymentPeriodId + "-" + randomNumber;
+
+      cy.formController("name_en").type(payPerData.nameEn);
+      cy.formController("name_bn").type(payPerData.nameBn);
+      cy.formController("description_en").type(payPerData.descriptionEn);
+      cy.formController("description_bn").type(payPerData.descriptionBn);
+      cy.formController("payment_period_id").type(PaymentPeriodId);
+
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-ok").click();
+      cy.imsId("btn-go-back").click();
+
+      cy.log(
+        "Successful cannot creation payment period without one mandatory field."
+      );
+    });
+  }
+
   createAllField() {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId("btn-add-new").click();

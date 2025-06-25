@@ -33,31 +33,31 @@ describe("08. Economic Purpose Test.", function () {
     create_economic_purpose.createEconomicPurpose();
   });
 
-  it("08.03. Verify that a economic purpose cannot be created without a economic purpose code, even if the economic purpose name en,bn,sector,activity,category,status,are valid.", function () {
+  it("08.03. Verify that a economic purpose cannot be created without a economic purpose code,even if all other fields are valid.", function () {
     create_economic_purpose.createWithoutEcoPurCode();
   });
 
-  it("08.04. Verify that a economic purpose cannot be created without a economic purpose name en, even if the economic purpose code,name bn,sector,activity,category,status,are valid.", function () {
+  it("08.04. Verify that a economic purpose cannot be created without a economic purpose name en,even if all other fields are valid.", function () {
     create_economic_purpose.createWithoutEcoPurNameEn();
   });
 
-  it("08.05. Verify that a economic purpose cannot be created without economic purpose name bn, even if the economic purpose code,name en,sector,activity,category,status,are valid.", function () {
+  it("08.05. Verify that a economic purpose cannot be created without economic purpose name bn, even if all other fields are valid.", function () {
     create_economic_purpose.createWithoutEcoPurNameBn();
   });
 
-  it("08.06. Verify that a economic purpose cannot be created without economic purpose sector,even if the economic purpose code,name en,bn,activity,category,status,are valid.", function () {
+  it("08.06. Verify that a economic purpose cannot be created without economic purpose sector,even if all other fields are valid.", function () {
     create_economic_purpose.createWithoutEcoPurSector();
   });
 
-  it("08.07. Verify that a economic purpose cannot be created without economic purpose activity,even if the economic purpose code,name en,bn,sector,category,status,are valid.", function () {
+  it("08.07. Verify that a economic purpose cannot be created without economic purpose activity,even if all other fields are valid.", function () {
     create_economic_purpose.createWithoutEcoPurActivity();
   });
 
-  it("08.08. Verify that a economic purpose cannot be created without economic purpose category,even if the economic purpose code,name en,bn,sector,status,are valid.", function () {
+  it("08.08. Verify that a economic purpose cannot be created without economic purpose category,even if all other fields are valid.", function () {
     create_economic_purpose.createWithoutEcoPurCategory();
   });
 
-  it("08.09. Verify that a economic purpose cannot be created without economic purpose status,even if the economic purpose code,name en,bn,sector,category,are valid.", function () {
+  it("08.09. Verify that a economic purpose cannot be created without economic purpose status,even if all other fields are valid.", function () {
     create_economic_purpose.createWithoutEcoPurStatus();
   });
 
@@ -73,9 +73,9 @@ describe("08. Economic Purpose Test.", function () {
     create_economic_purpose.viewEconomicPurpose();
   });
 
-  // it("08.13. Verify that the economic purpose forms edit mode can be toggled on and off all fields should be disabled or return to view-only mode.", function () {
-  //   create_economic_purpose.turnOffOnEditMode();
-  // });
+  it("08.13. Verify that the economic purpose forms edit mode can be toggled on and off all fields should be disabled or return to view-only mode.", function () {
+    create_economic_purpose.turnOffOnEditMode();
+  });
 
   it("08.14. Verify the economic purpose name and description can be edited successfully.", function () {
     create_economic_purpose.editEconomicPurpose();
