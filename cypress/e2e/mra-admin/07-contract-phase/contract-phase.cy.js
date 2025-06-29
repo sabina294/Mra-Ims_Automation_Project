@@ -41,9 +41,9 @@ describe("07. Contract Phase Test.", function () {
     create_contract_phase.createWithoutNameBn();
   });
 
-  // it("07.05. Verify creating a contract phase without an status, even if all other fields are valid..", function () {
-  //   create_contract_phase.createWithoutStatus();
-  // });
+  it("07.05. Verify creating a contract phase without an status, even if all other fields are valid..", function () {
+    create_contract_phase.createWithoutStatus();
+  });
 
   it("07.06. Verify check if a contract phase cannot be created when a mandatory field is missing.", function () {
     create_contract_phase.createWithoutOneMandatoryField();
