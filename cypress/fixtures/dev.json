@@ -260,6 +260,8 @@
   "mfiAdmin": {
     "createDepartmentFrom": {
       "nameEn": "Test Department",
+      "nameBn": "পরীক্ষা বিভাগ",
+      "status": "Active",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
       "messageSaveDepartment": "Mfi employee department has been saved",

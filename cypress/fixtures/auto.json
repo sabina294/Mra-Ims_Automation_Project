@@ -239,7 +239,7 @@
     "createEmployeeFrom": {
       "employeeNameEn": "Test Employee",
       "employeeNameBn": "পরীক্ষা কর্মচারী",
-      "bloodGroup":"A",
+      "bloodGroup": "A",
       "maritalStatus": "Unmarried",
       "religion": "Islam",
       "academicQualification": "Post-Graduation",
@@ -259,7 +259,7 @@
       "fatherNameBn": "পরীক্ষা ",
       "motherNameEn": "Test ",
       "motherNameBn": "পরীক্ষা ",
-       "division": "Sylhet Division",
+      "division": "Sylhet Division",
       "district": "Sunamganj",
       "thana": "Bishwambarpur",
       "postalOffice": "Bishamsapur",
@@ -276,6 +276,8 @@
   "mfiAdmin": {
     "createDepartmentFrom": {
       "nameEn": "Test Department",
+      "nameBn": "পরীক্ষা বিভাগ",
+      "status": "Active",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
       "messageSaveDepartment": "Mfi employee department has been saved",
