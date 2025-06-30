@@ -92,19 +92,23 @@ describe("01. Department Test", function () {
     create_department.gridRefreshButtonCheck();
   });
 
-  it("01.18. Verify the department creation reset button clears all entered input values.", function () {
+  it("01.18. Verify pagination functions as expected on the last page of the department list.", function () {
+    create_department.paginationCheck();
+  });
+
+  it("01.19. Verify the department creation reset button clears all entered input values.", function () {
     create_department.createResetButtonCheck();
   });
 
-  it("01.19. Verify validation messages appear for required fields when the submit button is clicked with empty inputs.", function () {
+  it("01.20. Verify validation messages appear for required fields when the submit button is clicked with empty inputs.", function () {
     create_department.createValidationMessageCheck();
   });
 
-  it("01.20. Verify that clicking the go back button on the department create page redirects the user to the department list page.", function () {
+  it("01.21. Verify that clicking the go back button on the department create page redirects the user to the department list page.", function () {
     create_department.createGoBackButtonCheck();
   });
 
-  it("01.21. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("01.22. Verify check that the grid list content changes correctly from english to bangla.", function () {
     create_department.gridLanguageSwitchCheck();
   });
 });

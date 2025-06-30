@@ -208,6 +208,12 @@ class DepartmentCreation {
     );
   }
 
+   paginationCheck() {
+    cy.get('[title="2"] > .ng-star-inserted').click();
+    cy.log("Department pagination check successfully");
+  }
+
+
   createResetButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
 

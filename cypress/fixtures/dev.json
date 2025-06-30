@@ -269,6 +269,8 @@
     },
     "createDesignationFrom": {
       "nameEn": "Test Designation",
+      "nameBn": "পরীক্ষার পদবী",
+      "shortName": "TP",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
       "messageSaveDesignation": "Mfi employee designation has been saved",
