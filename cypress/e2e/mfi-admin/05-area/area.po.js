@@ -177,6 +177,28 @@ class AreaCreation {
     cy.log("Successful clean displaying");
   }
 
+  editSubmitButton() {
+    cy.fixture(this.test_data).then((data) => {
+      var arData = data.mfiAdmin.createAreaFrom;
+      cy.imsId("toggle-action").first().click();
+      cy.imsId("btn-table-action-edit").click();
+      cy.imsId("btn-reset").click();
+      cy.formController("area_name_en").type(arData.nameEn);
+      cy.formController("area_name_bn").type(arData.nameBn);
+      cy.formController("zone_id").type(arData.zoneName).type("{enter}");
+      cy.formController("area_code").type(arData.areaCode);
+      cy.formController("status").type(arData.status).type("{enter}");
+
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-yes").click();
+      cy.get("app-confirmation-modal")
+        .contains(arData.messageUpdateArea)
+        .and("be.visible");
+      cy.imsId("btn-ok").click();
+      cy.log("Successfully updated area");
+    });
+  }
+
   editGoBackButton() {
     cy.imsId("toggle-action").first().click();
     cy.imsId("btn-table-action-edit").click();

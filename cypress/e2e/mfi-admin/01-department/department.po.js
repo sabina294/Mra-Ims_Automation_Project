@@ -91,7 +91,6 @@ class DepartmentCreation {
 
   viewDepartment() {
     cy.fixture(this.test_data).then((data) => {
-        
       var depData = data.mfiAdmin.createDepartmentFrom;
       cy.formController("search_text").type(depData.nameEn);
       cy.imsId("toggle-action").first().click();
@@ -115,7 +114,6 @@ class DepartmentCreation {
 
   editDepartment() {
     cy.fixture(this.test_data).then((data) => {
-
       var depData = data.mfiAdmin.createDepartmentFrom;
       cy.imsId("btn-reset").click();
       cy.formController("search_text").type(depData.nameEn);
@@ -143,7 +141,6 @@ class DepartmentCreation {
 
   editSubmitButton() {
     cy.fixture(this.test_data).then((data) => {
-
       var depData = data.mfiAdmin.createDepartmentFrom;
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-edit").click();
@@ -158,7 +155,7 @@ class DepartmentCreation {
         .contains(depData.messageUpdateDepartment)
         .and("be.visible");
       cy.imsId("btn-ok").click();
-      cy.log("Successfully updated division");
+      cy.log("Successfully updated department");
     });
   }
 
@@ -171,7 +168,6 @@ class DepartmentCreation {
 
   statusInactiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
-
       var depData = data.mfiAdmin.createDepartmentFrom;
       cy.imsId("btn-reset").click();
       cy.formController("status").type(depData.selectStatus).type("{enter}");
@@ -180,7 +176,6 @@ class DepartmentCreation {
   }
   statusActiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
-
       var depData = data.mfiAdmin.createDepartmentFrom;
       cy.formController("status").type(depData.statusSelect).type("{enter}");
       cy.log("Department status active dropdown check successfully");
@@ -189,7 +184,6 @@ class DepartmentCreation {
 
   searchInDepartmentName() {
     cy.fixture(this.test_data).then((data) => {
-
       var depData = data.mfiAdmin.createDepartmentFrom;
       cy.imsId("btn-reset").click();
       cy.formController("search_text").type(depData.nameEn);
@@ -208,15 +202,13 @@ class DepartmentCreation {
     );
   }
 
-   paginationCheck() {
+  paginationCheck() {
     cy.get('[title="2"] > .ng-star-inserted').click();
     cy.log("Department pagination check successfully");
   }
 
-
   createResetButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
-
       var depData = data.mfiAdmin.createDepartmentFrom;
       cy.imsId("btn-add-new").click();
       cy.formController("name_en").type(depData.nameEn);

@@ -71,9 +71,9 @@ describe("05. Area Module Test Cases", function () {
     create_area.editResetButton();
   });
 
-  //  it("05.13. Verify the area edit submit button functions correctly.", function () {
-  //    create_area.editSubmitButton();
-  //  });
+  it("05.13. Verify the area edit submit button functions correctly.", function () {
+    create_area.editSubmitButton();
+  });
 
   it("05.14. Verify that clicking the go back button on the area edit page redirects the user to the area list page.", function () {
     create_area.editGoBackButton();

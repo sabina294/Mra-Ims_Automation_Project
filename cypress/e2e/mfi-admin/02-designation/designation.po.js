@@ -161,6 +161,29 @@ class DesignationCreation {
     cy.log("Successful clean displaying");
   }
 
+  editSubmitButton() {
+    cy.fixture(this.test_data).then((data) => {
+      var desData = data.mfiAdmin.createDesignationFrom;
+      cy.imsId("toggle-action").first().click();
+      cy.imsId("btn-table-action-edit").click();
+      cy.imsId("btn-reset").click();
+      cy.formController("emp_designation_en").type(desData.nameEn);
+      cy.formController("emp_designation_bn").type(desData.nameBn);
+      cy.formController("emp_designation_short_name").type(desData.shortName);
+      cy.formController("status").type(desData.status).type("{enter}");
+
+      cy.formController("status").type(desData.status).type("{enter}");
+
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-yes").click();
+      cy.get("app-confirmation-modal")
+        .contains(desData.messageUpdateDesignation)
+        .and("be.visible");
+      cy.imsId("btn-ok").click();
+      cy.log("Successfully updated designation");
+    });
+  }
+
   editGoBackButton() {
     cy.imsId("toggle-action").first().click();
     cy.imsId("btn-table-action-edit").click();
@@ -209,7 +232,7 @@ class DesignationCreation {
     );
   }
 
-   paginationCheck() {
+  paginationCheck() {
     cy.get('[title="2"] > .ng-star-inserted').click();
     cy.log("Designation pagination check successfully");
   }

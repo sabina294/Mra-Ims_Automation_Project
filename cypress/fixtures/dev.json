@@ -271,6 +271,8 @@
       "nameEn": "Test Designation",
       "nameBn": "পরীক্ষার পদবী",
       "shortName": "TP",
+      "status": "Active",
+
       "selectStatus": "Inactive",
       "statusSelect": "Active",
       "messageSaveDesignation": "Mfi employee designation has been saved",
@@ -280,6 +282,8 @@
       "nameEn": "Test Region",
       "nameBn": "পরীক্ষা অঞ্চল",
       "regionCode": "65",
+      "status": "Active",
+
       "selectStatus": "Inactive",
       "statusSelect": "Active",
       "messageSaveRegion": "Region has been saved",
@@ -290,6 +294,8 @@
       "nameBn": "পরীক্ষা জোন ",
       "regionName": "Dhaka",
       "zoneCode": "65",
+      "status": "Active",
+
       "selectStatus": "Inactive",
       "statusSelect": "Active",
       "messageSaveZone": "Zone has been saved",
@@ -300,6 +306,8 @@
       "nameBn": "পরীক্ষা এলাকা ",
       "zoneName": "Dhaka",
       "areaCode": "65",
+      "status": "Active",
+
       "selectStatus": "Inactive",
       "statusSelect": "Active",
       "messageSaveArea": "Area has been saved",

@@ -67,9 +67,9 @@ describe("03. Region Module Test Cases", function () {
     create_region.editResetButton();
   });
 
-  //  it("03.12. Verify the region edit submit button functions correctly.", function () {
-  //    create_region.editSubmitButton();
-  //  });
+  it("03.12. Verify the region edit submit button functions correctly.", function () {
+    create_region.editSubmitButton();
+  });
 
   it("03.13. Verify that clicking the go back button on the region edit page redirects the user to the region list page.", function () {
     create_region.editGoBackButton();

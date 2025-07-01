@@ -176,6 +176,28 @@ class ZoneCreation {
     cy.log("Successful clean displaying");
   }
 
+  editSubmitButton() {
+    cy.fixture(this.test_data).then((data) => {
+      var zoData = data.mfiAdmin.createZoneFrom;
+      cy.imsId("toggle-action").first().click();
+      cy.imsId("btn-table-action-edit").click();
+      cy.imsId("btn-reset").click();
+      cy.formController("zone_name_en").type(zoData.nameEn);
+      cy.formController("zone_name_bn").type(zoData.nameBn);
+      cy.formController("region_id").type(zoData.regionName).type("{enter}");
+      cy.formController("zone_code").type(zoData.zoneCode);
+      cy.formController("status").type(zoData.status).type("{enter}");
+
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-yes").click();
+      cy.get("app-confirmation-modal")
+        .contains(zoData.messageUpdateZone)
+        .and("be.visible");
+      cy.imsId("btn-ok").click();
+      cy.log("Successfully updated zone");
+    });
+  }
+
   editGoBackButton() {
     cy.imsId("toggle-action").first().click();
     cy.imsId("btn-table-action-edit").click();

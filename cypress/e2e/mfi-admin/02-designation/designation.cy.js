@@ -67,9 +67,9 @@ describe("02. Designation Module Test Cases", function () {
     create_designation.editResetButton();
   });
 
-  //  it("02.12. Verify the designation edit submit button functions correctly.", function () {
-  //    create_designation.editSubmitButton();
-  //  });
+  it("02.12. Verify the designation edit submit button functions correctly.", function () {
+    create_designation.editSubmitButton();
+  });
 
   it("02.13. Verify that clicking the go back button on the designation edit page redirects the user to the designation list page.", function () {
     create_designation.editGoBackButton();

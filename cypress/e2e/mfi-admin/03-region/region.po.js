@@ -152,6 +152,28 @@ class RegionCreation {
     cy.log("Successful clean displaying");
   }
 
+  editSubmitButton() {
+    cy.fixture(this.test_data).then((data) => {
+      var regData = data.mfiAdmin.createRegionFrom;
+      cy.imsId("toggle-action").first().click();
+      cy.imsId("btn-table-action-edit").click();
+      cy.imsId("btn-reset").click();
+      cy.formController("region_name_en").type(regData.nameEn);
+      cy.formController("region_name_bn").type(regData.nameBn);
+      cy.formController("region_code").type(regData.regionCode);
+
+      cy.formController("status").type(regData.status).type("{enter}");
+
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-yes").click();
+      cy.get("app-confirmation-modal")
+        .contains(regData.messageUpdateRegion)
+        .and("be.visible");
+      cy.imsId("btn-ok").click();
+      cy.log("Successfully updated region");
+    });
+  }
+
   editGoBackButton() {
     cy.imsId("toggle-action").first().click();
     cy.imsId("btn-table-action-edit").click();

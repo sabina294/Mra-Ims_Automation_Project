@@ -70,9 +70,9 @@ describe("04. Zone Module Test Cases", function () {
     create_zone.editResetButton();
   });
 
-  //  it("04.12. Verify the zone edit submit button functions correctly.", function () {
-  //    create_zone.editSubmitButton();
-  //  });
+  it("04.12. Verify the zone edit submit button functions correctly.", function () {
+    create_zone.editSubmitButton();
+  });
 
   it("04.13. Verify that clicking the go back button on the zone edit page redirects the user to the zone list page.", function () {
     create_zone.editGoBackButton();
