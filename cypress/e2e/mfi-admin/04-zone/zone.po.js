@@ -212,7 +212,7 @@ class ZoneCreation {
     cy.imsId("btn-reset").click();
     cy.log("Successful clean displaying.");
   }
-  
+
   gridRefreshButtonCheck() {
     cy.imsId("btn-refresh").click();
     cy.log("successfully refresh page  displayed the grid list of the region ");
