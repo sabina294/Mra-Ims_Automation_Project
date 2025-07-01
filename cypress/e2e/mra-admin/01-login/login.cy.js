@@ -4,7 +4,7 @@
 
 import { login_test } from "./login.po";
 
-describe("01. Login Test", function () {
+describe("01. Login Module Test Cases", function () {
   before(() => {
     cy.window().then((win) => win.sessionStorage.clear());
     cy.clearCookies();

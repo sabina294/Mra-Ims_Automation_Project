@@ -5,7 +5,7 @@
 import "cypress-file-upload";
 import { update_loan_chart } from "./loan-chart.po";
 
-describe("13. Loan Cassification Chart Test.", function () {
+describe("13. Loan Cassification Chart Module Test Cases.", function () {
   const baseURL = Cypress.env("BASE_URL");
   const test_data = Cypress.env("TEST_DATA");
 

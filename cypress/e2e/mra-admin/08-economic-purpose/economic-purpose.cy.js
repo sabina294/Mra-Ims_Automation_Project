@@ -5,7 +5,7 @@
 import "cypress-file-upload";
 import { create_economic_purpose } from "./economic-purpose.po";
 
-describe("08. Economic Purpose Test.", function () {
+describe("08. Economic Purpose Module Test Cases.", function () {
   const baseURL = Cypress.env("BASE_URL");
   const test_data = Cypress.env("TEST_DATA");
 

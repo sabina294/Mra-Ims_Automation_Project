@@ -5,7 +5,7 @@
 import "cypress-file-upload";
 import { create_thana } from "./thana.po";
 
-describe("04. Thana Test.", function () {
+describe("04. Thana Module Test Cases.", function () {
   const baseURL = Cypress.env("BASE_URL");
   const test_data = Cypress.env("TEST_DATA");
 

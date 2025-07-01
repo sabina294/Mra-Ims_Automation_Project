@@ -5,7 +5,7 @@
 import "cypress-file-upload";
 import { create_loan_type } from "./loan-type.po";
 
-describe("9. Loan Type Test.", function () {
+describe("9. Loan Type Module Test Cases.", function () {
   const baseURL = Cypress.env("BASE_URL");
   const test_data = Cypress.env("TEST_DATA");
 

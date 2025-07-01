@@ -5,7 +5,7 @@
 import "cypress-file-upload";
 import { create_remarks } from "./remarks.po";
 
-describe("19. Remarks Test.", function () {
+describe("19. Remarks Module Test Cases.", function () {
   const baseURL = Cypress.env("BASE_URL");
   const test_data = Cypress.env("TEST_DATA");
 

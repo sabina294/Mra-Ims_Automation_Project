@@ -5,7 +5,7 @@
 import "cypress-file-upload";
 import { create_gender } from "./gender.po";
 
-describe("16. Gender Test.", function () {
+describe("16. Gender Module Test Cases.", function () {
   const baseURL = Cypress.env("BASE_URL");
   const test_data = Cypress.env("TEST_DATA");
 

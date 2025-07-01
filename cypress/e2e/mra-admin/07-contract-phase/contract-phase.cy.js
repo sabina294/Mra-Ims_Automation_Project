@@ -5,7 +5,7 @@
 import "cypress-file-upload";
 import { create_contract_phase } from "./contract-phase.po";
 
-describe("07. Contract Phase Test.", function () {
+describe("07. Contract Phase Module Test Cases.", function () {
   const baseURL = Cypress.env("BASE_URL");
   const test_data = Cypress.env("TEST_DATA");
 

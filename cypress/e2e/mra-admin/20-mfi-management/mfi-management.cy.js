@@ -5,7 +5,7 @@
 import "cypress-file-upload";
 import { create_mfi_management } from "./mfi-management.po";
 
-describe("20. MFI Management Test.", function () {
+describe("20. MFI Management Module Test Cases.", function () {
   const baseURL = Cypress.env("BASE_URL");
   const test_data = Cypress.env("TEST_DATA");
 

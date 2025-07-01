@@ -5,7 +5,7 @@
 import "cypress-file-upload";
 import { create_bank_branch } from "./bank-branch.po";
 
-describe("06. Bank Branch Test.", function () {
+describe("06. Bank Branch Module Test Cases.", function () {
   const baseURL = Cypress.env("BASE_URL");
   const test_data = Cypress.env("TEST_DATA");
 

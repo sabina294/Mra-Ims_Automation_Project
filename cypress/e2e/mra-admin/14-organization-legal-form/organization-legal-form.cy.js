@@ -5,7 +5,7 @@
 import "cypress-file-upload";
 import { create_organization_legal_form } from "./organization-legal-form.po";
 
-describe("14. Organization Legal Form Test.", function () {
+describe("14. Organization Legal Form Module Test Cases.", function () {
   const baseURL = Cypress.env("BASE_URL");
   const test_data = Cypress.env("TEST_DATA");
 

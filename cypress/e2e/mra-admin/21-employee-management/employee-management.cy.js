@@ -5,7 +5,7 @@
 import "cypress-file-upload";
 import { create_employee_management } from "./employee-management.po";
 
-describe("21. Employee Management Test.", function () {
+describe("21. Employee Management Module Test Cases.", function () {
   const baseURL = Cypress.env("BASE_URL");
   const test_data = Cypress.env("TEST_DATA");
 

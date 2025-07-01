@@ -5,7 +5,7 @@
 import "cypress-file-upload";
 import { create_payment_method } from "./payment-method.po";
 
-describe("11. Payment Method Test.", function () {
+describe("11. Payment Method Module Test Cases.", function () {
   const baseURL = Cypress.env("BASE_URL");
   const test_data = Cypress.env("TEST_DATA");
 

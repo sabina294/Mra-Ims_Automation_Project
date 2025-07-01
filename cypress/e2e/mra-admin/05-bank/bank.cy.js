@@ -5,7 +5,7 @@
 import "cypress-file-upload";
 import { create_bank } from "./bank.po";
 
-describe("05. Bank Test.", function () {
+describe("05. Bank Module Test Cases.", function () {
   const baseURL = Cypress.env("BASE_URL");
   const test_data = Cypress.env("TEST_DATA");
 

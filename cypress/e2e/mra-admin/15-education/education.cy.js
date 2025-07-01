@@ -5,7 +5,7 @@
 import "cypress-file-upload";
 import { create_education } from "./education.po";
 
-describe("15. Education Test.", function () {
+describe("15. Education Module Test Cases.", function () {
   const baseURL = Cypress.env("BASE_URL");
   const test_data = Cypress.env("TEST_DATA");
 

@@ -5,7 +5,7 @@
 import "cypress-file-upload";
 import { create_marital_status } from "./marital-status.po";
 
-describe("17. Marital Status Test.", function () {
+describe("17. Marital Status Module Test Cases.", function () {
   const baseURL = Cypress.env("BASE_URL");
   const test_data = Cypress.env("TEST_DATA");
 

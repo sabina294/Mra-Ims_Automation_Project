@@ -5,7 +5,7 @@
 import "cypress-file-upload";
 import { create_payment_period } from "./payment-period.po";
 
-describe("10. Payment Period Test.", function () {
+describe("10. Payment Period Module Test Cases.", function () {
   const baseURL = Cypress.env("BASE_URL");
   const test_data = Cypress.env("TEST_DATA");
 

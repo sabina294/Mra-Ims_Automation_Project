@@ -5,7 +5,7 @@
 import "cypress-file-upload";
 import { create_department } from "./department.po";
 
-describe("01. Department Test", function () {
+describe("01. Department Module Test Cases", function () {
   const baseURL = Cypress.env("BASE_URL");
   const test_data = Cypress.env("TEST_DATA");
 

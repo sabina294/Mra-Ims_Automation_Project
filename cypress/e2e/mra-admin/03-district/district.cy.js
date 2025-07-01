@@ -5,7 +5,7 @@
 import "cypress-file-upload";
 import { create_district } from "./district.po";
 
-describe("03. District Test.", function () {
+describe("03. District Module Test Cases.", function () {
   const baseURL = Cypress.env("BASE_URL");
   const test_data = Cypress.env("TEST_DATA");
 

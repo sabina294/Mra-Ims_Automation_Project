@@ -5,7 +5,7 @@
 import "cypress-file-upload";
 import { create_loan_class_status } from "./loan-class-status.po";
 
-describe("12. Loan Class Status Test.", function () {
+describe("12. Loan Class Status Module Test Cases.", function () {
   const baseURL = Cypress.env("BASE_URL");
   const test_data = Cypress.env("TEST_DATA");
 

@@ -5,7 +5,7 @@
 import "cypress-file-upload";
 import { create_occupation } from "./occupation.po";
 
-describe("18. Occupation Test.", function () {
+describe("18. Occupation Module Test Cases.", function () {
   const baseURL = Cypress.env("BASE_URL");
   const test_data = Cypress.env("TEST_DATA");
 
