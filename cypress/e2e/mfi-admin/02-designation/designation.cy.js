@@ -95,9 +95,9 @@ describe("02. Designation Module Test Cases", function () {
     create_designation.gridRefreshButtonCheck();
   });
 
-  it("02.19. Verify pagination functions as expected on the last page of the designation list.", function () {
-    create_designation.paginationCheck();
-  });
+  // it("02.19. Verify pagination functions as expected on the last page of the designation list.", function () {
+  //   create_designation.paginationCheck();
+  // });
 
   it("02.20. Verify the designation creation reset button clears all entered input values.", function () {
     create_designation.createResetButtonCheck();

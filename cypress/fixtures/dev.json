@@ -320,6 +320,7 @@
       "accNameBn": "সাবিনা ইয়াসমিন",
       "accountType": "Savings Account",
       "accNumber": "0020672606",
+      "status": "Active",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
       "messageSaveBankAccount": "Mfi bank account has been saved",
@@ -328,7 +329,7 @@
     "createFeeConfigurationFrom": {
       "FeeCollCode": "87",
       "feeTypeNameEn": "Test Fee ",
-      "ammount": "3000",
+      "amount": "3000",
       "ledger": "Cash in Hand",
       "selectStatus": "Inactive",
       "statusSelect": "Active",

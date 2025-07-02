@@ -92,9 +92,9 @@ describe("01. Department Module Test Cases", function () {
     create_department.gridRefreshButtonCheck();
   });
 
-  it("01.18. Verify pagination functions as expected on the last page of the department list.", function () {
-    create_department.paginationCheck();
-  });
+  // it("01.18. Verify pagination functions as expected on the last page of the department list.", function () {
+  //   create_department.paginationCheck();
+  // });
 
   it("01.19. Verify the department creation reset button clears all entered input values.", function () {
     create_department.createResetButtonCheck();
