@@ -330,6 +330,8 @@
       "feeTypeNameBn": "পরীক্ষার ফি",
       "amount": "3000",
       "ledger": "Cash in Hand",
+      "status": "Active",
+
       "selectStatus": "Inactive",
       "statusSelect": "Active",
       "messageSaveFeeConfig": "Mfi fee configuration has been saved",
@@ -340,6 +342,8 @@
       "roleName": "Branch Manager",
       "minLoanAmount": "50000",
       "maxLoanAmount": "100000",
+      "status": "Active",
+
       "selectStatus": "Inactive",
       "statusSelect": "Active",
       "messageSaveAmountBasedLoan": "Mfi role wise loan amount approval has been saved",
@@ -349,6 +353,7 @@
       "FundingNameEn": "Test",
       "idShortCode": "Test",
       "fundingOrgType": "Savings Account",
+      "status": "Active",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
       "messageSaveFundingOrganization": "Mfi funding organization has been saved",

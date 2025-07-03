@@ -174,6 +174,7 @@ class DepartmentCreation {
       cy.log("Department status inactive dropdown check successfully");
     });
   }
+  
   statusActiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       var depData = data.mfiAdmin.createDepartmentFrom;

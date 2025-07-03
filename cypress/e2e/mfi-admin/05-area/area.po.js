@@ -64,7 +64,7 @@ class AreaCreation {
       cy.imsId("btn-ok").click();
       cy.imsId("btn-go-back").click();
 
-      cy.log("Successful cannot creation zone without one mandatory field.");
+      cy.log("Successful cannot creation area without one mandatory field.");
     });
   }
 
@@ -82,7 +82,7 @@ class AreaCreation {
       cy.imsId("btn-ok").click();
       cy.imsId("btn-go-back").click();
 
-      cy.log("Successful cannot creation zone without one mandatory field.");
+      cy.log("Successful cannot creation area without one mandatory field.");
     });
   }
 
@@ -100,7 +100,7 @@ class AreaCreation {
       cy.imsId("btn-ok").click();
       cy.imsId("btn-go-back").click();
 
-      cy.log("Successful cannot creation zone without one mandatory field.");
+      cy.log("Successful cannot creation area without one mandatory field.");
     });
   }
 

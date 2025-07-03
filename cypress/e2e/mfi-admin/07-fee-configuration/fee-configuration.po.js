@@ -198,7 +198,7 @@ class FeeConfigurationCreation {
 
   actionButtonCheck() {
     cy.imsId("toggle-action").first().click();
-    cy.log("Action button clicked successfully on the area list page.");
+    cy.log("Action button clicked successfully on the fee configuration list page.");
   }
 
   viewFeeConfiguration() {
@@ -221,7 +221,7 @@ class FeeConfigurationCreation {
     cy.imsId("switch-button").click();
     cy.imsId("btn-go-back").click();
 
-    cy.log("Bank account form Edit Mode toggled successfully");
+    cy.log("Fee configuration form Edit Mode toggled successfully");
   }
 
   editFeeConfiguration() {
@@ -264,6 +264,7 @@ class FeeConfigurationCreation {
       cy.log("Fee configuration status inactive dropdown check successfully");
     });
   }
+  
   statusActiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       var fcData = data.mfiAdmin.createFeeConfigurationFrom;
