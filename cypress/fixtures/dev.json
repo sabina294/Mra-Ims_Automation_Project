@@ -362,6 +362,7 @@
       "bankAccount": "Dhaka Zonal Office",
       "fundingOrgId": "PKSF",
       "amount": "30000",
+      "status": "Active",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
       "messageSaveLoanFund": "Mfi loan fund has been saved",
