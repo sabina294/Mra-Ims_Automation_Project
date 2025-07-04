@@ -362,7 +362,7 @@
     "createLoanFundFrom": {
       "bankAccount": "Dhaka Zonal Office",
       "fundingOrgId": "PKSF",
-      "amount": "30000",
+      "amount": "20000000.00",
       "status": "Active",
       "selectStatus": "Inactive",
       "statusSelect": "Active",

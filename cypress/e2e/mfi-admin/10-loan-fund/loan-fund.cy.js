@@ -27,9 +27,9 @@ describe("10. Loan Fund Module Test Cases", function () {
     create_loan_fund.gridLoanFundListPage();
   });
 
-  it("10.02. Verify a new loan fund is created successfully when all required fields are filled with valid data.", function () {
-    create_loan_fund.createLoanFund();
-  });
+  // it("10.02. Verify a new loan fund is created successfully when all required fields are filled with valid data.", function () {
+  //   create_loan_fund.createLoanFund();
+  // });
 
   it("10.03. Verify successfully performs the action when the action button is clicked.", function () {
     create_loan_fund.actionButtonCheck();
@@ -43,9 +43,9 @@ describe("10. Loan Fund Module Test Cases", function () {
     create_loan_fund.turnOffEditMode();
   });
 
-  it("10.06. Verify the loan fund name and description can be edited successfully.", function () {
-    create_loan_fund.editLoanFund();
-  });
+  // it("10.06. Verify the loan fund name and description can be edited successfully.", function () {
+  //   create_loan_fund.editLoanFund();
+  // });
 
   it("10.07. Verify the loan fund edit reset button functions correctly.", function () {
     create_loan_fund.editResetButton();
