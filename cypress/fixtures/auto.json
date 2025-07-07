@@ -374,6 +374,7 @@
       "programShortName": "TM",
       "fundingCategory": "General Micro-Credit (GMC)",
       "loanFund": "PKSF-1001",
+      "status": "Active",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
       "messageSaveMfiProgram": "Mfi program has been saved",
@@ -383,7 +384,7 @@
       "officeNameEn": "Test Office",
       "officeNameBn": "পরীক্ষা অফিস",
       "officeType": "Branch Office",
-      "comOfficeId": "98765213",
+      "comOfficeId": "56789345",
       "mobileNo": "01887949170",
       "division": "Sylhet Division",
       "district": "Sunamganj",
@@ -400,6 +401,15 @@
       "messageSaveOffice": "Office has been saved",
       "messageUpdateOffice": "Office has been updated"
     },
+
+      "approveOfficeFrom": {
+      "officeNameEn": "Test Office",
+      "officeNameBn": "পরীক্ষা অফিস",
+      "officeType": "Branch Office",
+      "messageSaveOffice": "Office has been saved",
+      "messageUpdateOffice": "Office has been updated"
+    },
+
     "createEmpMangFrom": {
       "empNameEn": "Sabina Yeasmin",
       "empMobileNo": "01887949170",

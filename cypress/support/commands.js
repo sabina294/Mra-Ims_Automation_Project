@@ -6,6 +6,14 @@ Cypress.Commands.add("formController", (form_control_name) => {
   return cy.get(`[formcontrolname='${form_control_name}']`);
 });
 
+
+Cypress.Commands.add("loginAsMraAdmin", (baseURL, data) => {
+  cy.login(baseURL, data.credential.mraAdminUserId, data.credential.mraAdminPassword);
+  cy.changeLanguage('english');
+});
+
+
+
 Cypress.Commands.add(
   "formArrayController",
   (form_array_name, index, form_control_name) => {
