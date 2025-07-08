@@ -32,7 +32,6 @@ class OfficeCreation {
       cy.formController("district_id").type(omData.district).type("{enter}");
       cy.formController("upazila_id").type(omData.upazila).type("{enter}");
       cy.formController("address_line_1").type(omData.adressEn);
-
       cy.formController("latitude").type(omData.latitude);
       cy.formController("longitude").type(omData.longitude);
       cy.imsId("btn-add").click();

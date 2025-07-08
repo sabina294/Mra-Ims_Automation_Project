@@ -195,7 +195,7 @@ class MfiProgramCreation {
   editMfiProgram() {
     cy.fixture(this.test_data).then((data) => {
       var mpData = data.mfiAdmin.createMfiProgramFrom;
-      cy.get(".mr-1").click();
+      cy.imsId("btn-reset").click();
       cy.formController("search_text").type(mpData.programNameEn);
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-edit").click();
