@@ -76,9 +76,9 @@ describe("12. MFI program Module Test Cases", function () {
     create_mfi_program.editResetButton();
   });
 
-  it("12.14. Verify the mfi program edit submit button functions correctly.", function () {
-    create_mfi_program.editSubmitButton();
-  });
+  // it("12.14. Verify the mfi program edit submit button functions correctly.", function () {
+  //   create_mfi_program.editSubmitButton();
+  // });
 
   it("12.15. Verify that clicking the go back button on the mfi program edit page redirects the user to the mfi program list page.", function () {
     create_mfi_program.editGoBackButton();

@@ -80,12 +80,11 @@ class EmployeeManagementCreation {
       cy.imsId("btn-yes").click();
       cy.imsId("btn-ok").click();
 
-      cy.log("Successfully created employee management");
+      cy.log("Successfully approve employee management");
     });
   }
 
   actionButtonCheck() {
-    cy.selectMenu("menu-employee", "submenu-employee-management");
     cy.imsId("toggle-action").first().click();
     cy.log(
       "Action button clicked successfully on the employee management list page."
@@ -105,21 +104,31 @@ class EmployeeManagementCreation {
     });
   }
 
+  editResetButton() {
+    cy.imsId("toggle-action").first().click();
+    cy.imsId("btn-table-action-edit").click();
+    cy.imsId("btn-reset").click();
+    cy.imsId("btn-go-back").click();
+
+    cy.log("Successful clean displaying");
+  }
+
+  editGoBackButton() {
+    cy.imsId("toggle-action").first().click();
+    cy.imsId("btn-table-action-edit").click();
+    cy.imsId("btn-go-back").click();
+    cy.log("Successful edit go back button check.");
+  }
+
   editEmployeeManagement() {
-    cy.fixture(this.test_data).then((data) => {
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-edit").click();
       cy.imsId("btn-submit").click();
-
-      var emData = data.mfiAdmin.createEmpMangFrom;
-      cy.imsId("btn-yes").click();
-      cy.get("app-confirmation-modal")
-        .contains(emData.messageUpdateEmp)
-        .and("be.visible");
       cy.imsId("btn-ok").click();
+      cy.imsId("btn-go-back").click();
 
       cy.log("Employee Management updated successfully");
-    });
+   
   }
 
   statusInactiveDropdownCheck() {

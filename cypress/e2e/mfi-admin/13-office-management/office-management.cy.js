@@ -1,6 +1,6 @@
 // npm run auto
 // npm run dev
-// npx cypress run --spec cypress/e2e/mfi-admin/13-office-management/office-management.cy.js --browser chrome --headless
+// npx cypress run --spec cypress/e2e/mfi-admin/13-office-management/office-management.cy.js --browser chrome --headed
 
 import "cypress-file-upload";
 import { create_office_management } from "./office-management.po";
@@ -27,28 +27,30 @@ describe("13. Office Management Module Test Cases", function () {
     create_office_management.gridOfficeManagementListPage();
   });
 
-  // it("13.02. Verify a new office management is created successfully when all required fields are filled with valid data.", function () {
-  //   create_office_management.createOffice();
-  // });
+  it("13.02. Verify a new office management is created successfully when all required fields are filled with valid data.", function () {
+    create_office_management.createOffice();
+  });
 
-  //   it("13.03. Verify mra-admin to successfully approve an office management record after creation.", function () {
-  //     cy.fixture(test_data).then((d) => {
-  //       cy.loginAsMraAdmin(baseURL, d);
-  //       create_office_management.approveOffice();
-  //     });
-  //   });
+  it("13.03. Verify mra-admin to successfully approve an office management record after creation.", function () {
+    cy.fixture(test_data).then((d) => {
+      cy.loginAsMraAdmin(baseURL, d);
+      create_office_management.approveOffice();
+      cy.logout();
+      cy.loginAsMfiAdmin(baseURL, d);
+    });
+  });
 
   it("13.04. Verify successfully performs the action when the action button is clicked.", function () {
     create_office_management.actionButtonCheck();
   });
 
-//   it("13.05. Verify the user can view all relevant details of a office management, including its associated fields.", function () {
-//     create_office_management.viewOffice();
-//   });
+  it("13.05. Verify the user can view all relevant details of a office management, including its associated fields.", function () {
+    create_office_management.viewOffice();
+  });
 
-//   it("13.06. Verify that the office management forms edit mode can be toggled on and off all fields should be disabled or return to view-only mode.", function () {
-//     create_office_management.turnOffEditMode();
-//   });
+  it("13.06. Verify that the office management forms edit mode can be toggled on and off all fields should be disabled or return to view-only mode.", function () {
+    create_office_management.turnOffEditMode();
+  });
 
   it("13.07. Verify the user can filter inactive office managements using the status dropdown on the office management list page.", function () {
     create_office_management.statusInactiveDropdownCheck();

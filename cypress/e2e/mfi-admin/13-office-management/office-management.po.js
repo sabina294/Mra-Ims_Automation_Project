@@ -35,14 +35,17 @@ class OfficeCreation {
       cy.formController("latitude").type(omData.latitude);
       cy.formController("longitude").type(omData.longitude);
       cy.imsId("btn-add").click();
-      cy.formController("working_area_name_en").type(omData.areaNameEn);
+      cy.formController("working_area_name_en").first().type(omData.areaNameEn);
       cy.formArrayController("working_area", 0, "division_id")
+        .first()
         .type(omData.divisionName)
         .type("{enter}");
       cy.formArrayController("working_area", 0, "district_id")
+        .first()
         .type(omData.districtName)
         .type("{enter}");
       cy.formArrayController("working_area", 0, "thana_id")
+        .first()
         .type(omData.upazilaName)
         .type("{enter}");
 
@@ -67,14 +70,16 @@ class OfficeCreation {
       cy.imsId("btn-table-action-view").click();
       cy.imsId("btn-lock").click();
       cy.imsId("btn-approve").click();
+      cy.imsId("btn-Approve").click();
       cy.imsId("btn-yes").click();
       cy.imsId("btn-ok").click();
 
-      cy.log("Successfully created office management");
+      cy.log("Successfully approve office management");
     });
   }
 
   actionButtonCheck() {
+    cy.selectMenu("menu-office", "submenu-office-management");
     cy.imsId("toggle-action").first().click();
     cy.log(
       "Action button clicked successfully on the office management list page."
@@ -96,18 +101,23 @@ class OfficeCreation {
   }
 
   turnOffEditMode() {
-    cy.imsId("toggle-action").first().click();
-    cy.imsId("btn-table-action-view").click();
-    cy.imsId("switch-button").click();
-    cy.imsId("btn-back").click();
+    cy.fixture(this.test_data).then((data) => {
+      var omData = data.mfiAdmin.createOfficeFrom;
+      cy.imsId("btn-reset").click();
+      cy.formController("search_text").type(omData.officeNameEn);
+      cy.imsId("toggle-action").first().click();
+      cy.imsId("btn-table-action-edit").click();
+      cy.imsId("switch-button").click();
+      cy.imsId("btn-go-back").click();
 
-    cy.log("Office management form Edit Mode toggled successfully");
+      cy.log("Office management form Edit Mode toggled successfully");
+    });
   }
 
   editOffice() {
     cy.fixture(this.test_data).then((data) => {
       var omData = data.mfiAdmin.createOfficeFrom;
-      cy.get(".mr-1").click();
+      cy.imsId("btn-reset").click();
       cy.formController("search_text").type(omData.officeNameEn);
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-edit").click();

@@ -1,6 +1,6 @@
 // npm run auto
 // npm run dev
-// npx cypress run --spec cypress/e2e/mra-admin/13-loan-chart/loan-chart.cy.js
+// npx cypress run --spec cypress/e2e/mra-admin/13-loan-chart/loan-chart.cy.js --headed
 
 import "cypress-file-upload";
 import { update_loan_chart } from "./loan-chart.po";

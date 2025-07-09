@@ -211,6 +211,7 @@ class MfiProgramCreation {
   }
 
   editResetButton() {
+    cy.imsId("btn-reset").click();
     cy.imsId("toggle-action").first().click();
     cy.imsId("btn-table-action-edit").click();
     cy.imsId("btn-reset").click();

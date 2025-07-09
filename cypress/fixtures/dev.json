@@ -369,8 +369,8 @@
       "messageUpdateLoanFund": "Mfi loan fund has been updated"
     },
     "createMfiProgramFrom": {
-      "programNameEn": "Test Mfi Program",
-      "programShortName": "TM",
+      "programNameEn": "Sahosh",
+      "programShortName": "SA",
       "fundingCategory": "General Micro-Credit (GMC)",
       "loanFund": "PKSF-1001",
       "status": "Active",
@@ -390,7 +390,7 @@
       "upazila": "Tahirpur",
       "adressEn": "Dhaka",
       "latitude": "23.8103",
-      "longitude": "90.4125",
+      "longitude": "24.5433",
       "areaNameEn": "Savar",
       "divisionName": "Rangpur Division",
       "districtName": "Panchagarh",
@@ -435,6 +435,8 @@
     "createSamityFrom": {
       "samityNameEn": "Shyamoli kallyan Samity",
       "samityNameBn": "শ্যামলী কল্যাণ সমিতি",
+      "draftName": "Test",
+      "draftNameBn": "পরীক্ষা",
       "samityType": "Female",
       "office": "1019 (Amin Bazar)",
       "fieldOfficer": "MD EBRAHIM",
@@ -448,7 +450,7 @@
       "geoAreaType": "Rural",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
-      "messageSaveSamity": "Samity has been saved",
+      "messageSaveSamity": "Unauth samity has been saved",
       "messageUpdateSamity": "Samity has been updated"
     },
     "samityChangeFrom": {

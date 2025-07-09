@@ -12,7 +12,10 @@ Cypress.Commands.add("loginAsMraAdmin", (baseURL, data) => {
   cy.changeLanguage('english');
 });
 
-
+Cypress.Commands.add("loginAsMfiAdmin", (baseURL, data) => {
+  cy.login(baseURL, data.credential.mfiAdminUserId, data.credential.mfiAdminPassword);
+  cy.changeLanguage('english');
+});
 
 Cypress.Commands.add(
   "formArrayController",
