@@ -453,12 +453,36 @@
       "messageSaveSamity": "Unauth samity has been saved",
       "messageUpdateSamity": "Samity has been updated"
     },
+
+    "rejectedSamityFrom": {
+      "samityNameEn": "Shyamoli kallyan Samity",
+      "samityNameBn": "শ্যামলী কল্যাণ সমিতি",
+      "draftName": "Test",
+      "draftNameBn": "পরীক্ষা",
+      "samityType": "Female",
+      "office": "1019 (Amin Bazar)",
+      "fieldOfficer": "MD EBRAHIM",
+      "mfiProgram": "Jagoron",
+      "samityDay": "Sunday",
+      "samityFrequency": "Monthly",
+      "workingArea": "Amin Bazar",
+      "samityCode": "123456",
+      "maxMember": "30",
+      "adressEn": "Dhaka",
+      "geoAreaType": "Rural",
+      "selectStatus": "Inactive",
+      "statusSelect": "Active",
+      "messageSaveSamity": "Unauth samity has been saved",
+      "messageUpdateSamity": "Samity has been updated",
+      "rejectRemarks": "Reject"
+    },
+
     "samityChangeFrom": {
-      "samityNameEn": "Nakol Mohila Samity",
+      "samityNameEn": "Shyamoli kallyan Samity",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
       "SelectOffice": "1019 (Amin Bazar)",
-      "messageSamityChange": "Samity field officer has been updated"
+      "messageSamityChange": "Samity has been updated"
     },
     "samityDayChangeFrom": {
       "samityNameEn": "Majhail Mohila Samity",

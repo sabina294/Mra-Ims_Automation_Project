@@ -272,6 +272,7 @@
       "nameBn": "পরীক্ষার পদবী",
       "shortName": "TP",
       "status": "Active",
+
       "selectStatus": "Inactive",
       "statusSelect": "Active",
       "messageSaveDesignation": "Mfi employee designation has been saved",
@@ -306,6 +307,7 @@
       "zoneName": "Dhaka",
       "areaCode": "65",
       "status": "Active",
+
       "selectStatus": "Inactive",
       "statusSelect": "Active",
       "messageSaveArea": "Area has been saved",
@@ -327,11 +329,9 @@
     "createFeeConfigurationFrom": {
       "FeeCollCode": "87",
       "feeTypeNameEn": "Test Fee ",
-      "feeTypeNameBn": "পরীক্ষার ফি",
       "amount": "3000",
       "ledger": "Cash in Hand",
       "status": "Active",
-
       "selectStatus": "Inactive",
       "statusSelect": "Active",
       "messageSaveFeeConfig": "Mfi fee configuration has been saved",
@@ -343,7 +343,6 @@
       "minLoanAmount": "50000",
       "maxLoanAmount": "100000",
       "status": "Active",
-
       "selectStatus": "Inactive",
       "statusSelect": "Active",
       "messageSaveAmountBasedLoan": "Mfi role wise loan amount approval has been saved",
@@ -384,14 +383,14 @@
       "officeNameEn": "Test Office",
       "officeNameBn": "পরীক্ষা অফিস",
       "officeType": "Branch Office",
-      "comOfficeId": "56789345",
+      "comOfficeId": "43563635",
       "mobileNo": "01887949170",
       "division": "Sylhet Division",
       "district": "Sunamganj",
       "upazila": "Tahirpur",
       "adressEn": "Dhaka",
       "latitude": "23.8103",
-      "longitude": "90.4125",
+      "longitude": "24.5433",
       "areaNameEn": "Savar",
       "divisionName": "Rangpur Division",
       "districtName": "Panchagarh",
@@ -454,12 +453,36 @@
       "messageSaveSamity": "Unauth samity has been saved",
       "messageUpdateSamity": "Samity has been updated"
     },
+
+    "rejectedSamityFrom": {
+      "samityNameEn": "Shyamoli kallyan Samity",
+      "samityNameBn": "শ্যামলী কল্যাণ সমিতি",
+      "draftName": "Test",
+      "draftNameBn": "পরীক্ষা",
+      "samityType": "Female",
+      "office": "1019 (Amin Bazar)",
+      "fieldOfficer": "MD EBRAHIM",
+      "mfiProgram": "Jagoron",
+      "samityDay": "Sunday",
+      "samityFrequency": "Monthly",
+      "workingArea": "Amin Bazar",
+      "samityCode": "123456",
+      "maxMember": "30",
+      "adressEn": "Dhaka",
+      "geoAreaType": "Rural",
+      "selectStatus": "Inactive",
+      "statusSelect": "Active",
+      "messageSaveSamity": "Unauth samity has been saved",
+      "messageUpdateSamity": "Samity has been updated",
+      "rejectRemarks": "Reject"
+    },
+
     "samityChangeFrom": {
-      "samityNameEn": "Nakol Mohila Samity",
+      "samityNameEn": "Shyamoli kallyan Samity",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
       "SelectOffice": "1019 (Amin Bazar)",
-      "messageSamityChange": "Samity field officer has been updated"
+      "messageSamityChange": "Samity has been updated"
     },
     "samityDayChangeFrom": {
       "samityNameEn": "Majhail Mohila Samity",

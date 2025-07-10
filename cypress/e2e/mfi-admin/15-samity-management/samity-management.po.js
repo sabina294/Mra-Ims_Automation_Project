@@ -195,7 +195,7 @@ class SamityCreation {
     cy.fixture(this.test_data).then((data) => {
       var smData = data.mfiAdmin.createSamityFrom;
       cy.formController("office_id").type(smData.office);
-      cy.log("Successfully select bank in the samity management");
+      cy.log("Successfully select office in the samity management");
     });
   }
 
