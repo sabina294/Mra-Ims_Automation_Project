@@ -95,7 +95,7 @@ class EmployeeManagementCreation {
     cy.fixture(this.test_data).then((data) => {
       var emData = data.mfiAdmin.createEmpMangFrom;
 
-      cy.formController("search_text").type(emData.empNameEn);
+      cy.formController("search_text").type(emData.search);
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
 
@@ -105,30 +105,39 @@ class EmployeeManagementCreation {
   }
 
   editResetButton() {
-    cy.imsId("toggle-action").first().click();
-    cy.imsId("btn-table-action-edit").click();
-    cy.imsId("btn-reset").click();
-    cy.imsId("btn-go-back").click();
+    cy.fixture(this.test_data).then((data) => {
+      var emData = data.mfiAdmin.createEmpMangFrom;
+      cy.imsId("btn-reset").click();
+      cy.formController("search_text").type(emData.search);
+      cy.imsId("toggle-action").first().click();
+      cy.imsId("btn-table-action-edit").click();
+      cy.imsId("btn-reset").click();
+      cy.imsId("btn-go-back").click();
 
-    cy.log("Successful clean displaying");
+      cy.log("Successful clean displaying");
+    });
   }
 
   editGoBackButton() {
-    cy.imsId("toggle-action").first().click();
-    cy.imsId("btn-table-action-edit").click();
-    cy.imsId("btn-go-back").click();
-    cy.log("Successful edit go back button check.");
+    cy.fixture(this.test_data).then((data) => {
+      var emData = data.mfiAdmin.createEmpMangFrom;
+      cy.imsId("btn-reset").click();
+      cy.formController("search_text").type(emData.search);
+      cy.imsId("toggle-action").first().click();
+      cy.imsId("btn-table-action-edit").click();
+      cy.imsId("btn-go-back").click();
+      cy.log("Successful edit go back button check.");
+    });
   }
 
   editEmployeeManagement() {
-      cy.imsId("toggle-action").first().click();
-      cy.imsId("btn-table-action-edit").click();
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-ok").click();
-      cy.imsId("btn-go-back").click();
+    cy.imsId("toggle-action").first().click();
+    cy.imsId("btn-table-action-edit").click();
+    cy.imsId("btn-submit").click();
+    cy.imsId("btn-ok").click();
+    cy.imsId("btn-go-back").click();
 
-      cy.log("Employee Management updated successfully");
-   
+    cy.log("Employee Management updated successfully");
   }
 
   statusInactiveDropdownCheck() {
@@ -172,6 +181,19 @@ class EmployeeManagementCreation {
       "successfully refresh page  displayed the grid list of the Employee Management form "
     );
   }
+
+   gridDraftButton() {
+    cy.imsId("btn-draft-on").click();
+    cy.log("Draft button should be clickable and functional.");
+  }
+
+  gridDraftButtonOff() {
+    cy.imsId("btn-draft-on").click();
+    cy.log("Draft button should be clickable and functional.");
+  }
+
+
+
   createResetButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
       var emData = data.mfiAdmin.createEmpMangFrom;

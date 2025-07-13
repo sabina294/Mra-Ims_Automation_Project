@@ -1,0 +1,197 @@
+class MemberManagementCreation {
+  test_data = Cypress.env("TEST_DATA");
+
+  gridMemberManagementListPage() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.selectMenu("menu-member", "submenu-member-management");
+      cy.log("Successfully Member management list page.");
+    });
+  }
+
+  createMemberManagement() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("btn-add-new").click();
+      cy.imsId("btn-submit").and("be.visible");
+
+      var memData = data.mfiAdmin.createMemberFrom;
+      cy.formController("office_id").type(memData.office).type("{enter}");
+      cy.formController("samity_id").type(memData.smity).type("{enter}");
+      cy.formController("member_name_en").type(memData.memberNameEn);
+      cy.formController("date_of_birth").click();
+      cy.get(".ant-picker-header-year-btn").click();
+      cy.get(".ant-picker-header-super-prev-btn").click();
+      cy.get(".ant-picker-header-super-prev-btn").click();
+      cy.contains("2005").click();
+      cy.wait(3000);
+      cy.contains("16").click();
+      cy.wait(2000);
+      cy.formController("mfi_program_id")
+        .type(memData.mfiProgram)
+        .type("{enter}");
+      cy.formController("gender").click();
+      cy.formController("occupation").type(memData.occupation).type("{enter}");
+      cy.formController("contactNo").type(memData.memberMobileNo);
+      cy.get("#nz-tabs-0-tab-1").click();
+      cy.formController("nid_number").type(memData.nidNumber);
+      cy.get("#nz-tabs-0-tab-2").click();
+      cy.formController("father_name_en").type(memData.fatherNameEn);
+      cy.formController("mother_name_en").type(memData.motherNameEn);
+      cy.get("#nz-tabs-0-tab-3").click();
+      cy.formController("res_division_id")
+        .type(memData.division)
+        .type("{enter}");
+      cy.formController("res_district_id")
+        .type(memData.district)
+        .type("{enter}");
+      cy.formController("res_upazila_id").type(memData.thana).type("{enter}");
+      cy.formController("res_address_line_1").type(memData.adressEn);
+      cy.imsId("ck-box").click();
+      cy.get("#nz-tabs-0-tab-4").click();
+      cy.get("#nz-tabs-0-tab-5").click();
+      cy.imsId("btn_photo_image_id").attachFile("employeePhoto1.jpg");
+      cy.wait(3000);
+      cy.imsId("btn_nid_front_doc_id").attachFile("nidPront1.jpg");
+      cy.wait(3000);
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-yes").click();
+      cy.get("app-confirmation-modal")
+        .contains(memData.messageSaveMember)
+        .and("be.visible");
+      cy.imsId("btn-ok").click();
+
+      cy.log("Successfully created member management");
+    });
+  }
+
+  approveMemberManagement() {
+    cy.fixture(this.test_data).then((data) => {
+      var memData = data.mfiAdmin.createMemberFrom;
+      cy.imsId("menu-my-task").click();
+      cy.imsId("submenu-awaiting-member-management").click();
+      cy.formController("search_text").type(memData.memberNameEn);
+      cy.imsId("toggle-action").first().click();
+      cy.imsId("btn-table-action-view").click();
+      cy.imsId("btn-lock").click();
+      cy.imsId("btn-approve").click();
+      cy.imsId("btn-submit").click();
+      cy.get("app-confirmation-modal")
+        .contains(memData.messageApproveMember)
+        .and("be.visible");
+      cy.imsId("btn-ok").click();
+      cy.log("Successfully approved the member management ");
+    });
+  }
+
+  actionButtonCheck() {
+    cy.selectMenu("menu-member", "submenu-member-management");
+    cy.imsId("toggle-action").first().click();
+    cy.log(
+      "Action button clicked successfully on the member management list page."
+    );
+  }
+
+  viewMemberManagement() {
+    cy.fixture(this.test_data).then((data) => {
+      var memData = data.mfiAdmin.createMemberFrom;
+      cy.formController("search_text").type(memData.memberNameEn);
+      cy.imsId("toggle-action").first().click();
+      cy.imsId("btn-table-action-view").click();
+      cy.imsId("btn-go-back").click();
+      cy.log("Successfully viewed the member management list page");
+    });
+  }
+
+  editMemberManagement() {
+    cy.fixture(this.test_data).then((data) => {
+      var memData = data.mfiAdmin.createMemberFrom;
+      cy.imsId("btn-reset").click();
+      cy.formController("search_text").type(memData.memberNameEn);
+      cy.imsId("toggle-action").first().click();
+      cy.imsId("btn-mis-table-action-edit").click();
+      cy.imsId("btn-submit").click();
+
+      cy.imsId("btn-yes").click();
+
+      cy.get("app-confirmation-modal")
+        .contains(memData.messageUpdateMember)
+        .and("be.visible");
+      cy.imsId("btn-ok").click();
+
+      cy.log("Member Management updated successfully");
+    });
+  }
+
+  editResetButton() {
+    cy.imsId("toggle-action").first().click();
+    cy.imsId("btn-mis-table-action-edit").click();
+    cy.imsId("btn-reset").click();
+    cy.imsId("btn-go-back").click();
+
+    cy.log("Successful clean displaying");
+  }
+
+  editGoBackButton() {
+    cy.imsId("toggle-action").first().click();
+    cy.imsId("btn-mis-table-action-edit").click();
+    cy.imsId("btn-go-back").click();
+    cy.log("Successful edit go back button check.");
+  }
+
+  statusInactiveDropdownCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      var memData = data.mfiAdmin.createMemberFrom;
+      cy.imsId("btn-reset").click();
+      cy.formController("status").type(memData.selectStatus).type("{enter}");
+      cy.log("Member management status inactive dropdown check successfully");
+    });
+  }
+
+  statusActiveDropdownCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      var memData = data.mfiAdmin.createMemberFrom;
+      cy.formController("status").type(memData.statusSelect).type("{enter}");
+      cy.log("Member management status active dropdown check successfully");
+    });
+  }
+
+  searchInMemberManagementName() {
+    cy.fixture(this.test_data).then((data) => {
+      var memData = data.mfiAdmin.createMemberFrom;
+      cy.imsId("btn-reset").click();
+      cy.formController("search_text").type(memData.memberNameEn);
+      cy.log("Successfully search in the Member management");
+    });
+  }
+
+  gridResetButtonCheck() {
+    cy.imsId("btn-reset").click();
+    cy.log("Successful clean displaying.");
+  }
+
+  gridRefreshButtonCheck() {
+    cy.imsId("btn-refresh").click();
+    cy.log(
+      "successfully refresh page  displayed the grid list of the Member management "
+    );
+  }
+
+  gridDraftButton() {
+    cy.imsId("btn-draft-on").click();
+    cy.log("Draft button should be clickable and functional.");
+  }
+
+  gridDraftButtonOff() {
+    cy.imsId("btn-draft-on").click();
+    cy.log("Draft button should be clickable and functional.");
+  }
+
+  selectofficeDropdown() {
+    cy.fixture(this.test_data).then((data) => {
+      var memData = data.mfiAdmin.createMemberFrom;
+      cy.formController("office_id").type(memData.office);
+      cy.log("Successfully select office in the member management");
+    });
+  }
+}
+
+export const create_member_management = new MemberManagementCreation();

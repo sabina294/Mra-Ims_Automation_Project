@@ -35,21 +35,21 @@ describe("14. Employee Management Module Test Cases", function () {
   //   create_employee_management.approveEmployee();
   // });
 
-  // it("14.04. Verify successfully performs the action when the action button is clicked.", function () {
-  //   create_employee_management.actionButtonCheck();
-  // });
+  it("14.04. Verify successfully performs the action when the action button is clicked.", function () {
+    create_employee_management.actionButtonCheck();
+  });
 
-  // it("14.05. Verify the user can successfully view the employee management information, including the name and description.", function () {
-  //   create_employee_management.viewEmployeeManagement();
-  // });
+  it("14.05. Verify the user can successfully view the employee management information, including the name and description.", function () {
+    create_employee_management.viewEmployeeManagement();
+  });
 
-  // it("14.06. Verify the employee management edit reset button functions correctly.", function () {
-  //   create_employee_management.editResetButton();
-  // });
+  it("14.06. Verify the employee management edit reset button functions correctly.", function () {
+    create_employee_management.editResetButton();
+  });
 
-  // it("14.07. Verify that clicking the go back button on the employee management edit page redirects the user to the employee management list page.", function () {
-  //   create_employee_management.editGoBackButton();
-  // });
+  it("14.07. Verify that clicking the go back button on the employee management edit page redirects the user to the employee management list page.", function () {
+    create_employee_management.editGoBackButton();
+  });
 
   // it("14.08. Verify that the employee management is updated with valid information.", function () {
   //   create_employee_management.editEmployeeManagement();
@@ -75,19 +75,27 @@ describe("14. Employee Management Module Test Cases", function () {
     create_employee_management.gridRefreshButtonCheck();
   });
 
-  it("14.14. Verify the employee management creation reset button clears all entered input values.", function () {
+  it("14.14. Verify display the grid list successfully when the Draft button on is clicked on the employee management page", function () {
+    create_employee_management.gridDraftButton();
+  });
+
+  it("14.15. Verify display the grid list successfully when the Draft button off is clicked on the employee management page", function () {
+    create_employee_management.gridDraftButtonOff();
+  });
+
+  it("14.16. Verify the employee management creation reset button clears all entered input values.", function () {
     create_employee_management.createResetButtonCheck();
   });
 
-  it("14.15. Verify validation messages appear for required fields when the submit button is clicked with empty inputs.", function () {
+  it("14.17. Verify validation messages appear for required fields when the submit button is clicked with empty inputs.", function () {
     create_employee_management.createValidationMessageCheck();
   });
 
-  it("14.16. Verify that clicking the go back button on the employee management create page redirects the user to the employee management list page.", function () {
+  it("14.18. Verify that clicking the go back button on the employee management create page redirects the user to the employee management list page.", function () {
     create_employee_management.createGoBackButtonCheck();
   });
 
-  it("14.17. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("14.19. Verify check that the grid list content changes correctly from english to bangla.", function () {
     create_employee_management.gridLanguageSwitchCheck();
   });
 });

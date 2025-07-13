@@ -186,6 +186,16 @@ class OfficeCreation {
     );
   }
 
+  gridDraftButton() {
+    cy.imsId("btn-draft-on").click();
+    cy.log("Draft button should be clickable and functional.");
+  }
+
+  gridDraftButtonOff() {
+    cy.imsId("btn-draft-on").click();
+    cy.log("Draft button should be clickable and functional.");
+  }
+
   createResetButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
       var omData = data.mfiAdmin.createOfficeFrom;
