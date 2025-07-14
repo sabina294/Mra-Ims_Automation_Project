@@ -1,11 +1,11 @@
 // npm run auto
 // npm run dev
-// npx cypress run --spec cypress/e2e/mfi-admin/20-member-management/member-management.cy.js --browser chrome --headed
+// npx cypress run --spec cypress/e2e/mfi-admin/20-member-management/member-management.cy.js --browser chrome --headles
 
 import "cypress-file-upload";
 import { create_member_management } from "./member-management.po";
 
-describe("20. Member management Module Test Cases", function () {
+describe("20. Member Management Module Test Cases", function () {
   const baseURL = Cypress.env("BASE_URL");
   const test_data = Cypress.env("TEST_DATA");
   before(() => {
@@ -85,4 +85,9 @@ describe("20. Member management Module Test Cases", function () {
   it("20.16. Verify check that the member management  office selection works correctly from the dropdown on the samity list page.", function () {
     create_member_management.selectofficeDropdown();
   });
+
+   it("20.17. Verify check that the grid list content changes correctly from english to bangla.", function () {
+      create_member_management.gridLanguageSwitchCheck();
+    });
+
 });

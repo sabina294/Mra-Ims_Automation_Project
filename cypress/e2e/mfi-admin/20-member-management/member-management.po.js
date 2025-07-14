@@ -15,7 +15,9 @@ class MemberManagementCreation {
 
       var memData = data.mfiAdmin.createMemberFrom;
       cy.formController("office_id").type(memData.office).type("{enter}");
+      cy.wait(2000);
       cy.formController("samity_id").type(memData.smity).type("{enter}");
+      cy.wait(2000);
       cy.formController("member_name_en").type(memData.memberNameEn);
       cy.formController("date_of_birth").click();
       cy.get(".ant-picker-header-year-btn").click();
@@ -191,6 +193,12 @@ class MemberManagementCreation {
       cy.formController("office_id").type(memData.office);
       cy.log("Successfully select office in the member management");
     });
+  }
+
+   gridLanguageSwitchCheck() {
+    cy.imsId("profile-menu").click();
+    cy.imsId("btn-lang-bangla").click();
+    cy.log("Unsccessful switch bangla language check.");
   }
 }
 
