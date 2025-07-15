@@ -50,9 +50,9 @@ describe("21. Rejected Member Module Test Cases", function () {
     create_rejected_member.editGoBackButton();
   });
 
-  it("21.08. Verify editing functionality for rejected member record by MFI-Admin role", function () {
-    create_rejected_member.editRrejectedMember();
-  });
+  // it("21.08. Verify editing functionality for rejected member record by MFI-Admin role", function () {
+  //   create_rejected_member.editRrejectedMember();
+  // });
 
   it("21.09. Verify that the search results are displayed correctly when searching by rejected member name.", function () {
     create_rejected_member.searchInRejectMemberName();

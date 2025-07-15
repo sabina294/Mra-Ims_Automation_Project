@@ -25,7 +25,7 @@ class RrejectedMember {
         .type(rejmData.mfiProgram)
         .type("{enter}");
       cy.formController("savings_product_id")
-        .type(memData.savingsId)
+        .type(rejmData.savingsId)
         .type("{enter}");
       cy.formController("gender").click();
       cy.formController("occupation").type(rejmData.occupation).type("{enter}");
