@@ -607,6 +607,25 @@
       "approveMessage": "Welfare Fund Authorization for Loan Account Is Successful",
       "messageSaveLoanWelfareFund": "Are you sure want to collect welfare fund for this loan account?",
       "messageUpdateLoanWelfareFund": "Do you want to update this loan welfare fund?"
+    },
+     "createSavingsProduct":{
+      "office":"1025 (Madhukhali)",
+      "savingsType":"General Savings",
+      "depositId":"464345",
+      "savingsProNameEn": "test savings product",
+      "savingsProNameBn": "পরীক্ষামূলক সঞ্চয় পণ্য",
+      "displayNmae":"SP",
+      "intersetTerms":"Fixed",
+      "intersetFrequency":"% per month",
+      "intersetRate":"5",
+      "provisionIntRate":"4",
+      "intersetCalculate":"Average Daily Balance",
+      "intersetPostin":"Monthly",
+       "selectStatus": "Inactive",
+      "statusSelect": "Active",
+      "saveSavingsMessage":"Savings product has been saved",
+      "updateSavingsMessage":"Savings product has been updated"
     }
+
   }
 }

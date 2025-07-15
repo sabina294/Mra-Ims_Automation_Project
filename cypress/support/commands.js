@@ -54,6 +54,12 @@ Cypress.Commands.add("selectMenu", (menu, sub_menu) => {
   cy.imsId(sub_menu).click();
 });
 
+Cypress.Commands.add("selectMenu1", (menu,) => {
+  cy.imsId(menu).click();
+});
+
+
+
 Cypress.Commands.add("logout", () => {
   cy.imsId("profile-menu").click();
   cy.imsId("btn-logout").click();

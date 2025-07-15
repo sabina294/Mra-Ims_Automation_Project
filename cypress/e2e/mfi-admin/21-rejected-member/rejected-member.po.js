@@ -24,6 +24,9 @@ class RrejectedMember {
       cy.formController("mfi_program_id")
         .type(rejmData.mfiProgram)
         .type("{enter}");
+      cy.formController("savings_product_id")
+        .type(memData.savingsId)
+        .type("{enter}");
       cy.formController("gender").click();
       cy.formController("occupation").type(rejmData.occupation).type("{enter}");
       cy.formController("contactNo").type(rejmData.memberMobileNo);
@@ -65,7 +68,7 @@ class RrejectedMember {
       cy.imsId("menu-my-task").click();
       cy.imsId("submenu-awaiting-member-management").click();
       cy.formController("search_text").type(rejmData.memberNameEn);
-                  cy.wait(2000);
+      cy.wait(2000);
 
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();

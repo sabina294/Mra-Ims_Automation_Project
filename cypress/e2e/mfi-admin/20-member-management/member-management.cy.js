@@ -1,6 +1,6 @@
 // npm run auto
 // npm run dev
-// npx cypress run --spec cypress/e2e/mfi-admin/20-member-management/member-management.cy.js --browser chrome --headles
+// npx cypress run --spec cypress/e2e/mfi-admin/20-member-management/member-management.cy.js --browser chrome --headed
 
 import "cypress-file-upload";
 import { create_member_management } from "./member-management.po";
@@ -86,8 +86,7 @@ describe("20. Member Management Module Test Cases", function () {
     create_member_management.selectofficeDropdown();
   });
 
-   it("20.17. Verify check that the grid list content changes correctly from english to bangla.", function () {
-      create_member_management.gridLanguageSwitchCheck();
-    });
-
+  it("20.17. Verify check that the grid list content changes correctly from english to bangla.", function () {
+    create_member_management.gridLanguageSwitchCheck();
+  });
 });

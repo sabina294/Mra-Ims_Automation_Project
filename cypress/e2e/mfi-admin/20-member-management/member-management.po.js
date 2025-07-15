@@ -30,6 +30,9 @@ class MemberManagementCreation {
       cy.formController("mfi_program_id")
         .type(memData.mfiProgram)
         .type("{enter}");
+      cy.formController("savings_product_id")
+        .type(memData.savingsId)
+        .type("{enter}");
       cy.formController("gender").click();
       cy.formController("occupation").type(memData.occupation).type("{enter}");
       cy.formController("contactNo").type(memData.memberMobileNo);
@@ -195,7 +198,7 @@ class MemberManagementCreation {
     });
   }
 
-   gridLanguageSwitchCheck() {
+  gridLanguageSwitchCheck() {
     cy.imsId("profile-menu").click();
     cy.imsId("btn-lang-bangla").click();
     cy.log("Unsccessful switch bangla language check.");
