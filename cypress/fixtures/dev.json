@@ -608,6 +608,7 @@
       "selectMember": "1-1001 (Fariya)",
       "selectLoanAccount": "AGRO-1020-101-1001-1",
       "inputAmount": "5000",
+      "search": "Fariya",
       "approveMessage": "Welfare Fund Authorization for Loan Account Is Successful",
       "messageSaveLoanWelfareFund": "Are you sure want to collect welfare fund for this loan account?",
       "messageUpdateLoanWelfareFund": "Do you want to update this loan welfare fund?"
@@ -629,6 +630,21 @@
       "statusSelect": "Active",
       "saveSavingsMessage": "Savings product has been saved",
       "updateSavingsMessage": "Savings product has been updated"
+    },
+    "createSavingsAccApplicationMang": {
+      "office": "1019 (Amin Bazar)",
+      "savingsProduct": "General Savings",
+      "samity": "1019-101 (Salepur Mohila Samity)",
+      "member": "4-1004 (Suraya Akter Karima)",
+      "recoDepositAmount": "2000",
+      "search": "Samia",
+      "selectStatus": "Inactive",
+      "statusSelect": "Active"
+    },
+    "createSavingsAccountManagement": {
+      "search": "Samia",
+      "selectStatus": "Inactive",
+      "statusSelect": "Active"
     }
   }
 }

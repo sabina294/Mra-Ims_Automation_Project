@@ -75,3 +75,5 @@ class LoanAccountManagement {
 }
 
 export const create_loan_account_management = new LoanAccountManagement();
+
+

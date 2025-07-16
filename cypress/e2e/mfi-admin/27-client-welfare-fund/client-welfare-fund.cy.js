@@ -1,6 +1,6 @@
 // npm run auto
 // npm run dev
-// npx cypress run --spec cypress/e2e/mra-admin/mfi-admin/mis/27-client-welfare-fund/client-welfare-fund.cy.js --browser chrome --headed
+// npx cypress run --spec cypress/e2e/mfi-admin/27-client-welfare-fund/client-welfare-fund.cy.js --browser chrome --headed
 
 import "cypress-file-upload";
 import { create_client_welfare_fund } from "./client-welfare-fund.po";
@@ -27,35 +27,35 @@ describe("27. Client Welfare Fund Module Test Cases", function () {
     create_client_welfare_fund.gridClientWelfareFundListPage();
   });
 
-//   it("27.02. Verify successful creation of a Loan welfare fund record by MFI-Admin role", function () {
-//     create_client_welfare_fund.createClientWelfareFund();
-//   });
+  // it("27.02. Verify successful creation of a Loan welfare fund record by MFI-Admin role", function () {
+  //   create_client_welfare_fund.createClientWelfareFund();
+  // });
 
-//   it("27.03. Verify successful creation of a new loan welfare fund record", function () {
-//     create_client_welfare_fund.approveClientWelfareFund();
-//   });
+  // it("27.03. Verify successful creation of a new loan welfare fund record", function () {
+  //   create_client_welfare_fund.approveClientWelfareFund();
+  // });
 
-  it("27.04. Verify successfully performs the action when the action button is clicked.", function () {
-    create_client_welfare_fund.actionButtonCheck();
-  });
+  // it("27.04. Verify successfully performs the action when the action button is clicked.", function () {
+  //   create_client_welfare_fund.actionButtonCheck();
+  // });
 
-//   it("27.04. Verify successful loan welfare fund information View.", function () {
-//     create_client_welfare_fund.viewClientWelfareFund();
-//   });
+  // it("27.05. Verify successful loan welfare fund information View.", function () {
+  //   create_client_welfare_fund.viewClientWelfareFund();
+  // });
 
-//   it("27.05. Verify editing functionality for loan welfare fund record by MFI-Admin role", function () {
-//     create_client_welfare_fund.editClientWelfareFund();
-//   });
+  // it("27.06. Verify editing functionality for loan welfare fund record by MFI-Admin role", function () {
+  //   create_client_welfare_fund.editClientWelfareFund();
+  // });
 
-  it("27.06. Verify Successful Search Result by Loan welfare fund Name", function () {
+  it("27.07. Verify Successful Search Result by Loan welfare fund Name", function () {
     create_client_welfare_fund.searchInClientWelfareFundName();
   });
 
-  it("27.07. Verify Successful Reset of Grid List Using the Reset Button on Loan welfare fund Page.", function () {
+  it("27.08. Verify Successful Reset of Grid List Using the Reset Button on Loan welfare fund Page.", function () {
     create_client_welfare_fund.gridResetButtonCheck();
   });
 
-  it("27.08.Verify Successful Refresh of Grid List Using the Refresh Button on Loan welfare fund Page.", function () {
+  it("27.09.Verify Successful Refresh of Grid List Using the Refresh Button on Loan welfare fund Page.", function () {
     create_client_welfare_fund.gridRefreshButtonCheck();
   });
 });

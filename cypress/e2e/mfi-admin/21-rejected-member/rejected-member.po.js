@@ -19,7 +19,7 @@ class RrejectedMember {
       cy.get(".ant-picker-header-super-prev-btn").click();
       cy.contains("2005").click();
       cy.wait(3000);
-      cy.contains("16").click();
+      cy.contains("13").click();
       cy.wait(2000);
       cy.formController("mfi_program_id")
         .type(rejmData.mfiProgram)

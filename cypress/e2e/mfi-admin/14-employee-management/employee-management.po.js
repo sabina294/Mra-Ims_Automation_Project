@@ -17,7 +17,7 @@ class EmployeeManagementCreation {
       cy.formController("emp_name_en").type(emData.empNameEn);
       cy.formController("emp_name_bn").type(emData.empNameBn);
       cy.formController("date_of_birth").click();
-      cy.wait(3000);
+      cy.wait(2000);
       cy.contains("24").click();
       cy.formController("gender").click();
       cy.get(
@@ -31,6 +31,7 @@ class EmployeeManagementCreation {
       cy.formController("department_id")
         .type(emData.department)
         .type("{enter}");
+      cy.wait(2000);
       cy.formController("empl_designation_id")
         .type(emData.designation)
         .type("{enter}");
@@ -70,6 +71,7 @@ class EmployeeManagementCreation {
   approveEmployee() {
     cy.fixture(this.test_data).then((data) => {
       var emData = data.mfiAdmin.createEmpMangFrom;
+      cy.formController("search_text").type(emData.empNameEn);
       cy.imsId("menu-my-task").click();
       cy.imsId("submenu-awaiting-employee").click();
       cy.imsId("toggle-action").first().click();
@@ -85,6 +87,7 @@ class EmployeeManagementCreation {
   }
 
   actionButtonCheck() {
+    // cy.selectMenu("menu-employee", "submenu-employee-management");
     cy.imsId("toggle-action").first().click();
     cy.log(
       "Action button clicked successfully on the employee management list page."
@@ -95,7 +98,7 @@ class EmployeeManagementCreation {
     cy.fixture(this.test_data).then((data) => {
       var emData = data.mfiAdmin.createEmpMangFrom;
 
-      cy.formController("search_text").type(emData.search);
+      cy.formController("search_text").type(emData.empNameEn);
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
 
@@ -182,7 +185,7 @@ class EmployeeManagementCreation {
     );
   }
 
-   gridDraftButton() {
+  gridDraftButton() {
     cy.imsId("btn-draft-on").click();
     cy.log("Draft button should be clickable and functional.");
   }
@@ -191,8 +194,6 @@ class EmployeeManagementCreation {
     cy.imsId("btn-draft-on").click();
     cy.log("Draft button should be clickable and functional.");
   }
-
-
 
   createResetButtonCheck() {
     cy.fixture(this.test_data).then((data) => {

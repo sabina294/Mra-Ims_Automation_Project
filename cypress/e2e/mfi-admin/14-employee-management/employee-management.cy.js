@@ -27,9 +27,9 @@ describe("14. Employee Management Module Test Cases", function () {
     create_employee_management.gridEmployeeListPage();
   });
 
-  // it("14.02. Verify a new employee management record is created successfully when all required fields are filled with valid data.", function () {
-  //   create_employee_management.createEmployeeManagement();
-  // });
+  it("14.02. Verify a new employee management record is created successfully when all required fields are filled with valid data.", function () {
+    create_employee_management.createEmployeeManagement();
+  });
 
   // it("14.03. Verify mfi-admin to successfully approve an employee management record after creation.", function () {
   //   create_employee_management.approveEmployee();

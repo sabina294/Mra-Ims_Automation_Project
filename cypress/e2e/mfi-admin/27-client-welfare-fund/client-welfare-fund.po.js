@@ -62,7 +62,7 @@ class ClientWelfareFund {
   viewClientWelfareFund() {
     cy.fixture(this.test_data).then((data) => {
       var wfData = data.mfiAdmin.createClientWelfareFrom;
-      cy.formController("search_text").type(wfData.selectMember);
+      cy.formController("search_text").type(wfData.search);
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
 
@@ -70,11 +70,12 @@ class ClientWelfareFund {
       cy.log("Successfully viewed the client welfare fund list page");
     });
   }
+
   editClientWelfareFund() {
     cy.fixture(this.test_data).then((data) => {
       var wfData = data.mfiAdmin.createClientWelfareFrom;
       cy.imsId("btn-reset").click();
-      cy.formController("search_text").type(wfData.selectMember);
+      cy.formController("search_text").type(wfData.search);
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-edit").click();
       cy.imsId("btn-submit").click();
@@ -92,7 +93,7 @@ class ClientWelfareFund {
     cy.fixture(this.test_data).then((data) => {
       var wfData = data.mfiAdmin.createClientWelfareFrom;
       cy.imsId("btn-reset").click();
-      cy.formController("search_text").type(wfData.selectMember);
+      cy.formController("search_text").type(wfData.search);
       cy.log("Successfully search in the client welfare fund");
     });
   }

@@ -40,7 +40,7 @@ class SavingsProductCreation {
         .type(spData.intersetPostin)
         .type("{enter}");
       cy.formController("start_date").click();
-      cy.contains("16").click();
+      cy.contains("12").click();
       cy.imsId("btn-submit").click();
       cy.imsId("btn-yes").click();
       cy.get("app-confirmation-modal")

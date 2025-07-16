@@ -1,6 +1,6 @@
 // npm run auto
 // npm run dev
-// npx cypress run --spec cypress/e2e/mfi-admin/28-savings_product/savings_product.cy.js --browser chrome --headed
+// npx cypress run --spec cypress/e2e/mfi-admin/28-savings-product/savings-product.cy.js --browser chrome --headed
 
 import "cypress-file-upload";
 import { create_savings_product } from "./savings-product.po";

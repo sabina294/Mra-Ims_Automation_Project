@@ -17,6 +17,7 @@ class LoanAccountProposalManagementCreation {
 
       var lapData = data.mfiAdmin.createLoanAccountFrom;
       cy.formController("office_id").type(lapData.office).type("{enter}");
+      cy.wait(2000);
       cy.formController("samity_id").type(lapData.samity).type("{enter}");
       cy.formController("member_id").type(lapData.member).type("{enter}");
       cy.formController("lending_category_id")
@@ -37,7 +38,7 @@ class LoanAccountProposalManagementCreation {
       cy.formController("applied_loan_amount").type(lapData.appliedLoanAmount);
 
       cy.formController("expected_disburse_dt").click();
-      cy.contains("16").click();
+      cy.contains("13").click();
 
       cy.imsId("btn-submit").click();
       cy.imsId("btn-yes").click();

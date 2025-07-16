@@ -15,17 +15,18 @@ class MemberManagementCreation {
 
       var memData = data.mfiAdmin.createMemberFrom;
       cy.formController("office_id").type(memData.office).type("{enter}");
-      cy.wait(2000);
+      cy.wait(1000);
       cy.formController("samity_id").type(memData.smity).type("{enter}");
-      cy.wait(2000);
+      cy.wait(1000);
       cy.formController("member_name_en").type(memData.memberNameEn);
       cy.formController("date_of_birth").click();
+      cy.wait(2000);
       cy.get(".ant-picker-header-year-btn").click();
       cy.get(".ant-picker-header-super-prev-btn").click();
       cy.get(".ant-picker-header-super-prev-btn").click();
       cy.contains("2005").click();
       cy.wait(3000);
-      cy.contains("16").click();
+      cy.contains("13").click();
       cy.wait(2000);
       cy.formController("mfi_program_id")
         .type(memData.mfiProgram)
