@@ -1,0 +1,139 @@
+class CalendarYearCreation {
+  test_data = Cypress.env("TEST_DATA");
+
+  gridCalendarListPage() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.selectMenu("menu-calendar", "submenu-calendar-year");
+      cy.log("Successfully Calendar Year list page.");
+    });
+  }
+
+  createCalendar() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("btn-add-new").click();
+      // cy.imsId("btn-submit").and("be.visible");
+
+      var cyData = data.mfiAdmin.createCalendarYear;
+      cy.imsId("btn-add").click();
+      cy.formController("holiday_title_bn").type(cyData.holidayTitleBn);
+      cy.formController("holiday_title_en").type(cyData.holidayTitleEn);
+      cy.formController("day_of_month").click();
+      cy.get('[title="2"] > .ant-select-item-option-content').click();
+      cy.formController("month_of_year").click();
+      cy.get('[title="2"] > .ant-select-item-option-content').click();
+
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-yes").click();
+      cy.get("app-confirmation-modal")
+        .contains(cyData.messageSaveEmp)
+        .and("be.visible");
+      cy.imsId("btn-ok").click();
+
+      cy.log("Successfully created Calendar Year ");
+    });
+  }
+
+  approveEmployee() {
+    cy.fixture(this.test_data).then((data) => {
+      var cyData = data.mfiAdmin.createCalendarYear;
+      cy.formController("search_text").type(cyData.empNameEn);
+      cy.imsId("menu-my-task").click();
+      cy.imsId("submenu-awaiting-employee").click();
+      cy.imsId("toggle-action").first().click();
+      cy.imsId("btn-table-action-view").click();
+      cy.imsId("btn-lock").click();
+      cy.imsId("btn-approve").click();
+      cy.imsId("btn-Approve").click();
+      cy.imsId("btn-yes").click();
+      cy.imsId("btn-ok").click();
+
+      cy.log("Successfully approve Calendar Year ");
+    });
+  }
+
+  actionButtonCheck() {
+    // cy.selectMenu("menu-calendar", "submenu-calendar-year");
+    cy.imsId("toggle-action").first().click();
+    cy.log(
+      "Action button clicked successfully on the Calendar Year list page."
+    );
+  }
+
+  viewCalendar() {
+    cy.fixture(this.test_data).then((data) => {
+      var cyData = data.mfiAdmin.createCalendarYear;
+
+      cy.formController("search_text").type(cyData.search);
+      cy.imsId("toggle-action").first().click();
+      cy.imsId("btn-table-action-view").click();
+
+      cy.imsId("btn-go-back").click();
+      cy.log("Successfully viewed the Calendar Year list page");
+    });
+  }
+
+  searchCalendarStatus() {
+    cy.fixture(this.test_data).then((data) => {
+      var cyData = data.mfiAdmin.createCalendarYear;
+      cy.imsId("btn-reset").click();
+      cy.formController("search_text").type(cyData.search);
+      cy.log("Successfully search in the Calendar Year form");
+    });
+  }
+
+  gridResetButtonCheck() {
+    cy.imsId("btn-reset").click();
+    cy.log("Successful clean displaying.");
+  }
+
+  gridRefreshButtonCheck() {
+    cy.imsId("btn-refresh").click();
+    cy.log(
+      "successfully refresh page  displayed the grid list of the Calendar Year form "
+    );
+  }
+
+  gridDraftButton() {
+    cy.imsId("btn-draft-on").click();
+    cy.log("Draft button should be clickable and functional.");
+  }
+
+  gridDraftButtonOff() {
+    cy.imsId("btn-draft-on").click();
+    cy.log("Draft button should be clickable and functional.");
+  }
+
+  createResetButtonCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("btn-add-new").click();
+      cy.imsId("btn-reset").click();
+      cy.imsId("btn-go-back").click();
+      cy.log("Successful clean displaying.");
+    });
+  }
+
+  createGoBackButtonCheck() {
+    cy.imsId("btn-add-new").click();
+    cy.imsId("btn-go-back").click();
+    cy.log("Successful go back button check.");
+  }
+
+  createSubmitButtonCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("btn-add-new").click();
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-yes").click();
+      cy.imsId("btn-ok").click();
+      cy.log("Successful submit button working.");
+    });
+  }
+
+  gridLanguageSwitchCheck() {
+    cy.imsId("profile-menu").click();
+    cy.imsId("btn-lang-bangla").click();
+    cy.log("Unsccessful switch bangla language check.");
+  }
+}
+
+export const create_calendar_year = new CalendarYearCreation();

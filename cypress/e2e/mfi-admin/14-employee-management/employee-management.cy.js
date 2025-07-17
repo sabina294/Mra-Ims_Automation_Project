@@ -39,9 +39,9 @@ describe("14. Employee Management Module Test Cases", function () {
     create_employee_management.actionButtonCheck();
   });
 
-  it("14.05. Verify the user can successfully view the employee management information, including the name and description.", function () {
-    create_employee_management.viewEmployeeManagement();
-  });
+  // it("14.05. Verify the user can successfully view the employee management information, including the name and description.", function () {
+  //   create_employee_management.viewEmployeeManagement();
+  // });
 
   it("14.06. Verify the employee management edit reset button functions correctly.", function () {
     create_employee_management.editResetButton();

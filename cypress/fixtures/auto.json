@@ -645,6 +645,21 @@
       "search": "Samia",
       "selectStatus": "Inactive",
       "statusSelect": "Active"
+    },
+     "createCalendarYear": {
+      "holidayTitleBn": "পরীক্ষার ছুটি",
+      "holidayTitleEn": "Test Holiday",
+      "search": "Approved",
+      "messageSaveCalendar": "Mfi calendar year has been saved"
+    },
+
+    "createHoliday": {
+      "holidayType": "All",
+      "holidayTitleBn": "পরীক্ষার ছুটি",
+      "holidayTitleEn": "Test Holiday",
+      "search": "Weekly Holiday",
+      "office":"1002 (Dhaka Regional Office)",
+      "messageSaveHoliday": "Mfi holiday has been saved"
     }
   }
 }

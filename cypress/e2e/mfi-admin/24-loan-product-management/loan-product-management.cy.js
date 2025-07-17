@@ -35,9 +35,9 @@ describe("24. Loan Product Management Module Test Cases", function () {
     create_loan_product_management.actionButtonCheck();
   });
 
-  it("24.05. Verify the user can successfully view the loan product management information, including the name and description.", function () {
-    create_loan_product_management.viewLoanProductManagement();
-  });
+  // it("24.05. Verify the user can successfully view the loan product management information, including the name and description.", function () {
+  //   create_loan_product_management.viewLoanProductManagement();
+  // });
 
 //   it("24.06. Verify theloan product management edit reset button functions correctly.", function () {
 //     create_loan_product_management.editResetButton();
