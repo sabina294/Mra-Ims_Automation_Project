@@ -17,16 +17,16 @@ class CalendarYearCreation {
       cy.imsId("btn-add").click();
       cy.formController("holiday_title_bn").type(cyData.holidayTitleBn);
       cy.formController("holiday_title_en").type(cyData.holidayTitleEn);
-      cy.formController("day_of_month").click();
-      cy.get('[title="2"] > .ant-select-item-option-content').click();
-      cy.formController("month_of_year").click();
-      cy.get('[title="2"] > .ant-select-item-option-content').click();
+      cy.formController("day_of_month").type(cyData.dayOfMonth).type("{enter}");
+      cy.formController("month_of_year")
+        .type(cyData.monthOfYear)
+        .type("{enter}");
 
-      cy.imsId("btn-submit").click();
+      cy.imsId("btn-modal-submit").click();
       cy.imsId("btn-submit").click();
       cy.imsId("btn-yes").click();
       cy.get("app-confirmation-modal")
-        .contains(cyData.messageSaveEmp)
+        .contains(cyData.messageSaveCalendar)
         .and("be.visible");
       cy.imsId("btn-ok").click();
 
@@ -34,26 +34,19 @@ class CalendarYearCreation {
     });
   }
 
-  approveEmployee() {
-    cy.fixture(this.test_data).then((data) => {
-      var cyData = data.mfiAdmin.createCalendarYear;
-      cy.formController("search_text").type(cyData.empNameEn);
-      cy.imsId("menu-my-task").click();
-      cy.imsId("submenu-awaiting-employee").click();
-      cy.imsId("toggle-action").first().click();
-      cy.imsId("btn-table-action-view").click();
-      cy.imsId("btn-lock").click();
-      cy.imsId("btn-approve").click();
-      cy.imsId("btn-Approve").click();
-      cy.imsId("btn-yes").click();
-      cy.imsId("btn-ok").click();
-
-      cy.log("Successfully approve Calendar Year ");
-    });
+  approveCalendare() {
+    cy.imsId("menu-my-task").click();
+    cy.imsId("submenu-awaiting-calendar-year").click();
+    cy.imsId("toggle-action").first().click();
+    cy.imsId("btn-table-action-view").click();
+    cy.imsId("btn-add").click();
+    cy.imsId("btn-yes").click();
+    cy.imsId("btn-ok").click();
+    cy.log("Successfully approve Calendar Year ");
   }
 
   actionButtonCheck() {
-    // cy.selectMenu("menu-calendar", "submenu-calendar-year");
+    cy.selectMenu("menu-calendar", "submenu-calendar-year");
     cy.imsId("toggle-action").first().click();
     cy.log(
       "Action button clicked successfully on the Calendar Year list page."

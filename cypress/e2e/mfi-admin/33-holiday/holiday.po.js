@@ -22,7 +22,6 @@ class HolidayCreation {
       cy.formController("holiday_title_en").type(hData.holidayTitleEn);
       cy.imsId("btn-submit").click();
       cy.imsId("btn-yes").click();
-      cy.imsId("btn-yes").click();
       cy.get("app-confirmation-modal")
         .contains(hData.messageSaveHoliday)
         .and("be.visible");
@@ -46,22 +45,10 @@ class HolidayCreation {
     });
   }
 
-  viewCalendar() {
-    cy.fixture(this.test_data).then((data) => {
-      var hData = data.mfiAdmin.createHoliday;
-
-      cy.formController("search_text").type(hData.search);
-      cy.imsId("toggle-action").first().click();
-      cy.imsId("btn-table-action-view").click();
-
-      cy.imsId("btn-go-back").click();
-      cy.log("Successfully viewed the Holiday list page");
-    });
-  }
-
   searchHolidayTitle() {
     cy.fixture(this.test_data).then((data) => {
       var hData = data.mfiAdmin.createHoliday;
+      cy.selectMenu("menu-calendar", "submenu-holiday");
       cy.imsId("btn-reset").click();
       cy.formController("search_text").type(hData.search);
       cy.log("Successfully search in the Holiday form");

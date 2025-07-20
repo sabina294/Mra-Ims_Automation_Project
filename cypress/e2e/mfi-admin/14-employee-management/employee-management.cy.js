@@ -31,17 +31,17 @@ describe("14. Employee Management Module Test Cases", function () {
     create_employee_management.createEmployeeManagement();
   });
 
-  // it("14.03. Verify mfi-admin to successfully approve an employee management record after creation.", function () {
-  //   create_employee_management.approveEmployee();
-  // });
+  it("14.03. Verify mfi-admin to successfully approve an employee management record after creation.", function () {
+    create_employee_management.approveEmployee();
+  });
 
   it("14.04. Verify successfully performs the action when the action button is clicked.", function () {
     create_employee_management.actionButtonCheck();
   });
 
-  // it("14.05. Verify the user can successfully view the employee management information, including the name and description.", function () {
-  //   create_employee_management.viewEmployeeManagement();
-  // });
+  it("14.05. Verify the user can successfully view the employee management information, including the name and description.", function () {
+    create_employee_management.viewEmployeeManagement();
+  });
 
   it("14.06. Verify the employee management edit reset button functions correctly.", function () {
     create_employee_management.editResetButton();

@@ -35,6 +35,8 @@ class EmployeeManagementCreation {
       cy.formController("empl_designation_id")
         .type(emData.designation)
         .type("{enter}");
+      cy.wait(2000);
+
       cy.get("#nz-tabs-0-tab-3").click();
       cy.formController("father_name_en").type(emData.fatherNameEn);
       cy.formController("mother_name_en").type(emData.motherNameEn);
@@ -87,7 +89,7 @@ class EmployeeManagementCreation {
   }
 
   actionButtonCheck() {
-    // cy.selectMenu("menu-employee", "submenu-employee-management");
+    cy.selectMenu("menu-employee", "submenu-employee-management");
     cy.imsId("toggle-action").first().click();
     cy.log(
       "Action button clicked successfully on the employee management list page."

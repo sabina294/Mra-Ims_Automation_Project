@@ -27,9 +27,9 @@ describe("29. Savings Account Application Management Module Test Cases", functio
     create_savings_account_application_management.gridSavingsAccApplicationListPage();
   });
 
-  //   it("29.02. Verify a new savings account application management record is created successfully when all required fields are filled with valid data.", function () {
-  //     create_savings_account_application_management.createSavingsAccApplicationManagement();
-  //   });
+    // it("29.02. Verify a new savings account application management record is created successfully when all required fields are filled with valid data.", function () {
+    //   create_savings_account_application_management.createSavingsAccApplicationManagement();
+    // });
 
   //   it("29.03. Verify mfi-admin to successfully approve an savings account application management record after creation.", function () {
   //     create_savings_account_application_management.approveEmployee();

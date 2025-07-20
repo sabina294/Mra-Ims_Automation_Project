@@ -27,13 +27,13 @@ describe("31. Calendar Year Module Test Cases", function () {
     create_calendar_year.gridCalendarListPage();
   });
 
-  // it("31.02. Verify a new calendar year record is created successfully when all required fields are filled with valid data.", function () {
-  //   create_calendar_year.createCalendar();
-  // });
+  it("31.02. Verify a new calendar year record is created successfully when all required fields are filled with valid data.", function () {
+    create_calendar_year.createCalendar();
+  });
 
-  // // it("31.03. Verify mfi-admin to successfully approve an calendar year record after creation.", function () {
-  // //   create_calendar_year.approveEmployee();
-  // // });
+  it("31.03. Verify mfi-admin to successfully approve an calendar year record after creation.", function () {
+    create_calendar_year.approveCalendare();
+  });
 
   it("31.04. Verify successfully performs the action when the action button is clicked.", function () {
     create_calendar_year.actionButtonCheck();
