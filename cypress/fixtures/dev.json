@@ -5,7 +5,9 @@
     "mraAdminPassword": "123456",
     "mraAdminName": "Rubayat Zaman",
     "mfiAdminUserId": "tem-mfi-admin-automation",
-    "mfiAdminPassword": "123456"
+    "mfiAdminPassword": "123456",
+    "branchManagerUserId": "tem-1039-bm",
+    "branchManagerPassword": "123456"
   },
 
   "mraAdmin": {
@@ -663,6 +665,59 @@
       "search": "Weekly Holiday",
       "office": "1002 (Dhaka Regional Office)",
       "messageSaveHoliday": "Mfi holiday has been saved"
+    }
+  },
+
+  "branchManager": {
+    "gridDepartmentFrom": {
+      "nameEn": "Board of Directors",
+      "nameBn": "পরিচালনা বোর্ড",
+      "status": "Active",
+      "selectStatus": "Inactive",
+      "statusSelect": "Active"
+    },
+
+    "gridDesignationFrom": {
+      "nameEn": "Assistant Director",
+      "nameBn": "সহকারী পরিচালক",
+      "shortName": "AD",
+      "selectStatus": "Inactive",
+      "statusSelect": "Active"
+    },
+
+    "gridRegionFrom": {
+      "nameEn": "Dhaka",
+      "nameBn": "ঢাকা",
+      "selectStatus": "Inactive",
+      "statusSelect": "Active"
+    },
+
+    "gridZoneFrom": {
+      "nameEn": "Magura",
+      "nameBn": "মাগুরা",
+      "selectStatus": "Inactive",
+      "statusSelect": "Active"
+    },
+
+    "gridAreaFrom": {
+      "nameEn": "Monirampur",
+      "nameBn": "মনিরামপুর",
+      "selectStatus": "Inactive",
+      "statusSelect": "Active"
+    },
+
+    "createBankAccountFrom": {
+      "bankName": "AGRANI BANK LTD.",
+      "branchName": "BHANDARIA",
+      "accNameEn": "Sabina Yeasmin",
+      "accNameBn": "সাবিনা ইয়াসমিন",
+      "accountType": "Savings Account",
+      "accNumber": "0020672606",
+      "status": "Active",
+      "selectStatus": "Inactive",
+      "statusSelect": "Active",
+      "messageSaveBankAccount": "Mfi bank account has been saved",
+      "messageUpdateBankAccount": "Mfi bank account has been updated"
     }
   }
 }

@@ -1,0 +1,65 @@
+// npm run auto
+// npm run dev
+// npx cypress run --spec cypress/e2e/branch-manager/03-designation/designation.cy.js --browser chrome --headed
+
+import "cypress-file-upload";
+import { grid_designation } from "./designation.po";
+
+describe("03. Designation Module Test Cases", function () {
+  const baseURL = Cypress.env("BASE_URL");
+  const test_data = Cypress.env("TEST_DATA");
+  before(() => {
+    cy.fixture(test_data).then((d) => {
+      cy.login(
+        baseURL,
+        d.credential.branchManagerUserId,
+        d.credential.branchManagerPassword
+      );
+      cy.changeLanguage("english");
+    });
+  });
+
+  after(() => {
+    cy.logout();
+  });
+
+  it("03.01. Verify the designation list page loads without errors.", function () {
+    grid_designation.gridDesignationListPage();
+  });
+
+  it("03.02. Verify successfully performs the action when the action button is clicked.", function () {
+    grid_designation.actionButtonCheck();
+  });
+
+  it("03.03. Verify the user can view all relevant details of a designation, including its associated fields.", function () {
+    grid_designation.viewDesignation();
+  });
+
+  it("03.04. Verify the user can filter inactive designations using the status dropdown on the designation list page.", function () {
+    grid_designation.statusInactiveDropdownCheck();
+  });
+
+  it("03.05. Verify the active result is filtered correctly by the status dropdown.", function () {
+    grid_designation.statusActiveDropdownCheck();
+  });
+
+  it("03.06. Verify the search returns correct results when searching by designation name.", function () {
+    grid_designation.searchInDesignationName();
+  });
+
+  it("03.07. Verify the grid list resets successfully when the reset button is clicked on the designation page.", function () {
+    grid_designation.gridResetButtonCheck();
+  });
+
+  it("03.08. Verify that the grid list is refreshed successfully when the refresh button is clicked on the designation page.", function () {
+    grid_designation.gridRefreshButtonCheck();
+  });
+
+  // it("03.09. Verify pagination functions as expected on the last page of the designation list.", function () {
+  //   grid_designation.paginationCheck();
+  // });
+
+  it("03.10. Verify check that the grid list content changes correctly from english to bangla.", function () {
+    grid_designation.gridLanguageSwitchCheck();
+  });
+});

@@ -1,0 +1,84 @@
+class Designation {
+  test_data = Cypress.env("TEST_DATA");
+
+  gridDesignationListPage() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.selectMenu("menu-configuration", "submenu-designation");
+      cy.log("Successfully designation list page.");
+    });
+  }
+
+  actionButtonCheck() {
+    cy.imsId("toggle-action").first().click();
+    cy.log("Action button clicked successfully on the designation list page.");
+  }
+
+  viewDesignation() {
+    cy.fixture(this.test_data).then((data) => {
+      var desData = data.branchManager.gridDesignationFrom;
+
+      cy.formController("search_text").type(desData.nameEn);
+      cy.imsId("toggle-action").first().click();
+      cy.imsId("btn-table-action-view").click();
+
+      cy.get("app-mfi-mis").contains(desData.nameEn).and("be.visible");
+
+      cy.imsId("btn-go-back").click();
+      cy.log("Successfully viewed the designation list page");
+    });
+  }
+
+  statusInactiveDropdownCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      var desData = data.branchManager.gridDesignationFrom;
+
+      cy.imsId("btn-reset").click();
+      cy.formController("status").type(desData.selectStatus).type("{enter}");
+      cy.log("Designation status inactive dropdown check successfully");
+    });
+  }
+
+  statusActiveDropdownCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      var desData = data.branchManager.gridDesignationFrom;
+
+      cy.formController("status").type(desData.statusSelect).type("{enter}");
+      cy.log("Designation status active dropdown check successfully");
+    });
+  }
+
+  searchInDesignationName() {
+    cy.fixture(this.test_data).then((data) => {
+      var desData = data.branchManager.gridDesignationFrom;
+
+      cy.imsId("btn-reset").click();
+      cy.formController("search_text").type(desData.nameEn);
+      cy.log("Successfully search in the designation");
+    });
+  }
+
+  gridResetButtonCheck() {
+    cy.imsId("btn-reset").click();
+    cy.log("Successful clean displaying.");
+  }
+
+  gridRefreshButtonCheck() {
+    cy.imsId("btn-refresh").click();
+    cy.log(
+      "successfully refresh page  displayed the grid list of the designation "
+    );
+  }
+
+  paginationCheck() {
+    cy.get('[title="2"] > .ng-star-inserted').click();
+    cy.log("Designation pagination check successfully");
+  }
+
+  gridLanguageSwitchCheck() {
+    cy.imsId("profile-menu").click();
+    cy.imsId("btn-lang-bangla").click();
+    cy.log("Successful switch bangla language check.");
+  }
+}
+
+export const grid_designation = new Designation();
