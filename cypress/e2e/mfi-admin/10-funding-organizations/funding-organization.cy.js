@@ -3,7 +3,7 @@
 // npx cypress run --spec cypress/e2e/mfi-admin/10-funding-organizations/funding-organization.cy.js --browser chrome --headed
 
 import "cypress-file-upload";
-import { create_funding_organization } from "./funnding-organization.po";
+import { create_funding_organization } from "./funding-organization.po";
 
 describe("10. Funding-organizations Module Test Cases ", function () {
   const baseURL = Cypress.env("BASE_URL");

@@ -27,6 +27,33 @@ class Area {
     });
   }
 
+  turnOnEditMode() {
+    cy.imsId("toggle-action").first().click();
+    cy.imsId("btn-table-action-view").click();
+    cy.imsId("switch-button").click();
+    cy.imsId("btn-go-back").click();
+
+    cy.log("Area form Edit Mode toggled successfully");
+  }
+
+  editResetButton() {
+    cy.imsId("toggle-action").first().click();
+    cy.imsId("btn-table-action-view").click();
+    cy.imsId("switch-button").click();
+    cy.imsId("btn-reset").click();
+    cy.imsId("btn-go-back").click();
+
+    cy.log("Successful clean displaying");
+  }
+
+  editGoBackButton() {
+    cy.imsId("toggle-action").first().click();
+    cy.imsId("btn-table-action-view").click();
+    cy.imsId("switch-button").click();
+    cy.imsId("btn-go-back").click();
+    cy.log("Successful edit go back button check.");
+  }
+
   statusInactiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       var arData = data.branchManager.gridAreaFrom;

@@ -717,6 +717,42 @@
       "statusSelect": "Active",
       "messageSaveBankAccount": "Mfi bank account has been saved",
       "messageUpdateBankAccount": "Mfi bank account has been updated"
+    },
+
+    "gridFeeConfigurationFrom": {
+      "feeTypeNameEn": "Member Admission Fee",
+      "selectStatus": "Inactive",
+      "statusSelect": "Active"
+    },
+
+    "gridAmountBasedLoanFrom": {
+      "officeTypeId": "Branch Office",
+      "roleName": "Branch Accountant",
+      "selectStatus": "Inactive",
+      "statusSelect": "Active"
+    },
+
+    "gridFundingOrganizationFrom": {
+      "FundingNameEn": "PKSF",
+      "idShortCode": "PKSF",
+      "fundingOrgType": "Savings Account",
+      "selectStatus": "Inactive",
+      "statusSelect": "Active"
+    },
+      "gridLoanFundFrom": {
+      "bankAccount": "Dhaka Zonal Office",
+      "fundingOrgId": "PKSF",
+      "amount": "20000000.00",
+      "selectStatus": "Inactive",
+      "statusSelect": "Active"
+    },
+      "gridMfiProgramFrom": {
+      "programNameEn": "Sahosh",
+      "programShortName": "SA",
+      "fundingCategory": "General Micro-Credit (GMC)",
+      "loanFund": "PKSF-1001",     
+      "selectStatus": "Inactive",
+      "statusSelect": "Active"
     }
   }
 }
