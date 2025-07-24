@@ -17,7 +17,7 @@ class HolidayCreation {
       cy.imsId("btn-add-new").click();
       cy.formController("type").type(hData.holidayType).type("{enter}");
       cy.formController("end_date").click();
-      cy.contains("24").click();
+      cy.contains("26").click();
       cy.formController("holiday_title_bn").type(hData.holidayTitleBn);
       cy.formController("holiday_title_en").type(hData.holidayTitleEn);
       cy.imsId("btn-submit").click();

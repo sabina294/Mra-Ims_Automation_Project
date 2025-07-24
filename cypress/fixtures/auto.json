@@ -9,7 +9,6 @@
     "branchManagerUserId": "tem-1039-bm",
     "branchManagerPassword": "123456"
   },
-
   "mraAdmin": {
     "createdivisionFrom": {
       "nameEn": "Test division",
@@ -100,7 +99,6 @@
       "lendingCategory": "Industry",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
-
       "messageSaveEcPu": "Economic purpose has been saved",
       "messageUpdateEcPu": "Economic purpose has been updated"
     },
@@ -258,7 +256,6 @@
       "messageUpdateEmployee": "Mra employee has been updated"
     }
   },
-
   "mfiAdmin": {
     "createDepartmentFrom": {
       "nameEn": "Test Department",
@@ -274,7 +271,6 @@
       "nameBn": "পরীক্ষার পদবী",
       "shortName": "TP",
       "status": "Active",
-
       "selectStatus": "Inactive",
       "statusSelect": "Active",
       "messageSaveDesignation": "Mfi employee designation has been saved",
@@ -285,7 +281,6 @@
       "nameBn": "পরীক্ষা অঞ্চল",
       "regionCode": "65",
       "status": "Active",
-
       "selectStatus": "Inactive",
       "statusSelect": "Active",
       "messageSaveRegion": "Region has been saved",
@@ -297,7 +292,6 @@
       "regionName": "Dhaka",
       "zoneCode": "65",
       "status": "Active",
-
       "selectStatus": "Inactive",
       "statusSelect": "Active",
       "messageSaveZone": "Zone has been saved",
@@ -309,7 +303,6 @@
       "zoneName": "Dhaka",
       "areaCode": "65",
       "status": "Active",
-
       "selectStatus": "Inactive",
       "statusSelect": "Active",
       "messageSaveArea": "Area has been saved",
@@ -402,7 +395,6 @@
       "messageSaveOffice": "Office has been saved",
       "messageUpdateOffice": "Office has been updated"
     },
-
     "approveOfficeFrom": {
       "officeNameEn": "Test Office",
       "officeNameBn": "পরীক্ষা অফিস",
@@ -410,7 +402,6 @@
       "messageSaveOffice": "Office has been saved",
       "messageUpdateOffice": "Office has been updated"
     },
-
     "createEmpMangFrom": {
       "empNameEn": "Sabina Yeasmin",
       "empNameBn": "সাবিনা ইয়াসমিন",
@@ -432,9 +423,7 @@
       "messageSaveEmp": "Mfi employee has been saved",
       "messageUpdateEmp": "Mfi employee has been updated"
     },
-
     "approveEmployeeFrom": {},
-
     "createSamityFrom": {
       "samityNameEn": "Shyamoli kallyan Samity",
       "samityNameBn": "শ্যামলী কল্যাণ সমিতি",
@@ -456,7 +445,6 @@
       "messageSaveSamity": "Unauth samity has been saved",
       "messageUpdateSamity": "Samity has been updated"
     },
-
     "rejectedSamityFrom": {
       "samityNameEn": "Shyamoli kallyan Samity",
       "samityNameBn": "শ্যামলী কল্যাণ সমিতি",
@@ -479,7 +467,6 @@
       "messageUpdateSamity": "Samity has been updated",
       "rejectRemarks": "Reject"
     },
-
     "samityChangeFrom": {
       "samityNameEn": "Shyamoli kallyan Samity",
       "selectStatus": "Inactive",
@@ -544,7 +531,6 @@
       "messageRejectedMember": "Member has been rejected successfully",
       "messageUpdateRejectedMember": "Member has been updated"
     },
-
     "memberSamityTransferFrom": {
       "memberNameEn": "Fariya",
       "newSamityTransfer": "1028-101 (Barachala Mohila Samity)",
@@ -656,7 +642,6 @@
       "monthOfYear": "3",
       "messageSaveCalendar": "Mfi calendar year has been saved"
     },
-
     "createHoliday": {
       "holidayType": "All",
       "holidayTitleBn": "পরীক্ষার ছুটি",
@@ -666,7 +651,6 @@
       "messageSaveHoliday": "Mfi holiday has been saved"
     }
   },
-
   "branchManager": {
     "gridDepartmentFrom": {
       "nameEn": "Board of Directors",
@@ -675,7 +659,6 @@
       "selectStatus": "Inactive",
       "statusSelect": "Active"
     },
-
     "gridDesignationFrom": {
       "nameEn": "Assistant Director",
       "nameBn": "সহকারী পরিচালক",
@@ -683,28 +666,24 @@
       "selectStatus": "Inactive",
       "statusSelect": "Active"
     },
-
     "gridRegionFrom": {
       "nameEn": "Dhaka",
       "nameBn": "ঢাকা",
       "selectStatus": "Inactive",
       "statusSelect": "Active"
     },
-
     "gridZoneFrom": {
       "nameEn": "Magura",
       "nameBn": "মাগুরা",
       "selectStatus": "Inactive",
       "statusSelect": "Active"
     },
-
     "gridAreaFrom": {
       "nameEn": "Monirampur",
       "nameBn": "মনিরামপুর",
       "selectStatus": "Inactive",
       "statusSelect": "Active"
     },
-
     "createBankAccountFrom": {
       "bankName": "AGRANI BANK LTD.",
       "branchName": "BHANDARIA",
@@ -718,20 +697,17 @@
       "messageSaveBankAccount": "Mfi bank account has been saved",
       "messageUpdateBankAccount": "Mfi bank account has been updated"
     },
-
     "gridFeeConfigurationFrom": {
       "feeTypeNameEn": "Member Admission Fee",
       "selectStatus": "Inactive",
       "statusSelect": "Active"
     },
-
     "gridAmountBasedLoanFrom": {
       "officeTypeId": "Branch Office",
       "roleName": "Branch Accountant",
       "selectStatus": "Inactive",
       "statusSelect": "Active"
     },
-
     "gridFundingOrganizationFrom": {
       "FundingNameEn": "PKSF",
       "idShortCode": "PKSF",
@@ -739,20 +715,48 @@
       "selectStatus": "Inactive",
       "statusSelect": "Active"
     },
-      "gridLoanFundFrom": {
+    "gridLoanFundFrom": {
       "bankAccount": "Dhaka Zonal Office",
       "fundingOrgId": "PKSF",
       "amount": "20000000.00",
       "selectStatus": "Inactive",
       "statusSelect": "Active"
     },
-      "gridMfiProgramFrom": {
+    "gridMfiProgramFrom": {
       "programNameEn": "Sahosh",
       "programShortName": "SA",
       "fundingCategory": "General Micro-Credit (GMC)",
-      "loanFund": "PKSF-1001",     
+      "loanFund": "PKSF-1001",
       "selectStatus": "Inactive",
       "statusSelect": "Active"
+    },
+    "gridOfficeFrom": {
+      "officeNameEn": "Dhaka Regional Office",
+      "officeType": "Regional Office",
+      "selectStatus": "Inactive",
+      "statusSelect": "Active"
+    },
+
+     "createEmpMangFrom": {
+      "empNameEn": "Sabina Yeasmin",
+      "empNameBn": "সাবিনা ইয়াসমিন",
+      "empMobileNo": "01887949170",
+      "nidNumber": "0003463473656",
+      "office": "1002 (Dhaka Regional Office)",
+      "department": "Board of Directors",
+      "designation": "Branch Manager",
+      "officeNameEn": "1002 (Dhaka Regional Office)",
+      "fatherNameEn": "Test Father",
+      "motherNameEn": "Test Mother",
+      "division": "Sylhet Division",
+      "district": "Sunamganj",
+      "thana": "Tahirpur",
+      "adressEn": "Sylhet",
+      "selectStatus": "Inactive",
+      "statusSelect": "Active",
+      "search": "Mohammad Sadik",
+      "messageSaveEmp": "Mfi employee has been saved",
+      "messageUpdateEmp": "Mfi employee has been updated"
     }
   }
 }
