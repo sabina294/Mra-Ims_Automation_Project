@@ -425,8 +425,8 @@
     },
     "approveEmployeeFrom": {},
     "createSamityFrom": {
-      "samityNameEn": "Shyamoli kallyan Samity",
-      "samityNameBn": "শ্যামলী কল্যাণ সমিতি",
+      "samityNameEn": "Nowakandi Mohila Samity",
+      "samityNameBn": "নওয়াকান্দি মহিলা সমিতি",
       "draftName": "Test",
       "draftNameBn": "পরীক্ষা",
       "samityType": "Female",
@@ -446,8 +446,8 @@
       "messageUpdateSamity": "Samity has been updated"
     },
     "rejectedSamityFrom": {
-      "samityNameEn": "Shyamoli kallyan Samity",
-      "samityNameBn": "শ্যামলী কল্যাণ সমিতি",
+      "samityNameEn": "Nowakandi Mohila Samity",
+      "samityNameBn": "নওয়াকান্দি মহিলা সমিতি",
       "draftName": "Test",
       "draftNameBn": "পরীক্ষা",
       "samityType": "Female",
@@ -737,12 +737,12 @@
       "statusSelect": "Active"
     },
 
-     "createEmpMangFrom": {
+    "createEmpMangFrom": {
       "empNameEn": "Sabina Yeasmin",
       "empNameBn": "সাবিনা ইয়াসমিন",
       "empMobileNo": "01887949170",
       "nidNumber": "0003463473656",
-      "office": "1002 (Dhaka Regional Office)",
+      "office": "1039 (Gongarampur)",
       "department": "Board of Directors",
       "designation": "Branch Manager",
       "officeNameEn": "1002 (Dhaka Regional Office)",
@@ -754,9 +754,72 @@
       "adressEn": "Sylhet",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
-      "search": "Mohammad Sadik",
+      "search": "MD. MOFIJUL ISLAM",
       "messageSaveEmp": "Mfi employee has been saved",
       "messageUpdateEmp": "Mfi employee has been updated"
+    },
+
+    "createSamityFrom": {
+      "samityNameEn": "Bamonkhali Mohila Samity",
+      "samityNameBn": "বামনখালী মহিলা সমিতি",
+      "draftName": "Test",
+      "draftNameBn": "পরীক্ষা",
+      "samityType": "Female",
+      "office": "1039 (Gongarampur)",
+      "fieldOfficer": "Samsuddin",
+      "mfiProgram": "Jagoron",
+      "samityDay": "Sunday",
+      "samityFrequency": "Monthly",
+      "workingArea": "Gongarampur",
+      "samityCode": "123456",
+      "maxMember": "30",
+      "adressEn": "Dhaka",
+      "geoAreaType": "Rural",
+      "selectStatus": "Inactive",
+      "statusSelect": "Active",
+      "messageSaveSamity": "Unauth samity has been saved",
+      "messageUpdateSamity": "Samity has been updated"
+    },
+
+    "rejectedSamityFrom": {
+      "samityNameEn": "Bamonkhali Mohila Samity",
+      "samityNameBn": "বামনখালী মহিলা সমিতি",
+      "draftName": "Test",
+      "draftNameBn": "পরীক্ষা",
+      "samityType": "Female",
+      "office": "1039 (Gongarampur)",
+      "fieldOfficer": "Samsuddin",
+      "mfiProgram": "Jagoron",
+      "samityDay": "Sunday",
+      "samityFrequency": "Monthly",
+      "workingArea": "Gongarampur",
+      "samityCode": "123456",
+      "maxMember": "30",
+      "adressEn": "Dhaka",
+      "geoAreaType": "Rural",
+      "selectStatus": "Inactive",
+      "statusSelect": "Active",
+      "messageSaveSamity": "Unauth samity has been saved",
+      "messageUpdateSamity": "Samity has been updated",
+      "rejectRemarks": "Reject"
+    },
+    "samityChangeFrom": {
+      "samityNameEn": "Shyamoli kallyan Samity",
+      "selectStatus": "Inactive",
+      "statusSelect": "Active",
+      "messageSamityChange": "Samity has been updated"
+    },
+    "samityDayChangeFrom": {
+      "samityNameEn": "Majhail Mohila Samity",
+      "selectStatus": "Inactive",
+      "statusSelect": "Active",
+      "messageSamityDayChange": "Samity day has been updated"
+    },
+    "samityCloseFrom": {
+      "samityNameEn": "Ghoshgati Mohila Samity",
+      "selectStatus": "Inactive",
+      "statusSelect": "Active",
+      "messageSamityClose": "Samity has been closed successfully."
     }
   }
 }

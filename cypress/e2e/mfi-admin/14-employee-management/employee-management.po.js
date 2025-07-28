@@ -75,7 +75,7 @@ class EmployeeManagementCreation {
       var emData = data.mfiAdmin.createEmpMangFrom;
       cy.formController("search_text").type(emData.empNameEn);
       cy.imsId("menu-my-task").click();
-      cy.imsId("submenu-awaiting-employee").click();
+      cy.imsId("submenu-awaiting-employee-management").click();
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
       cy.imsId("btn-lock").click();

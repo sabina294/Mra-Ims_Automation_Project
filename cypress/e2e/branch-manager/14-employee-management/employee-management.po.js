@@ -75,7 +75,7 @@ class EmployeeManagementCreation {
       var emData = data.branchManager.createEmpMangFrom;
       cy.formController("search_text").type(emData.empNameEn);
       cy.imsId("menu-my-task").click();
-      cy.imsId("submenu-awaiting-employee").click();
+      cy.imsId("submenu-awaiting-employee-management").click();
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
       cy.imsId("btn-lock").click();
@@ -113,7 +113,7 @@ class EmployeeManagementCreation {
     cy.fixture(this.test_data).then((data) => {
       var emData = data.branchManager.createEmpMangFrom;
       cy.imsId("btn-reset").click();
-      cy.formController("search_text").type(emData.empNameEn);
+      cy.formController("search_text").type(emData.search);
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-edit").click();
       cy.imsId("btn-reset").click();
@@ -127,7 +127,7 @@ class EmployeeManagementCreation {
     cy.fixture(this.test_data).then((data) => {
       var emData = data.branchManager.createEmpMangFrom;
       cy.imsId("btn-reset").click();
-      cy.formController("search_text").type(emData.empNameEn);
+      cy.formController("search_text").type(emData.search);
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-edit").click();
       cy.imsId("btn-go-back").click();
