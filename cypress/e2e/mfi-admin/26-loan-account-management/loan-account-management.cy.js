@@ -1,6 +1,6 @@
 // npm run auto
 // npm run dev
-// npx cypress run --spec cypress/e2e/mfi-admin/26-loan-account-proposal-management/loan-account-proposal-management.cy.js --browser chrome --headed
+// npx cypress run --spec cypress/e2e/mfi-admin/26-loan-account-management/loan-account-management.cy.js --browser chrome --headed
 
 import "cypress-file-upload";
 import { create_loan_account_management } from "./loan-account-management.po";

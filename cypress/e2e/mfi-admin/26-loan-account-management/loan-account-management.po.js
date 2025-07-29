@@ -3,7 +3,7 @@ class LoanAccountManagement {
 
   gridLoanAccountManagementListPage() {
     cy.fixture(this.test_data).then((data) => {
-      cy.selectMenu("menu-loan-account", "submenu-loan-account-management");
+      cy.selectMenu("menu-loan-account","submenu-loan-account-management");
       cy.log("Successfully Loan account Management list page.");
     });
   }

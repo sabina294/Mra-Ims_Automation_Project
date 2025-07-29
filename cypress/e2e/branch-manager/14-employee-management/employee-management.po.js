@@ -18,7 +18,7 @@ class EmployeeManagementCreation {
       cy.formController("emp_name_bn").type(emData.empNameBn);
       cy.formController("date_of_birth").click();
       cy.wait(2000);
-      cy.contains("23").click();
+      cy.contains("28").click();
       cy.formController("gender").click();
       cy.get(
         ".ant-form-item-control-input-content > .ant-radio-group > :nth-child(1) > .ant-radio > .ant-radio-input"

@@ -6,7 +6,7 @@
     "mraAdminName": "Rubayat Zaman",
     "mfiAdminUserId": "tem-mfi-admin-automation",
     "mfiAdminPassword": "123456",
-    "branchManagerUserId": "tem-1039-bm",
+    "branchManagerUserId": "tem-1019-bm",
     "branchManagerPassword": "123456"
   },
   "mraAdmin": {
@@ -655,14 +655,12 @@
     "gridDepartmentFrom": {
       "nameEn": "Board of Directors",
       "nameBn": "পরিচালনা বোর্ড",
-      "status": "Active",
       "selectStatus": "Inactive",
       "statusSelect": "Active"
     },
     "gridDesignationFrom": {
       "nameEn": "Assistant Director",
       "nameBn": "সহকারী পরিচালক",
-      "shortName": "AD",
       "selectStatus": "Inactive",
       "statusSelect": "Active"
     },
@@ -742,7 +740,7 @@
       "empNameBn": "সাবিনা ইয়াসমিন",
       "empMobileNo": "01887949170",
       "nidNumber": "0003463473656",
-      "office": "1039 (Gongarampur)",
+      "office": "1019 (Amin Bazar)",
       "department": "Board of Directors",
       "designation": "Branch Manager",
       "officeNameEn": "1002 (Dhaka Regional Office)",
@@ -754,23 +752,23 @@
       "adressEn": "Sylhet",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
-      "search": "MD. MOFIJUL ISLAM",
+      "search": "Nurul Alam",
       "messageSaveEmp": "Mfi employee has been saved",
       "messageUpdateEmp": "Mfi employee has been updated"
     },
 
     "createSamityFrom": {
-      "samityNameEn": "Bamonkhali Mohila Samity",
-      "samityNameBn": "বামনখালী মহিলা সমিতি",
+      "samityNameEn": "Test Samity",
+      "samityNameBn": "পরীক্ষা সমিতি",
       "draftName": "Test",
       "draftNameBn": "পরীক্ষা",
       "samityType": "Female",
-      "office": "1039 (Gongarampur)",
-      "fieldOfficer": "Samsuddin",
+      "office": "1019 (Amin Bazar)",
+      "fieldOfficer": "MD EBRAHIM",
       "mfiProgram": "Jagoron",
       "samityDay": "Sunday",
       "samityFrequency": "Monthly",
-      "workingArea": "Gongarampur",
+      "workingArea": "Amin Bazar",
       "samityCode": "123456",
       "maxMember": "30",
       "adressEn": "Dhaka",
@@ -782,17 +780,17 @@
     },
 
     "rejectedSamityFrom": {
-      "samityNameEn": "Bamonkhali Mohila Samity",
-      "samityNameBn": "বামনখালী মহিলা সমিতি",
+      "samityNameEn": "Test Samity",
+      "samityNameBn": "পরীক্ষা সমিতি",
       "draftName": "Test",
       "draftNameBn": "পরীক্ষা",
       "samityType": "Female",
-      "office": "1039 (Gongarampur)",
-      "fieldOfficer": "Samsuddin",
+      "office": "1019 (Amin Bazar)",
+      "fieldOfficer": "MD EBRAHIM",
       "mfiProgram": "Jagoron",
       "samityDay": "Sunday",
       "samityFrequency": "Monthly",
-      "workingArea": "Gongarampur",
+      "workingArea": "Amin Bazar",
       "samityCode": "123456",
       "maxMember": "30",
       "adressEn": "Dhaka",
@@ -820,6 +818,60 @@
       "selectStatus": "Inactive",
       "statusSelect": "Active",
       "messageSamityClose": "Samity has been closed successfully."
+    },
+    "createMemberFrom": {
+      "smity": "1019-101 (Salepur Mohila Samity)",
+      "memberNameEn": "Sabina Yeasmin",
+      "mfiProgram": "Jagoron",
+      "savingsId": "General Savings",
+      "occupation": "Business",
+      "memberMobileNo": "01887949170",
+      "nidNumber": "0003463473656",
+      "fatherNameEn": "Test Father",
+      "motherNameEn": "Test Mother",
+      "division": "Sylhet Division",
+      "district": "Moulvibazar",
+      "thana": "Sreemangal",
+      "adressEn": "Dhaka",
+      "selectStatus": "Inactive",
+      "statusSelect": "Active",
+      "messageSaveMember": "Member has been saved",
+      "messageApproveMember": "Member has been approved successfully",
+      "messageUpdateMember": "Member has been updated"
+    },
+    "createRejectedMemberFrom": {
+      "smity": "1019-101 (Salepur Mohila Samity)",
+      "memberNameEn": "Sabina Yeasmin",
+      "mfiProgram": "Jagoron",
+      "savingsId": "General Savings",
+      "occupation": "Business",
+      "memberMobileNo": "01887949170",
+      "nidNumber": "0003463473656",
+      "fatherNameEn": "Test Father",
+      "motherNameEn": "Test Mother",
+      "division": "Sylhet Division",
+      "district": "Moulvibazar",
+      "thana": "Sreemangal",
+      "adressEn": "Dhaka",
+      "messageSaveMember": "Member has been saved",
+      "messageApproveMember": "Member has been approved successfully",
+      "messageUpdateMember": "Member has been updated",
+      "rejectRemarks": "Reject",
+      "messageRejectedMember": "Member has been rejected successfully",
+      "messageUpdateRejectedMember": "Member has been updated"
+    },
+    "memberSamityTransferFrom": {
+      "memberNameEn": "Fariya",
+      "newSamityTransfer": "1028-101 (Barachala Mohila Samity)",
+      "selectStatus": "Inactive",
+      "statusSelect": "Active",
+      "SelectOffice": "1019 (Amin Bazar)",
+      "messagesamityTransfer": "Member samity transfer has been updated"
+    },
+    "memberPassbookFrom": {
+      "samity": "1019-101 (Salepur Mohila Samity)",
+      "member": "2-1002 (Samia)",
+      "account": "AGRO-1019-101-1002-1"
     }
   }
 }
