@@ -109,6 +109,11 @@ class ClientWelfareFund {
       "successfully refresh page  displayed the grid list of the client welfare fund "
     );
   }
+  gridLanguageSwitchCheck() {
+    cy.imsId("profile-menu").click();
+    cy.imsId("btn-lang-bangla").click();
+    cy.log("Unsccessful switch bangla language check.");
+  }
 }
 
 export const create_client_welfare_fund = new ClientWelfareFund();

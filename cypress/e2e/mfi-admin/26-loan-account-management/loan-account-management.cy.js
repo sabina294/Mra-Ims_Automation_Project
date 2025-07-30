@@ -58,4 +58,8 @@ describe("26. Loan Account Management Module Test Cases", function () {
   it("26.09 .Verify Successful Refresh of Grid List Using the Refresh Button on Loan Account Management  Page.", function () {
     create_loan_account_management.gridRefreshButtonCheck();
   });
+
+  it("26.10. Verify check that the grid list content changes correctly from english to bangla.", function () {
+    create_loan_account_management.gridLanguageSwitchCheck();
+  });
 });

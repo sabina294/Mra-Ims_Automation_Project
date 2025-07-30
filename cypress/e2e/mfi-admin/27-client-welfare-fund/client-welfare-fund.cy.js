@@ -58,4 +58,8 @@ describe("27. Client Welfare Fund Module Test Cases", function () {
   it("27.09.Verify Successful Refresh of Grid List Using the Refresh Button on Loan welfare fund Page.", function () {
     create_client_welfare_fund.gridRefreshButtonCheck();
   });
+  
+  it("27.10. Verify check that the grid list content changes correctly from english to bangla.", function () {
+    create_client_welfare_fund.gridLanguageSwitchCheck();
+  });
 });

@@ -137,6 +137,13 @@ class LoanAccountProposalManagementCreation {
       "successfully refresh page  displayed the grid list of the Loan account proposal Management "
     );
   }
+
+    gridLanguageSwitchCheck() {
+    cy.imsId("profile-menu").click();
+    cy.imsId("btn-lang-bangla").click();
+    cy.log("Unsccessful switch bangla language check.");
+  }
+  
 }
 
 export const create_loan_account_proposal_management =

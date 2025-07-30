@@ -872,6 +872,68 @@
       "samity": "1019-101 (Salepur Mohila Samity)",
       "member": "2-1002 (Samia)",
       "account": "AGRO-1019-101-1002-1"
+    },
+
+    "loanProductFrom": {
+      "office": "1002 (Dhaka Regional Office)",
+      "mfiProgram": "Jagoron",
+      "loanProductNameEn": "Planting Season Loan",
+      "loanProductNameBn": "রোপণ মৌসুম ঋণ",
+      "selectStatus": "Inactive",
+      "statusSelect": "Active"
+    },
+    "createLoanAccountFrom": {
+      "memberNameEn": "Zahra Ahmed",
+      "office": "1019 (Amin Bazar)",
+      "samity": "1019-102 (Chanpur Mohila Samity)",
+      "member": "1-1001 (Tanny Akther)",
+      "lendingCategory": "Industry",
+      "economicSector": "Industry",
+      "economicActivity": "Term Loan ( Other than Working Capital Financing)",
+      "economicPurpose": "Service Industries",
+      "loanProduct": "Jagoran",
+      "appliedLoanAmount": "50000",
+      "selectStatus": "Inactive",
+      "statusSelect": "Active",
+      "SelectOffice": "1019 (Amin Bazar)",
+      "messageSaveLoanAccount": "Loan account proposal has been saved",
+      "messageUpdateLoanAccount": "Do you want to update this loan account?"
+    },
+    "loanAccountManagementFrom": {
+      "samity": "Chhaya Mohila Samity",
+      "selectStatus": "Inactive",
+      "statusSelect": "Active",
+      "SelectOffice": "1019 (Amin Bazar)",
+      "messageLoanAccountManagement": "Loan account has been updated"
+    },
+    "createClientWelfareFrom": {
+      "selectSamity": "1019-101 (Salepur Mohila Samity)",
+      "selectMember": "1-1001 (Farhani Akter Rume)",
+      "selectLoanAccount": "AGRO-1019-101-1001-1",
+      "inputAmount": "5000",
+      "search": "Farhani Akter Rume",
+      "approveMessage": "Welfare Fund Authorization for Loan Account Is Successful",
+      "messageSaveLoanWelfareFund": "Welfare Fund Collection for this Loan Account is successful",
+      "messageUpdateLoanWelfareFund": "Do you want to update this loan welfare fund?"
+    },
+    "createLoanRebateFrom": {
+      "selectOffice": "1019 (Amin Bazar)",
+      "selectSamity": "1019-101 (Salepur Mohila Samity)",
+      "selectMember": "1-1001 (Farhani Akter Rume)",
+      "selectLoanAccount": "AGRO-1019-101-1001-1",
+      "selectRebate": "Full",
+      "inputAmount": "5000",
+      "search": "Sohana Aktar Hashmi",
+      "messageSaveLoanRebate": "Loan rebate has been saved"
+    },
+    "createLoanWaiverFrom": {
+      "selectSamity": "1019-101 (Salepur Mohila Samity)",
+      "selectMember": "1-1001 (Farhani Akter Rume)",
+      "selectLoanAccount": "AGRO-1019-101-1001-1",
+      "selectRebate": "Full",
+      "inputAmount": "5000",
+      "search": "Sohana Aktar Hashmi",
+      "messageSaveLoanRebate": "Loan rebate has been saved"
     }
   }
 }

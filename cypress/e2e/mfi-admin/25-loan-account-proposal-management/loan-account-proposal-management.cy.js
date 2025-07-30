@@ -27,8 +27,8 @@ describe("25. Loan Account Proposal Management Module Test Cases", function () {
     create_loan_account_proposal_management.gridLoanAccountProposalManagementListPage();
   });
 
-  it('25.02. Verify successful creation of a Loan Account Proposal Management record by MFI-Admin role', function () {
-      create_loan_account_proposal_management.createLoanAccountProposalManagement();
+  it("25.02. Verify successful creation of a Loan Account Proposal Management record by MFI-Admin role", function () {
+    create_loan_account_proposal_management.createLoanAccountProposalManagement();
   });
 
   it("25.03. Verify successfully performs the action when the action button is clicked.", function () {
@@ -61,5 +61,9 @@ describe("25. Loan Account Proposal Management Module Test Cases", function () {
 
   it("25.10 .Verify Successful Refresh of Grid List Using the Refresh Button on Loan Account Proposal Management  Page.", function () {
     create_loan_account_proposal_management.gridRefreshButtonCheck();
+  });
+
+  it("25.11. Verify check that the grid list content changes correctly from english to bangla.", function () {
+    create_loan_account_proposal_management.gridLanguageSwitchCheck();
   });
 });
