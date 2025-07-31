@@ -934,6 +934,46 @@
       "inputAmount": "5000",
       "search": "Sohana Aktar Hashmi",
       "messageSaveLoanRebate": "Loan rebate has been saved"
+    },
+    "gridLoanProvisionFrom": {},
+    "gridSavingsProduct": {
+      "office": "1025 (Madhukhali)",
+      "savingsType": "General Savings",
+      "depositId": "464345",
+      "savingsProNameEn": "test savings product",
+      "savingsProNameBn": "পরীক্ষামূলক সঞ্চয় পণ্য",
+      "displayNmae": "SP",
+      "intersetTerms": "Fixed",
+      "intersetFrequency": "% per month",
+      "intersetRate": "5",
+      "provisionIntRate": "4",
+      "intersetCalculate": "Average Daily Balance",
+      "intersetPostin": "Monthly",
+      "selectStatus": "Inactive",
+      "statusSelect": "Active"
+    },
+    "createSavingsAccApplicationMang": {
+      "office": "1019 (Amin Bazar)",
+      "savingsProduct": "General Savings",
+      "samity": "1019-101 (Salepur Mohila Samity)",
+      "member": "4-1004 (Suraya Akter Karima)",
+      "recoDepositAmount": "2000",
+      "search": "Samia",
+      "selectStatus": "Inactive",
+      "statusSelect": "Active"
+    },
+    "createSavingsAccountManagement": {
+      "search": "Samia",
+      "selectStatus": "Inactive",
+      "statusSelect": "Active"
+    },
+    "gridCalendarYear": {
+      "holidayTitleBn": "পরীক্ষার ছুটি",
+      "holidayTitleEn": "Test Holiday",
+      "search": "Approved",
+      "dayOfMonth": "5",
+      "monthOfYear": "3",
+      "messageSaveCalendar": "Mfi calendar year has been saved"
     }
   }
 }

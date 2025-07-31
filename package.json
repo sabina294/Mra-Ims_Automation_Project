@@ -6,7 +6,7 @@
   "scripts": {
     "open": "cypress open",
     "run": "cypress run",
-    "dev": "cross-env CYPRESS_ENV=dev npx cypress run --headed",
+    "dev": "cross-env CYPRESS_ENV=dev npx cypress run",
     "auto": "cross-env CYPRESS_ENV=auto npx cypress run",
     "cy:report": "node scripts/send-report.js",
     "cy:test": "npm run cy:run && npm run cy:report"

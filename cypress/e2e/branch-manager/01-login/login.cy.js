@@ -14,4 +14,9 @@ describe("01. Login Branch Manager Module Test Cases", function () {
   it("01.01. Verify login successfully with valid credentials.", function () {
     login_test.branchManagerLogin();
   });
+
+  it("01.02. Verify check that the grid list content changes correctly from english to bangla.", function () {
+      login_test.gridLanguageSwitchCheck();
+    });
+
 });
