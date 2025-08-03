@@ -91,11 +91,15 @@ describe("14. Employee Management Module Test Cases", function () {
     create_employee_management.createValidationMessageCheck();
   });
 
-  it("14.18. Verify that clicking the go back button on the employee management create page redirects the user to the employee management list page.", function () {
+  it("14.18. Verify validation messages appear for required fields when the approve button is clicked with empty inputs.", function () {
+    create_employee_management.createApproveButtonCheck();
+  });
+
+  it("14.19. Verify that clicking the go back button on the employee management create page redirects the user to the employee management list page.", function () {
     create_employee_management.createGoBackButtonCheck();
   });
 
-  it("14.19. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("14.20. Verify check that the grid list content changes correctly from english to bangla.", function () {
     create_employee_management.gridLanguageSwitchCheck();
   });
 });

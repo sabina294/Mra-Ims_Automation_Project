@@ -218,6 +218,14 @@ class SamityCreation {
     cy.log("Successful validation message displaying.");
   }
 
+  createApproveButtonCheck() {
+    cy.imsId("btn-add-new").click();
+    cy.imsId("btn-approve").click();
+    cy.imsId("btn-ok").click();
+    cy.imsId("btn-go-back").click();
+    cy.log("Successful Approve button check.");
+  }
+  
   createGoBackButtonCheck() {
     cy.imsId("btn-add-new").click();
     cy.imsId("btn-go-back").click();

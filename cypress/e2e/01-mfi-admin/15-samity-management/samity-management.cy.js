@@ -95,6 +95,10 @@ describe("15. Samity management Module Test Cases", function () {
     create_samity_management.createValidationMessageCheck();
   });
 
+  it("15.19. Verify validation messages appear for required fields when the approve button is clicked with empty inputs.", function () {
+    create_samity_management.createApproveButtonCheck();
+  });
+
   it("15.19. Verify that clicking the go back button on the samity management create page redirects the user to the samity management list page.", function () {
     create_samity_management.createGoBackButtonCheck();
   });
