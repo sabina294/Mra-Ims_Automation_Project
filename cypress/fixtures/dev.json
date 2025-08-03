@@ -7,7 +7,9 @@
     "mfiAdminUserId": "tem-mfi-admin-automation",
     "mfiAdminPassword": "123456",
     "branchManagerUserId": "tem-1019-bm",
-    "branchManagerPassword": "123456"
+    "branchManagerPassword": "123456",
+    "fieldOfficerUserId": "tem-1019-fo",
+    "fieldOfficerPassword": "123456"
   },
   "mraAdmin": {
     "createdivisionFrom": {
@@ -975,6 +977,30 @@
       "dayOfMonth": "5",
       "monthOfYear": "3",
       "messageSaveCalendar": "Mfi calendar year has been saved"
+    },
+    "createHoliday": {
+      "holidayType": "All",
+      "holidayTitleBn": "পরীক্ষার ছুটি",
+      "holidayTitleEn": "Test Holiday",
+      "search": "Weekly Holiday",
+      "office": "1002 (Dhaka Regional Office)",
+      "messageSaveHoliday": "Mfi holiday has been saved"
+    }
+  },
+
+  "fieldOfficer": {
+    "gridDepartmentFrom": {
+      "nameEn": "Board of Directors",
+      "nameBn": "পরিচালনা বোর্ড",
+      "selectStatus": "Inactive",
+      "statusSelect": "Active"
+    },
+
+    "gridDesignationFrom": {
+      "nameEn": "Assistant Director",
+      "nameBn": "সহকারী পরিচালক",
+      "selectStatus": "Inactive",
+      "statusSelect": "Active"
     }
   }
 }

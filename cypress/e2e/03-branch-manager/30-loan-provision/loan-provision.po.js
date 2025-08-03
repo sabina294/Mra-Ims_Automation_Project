@@ -3,7 +3,7 @@ class LoanProvision {
 
    gridLoanProvisionListPage() {
     cy.fixture(this.test_data).then((data) => {
-      cy.selectMenu("menu-loan-account", "submenu-loan-waiver");
+      cy.selectMenu("menu-loan-account", "submenu-loan-provision");
       cy.log("Successfully Loan rebate list page.");
     });
   }
