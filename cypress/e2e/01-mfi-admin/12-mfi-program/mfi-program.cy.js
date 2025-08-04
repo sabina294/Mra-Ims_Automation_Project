@@ -28,17 +28,17 @@ describe("12. MFI program Module Test Cases", function () {
     create_mfi_program.gridMfiProgramListPage();
   });
 
-  // it("12.02. Verify a new mfi program is created successfully when all required fields are filled with valid data.", function () {
-  //   create_mfi_program.createMfiProgram();
-  // });
+  it("12.02. Verify a new mfi program is created successfully when all required fields are filled with valid data.", function () {
+    create_mfi_program.createMfiProgram();
+  });
 
   it("12.03. Verify that a mfi program cannot be created without a mfi program name english, even if all other fields are valid.", function () {
     create_mfi_program.createWithoutNameEn();
   });
 
-  // it("12.04. Verify that a mfi program cannot be created without a mfi program name bangla, even if all other fields are valid.", function () {
-  //   create_mfi_program.createWithoutNameBn();
-  // });
+  it("12.04. Verify that a mfi program cannot be created without a mfi program name bangla, even if all other fields are valid.", function () {
+    create_mfi_program.createWithoutNameBn();
+  });
 
   it("12.05. Verify that a mfi program cannot be created without a short name, even if all other fields are valid.", function () {
     create_mfi_program.createWithoutShortName();
@@ -64,9 +64,9 @@ describe("12. MFI program Module Test Cases", function () {
     create_mfi_program.viewMfiProgram();
   });
 
-  // it("12.11. Verify that the mfi program forms edit mode can be toggled on and off all fields should be disabled or return to view-only mode.", function () {
-  //   create_mfi_program.turnOffEditMode();
-  // });
+  it("12.11. Verify that the mfi program forms edit mode can be toggled on and off all fields should be disabled or return to view-only mode.", function () {
+    create_mfi_program.turnOffEditMode();
+  });
 
   it("12.12. Verify the mfi program name and description can be edited successfully.", function () {
     create_mfi_program.editMfiProgram();
@@ -76,9 +76,9 @@ describe("12. MFI program Module Test Cases", function () {
     create_mfi_program.editResetButton();
   });
 
-  // it("12.14. Verify the mfi program edit submit button functions correctly.", function () {
-  //   create_mfi_program.editSubmitButton();
-  // });
+  it("12.14. Verify the mfi program edit submit button functions correctly.", function () {
+    create_mfi_program.editSubmitButton();
+  });
 
   it("12.15. Verify that clicking the go back button on the mfi program edit page redirects the user to the mfi program list page.", function () {
     create_mfi_program.editGoBackButton();

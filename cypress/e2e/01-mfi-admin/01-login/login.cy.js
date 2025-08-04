@@ -14,4 +14,8 @@ describe("01. Login MFI Module Test Cases", function () {
   it("01.01. Verify login successfully with valid credentials.", function () {
     login_test.mfiAdminLogin();
   });
+
+  it("01.02. Verify check that the grid list content changes correctly from english to bangla.", function () {
+    login_test.gridLanguageSwitchCheck();
+  });
 });

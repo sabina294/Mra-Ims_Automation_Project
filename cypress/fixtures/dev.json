@@ -1001,6 +1001,24 @@
       "nameBn": "সহকারী পরিচালক",
       "selectStatus": "Inactive",
       "statusSelect": "Active"
+    },
+    "gridFeeConfigurationFrom": {
+      "feeTypeNameEn": "Member Admission Fee",
+      "selectStatus": "Inactive",
+      "statusSelect": "Active"
+    },
+    "gridAmountBasedLoanFrom": {
+      "officeTypeId": "Branch Office",
+      "roleName": "Branch Accountant",
+      "selectStatus": "Inactive",
+      "statusSelect": "Active"
+    },
+
+    "gridOfficeFrom": {
+      "officeNameEn": "Dhaka Regional Office",
+      "officeType": "Regional Office",
+      "selectStatus": "Inactive",
+      "statusSelect": "Active"
     }
   }
 }
