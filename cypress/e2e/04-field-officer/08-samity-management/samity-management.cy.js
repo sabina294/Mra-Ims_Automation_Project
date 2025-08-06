@@ -1,0 +1,69 @@
+// npm run auto
+// npm run dev
+// npx cypress run --spec cypress/e2e/04-field-officer/08-samity-management/samity-management.cy.js --browser chrome --headed
+
+import "cypress-file-upload";
+import { grid_samity_management } from "./samity-management.po";
+
+describe("08. Samity management Module Test Cases", function () {
+  const baseURL = Cypress.env("BASE_URL");
+  const test_data = Cypress.env("TEST_DATA");
+  before(() => {
+    cy.fixture(test_data).then((d) => {
+      cy.login(
+        baseURL,
+        d.credential.fieldOfficerUserId,
+        d.credential.fieldOfficerPassword
+      );
+      cy.changeLanguage("english");
+    });
+  });
+
+  after(() => {
+    cy.logout();
+  });
+
+  it("08.01. Verify the samity management list page loads correctly.", function () {
+    grid_samity_management.gridSamityManagementListPage();
+  });
+
+  it("08.02. Verify successfully performs the action when the action button is clicked.", function () {
+    grid_samity_management.actionButtonCheck();
+  });
+
+  it("08.03. Verify the user can successfully view the samity management information, including the name and description.", function () {
+    grid_samity_management.viewSamity();
+  });
+
+  it("08.04. Verify the user can filter inactive employee records using the status dropdown on the samity management List page.", function () {
+    grid_samity_management.statusInactiveDropdownCheck();
+  });
+
+  it("08.05. Verify check if the filter for active results works correctly with the status dropdown.", function () {
+    grid_samity_management.statusActiveDropdownCheck();
+  });
+
+  it("08.06. Verify that the search results are displayed correctly when searching by samity management name.", function () {
+    grid_samity_management.searchInSamityManagementName();
+  });
+
+  it("08.07. Verify the grid list resets successfully when the reset button is clicked on the samity management page.", function () {
+    grid_samity_management.gridResetButtonCheck();
+  });
+
+  it("08.08. Verify that the grid list is refreshed successfully when the refresh button is clicked on the samity management page.", function () {
+    grid_samity_management.gridRefreshButtonCheck();
+  });
+
+  it("08.09. Verify display the grid list successfully when the Draft button on is clicked on the Samity Management page", function () {
+    grid_samity_management.gridDraftButton();
+  });
+
+  it("08.10. Verify display the grid list successfully when the Draft button off is clicked on the Samity Management page", function () {
+    grid_samity_management.gridDraftButtonOff();
+  });
+
+  it("08.11. Verify check that the grid list content changes correctly from english to bangla.", function () {
+    grid_samity_management.gridLanguageSwitchCheck();
+  });
+});

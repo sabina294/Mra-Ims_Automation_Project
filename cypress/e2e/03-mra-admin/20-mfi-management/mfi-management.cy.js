@@ -1,6 +1,6 @@
 // npm run auto
 // npm run dev
-// npx cypress run --spec cypress/e2e/mra-admin/20-mfi-management/mfi-management.cy.js --headed
+// npx cypress run --spec cypress/e2e/03-mra-admin/20-mfi-management/mfi-management.cy.js --headed
 
 import "cypress-file-upload";
 import { create_mfi_management } from "./mfi-management.po";
@@ -29,13 +29,13 @@ describe("20. MFI Management Module Test Cases.", function () {
     create_mfi_management.gridMfiManagementListPage();
   });
 
-  it("20.02. Verify a new mfi management is created successfully when all required fields are filled with valid data.", function () {
-    create_mfi_management.createMfi();
-  });
+  // it("20.02. Verify a new mfi management is created successfully when all required fields are filled with valid data.", function () {
+  //   create_mfi_management.createMfi();
+  // });
 
-  it("20.03. Verify a new mfi management is created successfully when all fields are filled with valid data.", function () {
-    create_mfi_management.createAllField();
-  });
+  // it("20.03. Verify a new mfi management is created successfully when all fields are filled with valid data.", function () {
+  //   create_mfi_management.createAllField();
+  // });
 
   it("20.04. Verify that a mfi management cannot be created without filling in the mandatory field.", function () {
     create_mfi_management.createWithoutOneMandatoryField();

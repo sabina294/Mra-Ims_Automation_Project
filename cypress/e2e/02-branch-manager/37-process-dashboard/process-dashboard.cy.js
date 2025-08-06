@@ -1,6 +1,6 @@
 // npm run auto
 // npm run dev
-// npx cypress run --spec cypress/e2e/branch-manager/37-process-dashboard/process-dashboard.cy.js --browser chrome --headed
+// npx cypress run --spec cypress/e2e/02-branch-manager/37-process-dashboard/process-dashboard.cy.js --browser chrome --headed
 
 import "cypress-file-upload";
 import { grid_process_dashboard } from "./process-dashboard.po";

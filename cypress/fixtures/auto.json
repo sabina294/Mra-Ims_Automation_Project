@@ -1017,6 +1017,48 @@
       "officeType": "Regional Office",
       "selectStatus": "Inactive",
       "statusSelect": "Active"
+    },
+    "gridEmpMangFrom": {
+      "empNameEn": "Sabina Yeasmin",
+      "empNameBn": "সাবিনা ইয়াসমিন",
+      "empMobileNo": "01887949170",
+      "nidNumber": "0003463473656",
+      "office": "1019 (Amin Bazar)",
+      "department": "Board of Directors",
+      "designation": "Branch Manager",
+      "officeNameEn": "1002 (Dhaka Regional Office)",
+      "fatherNameEn": "Test Father",
+      "motherNameEn": "Test Mother",
+      "division": "Sylhet Division",
+      "district": "Sunamganj",
+      "thana": "Tahirpur",
+      "adressEn": "Sylhet",
+      "selectStatus": "Inactive",
+      "statusSelect": "Active",
+      "search": "Nurul Alam",
+      "messageSaveEmp": "Mfi employee has been saved",
+      "messageUpdateEmp": "Mfi employee has been updated"
+    },
+    "gridSamityFrom": {
+      "samityNameEn": "Test Samity",
+      "samityNameBn": "পরীক্ষা সমিতি",
+      "draftName": "Test",
+      "draftNameBn": "পরীক্ষা",
+      "samityType": "Female",
+      "office": "1019 (Amin Bazar)",
+      "fieldOfficer": "MD EBRAHIM",
+      "mfiProgram": "Jagoron",
+      "samityDay": "Sunday",
+      "samityFrequency": "Monthly",
+      "workingArea": "Amin Bazar",
+      "samityCode": "123456",
+      "maxMember": "30",
+      "adressEn": "Dhaka",
+      "geoAreaType": "Rural",
+      "selectStatus": "Inactive",
+      "statusSelect": "Active",
+      "messageSaveSamity": "Unauth samity has been saved",
+      "messageUpdateSamity": "Samity has been updated"
     }
   }
 }

@@ -1,6 +1,6 @@
 // npm run auto
 // npm run dev
-// npx cypress run --spec cypress/e2e/mfi-admin/13-office-management/office-management.cy.js --browser chrome --headed
+// npx cypress run --spec cypress/e2e/01-mfi-admin/13-office-management/office-management.cy.js --browser chrome --headed
 
 import "cypress-file-upload";
 import { create_office_management } from "./office-management.po";

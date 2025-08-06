@@ -1,6 +1,6 @@
 // npm run auto
 // npm run dev
-// npx cypress run --spec cypress/e2e/branch-manager/05-amount-based-loan-proposal/amount-based-loan-proposal.cy --browser chrome --headed
+// npx cypress run --spec cypress/e2e/04-field-officer/05-amount-based-loan-proposal/amount-based-loan-proposal.cy --browser chrome --headed
 
 import "cypress-file-upload";
 import { grid_amount_based_loan } from "./amount-based-loan-proposal.po";

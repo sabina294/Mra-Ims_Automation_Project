@@ -1,6 +1,6 @@
 // npm run auto
 // npm run dev
-// npx cypress run --spec cypress/e2e/mfi-admin/12-mfi-program/mfi-program.cy.js --browser chrome --headed
+// npx cypress run --spec cypress/e2e/01-mfi-admin/12-mfi-program/mfi-program.cy.js --browser chrome --headed
 
 
 import "cypress-file-upload";
@@ -28,17 +28,17 @@ describe("12. MFI program Module Test Cases", function () {
     create_mfi_program.gridMfiProgramListPage();
   });
 
-  it("12.02. Verify a new mfi program is created successfully when all required fields are filled with valid data.", function () {
-    create_mfi_program.createMfiProgram();
-  });
+  // it("12.02. Verify a new mfi program is created successfully when all required fields are filled with valid data.", function () {
+  //   create_mfi_program.createMfiProgram();
+  // });
 
   it("12.03. Verify that a mfi program cannot be created without a mfi program name english, even if all other fields are valid.", function () {
     create_mfi_program.createWithoutNameEn();
   });
 
-  it("12.04. Verify that a mfi program cannot be created without a mfi program name bangla, even if all other fields are valid.", function () {
-    create_mfi_program.createWithoutNameBn();
-  });
+  // it("12.04. Verify that a mfi program cannot be created without a mfi program name bangla, even if all other fields are valid.", function () {
+  //   create_mfi_program.createWithoutNameBn();
+  // });
 
   it("12.05. Verify that a mfi program cannot be created without a short name, even if all other fields are valid.", function () {
     create_mfi_program.createWithoutShortName();

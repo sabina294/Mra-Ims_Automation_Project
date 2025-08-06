@@ -1,6 +1,6 @@
 // npm run auto
 // npm run dev
-// npx cypress run --spec cypress/e2e/mra-admin/07-contract-phase/contract-phase.cy.js --headed
+// npx cypress run --spec cypress/e2e/03-mra-admin/07-contract-phase/contract-phase.cy.js --headed
 
 import "cypress-file-upload";
 import { create_contract_phase } from "./contract-phase.po";

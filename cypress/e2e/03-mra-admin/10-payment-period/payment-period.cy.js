@@ -1,6 +1,6 @@
 // npm run auto
 // npm run dev
-// npx cypress run --spec cypress/e2e/mra-admin/10-payment-period/payment-period.cy.js --headed
+// npx cypress run --spec cypress/e2e/03-mra-admin/10-payment-period/payment-period.cy.js --headed
 
 import "cypress-file-upload";
 import { create_payment_period } from "./payment-period.po";

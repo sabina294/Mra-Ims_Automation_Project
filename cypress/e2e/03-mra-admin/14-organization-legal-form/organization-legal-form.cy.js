@@ -1,6 +1,6 @@
 // npm run auto
 // npm run dev
-// npx cypress run --spec cypress/e2e/mra-admin/14-organization-legal-form/organization-legal-form.cy.js --headed
+// npx cypress run --spec cypress/e2e/03-mra-admin/14-organization-legal-form/organization-legal-form.cy.js --headed
 
 import "cypress-file-upload";
 import { create_organization_legal_form } from "./organization-legal-form.po";

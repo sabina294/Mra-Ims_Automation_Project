@@ -1,6 +1,6 @@
 // npm run auto
 // npm run dev
-// npx cypress run --spec cypress/e2e/branch-manager/08-fee-configuration/fee-configuration.cy.js --browser chrome --headed
+// npx cypress run --spec cypress/e2e/02-branch-manager/08-fee-configuration/fee-configuration.cy.js --browser chrome --headed
 
 import "cypress-file-upload";
 import { grid_fee_configuration } from "./fee-configuration.po";

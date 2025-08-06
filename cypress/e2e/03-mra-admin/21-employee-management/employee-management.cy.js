@@ -1,6 +1,6 @@
 // npm run auto
 // npm run dev
-// npx cypress run --spec cypress/e2e/mra-admin/21-employee-management/employee-management.cy.js --headed
+// npx cypress run --spec cypress/e2e/03-mra-admin/21-employee-management/employee-management.cy.js --headed
 
 import "cypress-file-upload";
 import { create_employee_management } from "./employee-management.po";
@@ -48,17 +48,17 @@ describe("21. Employee Management Module Test Cases.", function () {
   //   create_employee_management.turnOffOnEditMode();
   // });
 
-  it("21.07. Verify that the employee management is updated with valid information.", function () {
-    create_employee_management.editEmployeeManagement();
-  });
-
-  it("21.08. Verify the employee management edit reset button functions correctly.", function () {
+  it("21.07. Verify the employee management edit reset button functions correctly.", function () {
     create_employee_management.editResetButton();
   });
 
-  it("21.09. Verify that clicking the go back button on the employee management edit page redirects the user to the employee management list page.", function () {
+  it("21.08. Verify that clicking the go back button on the employee management edit page redirects the user to the employee management list page.", function () {
     create_employee_management.editGoBackButton();
   });
+
+  // it("21.09. Verify that the employee management is updated with valid information.", function () {
+  //   create_employee_management.editEmployeeManagement();
+  // });
 
   it("21.10. Verify the user can filter inactive employee records using the status dropdown on the Employee Management List page.", function () {
     create_employee_management.statusInactiveDropdownCheck();

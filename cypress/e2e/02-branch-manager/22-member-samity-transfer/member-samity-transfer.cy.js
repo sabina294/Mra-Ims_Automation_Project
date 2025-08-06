@@ -1,7 +1,7 @@
 
 // npm run auto
 // npm run dev
-// npx cypress run --spec cypress/e2e/branch-manager/22-member-samity-transfer/member-samity-transfer.cy.js --browser chrome --headed
+// npx cypress run --spec cypress/e2e/02-branch-manager/22-member-samity-transfer/member-samity-transfer.cy.js --browser chrome --headed
 
 import "cypress-file-upload";
 import { member_samity_transfer } from "./member-samity-transfer.po";

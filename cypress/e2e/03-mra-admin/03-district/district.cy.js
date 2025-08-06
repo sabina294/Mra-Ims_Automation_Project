@@ -1,6 +1,6 @@
 // npm run auto
 // npm run dev
-// npx cypress run --spec cypress/e2e/mra-admin/03-district/district.cy.js --headed
+// npx cypress run --spec cypress/e2e/03-mra-admin/03-district/district.cy.js --headed
 
 import "cypress-file-upload";
 import { create_district } from "./district.po";

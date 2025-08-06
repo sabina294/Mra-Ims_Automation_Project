@@ -1,6 +1,6 @@
 // npm run auto
 // npm run dev
-// npx cypress run --spec cypress/e2e/mra-admin/22-logout/logout.cy.js --headed
+// npx cypress run --spec cypress/e2e/03-mra-admin/22-logout/logout.cy.js --headed
 
 import { logout_page } from "./logout.po";
 

@@ -1,6 +1,6 @@
 // npm run auto
 // npm run dev
-// npx cypress run --spec cypress/e2e/mra-admin/17-marital-status/marital-status.cy.js --headed
+// npx cypress run --spec cypress/e2e/03-mra-admin/17-marital-status/marital-status.cy.js --headed
 
 import "cypress-file-upload";
 import { create_marital_status } from "./marital-status.po";

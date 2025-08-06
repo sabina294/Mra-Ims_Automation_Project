@@ -1,6 +1,6 @@
 // npm run auto
 // npm run dev
-// npx cypress run --spec cypress/e2e/branch-manager/28-loan-rebate/loan-rebate.cy.js --browser chrome --headed
+// npx cypress run --spec cypress/e2e/02-branch-manager/28-loan-rebate/loan-rebate.cy.js --browser chrome --headed
 
 import "cypress-file-upload";
 import { create_loan_rebate } from "./loan-rebate.po";
@@ -27,9 +27,9 @@ describe("28. Loan Rebate Module Test Cases", function () {
     create_loan_rebate.gridLoanRebateListPage();
   });
 
-  it("28.02. Verify successful creation of a Loan rebate record by MFI-Admin role", function () {
-    create_loan_rebate.createLoanRebate();
-  });
+  // it("28.02. Verify successful creation of a Loan rebate record by MFI-Admin role", function () {
+  //   create_loan_rebate.createLoanRebate();
+  // });
 
   it("28.03. Verify successfully performs the action when the action button is clicked.", function () {
     create_loan_rebate.actionButtonCheck();

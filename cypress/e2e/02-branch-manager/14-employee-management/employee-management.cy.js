@@ -1,6 +1,6 @@
 // npm run auto
 // npm run dev
-// npx cypress run --spec cypress/e2e/branch-manager/14-employee-management/employee-management.cy.js --browser chrome --headed
+// npx cypress run --spec cypress/e2e/02-branch-manager/14-employee-management/employee-management.cy.js --browser chrome --headed
 
 import "cypress-file-upload";
 import { create_employee_management } from "./employee-management.po";

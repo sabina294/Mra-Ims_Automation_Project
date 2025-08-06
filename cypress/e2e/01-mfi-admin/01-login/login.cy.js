@@ -1,6 +1,6 @@
 // npm run auto
 // npm run dev
-// npx cypress run --spec cypress/e2e/mfi-admin/01-login/login.cy.js --headed
+// npx cypress run --spec cypress/e2e/01-mfi-admin/01-login/login.cy.js --headed
 
 import { login_test } from "./login.po";
 

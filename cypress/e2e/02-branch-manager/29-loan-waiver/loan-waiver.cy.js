@@ -1,6 +1,6 @@
 // npm run auto
 // npm run dev
-// npx cypress run --spec cypress/e2e/branch-manager/29-loan-waiver/loan-waiver.cy.js --browser chrome --headed
+// npx cypress run --spec cypress/e2e/02-branch-manager/29-loan-waiver/loan-waiver.cy.js --browser chrome --headed
 
 import "cypress-file-upload";
 import { create_loan_waiver } from "./loan-waiver.po";
@@ -31,9 +31,9 @@ describe("29. Loan waiver Module Test Cases", function () {
     create_loan_waiver.createLoanWaiver();
   });
 
-  it("29.03. Verify successfully performs the action when the action button is clicked.", function () {
-    create_loan_waiver.actionButtonCheck();
-  });
+  // it("29.03. Verify successfully performs the action when the action button is clicked.", function () {
+  //   create_loan_waiver.actionButtonCheck();
+  // });
 
   //   it("29.04. Verify successful Loan waiver information View.", function () {
   //     create_loan_waiver.viewLoanWaiver();

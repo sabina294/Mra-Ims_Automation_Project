@@ -1,6 +1,6 @@
 // npm run auto
 // npm run dev
-// npx cypress run --spec cypress/e2e/mfi-admin/02-department/department.cy.js --browser chrome --headed
+// npx cypress run --spec cypress/e2e/01-mfi-admin/02-department/department.cy.js --browser chrome --headed
 
 import "cypress-file-upload";
 import { create_department } from "./department.po";

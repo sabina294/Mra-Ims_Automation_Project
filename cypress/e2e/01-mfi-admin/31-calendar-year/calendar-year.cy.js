@@ -1,6 +1,6 @@
 // npm run auto
 // npm run dev
-// npx cypress run --spec cypress/e2e/mfi-admin/31-calendar-year/calendar-year.cy.js --browser chrome --headed
+// npx cypress run --spec cypress/e2e/01-mfi-admin/31-calendar-year/calendar-year.cy.js --browser chrome --headed
 
 import "cypress-file-upload";
 import { create_calendar_year } from "./calendar-year.po";

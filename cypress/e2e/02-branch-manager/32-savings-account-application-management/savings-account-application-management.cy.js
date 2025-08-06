@@ -1,6 +1,6 @@
 // npm run auto
 // npm run dev
-// npx cypress run --spec cypress/e2e/branch-manager/32-savings-account-application-management/savings-account-application-management.cy.js --browser chrome --headed
+// npx cypress run --spec cypress/e2e/02-branch-manager/32-savings-account-application-management/savings-account-application-management.cy.js --browser chrome --headed
 
 import "cypress-file-upload";
 import { create_savings_account_application_management } from "./savings-account-application-management.po";

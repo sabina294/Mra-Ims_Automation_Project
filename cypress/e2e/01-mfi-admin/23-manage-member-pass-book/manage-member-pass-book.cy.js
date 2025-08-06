@@ -1,6 +1,6 @@
 // npm run auto
 // npm run dev
-// npx cypress run --spec cypress/e2e/mfi-admin/23-manage-member-pass-book/manage-member-pass-book.cy.js --browser chrome --headed
+// npx cypress run --spec cypress/e2e/01-mfi-admin/23-manage-member-pass-book/manage-member-pass-book.cy.js --browser chrome --headed
 
 import "cypress-file-upload";
 import { manage_member_passbook } from "./manage-member-pass-book.po";

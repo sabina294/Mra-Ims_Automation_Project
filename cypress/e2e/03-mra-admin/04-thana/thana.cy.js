@@ -1,6 +1,6 @@
 // npm run auto
 // npm run dev
-// npx cypress run --spec cypress/e2e/mra-admin/04-thana/thana.cy.js --headed
+// npx cypress run --spec cypress/e2e/03-mra-admin/04-thana/thana.cy.js --headed
 
 import "cypress-file-upload";
 import { create_thana } from "./thana.po";

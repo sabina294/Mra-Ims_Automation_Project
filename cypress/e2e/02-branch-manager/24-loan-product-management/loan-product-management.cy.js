@@ -1,6 +1,6 @@
 // npm run auto
 // npm run dev
-// npx cypress run --spec cypress/e2e/branch-manager/24-loan-product-management/loan-product-management.cy.js --browser chrome --headed
+// npx cypress run --spec cypress/e2e/02-branch-manager/24-loan-product-management/loan-product-management.cy.js --browser chrome --headed
 
 import "cypress-file-upload";
 import { create_loan_product_management } from "./loan-product-management.po";

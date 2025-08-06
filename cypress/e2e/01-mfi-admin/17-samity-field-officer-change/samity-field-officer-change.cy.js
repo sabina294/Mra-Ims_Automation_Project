@@ -1,6 +1,6 @@
 // npm run auto
 // npm run dev
-// npx cypress run --spec cypress/e2e/mfi-admin/17-samity-field-officer-change/samity-field-officer-change.cy.js --browser chrome --headed
+// npx cypress run --spec cypress/e2e/01-mfi-admin/17-samity-field-officer-change/samity-field-officer-change.cy.js --browser chrome --headed
 
 import "cypress-file-upload";
 import { samity_field_officer_change } from "./samity-field-officer-change.po";

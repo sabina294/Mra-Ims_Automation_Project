@@ -1,6 +1,6 @@
 // npm run auto
 // npm run dev
-// npx cypress run --spec cypress/e2e/branch-manager/13-office/office.cy.js --browser chrome --headed
+// npx cypress run --spec cypress/e2e/02-branch-manager/13-office/office.cy.js --browser chrome --headed
 
 import "cypress-file-upload";
 import { grid_office } from "./office.po";

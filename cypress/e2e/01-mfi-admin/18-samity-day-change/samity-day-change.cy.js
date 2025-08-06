@@ -1,6 +1,6 @@
 // npm run auto
 // npm run dev
-// npx cypress run --spec cypress/e2e/mfi-admin/18-samity-day-change/samity-day-change.cy.js --browser chrome --headed
+// npx cypress run --spec cypress/e2e/01-mfi-admin/18-samity-day-change/samity-day-change.cy.js --browser chrome --headed
 
 import "cypress-file-upload";
 import { samity_day_change } from "./samity-day-change.po";

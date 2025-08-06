@@ -1,6 +1,6 @@
 // npm run auto
 // npm run dev
-// npx cypress run --spec cypress/e2e/mfi-admin/33-holiday/holiday.cy.js --browser chrome --headed
+// npx cypress run --spec cypress/e2e/01-mfi-admin/33-holiday/holiday.cy.js --browser chrome --headed
 
 import "cypress-file-upload";
 import { create_holiday } from "./holiday.po";

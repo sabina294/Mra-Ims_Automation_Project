@@ -66,7 +66,7 @@ class EmployeeManagementCreation {
       cy.log("Successfully created employee management");
     });
   }
-  
+
   createAllField() {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId("btn-add-new").click();
@@ -198,6 +198,10 @@ class EmployeeManagementCreation {
 
   editEmployeeManagement() {
     cy.fixture(this.test_data).then((data) => {
+      var emData = data.mraAdmin.createEmployeeFrom;
+      cy.imsId("btn-reset").click();
+
+      cy.formController("search_text").type(emData.search);
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-edit").click();
       cy.imsId("btn-submit").click();
@@ -214,19 +218,31 @@ class EmployeeManagementCreation {
   }
 
   editResetButton() {
-    cy.imsId("toggle-action").first().click();
-    cy.imsId("btn-table-action-edit").click();
-    cy.imsId("btn-reset").click();
-    cy.imsId("btn-go-back").click();
+    cy.fixture(this.test_data).then((data) => {
+      var emData = data.mraAdmin.createEmployeeFrom;
+      cy.imsId("btn-reset").click();
 
-    cy.log("Successful clean displaying");
+      cy.formController("search_text").type(emData.search);
+      cy.imsId("toggle-action").first().click();
+      cy.imsId("btn-table-action-edit").click();
+      cy.imsId("btn-reset").click();
+      cy.imsId("btn-go-back").click();
+
+      cy.log("Successful clean displaying");
+    });
   }
 
   editGoBackButton() {
-    cy.imsId("toggle-action").first().click();
-    cy.imsId("btn-table-action-edit").click();
-    cy.imsId("btn-go-back").click();
-    cy.log("Successful edit go back button check.");
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("btn-reset").click();
+
+      var emData = data.mraAdmin.createEmployeeFrom;
+      cy.formController("search_text").type(emData.search);
+      cy.imsId("toggle-action").first().click();
+      cy.imsId("btn-table-action-edit").click();
+      cy.imsId("btn-go-back").click();
+      cy.log("Successful edit go back button check.");
+    });
   }
 
   statusInactiveDropdownCheck() {

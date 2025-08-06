@@ -1,6 +1,6 @@
 // npm run auto
 // npm run dev
-// npx cypress run --spec cypress/e2e/mra-admin/09-loan-type/loan-type.cy.js --headed
+// npx cypress run --spec cypress/e2e/03-mra-admin/09-loan-type/loan-type.cy.js --headed
 
 import "cypress-file-upload";
 import { create_loan_type } from "./loan-type.po";

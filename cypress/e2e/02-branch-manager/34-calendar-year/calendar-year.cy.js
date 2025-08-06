@@ -1,6 +1,6 @@
 // npm run auto
 // npm run dev
-// npx cypress run --spec cypress/e2e/branch-manager/34-calendar-year/calendar-year.cy.js --browser chrome --headed
+// npx cypress run --spec cypress/e2e/02-branch-manager/34-calendar-year/calendar-year.cy.js --browser chrome --headed
 
 import "cypress-file-upload";
 import { grid_calendar_year } from "./calendar-year.po";
