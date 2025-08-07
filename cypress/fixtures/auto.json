@@ -1059,6 +1059,33 @@
       "statusSelect": "Active",
       "messageSaveSamity": "Unauth samity has been saved",
       "messageUpdateSamity": "Samity has been updated"
+    },
+
+    "createMemberFrom": {
+      "smity": "1019-101 (Salepur Mohila Samity)",
+      "memberNameEn": "Sabina Yeasmin",
+      "mfiProgram": "Jagoron",
+      "savingsId": "General Savings",
+      "occupation": "Business",
+      "memberMobileNo": "01887949170",
+      "nidNumber": "0003463473656",
+      "fatherNameEn": "Test Father",
+      "motherNameEn": "Test Mother",
+      "division": "Sylhet Division",
+      "district": "Moulvibazar",
+      "thana": "Sreemangal",
+      "adressEn": "Dhaka",
+      "selectStatus": "Inactive",
+      "statusSelect": "Active",
+      "messageSaveMember": "Member has been saved",
+      "messageApproveMember": "Member has been approved successfully",
+      "messageUpdateMember": "Member has been updated"
+    },
+
+    "memberPassbookFrom": {
+      "samity": "1019-101 (Salepur Mohila Samity)",
+      "member": "2-1002 (Samia)",
+      "account": "AGRO-1019-101-1002-1"
     }
   }
 }
