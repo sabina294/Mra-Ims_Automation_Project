@@ -33,6 +33,7 @@ class MemberManagementCreation {
         .type(memData.savingsId)
         .type("{enter}");
       cy.formController("gender").click();
+      cy.get('.ant-form-item-control-input-content > .ant-radio-group > :nth-child(1) > .ant-radio > .ant-radio-input').click();
       cy.formController("occupation").type(memData.occupation).type("{enter}");
       cy.formController("contactNo").type(memData.memberMobileNo);
       cy.get("#nz-tabs-0-tab-1").click();

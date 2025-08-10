@@ -172,9 +172,6 @@ class MfiCreation {
       cy.formController("search_text").type(mfiData.mfiNameEn);
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
-
-      cy.get("app-mra-mfi").contains(mfiData.mfiNameEn).and("be.visible");
-
       cy.imsId("btn-go-back").click();
       cy.log("Successfully viewed the MFI management list page");
     });

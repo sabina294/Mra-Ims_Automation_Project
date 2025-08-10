@@ -10,7 +10,7 @@ class MemberPassbook {
 
   detailsListMemberPassbook() {
     cy.fixture(this.test_data).then((data) => {
-      var mmptData = data.branchManager.memberPassbookFrom;
+      var mmptData = data.fieldOfficer.memberPassbookFrom;
       cy.formController("samity_id").type(mmptData.samity).type("{enter}");
       cy.formController("member_id").type(mmptData.member).type("{enter}");
       cy.formController("account_no").type(mmptData.account).type("{enter}");

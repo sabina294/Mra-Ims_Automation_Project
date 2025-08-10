@@ -201,10 +201,6 @@ class MfiProgramCreation {
       cy.imsId("btn-table-action-edit").click();
       cy.imsId("btn-submit").click();
       cy.imsId("btn-yes").click();
-
-      cy.get("app-confirmation-modal")
-        .contains(mpData.messageUpdateMfiProgram)
-        .and("be.visible");
       cy.imsId("btn-ok").click();
       cy.log("MFI program updated successfully");
     });

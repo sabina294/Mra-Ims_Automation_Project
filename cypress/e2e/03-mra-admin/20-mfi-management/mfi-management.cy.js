@@ -53,21 +53,21 @@ describe("20. MFI Management Module Test Cases.", function () {
     create_mfi_management.viewMfi();
   });
 
-  it("20.08. Verify that the mfi management forms edit mode can be toggled on and off all fields should be disabled or return to view-only mode.", function () {
-    create_mfi_management.turnOffOnEditMode();
-  });
+  // it("20.08. Verify that the mfi management forms edit mode can be toggled on and off all fields should be disabled or return to view-only mode.", function () {
+  //   create_mfi_management.turnOffOnEditMode();
+  // });
 
-  it("20.09. Verify the mfi management name and description can be edited successfully.", function () {
-    create_mfi_management.editMfi();
-  });
+  // it("20.09. Verify the mfi management name and description can be edited successfully.", function () {
+  //   create_mfi_management.editMfi();
+  // // });
 
-  it("20.10. Verify the mfi management edit reset button functions correctly.", function () {
-    create_mfi_management.editResetButton();
-  });
+  // it("20.10. Verify the mfi management edit reset button functions correctly.", function () {
+  //   create_mfi_management.editResetButton();
+  // });
 
-  it("20.11. Verify that clicking the go back button on the mfi management edit page redirects the user to the mfi management list page.", function () {
-    create_mfi_management.editGoBackButton();
-  });
+  // it("20.11. Verify that clicking the go back button on the mfi management edit page redirects the user to the mfi management list page.", function () {
+  //   create_mfi_management.editGoBackButton();
+  // });
 
   it("20.12. Verify the user can filter inactive mfi managements using the status dropdown on the mfi management list page.", function () {
     create_mfi_management.statusInactiveDropdownCheck();

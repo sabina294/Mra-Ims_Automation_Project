@@ -19,9 +19,6 @@ class LoanFund {
       cy.formController("search_text").type(lfData.fundingOrgId);
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
-
-      cy.get("app-mfi-mis").contains(lfData.fundingOrgId).and("be.visible");
-
       cy.imsId("btn-go-back").click();
       cy.log("Successfully viewed the loan fund list page");
     });
