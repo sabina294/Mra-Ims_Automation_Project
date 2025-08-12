@@ -23,7 +23,7 @@ describe("18. Savings Account Management Module Test Cases", function () {
     cy.logout();
   });
 
-  it("18.01. Verify the savings account application management list page loads correctly.", function () {
+  it("18.01. Verify the savings account management list page loads correctly.", function () {
     create_savings_account_management.gridSavingsAccountManagementListPage();
   });
 

@@ -4,7 +4,7 @@ class LoanWaiver {
   gridLoanWaiverListPage() {
     cy.fixture(this.test_data).then((data) => {
       cy.selectMenu("menu-loan-account", "submenu-loan-waiver");
-      cy.log("Successfully Loan rebate list page.");
+      cy.log("Successfully Loan waiver list page.");
     });
   }
   createLoanWaiver() {
