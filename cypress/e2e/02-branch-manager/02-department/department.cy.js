@@ -2,6 +2,7 @@
 // npm run dev
 // npx cypress run --spec cypress/e2e/02-branch-manager/02-department/department.cy.js --browser chrome --headed
 
+
 import "cypress-file-upload";
 import { grid_department } from "./department.po";
 

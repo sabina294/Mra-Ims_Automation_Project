@@ -1,6 +1,7 @@
 // npm run auto
 // npm run dev
 // npx cypress run --spec cypress/e2e/02-branch-manager/01-login/login.cy.js --headed
+// npx cypress run --spec cypress/e2e/02-branch-manager --browser chrome --headed
 
 import { login_test } from "./login.po";
 

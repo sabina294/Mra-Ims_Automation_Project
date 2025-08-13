@@ -23,7 +23,7 @@ describe("37. Process Dashboard Module Test Cases", function () {
     cy.logout();
   });
 
-  it("37.01. Verify Loan waiver Grid List Page loads successfully", function () {
+  it("37.01. Verify Process Dashboard Grid List Page loads successfully", function () {
     grid_process_dashboard.gridProcessDashboardListPage();
   });
 

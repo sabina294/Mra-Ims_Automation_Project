@@ -4,7 +4,7 @@ class ProcessDashboard {
   gridProcessDashboardListPage() {
     cy.fixture(this.test_data).then((data) => {
       cy.selectMenu("menu-process", "submenu-process-dashboard");
-      cy.log("Successfully Loan rebate list page.");
+      cy.log("Successfully Process Dashboard list page.");
     });
   }
 
