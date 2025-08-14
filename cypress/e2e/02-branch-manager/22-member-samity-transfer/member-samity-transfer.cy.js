@@ -32,7 +32,7 @@ describe("22. Member Samity Transfer Module Test Cases", function () {
     member_samity_transfer.viewMemberSamityTransfer();
   });
 
-  // it('22.03. Verify successful processing of a new  samity transfer by MFI-Admin role', function () {
+  // it('22.03. Verify successful processing of a new  samity transfer.', function () {
   //     member_samity_transfer.newSamityTransfer();
   // })
 

@@ -507,6 +507,7 @@
       "adressEn": "Dhaka",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
+      "search":"Aothe Rani",
       "messageSaveMember": "Member has been saved",
       "messageApproveMember": "Member has been approved successfully",
       "messageUpdateMember": "Member has been updated"
@@ -736,7 +737,6 @@
       "selectStatus": "Inactive",
       "statusSelect": "Active"
     },
-
     "createEmpMangFrom": {
       "empNameEn": "Sabina Yeasmin",
       "empNameBn": "সাবিনা ইয়াসমিন",
@@ -758,7 +758,6 @@
       "messageSaveEmp": "Mfi employee has been saved",
       "messageUpdateEmp": "Mfi employee has been updated"
     },
-
     "createSamityFrom": {
       "samityNameEn": "Test Samity",
       "samityNameBn": "পরীক্ষা সমিতি",
@@ -780,7 +779,6 @@
       "messageSaveSamity": "Unauth samity has been saved",
       "messageUpdateSamity": "Samity has been updated"
     },
-
     "rejectedSamityFrom": {
       "samityNameEn": "Test Samity",
       "samityNameBn": "পরীক্ষা সমিতি",
@@ -984,9 +982,12 @@
       "search": "Weekly Holiday",
       "office": "1002 (Dhaka Regional Office)",
       "messageSaveHoliday": "Mfi holiday has been saved"
+    },
+    "regularCollection": {
+      "loanAmount": "500",
+      "loanAmount2": "500"
     }
   },
-
   "fieldOfficer": {
     "gridDepartmentFrom": {
       "nameEn": "Board of Directors",
@@ -994,7 +995,6 @@
       "selectStatus": "Inactive",
       "statusSelect": "Active"
     },
-
     "gridDesignationFrom": {
       "nameEn": "Assistant Director",
       "nameBn": "সহকারী পরিচালক",
@@ -1060,7 +1060,6 @@
       "messageSaveSamity": "Unauth samity has been saved",
       "messageUpdateSamity": "Samity has been updated"
     },
-
     "createMemberFrom": {
       "smity": "1019-101 (Salepur Mohila Samity)",
       "memberNameEn": "Sabina Yeasmin",
@@ -1081,13 +1080,11 @@
       "messageApproveMember": "Member has been approved successfully",
       "messageUpdateMember": "Member has been updated"
     },
-
     "memberPassbookFrom": {
       "samity": "1019-101 (Salepur Mohila Samity)",
       "member": "2-1002 (Samia)",
       "account": "AGRO-1019-101-1002-1"
     },
-
     "loanProductFrom": {
       "office": "1002 (Dhaka Regional Office)",
       "mfiProgram": "Jagoron",
@@ -1096,7 +1093,6 @@
       "selectStatus": "Inactive",
       "statusSelect": "Active"
     },
-
     "createLoanAccountFrom": {
       "memberNameEn": "Zahra Ahmed",
       "office": "1019 (Amin Bazar)",

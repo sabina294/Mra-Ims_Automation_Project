@@ -35,6 +35,7 @@ class MemberManagementCreation {
         .type(memData.savingsId)
         .type("{enter}");
       cy.formController("gender").click();
+      cy.get('.ant-form-item-control-input-content > .ant-radio-group > :nth-child(1) > .ant-radio > .ant-radio-input').click();
       cy.formController("occupation").type(memData.occupation).type("{enter}");
       cy.formController("contactNo").type(memData.memberMobileNo);
       cy.get("#nz-tabs-0-tab-1").click();
@@ -128,19 +129,31 @@ class MemberManagementCreation {
   }
 
   editResetButton() {
-    cy.imsId("toggle-action").first().click();
-    cy.imsId("btn-mis-table-action-edit").click();
-    cy.imsId("btn-reset").click();
-    cy.imsId("btn-go-back").click();
+    cy.fixture(this.test_data).then((data) => {
+      var memData = data.mfiAdmin.createMemberFrom;
+      cy.imsId("btn-reset").click();
+      cy.formController("search_text").type(memData.search);
 
-    cy.log("Successful clean displaying");
+      cy.imsId("toggle-action").first().click();
+      cy.imsId("btn-mis-table-action-edit").click();
+      cy.imsId("btn-reset").click();
+      cy.imsId("btn-go-back").click();
+
+      cy.log("Successful clean displaying");
+    });
   }
 
   editGoBackButton() {
-    cy.imsId("toggle-action").first().click();
-    cy.imsId("btn-mis-table-action-edit").click();
-    cy.imsId("btn-go-back").click();
-    cy.log("Successful edit go back button check.");
+    cy.fixture(this.test_data).then((data) => {
+      var memData = data.mfiAdmin.createMemberFrom;
+      cy.imsId("btn-reset").click();
+      cy.formController("search_text").type(memData.search);
+
+      cy.imsId("toggle-action").first().click();
+      cy.imsId("btn-mis-table-action-edit").click();
+      cy.imsId("btn-go-back").click();
+      cy.log("Successful edit go back button check.");
+    });
   }
 
   statusInactiveDropdownCheck() {

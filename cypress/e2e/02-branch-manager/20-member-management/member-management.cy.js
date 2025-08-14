@@ -42,7 +42,7 @@ describe("20. Member Management Module Test Cases", function () {
     create_member_management.viewMemberManagement();
   });
 
-  //   it("20.06. Verify editing functionality for Member Management record by MFI-Admin role", function () {
+  //   it("20.06. Verify editing functionality for Member Management.", function () {
   //     create_member_management.editMemberManagement();
   //   });
 
