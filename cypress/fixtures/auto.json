@@ -507,7 +507,7 @@
       "adressEn": "Dhaka",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
-      "search":"Aothe Rani",
+      "search": "Aothe Rani",
       "messageSaveMember": "Member has been saved",
       "messageApproveMember": "Member has been approved successfully",
       "messageUpdateMember": "Member has been updated"
@@ -986,6 +986,18 @@
     "regularCollection": {
       "loanAmount": "500",
       "loanAmount2": "500"
+    },
+    "specialCollection": {
+      "selectSamity": "Salepur Mohila Samity",
+      "selectMember": "Farhani Akter Rume",
+      "selectAccount": "AGRO-1019-101-1001-1 (Loan Account) ",
+      "inputAmount": "1000"
+    },
+    "savingsWithdraw": {
+      "selectSamity": "Salepur Mohila Samity",
+      "selectMember": "MD EBRAHIM",
+      "selectAccount": "GS-1018-103-1002 (Savings Account)",
+      "inputAmount": "100"
     }
   },
   "fieldOfficer": {

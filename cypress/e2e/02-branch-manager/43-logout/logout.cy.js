@@ -1,10 +1,10 @@
 // npm run auto
 // npm run dev
-// npx cypress run --spec cypress/e2e/02-branch-manager/41-logout/logout.cy.js --headed
+// npx cypress run --spec cypress/e2e/02-branch-manager/43-logout/logout.cy.js --headed
 
 import { logout_page } from "./logout.po";
 
-describe("41. Logout Test", function () {
+describe("43. Logout Test", function () {
   const baseURL = Cypress.env("BASE_URL");
   const test_data = Cypress.env("TEST_DATA");
 
@@ -18,7 +18,7 @@ describe("41. Logout Test", function () {
     });
   });
 
-  it("41.01. Verify the user can log out successfully.", function () {
+  it("43.01. Verify the user can log out successfully.", function () {
     logout_page.logout();
   });
 });
