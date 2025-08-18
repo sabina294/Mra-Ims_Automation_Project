@@ -652,6 +652,22 @@
       "search": "Weekly Holiday",
       "office": "1002 (Dhaka Regional Office)",
       "messageSaveHoliday": "Mfi holiday has been saved"
+    },
+    "chartOfAccounts": {
+      "ledgergroup": "Asset",
+      "ledgerSubGroup": "Liquid Assets",
+      "nameEn": "Furniture",
+      "nameBn": "আসবাবপত্র",
+      "mnemonicEn": "5"
+    },
+    "ledgerSubGroup": {
+      "groupId": "Asset",
+      "ledgerSubGroupNameEn": "Furniture",
+      "ledgerSubGroupNameBn": "আসবাবপত্র",
+      "balanceSheet": "Yes",
+      "nameEn": "Current Assets",
+      "selectStatus": "Inactive",
+      "statusSelect": "Active"
     }
   },
   "branchManager": {

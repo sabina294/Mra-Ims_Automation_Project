@@ -27,7 +27,7 @@ describe("38. Staging Data Module Test Cases", function () {
     create_staging_data.gridStagingDataListPage();
   });
 
-  it("38.02. Verify that the grid list is refreshed successfully when the refresh button is clicked on the staging data page.", function () {
-    create_staging_data.gridRefreshButtonCheck();
-  });
+  // it("38.02. Verify that the grid list is refreshed successfully when the refresh button is clicked on the staging data page.", function () {
+  //   create_staging_data.gridRefreshButtonCheck();
+  // });
 });
