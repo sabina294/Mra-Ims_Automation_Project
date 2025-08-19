@@ -122,13 +122,6 @@ class LedgerSubGroupCreation {
     gridLanguageSwitchCheck() {
         cy.imsId("profile-menu").click();
         cy.imsId("btn-lang-bangla").click();
-        cy.log("Successful switch bangla language check.");
-    }
-
-
-    gridLanguageSwitchCheck() {
-        cy.imsId("profile-menu").click();
-        cy.imsId("btn-lang-bangla").click();
         cy.log("Unsccessful switch bangla language check.");
     }
 }

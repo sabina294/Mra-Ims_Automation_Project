@@ -668,6 +668,26 @@
       "nameEn": "Current Assets",
       "selectStatus": "Inactive",
       "statusSelect": "Active"
+    },
+    "ledgerSetting": {
+      "nameEn": "CashAtBank",
+      "selectStatus": "Inactive",
+      "statusSelect": "Active"
+    },
+    "manualJournal": {
+      "reference": "Test journal",
+      "description": "Test",
+      "ledger": "101005-1001 (Digital Cash Transit)",
+      "description1": "Test1",
+      "debitedAmount": "500",
+      "creditedAmount": "500",
+      "ledger2": "101005-1001 (Digital Cash Transit)",
+      "description2": "Test1",
+      "debitedAmount2": "500",
+      "creditedAmount2": "500",
+      "nameEn": "Initial Balance",
+      "selectStatus": "Inactive",
+      "statusSelect": "Active"
     }
   },
   "branchManager": {
