@@ -193,17 +193,14 @@ class MfiProgramCreation {
   }
 
   editMfiProgram() {
-    cy.fixture(this.test_data).then((data) => {
-      var mpData = data.mfiAdmin.createMfiProgramFrom;
       cy.imsId("btn-reset").click();
-      cy.formController("search_text").type(mpData.programNameEn);
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-edit").click();
       cy.imsId("btn-submit").click();
       cy.imsId("btn-yes").click();
       cy.imsId("btn-ok").click();
       cy.log("MFI program updated successfully");
-    });
+    
   }
 
   editResetButton() {

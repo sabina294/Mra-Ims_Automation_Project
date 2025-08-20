@@ -11,8 +11,7 @@ class ChartOfAccountsCreation {
     createChartOfAccounts() {
         cy.fixture(this.test_data).then((data) => {
             var coaData = data.mfiAdmin.chartOfAccounts;
-            cy.get('.primary-large-button').click();
-            // cy.imsId("btn-add").click();
+            cy.imsId("btn-add").click();
 
             cy.formController("ledger_group_id").type(coaData.ledgergroup).type("{enter}");
             cy.formController("ledger_subgroup_oid").type(coaData.ledgerSubGroup).type("{enter}");

@@ -689,6 +689,19 @@
       "nameEn": "Initial Balance",
       "selectStatus": "Inactive",
       "statusSelect": "Active"
+    },
+    "financialPeriodManagement": {
+      "nameEn": "Test period",
+      "nameBn": "পরীক্ষার সময়কাল",
+      "periodType": "Yearly",
+      "selectStatus": "Inactive",
+      "statusSelect": "Active"
+    },
+    "fund": {
+      "nameEn": "Test Transfer",
+      "nameBn": "পরীক্ষা স্থানান্তর",
+      "selectStatus": "Inactive",
+      "statusSelect": "Active"
     }
   },
   "branchManager": {

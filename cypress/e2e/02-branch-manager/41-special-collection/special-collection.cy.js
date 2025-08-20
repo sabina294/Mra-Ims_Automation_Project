@@ -27,21 +27,21 @@ describe("41. Special Collection Module Test Cases", function () {
         create_special_collection.gridSpecialCollectionListPage();
     });
 
-    // it("41.02. Verify a new special collection record is created successfully when all required fields are filled with valid data.", function () {
-    //     create_special_collection.createNewCollection();
-    // });
+    it("41.02. Verify a new special collection record is created successfully when all required fields are filled with valid data.", function () {
+        create_special_collection.createNewCollection();
+    });
 
-    // // it("41.03. Verify perform the correct action when the Action button is clicked.", function () {
-    // //     create_special_collection.actionButtonCheck();
-    // // });
+    it("41.03. Verify perform the correct action when the Action button is clicked.", function () {
+        create_special_collection.actionButtonCheck();
+    });
 
-    // // it("41.04. Verify display Special Collection details including name and description successfully.", function () {
-    // //     create_special_collection.viewSpecialCollection();
-    // // });
+    it("41.04. Verify display Special Collection details including name and description successfully.", function () {
+        create_special_collection.viewSpecialCollection();
+    });
 
-    // // it("41.05. Verify allow editing of an existing Special Collection successfully.", function () {
-    // //     create_special_collection.editSpecialCollection();
-    // // });
+    it("41.05. Verify allow editing of an existing Special Collection successfully.", function () {
+        create_special_collection.editSpecialCollection();
+    });
 
     it("41.06. Verify reset the grid list successfully when the Reset button is clicked on the Special Collection page.", function () {
         create_special_collection.gridResetButtonCheck();

@@ -11,9 +11,10 @@ class ManualJournalCreation {
     createManualJournal() {
         cy.fixture(this.test_data).then((data) => {
             var mjData = data.mfiAdmin.manualJournal;
-            // cy.get('.primary-large-button').click();
             cy.imsId("btn-add-new").click();
             cy.imsId("btn-go-back").click();
+            // cy.imsId("btn-delete").click();
+
 
             // cy.formController("reference").type(mjData.reference);
             // cy.formController("description", 0, "description").first().type(mjData.description);
