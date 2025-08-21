@@ -29,48 +29,57 @@ describe("04. Manual Journal Module Test Cases", function () {
         create_manual_journal.gridManualJournalListPage();
     });
 
-    it("04.04. Verify a manual journal record is created successfully when all required fields are filled with valid data.", function () {
+    it("04.02. Verify a manual journal record is created successfully when all required fields are filled with valid data.", function () {
         create_manual_journal.createManualJournal();
     });
 
-    // it("04.03. Verify successfully performs the action when the action button is clicked.", function () {
-    //     create_manual_journal.actionButtonCheck();
-    // });
+    it("04.03. Verify successfully performs the action when the action button is clicked.", function () {
+        create_manual_journal.actionButtonCheck();
+    });
 
-    // // it("04.04. Verify the user can filter inactive manual journals using the status dropdown on the manual journal list page.", function () {
+
+    it("04.04. Verify the user can view all relevant details of a manual journal, including its associated fields.", function () {
+        create_manual_journal.viewManualJournal();
+    });
+
+    it("04.05. Verify the user can go back of a manual journal, including its associated fields.", function () {
+        create_manual_journal.goBackManualJournal();
+    });
+
+    // // it("04.06. Verify the user can filter inactive manual journals using the status dropdown on the manual journal list page.", function () {
     // //     create_manual_journal.statusInactiveDropdownCheck();
     // // });
 
-    // // it("04.05. Verify the active result is filtered correctly by the status dropdown.", function () {
+    // // it("04.07. Verify the active result is filtered correctly by the status dropdown.", function () {
     // //     create_manual_journal.statusActiveDropdownCheck();
     // // });
 
-    // it("04.06. Verify the search returns correct results when searching by manual journal name.", function () {
-    //     create_manual_journal.searchName();
-    // });
+    it("04.08. Verify the search returns correct results when searching by manual journal name.", function () {
+        create_manual_journal.searchName();
+    });
 
-    // it("04.07. Verify the grid list resets successfully when the reset button is clicked on the manual journal page.", function () {
+    // it("04.08. Verify the grid list resets successfully when the reset button is clicked on the manual journal page.", function () {
     //     create_manual_journal.gridResetButtonCheck();
     // });
 
-    // it("04.08. Verify that the grid list is refreshed successfully when the refresh button is clicked on the manual journal page.", function () {
-    //     create_manual_journal.gridRefreshButtonCheck();
-    // });
+    it("04.09. Verify that the grid list is refreshed successfully when the refresh button is clicked on the manual journal page.", function () {
+        create_manual_journal.gridRefreshButtonCheck();
+    });
 
-    // it("04.09. Verify the manual journal creation reset button clears all entered input values.", function () {
-    //     create_manual_journal.createResetButtonCheck();
-    // });
+    it("04.10. Verify the manual journal creation reset button clears all entered input values.", function () {
+        create_manual_journal.createResetButtonCheck();
+    });
 
-    // it("04.10. Verify validation messages appear for required fields when the submit button is clicked with empty inputs.", function () {
-    //     create_manual_journal.createValidationMessageCheck();
-    // });
+    it("04.11. Verify validation messages appear for required fields when the submit button is clicked with empty inputs.", function () {
+        create_manual_journal.createValidationMessageCheck();
+    });
 
-    // it("04.11. Verify that clicking the go back button on the manual journal create page redirects the user to the manual journal list page.", function () {
-    //     create_manual_journal.createGoBackButtonCheck();
-    // });
+    it("04.12. Verify that clicking the go back button on the manual journal create page redirects the user to the manual journal list page.", function () {
+        create_manual_journal.createGoBackButtonCheck();
+    });
 
-    // it("04.12. Verify check that the grid list content changes correctly from english to bangla.", function () {
-    //     create_manual_journal.gridLanguageSwitchCheck();
-    // });
+    it("04.13. Verify check that the grid list content changes correctly from english to bangla.", function () {
+        create_manual_journal.gridLanguageSwitchCheck();
+    });
 
 });
