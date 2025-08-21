@@ -5,7 +5,7 @@
 import "cypress-file-upload";
 import { create_chart_of_accounts } from "./chart-of-accounts.po";
 
-describe("32. Chart Of Accounts Module Test Cases", function () {
+describe("01. Chart Of Accounts Module Test Cases", function () {
     const baseURL = Cypress.env("BASE_URL");
     const test_data = Cypress.env("TEST_DATA");
     before(() => {
@@ -33,7 +33,23 @@ describe("32. Chart Of Accounts Module Test Cases", function () {
         create_chart_of_accounts.createChartOfAccounts();
     });
 
-    it("01.03. Verify check that the grid list content changes correctly from english to bangla.", function () {
+    it("01.03. Verify that a chart of accounts cannot be created without a ledger  id, even if all other fields are valid..", function () {
+        create_chart_of_accounts.createwithoutLedgerId();
+    });
+
+    it("01.04. Verify the chart of accounts creation reset button clears all entered input values.", function () {
+        create_chart_of_accounts.createResetButtonCheck();
+    });
+
+    it("01.05. Verify validation messages appear for required fields when the submit button is clicked with empty inputs.", function () {
+        create_chart_of_accounts.createValidationMessageCheck();
+    });
+
+    it("01.06. Verify that clicking the go back button on the chart of accounts create page redirects the user to the chart of accounts list page.", function () {
+        create_chart_of_accounts.createGoBackButtonCheck();
+    });
+
+    it("01.07. Verify check that the grid list content changes correctly from english to bangla.", function () {
         create_chart_of_accounts.gridLanguageSwitchCheck();
     });
 });

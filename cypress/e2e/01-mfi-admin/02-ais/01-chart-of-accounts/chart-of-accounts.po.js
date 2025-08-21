@@ -26,6 +26,48 @@ class ChartOfAccountsCreation {
         });
     }
 
+    createwithoutLedgerId() {
+        cy.fixture(this.test_data).then((data) => {
+            var coaData = data.mfiAdmin.chartOfAccounts;
+            cy.imsId("btn-add").click();
+
+            cy.formController("name_en").type(coaData.nameEn);
+            cy.formController("name_bn").type(coaData.nameBn);
+            cy.formController("mnemonic").type(coaData.mnemonicEn);
+            cy.imsId("btn-submit").click();
+            cy.imsId("btn-ok").click();
+            cy.imsId("btn-go-back").click();
+
+            cy.log("Unsuccessfully created chart of accounts");
+        });
+    }
+
+    createResetButtonCheck() {
+        cy.fixture(this.test_data).then((data) => {
+            var coaData = data.mfiAdmin.chartOfAccounts;
+            cy.imsId("btn-add").click();
+            cy.formController("name_en").type(coaData.nameEn);
+            cy.imsId("btn-reset").click();
+            cy.imsId("btn-go-back").click();
+            cy.log("Successful reset button clean displaying.");
+        });
+    }
+
+    createValidationMessageCheck() {
+        cy.imsId("btn-add").click();
+        cy.imsId("btn-submit").click();
+        cy.imsId("btn-ok").click();
+        cy.imsId("btn-go-back").click();
+        cy.log("Successful validation message displaying.");
+    }
+
+    createGoBackButtonCheck() {
+        cy.imsId("btn-add").click();
+        cy.imsId("btn-go-back").click();
+        cy.log("Successful go back button check.");
+    }
+
+
     gridLanguageSwitchCheck() {
         cy.imsId("profile-menu").click();
         cy.imsId("btn-lang-bangla").click();
