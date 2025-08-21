@@ -37,19 +37,31 @@ describe("01. Chart Of Accounts Module Test Cases", function () {
         create_chart_of_accounts.createwithoutLedgerId();
     });
 
-    it("01.04. Verify the chart of accounts creation reset button clears all entered input values.", function () {
+    it("01.04. Verify that a chart of accounts cannot be created without a name english, even if all other fields are valid..", function () {
+        create_chart_of_accounts.createwithoutNameEnglish();
+    });
+
+    it("01.05. Verify that a chart of accounts cannot be created without a name bangla, even if all other fields are valid..", function () {
+        create_chart_of_accounts.createwithoutNameBangla();
+    });
+
+    it("01.06. Verify that a chart of accounts cannot be created without a mnemonics, even if all other fields are valid..", function () {
+        create_chart_of_accounts.createwithoutMnemonics();
+    });
+
+    it("01.07. Verify the chart of accounts creation reset button clears all entered input values.", function () {
         create_chart_of_accounts.createResetButtonCheck();
     });
 
-    it("01.05. Verify validation messages appear for required fields when the submit button is clicked with empty inputs.", function () {
+    it("01.08. Verify validation messages appear for required fields when the submit button is clicked with empty inputs.", function () {
         create_chart_of_accounts.createValidationMessageCheck();
     });
 
-    it("01.06. Verify that clicking the go back button on the chart of accounts create page redirects the user to the chart of accounts list page.", function () {
+    it("01.09. Verify that clicking the go back button on the chart of accounts create page redirects the user to the chart of accounts list page.", function () {
         create_chart_of_accounts.createGoBackButtonCheck();
     });
 
-    it("01.07. Verify check that the grid list content changes correctly from english to bangla.", function () {
+    it("01.10. Verify check that the grid list content changes correctly from english to bangla.", function () {
         create_chart_of_accounts.gridLanguageSwitchCheck();
     });
 });
