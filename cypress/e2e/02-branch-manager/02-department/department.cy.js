@@ -77,3 +77,4 @@ describe("02. Department Module Test Cases", function () {
     grid_department.gridLanguageSwitchCheck();
   });
 });
+

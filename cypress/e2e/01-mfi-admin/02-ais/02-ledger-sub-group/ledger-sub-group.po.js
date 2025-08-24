@@ -11,8 +11,7 @@ class LedgerSubGroupCreation {
     createLedgerSubGroup() {
         cy.fixture(this.test_data).then((data) => {
             var lsgData = data.mfiAdmin.ledgerSubGroup;
-            // cy.get('.primary-large-button').click();
-            cy.imsId("btn-add").click();
+            cy.imsId("btn-add-new").click();
 
             cy.formController("group_id").type(lsgData.groupId).type("{enter}");
             cy.formController("ledger_subgroup_name_en").type(lsgData.ledgerSubGroupNameEn);
@@ -25,6 +24,56 @@ class LedgerSubGroupCreation {
             cy.log("Successfully created ledger sub group");
         });
     }
+
+    createwithoutGroupId() {
+        cy.fixture(this.test_data).then((data) => {
+            var lsgData = data.mfiAdmin.ledgerSubGroup;
+            cy.imsId("btn-add-new").click();
+
+            cy.formController("ledger_subgroup_name_en").type(lsgData.ledgerSubGroupNameEn);
+            cy.formController("ledger_subgroup_name_bn").type(lsgData.ledgerSubGroupNameBn);
+            cy.imsId("btn-submit").click();
+            cy.imsId("btn-ok").click();
+            cy.imsId("btn-go-back").click();
+
+            cy.log("Unsuccessfully created ledger sub group");
+        });
+    }
+
+    createwithoutNameEnglish() {
+        cy.fixture(this.test_data).then((data) => {
+            var lsgData = data.mfiAdmin.ledgerSubGroup;
+            cy.imsId("btn-add-new").click();
+
+            cy.formController("group_id").type(lsgData.groupId).type("{enter}");
+            cy.formController("ledger_subgroup_name_bn").type(lsgData.ledgerSubGroupNameBn);
+            cy.formController("balance_sheet_itemy").type(lsgData.balanceSheet).type("{enter}");
+            cy.imsId("btn-submit").click();
+            cy.imsId("btn-ok").click();
+            cy.imsId("btn-go-back").click();
+
+
+            cy.log("Unsuccessfully created ledger sub group");
+        });
+    }
+
+    createwithoutNameBangla() {
+        cy.fixture(this.test_data).then((data) => {
+            var lsgData = data.mfiAdmin.ledgerSubGroup;
+            cy.imsId("btn-add-new").click();
+
+            cy.formController("group_id").type(lsgData.groupId).type("{enter}");
+            cy.formController("ledger_subgroup_name_en").type(lsgData.ledgerSubGroupNameEn);
+            cy.formController("balance_sheet_itemy").type(lsgData.balanceSheet).type("{enter}");
+            cy.imsId("btn-submit").click();
+            cy.imsId("btn-ok").click();
+            cy.imsId("btn-go-back").click();
+
+
+            cy.log("Unsuccessfully created ledger sub group");
+        });
+    }
+
 
 
     actionButtonCheck() {
