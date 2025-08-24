@@ -6,15 +6,22 @@ Cypress.Commands.add("formController", (form_control_name) => {
   return cy.get(`[formcontrolname='${form_control_name}']`);
 });
 
-
 Cypress.Commands.add("loginAsMraAdmin", (baseURL, data) => {
-  cy.login(baseURL, data.credential.mraAdminUserId, data.credential.mraAdminPassword);
-  cy.changeLanguage('english');
+  cy.login(
+    baseURL,
+    data.credential.mraAdminUserId,
+    data.credential.mraAdminPassword
+  );
+  cy.changeLanguage("english");
 });
 
 Cypress.Commands.add("loginAsMfiAdmin", (baseURL, data) => {
-  cy.login(baseURL, data.credential.mfiAdminUserId, data.credential.mfiAdminPassword);
-  cy.changeLanguage('english');
+  cy.login(
+    baseURL,
+    data.credential.mfiAdminUserId,
+    data.credential.mfiAdminPassword
+  );
+  cy.changeLanguage("english");
 });
 
 Cypress.Commands.add(
@@ -33,8 +40,9 @@ Cypress.Commands.add("login", (login_url, username, password) => {
   cy.clearLocalStorage();
 
   cy.visit(login_url);
-  cy.formController("user_id").type(username);
-  cy.formController("password").type(password);
+  cy.formController("user_id").clear().type(username);
+  cy.formController("password").clear().type(password);
+  cy.get("#submit-button").click();
   cy.get("#submit-button").click();
   cy.log(`Logging in as user : ${username}`);
 });
@@ -54,11 +62,9 @@ Cypress.Commands.add("selectMenu", (menu, sub_menu) => {
   cy.imsId(sub_menu).click();
 });
 
-Cypress.Commands.add("selectMenu1", (menu,) => {
+Cypress.Commands.add("selectMenu1", (menu) => {
   cy.imsId(menu).click();
 });
-
-
 
 Cypress.Commands.add("logout", () => {
   cy.imsId("profile-menu").click();
