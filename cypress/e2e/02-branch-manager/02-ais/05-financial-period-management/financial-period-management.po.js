@@ -1,0 +1,71 @@
+class FinancialPeriodManagementCreation {
+    test_data = Cypress.env("TEST_DATA");
+
+    gridFinancialPeriodListPage() {
+        cy.fixture(this.test_data).then((data) => {
+            cy.selectMenu("menu-accounting", "submenu-financial-period-management");
+            cy.log("Successfully Chart of accounts list page.");
+        });
+    }
+
+    actionButtonCheck() {
+        cy.imsId("toggle-action").first().click();
+        cy.log("Action button clicked successfully on the financial period management list page.");
+    }
+
+    statusInactiveDropdownCheck() {
+        cy.fixture(this.test_data).then((data) => {
+            var fpmData = data.branchManager.financialPeriodManagement;
+            cy.imsId("btn-reset").click();
+            cy.formController("status").type(fpmData.selectStatus).type("{enter}");
+            cy.log("ledger sub group status inactive dropdown check successfully");
+        });
+    }
+
+    statusActiveDropdownCheck() {
+        cy.fixture(this.test_data).then((data) => {
+            var fpmData = data.branchManager.financialPeriodManagement;
+            cy.formController("status").type(fpmData.statusSelect).type("{enter}");
+            cy.log("ledger sub group status active dropdown check successfully");
+        });
+    }
+
+    searchName() {
+        cy.fixture(this.test_data).then((data) => {
+            var fpmData = data.branchManager.financialPeriodManagement;
+            cy.imsId("btn-reset").click();
+            cy.formController("search_text").type(fpmData.nameEn);
+            cy.log("Successfully search in the financial period management");
+        });
+    }
+
+    gridResetButtonCheck() {
+        cy.imsId("btn-reset").click();
+        cy.log("Successful clean displaying.");
+    }
+    gridRefreshButtonCheck() {
+        cy.imsId("btn-refresh").click();
+        cy.log(
+            "successfully refresh page  displayed the grid list of the financial period management "
+        );
+    }
+
+    gridDraftButton() {
+        cy.imsId("btn-draft-on").click();
+        cy.log("Draft button should be clickable and functional.");
+    }
+
+    gridDraftButtonOff() {
+        cy.imsId("btn-draft-on").click();
+        cy.log("Draft button should be clickable and functional.");
+    }
+
+
+    gridLanguageSwitchCheck() {
+        cy.imsId("profile-menu").click();
+        cy.imsId("btn-lang-bangla").click();
+        cy.log("Unsccessful switch bangla language check.");
+    }
+}
+
+export const grid_financial_period_management = new FinancialPeriodManagementCreation();
