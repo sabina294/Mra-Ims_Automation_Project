@@ -6,9 +6,11 @@ class LoginTest {
 
     cy.fixture(test_data).then((data) => {
       cy.visit(baseURL);
-      cy.formController("user_id").type(data.credential.fieldOfficerUserId);
-      cy.formController("password").type(data.credential.fieldOfficerPassword);
+      cy.formController("user_id").clear().type(data.credential.fieldOfficerUserId);
+      cy.formController("password").clear().type(data.credential.fieldOfficerPassword);
       cy.get("#submit-button").click();
+      cy.get("#submit-button").click();
+
     });
   }
     gridLanguageSwitchCheck() {

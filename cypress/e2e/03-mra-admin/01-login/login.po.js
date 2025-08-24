@@ -8,8 +8,9 @@ class LoginTest {
 
     cy.fixture(test_data).then((data) => {
       cy.visit(baseURL);
-      cy.formController("user_id").type(data.credential.mraAdminUserId);
-      cy.formController("password").type(data.credential.mraAdminPassword);
+      cy.formController("user_id").clear().type(data.credential.mraAdminUserId);
+      cy.formController("password").clear().type(data.credential.mraAdminPassword);
+      cy.get("#submit-button").click();
       cy.get("#submit-button").click();
 
       cy.imsId("profile-menu").click();
