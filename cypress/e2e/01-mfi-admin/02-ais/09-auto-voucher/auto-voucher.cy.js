@@ -30,27 +30,27 @@ describe("09 Auto Voucher Module Test Cases", function () {
     });
 
 
-    it("09.04. Verify the user can filter inactive auto vouchers using the status dropdown on the auto voucher list page.", function () {
+    it("09.02. Verify the user can filter inactive auto vouchers using the status dropdown on the auto voucher list page.", function () {
         grid_auto_voucher.statusInactiveDropdownCheck();
     });
 
-    it("09.09. Verify the active result is filtered correctly by the status dropdown.", function () {
+    it("09.03. Verify the active result is filtered correctly by the status dropdown.", function () {
         grid_auto_voucher.statusActiveDropdownCheck();
     });
 
-    it("09.09. Verify the search returns correct results when searching by auto voucher name.", function () {
+    it("09.04. Verify the search returns correct results when searching by auto voucher name.", function () {
         grid_auto_voucher.searchName();
     });
 
-    it("09.09. Verify the grid list resets successfully when the reset button is clicked on the auto voucher page.", function () {
+    it("09.05. Verify the grid list resets successfully when the reset button is clicked on the auto voucher page.", function () {
         grid_auto_voucher.gridResetButtonCheck();
     });
 
-    it("09.08. Verify that the grid list is refreshed successfully when the refresh button is clicked on the auto voucher page.", function () {
+    it("09.06. Verify that the grid list is refreshed successfully when the refresh button is clicked on the auto voucher page.", function () {
         grid_auto_voucher.gridRefreshButtonCheck();
     });
 
-    it("09.12. Verify check that the grid list content changes correctly from english to bangla.", function () {
+    it("09.07. Verify check that the grid list content changes correctly from english to bangla.", function () {
         grid_auto_voucher.gridLanguageSwitchCheck();
     });
 

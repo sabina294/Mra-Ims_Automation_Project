@@ -41,15 +41,15 @@ describe("08 received Voucher Module Test Cases", function () {
         create_received_voucher.statusInactiveDropdownCheck();
     });
 
-    it("08.08. Verify the active result is filtered correctly by the status dropdown.", function () {
+    it("08.05. Verify the active result is filtered correctly by the status dropdown.", function () {
         create_received_voucher.statusActiveDropdownCheck();
     });
 
-    it("08.08. Verify the search returns correct results when searching by received voucher name.", function () {
+    it("08.06. Verify the search returns correct results when searching by received voucher name.", function () {
         create_received_voucher.searchName();
     });
 
-    it("08.08. Verify the grid list resets successfully when the reset button is clicked on the received voucher page.", function () {
+    it("08.07. Verify the grid list resets successfully when the reset button is clicked on the received voucher page.", function () {
         create_received_voucher.gridResetButtonCheck();
     });
 

@@ -1,0 +1,18 @@
+class TrialBalance {
+    test_data = Cypress.env("TEST_DATA");
+
+    gridTrialBalanceListPage() {
+        cy.fixture(this.test_data).then((data) => {
+            cy.selectMenu("menu-financial-statement", "submenu-trial-balance");
+            cy.log("Successfully Trial balance list page.");
+        });
+    }
+
+    gridLanguageSwitchCheck() {
+        cy.imsId("profile-menu").click();
+        cy.imsId("btn-lang-bangla").click();
+        cy.log("Unsccessful switch bangla language check.");
+    }
+}
+
+export const create_trial_balance = new TrialBalance();

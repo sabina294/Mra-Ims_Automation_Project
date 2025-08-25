@@ -41,7 +41,7 @@ describe("06 Fund Module Test Cases", function () {
         create_fund_Transfer.statusInactiveDropdownCheck();
     });
 
-    it("06.06. Verify the active result is filtered correctly by the status dropdown.", function () {
+    it("06.05. Verify the active result is filtered correctly by the status dropdown.", function () {
         create_fund_Transfer.statusActiveDropdownCheck();
     });
 

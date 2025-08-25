@@ -41,11 +41,11 @@ describe("07 Payment Voucher Module Test Cases", function () {
         create_payment_voucher.statusInactiveDropdownCheck();
     });
 
-    it("07.07. Verify the active result is filtered correctly by the status dropdown.", function () {
+    it("07.05. Verify the active result is filtered correctly by the status dropdown.", function () {
         create_payment_voucher.statusActiveDropdownCheck();
     });
 
-    it("07.07. Verify the search returns correct results when searching by payment voucher name.", function () {
+    it("07.06. Verify the search returns correct results when searching by payment voucher name.", function () {
         create_payment_voucher.searchName();
     });
 
