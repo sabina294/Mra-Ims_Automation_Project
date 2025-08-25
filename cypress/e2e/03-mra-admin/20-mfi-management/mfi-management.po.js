@@ -169,7 +169,7 @@ class MfiCreation {
     cy.fixture(this.test_data).then((data) => {
       var mfiData = data.mraAdmin.createMfiManFrom;
 
-      cy.formController("search_text").type(mfiData.mfiNameEn);
+      cy.formController("search_text").type(mfiData.search);
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
       cy.imsId("btn-go-back").click();

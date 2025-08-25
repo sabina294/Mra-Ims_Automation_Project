@@ -40,10 +40,10 @@ Cypress.Commands.add("login", (login_url, username, password) => {
   cy.clearLocalStorage();
 
   cy.visit(login_url);
-  cy.formController("user_id").clear().type(username);
-  cy.formController("password").clear().type(password);
+  cy.formController("user_id").type(username);
+  cy.formController("password").type(password);
   cy.get("#submit-button").click();
-  cy.get("#submit-button").click();
+  // cy.get("#submit-button").click();
   cy.log(`Logging in as user : ${username}`);
 });
 

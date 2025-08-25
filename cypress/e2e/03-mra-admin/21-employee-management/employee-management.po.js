@@ -178,7 +178,7 @@ class EmployeeManagementCreation {
     cy.fixture(this.test_data).then((data) => {
       var emData = data.mraAdmin.createEmployeeFrom;
 
-      cy.formController("search_text").type(emData.employeeNameEn);
+      cy.formController("search_text").type(emData.search);
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
 

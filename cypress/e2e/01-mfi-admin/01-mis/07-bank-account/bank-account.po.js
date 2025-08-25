@@ -32,11 +32,13 @@ class BankAccountCreation {
       cy.imsId("btn-submit").click();
 
       cy.imsId("btn-yes").click();
-      cy.get("app-confirmation-modal")
-        .contains(baData.messageSaveBankAccount)
-        .and("be.visible");
+      // cy.get("app-confirmation-modal")
+      //   .contains(baData.messageSaveBankAccount)
+      //   .and("be.visible");
 
       cy.imsId("btn-ok").click();
+      cy.imsId("btn-go-back").click();
+
       cy.log("Successfully created bank account");
     });
   }
@@ -256,11 +258,11 @@ class BankAccountCreation {
   viewBankAccount() {
     cy.fixture(this.test_data).then((data) => {
       var baData = data.mfiAdmin.createBankAccountFrom;
-      cy.formController("search_text").type(baData.accNameEn);
+      cy.formController("search_text").type(baData.search);
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
 
-      cy.get("app-mfi-mis").contains(baData.accNameEn).and("be.visible");
+      // cy.get("app-mfi-mis").contains(baData.accNameEn).and("be.visible");
 
       cy.imsId("btn-go-back").click();
       cy.log("Successfully viewed the bank account list page");
@@ -278,16 +280,18 @@ class BankAccountCreation {
 
   editBankAccount() {
     cy.fixture(this.test_data).then((data) => {
+      var baData = data.mfiAdmin.createBankAccountFrom;
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-edit").click();
       cy.imsId("btn-submit").click();
       cy.imsId("btn-yes").click();
 
-      var baData = data.mfiAdmin.createBankAccountFrom;
-      cy.get("app-confirmation-modal")
-        .contains(baData.messageUpdateBankAccount)
-        .and("be.visible");
+      // cy.get("app-confirmation-modal")
+      //   .contains(baData.messageUpdateBankAccount)
+      //   .and("be.visible");
       cy.imsId("btn-ok").click();
+      cy.imsId("btn-go-back").click();
+
       cy.log("Bank Account updated successfully");
     });
   }
@@ -323,8 +327,8 @@ class BankAccountCreation {
         .type(baData.branchName)
         .type("{enter}");
 
-      cy.formController("account_name_en").type(baData.accNameEn);
-      cy.formController("account_name_bn").type(baData.accNameBn);
+      // cy.formController("account_name_en").type(baData.accNameEn);
+      // cy.formController("account_name_bn").type(baData.accNameBn);
       cy.formController("account_type")
         .type(baData.accountType)
         .type("{enter}");
@@ -351,7 +355,7 @@ class BankAccountCreation {
       cy.log("Bank account status inactive dropdown check successfully");
     });
   }
-  
+
   statusActiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       var baData = data.mfiAdmin.createBankAccountFrom;

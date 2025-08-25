@@ -235,6 +235,7 @@
       "confirmPassword": "Asdf1234",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
+      "search": "Template",
       "messageSaveMfiManagement": "Mfi has been saved",
       "messageUpdateMfiManagement": "Mfi has been updated"
     },
@@ -321,6 +322,7 @@
       "status": "Active",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
+      "search": "Mohanpur Office",
       "messageSaveBankAccount": "Mfi bank account has been saved",
       "messageUpdateBankAccount": "Mfi bank account has been updated"
     },
@@ -1096,7 +1098,7 @@
     "manualJournal": {
       "reference": "Test journal",
       "description": "Test",
-      "ledger": "101005-1001 (Digital Cash Transit)",
+      "ledger": "101005-1019 (Digital Cash Transit)",
       "description1": "Test1",
       "debitedAmount": "500",
       "creditedAmount": "500",
