@@ -29,13 +29,13 @@ describe("20. MFI Management Module Test Cases.", function () {
     create_mfi_management.gridMfiManagementListPage();
   });
 
-  // it("20.02. Verify a new mfi management is created successfully when all required fields are filled with valid data.", function () {
-  //   create_mfi_management.createMfi();
-  // });
+  it("20.02. Verify a new mfi management is created successfully when all required fields are filled with valid data.", function () {
+    create_mfi_management.createMfi();
+  });
 
-  // it("20.03. Verify a new mfi management is created successfully when all fields are filled with valid data.", function () {
-  //   create_mfi_management.createAllField();
-  // });
+  it("20.03. Verify a new mfi management is created successfully when all fields are filled with valid data.", function () {
+    create_mfi_management.createAllField();
+  });
 
   it("20.04. Verify that a mfi management cannot be created without filling in the mandatory field.", function () {
     create_mfi_management.createWithoutOneMandatoryField();
@@ -89,19 +89,27 @@ describe("20. MFI Management Module Test Cases.", function () {
     create_mfi_management.gridRefreshButtonCheck();
   });
 
-  it("20.17. Verify the mfi management creation reset button clears all entered input values.", function () {
+  it("20.17. Verify display the grid list successfully when the Draft button on is clicked on the mfi management page", function () {
+    create_mfi_management.gridDraftButton();
+  });
+
+  it("20.18. Verify display the grid list successfully when the Draft button off is clicked on the mfi management page", function () {
+    create_mfi_management.gridDraftButtonOff();
+  });
+
+  it("20.19. Verify the mfi management creation reset button clears all entered input values.", function () {
     create_mfi_management.createResetButtonCheck();
   });
 
-  it("20.18. Verify validation messages appear for required fields when the submit button is clicked with empty inputs.", function () {
+  it("20.20. Verify validation messages appear for required fields when the submit button is clicked with empty inputs.", function () {
     create_mfi_management.createValidationMessageCheck();
   });
 
-  it("20.19. Verify that clicking the go back button on the mfi management create page redirects the user to the mfi management list page.", function () {
+  it("20.21. Verify that clicking the go back button on the mfi management create page redirects the user to the mfi management list page.", function () {
     create_mfi_management.createGoBackButtonCheck();
   });
 
-  it("20.20. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("20.22. Verify check that the grid list content changes correctly from english to bangla.", function () {
     create_mfi_management.gridLanguageSwitchCheck();
   });
 });

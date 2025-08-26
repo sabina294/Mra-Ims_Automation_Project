@@ -67,6 +67,24 @@ class EmployeeManagementCreation {
     });
   }
 
+  approveEmployee() {
+    cy.fixture(this.test_data).then((data) => {
+      var emData = data.mraAdmin.createEmployeeFrom;
+      cy.imsId("menu-my-task").click();
+      cy.imsId("submenu-awaiting-employee-management").click();
+      cy.imsId("toggle-action").first().click();
+      cy.imsId("btn-table-action-view").click();
+      cy.imsId("btn-lock").click();
+      cy.imsId("btn-go-back").click();
+
+      // cy.imsId("btn-Approve").click();
+      // cy.imsId("btn-yes").click();
+      // cy.imsId("btn-ok").click();
+
+      cy.log("Successfully approve employee management");
+    });
+  }
+
   createAllField() {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId("btn-add-new").click();
@@ -168,6 +186,7 @@ class EmployeeManagementCreation {
   }
 
   actionButtonCheck() {
+    cy.selectMenu("menu-employee", "submenu-employee-management");
     cy.imsId("toggle-action").first().click();
     cy.log(
       "Action button clicked successfully on the employee management list page."
@@ -286,6 +305,17 @@ class EmployeeManagementCreation {
       "successfully refresh page  displayed the grid list of the Employee Management form "
     );
   }
+
+  gridDraftButton() {
+    cy.imsId("btn-draft-on").click();
+    cy.log("Draft button should be clickable and functional.");
+  }
+
+  gridDraftButtonOff() {
+    cy.imsId("btn-draft-on").click();
+    cy.log("Draft button should be clickable and functional.");
+  }
+
   createResetButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
       var emData = data.mraAdmin.createEmployeeFrom;

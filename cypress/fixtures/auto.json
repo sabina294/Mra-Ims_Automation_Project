@@ -954,6 +954,7 @@
       "mfiProgram": "Jagoron",
       "loanProductNameEn": "Planting Season Loan",
       "loanProductNameBn": "রোপণ মৌসুম ঋণ",
+      "selectOffice": "1019 (Amin Bazar)",
       "selectStatus": "Inactive",
       "statusSelect": "Active"
     },
@@ -1285,7 +1286,7 @@
       "selectLoanAccount": "AGRO-1019-101-1001-1",
       "selectRebate": "Full",
       "inputAmount": "5000",
-      "search": "Sohana Aktar Hashmi",
+      "search": "Amira Rahman",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
       "messageSaveLoanRebate": "Loan rebate has been saved"

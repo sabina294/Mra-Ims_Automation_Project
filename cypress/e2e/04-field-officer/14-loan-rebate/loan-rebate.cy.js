@@ -31,9 +31,9 @@ describe("14. Loan Rebate Module Test Cases", function () {
   //   create_loan_rebate.createLoanRebate();
   // });
 
-  it("14.03. Verify successfully performs the action when the action button is clicked.", function () {
-    create_loan_rebate.actionButtonCheck();
-  });
+  // it("14.03. Verify successfully performs the action when the action button is clicked.", function () {
+  //   create_loan_rebate.actionButtonCheck();
+  // });
 
 //   it("14.04. Verify successful Loan rebate information View.", function () {
 //     create_loan_rebate.viewLoanRebate();

@@ -32,6 +32,11 @@ describe("21. Employee Management Module Test Cases.", function () {
     create_employee_management.createEmployeeManagement();
   });
 
+  it("21.03. When the employee management approved by clicking the lock button, the lock button no longer appears.", function () {
+    create_employee_management.approveEmployee();
+
+  });
+
   // it("21.03. Verify a new employee management is created successfully when all fields are filled with valid data.", function () {
   //   create_employee_management.createAllField();
   // });
@@ -84,15 +89,23 @@ describe("21. Employee Management Module Test Cases.", function () {
     create_employee_management.createResetButtonCheck();
   });
 
-  it("21.16. Verify validation messages appear for required fields when the submit button is clicked with empty inputs.", function () {
+  it("21.16. Verify display the grid list successfully when the Draft button on is clicked on the employee management page", function () {
+    create_employee_management.gridDraftButton();
+  });
+
+  it("21.17. Verify display the grid list successfully when the Draft button off is clicked on the employee management page", function () {
+    create_employee_management.gridDraftButtonOff();
+  });
+
+  it("21.18. Verify validation messages appear for required fields when the submit button is clicked with empty inputs.", function () {
     create_employee_management.createValidationMessageCheck();
   });
 
-  it("21.17. Verify that clicking the go back button on the employee management create page redirects the user to the employee management list page.", function () {
+  it("21.19. Verify that clicking the go back button on the employee management create page redirects the user to the employee management list page.", function () {
     create_employee_management.createGoBackButtonCheck();
   });
 
-  it("21.18. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("21.20. Verify check that the grid list content changes correctly from english to bangla.", function () {
     create_employee_management.gridLanguageSwitchCheck();
   });
 });

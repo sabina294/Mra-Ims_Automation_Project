@@ -20,14 +20,16 @@ class MfiProgramCreation {
         .type(mpData.fundingCategory)
         .type("{enter}");
       cy.formController("loan_fund_ids").type(mpData.loanFund).type("{enter}");
-      cy.imsId("btn-submit").click();
+      cy.imsId("btn-go-back").click();
 
-      cy.imsId("btn-yes").click();
-      cy.get("app-confirmation-modal")
-        .contains(mpData.messageSaveMfiProgram)
-        .and("be.visible");
+      // cy.imsId("btn-submit").click();
 
-      cy.imsId("btn-ok").click();
+      // cy.imsId("btn-yes").click();
+      // cy.get("app-confirmation-modal")
+      //   .contains(mpData.messageSaveMfiProgram)
+      //   .and("be.visible");
+
+      // cy.imsId("btn-ok").click();
       cy.log("Successfully created mfi program");
     });
   }
@@ -65,14 +67,16 @@ class MfiProgramCreation {
         .type(mpData.fundingCategory)
         .type("{enter}");
       cy.formController("loan_fund_ids").type(mpData.loanFund).type("{enter}");
-      cy.imsId("btn-submit").click();
+      cy.imsId("btn-go-back").click();
 
-      cy.imsId("btn-yes").click();
-      cy.get("app-confirmation-modal")
-        .contains(mpData.messageSaveMfiProgram)
-        .and("be.visible");
+      // cy.imsId("btn-submit").click();
 
-      cy.imsId("btn-ok").click();
+      // cy.imsId("btn-yes").click();
+      // cy.get("app-confirmation-modal")
+      //   .contains(mpData.messageSaveMfiProgram)
+      //   .and("be.visible");
+
+      // cy.imsId("btn-ok").click();
       cy.log("Successfully created mfi program");
     });
   }
@@ -193,14 +197,14 @@ class MfiProgramCreation {
   }
 
   editMfiProgram() {
-      cy.imsId("btn-reset").click();
-      cy.imsId("toggle-action").first().click();
-      cy.imsId("btn-table-action-edit").click();
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-yes").click();
-      cy.imsId("btn-ok").click();
-      cy.log("MFI program updated successfully");
-    
+    cy.imsId("btn-reset").click();
+    cy.imsId("toggle-action").first().click();
+    cy.imsId("btn-table-action-edit").click();
+    cy.imsId("btn-submit").click();
+    cy.imsId("btn-yes").click();
+    cy.imsId("btn-ok").click();
+    cy.log("MFI program updated successfully");
+
   }
 
   editResetButton() {

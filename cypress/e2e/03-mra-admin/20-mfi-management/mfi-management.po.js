@@ -269,6 +269,17 @@ class MfiCreation {
     });
   }
 
+  gridDraftButton() {
+    cy.imsId("btn-draft-on").click();
+    cy.log("Draft button should be clickable and functional.");
+  }
+
+  gridDraftButtonOff() {
+    cy.imsId("btn-draft-on").click();
+    cy.log("Draft button should be clickable and functional.");
+  }
+
+
   createValidationMessageCheck() {
     cy.imsId("btn-add-new").click();
     cy.imsId("btn-submit").click();
