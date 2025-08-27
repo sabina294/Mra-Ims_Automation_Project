@@ -106,6 +106,16 @@ class LedgerSubGroupCreation {
         cy.log("Successful edit go back button check.");
     }
 
+    editSubmitButton() {
+        cy.imsId("toggle-action").first().click();
+        cy.imsId("btn-table-action-edit").click();
+        cy.imsId("btn-submit").click();
+        cy.imsId("btn-yes").click();
+        cy.imsId("btn-ok").click();
+
+        cy.log("Successful submit button check");
+    }
+
     statusInactiveDropdownCheck() {
         cy.fixture(this.test_data).then((data) => {
             var lsgData = data.mfiAdmin.ledgerSubGroup;
@@ -147,7 +157,7 @@ class LedgerSubGroupCreation {
         cy.fixture(this.test_data).then((data) => {
             var lsgData = data.mfiAdmin.ledgerSubGroup;
             cy.imsId("btn-add-new").click();
-            cy.formController("name_en").type(lsgData.nameEn);
+            cy.formController("ledger_subgroup_name_en").type(lsgData.ledgerSubGroupNameEn);
             cy.imsId("btn-reset").click();
             cy.imsId("btn-go-back").click();
             cy.log("Successful reset button clean displaying.");

@@ -75,7 +75,6 @@ class LedgerSubGroupCreation {
     }
 
 
-
     actionButtonCheck() {
         cy.imsId("toggle-action").first().click();
         cy.log("Action button clicked successfully on the ledger sub group list page.");
@@ -106,6 +105,17 @@ class LedgerSubGroupCreation {
         cy.log("Successful edit go back button check.");
     }
 
+    editSubmitButton() {
+        cy.imsId("toggle-action").first().click();
+        cy.imsId("btn-table-action-edit").click();
+        cy.imsId("btn-submit").click();
+        cy.imsId("btn-yes").click();
+        cy.imsId("btn-ok").click();
+
+        cy.log("Successful submit button check");
+    }
+
+
     statusInactiveDropdownCheck() {
         cy.fixture(this.test_data).then((data) => {
             var lsgData = data.branchManager.ledgerSubGroup;
@@ -127,7 +137,7 @@ class LedgerSubGroupCreation {
         cy.fixture(this.test_data).then((data) => {
             var lsgData = data.branchManager.ledgerSubGroup;
             cy.imsId("btn-reset").click();
-            cy.formController("search_text").type(lsgData.nameEn);
+            cy.formController("search_text").type(lsgData.ledgerSubGroupNameEn);
             cy.log("Successfully search in the ledger sub group");
         });
     }
@@ -136,6 +146,7 @@ class LedgerSubGroupCreation {
         cy.imsId("btn-reset").click();
         cy.log("Successful clean displaying.");
     }
+
     gridRefreshButtonCheck() {
         cy.imsId("btn-refresh").click();
         cy.log(
@@ -147,7 +158,7 @@ class LedgerSubGroupCreation {
         cy.fixture(this.test_data).then((data) => {
             var lsgData = data.branchManager.ledgerSubGroup;
             cy.imsId("btn-add-new").click();
-            cy.formController("name_en").type(lsgData.nameEn);
+            cy.formController("ledger_subgroup_name_en").type(lsgData.ledgerSubGroupNameEn);
             cy.imsId("btn-reset").click();
             cy.imsId("btn-go-back").click();
             cy.log("Successful reset button clean displaying.");

@@ -689,8 +689,8 @@
       "debitedAmount2": "500",
       "creditedAmount2": "500",
       "nameEn": "Initial Balance",
-      "selectStatus": "Inactive",
-      "statusSelect": "Active"
+      "selectStatus": "Approve",
+      "statusSelect": "Rejected"
     },
     "financialPeriodManagement": {
       "nameEn": "Test period",
@@ -1108,8 +1108,8 @@
       "debitedAmount2": "500",
       "creditedAmount2": "500",
       "nameEn": "Initial Balance",
-      "selectStatus": "Inactive",
-      "statusSelect": "Active"
+      "selectStatus": "Approve",
+      "statusSelect": "Rejected"
     },
     "financialPeriodManagement": {
       "nameEn": "Test period",

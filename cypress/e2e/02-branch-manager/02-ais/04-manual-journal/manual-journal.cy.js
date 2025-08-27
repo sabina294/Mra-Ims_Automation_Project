@@ -46,21 +46,21 @@ describe("04. Manual Journal Module Test Cases", function () {
         create_manual_journal.goBackManualJournal();
     });
 
-    // // it("04.06. Verify the user can filter inactive manual journals using the status dropdown on the manual journal list page.", function () {
-    // //     create_manual_journal.statusInactiveDropdownCheck();
-    // // });
+    it("04.06. Verify the user can filter inactive manual journals using the status dropdown on the manual journal list page.", function () {
+        create_manual_journal.statusInactiveDropdownCheck();
+    });
 
-    // // it("04.07. Verify the active result is filtered correctly by the status dropdown.", function () {
-    // //     create_manual_journal.statusActiveDropdownCheck();
-    // // });
+    it("04.07. Verify the active result is filtered correctly by the status dropdown.", function () {
+        create_manual_journal.statusActiveDropdownCheck();
+    });
 
     it("04.08. Verify the search returns correct results when searching by manual journal name.", function () {
         create_manual_journal.searchName();
     });
 
-    // it("04.08. Verify the grid list resets successfully when the reset button is clicked on the manual journal page.", function () {
-    //     create_manual_journal.gridResetButtonCheck();
-    // });
+    it("04.08. Verify the grid list resets successfully when the reset button is clicked on the manual journal page.", function () {
+        create_manual_journal.gridResetButtonCheck();
+    });
 
     it("04.09. Verify that the grid list is refreshed successfully when the refresh button is clicked on the manual journal page.", function () {
         create_manual_journal.gridRefreshButtonCheck();
@@ -78,7 +78,15 @@ describe("04. Manual Journal Module Test Cases", function () {
         create_manual_journal.createGoBackButtonCheck();
     });
 
-    it("04.13. Verify check that the grid list content changes correctly from english to bangla.", function () {
+    it("04.13. Verify that clicking the delete button on the manual journal create page redirects the user to the manual journal list page.", function () {
+        create_manual_journal.createDeleteButtonCheck();
+    });
+
+    it("04.14. Verify that clicking the Add New Journal Details button on the Manual Journal Create page redirects the user to the Manual Journal List page.", function () {
+        create_manual_journal.createNewJournalDetailsButtonCheck();
+    });
+
+    it("04.15. Verify check that the grid list content changes correctly from english to bangla.", function () {
         create_manual_journal.gridLanguageSwitchCheck();
     });
 

@@ -67,20 +67,20 @@ class ManualJournalCreation {
         cy.log("Successfully go back the manual journal page");
     }
 
-    statusInactiveDropdownCheck() {
+    statusApproveDropdownCheck() {
         cy.fixture(this.test_data).then((data) => {
             var mjData = data.mfiAdmin.manualJournal;
             cy.imsId("btn-reset").click();
             cy.formController("status").type(mjData.selectStatus).type("{enter}");
-            cy.log("ledger sub group status inactive dropdown check successfully");
+            cy.log("ledger sub group status approve dropdown check successfully");
         });
     }
 
-    statusActiveDropdownCheck() {
+    statusRejectedDropdownCheck() {
         cy.fixture(this.test_data).then((data) => {
             var mjData = data.mfiAdmin.manualJournal;
             cy.formController("status").type(mjData.statusSelect).type("{enter}");
-            cy.log("ledger sub group status active dropdown check successfully");
+            cy.log("ledger sub group status rejected dropdown check successfully");
         });
     }
 
@@ -125,10 +125,30 @@ class ManualJournalCreation {
         cy.log("Successful go back button check.");
     }
 
+    createGoBackButtonCheck() {
+        cy.imsId("btn-add-new").click();
+        cy.imsId("btn-go-back").click();
+        cy.log("Successful go back button check.");
+    }
+
+    createDeleteButtonCheck() {
+        cy.imsId("btn-add-new").click();
+        cy.imsId("btn-delete").eq(1).click();
+        cy.imsId("btn-go-back").click();
+        cy.log("Successful delete button check.");
+    }
+
+    createNewJournalDetailsButtonCheck() {
+        cy.imsId("btn-add-new").click();
+        cy.imsId("btn-add").eq(1).click();
+        cy.imsId("btn-go-back").click();
+        cy.log("Successful delete button check.");
+    }
+
     gridLanguageSwitchCheck() {
         cy.imsId("profile-menu").click();
         cy.imsId("btn-lang-bangla").click();
-        cy.log("Unsccessful switch bangla language check.");
+        cy.log("Unsuccessful switch bangla language check.");
     }
 }
 

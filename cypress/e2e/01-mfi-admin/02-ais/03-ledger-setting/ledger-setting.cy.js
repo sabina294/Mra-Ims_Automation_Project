@@ -62,7 +62,7 @@ describe("03. Ledger Setting Module Test Cases", function () {
         grid_ledger_setting.gridRefreshButtonCheck();
     });
 
-    it("02.15. Verify check that the grid list content changes correctly from english to bangla.", function () {
+    it("02.12. Verify check that the grid list content changes correctly from english to bangla.", function () {
         grid_ledger_setting.gridLanguageSwitchCheck();
     });
 
