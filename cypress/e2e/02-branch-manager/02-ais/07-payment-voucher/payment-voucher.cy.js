@@ -57,17 +57,25 @@ describe("07 Payment Voucher Module Test Cases", function () {
         create_payment_voucher.gridRefreshButtonCheck();
     });
 
-    // it("07.09. Verify the payment voucher creation reset button clears all entered input values.", function () {
-    //     create_payment_voucher.createResetButtonCheck();
-    // });
+    it("07.09. Verify the payment voucher creation reset button clears all entered input values.", function () {
+        create_payment_voucher.createResetButtonCheck();
+    });
 
-    // it("07.10. Verify validation messages appear for required fields when the submit button is clicked with empty inputs.", function () {
-    //     create_payment_voucher.createValidationMessageCheck();
-    // });
+    it("07.10. Verify validation messages appear for required fields when the submit button is clicked with empty inputs.", function () {
+        create_payment_voucher.createValidationMessageCheck();
+    });
 
-    // it("07.11. Verify that clicking the go back button on the payment voucher create page redirects the user to the payment voucher list page.", function () {
-    //     create_payment_voucher.createGoBackButtonCheck();
-    // });
+    it("07.11. Verify that clicking the go back button on the payment voucher create page redirects the user to the payment voucher list page.", function () {
+        create_payment_voucher.createGoBackButtonCheck();
+    });
+
+    it("07.12. Verify that clicking the delete button on the manual journal create page redirects the user to the manual journal list page.", function () {
+        create_payment_voucher.createDeleteButtonCheck();
+    });
+
+    it("07.13. Verify that clicking the Add New Journal Details button on the Manual Journal Create page redirects the user to the Manual Journal List page.", function () {
+        create_payment_voucher.createNewJournalDetailsButtonCheck();
+    });
 
     it("07.12. Verify check that the grid list content changes correctly from english to bangla.", function () {
         create_payment_voucher.gridLanguageSwitchCheck();

@@ -669,6 +669,7 @@
       "ledgerSubGroupNameBn": "আসবাবপত্র",
       "balanceSheet": "Yes",
       "nameEn": "Current Assets",
+      "ledgerGroupId": "Asset",
       "selectStatus": "Inactive",
       "statusSelect": "Active"
     },
@@ -1088,6 +1089,7 @@
       "ledgerSubGroupNameBn": "আসবাবপত্র",
       "balanceSheet": "Yes",
       "nameEn": "Current Assets",
+      "ledgerGroupId": "Asset",
       "selectStatus": "Inactive",
       "statusSelect": "Active"
     },

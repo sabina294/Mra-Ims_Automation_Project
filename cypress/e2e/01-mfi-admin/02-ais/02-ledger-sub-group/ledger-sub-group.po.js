@@ -153,6 +153,15 @@ class LedgerSubGroupCreation {
         );
     }
 
+    gridLedgerSubGroupDropdown() {
+          cy.fixture(this.test_data).then((data) => {
+            var lsgData = data.mfiAdmin.ledgerSubGroup;
+            cy.formController("ledger_group").click().type(lsgData.ledgerGroupId).type("{enter}");
+        });
+    }
+
+
+
     createResetButtonCheck() {
         cy.fixture(this.test_data).then((data) => {
             var lsgData = data.mfiAdmin.ledgerSubGroup;

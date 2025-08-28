@@ -46,12 +46,12 @@ describe("02. Ledger Sub Group Module Test Cases", function () {
 
     it("02.06. Verify successfully performs the action when the action button is clicked.", function () {
         create_ledger_sub_group.actionButtonCheck();
-    });
+    }); 
 
     it("02.07. Verify that the ledger sub group forms edit mode can be toggled on and off all fields should be disabled or return to view-only mode.", function () {
         create_ledger_sub_group.turnOffEditMode();
     });
-
+      
     it("02.08. Verify the ledger sub group edit reset button functions correctly.", function () {
         create_ledger_sub_group.editResetButton();
     });
@@ -88,15 +88,19 @@ describe("02. Ledger Sub Group Module Test Cases", function () {
         create_ledger_sub_group.createResetButtonCheck();
     });
 
-    it("02.17. Verify validation messages appear for required fields when the submit button is clicked with empty inputs.", function () {
+    it("02.17. Verify that the grid list is ledger sub group dropdown successfully when the refresh button is clicked on the ledger sub group page.", function () {
+        create_ledger_sub_group.gridLedgerSubGroupDropdown();
+    });
+
+    it("02.18. Verify validation messages appear for required fields when the submit button is clicked with empty inputs.", function () {
         create_ledger_sub_group.createValidationMessageCheck();
     });
 
-    it("02.18. Verify that clicking the go back button on the ledger sub group create page redirects the user to the ledger sub group list page.", function () {
+    it("02.19. Verify that clicking the go back button on the ledger sub group create page redirects the user to the ledger sub group list page.", function () {
         create_ledger_sub_group.createGoBackButtonCheck();
     });
 
-    it("02.19. Verify check that the grid list content changes correctly from english to bangla.", function () {
+    it("02.20. Verify check that the grid list content changes correctly from english to bangla.", function () {
         create_ledger_sub_group.gridLanguageSwitchCheck();
     });
 

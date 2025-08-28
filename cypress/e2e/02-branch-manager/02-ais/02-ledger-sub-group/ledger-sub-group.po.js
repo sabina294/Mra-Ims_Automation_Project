@@ -165,6 +165,14 @@ class LedgerSubGroupCreation {
         });
     }
 
+
+    gridLedgerSubGroupDropdown() {
+          cy.fixture(this.test_data).then((data) => {
+            var lsgData = data.branchManager.ledgerSubGroup;
+            cy.formController("ledger_group").click().type(lsgData.ledgerGroupId).type("{enter}");
+        });
+    }
+
     createValidationMessageCheck() {
         cy.imsId("btn-add-new").click();
         cy.imsId("btn-submit").click();

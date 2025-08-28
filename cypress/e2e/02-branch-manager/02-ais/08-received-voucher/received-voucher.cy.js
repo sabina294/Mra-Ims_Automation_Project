@@ -57,17 +57,17 @@ describe("08 received Voucher Module Test Cases", function () {
         create_received_voucher.gridRefreshButtonCheck();
     });
 
-    // it("08.09. Verify the received voucher creation reset button clears all entered input values.", function () {
-    //     create_received_voucher.createResetButtonCheck();
-    // });
+    it("08.09. Verify the received voucher creation reset button clears all entered input values.", function () {
+        create_received_voucher.createResetButtonCheck();
+    });
 
-    // it("08.10. Verify validation messages appear for required fields when the submit button is clicked with empty inputs.", function () {
-    //     create_received_voucher.createValidationMessageCheck();
-    // });
+    it("08.10. Verify validation messages appear for required fields when the submit button is clicked with empty inputs.", function () {
+        create_received_voucher.createValidationMessageCheck();
+    });
 
-    // it("08.11. Verify that clicking the go back button on the received voucher create page redirects the user to the received voucher list page.", function () {
-    //     create_received_voucher.createGoBackButtonCheck();
-    // });
+    it("08.11. Verify that clicking the go back button on the received voucher create page redirects the user to the received voucher list page.", function () {
+        create_received_voucher.createGoBackButtonCheck();
+    });
 
     it("08.12. Verify check that the grid list content changes correctly from english to bangla.", function () {
         create_received_voucher.gridLanguageSwitchCheck();

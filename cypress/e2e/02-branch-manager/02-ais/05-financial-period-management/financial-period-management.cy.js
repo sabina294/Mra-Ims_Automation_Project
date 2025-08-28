@@ -29,7 +29,6 @@ describe("05 Financial Financial Period Management Module Test Cases", function 
         grid_financial_period_management.gridFinancialPeriodListPage();
     });
 
-
     it("05.03. Verify successfully performs the action when the action button is clicked.", function () {
         grid_financial_period_management.actionButtonCheck();
     });
@@ -65,6 +64,5 @@ describe("05 Financial Financial Period Management Module Test Cases", function 
     it("05.14. Verify check that the grid list content changes correctly from english to bangla.", function () {
         grid_financial_period_management.gridLanguageSwitchCheck();
     });
-
 
 });

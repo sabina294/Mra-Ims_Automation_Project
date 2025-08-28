@@ -98,6 +98,20 @@ class ReceivedVoucherCreation {
         cy.log("Successful go back button check.");
     }
 
+    createDeleteButtonCheck() {
+        cy.imsId("btn-add-new").click();
+        cy.imsId("btn-delete").eq(1).click();
+        cy.imsId("btn-go-back").click();
+        cy.log("Successful delete button check.");
+    }
+
+    createNewJournalDetailsButtonCheck() {
+        cy.imsId("btn-add-new").click();
+        cy.imsId("btn-add").eq(1).click();
+        cy.imsId("btn-go-back").click();
+        cy.log("Successful delete button check.");
+    }
+
     gridLanguageSwitchCheck() {
         cy.imsId("profile-menu").click();
         cy.imsId("btn-lang-bangla").click();

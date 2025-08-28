@@ -11,12 +11,14 @@ class PaymentVoucherCreation {
     createPaymentVoucher() {
         cy.fixture(this.test_data).then((data) => {
             var pvData = data.mfiAdmin.paymentVoucher;
+            cy.selectMenu("menu-voucher", "submenu-payment-voucher");
             cy.imsId("btn-add-new").click();
 
             cy.formController("voucher_name_en").type(pvData.voucherNameEn);
             cy.formController("voucher_name_bn").type(pvData.voucherNameBn);
             cy.formController("payment_date").click();
-            cy.contanins(19).click();
+            cy.wait(2000);
+            cy.contains(19).click();
             cy.formController("payment_mode").type(pvData.paymentMode).type("{enter}");
             cy.formController("voucher_prepared_by").type(pvData.peparedBy).type("{enter}");
             cy.formController("remarks").type(pvData.remarks).type("{enter}");
@@ -98,6 +100,20 @@ class PaymentVoucherCreation {
         cy.log("Successful go back button check.");
     }
 
+    createDeleteButtonCheck() {
+        cy.imsId("btn-add-new").click();
+        cy.imsId("btn-delete").eq(1).click();
+        cy.imsId("btn-go-back").click();
+        cy.log("Successful delete button check.");
+    }
+
+    createNewJournalDetailsButtonCheck() {
+        cy.imsId("btn-add-new").click();
+        cy.imsId("btn-add").eq(1).click();
+        cy.imsId("btn-go-back").click();
+        cy.log("Successful delete button check.");
+    }
+    
     gridLanguageSwitchCheck() {
         cy.imsId("profile-menu").click();
         cy.imsId("btn-lang-bangla").click();
