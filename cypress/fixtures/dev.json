@@ -1001,6 +1001,8 @@
       "selectRebate": "Full",
       "inputAmount": "5000",
       "search": "Sohana Aktar Hashmi",
+      "selectStatus": "Inactive",
+      "statusSelect": "Active",
       "messageSaveLoanRebate": "Loan rebate has been saved"
     },
     "createLoanWaiverFrom": {

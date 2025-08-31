@@ -69,15 +69,15 @@ describe("07 Payment Voucher Module Test Cases", function () {
         create_payment_voucher.createGoBackButtonCheck();
     });
 
-    it("07.12. Verify that clicking the delete button on the manual journal create page redirects the user to the manual journal list page.", function () {
-        create_payment_voucher.createDeleteButtonCheck();
-    });
-
-    it("07.13. Verify that clicking the Add New Journal Details button on the Manual Journal Create page redirects the user to the Manual Journal List page.", function () {
+    it("07.12. Verify that clicking the Add New Journal Details button on the Manual Journal Create page redirects the user to the Manual Journal List page.", function () {
         create_payment_voucher.createNewJournalDetailsButtonCheck();
     });
 
-    it("07.12. Verify check that the grid list content changes correctly from english to bangla.", function () {
+    it("07.13. Verify that clicking the delete button on the manual journal create page redirects the user to the manual journal list page.", function () {
+        create_payment_voucher.createDeleteButtonCheck();
+    });
+
+    it("07.14. Verify check that the grid list content changes correctly from english to bangla.", function () {
         create_payment_voucher.gridLanguageSwitchCheck();
     });
 

@@ -5,7 +5,7 @@
 import "cypress-file-upload";
 import { create_received_voucher } from "./received-voucher.po";
 
-describe("08 received Voucher Module Test Cases", function () {
+describe("08 Received Voucher Module Test Cases", function () {
     const baseURL = Cypress.env("BASE_URL");
     const test_data = Cypress.env("TEST_DATA");
     before(() => {
@@ -69,7 +69,15 @@ describe("08 received Voucher Module Test Cases", function () {
         create_received_voucher.createGoBackButtonCheck();
     });
 
-    it("08.12. Verify check that the grid list content changes correctly from english to bangla.", function () {
+    it("08.12. Verify that clicking the Add New Journal Details button on the received voucher Create page redirects the user to the received voucher List page.", function () {
+        create_received_voucher.createNewJournalDetailsButtonCheck();
+    });
+
+    it("08.13. Verify that clicking the delete button on the received voucher create page redirects the user to the received voucher list page.", function () {
+        create_received_voucher.createDeleteButtonCheck();
+    });
+
+    it("08.14. Verify check that the grid list content changes correctly from english to bangla.", function () {
         create_received_voucher.gridLanguageSwitchCheck();
     });
 

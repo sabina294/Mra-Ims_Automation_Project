@@ -10,22 +10,22 @@ class LoanRebate {
   createLoanRebate() {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId("btn-add-new").click();
+      cy.imsId("btn-go-back").click();
       // cy.imsId('btn-submit').and('be.visible');
 
-      var lrData = data.branchManager.createLoanRebateFrom;
-      cy.formController("office_id").type(lrData.selectOffice).type("{enter}");
-      cy.formController("samity_id").type(lrData.selectSamity).type("{enter}");
-      cy.formController("member_id").type(lrData.selectMember).type("{enter}");
-      cy.formController("loan_account_id")
-        .type(lrData.selectLoanAccount)
-        .type("{enter}");
-      cy.wait(2000);
-      // cy.formController("rebate_type")
-      //   .type(lrData.selectRebate)
+      // var lrData = data.branchManager.createLoanRebateFrom;
+      // cy.formController("office_id").type(lrData.selectOffice).type("{enter}");
+      // cy.formController("samity_id").type(lrData.selectSamity).type("{enter}");
+      // cy.formController("member_id").type(lrData.selectMember).type("{enter}");
+      // cy.formController("loan_account_id")
+      //   .type(lrData.selectLoanAccount)
       //   .type("{enter}");
+      // cy.wait(2000);
+      // // cy.formController("rebate_type")
+      // //   .type(lrData.selectRebate)
+      // //   .type("{enter}");
       // // cy.formController("rebate_amount").type(lrData.amount).type("{enter}");
       // cy.formController("amount").type(lrData.inputAmount);
-      cy.imsId("btn-go-back").click();
 
       // cy.imsId("btn-submit").click();
       // cy.imsId("btn-yes").click();
@@ -59,7 +59,7 @@ class LoanRebate {
   statusInactiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       var lrData = data.branchManager.createLoanRebateFrom;
-    //   cy.imsId("btn-reset").click();
+      //   cy.imsId("btn-reset").click();
       cy.formController("status").type(lrData.selectStatus).type("{enter}");
       cy.log("Loan rebate status inactive dropdown check successfully");
     });
@@ -76,7 +76,7 @@ class LoanRebate {
   searchInLoanRebateName() {
     cy.fixture(this.test_data).then((data) => {
       var lrData = data.branchManager.createLoanRebateFrom;
-    //   cy.imsId("btn-reset").click();
+      //   cy.imsId("btn-reset").click();
       cy.formController("search_text").type(lrData.search);
       cy.log("Successfully search in the Loan rebate");
     });

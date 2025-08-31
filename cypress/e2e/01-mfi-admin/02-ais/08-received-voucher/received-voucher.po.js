@@ -97,16 +97,17 @@ class ReceivedVoucherCreation {
         cy.log("Successful go back button check.");
     }
 
-    createDeleteButtonCheck() {
+    createNewJournalDetailsButtonCheck() {
         cy.imsId("btn-add-new").click();
-        cy.imsId("btn-delete").eq(1).click();
+        cy.imsId("btn-add-icon").click();
         cy.imsId("btn-go-back").click();
         cy.log("Successful delete button check.");
     }
 
-    createNewJournalDetailsButtonCheck() {
+     createDeleteButtonCheck() {
         cy.imsId("btn-add-new").click();
-        cy.imsId("btn-add").eq(1).click();
+        cy.imsId("btn-add-icon").click();
+        cy.imsId("btn-remove-icon").eq(1).click();
         cy.imsId("btn-go-back").click();
         cy.log("Successful delete button check.");
     }
@@ -114,7 +115,7 @@ class ReceivedVoucherCreation {
     gridLanguageSwitchCheck() {
         cy.imsId("profile-menu").click();
         cy.imsId("btn-lang-bangla").click();
-        cy.log("Unsccessful switch bangla language check.");
+        cy.log("Unsuccessful switch bangla language check.");
     }
 }
 

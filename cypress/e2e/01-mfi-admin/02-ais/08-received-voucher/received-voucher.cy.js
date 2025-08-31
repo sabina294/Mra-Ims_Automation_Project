@@ -69,12 +69,12 @@ describe("08 received Voucher Module Test Cases", function () {
         create_received_voucher.createGoBackButtonCheck();
     });
 
-    it("08.12. Verify that clicking the delete button on the manual journal create page redirects the user to the manual journal list page.", function () {
-        create_received_voucher.createDeleteButtonCheck();
+    it("08.12. Verify that clicking the Add New Journal Details button on the received voucher  Create page redirects the user to the received voucher  List page.", function () {
+        create_received_voucher.createNewJournalDetailsButtonCheck();
     });
 
-    it("08.13. Verify that clicking the Add New Journal Details button on the Manual Journal Create page redirects the user to the Manual Journal List page.", function () {
-        create_received_voucher.createNewJournalDetailsButtonCheck();
+    it("08.13. Verify that clicking the delete button on the received voucher create page redirects the user to the received voucher list page.", function () {
+        create_received_voucher.createDeleteButtonCheck();
     });
 
     it("08.14. Verify that the grid list content changes correctly from english to bangla.", function () {

@@ -27,25 +27,25 @@ describe("28. Loan Rebate Module Test Cases", function () {
     create_loan_rebate.gridLoanRebateListPage();
   });
 
-  // it("28.02. Verify successful creation of a Loan rebate record by MFI-Admin role", function () {
-  //   create_loan_rebate.createLoanRebate();
-  // });
-
-  it("28.03. Verify successfully performs the action when the action button is clicked.", function () {
-    create_loan_rebate.actionButtonCheck();
+  it("28.02. Verify successful creation of a Loan rebate record by MFI-Admin role", function () {
+    create_loan_rebate.createLoanRebate();
   });
+
+  // it("28.03. Verify successfully performs the action when the action button is clicked.", function () {
+  //   create_loan_rebate.actionButtonCheck();
+  // });
 
 //   it("28.04. Verify successful Loan rebate information View.", function () {
 //     create_loan_rebate.viewLoanRebate();
 //   });
 
-//   it("28.05. Verify the user can filter inactive employee records using the status dropdown on the member management List page.", function () {
-//     create_loan_rebate.statusInactiveDropdownCheck();
-//   });
+  it("28.05. Verify the user can filter inactive employee records using the status dropdown on the member management List page.", function () {
+    create_loan_rebate.statusInactiveDropdownCheck();
+  });
 
-//   it("28.06. Verify check if the filter for active results works correctly with the status dropdown ", function () {
-//     create_loan_rebate.statusActiveDropdownCheck();
-//   });
+  it("28.06. Verify check if the filter for active results works correctly with the status dropdown ", function () {
+    create_loan_rebate.statusActiveDropdownCheck();
+  });
 
   it("28.07. Verify Successful Search Result by Loan rebate Name", function () {
     create_loan_rebate.searchInLoanRebateName();

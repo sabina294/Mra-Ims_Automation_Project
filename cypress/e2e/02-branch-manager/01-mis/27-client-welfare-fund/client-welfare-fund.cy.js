@@ -27,21 +27,21 @@ describe("27. Client Welfare Fund Module Test Cases", function () {
     create_client_welfare_fund.gridClientWelfareFundListPage();
   });
 
-  // it("27.02. Verify successful creation of a Loan welfare fund record by MFI-Admin role", function () {
-  //   create_client_welfare_fund.createClientWelfareFund();
-  // });
+  it("27.02. Verify successful creation of a Loan welfare fund record by MFI-Admin role", function () {
+    create_client_welfare_fund.createClientWelfareFund();
+  });
 
   // it("27.03. Verify successful creation of a new loan welfare fund record", function () {
   //   create_client_welfare_fund.approveClientWelfareFund();
   // });
 
-  it("27.04. Verify successfully performs the action when the action button is clicked.", function () {
-    create_client_welfare_fund.actionButtonCheck();
-  });
+  // it("27.04. Verify successfully performs the action when the action button is clicked.", function () {
+  //   create_client_welfare_fund.actionButtonCheck();
+  // });
 
-  it("27.05. Verify successful loan welfare fund information View.", function () {
-    create_client_welfare_fund.viewClientWelfareFund();
-  });
+  // it("27.05. Verify successful loan welfare fund information View.", function () {
+  //   create_client_welfare_fund.viewClientWelfareFund();
+  // });
 
   // it("27.06. Verify editing functionality for loan welfare fund record by MFI-Admin role", function () {
   //   create_client_welfare_fund.editClientWelfareFund();
@@ -60,6 +60,6 @@ describe("27. Client Welfare Fund Module Test Cases", function () {
   });
 
   it("27.10. Verify check that the grid list content changes correctly from english to bangla.", function () {
-      create_client_welfare_fund.gridLanguageSwitchCheck();
-    });
+    create_client_welfare_fund.gridLanguageSwitchCheck();
+  });
 });

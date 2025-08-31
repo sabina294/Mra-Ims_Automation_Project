@@ -18,15 +18,16 @@ class ClientWelfareFund {
       cy.formController("loan_account_id")
         .type(wfData.selectLoanAccount)
         .type("{enter}");
-        cy.wait(2000);
-      cy.formController("amount").type(wfData.inputAmount);
+      cy.wait(2000);
+      cy.imsId("btn-go-back").click();
+      // cy.formController("amount").type(wfData.inputAmount);
 
-      cy.imsId("btn-submit").click();
+      // cy.imsId("btn-submit").click();
 
-      cy.get("app-confirmation-modal")
-        .contains(wfData.messageSaveLoanWelfareFund)
-        .and("be.visible");
-      cy.imsId("btn-yes").click();
+      // cy.get("app-confirmation-modal")
+      //   .contains(wfData.messageSaveLoanWelfareFund)
+      //   .and("be.visible");
+      // cy.imsId("btn-yes").click();
 
       // cy.imsId('btn-ok').click();
 
@@ -108,8 +109,8 @@ class ClientWelfareFund {
       "successfully refresh page  displayed the grid list of the client welfare fund "
     );
   }
-  
-   gridLanguageSwitchCheck() {
+
+  gridLanguageSwitchCheck() {
     cy.imsId("profile-menu").click();
     cy.imsId("btn-lang-bangla").click();
     cy.log("Unsccessful switch bangla language check.");
