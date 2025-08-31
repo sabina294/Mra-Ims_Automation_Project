@@ -57,17 +57,17 @@ describe("06 Fund Module Test Cases", function () {
         create_fund_Transfer.gridRefreshButtonCheck();
     });
 
-    // it("06.09. Verify the fund creation reset button clears all entered input values.", function () {
-    //     create_fund_Transfer.createResetButtonCheck();
-    // });
+    it("06.09. Verify the fund creation reset button clears all entered input values.", function () {
+        create_fund_Transfer.createResetButtonCheck();
+    });
 
-    // it("06.10. Verify validation messages appear for required fields when the submit button is clicked with empty inputs.", function () {
-    //     create_fund_Transfer.createValidationMessageCheck();
-    // });
+    it("06.10. Verify validation messages appear for required fields when the submit button is clicked with empty inputs.", function () {
+        create_fund_Transfer.createValidationMessageCheck();
+    });
 
-    // it("06.11. Verify that clicking the go back button on the fund create page redirects the user to the fund list page.", function () {
-    //     create_fund_Transfer.createGoBackButtonCheck();
-    // });
+    it("06.11. Verify that clicking the go back button on the fund create page redirects the user to the fund list page.", function () {
+        create_fund_Transfer.createGoBackButtonCheck();
+    });
 
     it("06.12. Verify check that the grid list content changes correctly from english to bangla.", function () {
         create_fund_Transfer.gridLanguageSwitchCheck();
