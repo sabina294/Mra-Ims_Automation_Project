@@ -3,14 +3,15 @@ class RrejectedMember {
 
   createRejectedMember() {
     cy.fixture(this.test_data).then((data) => {
-      var rejmData = data.branchManager.createRejectedMemberFrom;
-      cy.selectMenu("menu-member", "submenu-member-management");
       cy.imsId("btn-add-new").click();
       cy.imsId("btn-submit").and("be.visible");
-      cy.formController("samity_id").type(rejmData.smity).type("{enter}");
-      cy.wait(2000);
-      cy.formController("member_name_en").type(rejmData.memberNameEn);
+
+      var memData = data.branchManager.createMemberFrom;
+      cy.formController("samity_id").type(memData.smity).type("{enter}");
+      cy.wait(1000);
+      cy.formController("member_name_en").type(memData.memberNameEn);
       cy.formController("date_of_birth").click();
+      cy.wait(2000);
       cy.get(".ant-picker-header-year-btn").click();
       cy.get(".ant-picker-header-super-prev-btn").click();
       cy.get(".ant-picker-header-super-prev-btn").click();
@@ -19,31 +20,33 @@ class RrejectedMember {
       cy.contains("13").click();
       cy.wait(2000);
       cy.formController("mfi_program_id")
-        .type(rejmData.mfiProgram)
+        .type(memData.mfiProgram)
         .type("{enter}");
       cy.formController("savings_product_id")
-        .type(rejmData.savingsId)
+        .type(memData.savingsId)
         .type("{enter}");
       cy.formController("gender").click();
-      cy.formController("occupation").type(rejmData.occupation).type("{enter}");
-      cy.formController("contactNo").type(rejmData.memberMobileNo);
-      cy.get("#nz-tabs-0-tab-1").click();
-      cy.formController("nid_number").type(rejmData.nidNumber);
-      cy.get("#nz-tabs-0-tab-2").click();
-      cy.formController("father_name_en").type(rejmData.fatherNameEn);
-      cy.formController("mother_name_en").type(rejmData.motherNameEn);
-      cy.get("#nz-tabs-0-tab-3").click();
+      cy.get('.ant-form-item-control-input-content > .ant-radio-group > :nth-child(1) > .ant-radio > .ant-radio-input').click();
+
+      cy.formController("occupation").type(memData.occupation).type("{enter}");
+      cy.formController("contactNo").type(memData.memberMobileNo);
+      cy.get('#nz-tabs-1-tab-1').click();
+      cy.formController("nid_number").type(memData.nidNumber);
+      cy.get("#nz-tabs-1-tab-2").click();
+      cy.formController("father_name_en").type(memData.fatherNameEn);
+      cy.formController("mother_name_en").type(memData.motherNameEn);
+      cy.get("#nz-tabs-1-tab-3").click();
       cy.formController("res_division_id")
-        .type(rejmData.division)
+        .type(memData.division)
         .type("{enter}");
       cy.formController("res_district_id")
-        .type(rejmData.district)
+        .type(memData.district)
         .type("{enter}");
-      cy.formController("res_upazila_id").type(rejmData.thana).type("{enter}");
-      cy.formController("res_address_line_1").type(rejmData.adressEn);
+      cy.formController("res_upazila_id").type(memData.thana).type("{enter}");
+      cy.formController("res_address_line_1").type(memData.adressEn);
       cy.imsId("ck-box").click();
-      cy.get("#nz-tabs-0-tab-4").click();
-      cy.get("#nz-tabs-0-tab-5").click();
+      cy.get("#nz-tabs-1-tab-4").click();
+      cy.get("#nz-tabs-1-tab-5").click();
       cy.imsId("btn_photo_image_id").attachFile("employeePhoto1.jpg");
       cy.wait(3000);
       cy.imsId("btn_nid_front_doc_id").attachFile("nidPront1.jpg");
@@ -51,13 +54,14 @@ class RrejectedMember {
       cy.imsId("btn-submit").click();
       cy.imsId("btn-yes").click();
       cy.get("app-confirmation-modal")
-        .contains(rejmData.messageSaveMember)
+        .contains(memData.messageSaveMember)
         .and("be.visible");
       cy.imsId("btn-ok").click();
 
-      cy.log("Successfully rejected member");
+      cy.log("Successfully created member management");
     });
   }
+
 
   myTaskRejectedMember() {
     cy.fixture(this.test_data).then((data) => {

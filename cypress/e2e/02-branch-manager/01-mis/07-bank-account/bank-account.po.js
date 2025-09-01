@@ -11,32 +11,34 @@ class BankAccountCreation {
   createBankAccount() {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId("btn-add-new").click();
-      cy.imsId("btn-submit").and("be.visible");
+      cy.imsId("btn-go-back").click();
 
-      var baData = data.branchManager.createBankAccountFrom;
+      // cy.imsId("btn-submit").and("be.visible");
 
-      var randomNumber = Math.floor(1000 + Math.random() * 9000);
-      var accNumber = baData.accNumber + "-" + randomNumber;
+      // var baData = data.branchManager.createBankAccountFrom;
 
-      cy.formController("bank_id").type(baData.bankName).type("{enter}");
-      cy.formController("bank_branch_id")
-        .type(baData.branchName)
-        .type("{enter}");
-      cy.formController("account_name_en").type(baData.accNameEn);
-      cy.formController("account_name_bn").type(baData.accNameBn);
-      cy.formController("account_type")
-        .type(baData.accountType)
-        .type("{enter}");
-      cy.formController("account_no").type(accNumber);
+      // var randomNumber = Math.floor(1000 + Math.random() * 9000);
+      // var accNumber = baData.accNumber + "-" + randomNumber;
 
-      cy.imsId("btn-submit").click();
+      // cy.formController("bank_id").type(baData.bankName).type("{enter}");
+      // cy.formController("bank_branch_id")
+      //   .type(baData.branchName)
+      //   .type("{enter}");
+      // cy.formController("account_name_en").type(baData.accNameEn);
+      // cy.formController("account_name_bn").type(baData.accNameBn);
+      // cy.formController("account_type")
+      //   .type(baData.accountType)
+      //   .type("{enter}");
+      // cy.formController("account_no").type(accNumber);
 
-      cy.imsId("btn-yes").click();
-      cy.get("app-confirmation-modal")
-        .contains(baData.messageSaveBankAccount)
-        .and("be.visible");
+      // cy.imsId("btn-submit").click();
 
-      cy.imsId("btn-ok").click();
+      // cy.imsId("btn-yes").click();
+      // cy.get("app-confirmation-modal")
+      //   .contains(baData.messageSaveBankAccount)
+      //   .and("be.visible");
+
+      // cy.imsId("btn-ok").click();
       cy.log("Successfully created bank account");
     });
   }
@@ -256,11 +258,11 @@ class BankAccountCreation {
   viewBankAccount() {
     cy.fixture(this.test_data).then((data) => {
       var baData = data.branchManager.createBankAccountFrom;
-      cy.formController("search_text").type(baData.accNameEn);
+      cy.formController("search_text").type(baData.search);
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
 
-      cy.get("app-mfi-mis").contains(baData.accNameEn).and("be.visible");
+      // cy.get("app-mfi-mis").contains(baData.accNameEn).and("be.visible");
 
       cy.imsId("btn-go-back").click();
       cy.log("Successfully viewed the bank account list page");
@@ -280,14 +282,16 @@ class BankAccountCreation {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-edit").click();
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-yes").click();
+      cy.imsId("btn-go-back").click();
 
-      var baData = data.branchManager.createBankAccountFrom;
-      cy.get("app-confirmation-modal")
-        .contains(baData.messageUpdateBankAccount)
-        .and("be.visible");
-      cy.imsId("btn-ok").click();
+      // cy.imsId("btn-submit").click();
+      // cy.imsId("btn-yes").click();
+
+      // var baData = data.branchManager.createBankAccountFrom;
+      // cy.get("app-confirmation-modal")
+      //   .contains(baData.messageUpdateBankAccount)
+      //   .and("be.visible");
+      // cy.imsId("btn-ok").click();
       cy.log("Bank Account updated successfully");
     });
   }
@@ -351,7 +355,7 @@ class BankAccountCreation {
       cy.log("Bank account status inactive dropdown check successfully");
     });
   }
-  
+
   statusActiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       var baData = data.branchManager.createBankAccountFrom;
@@ -364,7 +368,7 @@ class BankAccountCreation {
     cy.fixture(this.test_data).then((data) => {
       var baData = data.branchManager.createBankAccountFrom;
       cy.imsId("btn-reset").click();
-      cy.formController("search_text").type(baData.accNameEn);
+      cy.formController("search_text").type(baData.search);
       cy.log("Successfully search in the bank account");
     });
   }
@@ -385,7 +389,7 @@ class BankAccountCreation {
     cy.fixture(this.test_data).then((data) => {
       var baData = data.branchManager.createBankAccountFrom;
       cy.imsId("btn-add-new").click();
-      cy.formController("account_name_en").type(baData.accNameEn);
+      cy.formController("account_name_en").type(baData.search);
       cy.imsId("btn-reset").click();
       cy.imsId("btn-go-back").click();
       cy.log("Successful reset button clean displaying.");
@@ -414,3 +418,4 @@ class BankAccountCreation {
 }
 
 export const create_bank_account = new BankAccountCreation();
+

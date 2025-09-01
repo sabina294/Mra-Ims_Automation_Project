@@ -5,7 +5,7 @@
 import "cypress-file-upload";
 import { create_received_voucher } from "./received-voucher.po";
 
-describe("08 received Voucher Module Test Cases", function () {
+describe("08 Received Voucher Module Test Cases", function () {
     const baseURL = Cypress.env("BASE_URL");
     const test_data = Cypress.env("TEST_DATA");
     before(() => {

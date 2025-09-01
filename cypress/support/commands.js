@@ -43,7 +43,7 @@ Cypress.Commands.add("login", (login_url, username, password) => {
   cy.formController("user_id").type(username);
   cy.formController("password").type(password);
   cy.get("#submit-button").click();
-  cy.get("#submit-button").click();
+  // cy.get("#submit-button").click();
   cy.log(`Logging in as user : ${username}`);
 });
 

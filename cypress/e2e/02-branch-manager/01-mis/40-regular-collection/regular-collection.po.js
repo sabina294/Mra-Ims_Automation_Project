@@ -20,8 +20,8 @@ class RegularCollection {
     collectionCheck() {
         cy.fixture(this.test_data).then((data) => {
             var rcData = data.branchManager.regularCollection;
-            cy.imsId("loan-AGRO-1019-104-1001-1").type(rcData.loanAmount);
-            cy.imsId("loan-AGRO-1019-104-1002-1").type(rcData.loanAmount2);
+            cy.imsId("loan-AGRO-1020-101-1001-1").type(rcData.loanAmount);
+            cy.imsId("loan-AGRO-1020-101-1002-1").type(rcData.loanAmount2);
             cy.imsId("btn-save").click();
             cy.imsId("btn-yes").click();
             cy.imsId("btn-ok").click();

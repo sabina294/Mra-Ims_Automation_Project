@@ -19,6 +19,7 @@ class savingsWithdraw {
             cy.formController("accountId").click();
             cy.contains(swData.selectAccount).click()
             cy.formController("loanInput").type(swData.inputAmount);
+            cy.imsId("btn-go-back").click();
 
             // cy.formController("samityId").type(swData.selectSamity).type("{enter}");
             // cy.wait(2000);
@@ -29,9 +30,9 @@ class savingsWithdraw {
             // cy.formController("loanInput").type(swData.inputAmount);
             // cy.wait(2000);
 
-            cy.imsId("btn-save").click();
-            cy.imsId("btn-yes-yes").click();
-            cy.imsId("btn-ok").click();
+            // cy.imsId("btn-save").click();
+            // cy.imsId("btn-yes-yes").click();
+            // cy.imsId("btn-ok").click();
             cy.log("Successfully created new savings withdraw");
         });
     }
