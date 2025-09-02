@@ -37,7 +37,6 @@ class BankAccountCreation {
       //   .and("be.visible");
 
       cy.imsId("btn-ok").click();
-      cy.imsId("btn-go-back").click();
 
       cy.log("Successfully created bank account");
     });
