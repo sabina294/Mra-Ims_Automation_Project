@@ -4,7 +4,7 @@ class JournalReport {
     gridJournalReportListPage() {
         cy.fixture(this.test_data).then((data) => {
             cy.selectMenu("menu-report", "journal");
-            cy.wait(3000);
+            // cy.wait(3000);
             cy.log("Successfully Journal Report list page.");
         });
     }

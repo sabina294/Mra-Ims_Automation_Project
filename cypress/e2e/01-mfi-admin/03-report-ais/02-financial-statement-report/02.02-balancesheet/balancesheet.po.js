@@ -4,7 +4,7 @@ class BalancesheetReport {
     gridBalancesheetListPage() {
         cy.fixture(this.test_data).then((data) => {
             cy.selectMenu("menu-report", "balance-sheet");
-            cy.wait(3000);
+            // cy.wait(3000);
             cy.log("Successfully Balance Sheet list page.");
         });
     }
@@ -12,7 +12,7 @@ class BalancesheetReport {
     viewReportButtonCheck() {
         cy.selectMenu("menu-report", "balance-sheet");
         cy.imsId("btn-view-report").click();
-        cy.wait(5000);
+        // cy.wait(5000);
         cy.imsId("btn-go-back").click();
         cy.log("Successful view report button check.");
     }

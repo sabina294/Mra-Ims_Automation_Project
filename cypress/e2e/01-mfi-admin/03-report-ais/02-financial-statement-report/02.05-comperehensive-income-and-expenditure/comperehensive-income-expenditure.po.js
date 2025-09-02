@@ -4,7 +4,7 @@ class ComprehensiveIncomeAndExpenditureReport {
     gridComprehensiveIncomeAndExpenditureListPage() {
         cy.fixture(this.test_data).then((data) => {
             cy.selectMenu("menu-report", "comprehensive-income-and-expenditure");
-            cy.wait(3000);
+            // cy.wait(3000);
             cy.log("Successfully Comprehensive Income and Expenditure list page.");
         });
     }

@@ -4,7 +4,7 @@ class ConsolidatedFinancialStatementReport {
     gridConsolidatedFinancialStatementListPage() {
         cy.fixture(this.test_data).then((data) => {
             cy.selectMenu("menu-report", "consolidated-financial-statement");
-            cy.wait(3000);
+            // cy.wait(3000);
             cy.log("Successfully Consolidated Financial Statement list page.");
         });
     }

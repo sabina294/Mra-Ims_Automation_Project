@@ -4,7 +4,7 @@ class CurrentYearAndMonthReceiptPaymentReport {
     gridCurrentYearAndMonthReceiptPaymentListPage() {
         cy.fixture(this.test_data).then((data) => {
             cy.selectMenu("menu-report", "current-year-and-month-receipt-payment");
-            cy.wait(3000);
+            // cy.wait(3000);
             cy.log("Successfully Current Year and Month Receipt and Payment list page.");
         });
     }

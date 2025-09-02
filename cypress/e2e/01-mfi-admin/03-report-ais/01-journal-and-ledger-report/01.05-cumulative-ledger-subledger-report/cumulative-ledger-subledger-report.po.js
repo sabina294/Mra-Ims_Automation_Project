@@ -4,7 +4,7 @@ class CumulativeLedgerSubledgerReport {
     gridCumulativeLedgerSubledgerReportListPage() {
         cy.fixture(this.test_data).then((data) => {
             cy.selectMenu("menu-report", "cumulative-ledger-subledger-report");
-            cy.wait(3000);
+            // cy.wait(3000);
             cy.log("Successfully Cumulative Ledger & Subledger Report list page.");
         });
     }

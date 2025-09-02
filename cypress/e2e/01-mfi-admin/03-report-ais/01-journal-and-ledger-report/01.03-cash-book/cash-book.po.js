@@ -4,7 +4,7 @@ class CashBookReport {
     gridCashBookListPage() {
         cy.fixture(this.test_data).then((data) => {
             cy.selectMenu("menu-report", "cash-book");
-            cy.wait(3000);
+            // cy.wait(3000);
             cy.log("Successfully Cash Book list page.");
         });
     }

@@ -4,7 +4,7 @@ class ChartOfAccountsReport {
     gridChartOfAccountsListPage() {
         cy.fixture(this.test_data).then((data) => {
             cy.selectMenu("menu-report", "chart-of-accounts");
-            cy.wait(3000);
+            // cy.wait(3000);
             cy.log("Successfully Chart of accounts list page.");
         });
     }
@@ -12,7 +12,7 @@ class ChartOfAccountsReport {
     viewReportButtonCheck() {
         cy.selectMenu("menu-report", "chart-of-accounts");
         cy.imsId("btn-view-report").click();
-        cy.wait(5000);
+        // cy.wait(5000);
         cy.imsId("btn-go-back").click();
         cy.log("Successful view report button check.");
     }
