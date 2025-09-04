@@ -409,6 +409,11 @@ class BankAccountCreation {
     cy.log("Successful go back button check.");
   }
 
+  paginationCheck() {
+    cy.get('[title="2"] > .ng-star-inserted').click();
+    cy.log("Bank account pagination check successfully");
+  }
+
   gridLanguageSwitchCheck() {
     cy.imsId("profile-menu").click();
     cy.imsId("btn-lang-bangla").click();

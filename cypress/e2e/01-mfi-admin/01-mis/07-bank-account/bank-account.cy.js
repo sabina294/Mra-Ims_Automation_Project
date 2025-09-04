@@ -79,9 +79,9 @@ describe("07. Bank Account Module Test Cases", function () {
     create_bank_account.editResetButton();
   });
 
-//   it("07.15. Verify the bank account edit submit button functions correctly.", function () {
-//     create_bank_account.editSubmitButton();
-//   });
+  //   it("07.15. Verify the bank account edit submit button functions correctly.", function () {
+  //     create_bank_account.editSubmitButton();
+  //   });
 
   it("07.16. Verify that clicking the go back button on the bank account edit page redirects the user to the bank account list page.", function () {
     create_bank_account.editGoBackButton();
@@ -119,7 +119,11 @@ describe("07. Bank Account Module Test Cases", function () {
     create_bank_account.createGoBackButtonCheck();
   });
 
-  it("07.25. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("07.25. Verify pagination functions as expected on the last page of the bank account list.", function () {
+    create_bank_account.paginationCheck();
+  });
+
+  it("07.26. Verify check that the grid list content changes correctly from english to bangla.", function () {
     create_bank_account.gridLanguageSwitchCheck();
   });
 });

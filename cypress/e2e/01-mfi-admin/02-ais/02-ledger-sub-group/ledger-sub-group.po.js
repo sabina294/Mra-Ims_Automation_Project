@@ -160,8 +160,6 @@ class LedgerSubGroupCreation {
         });
     }
 
-
-
     createResetButtonCheck() {
         cy.fixture(this.test_data).then((data) => {
             var lsgData = data.mfiAdmin.ledgerSubGroup;
