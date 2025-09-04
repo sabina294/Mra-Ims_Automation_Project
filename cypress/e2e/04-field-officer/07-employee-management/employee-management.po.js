@@ -19,7 +19,7 @@ class EmployeeManagement {
     cy.fixture(this.test_data).then((data) => {
       var emData = data.fieldOfficer.gridEmpMangFrom;
 
-      cy.formController("search_text").type(emData.empNameEn);
+      cy.formController("search_text").type(emData.search);
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
 

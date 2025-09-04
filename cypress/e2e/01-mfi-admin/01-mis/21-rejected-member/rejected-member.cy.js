@@ -22,13 +22,13 @@ describe("21. Rejected Member Module Test Cases", function () {
     cy.logout();
   });
 
-  // it("21.01.  Verify a new rejected member record is created successfully when all required fields are filled with valid data", function () {
-  //   create_rejected_member.createRejectedMember();
-  // });
+  it("21.01.  Verify a new rejected member record is created successfully when all required fields are filled with valid data", function () {
+    create_rejected_member.createRejectedMember();
+  });
 
-  // it("21.02. Verify mfi-admin to successfully approve an rejected member record after creation. ", function () {
-  //   create_rejected_member.myTaskRejectedMember();
-  // });
+  it("21.02. Verify mfi-admin to successfully approve an rejected member record after creation. ", function () {
+    create_rejected_member.myTaskRejectedMember();
+  });
 
   it("21.03. Verify successfully performs the action when the action button is clicked.", function () {
     create_rejected_member.actionButtonCheck();

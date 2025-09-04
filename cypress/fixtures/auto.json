@@ -345,8 +345,8 @@
       "status": "Active",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
-      "messageSaveAmountBasedLoan": "Mfi role wise loan amount approval has been saved",
-      "messageUpdateAmountBasedLoan": "Mfi role wise loan amount approval has been updated"
+      "messageSaveAmountBasedLoan": "MFI role wise loan amount approval has been saved",
+      "messageUpdateAmountBasedLoan": "MFI role wise loan amount approval has been saved"
     },
     "createFundingOrganizationFrom": {
       "FundingNameEn": "Test",

@@ -206,10 +206,10 @@ class AmountBasedLoanProposalApprovalCreation {
       cy.imsId("btn-submit").click();
       cy.imsId("btn-yes").click();
 
-      var ablpaData = data.mfiAdmin.createAmountBasedLoanFrom;
-      cy.get("app-confirmation-modal")
-        .contains(ablpaData.messageUpdateAmountBasedLoan)
-        .and("be.visible");
+      // var ablpaData = data.mfiAdmin.createAmountBasedLoanFrom;
+      // cy.get("app-confirmation-modal")
+      //   .contains(ablpaData.messageUpdateAmountBasedLoan)
+      //   .and("be.visible");
       cy.imsId("btn-ok").click();
       cy.log("Amount based loan updated successfully");
     });

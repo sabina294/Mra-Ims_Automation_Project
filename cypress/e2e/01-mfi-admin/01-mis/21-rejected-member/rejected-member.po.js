@@ -30,12 +30,12 @@ class RrejectedMember {
       cy.formController("gender").click();
       cy.formController("occupation").type(rejmData.occupation).type("{enter}");
       cy.formController("contactNo").type(rejmData.memberMobileNo);
-      cy.get("#nz-tabs-0-tab-1").click();
+      cy.get("#nz-tabs-13-tab-1").click();
       cy.formController("nid_number").type(rejmData.nidNumber);
-      cy.get("#nz-tabs-0-tab-2").click();
+      cy.get("#nz-tabs-13-tab-2").click();
       cy.formController("father_name_en").type(rejmData.fatherNameEn);
       cy.formController("mother_name_en").type(rejmData.motherNameEn);
-      cy.get("#nz-tabs-0-tab-3").click();
+      cy.get("#nz-tabs-13-tab-3").click();
       cy.formController("res_division_id")
         .type(rejmData.division)
         .type("{enter}");
@@ -45,8 +45,8 @@ class RrejectedMember {
       cy.formController("res_upazila_id").type(rejmData.thana).type("{enter}");
       cy.formController("res_address_line_1").type(rejmData.adressEn);
       cy.imsId("ck-box").click();
-      cy.get("#nz-tabs-0-tab-4").click();
-      cy.get("#nz-tabs-0-tab-5").click();
+      cy.get("#nz-tabs-13-tab-4").click();
+      cy.get("#nz-tabs-13-tab-5").click();
       cy.imsId("btn_photo_image_id").attachFile("employeePhoto1.jpg");
       cy.wait(3000);
       cy.imsId("btn_nid_front_doc_id").attachFile("nidPront1.jpg");
