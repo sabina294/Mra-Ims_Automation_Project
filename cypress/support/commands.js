@@ -49,7 +49,7 @@ Cypress.Commands.add("login", (login_url, username, password) => {
 
 Cypress.Commands.add("changeLanguage", (language) => {
   cy.imsId("profile-menu").click();
-  cy.imsId(`btn-lang-${language}`).click(); 
+  cy.imsId(`btn-lang-${language}`).click();
 });
 
 Cypress.Commands.add("switchModule", (module) => {
@@ -58,7 +58,9 @@ Cypress.Commands.add("switchModule", (module) => {
 });
 
 Cypress.Commands.add("selectMenu", (menu, sub_menu) => {
+  cy.wait(2000);
   cy.imsId(menu).click();
+  cy.wait(1000);
   cy.imsId(sub_menu).click();
 });
 

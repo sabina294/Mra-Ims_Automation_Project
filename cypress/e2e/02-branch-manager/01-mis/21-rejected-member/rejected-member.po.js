@@ -3,6 +3,7 @@ class RrejectedMember {
 
   createRejectedMember() {
     cy.fixture(this.test_data).then((data) => {
+      cy.selectMenu("menu-member", "submenu-member-management");
       cy.imsId("btn-add-new").click();
       cy.imsId("btn-submit").and("be.visible");
 

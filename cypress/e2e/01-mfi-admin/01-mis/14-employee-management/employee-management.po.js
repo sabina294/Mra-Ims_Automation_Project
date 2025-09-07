@@ -24,9 +24,9 @@ class EmployeeManagementCreation {
         ".ant-form-item-control-input-content > .ant-radio-group > :nth-child(1) > .ant-radio > .ant-radio-input"
       ).click();
       cy.formController("contactNo").type(emData.empMobileNo);
-      cy.get("#nz-tabs-12-tab-1").click();
+      cy.get('#nz-tabs-1-tab-1').click();
       cy.formController("nid_number").type(emData.nidNumber);
-      cy.get("#nz-tabs-12-tab-2").click();
+      cy.get('#nz-tabs-1-tab-2').click();
       cy.formController("office_id").type(emData.office).type("{enter}");
       cy.formController("department_id")
         .type(emData.department)
@@ -37,10 +37,10 @@ class EmployeeManagementCreation {
         .type("{enter}");
       cy.wait(2000);
 
-      cy.get("#nz-tabs-12-tab-3").click();
+      cy.get("#nz-tabs-1-tab-3").click();
       cy.formController("father_name_en").type(emData.fatherNameEn);
       cy.formController("mother_name_en").type(emData.motherNameEn);
-      cy.get("#nz-tabs-12-tab-4").click();
+      cy.get("#nz-tabs-1-tab-4").click();
       cy.formController("res_division_id")
         .type(emData.division)
         .type("{enter}");
@@ -50,7 +50,7 @@ class EmployeeManagementCreation {
       cy.formController("res_upazila_id").type(emData.thana).type("{enter}");
       cy.formController("res_address_line_1").type(emData.adressEn);
       cy.imsId("ck-box").click();
-      cy.get("#nz-tabs-12-tab-5").click();
+      cy.get("#nz-tabs-1-tab-5").click();
       cy.imsId("btn_photo_image_id").attachFile("employeePhoto1.jpg");
       cy.wait(1000);
       cy.imsId("btn_nid_front_doc_id").attachFile("nidPront1.jpg");

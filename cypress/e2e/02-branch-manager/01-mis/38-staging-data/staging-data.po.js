@@ -8,6 +8,15 @@ class StagingData {
     });
   }
 
+  startProcessStagingData() {
+    cy.imsId("btn-start-process").click();
+    cy.imsId("btn-yes").click();
+    cy.imsId("btn-refresh").click();
+    cy.log(
+      "successfully refresh page  displayed the grid list of the staging data form "
+    );
+  }
+
   gridRefreshButtonCheck() {
     cy.imsId("btn-refresh").click();
     cy.log(

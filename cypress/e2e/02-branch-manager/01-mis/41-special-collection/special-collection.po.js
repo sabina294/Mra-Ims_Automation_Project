@@ -17,21 +17,11 @@ class specialCollection {
             cy.formController("employeeId").click();
             cy.contains(scData.selectMember).click()
             cy.formController("accountId").click();
-            cy.contains(scData.selectAccount).click()
+            cy.contains(scData.selectAccount).click();
             cy.imsId("btn-go-back").click();
-            // cy.formController("input-AGRO-1019-101-1001-1").type(scData.inputAmount);
-
-            // cy.formController("samityId").type(scData.selectSamity).type("{enter}");
-            // cy.wait(2000);
-            // cy.formController("employeeId").type(scData.selectMember).type("{enter}");
-            // cy.wait(2000);
-            // cy.formController("accountId").type(scData.selectAccount).type("{enter}");
-            // cy.wait(2000);
-            // cy.formController("loanInput").type(scData.inputAmount);
-            // cy.wait(2000);
 
             // cy.imsId("btn-save").click();
-            // cy.imsId("btn-yes-yes").click();
+            // cy.imsId("btn-yes").click();
             // cy.imsId("btn-ok").click();
             cy.log("Successfully created new special collection");
         });

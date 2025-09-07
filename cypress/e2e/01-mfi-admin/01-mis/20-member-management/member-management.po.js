@@ -38,12 +38,12 @@ class MemberManagementCreation {
       cy.get('.ant-form-item-control-input-content > .ant-radio-group > :nth-child(1) > .ant-radio > .ant-radio-input').click();
       cy.formController("occupation").type(memData.occupation).type("{enter}");
       cy.formController("contactNo").type(memData.memberMobileNo);
-      cy.get("#nz-tabs-13-tab-1").click();
+      cy.get('#nz-tabs-1-tab-1').click();
       cy.formController("nid_number").type(memData.nidNumber);
-      cy.get("#nz-tabs-13-tab-2").click();
+      cy.get("#nz-tabs-1-tab-2").click();
       cy.formController("father_name_en").type(memData.fatherNameEn);
       cy.formController("mother_name_en").type(memData.motherNameEn);
-      cy.get("#nz-tabs-13-tab-3").click();
+      cy.get("#nz-tabs-1-tab-3").click();
       cy.formController("res_division_id")
         .type(memData.division)
         .type("{enter}");
@@ -53,8 +53,8 @@ class MemberManagementCreation {
       cy.formController("res_upazila_id").type(memData.thana).type("{enter}");
       cy.formController("res_address_line_1").type(memData.adressEn);
       cy.imsId("ck-box").click();
-      cy.get("#nz-tabs-13-tab-4").click();
-      cy.get("#nz-tabs-13-tab-5").click();
+      cy.get("#nz-tabs-1-tab-4").click();
+      cy.get("#nz-tabs-1-tab-5").click();
       cy.imsId("btn_photo_image_id").attachFile("employeePhoto1.jpg");
       cy.wait(3000);
       cy.imsId("btn_nid_front_doc_id").attachFile("nidPront1.jpg");
