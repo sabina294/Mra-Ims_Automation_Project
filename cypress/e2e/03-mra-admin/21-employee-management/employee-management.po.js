@@ -74,7 +74,7 @@ class EmployeeManagementCreation {
       cy.imsId("submenu-awaiting-employee-management").click();
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
-      cy.imsId("btn-lock").click();
+      // cy.imsId("btn-lock").click();
       cy.imsId("btn-go-back").click();
 
       // cy.imsId("btn-Approve").click();

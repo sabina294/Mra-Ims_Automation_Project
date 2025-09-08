@@ -34,7 +34,6 @@ describe("21. Employee Management Module Test Cases.", function () {
 
   it("21.03. When the employee management approved by clicking the lock button, the lock button no longer appears.", function () {
     create_employee_management.approveEmployee();
-
   });
 
   // it("21.03. Verify a new employee management is created successfully when all fields are filled with valid data.", function () {
