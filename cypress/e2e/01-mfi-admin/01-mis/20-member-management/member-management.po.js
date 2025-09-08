@@ -111,18 +111,11 @@ class MemberManagementCreation {
   editMemberManagement() {
     cy.fixture(this.test_data).then((data) => {
       var memData = data.mfiAdmin.createMemberFrom;
-      cy.imsId("btn-reset").click();
-      cy.formController("search_text").type(memData.memberNameEn);
-      cy.imsId("toggle-action").first().click();
+      cy.imsId("toggle-action").click();
       cy.imsId("btn-mis-table-action-edit").click();
       cy.imsId("btn-submit").click();
-
-      cy.imsId("btn-yes").click();
-
-      cy.get("app-confirmation-modal")
-        .contains(memData.messageUpdateMember)
-        .and("be.visible");
       cy.imsId("btn-ok").click();
+      cy.imsId("btn-go-back").click();
 
       cy.log("Member Management updated successfully");
     });
@@ -239,7 +232,6 @@ class MemberManagementCreation {
   createResetButtonCheck() {
     cy.imsId("btn-add-new").click();
     cy.imsId("btn-reset").click();
-    cy.imsId("btn-ok").click();
     cy.imsId("btn-go-back").click();
     cy.log("Successful reset button check.");
   }

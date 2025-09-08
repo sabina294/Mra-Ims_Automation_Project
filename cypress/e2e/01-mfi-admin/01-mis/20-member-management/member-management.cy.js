@@ -42,9 +42,9 @@ describe("20. Member Management Module Test Cases", function () {
     create_member_management.viewMemberManagement();
   });
 
-  //   it("20.06. Verify editing functionality for Member Management record by MFI-Admin role", function () {
-  //     create_member_management.editMemberManagement();
-  //   });
+  // it("20.06. Verify editing functionality for Member Management record by MFI-Admin role", function () {
+  //   create_member_management.editMemberManagement();
+  // });
 
   it("20.07. Verify the member management edit reset button functions correctly.", function () {
     create_member_management.editResetButton();
@@ -98,9 +98,9 @@ describe("20. Member Management Module Test Cases", function () {
     create_member_management.createDraftButtonCheck();
   });
 
-  // it("20.20. Verify validation messages appear for required fields when the Draft button is clicked with empty inputs.", function () {
-  //   create_member_management.createResetButtonCheck();
-  // });
+  it("20.20. Verify validation messages appear for required fields when the Draft button is clicked with empty inputs.", function () {
+    create_member_management.createResetButtonCheck();
+  });
 
   it("20.21. Verify validation messages appear for required fields when the Draft button is clicked with empty inputs.", function () {
     create_member_management.createGoBackButtonCheck();
