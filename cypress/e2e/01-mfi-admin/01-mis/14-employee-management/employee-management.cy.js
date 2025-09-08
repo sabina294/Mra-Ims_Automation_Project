@@ -51,9 +51,9 @@ describe("14. Employee Management Module Test Cases", function () {
     create_employee_management.editGoBackButton();
   });
 
-  // it("14.08. Verify that the employee management is updated with valid information.", function () {
-  //   create_employee_management.editEmployeeManagement();
-  // });
+  it("14.08. Verify that the employee management is updated with valid information.", function () {
+    create_employee_management.editEmployeeManagement();
+  });
 
   it("14.09. Verify the user can filter inactive employee records using the status dropdown on the Employee Management List page.", function () {
     create_employee_management.statusInactiveDropdownCheck();

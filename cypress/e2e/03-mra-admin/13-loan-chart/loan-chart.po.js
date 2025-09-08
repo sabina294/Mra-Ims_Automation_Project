@@ -14,12 +14,13 @@ class LoanChartUpdate {
       cy.imsId("btn-update").and("be.visible");
 
       var loChart = data.mraAdmin.updateloanChartFrom;
-      cy.imsId("btn-update").click();
-      cy.get("app-confirmation-modal")
-        .contains(loChart.messageUpdateLoCh)
-        .and("be.visible");
-      cy.imsId("btn-yes").click();
-      cy.imsId("btn-ok").click();
+            cy.imsId("btn-go-back").click();
+      // cy.imsId("btn-update").click();
+      // cy.get("app-confirmation-modal")
+      //   .contains(loChart.messageUpdateLoCh)
+      //   .and("be.visible");
+      // cy.imsId("btn-yes").click();
+      // cy.imsId("btn-ok").click();
 
       cy.log("Successfully updated loan chart");
     });

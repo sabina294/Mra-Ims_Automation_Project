@@ -223,7 +223,7 @@ class EmployeeManagementCreation {
     cy.imsId("btn-go-back").click();
     cy.log("Successful Approve button check.");
   }
-  
+
 
   createGoBackButtonCheck() {
     cy.imsId("btn-add-new").click();
