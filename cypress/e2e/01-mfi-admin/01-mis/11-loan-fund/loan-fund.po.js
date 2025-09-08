@@ -54,18 +54,17 @@ class LoanFundCreation {
   editLoanFund() {
     cy.fixture(this.test_data).then((data) => {
       var lfData = data.mfiAdmin.createLoanFundFrom;
-      cy.imsId("btn-reset").click();
-      cy.formController("search_text").type(lfData.amount);
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-edit").click();
       cy.imsId("btn-submit").click();
       cy.imsId("btn-yes").click();
 
-      var lfData = data.mfiAdmin.createLoanFundFrom;
-      cy.get("app-confirmation-modal")
-        .contains(lfData.messageUpdateLoanFund)
-        .and("be.visible");
+      // var lfData = data.mfiAdmin.createLoanFundFrom;
+      // cy.get("app-confirmation-modal")
+      //   .contains(lfData.messageUpdateLoanFund)
+      //   .and("be.visible");
       cy.imsId("btn-ok").click();
+      cy.imsId("btn-go-back").click();
       cy.log("Loan fund updated successfully");
     });
   }

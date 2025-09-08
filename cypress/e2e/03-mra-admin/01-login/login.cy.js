@@ -4,7 +4,7 @@
 
 import { login_test } from "./login.po";
 
-describe("01. Login MRA Module Test Cases", function () {
+describe("01. Login MRA Admin Role Module Test Cases", function () {
   before(() => {
     cy.window().then((win) => win.sessionStorage.clear());
     cy.clearCookies();
@@ -13,5 +13,6 @@ describe("01. Login MRA Module Test Cases", function () {
 
   it("01.01. Verify login successfully with valid credentials.", function () {
     login_test.mraAdminLogin();
-  });
+  });  
+
 });

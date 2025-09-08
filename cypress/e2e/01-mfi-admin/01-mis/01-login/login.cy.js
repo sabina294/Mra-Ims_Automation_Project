@@ -4,7 +4,7 @@
 
 import { login_test } from "./login.po";
 
-describe("01. Login MFI Module Test Cases", function () {
+describe("01. Login MFI Admin RoleModule Test Cases", function () {
   before(() => {
     cy.window().then((win) => win.sessionStorage.clear());
     cy.clearCookies();

@@ -79,9 +79,9 @@ describe("08. Fee Configuration Module Test Cases ", function () {
     create_fee_configuration.editResetButton();
   });
 
-  //   it("08.15. Verify the fee configuration edit submit button functions correctly.", function () {
-  //     create_fee_configuration.editSubmitButton();
-  //   });
+  it("08.15. Verify the fee configuration edit submit button functions correctly.", function () {
+    create_fee_configuration.editSubmitButton();
+  });
 
   it("08.16. Verify that clicking the go back button on the fee configuration edit page redirects the user to the fee configuration list page.", function () {
     create_fee_configuration.editGoBackButton();

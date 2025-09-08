@@ -43,9 +43,9 @@ describe("11. Loan Fund Module Test Cases", function () {
     create_loan_fund.turnOffEditMode();
   });
 
-  // it("11.06. Verify the loan fund name and description can be edited successfully.", function () {
-  //   create_loan_fund.editLoanFund();
-  // });
+  it("11.06. Verify the loan fund name and description can be edited successfully.", function () {
+    create_loan_fund.editLoanFund();
+  });
 
   it("11.07. Verify the loan fund edit reset button functions correctly.", function () {
     create_loan_fund.editResetButton();

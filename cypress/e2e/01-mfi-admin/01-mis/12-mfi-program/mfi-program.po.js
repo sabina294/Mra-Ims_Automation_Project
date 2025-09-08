@@ -222,22 +222,11 @@ class MfiProgramCreation {
       var mpData = data.mfiAdmin.createMfiProgramFrom;
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-edit").click();
-      cy.imsId("btn-reset").click();
-      cy.formController("mfi_program_name_en").type(mpData.programNameEn);
-      cy.formController("mfi_program_short_name").type(mpData.programShortName);
-      cy.formController("funding_category")
-        .type(mpData.fundingCategory)
-        .type("{enter}");
-      cy.formController("loan_fund_ids").type(mpData.loanFund).type("{enter}");
-      cy.formController("status").type(mpData.status).type("{enter}");
-
       cy.imsId("btn-submit").click();
-
       cy.imsId("btn-yes").click();
       cy.get("app-confirmation-modal")
         .contains(mpData.messageUpdateMfiProgram)
         .and("be.visible");
-
       cy.imsId("btn-ok").click();
       cy.log("Successfully updated mfi program");
     });

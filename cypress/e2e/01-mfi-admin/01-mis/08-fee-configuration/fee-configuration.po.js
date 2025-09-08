@@ -249,6 +249,21 @@ class FeeConfigurationCreation {
     cy.log("Successful clean displaying");
   }
 
+  editSubmitButton() {
+    cy.fixture(this.test_data).then((data) => {
+      var fcData = data.mfiAdmin.createFeeConfigurationFrom;
+      cy.imsId("toggle-action").first().click();
+      cy.imsId("btn-table-action-edit").click();
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-yes").click();
+      cy.get("app-confirmation-modal")
+        .contains(fcData.messageUpdateFeeConfig)
+        .and("be.visible");
+      cy.imsId("btn-ok").click();
+      cy.log("Successfully created fee configuration");
+    });
+  }
+
   editGoBackButton() {
     cy.imsId("toggle-action").first().click();
     cy.imsId("btn-table-action-edit").click();
@@ -264,7 +279,7 @@ class FeeConfigurationCreation {
       cy.log("Fee configuration status inactive dropdown check successfully");
     });
   }
-  
+
   statusActiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       var fcData = data.mfiAdmin.createFeeConfigurationFrom;

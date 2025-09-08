@@ -71,17 +71,17 @@ describe("07. Bank Account Module Test Cases", function () {
     create_bank_account.turnOffEditMode();
   });
 
-  // it("07.13. Verify the bank account name and description can be edited successfully.", function () {
-  //   create_bank_account.editBankAccount();
-  // });
+  it("07.13. Verify the bank account name and description can be edited successfully.", function () {
+    create_bank_account.editBankAccount();
+  });
 
   it("07.14. Verify the bank account edit reset button functions correctly.", function () {
     create_bank_account.editResetButton();
   });
 
-  //   it("07.15. Verify the bank account edit submit button functions correctly.", function () {
-  //     create_bank_account.editSubmitButton();
-  //   });
+  it("07.15. Verify the bank account edit submit button functions correctly.", function () {
+    create_bank_account.editSubmitButton();
+  });
 
   it("07.16. Verify that clicking the go back button on the bank account edit page redirects the user to the bank account list page.", function () {
     create_bank_account.editGoBackButton();

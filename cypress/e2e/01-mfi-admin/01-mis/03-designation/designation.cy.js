@@ -95,23 +95,19 @@ describe("03. Designation Module Test Cases", function () {
     create_designation.gridRefreshButtonCheck();
   });
 
-  // it("03.19. Verify pagination functions as expected on the last page of the designation list.", function () {
-  //   create_designation.paginationCheck();
-  // });
-
-  it("03.20. Verify the designation creation reset button clears all entered input values.", function () {
+  it("03.19. Verify the designation creation reset button clears all entered input values.", function () {
     create_designation.createResetButtonCheck();
   });
 
-  it("03.21. Verify validation messages appear for required fields when the submit button is clicked with empty inputs.", function () {
+  it("03.20. Verify validation messages appear for required fields when the submit button is clicked with empty inputs.", function () {
     create_designation.createValidationMessageCheck();
   });
 
-  it("03.22. Verify that clicking the go back button on the designation create page redirects the user to the designation list page.", function () {
+  it("03.21. Verify that clicking the go back button on the designation create page redirects the user to the designation list page.", function () {
     create_designation.createGoBackButtonCheck();
   });
 
-  it("03.23. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("03.22. Verify check that the grid list content changes correctly from english to bangla.", function () {
     create_designation.gridLanguageSwitchCheck();
   });
 });

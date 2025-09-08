@@ -4,7 +4,7 @@
 
 import { login_test } from "./login.po";
 
-describe("01. Login Field Officer Module Test Cases", function () {
+describe("01. Login Field Officer Role Module Test Cases", function () {
   before(() => {
     cy.window().then((win) => win.sessionStorage.clear());
     cy.clearCookies();
