@@ -20,10 +20,10 @@ Cypress.Commands.add("loginAsMfiAdmin", (baseURL, data) => {
     baseURL,
     data.credential.mfiAdminUserId,
     data.credential.mfiAdminPassword
-  );
+  ); 
   cy.changeLanguage("english");
 });
-
+ 
 Cypress.Commands.add(
   "formArrayController",
   (form_array_name, index, form_control_name) => {
