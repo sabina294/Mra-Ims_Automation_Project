@@ -35,13 +35,13 @@ describe("18. Samity Day Change Module Test Cases", function () {
     samity_day_change.viewSamityDayChange();
   });
 
-  //   it("18.04. Verify new day change with valid information by MFI-Admin role", function () {
-  //     samity_day_change.samityDayChange();
-  //   });
+  it("18.04. Verify new day change with valid information by MFI-Admin role", function () {
+    samity_day_change.samityDayChange();
+  });
 
-  //   it("18.05. Verify mfi-admin to successfully approve an samity day change record after creation.", function () {
-  //     create_samity_management.approveSamityDayChange();
-  //   });
+  it("18.05. Verify mfi-admin to successfully approve an samity day change record after creation.", function () {
+    samity_day_change.approveSamityDayChange();
+  });
 
   it("18.06. Verify the user can filter inactive employee records using the status dropdown on the samity day change List page.", function () {
     samity_day_change.statusInactiveDropdownCheck();

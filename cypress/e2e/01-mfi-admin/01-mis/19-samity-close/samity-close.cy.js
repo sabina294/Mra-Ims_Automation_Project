@@ -35,13 +35,13 @@ describe("19. Samity Close Module Test Cases", function () {
     Samity_close.viewSamityClose();
   });
 
-  //   it("19.04. Verify samity close with valid information by MFI-Admin role", function () {
-  //     Samity_close.samityClose();
-  //   });
+  it("19.04. Verify samity close with valid information by MFI-Admin role", function () {
+    Samity_close.samityClose();
+  });
 
-  //   it("19.05. Verify mfi-admin to successfully approve an samity close record after creation.", function () {
-  //     create_samity_management.approveSamityClose();
-  //   });
+  it("19.05. Verify mfi-admin to successfully approve an samity close record after creation.", function () {
+    Samity_close.approveSamityClose();
+  });
 
   it("19.06. Verify the user can filter inactive employee records using the status dropdown on the samity close List page.", function () {
     Samity_close.statusInactiveDropdownCheck();

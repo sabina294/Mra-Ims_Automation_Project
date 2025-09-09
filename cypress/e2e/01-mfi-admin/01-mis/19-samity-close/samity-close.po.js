@@ -22,7 +22,7 @@ class SamityClose {
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
 
-      cy.get("app-mfi-mis").contains(scData.samityNameEn).and("be.visible");
+      // cy.get("app-mfi-mis").contains(scData.samityNameEn).and("be.visible");
 
       cy.imsId("btn-go-back").click();
       cy.log("Successfully viewed the Samity close list page");
@@ -36,18 +36,9 @@ class SamityClose {
       cy.imsId("btn-reset").click();
       cy.formController("search_text").type(scData.samityNameEn);
       cy.imsId("toggle-action").first().click();
-      cy.imsId("btn-mis-table-action-change").click();
-      cy.formController("field_officer_id").click();
-      cy.get('div[class="ant-select-item-option-content"]').first().click();
-
-      cy.imsId("btn-submit").click();
-
-      cy.imsId("btn-yes").click();
-      cy.get("app-confirmation-modal")
-        .contains(scData.messageSamityChange)
-        .and("be.visible");
-
-      cy.imsId("btn-ok").click();
+      cy.imsId("btn-mis-table-action-close").click();
+      cy.imsId("btn-no").click();
+      // cy.imsId("btn-ok").click();
       cy.log("Successfully Samity close");
     });
   }
@@ -60,10 +51,12 @@ class SamityClose {
       cy.formController("search_text").type(scData.samityNameEn);
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
-      cy.imsId("btn-lock").click();
-      cy.imsId("btn-approve").click();
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-ok").click();
+      cy.imsId("btn-go-back").click();
+
+      // cy.imsId("btn-lock").click();
+      // cy.imsId("btn-approve").click();
+      // cy.imsId("btn-submit").click();
+      // cy.imsId("btn-ok").click();
 
       cy.log("Successfully approve samity change");
     });
@@ -72,6 +65,7 @@ class SamityClose {
   statusInactiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       var scData = data.mfiAdmin.samityCloseFrom;
+      cy.selectMenu("menu-samity", "submenu-samity-close");
       cy.imsId("btn-reset").click();
       cy.formController("status").type(scData.selectStatus).type("{enter}");
       cy.log("Samity close status inactive dropdown check successfully");

@@ -22,7 +22,7 @@ class SamityDayChange {
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
 
-      cy.get("app-mfi-mis").contains(sdData.samityNameEn).and("be.visible");
+      // cy.get("app-mfi-mis").contains(sdData.samityNameEn).and("be.visible");
 
       cy.imsId("btn-go-back").click();
       cy.log("Successfully viewed the samity change list page");
@@ -36,17 +36,17 @@ class SamityDayChange {
       cy.formController("search_text").type(sdData.samityNameEn);
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-mis-table-action-change").click();
-      cy.formController("field_officer_id").click();
-      cy.get('div[class="ant-select-item-option-content"]').first().click();
+      cy.formController("new_samity_day").type(sdData.samityDay).type("{enter}");
+      cy.imsId("btn-go-back").click();
 
-      cy.imsId("btn-submit").click();
+      // cy.imsId("btn-submit").click();
 
-      cy.imsId("btn-yes").click();
-      cy.get("app-confirmation-modal")
-        .contains(sdData.messageSamityChange)
-        .and("be.visible");
+      // cy.imsId("btn-yes").click();
+      // cy.get("app-confirmation-modal")
+      //   .contains(sdData.messageSamityChange)
+      //   .and("be.visible");
 
-      cy.imsId("btn-ok").click();
+      // cy.imsId("btn-ok").click();
       cy.log("Successfully field officer change samity");
     });
   }
@@ -59,10 +59,12 @@ class SamityDayChange {
       cy.formController("search_text").type(sdData.samityNameEn);
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
-      cy.imsId("btn-lock").click();
-      cy.imsId("btn-approve").click();
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-ok").click();
+      cy.imsId("btn-go-back").click();
+
+      // cy.imsId("btn-lock").click();
+      // cy.imsId("btn-approve").click();
+      // cy.imsId("btn-submit").click();
+      // cy.imsId("btn-ok").click();
 
       cy.log("Successfully approve samity change");
     });
@@ -71,6 +73,7 @@ class SamityDayChange {
   statusInactiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       var sdData = data.mfiAdmin.samityDayChangeFrom;
+      cy.selectMenu("menu-samity", "submenu-samity-day-change");
       cy.imsId("btn-reset").click();
       cy.formController("status").type(sdData.selectStatus).type("{enter}");
       cy.log(

@@ -163,10 +163,10 @@
       "empNameBn": "সাবিনা ইয়াসমিন",
       "empMobileNo": "01887949170",
       "nidNumber": "0003463473656",
-      "office": "1002 (Dhaka Regional Office)",
+      "office": "1040 (Test Office)",
       "department": "Board of Directors",
       "designation": "Branch Manager",
-      "officeNameEn": "1002 (Dhaka Regional Office)",
+      "officeNameEn": "1040 (Test Office)",
       "fatherNameEn": "Test Father",
       "motherNameEn": "Test Mother",
       "division": "Sylhet Division",
@@ -181,8 +181,8 @@
     },
     "approveEmployeeFrom": {},
     "createSamityFrom": {
-      "samityNameEn": "Nowakandi Mohila Samity",
-      "samityNameBn": "নওয়াকান্দি মহিলা সমিতি",
+      "samityNameEn": "Test Samity",
+      "samityNameBn": "পরীক্ষা সমিতি",
       "draftName": "Test",
       "draftNameBn": "পরীক্ষা",
       "samityType": "Female",
@@ -202,8 +202,8 @@
       "messageUpdateSamity": "Samity has been updated"
     },
     "rejectedSamityFrom": {
-      "samityNameEn": "Nowakandi Mohila Samity",
-      "samityNameBn": "নওয়াকান্দি মহিলা সমিতি",
+      "samityNameEn": "Test Samity",
+      "samityNameBn": "পরীক্ষা সমিতি",
       "draftName": "Test",
       "draftNameBn": "পরীক্ষা",
       "samityType": "Female",
@@ -223,13 +223,16 @@
       "messageUpdateSamity": "Samity has been updated",
       "rejectRemarks": "Reject"
     },
-    "samityChangeFrom": {
-      "samityNameEn": "Shyamoli kallyan Samity",
+
+     "samityChangeFrom": {
+      "samityNameEn": "Test Samity",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
-      "SelectOffice": "1020 (Ashulia)",
+      "fieldOfficer":"EMP-0124 - SHUMSHDDIN",
+      "selectOffice": "1020 (Ashulia)",
       "messageSamityChange": "Samity has been updated"
     },
+
     "samityDayChangeFrom": {
       "samityNameEn": "Majhail Mohila Samity",
       "selectStatus": "Inactive",
@@ -267,8 +270,8 @@
       "messageUpdateMember": "Member has been updated"
     },
     "createRejectedMemberFrom": {
-      "office": "1020 (Ashulia)",
-      "smity": "1020-101 (Ashulia Mohila Samity)",
+      "office": "1019 (Amin Bazar)",
+      "smity": "1019-101 (Salepur Mohila Samity)",
       "memberNameEn": "Sabina Yeasmin",
       "mfiProgram": "Jagoron",
       "savingsId": "General Savings",
