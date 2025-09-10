@@ -20,10 +20,28 @@ Cypress.Commands.add("loginAsMfiAdmin", (baseURL, data) => {
     baseURL,
     data.credential.mfiAdminUserId,
     data.credential.mfiAdminPassword
-  ); 
+  );
   cy.changeLanguage("english");
 });
- 
+
+Cypress.Commands.add("loginAsBranchManager", (baseURL, data) => {
+  cy.login(
+    baseURL,
+    data.credential.branchManagerUserId,
+    data.credential.branchManagerPassword
+  );
+  cy.changeLanguage("english");
+});
+
+Cypress.Commands.add("loginAsFieldOfficer", (baseURL, data) => {
+  cy.login(
+    baseURL,
+    data.credential.fieldOfficerUserId,
+    data.credential.fieldOfficerPassword
+  );
+  cy.changeLanguage("english");
+});
+
 Cypress.Commands.add(
   "formArrayController",
   (form_array_name, index, form_control_name) => {
