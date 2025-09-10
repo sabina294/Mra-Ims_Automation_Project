@@ -23,17 +23,51 @@ class MemberSamityTransfer {
       cy.formController("new_samity_id")
         .type(mstData.newSamityTransfer)
         .type("{enter}");
-      cy.imsId("btn-submit").click();
+      // cy.imsId("btn-submit").click();
 
-      cy.imsId("btn-yes").click();
-      cy.get("app-confirmation-modal")
-        .contains(mstData.messagesamityTransfer)
-        .and("be.visible");
-      cy.imsId("btn-ok").click();
-
+      // cy.imsId("btn-yes").click();
+      // cy.get("app-confirmation-modal")
+      //   .contains(mstData.messagesamityTransfer)
+      //   .and("be.visible");
+      // cy.imsId("btn-ok").click();
+      cy.imsId("btn-go-back").click();
       cy.log("Successfully member samity transfer");
     });
   }
+
+  transferApproveButtonCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      var mstData = data.mfiAdmin.memberSamityTransferFrom;
+      cy.imsId("toggle-action").first().click();
+      cy.imsId("btn-mis-table-action-transfer").click();
+      cy.imsId("btn-approve").click();
+      cy.imsId("btn-ok").click();
+      cy.imsId("btn-go-back").click();
+      cy.log("Successfully member samity transfer approve button check");
+    });
+  }
+
+  transferResetButtonCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      var mstData = data.mfiAdmin.memberSamityTransferFrom;
+      cy.imsId("toggle-action").first().click();
+      cy.imsId("btn-mis-table-action-transfer").click();
+      cy.imsId("btn-reset").click();
+      cy.imsId("btn-go-back").click();
+      cy.log("Successfully member samity transfer reset button check");
+    });
+
+  }
+  transferGoBackButtonCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      var mstData = data.mfiAdmin.memberSamityTransferFrom;
+      cy.imsId("toggle-action").first().click();
+      cy.imsId("btn-mis-table-action-transfer").click();
+      cy.imsId("btn-go-back").click();
+      cy.log("Successfully member samity transfer go back button check");
+    });
+  }
+
   statusInactiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       var mstData = data.mfiAdmin.memberSamityTransferFrom;

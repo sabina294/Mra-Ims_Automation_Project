@@ -27,31 +27,34 @@ describe("24. Loan Product Management Module Test Cases", function () {
     create_loan_product_management.gridLoanProductManagementListPage();
   });
 
-//   it("24.02. Verify a new loan product management record is created successfully when all required fields are filled with valid data.", function () {
-//     create_loan_product_management.createLoanProductManagement();
-//   });
+  it("24.02. Verify a new loan product management record is created successfully when all required fields are filled with valid data.", function () {
+    create_loan_product_management.createLoanProductManagement();
+  });
 
-  it("24.04. Verify successfully performs the action when the action button is clicked.", function () {
+  it("24.03. Verify successfully performs the action when the action button is clicked.", function () {
     create_loan_product_management.actionButtonCheck();
   });
 
-  // it("24.05. Verify the user can successfully view the loan product management information, including the name and description.", function () {
-  //   create_loan_product_management.viewLoanProductManagement();
-  // });
+  it("24.04. Verify the user can successfully view the loan product management information, including the name and description.", function () {
+    create_loan_product_management.viewLoanProductManagement();
+  });
 
-//   it("24.06. Verify theloan product management edit reset button functions correctly.", function () {
-//     create_loan_product_management.editResetButton();
-//   });
+  it("24.05. Verify theloan product management edit reset button functions correctly.", function () {
+    create_loan_product_management.editResetButton();
+  });
 
-//   it("24.07. Verify that clicking the go back button on the loan product management edit page redirects the user to theloan product management list page.", function () {
-//     create_loan_product_management.editGoBackButton();
-//   });
+  it("24.06. Verify that clicking the go back button on the loan product management edit page redirects the user to theloan product management list page.", function () {
+    create_loan_product_management.editGoBackButton();
+  });
 
-//   it("24.08. Verify editing functionality for loan product management record by MFI-Admin role", function () {
-//     create_loan_product_management.editLoanProductManagement();
-//   });
+  it("24.07. Verify that clicking the submit button on the loan product management edit page redirects the user to theloan product management list page.", function () {
+    create_loan_product_management.editSubmitButton();
+  });
 
-  
+  it("24.08. Verify editing functionality for loan product management record by MFI-Admin role", function () {
+    create_loan_product_management.editLoanProductManagement();
+  });
+
   it("24.09. Verify the user can filter inactive employee records using the status dropdown on the loan product management List page.", function () {
     create_loan_product_management.statusInactiveDropdownCheck();
   });
@@ -72,12 +75,12 @@ describe("24. Loan Product Management Module Test Cases", function () {
     create_loan_product_management.gridRefreshButtonCheck();
   });
 
-  it("24.16. Verify check that the loan product management  office selection works correctly from the dropdown on the loan product list page.", function () {
+  it("24.14. Verify check that the loan product management  office selection works correctly from the dropdown on the loan product list page.", function () {
     create_loan_product_management.selectofficeDropdown();
   });
-  
-  it("24.17. Verify check that the grid list content changes correctly from english to bangla.", function () {
-      create_loan_product_management.gridLanguageSwitchCheck();
-    });
+
+  it("24.15. Verify check that the grid list content changes correctly from english to bangla.", function () {
+    create_loan_product_management.gridLanguageSwitchCheck();
+  });
 
 });

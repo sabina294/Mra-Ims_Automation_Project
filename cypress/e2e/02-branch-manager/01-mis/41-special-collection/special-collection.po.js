@@ -18,11 +18,11 @@ class specialCollection {
             cy.contains(scData.selectMember).click()
             cy.formController("accountId").click();
             cy.contains(scData.selectAccount).click();
-            cy.imsId("btn-go-back").click();
+            // cy.imsId("btn-go-back").click();
 
-            // cy.imsId("btn-save").click();
-            // cy.imsId("btn-yes").click();
-            // cy.imsId("btn-ok").click();
+            cy.imsId("btn-save").click();
+            cy.imsId("btn-yes").click();
+            cy.imsId("btn-ok").click();
             cy.log("Successfully created new special collection");
         });
     }

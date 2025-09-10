@@ -223,16 +223,14 @@
       "messageUpdateSamity": "Samity has been updated",
       "rejectRemarks": "Reject"
     },
-
-     "samityChangeFrom": {
+    "samityChangeFrom": {
       "samityNameEn": "Test Samity",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
-      "fieldOfficer":"EMP-0124 - SHUMSHDDIN",
+      "fieldOfficer": "EMP-0124 - SHUMSHDDIN",
       "selectOffice": "1020 (Ashulia)",
       "messageSamityChange": "Samity has been updated"
     },
-
     "samityDayChangeFrom": {
       "samityNameEn": "Test Samity",
       "selectStatus": "Inactive",
@@ -271,8 +269,8 @@
       "messageUpdateMember": "Member has been updated"
     },
     "createRejectedMemberFrom": {
-      "office": "1019 (Amin Bazar)",
-      "smity": "1019-101 (Salepur Mohila Samity)",
+      "office": "1020 (Ashulia)",
+      "smity": "1020-101 (Ashulia Mohila Samity)",
       "memberNameEn": "Sabina Yeasmin",
       "mfiProgram": "Jagoron",
       "savingsId": "General Savings",
@@ -307,7 +305,7 @@
       "account": "AGRO-1019-101-1002-1"
     },
     "loanProductFrom": {
-      "office": "1002 (Dhaka Regional Office)",
+      "office": "1020 (Ashulia)",
       "mfiProgram": "Jagoron",
       "loanProductNameEn": "Test Loan Product",
       "loanProductNameBn": "পরীক্ষার ঋণ পণ্য",
@@ -323,7 +321,8 @@
       "serviceCharge": "15",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
-      "SelectOffice": "1019 (Amin Bazar)",
+      "SelectOffice": "1020 (Ashulia)",
+      "search": "Cooperative Farming Credit",
       "messageSaveLoanProduct": "Loan product has been saved",
       "messageUpdateLoanProduct": "Do you want to update this loan product?"
     },
