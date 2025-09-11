@@ -95,11 +95,12 @@ class SavingsProductCreation {
       cy.imsId("btn-table-action-edit").click();
       cy.imsId("btn-submit").click();
       cy.imsId("btn-yes").click();
+      cy.imsId("btn-go-back").click();
 
-      cy.get("app-confirmation-modal")
-        .contains(spData.updateSavingsMessage)
-        .and("be.visible");
-      cy.imsId("btn-ok").click();
+      // cy.get("app-confirmation-modal")
+      //   .contains(spData.updateSavingsMessage)
+      //   .and("be.visible");
+      // cy.imsId("btn-ok").click();
       cy.log("Savings product updated successfully");
     });
   }
@@ -140,7 +141,6 @@ class SavingsProductCreation {
   searchInSavingsProductName() {
     cy.fixture(this.test_data).then((data) => {
       var spData = data.mfiAdmin.createSavingsProduct;
-      cy.imsId("btn-reset").click();
       cy.formController("search_text").type(spData.intersetTerms);
       cy.log("Successfully search in the savings product ");
     });

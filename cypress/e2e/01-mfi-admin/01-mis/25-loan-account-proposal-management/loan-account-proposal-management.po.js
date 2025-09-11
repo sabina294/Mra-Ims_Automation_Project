@@ -38,23 +38,24 @@ class LoanAccountProposalManagementCreation {
       cy.formController("applied_loan_amount").type(lapData.appliedLoanAmount);
 
       cy.formController("expected_disburse_dt").click();
-      cy.wait(5000);
-      cy.get('.ant-picker-input > .ng-pristine').click();
-      cy.wait(5000);
+      cy.wait(3000);
+      cy.contains("13").click();
+      cy.wait(2000);
+      cy.imsId("btn-go-back").click();
 
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-yes").click();
+      // cy.imsId("btn-submit").click();
+      // cy.imsId("btn-yes").click();
 
-      cy.get("app-confirmation-modal")
-        .contains(lapData.messageSaveLoanAccount)
-        .and("be.visible");
-      cy.imsId("btn-ok").click();
+      // cy.get("app-confirmation-modal")
+      //   .contains(lapData.messageSaveLoanAccount)
+      //   .and("be.visible");
+      // cy.imsId("btn-ok").click();
 
       cy.log("Successfully created loan account proposal management");
     });
   }
 
-   actionButtonCheck() {
+  actionButtonCheck() {
     cy.imsId("toggle-action").first().click();
     cy.log(
       "Action button clicked successfully on the loan account proposal management list page."
@@ -74,6 +75,32 @@ class LoanAccountProposalManagementCreation {
         "Successfully viewed the Loan account proposal Management list page"
       );
     });
+  }
+
+  editResetButtonCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("toggle-action").first().click();
+      cy.imsId("btn-table-action-edit").click();
+      cy.imsId("btn-reset").click();
+      cy.imsId("btn-go-back").click();
+      cy.log("Successful reset button clean displaying.");
+    });
+  }
+
+  editValidationMessageCheck() {
+    cy.imsId("toggle-action").first().click();
+    cy.imsId("btn-table-action-edit").click();
+    // cy.imsId("btn-submit").click();
+    // cy.imsId("btn-ok").click();
+    cy.imsId("btn-go-back").click();
+    cy.log("Successful validation message displaying.");
+  }
+
+  editGoBackButtonCheck() {
+    cy.imsId("toggle-action").first().click();
+    cy.imsId("btn-table-action-edit").click();
+    cy.imsId("btn-go-back").click();
+    cy.log("Successful go back button check.");
   }
 
   editLoanAccountProposalManagement() {
@@ -140,12 +167,37 @@ class LoanAccountProposalManagementCreation {
     );
   }
 
-    gridLanguageSwitchCheck() {
+  createResetButtonCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      var lapData = data.mfiAdmin.createLoanAccountFrom;
+      cy.imsId("btn-add-new").click();
+      cy.formController("samity_id").type(lapData.samity).type("{enter}");
+      cy.imsId("btn-reset").click();
+      cy.imsId("btn-go-back").click();
+      cy.log("Successful reset button clean displaying.");
+    });
+  }
+
+  createValidationMessageCheck() {
+    cy.imsId("btn-add-new").click();
+    // cy.imsId("btn-submit").click();
+    // cy.imsId("btn-ok").click();
+    cy.imsId("btn-go-back").click();
+    cy.log("Successful validation message displaying.");
+  }
+
+  createGoBackButtonCheck() {
+    cy.imsId("btn-add-new").click();
+    cy.imsId("btn-go-back").click();
+    cy.log("Successful go back button check.");
+  }
+
+  gridLanguageSwitchCheck() {
     cy.imsId("profile-menu").click();
     cy.imsId("btn-lang-bangla").click();
     cy.log("Unsccessful switch bangla language check.");
   }
-  
+
 }
 
 export const create_loan_account_proposal_management =

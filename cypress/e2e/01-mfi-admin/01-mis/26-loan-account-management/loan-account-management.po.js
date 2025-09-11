@@ -21,7 +21,6 @@ class LoanAccountManagement {
       cy.formController("search_text").type(laData.samity);
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
-
       cy.imsId("btn-go-back").click();
       cy.log("Successfully viewed the Loan account Management list page");
     });

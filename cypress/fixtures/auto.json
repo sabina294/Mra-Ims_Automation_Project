@@ -232,18 +232,17 @@
       "messageSamityChange": "Samity has been updated"
     },
     "samityDayChangeFrom": {
-      "samityNameEn": "Test Samity",
+      "samityNameEn": "Majhail Mohila Samity",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
-      "samityDay": "Monday",
       "SelectOffice": "1020 (Ashulia)",
       "messageSamityDayChange": "Samity day has been updated"
     },
     "samityCloseFrom": {
-      "samityNameEn": "Test Samity",
+      "samityNameEn": "Ghoshgati Mohila Samity",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
-      "SelectOffice": "1020 (Ashulia)",
+      "SelectOffice": "1019 (Amin Bazar)",
       "messageSamityClose": "Samity has been closed successfully."
     },
     "createMemberFrom": {
@@ -335,7 +334,7 @@
       "economicSector": "Industry",
       "economicActivity": "Term Loan ( Other than Working Capital Financing)",
       "economicPurpose": "Service Industries",
-      "loanProduct": "Jagoran",
+      "loanProduct": "Rural Micro Credit Monthly",
       "appliedLoanAmount": "50000",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
@@ -345,10 +344,15 @@
     },
     "loanAccountManagementFrom": {
       "samity": "Chhaya Mohila Samity",
+      "SelectOffice": "1020 (Ashulia)",
+      "messageLoanAccountManagement": "Loan account has been updated"
+    },
+    "loanDisbursementFrom": {
+      "samity": "Dipti Mohila Samity",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
       "SelectOffice": "1020 (Ashulia)",
-      "messageLoanAccountManagement": "Loan account has been updated"
+      "messageLoanDisbursement": "Loan Disbursement has been updated"
     },
     "createClientWelfareFrom": {
       "selectOffice": "1020 (Ashulia)",
@@ -358,7 +362,7 @@
       "inputAmount": "5000",
       "search": "Fariya",
       "approveMessage": "Welfare Fund Authorization for Loan Account Is Successful",
-      "messageSaveLoanWelfareFund": "Are you sure want to collect welfare fund for this loan account?",
+      "messageSaveLoanWelfareFund": "Welfare Fund Collection for this Loan Account is successful",
       "messageUpdateLoanWelfareFund": "Do you want to update this loan welfare fund?"
     },
     "createSavingsProduct": {

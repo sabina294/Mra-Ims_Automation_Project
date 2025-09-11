@@ -10,6 +10,7 @@ class ClientWelfareFund {
   createClientWelfareFund() {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId("btn-add-new").click();
+
       // cy.imsId('btn-submit').and('be.visible');
 
       var wfData = data.mfiAdmin.createClientWelfareFrom;
@@ -19,17 +20,17 @@ class ClientWelfareFund {
       cy.formController("loan_account_id")
         .type(wfData.selectLoanAccount)
         .type("{enter}");
-        cy.wait(2000);
+      cy.wait(2000);
       cy.formController("amount").type(wfData.inputAmount);
+      // cy.imsId('btn-go-back').click();
 
       cy.imsId("btn-submit").click();
+      cy.imsId("btn-yes").click();
 
       cy.get("app-confirmation-modal")
         .contains(wfData.messageSaveLoanWelfareFund)
         .and("be.visible");
-      cy.imsId("btn-yes").click();
-
-      // cy.imsId('btn-ok').click();
+      cy.imsId('btn-ok').click();
 
       cy.log("Successfully created client welfare fund");
     });
@@ -40,7 +41,7 @@ class ClientWelfareFund {
       var wfData = data.mfiAdmin.createClientWelfareFrom;
       cy.imsId("menu-my-task").click();
       cy.imsId("submenu-awaiting-client-welfare-fund").click();
-      cy.formController("search_text").type(wfData.selectMember);
+      cy.formController("search_text").type(wfData.search);
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
       cy.imsId("btn-authorize").click();
@@ -55,6 +56,7 @@ class ClientWelfareFund {
   }
 
   actionButtonCheck() {
+    cy.selectMenu("menu-loan-account", "submenu-client-welfare-fund");
     cy.imsId("toggle-action").first().click();
     cy.log("Action button clicked successfully on the loan welfare list page.");
   }
@@ -62,6 +64,7 @@ class ClientWelfareFund {
   viewClientWelfareFund() {
     cy.fixture(this.test_data).then((data) => {
       var wfData = data.mfiAdmin.createClientWelfareFrom;
+      cy.imsId("btn-reset").click();
       cy.formController("search_text").type(wfData.search);
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
