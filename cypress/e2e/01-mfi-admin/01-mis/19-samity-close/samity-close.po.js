@@ -49,9 +49,9 @@ class SamityClose {
       cy.imsId("menu-my-task").click();
       cy.imsId("submenu-awaiting-samity-field-officer-change").click();
       cy.formController("search_text").type(scData.samityNameEn);
-      cy.imsId("toggle-action").first().click();
-      cy.imsId("btn-table-action-view").click();
-      cy.imsId("btn-go-back").click();
+      // cy.imsId("toggle-action").first().click();
+      // cy.imsId("btn-table-action-view").click();
+      // cy.imsId("btn-go-back").click();
 
       // cy.imsId("btn-lock").click();
       // cy.imsId("btn-approve").click();

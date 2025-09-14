@@ -236,6 +236,7 @@
       "selectStatus": "Inactive",
       "statusSelect": "Active",
       "SelectOffice": "1020 (Ashulia)",
+      "newSamityDay": "Monday",
       "messageSamityDayChange": "Samity day has been updated"
     },
     "samityCloseFrom": {
@@ -364,6 +365,33 @@
       "approveMessage": "Welfare Fund Authorization for Loan Account Is Successful",
       "messageSaveLoanWelfareFund": "Welfare Fund Collection for this Loan Account is successful",
       "messageUpdateLoanWelfareFund": "Do you want to update this loan welfare fund?"
+    },
+    "createLoanPenaltyFrom": {
+      "selectOffice": "1020 (Ashulia)",
+      "selectSamity": "1020-101 (Ashulia Mohila Samity)",
+      "selectMember": "1-1001 (Fariya)",
+      "selectLoanAccount": "AGRO-1020-101-1001-1",
+      "inputAmount": "5000",
+      "search": "Fariya",
+      "selectStatus": "Inactive",
+      "statusSelect": "Active",
+      "approveMessage": "Loan Penalty Authorization for Loan Account Is Successful",
+      "messageSaveLoanPenalty": "Loan Penalty Collection for this Loan Account is successful",
+      "messageUpdateLoanPenalty": "Do you want to update this loan penalty?"
+    },
+    "createLoanRebateFrom": {
+      "selectOffice": "1020 (Ashulia)",
+      "selectSamity": "1020-101 (Ashulia Mohila Samity)",
+      "selectMember": "1-1001 (Fariya)",
+      "selectLoanAccount": "AGRO-1020-101-1001-1",
+      "inputAmount": "5000",
+      "search": "Fariya",
+      "selectStatus": "Inactive",
+      "statusSelect": "Active",
+      "office": "1020 (Ashulia)",
+      "approveMessage": "Loan Rebate Authorization for Loan Account Is Successful",
+      "messageSaveLoanRebate": "Loan Rebate Collection for this Loan Account is successful",
+      "messageUpdateLoanRebate": "Do you want to update this loan rebate?"
     },
     "createSavingsProduct": {
       "office": "1020 (Ashulia)",
