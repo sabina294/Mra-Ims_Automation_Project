@@ -43,19 +43,23 @@ describe("34. Savings Account Management Module Test Cases", function () {
     create_savings_account_management.statusActiveDropdownCheck();
   });
 
-  it("34.06. Verify that the search results are displayed correctly when searching by savings account application management name.", function () {
+  it('34.06. Verify the functionality and expected behavior of the "Successful Office Status" dropdown.', function () {
+    create_savings_account_management.statusOfficeDropdownCheck();
+  });
+
+  it("34.07. Verify that the search results are displayed correctly when searching by savings account application management name.", function () {
     create_savings_account_management.searchSavingsAccManag();
   });
 
-  it("34.07. Verify the grid list resets successfully when the reset button is clicked on the savings account application management page.", function () {
+  it("34.08. Verify the grid list resets successfully when the reset button is clicked on the savings account application management page.", function () {
     create_savings_account_management.gridResetButtonCheck();
   });
 
-  it("34.08. Verify that the grid list is refreshed successfully when the refresh button is clicked on the savings account application management page.", function () {
+  it("34.09. Verify that the grid list is refreshed successfully when the refresh button is clicked on the savings account application management page.", function () {
     create_savings_account_management.gridRefreshButtonCheck();
   });
 
-  it("34.09. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("34.10. Verify check that the grid list content changes correctly from english to bangla.", function () {
     create_savings_account_management.gridLanguageSwitchCheck();
   });
 });

@@ -47,7 +47,17 @@ class SavingsAccountManagementCreation {
       var samData = data.mfiAdmin.createSavingsAccountManagement;
       cy.formController("status").type(samData.statusSelect).type("{enter}");
       cy.log(
-        "Savings account  management form status active dropdown check successfully"
+        "Savings account management form status active dropdown check successfully"
+      );
+    });
+  }
+
+  statusOfficeDropdownCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      var samData = data.mfiAdmin.createSavingsAccountManagement;
+      cy.formController("office_id").type(samData.selectOffice).type("{enter}");
+      cy.log(
+        "Savings account management status office dropdown check successfully"
       );
     });
   }

@@ -424,7 +424,8 @@
     "createSavingsAccountManagement": {
       "search": "Samia",
       "selectStatus": "Inactive",
-      "statusSelect": "Active"
+      "statusSelect": "Active",
+      "selectOffice": "1020 (Ashulia)"
     },
     "createCalendarYear": {
       "holidayTitleBn": "পরীক্ষার ছুটি",
@@ -432,6 +433,7 @@
       "search": "Approved",
       "dayOfMonth": "5",
       "monthOfYear": "3",
+      "selectOffice": "1020 (Ashulia)",
       "messageSaveCalendar": "Mfi calendar year has been saved"
     },
     "createHoliday": {
@@ -676,6 +678,7 @@
       "samityNameEn": "Majhail Mohila Samity",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
+      "newSamityDay": "Monday",
       "messageSamityDayChange": "Samity day has been updated"
     },
     "samityCloseFrom": {

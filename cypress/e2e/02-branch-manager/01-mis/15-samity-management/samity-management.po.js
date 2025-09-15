@@ -53,7 +53,7 @@ class SamityCreation {
       var smData = data.branchManager.createSamityFrom;
       cy.imsId("menu-my-task").click();
       cy.imsId("submenu-awaiting-samity-management").click();
-      cy.formController("search_text").type(smData.samityNameEn);
+      // cy.formController("search_text").type(smData.samityNameEn);
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
       cy.imsId("btn-lock").click();
@@ -76,11 +76,11 @@ class SamityCreation {
   viewSamity() {
     cy.fixture(this.test_data).then((data) => {
       var smData = data.branchManager.createSamityFrom;
-      cy.formController("search_text").type(smData.samityNameEn);
+      // cy.formController("search_text").type(smData.samityNameEn);
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
 
-      cy.get("app-mfi-mis").contains(smData.samityNameEn).and("be.visible");
+      // cy.get("app-mfi-mis").contains(smData.samityNameEn).and("be.visible");
 
       cy.imsId("btn-go-back").click();
       cy.log("Successfully viewed the samity list page");

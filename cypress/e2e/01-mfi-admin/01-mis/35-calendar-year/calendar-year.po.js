@@ -97,6 +97,16 @@ class CalendarYearCreation {
     cy.log("Draft button should be clickable and functional.");
   }
 
+  statusOfficeDropdownCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      var cyData = data.mfiAdmin.createCalendarYear;
+      cy.formController("office_id").type(cyData.selectOffice).type("{enter}");
+      cy.log(
+        "Calendar year status office dropdown check successfully"
+      );
+    });
+  }
+
   createResetButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId("btn-add-new").click();

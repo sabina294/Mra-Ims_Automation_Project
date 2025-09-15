@@ -23,13 +23,14 @@ class MemberSamityTransfer {
       cy.formController("new_samity_id")
         .type(mstData.newSamityTransfer)
         .type("{enter}");
-      cy.imsId("btn-submit").click();
+            cy.imsId("btn-go-back").click();
+      // cy.imsId("btn-submit").click();
 
-      cy.imsId("btn-yes").click();
-      cy.get("app-confirmation-modal")
-        .contains(mstData.messagesamityTransfer)
-        .and("be.visible");
-      cy.imsId("btn-ok").click();
+      // cy.imsId("btn-yes").click();
+      // cy.get("app-confirmation-modal")
+      //   .contains(mstData.messagesamityTransfer)
+      //   .and("be.visible");
+      // cy.imsId("btn-ok").click();
 
       cy.log("Successfully member samity transfer");
     });

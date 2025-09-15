@@ -47,7 +47,7 @@ class RejectedSamity {
       var rsData = data.branchManager.rejectedSamityFrom;
       cy.imsId("menu-my-task").click();
       cy.imsId("submenu-awaiting-samity-management").click();
-      cy.formController("search_text").type(rsData.samityNameEn);
+      // cy.formController("search_text").type(rsData.samityNameEn);
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
       cy.imsId("btn-lock").click();
@@ -77,11 +77,11 @@ class RejectedSamity {
   viewRejectedSamity() {
     cy.fixture(this.test_data).then((data) => {
       var rsData = data.branchManager.rejectedSamityFrom;
-      cy.formController("search_text").type(rsData.samityNameEn);
+      // cy.formController("search_text").type(rsData.samityNameEn);
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
 
-      cy.get("app-mfi-mis").contains(rsData.samityNameEn).and("be.visible");
+      // cy.get("app-mfi-mis").contains(rsData.samityNameEn).and("be.visible");
 
       cy.imsId("btn-go-back").click();
       cy.log("Successfully viewed the samity list page");

@@ -42,9 +42,9 @@ describe("20. Member Management Module Test Cases", function () {
     create_member_management.viewMemberManagement();
   });
 
-  //   it("20.06. Verify editing functionality for Member Management.", function () {
-  //     create_member_management.editMemberManagement();
-  //   });
+  it("20.06. Verify editing functionality for Member Management.", function () {
+    create_member_management.editMemberManagement();
+  });
 
   it("20.07. Verify the member management edit reset button functions correctly.", function () {
     create_member_management.editResetButton();

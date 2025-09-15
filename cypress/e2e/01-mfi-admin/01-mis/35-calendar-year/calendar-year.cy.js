@@ -63,19 +63,23 @@ describe("35. Calendar Year Module Test Cases", function () {
     create_calendar_year.gridDraftButtonOff();
   });
 
-  it("35.11. Verify the calendar year creation reset button clears all entered input values.", function () {
+  it('35.11. Verify the functionality and expected behavior of the "Successful Office Status" dropdown.', function () {
+    create_calendar_year.statusOfficeDropdownCheck();
+  });
+
+  it("35.12. Verify the calendar year creation reset button clears all entered input values.", function () {
     create_calendar_year.createResetButtonCheck();
   });
 
-  it("35.12. Verify that clicking the go back button on the calendar year create page redirects the user to the calendar year list page.", function () {
+  it("35.13. Verify that clicking the go back button on the calendar year create page redirects the user to the calendar year list page.", function () {
     create_calendar_year.createGoBackButtonCheck();
   });
 
-  it("35.13. Verify that clicking the submit button  on the calendar year create page redirects the user to the calendar year list page.", function () {
+  it("35.14. Verify that clicking the submit button  on the calendar year create page redirects the user to the calendar year list page.", function () {
     create_calendar_year.createSubmitButtonCheck();
   });
 
-  it("35.14. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("35.15. Verify check that the grid list content changes correctly from english to bangla.", function () {
     create_calendar_year.gridLanguageSwitchCheck();
   });
 });

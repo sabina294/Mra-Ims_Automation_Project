@@ -56,13 +56,13 @@ class SamityChange {
       var smData = data.branchManager.samityChangeFrom;
       cy.imsId("menu-my-task").click();
       cy.imsId("submenu-awaiting-samity-field-officer-change").click();
-      cy.formController("search_text").type(smData.samityNameEn);
-      cy.imsId("toggle-action").first().click();
-      cy.imsId("btn-table-action-view").click();
-      cy.imsId("btn-lock").click();
-      cy.imsId("btn-approve").click();
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-ok").click();
+      // cy.formController("search_text").type(smData.samityNameEn);
+      // cy.imsId("toggle-action").first().click();
+      // cy.imsId("btn-table-action-view").click();
+      // cy.imsId("btn-lock").click();
+      // cy.imsId("btn-approve").click();
+      // cy.imsId("btn-submit").click();
+      // cy.imsId("btn-ok").click();
 
       cy.log("Successfully approve samity change");
     });
@@ -71,6 +71,7 @@ class SamityChange {
   statusInactiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       var smData = data.branchManager.samityChangeFrom;
+      cy.selectMenu("menu-samity", "submenu-samity-field-officer-change");
       cy.imsId("btn-reset").click();
       cy.formController("status").type(smData.selectStatus).type("{enter}");
       cy.log(

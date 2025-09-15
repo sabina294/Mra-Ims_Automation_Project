@@ -32,9 +32,9 @@ describe("22. Member Samity Transfer Module Test Cases", function () {
     member_samity_transfer.viewMemberSamityTransfer();
   });
 
-  // it('22.03. Verify successful processing of a new  samity transfer.', function () {
-  //     member_samity_transfer.newSamityTransfer();
-  // })
+  it('22.03. Verify successful processing of a new  samity transfer.', function () {
+      member_samity_transfer.newSamityTransfer();
+  })
 
   it("22.04. Verify that the user can filter the inactive Member Samity Transfers using the Status Dropdown on the Member Samity Transfer List page.", function () {
     member_samity_transfer.statusInactiveDropdownCheck();

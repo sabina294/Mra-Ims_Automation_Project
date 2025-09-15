@@ -27,13 +27,13 @@ describe("37. holiday Module Test Cases", function () {
     create_holiday.gridHolidayListPage();
   });
 
-  // it("37.02. Verify a new holiday record is created successfully when all required fields are filled with valid data.", function () {
-  //   create_holiday.createHoliday();
-  // });
+  it("37.02. Verify a new holiday record is created successfully when all required fields are filled with valid data.", function () {
+    create_holiday.createHoliday();
+  });
 
-  // it("37.03. Verify mfi-admin to successfully approve an holiday record after creation.", function () {
-  //   create_holiday.approveHoliday();
-  // });
+  it("37.03. Verify mfi-admin to successfully approve an holiday record after creation.", function () {
+    create_holiday.approveHoliday();
+  });
 
   it("37.04. Verify that the search results are displayed correctly when searching by holiday name.", function () {
     create_holiday.searchHolidayTitle();
