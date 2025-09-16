@@ -9,7 +9,6 @@ class LoginTest {
       cy.formController("user_id").clear().type(data.credential.fieldOfficerUserId);
       cy.formController("password").clear().type(data.credential.fieldOfficerPassword);
       cy.get("#submit-button").click();
-      cy.get("#submit-button").click();
 
     });
   }

@@ -9,7 +9,6 @@ class LoginTest {
       cy.formController("user_id").clear().type(data.credential.branchManagerUserId);
       cy.formController("password").clear().type(data.credential.branchManagerPassword);
       cy.get("#submit-button").click();
-      cy.get("#submit-button").click();
     });
   }
     gridLanguageSwitchCheck() {

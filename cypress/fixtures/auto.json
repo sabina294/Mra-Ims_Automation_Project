@@ -444,6 +444,14 @@
       "office": "1002 (Dhaka Regional Office)",
       "messageSaveHoliday": "Mfi holiday has been saved"
     },
+
+     "gridStagingData": {
+      "selectOffice": "1020 (Ashulia)",
+      "selectSamity": "1020-101 (Ashulia Mohila Samity)",
+      "selectEmployee": "GAIS UDDIN KHAN"
+    },
+
+    
     "chartOfAccounts": {
       "ledgergroup": "Asset",
       "ledgerSubGroup": "Liquid Assets",

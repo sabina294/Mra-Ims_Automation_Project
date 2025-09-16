@@ -11,7 +11,6 @@ class LoginTest {
       cy.formController("user_id").clear().type(data.credential.mraAdminUserId);
       cy.formController("password").clear().type(data.credential.mraAdminPassword);
       cy.get("#submit-button").click();
-      cy.get("#submit-button").click();
 
       cy.imsId("profile-menu").click();
       cy.imsId("user-name-container")

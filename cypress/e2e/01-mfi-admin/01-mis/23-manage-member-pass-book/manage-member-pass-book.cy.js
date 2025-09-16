@@ -22,11 +22,11 @@ describe("23. Memebr Passbook Module Test Cases", function () {
   after(() => {
     cy.logout();
   });
-  it("23.01. Verify Manage Member Pass Book List Page loads successfully.", function () {
+  it("23.01. Verify Manage Member Passbook List Page loads successfully.", function () {
     manage_member_passbook.gridMemberPassbookListPage();
   });
 
-  it("23.02.Verify successful Manage Member Pass Book Passbook Detail Page by MFI-Admin role", function () {
+  it("23.02. Verify successful Manage Member Passbook Detail Page by MFI-Admin role", function () {
     manage_member_passbook.detailsListMemberPassbook();
   });
 
