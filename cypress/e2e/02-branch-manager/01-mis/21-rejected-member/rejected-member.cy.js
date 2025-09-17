@@ -58,15 +58,19 @@ describe("21. Rejected Member Module Test Cases", function () {
     create_rejected_member.searchInRejectMemberName();
   });
 
-  it("21.10. Verify the grid list resets successfully when the reset button is clicked on the rejected member page", function () {
+  // it("21.10. Verify the user can filter rejected member records using the status dropdown on the rejected member List page.", function () {
+  //     create_rejected_member.statusOfficeDropdownCheck();
+  //   });
+
+  it("21.11. Verify the grid list resets successfully when the reset button is clicked on the rejected member page", function () {
     create_rejected_member.gridResetButtonCheck();
   });
 
-  it("21.11. Verify a new rejected member record is created successfully when all required fields are filled with valid data", function () {
+  it("21.12. Verify a new rejected member record is created successfully when all required fields are filled with valid data", function () {
     create_rejected_member.gridRefreshButtonCheck();
   });
 
-  it("21.12. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("21.13. Verify check that the grid list content changes correctly from english to bangla.", function () {
       create_rejected_member.gridLanguageSwitchCheck();
     });
 });

@@ -145,7 +145,7 @@ class RrejectedMember {
   }
 
   editRrejectedMember() {
-     cy.fixture(this.test_data).then((data) => {
+    cy.fixture(this.test_data).then((data) => {
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-mis-table-action-edit").click();
       cy.imsId("btn-go-back").click();
