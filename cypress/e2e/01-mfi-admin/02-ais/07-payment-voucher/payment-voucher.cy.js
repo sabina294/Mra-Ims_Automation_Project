@@ -29,9 +29,9 @@ describe("07 Payment Voucher Module Test Cases", function () {
         create_payment_voucher.gridPaymentVoucherListPage();
     });
 
-    // it("07.02. Verify a payment voucher record is created successfully when all required fields are filled with valid data.", function () {
-    //     create_payment_voucher.createPaymentVoucher();
-    // });
+    it("07.02. Verify a payment voucher record is created successfully when all required fields are filled with valid data.", function () {
+        create_payment_voucher.createPaymentVoucher();
+    });
 
     // it("07.03. Verify successfully performs the action when the action button is clicked.", function () {
     //     create_payment_voucher.actionButtonCheck();

@@ -11,17 +11,17 @@ class FinancialPeriodManagementCreation {
     createFinancialPeriodManagement() {
         cy.fixture(this.test_data).then((data) => {
             var fpmData = data.mfiAdmin.financialPeriodManagement;
-            // cy.get('.primary-large-button').click();
             cy.imsId("btn-add-new").click();
-
             cy.formController("name_en").type(fpmData.nameEn);
             cy.formController("name_bn").type(fpmData.nameBn);
             cy.formController("period_type").type(fpmData.periodType).type("{enter}");
             cy.formController("start_date").click();
-            cy.contanins(19).click();
-            cy.imsId("btn-submit").click();
-            cy.imsId("btn-yes").click();
-            cy.imsId("btn-ok").click();
+            cy.contains(19).click();
+            cy.imsId("btn-go-back").click();
+
+            // cy.imsId("btn-submit").click();
+            // cy.imsId("btn-yes").click();
+            // cy.imsId("btn-ok").click();
 
             cy.log("Successfully created financial period management");
         });

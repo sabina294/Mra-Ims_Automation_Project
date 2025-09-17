@@ -29,9 +29,9 @@ describe("08 Received Voucher Module Test Cases", function () {
         create_received_voucher.gridreceivedVoucherListPage();
     });
 
-    // it("08.02. Verify a received voucher record is created successfully when all required fields are filled with valid data.", function () {
-    //     create_received_voucher.createreceivedVoucher();
-    // });
+    it("08.02. Verify a received voucher record is created successfully when all required fields are filled with valid data.", function () {
+        create_received_voucher.createreceivedVoucher();
+    });
 
     // it("08.03. Verify successfully performs the action when the action button is clicked.", function () {
     //     create_received_voucher.actionButtonCheck();

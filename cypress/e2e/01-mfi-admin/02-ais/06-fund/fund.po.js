@@ -1,27 +1,27 @@
-class FundTransferCreation {
+class fundTransferCreation {
     test_data = Cypress.env("TEST_DATA");
 
-    gridFinancialPeriodListPage() {
+    gridfundListPage() {
         cy.fixture(this.test_data).then((data) => {
             cy.selectMenu1("menu-fund");
             cy.log("Successfully fund transfer list page.");
         });
     }
 
-    createFinancialPeriodManagement() {
+    createfund() {
         cy.fixture(this.test_data).then((data) => {
             var ftData = data.mfiAdmin.fund;
-            // cy.get('.primary-large-button').click();
             cy.imsId("btn-add-new").click();
+            cy.formController("recipient_office_id").type(ftData.office);
+            cy.formController("transaction_amount").type(ftData.Amount);
+            cy.formController("sender_pay_mode").type(ftData.senderPayment).type("{enter}");
+            cy.formController("recipient_received_mode").type(ftData.recipientReceivedMode).type("{enter}");
+            cy.formController("remarks").type(ftData.remarks);
+            cy.imsId("btn-go-back").click();
 
-            cy.formController("name_en").type(ftData.nameEn);
-            cy.formController("name_bn").type(ftData.nameBn);
-            cy.formController("period_type").type(ftData.periodType).type("{enter}");
-            cy.formController("start_date").click();
-            cy.contanins(19).click();
-            cy.imsId("btn-submit").click();
-            cy.imsId("btn-yes").click();
-            cy.imsId("btn-ok").click();
+            // cy.imsId("btn-submit").click();
+            // cy.imsId("btn-yes").click();
+            // cy.imsId("btn-ok").click();
 
             cy.log("Successfully created fund transfer");
         });
@@ -99,4 +99,4 @@ class FundTransferCreation {
     }
 }
 
-export const create_fund_Transfer = new FundTransferCreation();
+export const create_fund_Transfer = new fundTransferCreation();

@@ -29,10 +29,9 @@ describe("02. Ledger Sub Group Module Test Cases", function () {
         create_ledger_sub_group.gridLedgerSubGroupListPage();
     });
 
-    // it("02.02. Verify a ledger sub group record is created successfully when all required fields are filled with valid data.", function () {
-    //     create_ledger_sub_group.createLedgerSubGroup();
-    // });
-
+    it("02.02. Verify a ledger sub group record is created successfully when all required fields are filled with valid data.", function () {
+        create_ledger_sub_group.createLedgerSubGroup();
+    });
 
     it("02.03. Verify that a ledger sub group cannot be created without a group id, even if all other fields are valid..", function () {
         create_ledger_sub_group.createwithoutGroupId();
@@ -86,7 +85,7 @@ describe("02. Ledger Sub Group Module Test Cases", function () {
         create_ledger_sub_group.gridRefreshButtonCheck();
     });
 
-     it("02.16. Verify that the grid list is ledger sub group dropdown successfully when the refresh button is clicked on the ledger sub group page.", function () {
+    it("02.16. Verify that the grid list is ledger sub group dropdown successfully when the refresh button is clicked on the ledger sub group page.", function () {
         create_ledger_sub_group.gridLedgerSubGroupDropdown();
     });
 

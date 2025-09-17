@@ -29,9 +29,9 @@ describe("05 Financial Financial Period Management Module Test Cases", function 
         create_financial_period_management.gridFinancialPeriodListPage();
     });
 
-    // it("05.02. Verify a financial period management record is created successfully when all required fields are filled with valid data.", function () {
-    //     create_financial_period_management.createFinancialPeriodManagement();
-    // });
+    it("05.02. Verify a financial period management record is created successfully when all required fields are filled with valid data.", function () {
+        create_financial_period_management.createFinancialPeriodManagement();
+    });
 
     it("05.03. Verify successfully performs the action when the action button is clicked.", function () {
         create_financial_period_management.actionButtonCheck();

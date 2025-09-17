@@ -412,10 +412,10 @@
       "updateSavingsMessage": "Savings product has been updated"
     },
     "createSavingsAccApplicationMang": {
-      "office": "1019 (Amin Bazar)",
+      "office": "1020 (Ashulia)",
       "savingsProduct": "General Savings",
-      "samity": "1019-101 (Salepur Mohila Samity)",
-      "member": "4-1004 (Suraya Akter Karima)",
+      "samity": "1020-101 (Ashulia Mohila Samity)",
+      "member": "3-1003 (Jesiya Akter)",
       "recoDepositAmount": "2000",
       "search": "Samia",
       "selectStatus": "Inactive",
@@ -444,14 +444,15 @@
       "office": "1002 (Dhaka Regional Office)",
       "messageSaveHoliday": "Mfi holiday has been saved"
     },
-
-     "gridStagingData": {
+    "gridStagingData": {
       "selectOffice": "1020 (Ashulia)",
       "selectSamity": "1020-101 (Ashulia Mohila Samity)",
       "selectEmployee": "GAIS UDDIN KHAN"
     },
-
-    
+    "gridSavingsWithdraw": {
+      "samity": "Shomaj Kallyan Samity",
+      "selectOffice": "1020 (Ashulia)"
+    },
     "chartOfAccounts": {
       "ledgergroup": "Asset",
       "ledgerSubGroup": "Liquid Assets",
@@ -497,8 +498,11 @@
       "statusSelect": "Active"
     },
     "fund": {
-      "nameEn": "Test Transfer",
-      "nameBn": "পরীক্ষা স্থানান্তর",
+      "office": "1020 (Ashulia)",
+      "Amount": "1000",
+      "senderPayment": "Cash",
+      "recipientReceivedMode": "Cash",
+      "remarks": "Done",
       "selectStatus": "Inactive",
       "statusSelect": "Active"
     },

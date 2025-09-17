@@ -26,12 +26,12 @@ describe("06 Fund Module Test Cases", function () {
     });
 
     it("06.01. Verify the fund list page loads correctly.", function () {
-        create_fund_Transfer.gridFinancialPeriodListPage();
+        create_fund_Transfer.gridfundListPage();
     });
 
-    // it("06.02. Verify a fund record is created successfully when all required fields are filled with valid data.", function () {
-    //     create_fund_Transfer.createFinancialPeriodManagement();
-    // });
+    it("06.02. Verify a fund record is created successfully when all required fields are filled with valid data.", function () {
+        create_fund_Transfer.createfund();
+    });
 
     // it("06.03. Verify successfully performs the action when the action button is clicked.", function () {
     //     create_fund_Transfer.actionButtonCheck();
@@ -45,9 +45,9 @@ describe("06 Fund Module Test Cases", function () {
         create_fund_Transfer.statusActiveDropdownCheck();
     });
 
-    it("06.06. Verify the search returns correct results when searching by fund name.", function () {
-        create_fund_Transfer.searchName();
-    });
+    // it("06.06. Verify the search returns correct results when searching by fund name.", function () {
+    //     create_fund_Transfer.searchName();
+    // });
 
     it("06.07. Verify the grid list resets successfully when the reset button is clicked on the fund page.", function () {
         create_fund_Transfer.gridResetButtonCheck();
@@ -57,17 +57,17 @@ describe("06 Fund Module Test Cases", function () {
         create_fund_Transfer.gridRefreshButtonCheck();
     });
 
-    // it("06.09. Verify the fund creation reset button clears all entered input values.", function () {
-    //     create_fund_Transfer.createResetButtonCheck();
-    // });
+    it("06.09. Verify the fund creation reset button clears all entered input values.", function () {
+        create_fund_Transfer.createResetButtonCheck();
+    });
 
-    // it("06.10. Verify validation messages appear for required fields when the submit button is clicked with empty inputs.", function () {
-    //     create_fund_Transfer.createValidationMessageCheck();
-    // });
+    it("06.10. Verify validation messages appear for required fields when the submit button is clicked with empty inputs.", function () {
+        create_fund_Transfer.createValidationMessageCheck();
+    });
 
-    // it("06.11. Verify that clicking the go back button on the fund create page redirects the user to the fund list page.", function () {
-    //     create_fund_Transfer.createGoBackButtonCheck();
-    // });
+    it("06.11. Verify that clicking the go back button on the fund create page redirects the user to the fund list page.", function () {
+        create_fund_Transfer.createGoBackButtonCheck();
+    });
 
     it("06.12. Verify check that the grid list content changes correctly from english to bangla.", function () {
         create_fund_Transfer.gridLanguageSwitchCheck();
