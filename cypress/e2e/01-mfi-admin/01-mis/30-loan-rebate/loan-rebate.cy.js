@@ -27,9 +27,9 @@ describe("30. Loan Rebate Module Test Cases", function () {
     create_loan_rebate.gridLoanRebateListPage();
   });
 
-//   it("30.02. Verify successful creation of a Loan Rebate record by MFI-Admin role", function () {
-//     create_loan_rebate.createLoanRebate();
-//   });
+  it("30.02. Verify successful creation of a Loan Rebate record by MFI-Admin role", function () {
+    create_loan_rebate.createLoanRebate();
+  });
 
 //   it("30.03. Verify successful creation of a new loan rebate record", function () {
 //     create_loan_rebate.approveLoanRebate();

@@ -31,21 +31,21 @@ describe("27. Client Welfare Fund Module Test Cases", function () {
     create_client_welfare_fund.createClientWelfareFund();
   });
 
-  // it("27.03. Verify successful creation of a new loan welfare fund record", function () {
-  //   create_client_welfare_fund.approveClientWelfareFund();
-  // });
+  it("27.03. Verify successful approve of a new loan welfare fund record", function () {
+    create_client_welfare_fund.approveClientWelfareFund();
+  });
 
-  // it("27.04. Verify successfully performs the action when the action button is clicked.", function () {
-  //   create_client_welfare_fund.actionButtonCheck();
-  // });
+  it("27.04. Verify successfully performs the action when the action button is clicked.", function () {
+    create_client_welfare_fund.actionButtonCheck();
+  });
 
-  // it("27.05. Verify successful loan welfare fund information View.", function () {
-  //   create_client_welfare_fund.viewClientWelfareFund();
-  // });
+  it("27.05. Verify successful loan welfare fund information View.", function () {
+    create_client_welfare_fund.viewClientWelfareFund();
+  });
 
-  // it("27.06. Verify editing functionality for loan welfare fund record by MFI-Admin role", function () {
-  //   create_client_welfare_fund.editClientWelfareFund();
-  // });
+  it("27.06. Verify editing functionality for loan welfare fund record by MFI-Admin role", function () {
+    create_client_welfare_fund.editClientWelfareFund();
+  });
 
   it("27.07. Verify Successful Search Result by Loan welfare fund Name", function () {
     create_client_welfare_fund.searchInClientWelfareFundName();

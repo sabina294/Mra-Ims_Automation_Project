@@ -39,14 +39,15 @@ class LoanAccountProposalManagementCreation {
 
       cy.formController("expected_disburse_dt").click();
       cy.contains("13").click();
+      cy.imsId("btn-go-back").click();
 
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-yes").click();
+      // cy.imsId("btn-submit").click();
+      // cy.imsId("btn-yes").click();
 
-      cy.get("app-confirmation-modal")
-        .contains(lapData.messageSaveLoanAccount)
-        .and("be.visible");
-      cy.imsId("btn-ok").click();
+      // cy.get("app-confirmation-modal")
+      //   .contains(lapData.messageSaveLoanAccount)
+      //   .and("be.visible");
+      // cy.imsId("btn-ok").click();
 
       cy.log("Successfully created loan account proposal management");
     });

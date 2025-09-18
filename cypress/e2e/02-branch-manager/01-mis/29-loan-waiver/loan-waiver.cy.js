@@ -39,21 +39,21 @@ describe("29. Loan waiver Module Test Cases", function () {
   //     create_loan_waiver.viewLoanWaiver();
   //   });
 
-  //   it("29.05. Verify the user can filter inactive employee records using the status dropdown on the member management List page.", function () {
-  //     create_loan_waiver.statusInactiveDropdownCheck();
-  //   });
+    it("29.05. Verify the user can filter inactive employee records using the status dropdown on the member management List page.", function () {
+      create_loan_waiver.statusInactiveDropdownCheck();
+    });
 
-  //   it("29.06. Verify check if the filter for active results works correctly with the status dropdown ", function () {
-  //     create_loan_waiver.statusActiveDropdownCheck();
-  //   });
+    it("29.06. Verify check if the filter for active results works correctly with the status dropdown ", function () {
+      create_loan_waiver.statusActiveDropdownCheck();
+    });
 
   it("29.07. Verify Successful Search Result by Loan waiver Name", function () {
     create_loan_waiver.searchInLoanWaivereName();
   });
 
-  //   it("29.08. Verify Successful Reset of Grid List Using the Reset Button on Loan waiver Page.", function () {
-  //     create_loan_waiver.gridResetButtonCheck();
-  //   });
+    it("29.08. Verify Successful Reset of Grid List Using the Reset Button on Loan waiver Page.", function () {
+      create_loan_waiver.gridResetButtonCheck();
+    });
 
   it("29.09.Verify Successful Refresh of Grid List Using the Refresh Button on Loan waiver Page.", function () {
     create_loan_waiver.gridRefreshButtonCheck();

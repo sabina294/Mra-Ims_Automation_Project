@@ -19,17 +19,16 @@ class ClientWelfareFund {
         .type(wfData.selectLoanAccount)
         .type("{enter}");
       cy.wait(2000);
-      cy.imsId("btn-go-back").click();
-      // cy.formController("amount").type(wfData.inputAmount);
+      cy.formController("amount").type(wfData.inputAmount);
 
-      // cy.imsId("btn-submit").click();
+      cy.imsId("btn-submit").click();
 
-      // cy.get("app-confirmation-modal")
-      //   .contains(wfData.messageSaveLoanWelfareFund)
-      //   .and("be.visible");
-      // cy.imsId("btn-yes").click();
 
-      // cy.imsId('btn-ok').click();
+      cy.imsId("btn-yes").click();
+      cy.get("app-confirmation-modal")
+        .contains(wfData.messageSaveLoanWelfareFund)
+        .and("be.visible");
+      cy.imsId('btn-ok').click();
 
       cy.log("Successfully created client welfare fund");
     });
@@ -55,6 +54,7 @@ class ClientWelfareFund {
   }
 
   actionButtonCheck() {
+    cy.selectMenu("menu-loan-account", "submenu-client-welfare-fund");
     cy.imsId("toggle-action").first().click();
     cy.log("Action button clicked successfully on the loan welfare list page.");
   }

@@ -27,9 +27,9 @@ describe("42. Savings Withdraw Module Test Cases", function () {
         create_savings_withdraw.gridSavingsWithdrawListPage();
     });
 
-    // it("42.02. Verify a new Savings Withdraw record is created successfully when all required fields are filled with valid data.", function () {
-    //     create_savings_withdraw.createNewWithdraw();
-    // });
+    it("42.02. Verify a new Savings Withdraw record is created successfully when all required fields are filled with valid data.", function () {
+        create_savings_withdraw.createNewWithdraw();
+    });
 
     it("42.03. Verify perform the correct action when the Action button is clicked.", function () {
         create_savings_withdraw.actionButtonCheck();

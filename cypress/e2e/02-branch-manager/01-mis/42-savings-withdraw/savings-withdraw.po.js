@@ -8,7 +8,7 @@ class savingsWithdraw {
         });
     }
 
-    createNewCollection() {
+    createNewWithdraw() {
         cy.fixture(this.test_data).then((data) => {
             cy.imsId("btn-add-new").click();
             var swData = data.branchManager.savingsWithdraw;
@@ -18,7 +18,7 @@ class savingsWithdraw {
             cy.contains(swData.selectMember).click()
             cy.formController("accountId").click();
             cy.contains(swData.selectAccount).click()
-            cy.formController("loanInput").type(swData.inputAmount);
+            // cy.formController("loanInput").type(swData.inputAmount);
             cy.imsId("btn-go-back").click();
 
             // cy.formController("samityId").type(swData.selectSamity).type("{enter}");

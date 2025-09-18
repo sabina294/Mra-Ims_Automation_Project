@@ -10,7 +10,6 @@ class LoanRebate {
   createLoanRebate() {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId("btn-add-new").click();
-      // cy.imsId('btn-submit').and('be.visible');
       var lrData = data.mfiAdmin.createLoanRebateFrom;
       cy.formController("office_id").type(lrData.selectOffice).type("{enter}");
       cy.formController("samity_id").type(lrData.selectSamity).type("{enter}");

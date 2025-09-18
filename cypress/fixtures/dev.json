@@ -328,7 +328,6 @@
       "messageUpdateLoanProduct": "Do you want to update this loan product?"
     },
     "createLoanAccountFrom": {
-      "memberNameEn": "Zahra Ahmed",
       "office": "1020 (Ashulia)",
       "samity": "1020-101 (Ashulia Mohila Samity)",
       "member": "4-1004 (Chadnee)",
@@ -341,6 +340,7 @@
       "selectStatus": "Inactive",
       "statusSelect": "Active",
       "SelectOffice": "1020 (Ashulia)",
+      "memberNameEn": "Zahra Ahmed",
       "messageSaveLoanAccount": "Loan account proposal has been saved",
       "messageUpdateLoanAccount": "Do you want to update this loan account?"
     },
@@ -734,6 +734,7 @@
       "district": "Moulvibazar",
       "thana": "Sreemangal",
       "adressEn": "Dhaka",
+      "SelectOffice": "1020 (Ashulia)",
       "messageSaveMember": "Member has been saved",
       "messageApproveMember": "Member has been approved successfully",
       "messageUpdateMember": "Member has been updated",
@@ -764,7 +765,6 @@
       "statusSelect": "Active"
     },
     "createLoanAccountFrom": {
-      "memberNameEn": "Zahra Ahmed",
       "office": "1020 (Ashulia)",
       "samity": "1020-101 (Ashulia Mohila Samity)",
       "member": "3-1003 (Jesiya Akter)",
@@ -772,11 +772,12 @@
       "economicSector": "Industry",
       "economicActivity": "Term Loan ( Other than Working Capital Financing)",
       "economicPurpose": "Service Industries",
-      "loanProduct": "Jagoran",
+      "loanProduct": "Rural Micro Credit Monthly",
       "appliedLoanAmount": "50000",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
       "SelectOffice": "1020 (Ashulia)",
+      "memberNameEn": "Zahra Ahmed",
       "messageSaveLoanAccount": "Loan account proposal has been saved",
       "messageUpdateLoanAccount": "Do you want to update this loan account?"
     },
@@ -792,7 +793,7 @@
       "selectMember": "3-1003 (Jesiya Akter)",
       "selectLoanAccount": "AGRO-1020-101-1003-1",
       "inputAmount": "5000",
-      "search": "Tanny Akther",
+      "search": "Jesiya Akter",
       "approveMessage": "Welfare Fund Authorization for Loan Account Is Successful",
       "messageSaveLoanWelfareFund": "Welfare Fund Collection for this Loan Account is successful",
       "messageUpdateLoanWelfareFund": "Do you want to update this loan welfare fund?"
@@ -816,6 +817,8 @@
       "selectRebate": "Full",
       "inputAmount": "5000",
       "search": "Sohana Aktar Hashmi",
+      "selectStatus": "Inactive",
+      "statusSelect": "Active",
       "messageSaveLoanRebate": "Loan rebate has been saved"
     },
     "gridLoanProvisionFrom": {},
@@ -839,7 +842,7 @@
       "office": "1020 (Ashulia)",
       "savingsProduct": "General Savings",
       "samity": "1020-101 (Ashulia Mohila Samity)",
-      "member": "4-1004 (Suraya Akter Karima)",
+      "member": "1-1001 (Fariya)",
       "recoDepositAmount": "2000",
       "search": "Samia",
       "selectStatus": "Inactive",
