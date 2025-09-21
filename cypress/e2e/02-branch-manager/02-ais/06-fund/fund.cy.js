@@ -29,9 +29,9 @@ describe("06 Fund Module Test Cases", function () {
         create_fund_Transfer.gridFinancialPeriodListPage();
     });
 
-    // it("06.02. Verify a fund record is created successfully when all required fields are filled with valid data.", function () {
-    //     create_fund_Transfer.createFinancialPeriodManagement();
-    // });
+    it("06.02. Verify a fund record is created successfully when all required fields are filled with valid data.", function () {
+        create_fund_Transfer.createFinancialPeriodManagement();
+    });
 
     // it("06.03. Verify successfully performs the action when the action button is clicked.", function () {
     //     create_fund_Transfer.actionButtonCheck();

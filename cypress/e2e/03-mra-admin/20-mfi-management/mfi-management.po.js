@@ -189,7 +189,7 @@ class MfiCreation {
   editMfi() {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId("toggle-action").first().click();
-      cy.imsId("btn-table-action-edit").click();
+      cy.imsId("btn-table-action-edit").click();z
       cy.imsId("btn-submit").click();
 
       var mfiData = data.mraAdmin.createMfiManFrom;
