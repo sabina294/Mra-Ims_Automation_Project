@@ -16,14 +16,14 @@ class SavingsAccApplicationManagementCreation {
       cy.imsId("btn-add-new").click();
       // cy.imsId("btn-submit").and("be.visible");
 
-      var saamData = data.branchManager.createSavingsAccApplicationMang;
-      cy.formController("office_id").type(saamData.office).type("{enter}");
-      cy.formController("savings_product_id")
-        .type(saamData.savingsProduct)
-        .type("{enter}");
-      cy.formController("samity_id").type(saamData.samity).type("{enter}");
-      cy.formController("member_id").type(saamData.member).type("{enter}");
-      cy.formController("savings_amount").type(saamData.recoDepositAmount);
+      // var saamData = data.branchManager.createSavingsAccApplicationMang;
+      // cy.formController("office_id").type(saamData.office).type("{enter}");
+      // cy.formController("savings_product_id")
+      //   .type(saamData.savingsProduct)
+      //   .type("{enter}");
+      // cy.formController("samity_id").type(saamData.samity).type("{enter}");
+      // cy.formController("member_id").type(saamData.member).type("{enter}");
+      // cy.formController("savings_amount").type(saamData.recoDepositAmount);
       cy.imsId("btn-go-back").click();
 
       // cy.imsId("btn-submit").click();

@@ -8,6 +8,14 @@ class CalendarManagementCreation {
     });
   }
 
+  gridOfficeDropdown() {
+    cy.fixture(this.test_data).then((data) => {
+      var cmData = data.mfiAdmin.gridCalendarManagement;
+      cy.formController("office_id").type(cmData.office).type("{enter}");
+      cy.log("Successfully Calendar management office dropdown page.");
+    });
+  }
+
   gridLanguageSwitchCheck() {
     cy.imsId("profile-menu").click();
     cy.imsId("btn-lang-bangla").click();

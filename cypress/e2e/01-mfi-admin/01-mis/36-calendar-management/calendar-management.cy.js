@@ -27,7 +27,11 @@ describe("36. Calendar Management Module Test Cases", function () {
     create_calendar_management.gridCalendarManagListPage();
   });
 
-  it("36.02. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("36.02. Verify the calendar management office dropdown list page loads correctly.", function () {
+    create_calendar_management.gridOfficeDropdown();
+  });
+
+  it("36.03. Verify check that the grid list content changes correctly from english to bangla.", function () {
     create_calendar_management.gridLanguageSwitchCheck();
   });
 });

@@ -31,7 +31,7 @@ describe("28. Client Welfare Fund Module Test Cases", function () {
     create_client_welfare_fund.createClientWelfareFund();
   });
 
-  it("28.03. Verify successful creation of a new loan welfare fund record", function () {
+  it("28.03. Verify successful approve of a new loan welfare fund record", function () {
     create_client_welfare_fund.approveClientWelfareFund();
   });
 

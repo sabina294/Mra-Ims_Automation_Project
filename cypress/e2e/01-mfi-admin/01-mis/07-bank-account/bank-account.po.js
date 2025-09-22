@@ -320,7 +320,7 @@ class BankAccountCreation {
       //   .type(baData.branchName)
       //   .type("{enter}");
       cy.imsId("btn-submit").click();
-      // cy.imsId("btn-yes").click();
+      cy.imsId("btn-yes").click();
       // cy.get("app-confirmation-modal")
       //   .contains(baData.messageUpdateBankAccount)
       //   .and("be.visible");

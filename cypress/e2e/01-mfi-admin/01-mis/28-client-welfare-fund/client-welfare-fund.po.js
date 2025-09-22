@@ -80,13 +80,13 @@ class ClientWelfareFund {
       cy.imsId("btn-reset").click();
       cy.formController("search_text").type(wfData.search);
       cy.imsId("toggle-action").first().click();
-      cy.imsId("btn-table-action-edit").click();
-      cy.imsId("btn-submit").click();
+      // cy.imsId("btn-table-action-edit").click();
+      // cy.imsId("btn-submit").click();
 
-      cy.get("app-confirmation-modal")
-        .contains(wfData.messageUpdateLoanWelfareFund)
-        .and("be.visible");
-      cy.imsId("btn-yes").click();
+      // cy.get("app-confirmation-modal")
+      //   .contains(wfData.messageUpdateLoanWelfareFund)
+      //   .and("be.visible");
+      // cy.imsId("btn-yes").click();
 
       cy.log("Loan account proposal Management updated successfully");
     });

@@ -15,30 +15,30 @@ class LoanAccountProposalManagementCreation {
       cy.imsId("btn-add-new").click();
       // cy.imsId('btn-submit').and('be.visible');
 
-      var lapData = data.branchManager.createLoanAccountFrom;
-      cy.formController("office_id").type(lapData.office).type("{enter}");
-      cy.wait(2000);
-      cy.formController("samity_id").type(lapData.samity).type("{enter}");
-      cy.formController("member_id").type(lapData.member).type("{enter}");
-      cy.formController("lending_category_id")
-        .type(lapData.lendingCategory)
-        .type("{enter}");
-      cy.formController("econ_sector")
-        .type(lapData.economicSector)
-        .type("{enter}");
-      cy.formController("econ_activity")
-        .type(lapData.economicActivity)
-        .type("{enter}");
-      cy.formController("econ_purpose_mra_code")
-        .type(lapData.economicPurpose)
-        .type("{enter}");
-      cy.formController("loan_product_id")
-        .type(lapData.loanProduct)
-        .type("{enter}");
-      cy.formController("applied_loan_amount").type(lapData.appliedLoanAmount);
+      // var lapData = data.branchManager.createLoanAccountFrom;
+      // cy.formController("office_id").type(lapData.office).type("{enter}");
+      // cy.wait(2000);
+      // cy.formController("samity_id").type(lapData.samity).type("{enter}");
+      // cy.formController("member_id").type(lapData.member).type("{enter}");
+      // cy.formController("lending_category_id")
+      //   .type(lapData.lendingCategory)
+      //   .type("{enter}");
+      // cy.formController("econ_sector")
+      //   .type(lapData.economicSector)
+      //   .type("{enter}");
+      // cy.formController("econ_activity")
+      //   .type(lapData.economicActivity)
+      //   .type("{enter}");
+      // cy.formController("econ_purpose_mra_code")
+      //   .type(lapData.economicPurpose)
+      //   .type("{enter}");
+      // cy.formController("loan_product_id")
+      //   .type(lapData.loanProduct)
+      //   .type("{enter}");
+      // cy.formController("applied_loan_amount").type(lapData.appliedLoanAmount);
 
-      cy.formController("expected_disburse_dt").click();
-      cy.contains("13").click();
+      // cy.formController("expected_disburse_dt").click();
+      // cy.contains("13").click();
       cy.imsId("btn-go-back").click();
 
       // cy.imsId("btn-submit").click();

@@ -347,6 +347,8 @@
     "loanAccountManagementFrom": {
       "samity": "Chhaya Mohila Samity",
       "SelectOffice": "1020 (Ashulia)",
+      "selectStatus": "Inactive",
+      "statusSelect": "Active",
       "messageLoanAccountManagement": "Loan account has been updated"
     },
     "loanDisbursementFrom": {
@@ -437,6 +439,11 @@
       "selectOffice": "1020 (Ashulia)",
       "messageSaveCalendar": "Mfi calendar year has been saved"
     },
+
+      "gridCalendarManagement": {
+      "office": "1020 (Ashulia)"
+    },
+    
     "createHoliday": {
       "holidayType": "All",
       "holidayTitleBn": "পরীক্ষার ছুটি",
@@ -798,11 +805,23 @@
       "messageSaveLoanWelfareFund": "Welfare Fund Collection for this Loan Account is successful",
       "messageUpdateLoanWelfareFund": "Do you want to update this loan welfare fund?"
     },
+    "createLoanPenaltyFrom": {
+      "selectSamity": "Ashulia Mohila Samity",
+      "selectMember": "Fariya",
+      "selectLoanAccount": "AGRO-1020-101-1001-1 (Loan Account) ",
+      "inputAmount": "5000",
+      "search": "Sohana Aktar Hashmi",
+      "selectStatus": "Inactive",
+      "statusSelect": "Active",
+      "approveMessage": "Loan Penalty Authorization for Loan Account Is Successful",
+      "messageSaveLoanPenalty": "Loan Penalty Collection for this Loan Account is successful",
+      "messageUpdateLoanPenalty": "Do you want to update this loan penalty?"
+    },
     "createLoanRebateFrom": {
       "selectOffice": "1020 (Ashulia)",
-      "selectSamity": "1020-101 (Ashulia Mohila Samity)",
-      "selectMember": "3-1003 (Jesiya Akter)",
-      "selectLoanAccount": "AGRO-1020-101-1003-1",
+      "selectSamity": "1020-108 (Changao Mohila Samity)",
+      "selectMember": "2-1002 (Musfika)",
+      "selectLoanAccount": "AGRO-1020-108-1002-1",
       "selectRebate": "Full",
       "inputAmount": "5000",
       "search": "Sohana Aktar Hashmi",
@@ -811,15 +830,16 @@
       "messageSaveLoanRebate": "Loan rebate has been saved"
     },
     "createLoanWaiverFrom": {
-      "selectSamity": "1020-101 (Ashulia Mohila Samity)",
-      "selectMember": "3-1003 (Jesiya Akter)",
-      "selectLoanAccount": "AGRO-1020-101-1003-1",
+      "selectOffice": "1020 (Ashulia)",
+      "selectSamity": "1020-108 (Changao Mohila Samity)",
+      "selectMember": "2-1002 (Musfika)",
+      "selectLoanAccount": "AGRO-1020-108-1002-1",
       "selectRebate": "Full",
       "inputAmount": "5000",
       "search": "Sohana Aktar Hashmi",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
-      "messageSaveLoanRebate": "Loan rebate has been saved"
+      "messageSaveLoanRebate": "Loan waiver has been saved"
     },
     "gridLoanProvisionFrom": {},
     "gridSavingsProduct": {
