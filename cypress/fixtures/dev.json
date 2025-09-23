@@ -439,17 +439,16 @@
       "selectOffice": "1020 (Ashulia)",
       "messageSaveCalendar": "Mfi calendar year has been saved"
     },
-
-      "gridCalendarManagement": {
+    "gridCalendarManagement": {
       "office": "1020 (Ashulia)"
     },
-    
     "createHoliday": {
       "holidayType": "All",
       "holidayTitleBn": "পরীক্ষার ছুটি",
       "holidayTitleEn": "Test Holiday",
       "search": "Weekly Holiday",
       "office": "1002 (Dhaka Regional Office)",
+      "calendarYear": "2024",
       "messageSaveHoliday": "Mfi holiday has been saved"
     },
     "gridStagingData": {
@@ -809,7 +808,8 @@
       "selectSamity": "Ashulia Mohila Samity",
       "selectMember": "Fariya",
       "selectLoanAccount": "AGRO-1020-101-1001-1 (Loan Account) ",
-      "inputAmount": "5000",
+      "penaltyAmount": "50",
+      "amount": "500",
       "search": "Sohana Aktar Hashmi",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
@@ -819,11 +819,11 @@
     },
     "createLoanRebateFrom": {
       "selectOffice": "1020 (Ashulia)",
-      "selectSamity": "1020-108 (Changao Mohila Samity)",
-      "selectMember": "2-1002 (Musfika)",
-      "selectLoanAccount": "AGRO-1020-108-1002-1",
+      "selectSamity": "1020-106 (Belma Mohila Samity)",
+      "selectMember": "1-1001 (Sima akter)",
+      "selectLoanAccount": "AGRO-1020-106-1001-1",
       "selectRebate": "Full",
-      "inputAmount": "5000",
+      "rebateAmount": "50",
       "search": "Sohana Aktar Hashmi",
       "selectStatus": "Inactive",
       "statusSelect": "Active",

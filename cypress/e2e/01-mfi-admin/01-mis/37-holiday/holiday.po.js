@@ -81,8 +81,17 @@ class HolidayCreation {
   selectofficeDropdown() {
     cy.fixture(this.test_data).then((data) => {
       var hData = data.mfiAdmin.createHoliday;
-      cy.formController("office_id").type(hData.office);
+      cy.formController("office_id").type(hData.office).type("{enter}");
       cy.log("Successfully select office in the holiday");
+    });
+  }
+
+  selectCalendarYearDropdown() {
+    cy.fixture(this.test_data).then((data) => {
+      var hData = data.mfiAdmin.createHoliday;
+      cy.formController("office_id").type(hData.office);
+      cy.formController("calendar_year").type(hData.calendarYear).type("{enter}");
+      cy.log("Successfully select calendar year in the holiday");
     });
   }
 

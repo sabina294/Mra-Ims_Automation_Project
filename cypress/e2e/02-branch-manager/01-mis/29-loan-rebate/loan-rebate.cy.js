@@ -31,13 +31,13 @@ describe("29. Loan Rebate Module Test Cases", function () {
     create_loan_rebate.createLoanRebate();
   });
 
-  // it("29.03. Verify successfully performs the action when the action button is clicked.", function () {
-  //   create_loan_rebate.actionButtonCheck();
-  // });
+  it("29.03. Verify successfully performs the action when the action button is clicked.", function () {
+    create_loan_rebate.actionButtonCheck();
+  });
 
-  // it("29.04. Verify successful Loan rebate information View.", function () {
-  //   create_loan_rebate.viewLoanRebate();
-  // });
+  it("29.04. Verify successful Loan rebate information View.", function () {
+    create_loan_rebate.viewLoanRebate();
+  });
 
   it("29.05. Verify the user can filter inactive employee records using the status dropdown on the Loan rebate List page.", function () {
     create_loan_rebate.statusInactiveDropdownCheck();

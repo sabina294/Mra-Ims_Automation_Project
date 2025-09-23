@@ -59,7 +59,11 @@ describe("37. holiday Module Test Cases", function () {
     create_holiday.selectofficeDropdown();
   });
 
-  it("37.10. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("37.10. Verify check that the holiday  calendar year selection works correctly from the dropdown on the holiday list page.", function () {
+    create_holiday.selectCalendarYearDropdown();
+  });
+
+  it("37.11. Verify check that the grid list content changes correctly from english to bangla.", function () {
     create_holiday.gridLanguageSwitchCheck();
   });
 });

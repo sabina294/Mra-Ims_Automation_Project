@@ -13,9 +13,37 @@ class StagingData {
       var sdData = data.mfiAdmin.stagingDataFrom;
       cy.imsId("btn-start-process").click();
       cy.imsId("btn-yes").click();
+      cy.imsId("btn-refresh").click();
       cy.imsId("btn-delete").click();
       cy.imsId("btn-yes").click();
+      cy.wait(2000);
 
+      cy.log("Successfully start process data details list");
+    });
+  }
+
+  refreshButtonCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      var sdData = data.mfiAdmin.stagingDataFrom;
+      cy.imsId("btn-start-process").click();
+      cy.imsId("btn-yes").click();
+      cy.imsId("btn-refresh").click();
+      cy.imsId("btn-delete").click();
+      cy.imsId("btn-yes").click();
+      cy.wait(2000);
+
+      cy.log("Successfully start process data details list");
+    });
+  }
+
+  deleteButtonCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      var sdData = data.mfiAdmin.stagingDataFrom;
+      cy.imsId("btn-start-process").click();
+      cy.imsId("btn-yes").click();
+      cy.imsId("btn-refresh").click();
+      cy.imsId("btn-delete").click();
+      cy.imsId("btn-yes").click();
       cy.wait(2000);
 
       cy.log("Successfully start process data details list");
@@ -33,7 +61,6 @@ class StagingData {
       cy.log("Successfully staging data details list");
     });
   }
-
 
   gridLanguageSwitchCheck() {
     cy.imsId("profile-menu").click();

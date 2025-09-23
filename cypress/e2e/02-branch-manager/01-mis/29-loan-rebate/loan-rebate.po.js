@@ -20,12 +20,10 @@ class LoanRebate {
       //   .type(lrData.selectLoanAccount)
       //   .type("{enter}");
       // cy.wait(2000);
-      // // cy.formController("rebate_type")
-      // //   .type(lrData.selectRebate)
-      // //   .type("{enter}");
-      // // cy.formController("rebate_amount").type(lrData.amount).type("{enter}");
-      // cy.formController("amount").type(lrData.inputAmount);
-
+      // cy.formController("rebate_type")
+      //   .type(lrData.selectRebate)
+      //   .type("{enter}");
+      // cy.imsId("totalAmountInput").type(lrData.rebateAmount);
       // cy.imsId("btn-submit").click();
       // cy.imsId("btn-yes").click();
 

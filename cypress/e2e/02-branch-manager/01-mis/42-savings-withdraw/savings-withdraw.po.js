@@ -18,7 +18,7 @@ class savingsWithdraw {
             cy.contains(swData.selectMember).click()
             cy.formController("accountId").click();
             cy.contains(swData.selectAccount).click()
-            // cy.formController("loanInput").type(swData.inputAmount);
+            // cy.imsId("amount-input").type(swData.inputAmount);
             cy.imsId("btn-go-back").click();
 
             // cy.formController("samityId").type(swData.selectSamity).type("{enter}");

@@ -5,7 +5,7 @@
 import "cypress-file-upload";
 import { grid_day_end_process_ais} from "./day-end-process-ais.po";
 
-describe("12. Day End Process Module Test Cases", function () {
+describe("13. Day End Process Module Test Cases", function () {
     const baseURL = Cypress.env("BASE_URL");
     const test_data = Cypress.env("TEST_DATA");
     before(() => {
@@ -25,11 +25,19 @@ describe("12. Day End Process Module Test Cases", function () {
         cy.logout();
     });
 
-    it("12.01. Verify the day end process page loads correctly.", function () {
+    it("13.01. Verify the day end process page loads correctly.", function () {
         grid_day_end_process_ais.gridDayEndProcessPage();
     });
 
-    it("12.02. Verify check that the grid list content changes correctly from english to bangla.", function () {
+    it("13.02. Verify that clicking the preview button on the day end process page redirects the user to the process list page.", function () {
+        grid_day_end_process_ais.processPreviewButtonCheck();
+    });
+
+    it("13.03. Verify that clicking the go back button on the day end process page redirects the user to the process list page.", function () {
+        grid_day_end_process_ais.processGoBackButtonCheck();
+    });
+
+    it("13.04. Verify check that the grid list content changes correctly from english to bangla.", function () {
         grid_day_end_process_ais.gridLanguageSwitchCheck();
     });
 });

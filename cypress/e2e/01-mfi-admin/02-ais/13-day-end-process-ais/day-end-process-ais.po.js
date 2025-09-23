@@ -4,8 +4,19 @@ class DayEndProcessAis {
     gridDayEndProcessPage() {
         cy.fixture(this.test_data).then((data) => {
             cy.selectMenu("menu-process", "submenu-day-end-process-(ais)");
-            cy.log("Successfully Day end process page.");
+            cy.log("Successfully Day end process AIS page.");
         });
+    }
+    processPreviewButtonCheck() {
+        cy.imsId("previewButton").click();
+        cy.imsId("goBackButton").click();
+        cy.log("Successful preview button check.");
+    }
+
+    processGoBackButtonCheck() {
+        cy.imsId("previewButton").click();
+        cy.imsId("goBackButton").click();
+        cy.log("Successful go back button check.");
     }
 
     gridLanguageSwitchCheck() {
