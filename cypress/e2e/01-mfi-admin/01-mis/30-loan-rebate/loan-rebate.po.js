@@ -20,15 +20,15 @@ class LoanRebate {
       cy.wait(2000);
       cy.imsId('btn-go-back').click();
 
-    //   cy.formController("amount").type(lrData.inputAmount);
+      //   cy.formController("amount").type(lrData.inputAmount);
 
-    //   cy.imsId("btn-submit").click();
-    //   cy.imsId("btn-yes").click();
+      //   cy.imsId("btn-submit").click();
+      //   cy.imsId("btn-yes").click();
 
-    //   cy.get("app-confirmation-modal")
-    //     .contains(wfData.messageSaveLoanPenalty)
-    //     .and("be.visible");
-    //   cy.imsId('btn-ok').click();
+      //   cy.get("app-confirmation-modal")
+      //     .contains(wfData.messageSaveLoanPenalty)
+      //     .and("be.visible");
+      //   cy.imsId('btn-ok').click();
 
       cy.log("Successfully created loan rebate");
     });
@@ -90,7 +90,7 @@ class LoanRebate {
     });
   }
 
-    statusInactiveDropdownCheck() {
+  statusInactiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       var lrData = data.mfiAdmin.createLoanRebateFrom;
       cy.imsId("btn-reset").click();
@@ -119,7 +119,7 @@ class LoanRebate {
     });
   }
 
-    selectofficeDropdown() {
+  selectofficeDropdown() {
     cy.fixture(this.test_data).then((data) => {
       var lrData = data.mfiAdmin.createLoanRebateFrom;
       cy.formController("office_id").type(lrData.office).type("{enter}");
@@ -138,6 +138,43 @@ class LoanRebate {
       "successfully refresh page displayed the grid list of the loan rebate"
     );
   }
+
+  createAddIconButtonCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("btn-add-new").click();
+      var lrData = data.mfiAdmin.createLoanRebateFrom;
+      cy.formController("office_id").type(lrData.selectOffice).type("{enter}");
+      cy.formController("samity_id").type(lrData.selectSamity).type("{enter}");
+      cy.formController("member_id").type(lrData.selectMember).type("{enter}");
+      cy.formController("loan_account_id")
+        .type(lrData.selectLoanAccount)
+        .type("{enter}");
+      cy.wait(2000);
+      cy.imsId("addIconButton").click();
+      cy.imsId("btn-go-back").click();
+    });
+  }
+
+  createRemoveIconButtonCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("btn-add-new").click();
+
+      var lrData = data.mfiAdmin.createLoanRebateFrom;
+
+      cy.formController("office_id").type(lrData.selectOffice).type("{enter}");
+      cy.formController("samity_id").type(lrData.selectSamity).type("{enter}");
+      cy.formController("member_id").type(lrData.selectMember).type("{enter}");
+      cy.formController("loan_account_id")
+        .type(lrData.selectLoanAccount)
+        .type("{enter}");
+      cy.wait(2000);
+      cy.imsId("addIconButton").click({ multiple: true });
+      // ✅ click first remove icon
+      cy.imsId("removeIconButton").first().click();
+      cy.imsId("btn-go-back").click();
+    });
+  }
+
   gridLanguageSwitchCheck() {
     cy.imsId("profile-menu").click();
     cy.imsId("btn-lang-bangla").click();

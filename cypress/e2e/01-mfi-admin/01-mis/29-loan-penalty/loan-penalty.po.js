@@ -92,6 +92,17 @@ class LoanPenalty {
     });
   }
 
+
+  selectofficeDropdown() {
+    cy.fixture(this.test_data).then((data) => {
+      var lpData = data.mfiAdmin.createLoanPenaltyFrom;
+      cy.formController("office_id").type(lpData.selectOffice).type("{enter}");
+      cy.log(
+        "loan penalty office dropdown check successfully"
+      );
+    });
+  }
+
     statusInactiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       var lpData = data.mfiAdmin.createLoanPenaltyFrom;

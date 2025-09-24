@@ -384,11 +384,11 @@
     },
     "createLoanRebateFrom": {
       "selectOffice": "1020 (Ashulia)",
-      "selectSamity": "1020-101 (Ashulia Mohila Samity)",
-      "selectMember": "1-1001 (Fariya)",
-      "selectLoanAccount": "AGRO-1020-101-1001-1",
+      "selectSamity": "1020-107 (Kumkumari Mohila Samity)",
+      "selectMember": "1-1001 (Lamiya Akter)",
+      "selectLoanAccount": "AGRO-1020-107-1001-1",
       "inputAmount": "5000",
-      "search": "Fariya",
+      "search": "Lamiya Akter",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
       "office": "1020 (Ashulia)",
@@ -1428,6 +1428,10 @@
       "search": "Weekly Holiday",
       "office": "1002 (Dhaka Regional Office)",
       "messageSaveHoliday": "Mfi holiday has been saved"
+    },
+    "gridStagingData": {
+      "selectSamity": "1020-101 (Ashulia Mohila Samity)",
+      "selectEmployee": "GAIS UDDIN KHAN"
     }
   }
 }

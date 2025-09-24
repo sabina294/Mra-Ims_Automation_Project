@@ -27,7 +27,23 @@ describe("22. Staging Data Module Test Cases", function () {
     grid_staging_data.gridStagingDataListPage();
   });
 
-  it("22.02. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("22.02. Verify Staging data generate List page loads successfully", function () {
+    grid_staging_data.startProcessStagingData();
+  });
+
+  it("22.03. Verify that the Refresh button works successfully by MFI-Admin role", function () {
+    grid_staging_data.refreshButtonCheck();
+  });
+
+  it("22.04. Verify that the Delete button works successfully by MFI-Admin role", function () {
+    grid_staging_data.deleteButtonCheck();
+  });
+
+  it("22.05. Verify successful staging data Detail Page by MFI-Admin role", function () {
+    grid_staging_data.detailsListStagingData();
+  });
+
+  it("22.06. Verify check that the grid list content changes correctly from english to bangla.", function () {
     grid_staging_data.gridLanguageSwitchCheck();
   });
 });

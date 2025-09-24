@@ -1,11 +1,11 @@
 // npm run auto
 // npm run dev
-// npx cypress run --spec cypress/e2e/02-branch-manager/01-mis/38-process-dashboard/process-dashboard.cy.js --browser chrome --headed
+// npx cypress run --spec cypress/e2e/02-branch-manager/01-mis/39-process-dashboard/process-dashboard.cy.js --browser chrome --headed
 
 import "cypress-file-upload";
 import { grid_process_dashboard } from "./process-dashboard.po";
 
-describe("38. Process Dashboard Module Test Cases", function () {
+describe("39. Process Dashboard Module Test Cases", function () {
   const baseURL = Cypress.env("BASE_URL");
   const test_data = Cypress.env("TEST_DATA");
   before(() => {
@@ -23,11 +23,11 @@ describe("38. Process Dashboard Module Test Cases", function () {
     cy.logout();
   });
 
-  it("38.01. Verify Process Dashboard Grid List Page loads successfully", function () {
+  it("39.01. Verify Process Dashboard Grid List Page loads successfully", function () {
     grid_process_dashboard.gridProcessDashboardListPage();
   });
 
-  it("38.02. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("39.02. Verify check that the grid list content changes correctly from english to bangla.", function () {
     grid_process_dashboard.gridLanguageSwitchCheck();
   });
 });
