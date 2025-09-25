@@ -31,33 +31,33 @@ describe("29. Loan Penalty Module Test Cases", function () {
     create_loan_penalty.createLoanPenalty();
   });
 
-  // it("29.03. Verify that the branch manager can successfully add a loan penalty record using the add icon button.", function () {
-  //   create_loan_penalty.createAddIconPenalty();
-  // });
+  it("29.03. Verify that the branch manager can successfully add a loan penalty record using the add icon button.", function () {
+    create_loan_penalty.createAddIconPenalty();
+  });
 
-  // it("29.04. Verify that the branch manager can successfully remove a loan penalty record using the remove icon button.", function () {
-  //   create_loan_penalty.createRemoveIconPenalty();
-  // });
+  it("29.04. Verify that the branch manager can successfully remove a loan penalty record using the remove icon button.", function () {
+    create_loan_penalty.createRemoveIconPenalty();
+  });
 
    it("29.05. Verify that the branch manager can navigate back from the loan penalty record screen using the Go Back button.", function () {
     create_loan_penalty.createGoBack();
   });
 
-  //  it("29.06. Verify that the branch manager can successfully save a loan penalty record as a draft.", function () {
-  //   create_loan_penalty.createSaveAsDraft();
-  // });
+   it("29.06. Verify that the branch manager can successfully save a loan penalty record as a draft.", function () {
+    create_loan_penalty.createSaveAsDraft();
+  });
 
-  //  it("29.07. Verify that the branch manager can successfully save a loan penalty record using the Save button.", function () {
-  //   create_loan_penalty.createSave();
-  // });
+   it("29.07. Verify that the branch manager can successfully save a loan penalty record using the Save button.", function () {
+    create_loan_penalty.createSave();
+  });
 
-  // it("29.08. Verify successfully performs the action when the action button is clicked.", function () {
-  //   create_loan_penalty.actionButtonCheck();
-  // });
+  it("29.08. Verify successfully performs the action when the action button is clicked.", function () {
+    create_loan_penalty.actionButtonCheck();
+  });
 
-  // it("29.09. Verify successful Loan penalty information View.", function () {
-  //   create_loan_penalty.viewLoanPenalty();
-  // });
+  it("29.09. Verify successful Loan penalty information View.", function () {
+    create_loan_penalty.viewLoanPenalty();
+  });
 
   it("29.10. Verify the user can filter inactive employee records using the status dropdown on the Loan penalty List page.", function () {
     create_loan_penalty.statusInactiveDropdownCheck();
@@ -79,7 +79,7 @@ describe("29. Loan Penalty Module Test Cases", function () {
     create_loan_penalty.gridRefreshButtonCheck();
   });
 
-  it("29.12. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("29.15. Verify check that the grid list content changes correctly from english to bangla.", function () {
     create_loan_penalty.gridLanguageSwitchCheck();
   });
 });

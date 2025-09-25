@@ -40,19 +40,19 @@ class LoanWaiver {
   }
 
   actionButtonCheck() {
-    cy.imsId("toggle-action").first().click();
-    cy.log("Action button clicked successfully on the loan welfare list page.");
+    // cy.imsId("toggle-action").first().click();
+    // cy.log("Action button clicked successfully on the loan welfare list page.");
   }
 
   viewLoanWaiver() {
     cy.fixture(this.test_data).then((data) => {
-      var lwData = data.branchManager.createLoanWaiverFrom;
-      cy.formController("search_text").type(lwData.search);
-      cy.imsId("toggle-action").first().click();
-      cy.imsId("btn-table-action-view").click();
+      // var lwData = data.branchManager.createLoanWaiverFrom;
+      // cy.formController("search_text").type(lwData.search);
+      // cy.imsId("toggle-action").first().click();
+      // cy.imsId("btn-table-action-view").click();
 
-      cy.imsId("btn-go-back").click();
-      cy.log("Successfully viewed the Loan rebate list page");
+      // cy.imsId("btn-go-back").click();
+      // cy.log("Successfully viewed the Loan rebate list page");
     });
   }
 

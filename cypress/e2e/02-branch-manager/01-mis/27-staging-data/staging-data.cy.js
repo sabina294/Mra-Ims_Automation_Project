@@ -32,6 +32,6 @@ describe("27. Staging Data Module Test Cases", function () {
   });
 
   it("27.03. Verify that the grid list is refreshed successfully when the refresh button is clicked on the staging data page.", function () {
-    create_staging_data.gridRefreshButtonCheck();
+    create_staging_data.refreshButtonCheck();
   });
 });

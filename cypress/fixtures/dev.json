@@ -805,9 +805,9 @@
       "messageUpdateLoanWelfareFund": "Do you want to update this loan welfare fund?"
     },
     "createLoanPenaltyFrom": {
-      "selectSamity": "Ashulia Mohila Samity",
-      "selectMember": "Fariya",
-      "selectLoanAccount": "AGRO-1020-101-1001-1 (Loan Account) ",
+      "selectSamity": "Sadarpur Mohila Samity",
+      "selectMember": "Srabonti",
+      "selectLoanAccount": "AGRO-1020-105-1001-1 (Loan Account)",
       "penaltyAmount": "50",
       "amount": "500",
       "search": "Sohana Aktar Hashmi",
@@ -894,9 +894,9 @@
       "loanAmount2": "500"
     },
     "specialCollection": {
-      "selectSamity": "1020-102-Dholpur Mohila Samity",
-      "selectMember": "1020-102-1001-Jannat Islam",
-      "selectAccount": "AGRO-1020-102-1001-1 (Loan Account) ",
+      "selectSamity": "1020-103-Kuturia Mohila Samity",
+      "selectMember": "1020-103-1001-Jule Akter ",
+      "selectAccount": "AGRO-1020-103-1001-1 (Loan Account) ",
       "inputAmount": "1000"
     },
     "savingsWithdraw": {

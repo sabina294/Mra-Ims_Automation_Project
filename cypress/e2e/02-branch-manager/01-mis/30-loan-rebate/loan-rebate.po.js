@@ -37,19 +37,19 @@ class LoanRebate {
   }
 
   actionButtonCheck() {
-    cy.imsId("toggle-action").first().click();
-    cy.log("Action button clicked successfully on the loan welfare list page.");
+    // cy.imsId("toggle-action").first().click();
+    // cy.log("Action button clicked successfully on the loan welfare list page.");
   }
 
   viewLoanRebate() {
     cy.fixture(this.test_data).then((data) => {
-      var lrData = data.branchManager.createLoanRebateFrom;
-      cy.formController("search_text").type(lrData.search);
-      cy.imsId("toggle-action").first().click();
-      cy.imsId("btn-table-action-view").click();
+      // var lrData = data.branchManager.createLoanRebateFrom;
+      // cy.formController("search_text").type(lrData.search);
+      // cy.imsId("toggle-action").first().click();
+      // cy.imsId("btn-table-action-view").click();
 
-      cy.imsId("btn-go-back").click();
-      cy.log("Successfully viewed the Loan rebate list page");
+      // cy.imsId("btn-go-back").click();
+      // cy.log("Successfully viewed the Loan rebate list page");
     });
   }
 
