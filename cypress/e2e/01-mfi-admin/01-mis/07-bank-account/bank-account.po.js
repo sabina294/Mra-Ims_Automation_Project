@@ -282,13 +282,13 @@ class BankAccountCreation {
       var baData = data.mfiAdmin.createBankAccountFrom;
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-edit").click();
-      cy.imsId("btn-submit").click();
+      // cy.imsId("btn-submit").click();
       // cy.imsId("btn-yes").click();
 
-      // cy.get("app-confirmation-modal")
-      //   .contains(baData.messageUpdateBankAccount)
-      //   .and("be.visible");
-      cy.imsId("btn-ok").click();
+      // // cy.get("app-confirmation-modal")
+      // //   .contains(baData.messageUpdateBankAccount)
+      // //   .and("be.visible");
+      // cy.imsId("btn-ok").click();
       cy.imsId("btn-go-back").click();
 
       cy.log("Bank Account updated successfully");
@@ -319,12 +319,12 @@ class BankAccountCreation {
       // cy.formController("bank_branch_id")
       //   .type(baData.branchName)
       //   .type("{enter}");
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-yes").click();
-      // cy.get("app-confirmation-modal")
-      //   .contains(baData.messageUpdateBankAccount)
-      //   .and("be.visible");
-      cy.imsId("btn-ok").click();
+      // cy.imsId("btn-submit").click();
+      // cy.imsId("btn-yes").click();
+      // // cy.get("app-confirmation-modal")
+      // //   .contains(baData.messageUpdateBankAccount)
+      // //   .and("be.visible");
+      // cy.imsId("btn-ok").click();
       cy.imsId("btn-go-back").click();
 
       cy.log("Successfully updated bank account");

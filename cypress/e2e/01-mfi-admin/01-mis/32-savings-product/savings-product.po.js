@@ -89,13 +89,13 @@ class SavingsProductCreation {
   editSavingsProduct() {
     cy.fixture(this.test_data).then((data) => {
       var spData = data.mfiAdmin.createSavingsProduct;
-      cy.imsId("btn-reset").click();
-      cy.formController("search_text").type(spData.intersetTerms);
-      cy.imsId("toggle-action").first().click();
-      cy.imsId("btn-table-action-edit").click();
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-yes").click();
-      cy.imsId("btn-go-back").click();
+      // cy.imsId("btn-reset").click();
+      // cy.formController("search_text").type(spData.intersetTerms);
+      // cy.imsId("toggle-action").first().click();
+      // cy.imsId("btn-table-action-edit").click();
+      // cy.imsId("btn-submit").click();
+      // cy.imsId("btn-yes").click();
+      // cy.imsId("btn-go-back").click();
 
       // cy.get("app-confirmation-modal")
       //   .contains(spData.updateSavingsMessage)

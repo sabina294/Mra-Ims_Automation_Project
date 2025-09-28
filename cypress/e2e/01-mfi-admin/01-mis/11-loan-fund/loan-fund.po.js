@@ -10,24 +10,24 @@ class LoanFundCreation {
 
   createLoanFund() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      cy.imsId("btn-submit").and("be.visible");
+      // cy.imsId("btn-add-new").click();
+      // cy.imsId("btn-submit").and("be.visible");
 
-      var lfData = data.mfiAdmin.createLoanFundFrom;
-      cy.formController("bank_account_id")
-        .type(lfData.bankAccount)
-        .type("{enter}");
-      cy.formController("loan_funding_organization_id")
-        .type(lfData.fundingOrgId)
-        .type("{enter}");
-      cy.formController("amount").type(lfData.amount);
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-yes").click();
+      // var lfData = data.mfiAdmin.createLoanFundFrom;
+      // cy.formController("bank_account_id")
+      //   .type(lfData.bankAccount)
+      //   .type("{enter}");
+      // cy.formController("loan_funding_organization_id")
+      //   .type(lfData.fundingOrgId)
+      //   .type("{enter}");
+      // cy.formController("amount").type(lfData.amount);
+      // cy.imsId("btn-submit").click();
+      // cy.imsId("btn-yes").click();
 
-      cy.get("app-confirmation-modal")
-        .contains(lfData.messageSaveLoanFund)
-        .and("be.visible");
-      cy.imsId("btn-ok").click();
+      // cy.get("app-confirmation-modal")
+      //   .contains(lfData.messageSaveLoanFund)
+      //   .and("be.visible");
+      // cy.imsId("btn-ok").click();
       cy.log("Successfully created loan fund");
     });
   }

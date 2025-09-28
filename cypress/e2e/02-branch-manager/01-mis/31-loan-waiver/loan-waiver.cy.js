@@ -35,9 +35,9 @@ describe("31. Loan waiver Module Test Cases", function () {
     create_loan_waiver.actionButtonCheck();
   });
 
-    it("31.04. Verify successful Loan waiver information View.", function () {
-      create_loan_waiver.viewLoanWaiver();
-    });
+  it("31.04. Verify successful Loan waiver information View.", function () {
+    create_loan_waiver.viewLoanWaiver();
+  });
 
   it("31.05. Verify the user can filter inactive employee records using the status dropdown on the Loan waiver List page.", function () {
     create_loan_waiver.statusInactiveDropdownCheck();

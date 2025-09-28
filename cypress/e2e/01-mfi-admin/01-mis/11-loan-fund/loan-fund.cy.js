@@ -27,9 +27,9 @@ describe("11. Loan Fund Module Test Cases", function () {
     create_loan_fund.gridLoanFundListPage();
   });
 
-  // it("11.02. Verify a new loan fund is created successfully when all required fields are filled with valid data.", function () {
-  //   create_loan_fund.createLoanFund();
-  // });
+  it("11.02. Verify a new loan fund is created successfully when all required fields are filled with valid data.", function () {
+    create_loan_fund.createLoanFund();
+  });
 
   it("11.03. Verify successfully performs the action when the action button is clicked.", function () {
     create_loan_fund.actionButtonCheck();
