@@ -360,11 +360,11 @@
     },
     "createClientWelfareFrom": {
       "selectOffice": "1020 (Ashulia)",
-      "selectSamity": "1020-101 (Ashulia Mohila Samity)",
-      "selectMember": "1-1001 (Fariya)",
-      "selectLoanAccount": "AGRO-1020-101-1001-1",
+      "selectSamity": "1020-103 (Kuturia Mohila Samity)",
+      "selectMember": "1-1001 (Jule Akter )",
+      "selectLoanAccount": "AGRO-1020-103-1001-1",
       "inputAmount": "5000",
-      "search": "Fariya",
+      "search": "Jule Akter",
       "approveMessage": "Welfare Fund Authorization for Loan Account Is Successful",
       "messageSaveLoanWelfareFund": "Welfare Fund Collection for this Loan Account is successful",
       "messageUpdateLoanWelfareFund": "Do you want to update this loan welfare fund?"

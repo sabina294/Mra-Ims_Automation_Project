@@ -47,7 +47,7 @@ class SamityClose {
     cy.fixture(this.test_data).then((data) => {
       var scData = data.mfiAdmin.samityCloseFrom;
       cy.imsId("menu-my-task").click();
-      cy.imsId("submenu-awaiting-samity-field-officer-change").click();
+      cy.imsId("submenu-awaiting-samity-close").click();
       cy.formController("search_text").type(scData.samityNameEn);
       // cy.imsId("toggle-action").first().click();
       // cy.imsId("btn-table-action-view").click();
