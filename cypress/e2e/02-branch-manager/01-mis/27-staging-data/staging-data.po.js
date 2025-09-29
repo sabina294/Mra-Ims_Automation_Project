@@ -10,7 +10,9 @@ class StagingData {
 
   startProcessStagingData() {
     cy.imsId("btn-start-process").click();
+    cy.wait(1000);
     cy.imsId("btn-yes").click();
+    cy.wait(5000);
     cy.log(
       "successfully refresh page  displayed the grid list of the staging data form "
     );
