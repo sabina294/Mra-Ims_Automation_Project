@@ -68,6 +68,12 @@ class savingsWithdraw {
         );
     }
 
+    gridLanguageSwitchCheck() {
+    cy.imsId("profile-menu").click();
+    cy.imsId("btn-lang-bangla").click();
+    cy.log("Unsuccessful switch bangla language check.");
+  }
+
 
 }
 

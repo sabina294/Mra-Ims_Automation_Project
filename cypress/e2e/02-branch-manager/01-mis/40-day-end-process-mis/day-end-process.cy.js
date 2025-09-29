@@ -27,4 +27,9 @@ describe("40. Day End Process (MIS)  Module Test Cases", function () {
     create_day_end_process.gridDayEndProcessMisListPage();
   });
 
+  it("40.02. Verify check that the grid list content changes correctly from english to bangla.", function () {
+        create_day_end_process.gridLanguageSwitchCheck();
+    });
+
+
 });

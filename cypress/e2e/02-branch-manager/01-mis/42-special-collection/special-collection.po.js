@@ -57,6 +57,12 @@ class specialCollection {
             "successfully refresh page  displayed the grid list of the special collection "
         );
     }
+    
+    gridLanguageSwitchCheck() {
+        cy.imsId("profile-menu").click();
+        cy.imsId("btn-lang-bangla").click();
+        cy.log("Unsuccessful switch bangla language check.");
+    }
 
 
 }

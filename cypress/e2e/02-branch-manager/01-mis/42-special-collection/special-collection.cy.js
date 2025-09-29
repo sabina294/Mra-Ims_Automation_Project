@@ -51,4 +51,8 @@ describe("42. Special Collection Module Test Cases", function () {
         create_special_collection.gridRefreshButtonCheck();
     });
 
+    it("42.08. Verify check that the grid list content changes correctly from english to bangla.", function () {
+        create_special_collection.gridLanguageSwitchCheck();
+    });
+
 });

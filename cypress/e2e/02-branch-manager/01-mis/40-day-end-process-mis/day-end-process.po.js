@@ -8,6 +8,13 @@ class DayEndProcessMis {
     });
   }
 
+   gridLanguageSwitchCheck() {
+        cy.imsId("profile-menu").click();
+        cy.imsId("btn-lang-bangla").click();
+        cy.log("Unsuccessful switch bangla language check.");
+    }
+
+    
 }
 
 export const create_day_end_process = new DayEndProcessMis();

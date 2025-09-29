@@ -51,4 +51,9 @@ describe("43. Savings Withdraw Module Test Cases", function () {
         create_savings_withdraw.gridRefreshButtonCheck();
     });
 
+    it("43.08. Verify check that the grid list content changes correctly from english to bangla.", function () {
+        create_savings_withdraw.gridLanguageSwitchCheck();
+    });
+
+
 });

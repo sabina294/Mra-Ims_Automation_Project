@@ -59,4 +59,8 @@ describe("41. Regular Collection Module Test Cases", function () {
         create_regular_collection.gridRefreshButtonCheck();
     });
 
+    it("41.10. Verify check that the grid list content changes correctly from english to bangla.", function () {
+        create_regular_collection.gridLanguageSwitchCheck();
+    });
+
 });
