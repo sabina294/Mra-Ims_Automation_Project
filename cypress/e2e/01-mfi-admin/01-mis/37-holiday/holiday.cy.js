@@ -5,7 +5,7 @@
 import "cypress-file-upload";
 import { create_holiday } from "./holiday.po";
 
-describe("37. holiday Module Test Cases", function () {
+describe("37. Holiday Module Test Cases", function () {
   const baseURL = Cypress.env("BASE_URL");
   const test_data = Cypress.env("TEST_DATA");
   before(() => {

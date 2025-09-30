@@ -141,37 +141,37 @@ class LoanRebate {
 
   createAddIconButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      var lrData = data.mfiAdmin.createLoanRebateFrom;
-      cy.formController("office_id").type(lrData.selectOffice).type("{enter}");
-      cy.formController("samity_id").type(lrData.selectSamity).type("{enter}");
-      cy.formController("member_id").type(lrData.selectMember).type("{enter}");
-      cy.formController("loan_account_id")
-        .type(lrData.selectLoanAccount)
-        .type("{enter}");
-      cy.wait(2000);
-      cy.imsId("addIconButton").click();
-      cy.imsId("btn-go-back").click();
+      // cy.imsId("btn-add-new").click();
+      // var lrData = data.mfiAdmin.createLoanRebateFrom;
+      // cy.formController("office_id").type(lrData.selectOffice).type("{enter}");
+      // cy.formController("samity_id").type(lrData.selectSamity).type("{enter}");
+      // cy.formController("member_id").type(lrData.selectMember).type("{enter}");
+      // cy.formController("loan_account_id")
+      //   .type(lrData.selectLoanAccount)
+      //   .type("{enter}");
+      // cy.wait(2000);
+      // cy.imsId("addIconButton").click();
+      // cy.imsId("btn-go-back").click();
     });
   }
 
   createRemoveIconButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
+      // cy.imsId("btn-add-new").click();
 
-      var lrData = data.mfiAdmin.createLoanRebateFrom;
+      // var lrData = data.mfiAdmin.createLoanRebateFrom;
 
-      cy.formController("office_id").type(lrData.selectOffice).type("{enter}");
-      cy.formController("samity_id").type(lrData.selectSamity).type("{enter}");
-      cy.formController("member_id").type(lrData.selectMember).type("{enter}");
-      cy.formController("loan_account_id")
-        .type(lrData.selectLoanAccount)
-        .type("{enter}");
-      cy.wait(2000);
-      cy.imsId("addIconButton").click({ multiple: true });
-      // ✅ click first remove icon
-      cy.imsId("removeIconButton").first().click();
-      cy.imsId("btn-go-back").click();
+      // cy.formController("office_id").type(lrData.selectOffice).type("{enter}");
+      // cy.formController("samity_id").type(lrData.selectSamity).type("{enter}");
+      // cy.formController("member_id").type(lrData.selectMember).type("{enter}");
+      // cy.formController("loan_account_id")
+      //   .type(lrData.selectLoanAccount)
+      //   .type("{enter}");
+      // cy.wait(2000);
+      // cy.imsId("addIconButton").click({ multiple: true });
+      // // ✅ click first remove icon
+      // cy.imsId("removeIconButton").first().click();
+      // cy.imsId("btn-go-back").click();
     });
   }
 

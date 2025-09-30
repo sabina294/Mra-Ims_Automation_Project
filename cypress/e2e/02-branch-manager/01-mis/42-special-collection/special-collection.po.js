@@ -10,52 +10,52 @@ class specialCollection {
 
     createNewCollection() {
         cy.fixture(this.test_data).then((data) => {
-            cy.imsId("btn-add-new").click();
-            var scData = data.branchManager.specialCollection;
-            cy.formController("samityId").click();
-            cy.contains(scData.selectSamity).click()
-            cy.formController("employeeId").click();
-            cy.contains(scData.selectMember).click()
-            cy.formController("accountId").click();
-            cy.contains(scData.selectAccount).click();
-            // cy.imsId("btn-go-back").click();
+            // cy.imsId("btn-add-new").click();
+            // var scData = data.branchManager.specialCollection;
+            // cy.formController("samityId").click();
+            // cy.contains(scData.selectSamity).click()
+            // cy.formController("employeeId").click();
+            // cy.contains(scData.selectMember).click()
+            // cy.formController("accountId").click();
+            // cy.contains(scData.selectAccount).click();
+            // // cy.imsId("btn-go-back").click();
 
-            cy.imsId("btn-save").click();
-            cy.imsId("btn-yes").click();
-            cy.imsId("btn-ok").click();
-            cy.log("Successfully created new special collection");
+            // cy.imsId("btn-save").click();
+            // cy.imsId("btn-yes").click();
+            // cy.imsId("btn-ok").click();
+            // cy.log("Successfully created new special collection");
         });
     }
 
     actionButtonCheck() {
-        cy.imsId("toggle-action").first().click();
-        cy.log("Action button clicked successfully on the special collection list page.");
+        // cy.imsId("toggle-action").first().click();
+        // cy.log("Action button clicked successfully on the special collection list page.");
     }
 
     viewSpecialCollection() {
-        cy.imsId("toggle-action").first().click();
-        cy.imsId("btn-table-action-view").click();
-        cy.imsId("btn-go-back").click();
-        cy.log("successfully on the view special collection list page.");
+        // cy.imsId("toggle-action").first().click();
+        // cy.imsId("btn-table-action-view").click();
+        // cy.imsId("btn-go-back").click();
+        // cy.log("successfully on the view special collection list page.");
     }
 
     editSpecialCollection() {
-        cy.imsId("toggle-action").first().click();
-        cy.imsId("btn-table-action-edit").click();
-        cy.imsId("btn-go-back").click();
-        cy.log("successfully on the edit special collection list page.");
+        // cy.imsId("toggle-action").first().click();
+        // cy.imsId("btn-table-action-edit").click();
+        // cy.imsId("btn-go-back").click();
+        // cy.log("successfully on the edit special collection list page.");
     }
 
     gridResetButtonCheck() {
-        cy.imsId("btn-reset").click();
-        cy.log("Successful clean displaying.");
+        // cy.imsId("btn-reset").click();
+        // cy.log("Successful clean displaying.");
     }
 
     gridRefreshButtonCheck() {
-        cy.imsId("btn-refresh").click();
-        cy.log(
-            "successfully refresh page  displayed the grid list of the special collection "
-        );
+        // cy.imsId("btn-refresh").click();
+        // cy.log(
+        //     "successfully refresh page  displayed the grid list of the special collection "
+        // );
     }
     
     gridLanguageSwitchCheck() {

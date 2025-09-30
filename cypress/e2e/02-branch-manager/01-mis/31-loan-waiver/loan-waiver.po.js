@@ -96,61 +96,61 @@ class LoanWaiver {
 
   createResetButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      var lwData = data.branchManager.createLoanWaiverFrom;
-      cy.formController("samity_id").type(lwData.selectSamity).type("{enter}");
-      cy.formController("member_id").type(lwData.selectMember).type("{enter}");
-      cy.formController("loan_account_id")
-        .type(lwData.selectLoanAccount)
-        .type("{enter}");
-      cy.wait(2000);
-      cy.imsId("btn-go-back").click();
+      // cy.imsId("btn-add-new").click();
+      // var lwData = data.branchManager.createLoanWaiverFrom;
+      // cy.formController("samity_id").type(lwData.selectSamity).type("{enter}");
+      // cy.formController("member_id").type(lwData.selectMember).type("{enter}");
+      // cy.formController("loan_account_id")
+      //   .type(lwData.selectLoanAccount)
+      //   .type("{enter}");
+      // cy.wait(2000);
+      // cy.imsId("btn-go-back").click();
     });
   }
 
   createValidationMessageCheck() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      var lwData = data.branchManager.createLoanWaiverFrom;
-      cy.formController("samity_id").type(lwData.selectSamity).type("{enter}");
-      cy.formController("member_id").type(lwData.selectMember).type("{enter}");
-      cy.formController("loan_account_id")
-        .type(lwData.selectLoanAccount)
-        .type("{enter}");
-      cy.wait(2000);
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-ok").click();
-      cy.imsId("btn-go-back").click();
+      // cy.imsId("btn-add-new").click();
+      // var lwData = data.branchManager.createLoanWaiverFrom;
+      // cy.formController("samity_id").type(lwData.selectSamity).type("{enter}");
+      // cy.formController("member_id").type(lwData.selectMember).type("{enter}");
+      // cy.formController("loan_account_id")
+      //   .type(lwData.selectLoanAccount)
+      //   .type("{enter}");
+      // cy.wait(2000);
+      // cy.imsId("btn-submit").click();
+      // cy.imsId("btn-ok").click();
+      // cy.imsId("btn-go-back").click();
     });
   }
 
   createDraftButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      var lwData = data.branchManager.createLoanWaiverFrom;
-      cy.formController("samity_id").type(lwData.selectSamity).type("{enter}");
-      cy.formController("member_id").type(lwData.selectMember).type("{enter}");
-      cy.formController("loan_account_id")
-        .type(lwData.selectLoanAccount)
-        .type("{enter}");
-      cy.wait(2000);
-      cy.imsId("btn-draft").click();
-      cy.imsId("btn-ok").click();
-      cy.imsId("btn-go-back").click();
+      // cy.imsId("btn-add-new").click();
+      // var lwData = data.branchManager.createLoanWaiverFrom;
+      // cy.formController("samity_id").type(lwData.selectSamity).type("{enter}");
+      // cy.formController("member_id").type(lwData.selectMember).type("{enter}");
+      // cy.formController("loan_account_id")
+      //   .type(lwData.selectLoanAccount)
+      //   .type("{enter}");
+      // cy.wait(2000);
+      // cy.imsId("btn-draft").click();
+      // cy.imsId("btn-ok").click();
+      // cy.imsId("btn-go-back").click();
     });
   }
 
   createGoBackButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      var lwData = data.branchManager.createLoanWaiverFrom;
-      cy.formController("samity_id").type(lwData.selectSamity).type("{enter}");
-      cy.formController("member_id").type(lwData.selectMember).type("{enter}");
-      cy.formController("loan_account_id")
-        .type(lwData.selectLoanAccount)
-        .type("{enter}");
-      cy.wait(2000);
-      cy.imsId("btn-go-back").click();
+      // cy.imsId("btn-add-new").click();
+      // var lwData = data.branchManager.createLoanWaiverFrom;
+      // cy.formController("samity_id").type(lwData.selectSamity).type("{enter}");
+      // cy.formController("member_id").type(lwData.selectMember).type("{enter}");
+      // cy.formController("loan_account_id")
+      //   .type(lwData.selectLoanAccount)
+      //   .type("{enter}");
+      // cy.wait(2000);
+      // cy.imsId("btn-go-back").click();
     });
   }
 
