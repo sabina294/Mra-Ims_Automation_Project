@@ -27,17 +27,17 @@ describe("14. Loan Rebate Module Test Cases", function () {
     create_loan_rebate.gridLoanRebateListPage();
   });
 
-  // it("14.02. Verify successful creation of a Loan rebate record by MFI-Admin role", function () {
-  //   create_loan_rebate.createLoanRebate();
-  // });
+  it("14.02. Verify successful creation of a Loan rebate record by MFI-Admin role", function () {
+    create_loan_rebate.createLoanRebate();
+  });
 
-  // it("14.03. Verify successfully performs the action when the action button is clicked.", function () {
-  //   create_loan_rebate.actionButtonCheck();
-  // });
+  it("14.03. Verify successfully performs the action when the action button is clicked.", function () {
+    create_loan_rebate.actionButtonCheck();
+  });
 
-//   it("14.04. Verify successful Loan rebate information View.", function () {
-//     create_loan_rebate.viewLoanRebate();
-//   });
+  it("14.04. Verify successful Loan rebate information View.", function () {
+    create_loan_rebate.viewLoanRebate();
+  });
 
   it("14.05. Verify the user can filter inactive employee records using the status dropdown on the member management List page.", function () {
     create_loan_rebate.statusInactiveDropdownCheck();
@@ -51,9 +51,9 @@ describe("14. Loan Rebate Module Test Cases", function () {
     create_loan_rebate.searchInLoanRebateName();
   });
 
-//   it("14.08. Verify Successful Reset of Grid List Using the Reset Button on Loan rebate Page.", function () {
-//     create_loan_rebate.gridResetButtonCheck();
-//   });
+  it("14.08. Verify Successful Reset of Grid List Using the Reset Button on Loan rebate Page.", function () {
+    create_loan_rebate.gridResetButtonCheck();
+  });
 
   it("14.09.Verify Successful Refresh of Grid List Using the Refresh Button on Loan rebate Page.", function () {
     create_loan_rebate.gridRefreshButtonCheck();
