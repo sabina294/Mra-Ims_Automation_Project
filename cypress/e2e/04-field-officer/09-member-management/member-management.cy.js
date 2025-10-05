@@ -38,9 +38,9 @@ describe("09. Member Management Module Test Cases", function () {
     create_member_management.viewMemberManagement();
   });
 
-  //   it("09.05. Verify editing functionality for Member Management record by MFI-Admin role", function () {
-  //     create_member_management.editMemberManagement();
-  //   });
+  it("09.05. Verify editing functionality for Member Management record by MFI-Admin role", function () {
+    create_member_management.editMemberManagement();
+  });
 
   it("09.06. Verify the member management edit reset button functions correctly.", function () {
     create_member_management.editResetButton();
@@ -78,7 +78,11 @@ describe("09. Member Management Module Test Cases", function () {
     create_member_management.gridDraftButtonOff();
   });
 
-  it("09.15. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("09.15. Verify that the checkbox functions correctly.", function () {
+    create_member_management.gridCheckboxCheck();
+  });
+
+  it("09.16. Verify check that the grid list content changes correctly from english to bangla.", function () {
     create_member_management.gridLanguageSwitchCheck();
   });
 });

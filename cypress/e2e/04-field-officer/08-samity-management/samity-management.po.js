@@ -18,11 +18,11 @@ class Samity {
   viewSamity() {
     cy.fixture(this.test_data).then((data) => {
       var smData = data.fieldOfficer.gridSamityFrom;
-      cy.formController("search_text").type(smData.samityNameEn);
+      cy.formController("search_text").type(smData.search);
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
 
-      cy.get("app-mfi-mis").contains(smData.samityNameEn).and("be.visible");
+      cy.get("app-mfi-mis").contains(smData.search).and("be.visible");
 
       cy.imsId("btn-go-back").click();
       cy.log("Successfully viewed the samity list page");
@@ -76,10 +76,16 @@ class Samity {
     cy.log("Draft button should be clickable and functional.");
   }
 
+  gridCheckboxCheck() {
+    cy.imsId("row-checkbox-2").click();
+    cy.imsId("btn-reset").click();
+    cy.log("Checkbox should be clickable and functional.");
+  }
+
   gridLanguageSwitchCheck() {
     cy.imsId("profile-menu").click();
     cy.imsId("btn-lang-bangla").click();
-    cy.log("Unsccessful switch bangla language check.");
+    cy.log("Successful switch bangla language check.");
   }
 }
 

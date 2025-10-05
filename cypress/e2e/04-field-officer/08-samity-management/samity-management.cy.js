@@ -63,7 +63,11 @@ describe("08. Samity management Module Test Cases", function () {
     grid_samity_management.gridDraftButtonOff();
   });
 
-  it("08.11. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("08.11. Verify that the checkbox functions correctly.", function () {
+    grid_samity_management.gridCheckboxCheck();
+  });
+
+  it("08.12. Verify check that the grid list content changes correctly from english to bangla.", function () {
     grid_samity_management.gridLanguageSwitchCheck();
   });
 });

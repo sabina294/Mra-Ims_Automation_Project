@@ -28,6 +28,16 @@ class EmployeeManagement {
     });
   }
 
+  turnOnEditMode() {
+    cy.imsId("toggle-action").first().click();
+    cy.imsId("btn-table-action-view").click();
+    cy.get('.ant-switch-inner > .hidden').click();
+    // cy.imsId("switch-button").click();
+    cy.imsId("btn-go-back").click();
+
+    cy.log("Employee Management form Edit Mode toggled successfully");
+  }
+
   statusInactiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       var emData = data.fieldOfficer.gridEmpMangFrom;
@@ -88,10 +98,16 @@ class EmployeeManagement {
     cy.log("Successful draft button check.");
   }
 
+  gridCheckboxCheck() {
+    cy.imsId("row-checkbox-2").click();
+    cy.imsId("btn-reset").click();
+    cy.log("Checkbox should be clickable and functional.");
+  }
+  
   gridLanguageSwitchCheck() {
     cy.imsId("profile-menu").click();
     cy.imsId("btn-lang-bangla").click();
-    cy.log("Unsccessful switch bangla language check.");
+    cy.log("Successful switch bangla language check.");
   }
 }
 

@@ -36,9 +36,9 @@ describe("21. Employee Management Module Test Cases.", function () {
     create_employee_management.approveEmployee();
   });
 
-  // it("21.03. Verify a new employee management is created successfully when all fields are filled with valid data.", function () {
-  //   create_employee_management.createAllField();
-  // });
+  it("21.03. Verify a new employee management is created successfully when all fields are filled with valid data.", function () {
+    create_employee_management.createAllField();
+  });
 
   it("21.04. Verify successfully performs the action when the action button is clicked.", function () {
     create_employee_management.actionButtonCheck();
@@ -48,9 +48,9 @@ describe("21. Employee Management Module Test Cases.", function () {
     create_employee_management.viewEmployeeManagement();
   });
 
-  // it("21.06. Verify that the employee management forms edit mode can be toggled on and off all fields should be disabled or return to view-only mode.", function () {
-  //   create_employee_management.turnOffOnEditMode();
-  // });
+  it("21.06. Verify that the employee management forms edit mode can be toggled on and off all fields should be disabled or return to view-only mode.", function () {
+    create_employee_management.turnOffOnEditMode();
+  });
 
   it("21.07. Verify the employee management edit reset button functions correctly.", function () {
     create_employee_management.editResetButton();
@@ -60,9 +60,9 @@ describe("21. Employee Management Module Test Cases.", function () {
     create_employee_management.editGoBackButton();
   });
 
-  // it("21.09. Verify that the employee management is updated with valid information.", function () {
-  //   create_employee_management.editEmployeeManagement();
-  // });
+  it("21.09. Verify that the employee management is updated with valid information.", function () {
+    create_employee_management.editEmployeeManagement();
+  });
 
   it("21.10. Verify the user can filter inactive employee records using the status dropdown on the Employee Management List page.", function () {
     create_employee_management.statusInactiveDropdownCheck();
@@ -96,15 +96,19 @@ describe("21. Employee Management Module Test Cases.", function () {
     create_employee_management.gridDraftButtonOff();
   });
 
-  it("21.18. Verify validation messages appear for required fields when the submit button is clicked with empty inputs.", function () {
+  it("21.18. Verify that the checkbox functions correctly.", function () {
+    create_employee_management.gridCheckboxCheck();
+  });
+
+  it("21.19. Verify validation messages appear for required fields when the submit button is clicked with empty inputs.", function () {
     create_employee_management.createValidationMessageCheck();
   });
 
-  it("21.19. Verify that clicking the go back button on the employee management create page redirects the user to the employee management list page.", function () {
+  it("21.20. Verify that clicking the go back button on the employee management create page redirects the user to the employee management list page.", function () {
     create_employee_management.createGoBackButtonCheck();
   });
 
-  it("21.20. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("21.21. Verify check that the grid list content changes correctly from english to bangla.", function () {
     create_employee_management.gridLanguageSwitchCheck();
   });
 });

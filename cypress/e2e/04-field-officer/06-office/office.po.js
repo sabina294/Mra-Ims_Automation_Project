@@ -89,6 +89,12 @@ class OfficeGrid {
     cy.imsId("btn-back").click();
     cy.log("Successful go back button check.");
   }
+  
+ gridCheckboxCheck() {
+    cy.imsId("row-checkbox-2").click();
+    cy.imsId("btn-reset").click();
+    cy.log("Checkbox should be clickable and functional.");
+  }
 
   gridLanguageSwitchCheck() {
     cy.imsId("profile-menu").click();
