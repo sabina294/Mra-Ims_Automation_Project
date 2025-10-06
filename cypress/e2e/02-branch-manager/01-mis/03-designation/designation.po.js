@@ -95,12 +95,7 @@ class Designation {
       "successfully refresh page  displayed the grid list of the designation "
     );
   }
-
-  paginationCheck() {
-    cy.get('[title="2"] > .ng-star-inserted').click();
-    cy.log("Designation pagination check successfully");
-  }
-
+  
   gridLanguageSwitchCheck() {
     cy.imsId("profile-menu").click();
     cy.imsId("btn-lang-bangla").click();

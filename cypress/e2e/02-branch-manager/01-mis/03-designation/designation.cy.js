@@ -67,10 +67,6 @@ describe("03. Designation Module Test Cases", function () {
     grid_designation.gridRefreshButtonCheck();
   });
 
-  // it("03.12. Verify pagination functions as expected on the last page of the designation list.", function () {
-  //   grid_designation.paginationCheck();
-  // });
-
   it("03.13. Verify check that the grid list content changes correctly from english to bangla.", function () {
     grid_designation.gridLanguageSwitchCheck();
   });

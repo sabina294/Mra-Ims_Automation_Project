@@ -366,6 +366,8 @@
       "selectLoanAccount": "AGRO-1020-103-1001-1",
       "inputAmount": "5000",
       "search": "Jule Akter",
+      "selectStatus": "Inactive",
+      "statusSelect": "Active",
       "approveMessage": "Welfare Fund Authorization for Loan Account Is Successful",
       "messageSaveLoanWelfareFund": "Welfare Fund Collection for this Loan Account is successful",
       "messageUpdateLoanWelfareFund": "Do you want to update this loan welfare fund?"
@@ -1228,7 +1230,30 @@
       "search": "রুবায়ত জামান",
       "messageSaveEmployee": "Mra employee has been saved",
       "messageUpdateEmployee": "Mra employee has been updated"
+    },
+
+     "rejectedEmployeeFrom": {
+      "employeeNameEn": "Test Employee",
+      "employeeNameBn": "পরীক্ষা কর্মচারী",
+      "employeeMobileNo": "01887949170",
+      "tinNo": "3456",
+      "nidNumber": "0003463473656",
+      "department": "Board of Directors",
+      "designation": "Director",
+      "division": "Sylhet Division",
+      "district": "Sunamganj",
+      "thana": "Dakshin Sunamganj",
+      "fatherNameEn": "Test Father",
+      "motherNameEn": "Test Mother",
+      "adressEn": "Sylhet",
+      "selectStatus": "Inactive",
+      "statusSelect": "Active",
+      "search": "রুবায়ত জামান",
+      "rejectRemarks": "Reject",
+      "messageSaveEmployee": "Mra employee has been saved",
+      "messageUpdateEmployee": "Mra employee has been updated"
     }
+
   },
   "fieldOfficer": {
     "gridDepartmentFrom": {

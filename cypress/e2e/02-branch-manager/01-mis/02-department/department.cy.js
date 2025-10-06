@@ -69,10 +69,6 @@ describe("02. Department Module Test Cases", function () {
     grid_department.gridRefreshButtonCheck();
   });
 
-  // it("02.12. Verify pagination functions as expected on the last page of the department list.", function () {
-  //   grid_department.paginationCheck();
-  // });
-
   it("02.13. Verify check that the grid list content changes correctly from english to bangla.", function () {
     grid_department.gridLanguageSwitchCheck();
   });

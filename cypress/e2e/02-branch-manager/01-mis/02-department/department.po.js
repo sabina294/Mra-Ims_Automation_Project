@@ -91,11 +91,6 @@ class Department {
     );
   }
 
-  paginationCheck() {
-    cy.get('[title="2"] > .ng-star-inserted').click();
-    cy.log("Department pagination check successfully");
-  }
-
   gridLanguageSwitchCheck() {
     cy.imsId("profile-menu").click();
     cy.imsId("btn-lang-bangla").click();
