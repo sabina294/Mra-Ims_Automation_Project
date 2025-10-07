@@ -62,20 +62,20 @@ class RejectedEmployee {
   }
 
   rejectedEmployee() {
-    // cy.fixture(this.test_data).then((data) => {
-    //   var emData = data.mraAdmin.rejectedEmployeeFrom;
-    //   cy.imsId("menu-my-task").click();
-    //   cy.imsId("submenu-awaiting-employee-management").click();
-    //   cy.imsId("toggle-action").first().click();
-    //   cy.imsId("btn-table-action-view").click();
-    //   cy.imsId("btn-lock").click();
-    //   cy.imsId("btn-reject").click();
-    //   cy.formController("approver_remarks").first().type(emData.rejectRemarks);
-    //   cy.imsId("btn-submit").click();
-    //   cy.imsId("btn-ok").click();
+    cy.fixture(this.test_data).then((data) => {
+      var emData = data.mraAdmin.rejectedEmployeeFrom;
+      cy.imsId("menu-my-task").click();
+      cy.imsId("submenu-awaiting-employee-management").click();
+      cy.imsId("toggle-action").first().click();
+      cy.imsId("btn-table-action-view").click();
+      cy.imsId("btn-lock").click();
+      cy.imsId("btn-reject").click();
+      cy.formController("approver_remarks").first().type(emData.rejectRemarks);
+      cy.imsId("btn-Reject").click();
+      cy.imsId("btn-yes").click();
 
-    //   cy.log("Successfully rejected rejected employee");
-    // });
+      cy.log("Successfully rejected rejected employee");
+    });
   }
 
   gridEmployeeListPage() {
