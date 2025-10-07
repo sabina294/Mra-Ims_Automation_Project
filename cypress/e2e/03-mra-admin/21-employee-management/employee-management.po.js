@@ -74,12 +74,11 @@ class EmployeeManagementCreation {
       cy.imsId("submenu-awaiting-employee-management").click();
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
-      // cy.imsId("btn-lock").click();
-      cy.imsId("btn-go-back").click();
+      cy.imsId("btn-lock").click();
 
-      // cy.imsId("btn-Approve").click();
-      // cy.imsId("btn-yes").click();
-      // cy.imsId("btn-ok").click();
+      cy.imsId("btn-Approve").click();
+      cy.imsId("btn-yes").click();
+      cy.imsId("btn-ok").click();
 
       cy.log("Successfully approve employee management");
     });

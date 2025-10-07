@@ -197,6 +197,12 @@ class EmployeeManagementCreation {
     cy.log("Draft button should be clickable and functional.");
   }
 
+   gridCheckboxCheck() {
+    cy.imsId("row-checkbox-2").click();
+    cy.imsId("btn-reset").click();
+    cy.log("Checkbox should be clickable and functional.");
+  }
+  
   createResetButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
       var emData = data.mfiAdmin.createEmpMangFrom;

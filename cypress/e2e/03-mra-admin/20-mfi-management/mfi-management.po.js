@@ -158,6 +158,23 @@ class MfiCreation {
     });
   }
 
+  approveMfi() {
+    cy.fixture(this.test_data).then((data) => {
+      var mfiData = data.mraAdmin.createMfiManFrom;
+      cy.imsId("menu-my-task").click();
+      cy.imsId("submenu-awaiting-mfi-management").click();
+      cy.imsId("toggle-action").first().click();
+      cy.imsId("btn-table-action-view").click();
+      cy.imsId("btn-lock").click();
+
+      cy.imsId("btn-Approve").click();
+      cy.imsId("btn-yes").click();
+      cy.imsId("btn-ok").click();
+
+      cy.log("Successfully approve MFI management");
+    });
+  }
+
   actionButtonCheck() {
     cy.imsId("toggle-action").first().click();
     cy.log(

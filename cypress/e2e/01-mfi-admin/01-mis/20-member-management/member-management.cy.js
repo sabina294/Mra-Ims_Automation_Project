@@ -82,31 +82,35 @@ describe("20. Member Management Module Test Cases", function () {
     create_member_management.gridDraftButtonOff();
   });
 
-  it("20.16. Verify check that the member management  office selection works correctly from the dropdown on the samity list page.", function () {
+  it("20.16. Verify that the checkbox functions correctly.", function () {
+    create_member_management.gridCheckboxCheck();
+  });
+
+  it("20.17. Verify check that the member management  office selection works correctly from the dropdown on the samity list page.", function () {
     create_member_management.selectofficeDropdown();
   });
 
-  it("20.17. Verify validation messages appear for required fields when the Approve button is clicked with empty inputs.", function () {
+  it("20.18. Verify validation messages appear for required fields when the Approve button is clicked with empty inputs.", function () {
     create_member_management.createApproveButtonCheck();
   });
 
-  it("20.18. Verify validation messages appear for required fields when the Submit button is clicked with empty inputs.", function () {
+  it("20.19. Verify validation messages appear for required fields when the Submit button is clicked with empty inputs.", function () {
     create_member_management.createSubmitButtonCheck();
   });
 
-  it("20.19. Verify validation messages appear for required fields when the Draft button is clicked with empty inputs.", function () {
+  it("20.20. Verify validation messages appear for required fields when the Draft button is clicked with empty inputs.", function () {
     create_member_management.createDraftButtonCheck();
   });
 
-  it("20.20. Verify validation messages appear for required fields when the Draft button is clicked with empty inputs.", function () {
+  it("20.21. Verify validation messages appear for required fields when the Reset button is clicked with empty inputs.", function () {
     create_member_management.createResetButtonCheck();
   });
 
-  it("20.21. Verify validation messages appear for required fields when the Draft button is clicked with empty inputs.", function () {
+  it("20.22. Verify validation messages appear for required fields when the Go Back button is clicked with empty inputs.", function () {
     create_member_management.createGoBackButtonCheck();
   });
 
-  it("20.22. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("20.23. Verify check that the grid list content changes correctly from english to bangla.", function () {
     create_member_management.gridLanguageSwitchCheck();
   });
 });

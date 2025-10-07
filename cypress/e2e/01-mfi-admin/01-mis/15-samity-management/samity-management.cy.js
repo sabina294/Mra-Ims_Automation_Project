@@ -91,27 +91,31 @@ describe("15. Samity management Module Test Cases", function () {
     create_samity_management.gridDraftButtonOff();
   });
 
-  it("15.18. Verify check that the samity management  office selection works correctly from the dropdown on the samity list page.", function () {
+  it("15.18. Verify that the checkbox functions correctly.", function () {
+    create_samity_management.gridCheckboxCheck();
+  });
+
+  it("15.19. Verify check that the samity management  office selection works correctly from the dropdown on the samity list page.", function () {
     create_samity_management.selectofficeDropdown();
   });
 
-  it("15.19. Verify the samity management creation reset button clears all entered input values.", function () {
+  it("15.20. Verify the samity management creation reset button clears all entered input values.", function () {
     create_samity_management.createResetButtonCheck();
   });
 
-  it("15.20. Verify validation messages appear for required fields when the submit button is clicked with empty inputs.", function () {
+  it("15.21. Verify validation messages appear for required fields when the submit button is clicked with empty inputs.", function () {
     create_samity_management.createValidationMessageCheck();
   });
 
-  it("15.21. Verify validation messages appear for required fields when the approve button is clicked with empty inputs.", function () {
+  it("15.22. Verify validation messages appear for required fields when the approve button is clicked with empty inputs.", function () {
     create_samity_management.createApproveButtonCheck();
   });
 
-  it("15.22. Verify that clicking the go back button on the samity management create page redirects the user to the samity management list page.", function () {
+  it("15.23. Verify that clicking the go back button on the samity management create page redirects the user to the samity management list page.", function () {
     create_samity_management.createGoBackButtonCheck();
   });
 
-  it("15.23. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("15.24. Verify check that the grid list content changes correctly from english to bangla.", function () {
     create_samity_management.gridLanguageSwitchCheck();
   });
 });
