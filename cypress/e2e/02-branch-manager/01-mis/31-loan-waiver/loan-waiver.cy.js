@@ -75,7 +75,15 @@ describe("31. Loan waiver Module Test Cases", function () {
     create_loan_waiver.createGoBackButtonCheck();
   });
 
-  it("31.14. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("31.14. Verify that clicking the add icon  button on the loan waiver create page redirects the user to the loan waiver list page.", function () {
+    create_loan_waiver.createAddIconButtonCheck();
+  });
+
+  it("31.15. Verify that clicking the remove icon  button on the loan waiver create page redirects the user to the loan waiver list page.", function () {
+    create_loan_waiver.createRemoveIconButtonCheck();
+  });
+
+  it("31.16. Verify check that the grid list content changes correctly from english to bangla.", function () {
     create_loan_waiver.gridLanguageSwitchCheck();
   });
 });

@@ -22,48 +22,19 @@ class LoanPenalty {
       //   .type("{enter}");
       // cy.wait(2000);
       // cy.imsId("loan-input-0").clear().type(lpData.penaltyAmount);
-      // cy.imsId("btn-go-back").click();
-      // cy.wait(5000);
-      // cy.imsId("amountInput").type(lpData.amount);
-      // cy.imsId("btn-submit").click();
-      // cy.imsId("btn-yes").click();
-      // cy.get("app-confirmation-modal")
-      //   .contains(lpData.messageSaveLoanPenalty)
-      //   .and("be.visible");
-      // cy.imsId("btn-ok").click();
-
-      cy.log("Successfully created Loan penalty");
-    });
-  }
-
-  createAddIconPenalty() {
-    cy.fixture(this.test_data).then((data) => {
-      // var lpData = data.branchManager.createLoanPenaltyFrom;
-      // cy.formController("samity_id").type(lpData.selectSamity).type("{enter}");
-      // cy.formController("member_id").type(lpData.selectMember).type("{enter}");
-      // cy.formController("loan_account_id")
-      //   .type(lpData.selectLoanAccount)
-      //   .type("{enter}");
       // cy.wait(2000);
-      // cy.imsId("loan-input-0").clear().type(lpData.penaltyAmount)
-      // cy.imsId("addIconButton").click();
-      // // cy.imsId("btn-go-back").click();
+      // // cy.imsId("btn-save").click();
+      // cy.imsId("btn-go-back").click();
+      // cy.wait(2000);
+      // // // cy.imsId("amountInput").type(lpData.amount);
+      // // cy.imsId("btn-submit").click();
+      // // cy.imsId("btn-yes").click();
+      // // cy.get("app-confirmation-modal")
+      // //   .contains(lpData.messageSaveLoanPenalty)
+      // //   .and("be.visible");
+      // // cy.imsId("btn-ok").click();
+
       // cy.log("Successfully created Loan penalty");
-    });
-  }
-
-  createRemoveIconPenalty() {
-    cy.fixture(this.test_data).then((data) => {
-      // var lpData = data.branchManager.createLoanPenaltyFrom;
-      // cy.formController("samity_id").type(lpData.selectSamity).type("{enter}");
-      // cy.formController("member_id").type(lpData.selectMember).type("{enter}");
-      // cy.formController("loan_account_id").type(lpData.selectLoanAccount).type("{enter}");
-      // cy.wait(2000);
-      // cy.imsId("loan-input-0").clear().type(lpData.penaltyAmount)
-      // // cy.imsId("addIconButton").click();
-      // // ✅ click first remove icon
-      // cy.imsId("removeIconButton").first().click();
-      // cy.imsId("btn-go-back").click();
     });
   }
 
@@ -74,35 +45,54 @@ class LoanPenalty {
 
       // var lpData = data.branchManager.createLoanPenaltyFrom;
       // cy.formController("samity_id").type(lpData.selectSamity).type("{enter}");
+      // cy.wait(2000);
       // cy.formController("member_id").type(lpData.selectMember).type("{enter}");
+      // cy.wait(2000);
       // cy.formController("loan_account_id")
       //   .type(lpData.selectLoanAccount)
       //   .type("{enter}");
       // cy.wait(2000);
+      // cy.imsId("btn-go-back").click();
+
       // cy.imsId("loan-input-0").clear().type(lpData.penaltyAmount);
       // cy.wait(2000);
-      // cy.imsId("btn-go-back").click();
-      // cy.log("Successfully created Loan penalty");
+      // // cy.imsId("btn-save").click();
+      cy.log("Successfully created Loan penalty");
     });
   }
 
 
+  createAddIconPenalty() {
+    cy.fixture(this.test_data).then((data) => {
+      // cy.imsId("add-icon-button").click();
+      // cy.log("Successfully created Loan penalty");
+    });
+  }
+
+  createRemoveIconPenalty() {
+    cy.fixture(this.test_data).then((data) => {
+      // cy.imsId("remove-icon-button").first().click();
+      // cy.imsId("btn-go-back").click();
+    });
+  }
+
   createSaveAsDraft() {
     cy.fixture(this.test_data).then((data) => {
-      // cy.imsId("btn-add-new").click();
-      // // cy.imsId('btn-submit').and('be.visible');
+      cy.imsId("btn-add-new").click();
+      // cy.imsId('btn-submit').and('be.visible');
 
-      // var lpData = data.branchManager.createLoanPenaltyFrom;
-      // cy.formController("samity_id").type(lpData.selectSamity).type("{enter}");
-      // cy.formController("member_id").type(lpData.selectMember).type("{enter}");
-      // cy.formController("loan_account_id")
-      //   .type(lpData.selectLoanAccount)
-      //   .type("{enter}");
-      // cy.wait(2000);
-      // // cy.imsId("penaltyInput").clear().type(lpData.inputAmount);
-      // cy.imsId("btn-draft").click();
-      // cy.imsId("btn-go-back").click();
-      // cy.log("Successfully created Loan penalty");
+      var lpData = data.branchManager.createLoanPenaltyFrom;
+      cy.formController("samity_id").type(lpData.selectSamity).type("{enter}");
+      cy.wait(2000);
+      cy.formController("member_id").type(lpData.selectMember).type("{enter}");
+      cy.wait(2000);
+      cy.formController("loan_account_id")
+        .type(lpData.selectLoanAccount)
+        .type("{enter}");
+      cy.wait(2000);
+      cy.imsId("btn-draft").click();
+      cy.imsId("btn-go-back").click();
+      cy.log("Successfully created Loan penalty");
     });
   }
 
@@ -114,14 +104,17 @@ class LoanPenalty {
 
       // var lpData = data.branchManager.createLoanPenaltyFrom;
       // cy.formController("samity_id").type(lpData.selectSamity).type("{enter}");
+      // cy.wait(2000);
       // cy.formController("member_id").type(lpData.selectMember).type("{enter}");
+      // cy.wait(2000);
       // cy.formController("loan_account_id")
       //   .type(lpData.selectLoanAccount)
       //   .type("{enter}");
       // cy.wait(2000);
-      // // cy.imsId("penaltyInput").clear().type(lpData.inputAmount);
-      // cy.imsId("btn-save").click();
-      // cy.imsId("btn-go-back").click();
+      // cy.imsId("loan-input-0").clear().type(lpData.penaltyAmount);
+      // cy.wait(2000);
+      // // cy.imsId("btn-save").click();
+      // // cy.imsId("btn-go-back").click();
       // cy.log("Successfully created Loan penalty");
     });
   }

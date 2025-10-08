@@ -8,14 +8,14 @@ class DayEndProcessAis {
         });
     }
     processPreviewButtonCheck() {
-        cy.imsId("previewButton").click();
-        cy.imsId("goBackButton").click();
+        cy.imsId("btn-preview").click();
+        cy.imsId("btn-go-back").click();
         cy.log("Successful preview button check.");
     }
 
     processGoBackButtonCheck() {
-        cy.imsId("previewButton").click();
-        cy.imsId("goBackButton").click();
+        cy.imsId("btn-preview").click();
+        cy.imsId("btn-go-back").click();
         cy.log("Successful go back button check.");
     }
 

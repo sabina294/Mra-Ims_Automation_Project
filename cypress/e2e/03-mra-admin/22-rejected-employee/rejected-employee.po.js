@@ -61,106 +61,121 @@ class RejectedEmployee {
     });
   }
 
+
   rejectedEmployee() {
     cy.fixture(this.test_data).then((data) => {
-      var emData = data.mraAdmin.rejectedEmployeeFrom;
+      const emData = data.mraAdmin.rejectedEmployeeFrom;
+
       cy.imsId("menu-my-task").click();
       cy.imsId("submenu-awaiting-employee-management").click();
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
+
       cy.imsId("btn-lock").click();
       cy.imsId("btn-reject").click();
-      cy.formController("approver_remarks").first().type(emData.rejectRemarks);
+
+      // ✅ Wait for modal and textarea to appear and be ready
+      cy.get("nz-modal-container").should("be.visible");
+      cy.imsId("approver-remarks-textarea")
+        .should("be.visible")
+        .and("not.be.disabled")
+        .clear()
+        .type(emData.rejectRemarks);
+
       cy.imsId("btn-Reject").click();
       cy.imsId("btn-yes").click();
+      cy.imsId("btn-ok").click();
 
-      cy.log("Successfully rejected rejected employee");
+      // ✅ Wait until modal is closed before moving on
+      cy.get("nz-modal-container").should("not.exist");
+
+      cy.log("✅ Successfully rejected employee");
     });
   }
 
   gridEmployeeListPage() {
-    // cy.fixture(this.test_data).then((data) => {
-    //   cy.selectMenu("menu-employee", "submenu-rejected-employee");
-    //   cy.log("Successfully rejected employee list page.");
-    // });
+    cy.fixture(this.test_data).then((data) => {
+      cy.selectMenu("menu-employee", "submenu-rejected-employee");
+      cy.log("Successfully rejected employee list page.");
+    });
   }
 
   actionButtonCheck() {
-    // cy.imsId("toggle-action").first().click();
-    // cy.log(
-    //   "Action button clicked successfully on the rejected employee list page."
-    // );
+    cy.imsId("toggle-action").first().click();
+    cy.log(
+      "Action button clicked successfully on the rejected employee list page."
+    );
   }
 
   viewEmployeeManagement() {
-    // cy.fixture(this.test_data).then((data) => {
-    //   var emData = data.mraAdmin.createEmployeeFrom;
+    cy.fixture(this.test_data).then((data) => {
+      var emData = data.mraAdmin.createEmployeeFrom;
 
-    //   cy.formController("search_text").type(emData.search);
-    //   cy.imsId("toggle-action").first().click();
-    //   cy.imsId("btn-table-action-view").click();
+      cy.formController("search_text").type(emData.search);
+      cy.imsId("toggle-action").first().click();
+      cy.imsId("btn-table-action-view").click();
 
-    //   cy.imsId("btn-go-back").click();
-    //   cy.log("Successfully viewed the rejected employee list page");
-    // });
+      cy.imsId("btn-go-back").click();
+      cy.log("Successfully viewed the rejected employee list page");
+    });
   }
 
   turnOffOnEditMode() {
-    // cy.imsId("toggle-action").first().click();
-    // cy.imsId("btn-table-action-edit").click();
-    // cy.imsId("switch-button").click();
-    // cy.imsId("btn-go-back").click();
+    cy.imsId("toggle-action").first().click();
+    cy.imsId("btn-table-action-edit").click();
+    cy.imsId("switch-button").click();
+    cy.imsId("btn-go-back").click();
 
-    // cy.log("rejected employee form Edit Mode toggled successfully");
+    cy.log("rejected employee form Edit Mode toggled successfully");
   }
 
   editEmployeeManagement() {
-    // cy.fixture(this.test_data).then((data) => {
-    //   var emData = data.mraAdmin.createEmployeeFrom;
-    //   cy.imsId("btn-reset").click();
+    cy.fixture(this.test_data).then((data) => {
+      var emData = data.mraAdmin.createEmployeeFrom;
+      cy.imsId("btn-reset").click();
 
-    //   cy.formController("search_text").type(emData.search);
-    //   cy.imsId("toggle-action").first().click();
-    //   cy.imsId("btn-table-action-edit").click();
-    //   cy.imsId("btn-submit").click();
+      cy.formController("search_text").type(emData.search);
+      cy.imsId("toggle-action").first().click();
+      cy.imsId("btn-table-action-edit").click();
+      cy.imsId("btn-submit").click();
 
-    //   var emData = data.mraAdmin.createEmployeeFrom;
-    //   cy.imsId("btn-yes").click();
-    //   cy.get("app-confirmation-modal")
-    //     .contains(emData.messageUpdateEmployee)
-    //     .and("be.visible");
-    //   cy.imsId("btn-ok").click();
+      var emData = data.mraAdmin.createEmployeeFrom;
+      cy.imsId("btn-yes").click();
+      cy.get("app-confirmation-modal")
+        .contains(emData.messageUpdateEmployee)
+        .and("be.visible");
+      cy.imsId("btn-ok").click();
 
-    //   cy.log("rejected employee updated successfully");
-    // });
+      cy.log("rejected employee updated successfully");
+    });
   }
 
   editResetButton() {
-    // cy.fixture(this.test_data).then((data) => {
-    //   var emData = data.mraAdmin.createEmployeeFrom;
-    //   cy.imsId("btn-reset").click();
+    cy.fixture(this.test_data).then((data) => {
+      var emData = data.mraAdmin.createEmployeeFrom;
+      cy.imsId("btn-reset").click();
 
-    //   cy.formController("search_text").type(emData.search);
-    //   cy.imsId("toggle-action").first().click();
-    //   cy.imsId("btn-table-action-edit").click();
-    //   cy.imsId("btn-reset").click();
-    //   cy.imsId("btn-go-back").click();
+      cy.formController("search_text").type(emData.search);
+      cy.imsId("toggle-action").first().click();
+      cy.imsId("btn-table-action-edit").click();
+      cy.imsId("btn-reset").click();
+      cy.imsId("btn-go-back").click();
 
-    //   cy.log("Successful clean displaying");
-    // });
+      cy.log("Successful clean displaying");
+    });
   }
 
   editGoBackButton() {
-    // cy.fixture(this.test_data).then((data) => {
-    //   cy.imsId("btn-reset").click();
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("btn-reset").click();
 
-    //   var emData = data.mraAdmin.createEmployeeFrom;
-    //   cy.formController("search_text").type(emData.search);
-    //   cy.imsId("toggle-action").first().click();
-    //   cy.imsId("btn-table-action-edit").click();
-    //   cy.imsId("btn-go-back").click();
-    //   cy.log("Successful edit go back button check.");
-    // });
+      var emData = data.mraAdmin.createEmployeeFrom;
+      cy.formController("search_text").type(emData.search);
+      cy.imsId("toggle-action").first().click();
+      cy.imsId("btn-table-action-edit").click();
+      cy.imsId("btn-go-back").click();
+      cy.log("Successful edit go back button check.");
+    });
   }
 
   statusInactiveDropdownCheck() {

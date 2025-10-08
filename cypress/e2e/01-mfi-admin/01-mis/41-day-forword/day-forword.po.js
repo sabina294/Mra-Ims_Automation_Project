@@ -7,11 +7,25 @@ class DayForwardMis {
       cy.log("Successfully day forward  list page.");
     });
   }
-  
+
+  gridDayForwardDayRoutine() {
+    cy.imsId("btn-forward").click();
+    cy.imsId("btn-yes").click();
+    cy.imsId("btn-ok").click();
+    cy.log("Successfully switch to day forward check.");
+  }
+
+  gridDeleteButtonCheck() {
+    cy.imsId("delete-button").click();
+    cy.imsId("btn-yes").click();
+    cy.imsId("btn-ok").click();
+    cy.log("Successfully delete button check.");
+  }
+
   gridLanguageSwitchCheck() {
     cy.imsId("profile-menu").click();
     cy.imsId("btn-lang-bangla").click();
-    cy.log("Unsuccessful switch to Bangla language check.");
+    cy.log("Successful switch to Bangla language check.");
   }
 }
 

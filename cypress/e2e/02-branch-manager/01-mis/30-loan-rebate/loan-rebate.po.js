@@ -93,94 +93,83 @@ class LoanRebate {
 
   createResetButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
-      // cy.imsId("btn-add-new").click();
-      // var lrData = data.branchManager.createLoanRebateFrom;
-      // cy.formController("samity_id").type(lrData.selectSamity).type("{enter}");
-      // cy.formController("member_id").type(lrData.selectMember).type("{enter}");
-      // cy.formController("loan_account_id")
-      //   .type(lrData.selectLoanAccount)
-      //   .type("{enter}");
-      // cy.wait(2000);
-      // cy.imsId("btn-reset").click();
-      // cy.imsId("btn-go-back").click();
+      cy.imsId("btn-add-new").click();
+      var lrData = data.branchManager.createLoanRebateFrom;
+      cy.formController("samity_id").type(lrData.selectSamity).type("{enter}");
+      cy.formController("member_id").type(lrData.selectMember).type("{enter}");
+      cy.formController("loan_account_id")
+        .type(lrData.selectLoanAccount)
+        .type("{enter}");
+      cy.wait(2000);
+      cy.imsId("btn-reset").click();
+      cy.imsId("btn-go-back").click();
     });
   }
 
   createValidationMessageCheck() {
     cy.fixture(this.test_data).then((data) => {
-      // cy.imsId("btn-add-new").click();
-      // var lrData = data.branchManager.createLoanRebateFrom;
-      // cy.formController("samity_id").type(lrData.selectSamity).type("{enter}");
-      // cy.formController("member_id").type(lrData.selectMember).type("{enter}");
-      // cy.formController("loan_account_id")
-      //   .type(lrData.selectLoanAccount)
-      //   .type("{enter}");
-      // cy.wait(2000);
-      // cy.imsId("btn-submit").click();
-      // cy.imsId("btn-ok").click();
-      // cy.imsId("btn-go-back").click();
+      cy.imsId("btn-add-new").click();
+      var lrData = data.branchManager.createLoanRebateFrom;
+      cy.formController("samity_id").type(lrData.selectSamity).type("{enter}");
+      cy.formController("member_id").type(lrData.selectMember).type("{enter}");
+      cy.formController("loan_account_id")
+        .type(lrData.selectLoanAccount)
+        .type("{enter}");
+      cy.wait(2000);
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-ok").click();
+      cy.imsId("btn-go-back").click();
     });
   }
 
   createDraftButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
-      // cy.imsId("btn-add-new").click();
-      // var lrData = data.branchManager.createLoanRebateFrom;
-      // cy.formController("samity_id").type(lrData.selectSamity).type("{enter}");
-      // cy.formController("member_id").type(lrData.selectMember).type("{enter}");
-      // cy.formController("loan_account_id")
-      //   .type(lrData.selectLoanAccount)
-      //   .type("{enter}");
-      // cy.wait(2000);
-      // cy.imsId("btn-draft").click();
-      // cy.imsId("btn-ok").click();
-      // cy.imsId("btn-go-back").click();
+      cy.imsId("btn-add-new").click();
+      var lrData = data.branchManager.createLoanRebateFrom;
+      cy.formController("samity_id").type(lrData.selectSamity).type("{enter}");
+      cy.formController("member_id").type(lrData.selectMember).type("{enter}");
+      cy.formController("loan_account_id")
+        .type(lrData.selectLoanAccount)
+        .type("{enter}");
+      cy.wait(2000);
+      cy.imsId("btn-draft").click();
+      cy.imsId("btn-ok").click();
+      cy.imsId("btn-go-back").click();
     });
   }
 
   createGoBackButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
-      // cy.imsId("btn-add-new").click();
-      // var lrData = data.branchManager.createLoanRebateFrom;
-      // cy.formController("samity_id").type(lrData.selectSamity).type("{enter}");
-      // cy.formController("member_id").type(lrData.selectMember).type("{enter}");
-      // cy.formController("loan_account_id")
-      //   .type(lrData.selectLoanAccount)
-      //   .type("{enter}");
-      // cy.wait(2000);
-      // cy.imsId("btn-go-back").click();
+      cy.imsId("btn-add-new").click();
+      var lrData = data.branchManager.createLoanRebateFrom;
+      cy.formController("samity_id").type(lrData.selectSamity).type("{enter}");
+      cy.formController("member_id").type(lrData.selectMember).type("{enter}");
+      cy.formController("loan_account_id")
+        .type(lrData.selectLoanAccount)
+        .type("{enter}");
+      cy.wait(2000);
+      cy.imsId("btn-go-back").click();
     });
   }
 
   createAddIconButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
-      // cy.imsId("btn-add-new").click();
-      // var lrData = data.branchManager.createLoanRebateFrom;
-      // cy.formController("samity_id").type(lrData.selectSamity).type("{enter}");
-      // cy.formController("member_id").type(lrData.selectMember).type("{enter}");
-      // cy.formController("loan_account_id")
-      //   .type(lrData.selectLoanAccount)
-      //   .type("{enter}");
-      // cy.wait(2000);
-      // cy.imsId("addIconButton").click();
-      // cy.imsId("btn-go-back").click();
+      cy.imsId("btn-add-new").click();
+      var lrData = data.branchManager.createLoanRebateFrom;
+      cy.formController("samity_id").type(lrData.selectSamity).type("{enter}");
+      cy.formController("member_id").type(lrData.selectMember).type("{enter}");
+      cy.formController("loan_account_id")
+        .type(lrData.selectLoanAccount)
+        .type("{enter}");
+      cy.wait(2000);
+      cy.imsId("addIconButton").click();
     });
   }
 
   createRemoveIconButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
-      // cy.imsId("btn-add-new").click();
-
-      // const lrData = data.branchManager.createLoanRebateFrom;
-
-      // cy.formController("samity_id").type(lrData.selectSamity).type("{enter}");
-      // cy.formController("member_id").type(lrData.selectMember).type("{enter}");
-      // cy.formController("loan_account_id").type(lrData.selectLoanAccount).type("{enter}");
-      // cy.wait(2000);
-      // cy.imsId("addIconButton").click({ multiple: true });
-      // // ✅ click first remove icon
-      // cy.imsId("removeIconButton").first().click();
-      // cy.imsId("btn-go-back").click();
+      cy.imsId("removeIconButton").first().click();
+      cy.imsId("btn-go-back").click();
     });
   }
 

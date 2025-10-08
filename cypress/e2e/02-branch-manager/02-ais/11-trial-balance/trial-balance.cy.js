@@ -32,4 +32,9 @@ describe("11. Trial Balance Module Test Cases", function () {
     it("11.02. Verify check that the grid list content changes correctly from english to bangla.", function () {
         create_trial_balance.gridLanguageSwitchCheck();
     });
+
+    it("11.03. Verify that clicking the go back button on the trial balance grid page redirects the user to the trial balance list page.", function () {
+        create_trial_balance.gridGoBackButtonCheck();
+    });
+
 });

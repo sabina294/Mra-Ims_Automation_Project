@@ -9,59 +9,59 @@ class RegularCollection {
     }
 
     actionButtonCheck() {
-        // cy.imsId("toggle-action").first().click();
-        // cy.log("Action button clicked successfully on the regular collection list page.");
+        cy.imsId("toggle-action").first().click();
+        cy.log("Action button clicked successfully on the regular collection list page.");
     }
     openButtonCheck() {
-        // cy.imsId("btn-table-action-open").first().click();
-        // cy.log("Open button clicked successfully on the regular collection list page.");
+        cy.imsId("btn-table-action-open").first().click();
+        cy.log("Open button clicked successfully on the regular collection list page.");
     }
 
     collectionCheck() {
         cy.fixture(this.test_data).then((data) => {
-            // var rcData = data.branchManager.regularCollection;
-            // cy.imsId("loan-AGRO-1020-101-1001-1").type(rcData.loanAmount);
-            // cy.imsId("loan-JAGO-1020-101-1001-1").type(rcData.loanAmount2);
-            // cy.imsId("btn-save").click();
-            // cy.imsId("btn-yes").click();
-            // cy.imsId("btn-ok").click();
-            // cy.log("successfully on the regular collection list page.");
+            var rcData = data.branchManager.regularCollection;
+            cy.imsId("loan-AGRO-1020-101-1001-1").type(rcData.loanAmount);
+            cy.imsId("loan-JAGO-1020-101-1001-1").type(rcData.loanAmount2);
+            cy.imsId("btn-save").click();
+            cy.imsId("btn-yes").click();
+            cy.imsId("btn-ok").click();
+            cy.log("successfully on the regular collection list page.");
         });
     }
 
     viewRegularCollection() {
-        // cy.imsId("toggle-action").first().click();
-        // cy.imsId("btn-table-action-view").click();
-        // cy.imsId("btn-go-back").click();
-        // cy.log("successfully on the view regular collection list page.");
+        cy.imsId("toggle-action").first().click();
+        cy.imsId("btn-table-action-view").click();
+        cy.imsId("btn-go-back").click();
+        cy.log("successfully on the view regular collection list page.");
     }
 
     editRegularCollection() {
-        // cy.imsId("toggle-action").first().click();
-        // cy.imsId("btn-table-action-edit").click();
-        // cy.imsId("btn-go-back").click();
-        // cy.log("successfully on the edit regular collection list page.");
+        cy.imsId("toggle-action").first().click();
+        cy.imsId("btn-table-action-edit").click();
+        cy.imsId("btn-go-back").click();
+        cy.log("successfully on the edit regular collection list page.");
     }
 
     editResetButton() {
-        // cy.imsId("toggle-action").first().click();
-        // cy.imsId("btn-table-action-edit").click();
-        // cy.imsId("btn-reset").click();
-        // cy.imsId("btn-yes").click();
-        // cy.imsId("btn-ok").click();
-        // cy.log("successfully on the regular collection list page.");
+        cy.imsId("toggle-action").first().click();
+        cy.imsId("btn-table-action-edit").click();
+        cy.imsId("btn-reset").click();
+        cy.imsId("btn-yes").click();
+        cy.imsId("btn-ok").click();
+        cy.log("successfully on the regular collection list page.");
     }
 
     gridResetButtonCheck() {
-        // cy.imsId("btn-reset").click();
-        // cy.log("Successful clean displaying.");
+        cy.imsId("btn-reset").click();
+        cy.log("Successful clean displaying.");
     }
 
     gridRefreshButtonCheck() {
-        // cy.imsId("btn-refresh").click();
-        // cy.log(
-        //     "successfully refresh page  displayed the grid list of the regular collection "
-        // );
+        cy.imsId("btn-refresh").click();
+        cy.log(
+            "successfully refresh page  displayed the grid list of the regular collection "
+        );
     }
 
     gridLanguageSwitchCheck() {

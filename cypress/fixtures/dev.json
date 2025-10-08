@@ -1249,7 +1249,7 @@
       "selectStatus": "Inactive",
       "statusSelect": "Active",
       "search": "রুবায়ত জামান",
-      "rejectRemarks": "Reject",
+      "rejectRemarks": "reject",
       "messageSaveEmployee": "Mra employee has been saved",
       "messageUpdateEmployee": "Mra employee has been updated"
     }
