@@ -32,4 +32,9 @@ describe("10. Balance Sheet Module Test Cases", function () {
     it("10.02. Verify check that the grid list content changes correctly from english to bangla.", function () {
         create_balance_sheet.gridLanguageSwitchCheck();
     });
+
+    it("10.03. Verify that clicking the go back button on the Balance Sheet grid page redirects the user to the Balance Sheet list page.", function () {
+        create_balance_sheet.gridGoBackButtonCheck();
+    });
+
 });

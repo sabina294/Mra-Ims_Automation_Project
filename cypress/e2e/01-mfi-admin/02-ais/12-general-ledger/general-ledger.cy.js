@@ -3,7 +3,7 @@
 // npx cypress run --spec cypress/e2e/01-mfi-admin/02-ais/12-general-ledger/general-ledger.cy.js --browser chrome --headed
 
 import "cypress-file-upload";
-import { create_general_ledger} from "./general-ledger.po";
+import { create_general_ledger } from "./general-ledger.po";
 
 describe("12. General Ledger Module Test Cases", function () {
     const baseURL = Cypress.env("BASE_URL");
@@ -31,5 +31,9 @@ describe("12. General Ledger Module Test Cases", function () {
 
     it("12.02. Verify check that the grid list content changes correctly from english to bangla.", function () {
         create_general_ledger.gridLanguageSwitchCheck();
+    });
+
+    it("12.03. Verify that clicking the go back button on the General Ledger grid page redirects the user to the General Ledger list page.", function () {
+        create_general_ledger.gridGoBackButtonCheck();
     });
 });
