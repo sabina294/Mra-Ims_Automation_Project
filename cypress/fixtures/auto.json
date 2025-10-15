@@ -642,7 +642,7 @@
       "adressEn": "Sylhet",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
-      "search": "Nurul Alam",
+      "search": "Jakir Hossain",
       "messageSaveEmp": "Mfi employee has been saved",
       "messageUpdateEmp": "Mfi employee has been updated"
     },
@@ -1227,12 +1227,11 @@
       "adressEn": "Sylhet",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
-      "search": "রুবায়ত জামান",
+      "search": "Test Employee",
       "messageSaveEmployee": "Mra employee has been saved",
       "messageUpdateEmployee": "Mra employee has been updated"
     },
-
-     "rejectedEmployeeFrom": {
+    "rejectedEmployeeFrom": {
       "employeeNameEn": "Test Employee",
       "employeeNameBn": "পরীক্ষা কর্মচারী",
       "employeeMobileNo": "01887949170",
@@ -1253,7 +1252,6 @@
       "messageSaveEmployee": "Mra employee has been saved",
       "messageUpdateEmployee": "Mra employee has been updated"
     }
-
   },
   "fieldOfficer": {
     "gridDepartmentFrom": {

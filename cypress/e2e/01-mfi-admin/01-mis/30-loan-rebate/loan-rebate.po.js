@@ -12,8 +12,11 @@ class LoanRebate {
       cy.imsId("btn-add-new").click();
       var lrData = data.mfiAdmin.createLoanRebateFrom;
       cy.formController("office_id").type(lrData.selectOffice).type("{enter}");
+      cy.wait(2000);
       cy.formController("samity_id").type(lrData.selectSamity).type("{enter}");
+      cy.wait(2000);
       cy.formController("member_id").type(lrData.selectMember).type("{enter}");
+      cy.wait(2000);
       cy.formController("loan_account_id")
         .type(lrData.selectLoanAccount)
         .type("{enter}");

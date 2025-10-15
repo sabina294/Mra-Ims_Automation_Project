@@ -3,7 +3,7 @@ class MonthEndProcess {
 
   gridMonthEndProcessListPage() {
     cy.fixture(this.test_data).then((data) => {
-      cy.selectMenu("menu-process", "submenu-month-end-process");
+      cy.selectMenu("menu-process", "submenu-month-end-process-(mis)");
       cy.log("Successfully month end process list page.");
     });
   }

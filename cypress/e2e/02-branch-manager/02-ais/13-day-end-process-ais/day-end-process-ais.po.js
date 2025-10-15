@@ -15,7 +15,7 @@ class DayEndProcessAis {
 
     processGoBackButtonCheck() {
         cy.imsId("btn-preview").click();
-        cy.imsId("btn-go-back").click();
+        cy.imsId("go-back-button").click();
         cy.log("Successful go back button check.");
     }
 

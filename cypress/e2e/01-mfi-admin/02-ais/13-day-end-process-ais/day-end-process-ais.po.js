@@ -9,13 +9,11 @@ class DayEndProcessAis {
     }
     processPreviewButtonCheck() {
         cy.imsId("btn-preview").click();
-        cy.imsId("btn-go-back").click();
         cy.log("Successful preview button check.");
     }
 
     processGoBackButtonCheck() {
-        cy.imsId("btn-preview").click();
-        cy.imsId("btn-go-back").click();
+        cy.imsId("go-back-button").click();
         cy.log("Successful go back button check.");
     }
 

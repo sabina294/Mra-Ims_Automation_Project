@@ -5,7 +5,7 @@
 import "cypress-file-upload";
 import { create_savings_product } from "./savings-product.po";
 
-describe("16. savings product Module Test Cases", function () {
+describe("16. Savings product Module Test Cases", function () {
   const baseURL = Cypress.env("BASE_URL");
   const test_data = Cypress.env("TEST_DATA");
   before(() => {
