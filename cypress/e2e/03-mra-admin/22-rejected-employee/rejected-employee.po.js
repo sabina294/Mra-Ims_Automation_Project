@@ -110,6 +110,7 @@ class RejectedEmployee {
   viewEmployeeManagement() {
     cy.fixture(this.test_data).then((data) => {
       var emData = data.mraAdmin.createEmployeeFrom;
+      cy.imsId("btn-reset").click();
 
       cy.formController("search_text").type(emData.search);
       cy.imsId("toggle-action").first().click();
@@ -123,7 +124,8 @@ class RejectedEmployee {
   turnOffOnEditMode() {
     cy.imsId("toggle-action").first().click();
     cy.imsId("btn-table-action-edit").click();
-    cy.imsId("switch-button").click();
+    cy.get('.ant-switch-inner > .hidden').click();
+    // cy.imsId("switch-button").click();
     cy.imsId("btn-go-back").click();
 
     cy.log("rejected employee form Edit Mode toggled successfully");
@@ -192,6 +194,7 @@ class RejectedEmployee {
   statusActiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       var emData = data.mraAdmin.rejectedEmployeeFrom;
+            cy.imsId("btn-reset").click();
       cy.formController("status").type(emData.statusSelect).type("{enter}");
       cy.log(
         "rejected employee form status active dropdown check successfully"

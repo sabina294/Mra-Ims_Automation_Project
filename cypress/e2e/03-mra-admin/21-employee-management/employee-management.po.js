@@ -75,7 +75,7 @@ class EmployeeManagementCreation {
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
       cy.imsId("btn-lock").click();
-
+      cy.imsId("btn-approve").click();
       cy.imsId("btn-Approve").click();
       cy.imsId("btn-yes").click();
       cy.imsId("btn-ok").click();
@@ -315,7 +315,7 @@ class EmployeeManagementCreation {
     cy.log("Draft button should be clickable and functional.");
   }
 
-   gridCheckboxCheck() {
+  gridCheckboxCheck() {
     cy.imsId("row-checkbox-0").click();
     cy.imsId("btn-reset").click();
     cy.log("Checkbox should be clickable and functional.");
