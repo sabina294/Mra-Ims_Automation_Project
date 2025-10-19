@@ -31,35 +31,39 @@ describe("25. Loan Account Proposal Management Module Test Cases", function () {
     create_loan_account_proposal_management.createLoanAccountProposalManagement();
   });
 
-  it("25.03. Verify successfully performs the action when the action button is clicked.", function () {
+  // it("25.03. Verify successfully approve a loan account proposal management record after creation.", function () {
+  //   create_loan_account_proposal_management.approveLoanAccountProposal();
+  // });
+
+  it("25.04. Verify successfully performs the action when the action button is clicked.", function () {
     create_loan_account_proposal_management.actionButtonCheck();
   });
 
-  it("25.04. Verify successful Loan Account Proposal Management  information View.", function () {
+  it("25.05. Verify successful Loan Account Proposal Management  information View.", function () {
     create_loan_account_proposal_management.viewLoanAccountProposalManagement();
   });
 
-  it("25.05. Verify that the user can filter the inactive Loan Account Proposal Management s using the Status Dropdown on the Loan Account Proposal Management  List page.", function () {
+  it("25.06. Verify that the user can filter the inactive Loan Account Proposal Management s using the Status Dropdown on the Loan Account Proposal Management  List page.", function () {
     create_loan_account_proposal_management.statusInactiveDropdownCheck();
   });
 
-  it("25.06. Verify Filter Active Result by Status Dropdown", function () {
+  it("25.07. Verify Filter Active Result by Status Dropdown", function () {
     create_loan_account_proposal_management.statusActiveDropdownCheck();
   });
 
-  it("25.07. Verify Successful Search Result by Loan Account Proposal Management  Name", function () {
+  it("25.08. Verify Successful Search Result by Loan Account Proposal Management  Name", function () {
     create_loan_account_proposal_management.searchInLoanAccountProposalName();
   });
 
-  it("25.08. Verify Successful Reset of Grid List Using the Reset Button on Loan Account Proposal Management  Page.", function () {
+  it("25.09. Verify Successful Reset of Grid List Using the Reset Button on Loan Account Proposal Management  Page.", function () {
     create_loan_account_proposal_management.gridResetButtonCheck();
   });
 
-  it("25.09 .Verify Successful Refresh of Grid List Using the Refresh Button on Loan Account Proposal Management  Page.", function () {
+  it("25.10. Verify Successful Refresh of Grid List Using the Refresh Button on Loan Account Proposal Management  Page.", function () {
     create_loan_account_proposal_management.gridRefreshButtonCheck();
   });
 
-  it("25.10. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("25.11. Verify check that the grid list content changes correctly from english to bangla.", function () {
     create_loan_account_proposal_management.gridLanguageSwitchCheck();
   });
 });

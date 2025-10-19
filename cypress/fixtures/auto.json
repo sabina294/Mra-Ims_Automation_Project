@@ -179,6 +179,27 @@
       "messageSaveEmp": "Mfi employee has been saved",
       "messageUpdateEmp": "Mfi employee has been updated"
     },
+    "rejectedEmployeeFrom": {
+      "empNameEn": "Sabina Yeasmin",
+      "empNameBn": "সাবিনা ইয়াসমিন",
+      "empMobileNo": "01887949170",
+      "nidNumber": "0003463473656",
+      "office": "1040 (Test Office)",
+      "department": "Board of Directors",
+      "designation": "Branch Manager",
+      "officeNameEn": "1040 (Test Office)",
+      "fatherNameEn": "Test Father",
+      "motherNameEn": "Test Mother",
+      "division": "Sylhet Division",
+      "district": "Sunamganj",
+      "thana": "Tahirpur",
+      "adressEn": "Sylhet",
+      "selectStatus": "Inactive",
+      "statusSelect": "Active",
+      "search": "Mohammad Sadik",
+      "messageSaveEmp": "Mfi employee has been saved",
+      "messageUpdateEmp": "Mfi employee has been updated"
+    },
     "approveEmployeeFrom": {},
     "createSamityFrom": {
       "samityNameEn": "Test Samity",
@@ -646,6 +667,27 @@
       "messageSaveEmp": "Mfi employee has been saved",
       "messageUpdateEmp": "Mfi employee has been updated"
     },
+    "rejectedEmployeeFrom": {
+      "empNameEn": "Sabina Yeasmin",
+      "empNameBn": "সাবিনা ইয়াসমিন",
+      "empMobileNo": "01887949170",
+      "nidNumber": "0003463473656",
+      "office": "1020 (Ashulia)",
+      "department": "Board of Directors",
+      "designation": "Branch Manager",
+      "officeNameEn": "1020 (Ashulia)",
+      "fatherNameEn": "Test Father",
+      "motherNameEn": "Test Mother",
+      "division": "Sylhet Division",
+      "district": "Sunamganj",
+      "thana": "Tahirpur",
+      "adressEn": "Sylhet",
+      "selectStatus": "Inactive",
+      "statusSelect": "Active",
+      "search": "Mohammad Sadik",
+      "messageSaveEmp": "Mfi employee has been saved",
+      "messageUpdateEmp": "Mfi employee has been updated"
+    },
     "createSamityFrom": {
       "samityNameEn": "Test Samity",
       "samityNameBn": "পরীক্ষা সমিতি",
@@ -787,6 +829,7 @@
       "statusSelect": "Active",
       "SelectOffice": "1020 (Ashulia)",
       "memberNameEn": "Zahra Ahmed",
+      "approvedLoanAmount": "45000",
       "messageSaveLoanAccount": "Loan account proposal has been saved",
       "messageUpdateLoanAccount": "Do you want to update this loan account?"
     },
