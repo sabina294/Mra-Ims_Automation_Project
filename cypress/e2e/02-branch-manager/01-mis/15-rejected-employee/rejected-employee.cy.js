@@ -27,13 +27,13 @@ describe("15. Rejected Employee Module Test Cases", function () {
         create_rejected_employee.gridEmployeeListPage();
     });
 
-    // it("15.02. Verify a new rejected employee record is created successfully when all required fields are filled with valid data.", function () {
-    //     create_rejected_employee.createEmployeeManagement();
-    // });
+    it("15.02. Verify a new rejected employee record is created successfully when all required fields are filled with valid data.", function () {
+        create_rejected_employee.createEmployeeManagement();
+    });
 
-    // it("15.03. Verify mfi-admin to successfully approve a rejected employee record after creation.", function () {
-    //     create_rejected_employee.approveEmployee();
-    // });
+    it("15.03. Verify branch manager to successfully approve a rejected employee record after creation.", function () {
+        create_rejected_employee.rejectedEmployee();
+    });
 
     it("15.04. Verify successfully performs the action when the action button is clicked.", function () {
         create_rejected_employee.actionButtonCheck();

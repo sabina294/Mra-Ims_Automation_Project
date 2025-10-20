@@ -1,9 +1,8 @@
 class RejectedEmployee {
   test_data = Cypress.env("TEST_DATA");
-
   gridEmployeeListPage() {
     cy.fixture(this.test_data).then((data) => {
-      cy.selectMenu("menu-employee", "submenu-rejected-employee");
+      cy.selectMenu("menu-employee", "submenu-employee-management");
       cy.log("Successfully Rejected Employee list page.");
     });
   }
@@ -70,26 +69,38 @@ class RejectedEmployee {
     });
   }
 
-  approveEmployee() {
-    cy.fixture(this.test_data).then((data) => {
-      var emData = data.branchManager.rejectedEmployeeFrom;
-      cy.formController("search_text").type(emData.empNameEn);
-      cy.imsId("menu-my-task").click();
-      cy.imsId("submenu-awaiting-employee-management").click();
-      cy.imsId("toggle-action").first().click();
-      cy.imsId("btn-table-action-view").click();
-      cy.imsId("btn-lock").click();
-      cy.imsId("btn-approve").click();
-      cy.imsId("btn-Approve").click();
-      cy.imsId("btn-yes").click();
+  rejectedEmployee() {
+  cy.fixture(this.test_data).then((data) => {
+    const emData = data.branchManager.rejectedEmployeeFrom;
+
+    cy.imsId("menu-my-task").click();
+    cy.imsId("submenu-awaiting-employee-management").click();
+    cy.imsId("toggle-action").first().click();
+    cy.imsId("btn-table-action-view").click();
+
+    cy.imsId("btn-lock").click();
+    cy.imsId("btn-reject").click();
+
+    // ✅ Wait for modal and textarea to appear and be ready
+    cy.get("nz-modal-container").should("be.visible");
+    cy.imsId("approver-remarks-textarea")
+      .should("be.visible")
+      .and("not.be.disabled")
+      .clear()
+      .type(emData.rejectRemarks);
+
+    cy.imsId("btn-Reject").click();
+    cy.imsId("btn-yes").click();
+
+    // ✅ Wait until modal is closed before moving on
       cy.imsId("btn-ok").click();
 
-      cy.log("Successfully approve Rejected Employee");
-    });
-  }
+    cy.log("✅ Successfully rejected employee");
+  });
+}
 
   actionButtonCheck() {
-    // cy.selectMenu("menu-employee", "submenu-rejected-employee");
+    cy.selectMenu("menu-employee", "submenu-rejected-employee");
     cy.imsId("toggle-action").first().click();
     cy.log(
       "Action button clicked successfully on the Rejected Employee list page."

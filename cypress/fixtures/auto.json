@@ -179,15 +179,16 @@
       "messageSaveEmp": "Mfi employee has been saved",
       "messageUpdateEmp": "Mfi employee has been updated"
     },
-    "rejectedEmployeeFrom": {
+    
+   "rejectedEmployeeFrom": {
       "empNameEn": "Sabina Yeasmin",
       "empNameBn": "সাবিনা ইয়াসমিন",
       "empMobileNo": "01887949170",
       "nidNumber": "0003463473656",
-      "office": "1040 (Test Office)",
+      "office": "1020 (Ashulia)",
       "department": "Board of Directors",
       "designation": "Branch Manager",
-      "officeNameEn": "1040 (Test Office)",
+      "officeNameEn": "1020 (Ashulia)",
       "fatherNameEn": "Test Father",
       "motherNameEn": "Test Mother",
       "division": "Sylhet Division",
@@ -197,6 +198,7 @@
       "selectStatus": "Inactive",
       "statusSelect": "Active",
       "search": "Mohammad Sadik",
+      "rejectRemarks": "Reject",
       "messageSaveEmp": "Mfi employee has been saved",
       "messageUpdateEmp": "Mfi employee has been updated"
     },
@@ -685,6 +687,7 @@
       "selectStatus": "Inactive",
       "statusSelect": "Active",
       "search": "Mohammad Sadik",
+      "rejectRemarks": "Reject",
       "messageSaveEmp": "Mfi employee has been saved",
       "messageUpdateEmp": "Mfi employee has been updated"
     },
