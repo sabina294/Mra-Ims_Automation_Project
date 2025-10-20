@@ -39,23 +39,27 @@ describe("38. holiday Module Test Cases", function () {
     create_holiday.searchHolidayTitle();
   });
 
-  it("38.05. Verify the grid list resets successfully when the reset button is clicked on the holiday page.", function () {
+  it("38.05. Verify that the selected year results are displayed correctly when calendar year is selected.", function () {
+    create_holiday.selectCalendarYear();
+  });
+
+  it("38.06. Verify the grid list resets successfully when the reset button is clicked on the holiday page.", function () {
     create_holiday.gridResetButtonCheck();
   });
 
-  it("38.06. Verify that the grid list is refreshed successfully when the refresh button is clicked on the holiday page.", function () {
+  it("38.07. Verify that the grid list is refreshed successfully when the refresh button is clicked on the holiday page.", function () {
     create_holiday.gridRefreshButtonCheck();
   });
 
-  it("38.07. Verify display the grid list successfully when the Draft button on is clicked on the holiday page", function () {
+  it("38.08. Verify display the grid list successfully when the Draft button on is clicked on the holiday page", function () {
     create_holiday.gridDraftButton();
   });
 
-  it("38.08. Verify display the grid list successfully when the Draft button off is clicked on the holiday page", function () {
+  it("38.09. Verify display the grid list successfully when the Draft button off is clicked on the holiday page", function () {
     create_holiday.gridDraftButtonOff();
   });
 
-  it("38.09. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("38.10. Verify check that the grid list content changes correctly from english to bangla.", function () {
     create_holiday.gridLanguageSwitchCheck();
   });
 });

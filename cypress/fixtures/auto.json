@@ -179,7 +179,7 @@
       "messageSaveEmp": "Mfi employee has been saved",
       "messageUpdateEmp": "Mfi employee has been updated"
     },
-    
+
    "rejectedEmployeeFrom": {
       "empNameEn": "Sabina Yeasmin",
       "empNameBn": "সাবিনা ইয়াসমিন",
@@ -935,6 +935,7 @@
       "holidayTitleBn": "পরীক্ষার ছুটি",
       "holidayTitleEn": "Test Holiday",
       "search": "Weekly Holiday",
+      "calendarYear": "2024",
       "office": "1002 (Dhaka Regional Office)",
       "messageSaveHoliday": "Mfi holiday has been saved"
     },
