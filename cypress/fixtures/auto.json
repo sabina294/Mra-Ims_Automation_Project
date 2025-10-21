@@ -179,8 +179,7 @@
       "messageSaveEmp": "Mfi employee has been saved",
       "messageUpdateEmp": "Mfi employee has been updated"
     },
-
-   "rejectedEmployeeFrom": {
+     "rejectedEmployeeFrom": {
       "empNameEn": "Sabina Yeasmin",
       "empNameBn": "সাবিনা ইয়াসমিন",
       "empMobileNo": "01887949170",
@@ -197,7 +196,7 @@
       "adressEn": "Sylhet",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
-      "search": "Mohammad Sadik",
+      "search": "Sabina Yeasmin",
       "rejectRemarks": "Reject",
       "messageSaveEmp": "Mfi employee has been saved",
       "messageUpdateEmp": "Mfi employee has been updated"
@@ -418,6 +417,8 @@
       "selectStatus": "Inactive",
       "statusSelect": "Active",
       "office": "1020 (Ashulia)",
+      "rebateType": "Full",
+      "rebatetAmount": "50",
       "approveMessage": "Loan Rebate Authorization for Loan Account Is Successful",
       "messageSaveLoanRebate": "Loan Rebate Collection for this Loan Account is successful",
       "messageUpdateLoanRebate": "Do you want to update this loan rebate?"
@@ -686,7 +687,7 @@
       "adressEn": "Sylhet",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
-      "search": "Mohammad Sadik",
+      "search": "Sabina Yeasmin",
       "rejectRemarks": "Reject",
       "messageSaveEmp": "Mfi employee has been saved",
       "messageUpdateEmp": "Mfi employee has been updated"
@@ -831,7 +832,7 @@
       "selectStatus": "Inactive",
       "statusSelect": "Active",
       "SelectOffice": "1020 (Ashulia)",
-      "memberNameEn": "Zahra Ahmed",
+      "memberNameEn": "Ashulia Mohila Samity",
       "approvedLoanAmount": "45000",
       "messageSaveLoanAccount": "Loan account proposal has been saved",
       "messageUpdateLoanAccount": "Do you want to update this loan account?"
@@ -1294,7 +1295,7 @@
       "adressEn": "Sylhet",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
-      "search": "রুবায়ত জামান",
+      "search": "Test Employee",
       "rejectRemarks": "reject",
       "messageSaveEmployee": "Mra employee has been saved",
       "messageUpdateEmployee": "Mra employee has been updated"

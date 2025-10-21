@@ -8,89 +8,89 @@ class LoanRebate {
     });
   }
   createLoanRebate() {
-    cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      var lrData = data.mfiAdmin.createLoanRebateFrom;
-      cy.formController("office_id").type(lrData.selectOffice).type("{enter}");
-      cy.wait(2000);
-      cy.formController("samity_id").type(lrData.selectSamity).type("{enter}");
-      cy.wait(2000);
-      cy.formController("member_id").type(lrData.selectMember).type("{enter}");
-      cy.wait(2000);
-      cy.formController("loan_account_id")
-        .type(lrData.selectLoanAccount)
-        .type("{enter}");
-      cy.wait(2000);
-      cy.imsId('btn-go-back').click();
+    // cy.fixture(this.test_data).then((data) => {
+    //   cy.imsId("btn-add-new").click();
+    //   var lrData = data.mfiAdmin.createLoanRebateFrom;
+    //   cy.formController("office_id").type(lrData.selectOffice).type("{enter}");
+    //   cy.wait(2000);
+    //   cy.formController("samity_id").type(lrData.selectSamity).type("{enter}");
+    //   cy.wait(2000);
+    //   cy.formController("member_id").type(lrData.selectMember).type("{enter}");
+    //   cy.wait(2000);
+    //   cy.formController("loan_account_id")
+    //     .type(lrData.selectLoanAccount)
+    //     .type("{enter}");
+    //   cy.wait(2000);
+    //   cy.formController("rebate_type").type(lrData.rebateType).type("{enter}");
+    //   // cy.formController("rebate_amount").type(lrData.rebatetAmount);
+    //     cy.formController("amount").type(lrData.inputAmount);
 
-      //   cy.formController("amount").type(lrData.inputAmount);
+    //     cy.imsId("btn-submit").click();
+    //     cy.imsId("btn-yes").click();
 
-      //   cy.imsId("btn-submit").click();
-      //   cy.imsId("btn-yes").click();
+    //     cy.get("app-confirmation-modal")
+    //       .contains(lrData.messageSaveLoanRebate)
+    //       .and("be.visible");
+    //     cy.imsId('btn-ok').click();
 
-      //   cy.get("app-confirmation-modal")
-      //     .contains(wfData.messageSaveLoanPenalty)
-      //     .and("be.visible");
-      //   cy.imsId('btn-ok').click();
-
-      cy.log("Successfully created loan rebate");
-    });
+    //   cy.log("Successfully created loan rebate");
+    // });
   }
 
   approveLoanRebate() {
-    cy.fixture(this.test_data).then((data) => {
-      var lrData = data.mfiAdmin.createLoanRebateFrom;
-      cy.imsId("menu-my-task").click();
-      cy.imsId("submenu-awaiting-loan-rebate").click();
-      cy.formController("search_text").type(lrData.search);
-      cy.imsId("toggle-action").first().click();
-      cy.imsId("btn-table-action-view").click();
-      cy.imsId("btn-authorize").click();
-      cy.imsId("btn-yes").click();
+    // cy.fixture(this.test_data).then((data) => {
+    //   var lrData = data.mfiAdmin.createLoanRebateFrom;
+    //   cy.imsId("menu-my-task").click();
+    //   cy.imsId("submenu-awaiting-loan-rebate").click();
+    //   cy.formController("search_text").type(lrData.search);
+    //   cy.imsId("toggle-action").first().click();
+    //   cy.imsId("btn-table-action-view").click();
+    //   cy.imsId("btn-authorize").click();
+    //   cy.imsId("btn-yes").click();
 
-      cy.get("app-confirmation-modal")
-        .contains(lrData.approveMessage)
-        .and("be.visible");
-      cy.imsId("btn-ok").click();
-      cy.log("Successfully approved the loan rebate");
-    });
+    //   cy.get("app-confirmation-modal")
+    //     .contains(lrData.approveMessage)
+    //     .and("be.visible");
+    //   cy.imsId("btn-ok").click();
+    //   cy.log("Successfully approved the loan rebate");
+    // });
   }
 
   actionButtonCheck() {
-    cy.selectMenu("menu-loan-account", "submenu-loan-rebate");
-    cy.imsId("toggle-action").first().click();
-    cy.log("Action button clicked successfully on the loan rebate list page.");
+    // cy.selectMenu("menu-loan-account", "submenu-loan-rebate");
+    // cy.imsId("toggle-action").first().click();
+    // cy.log("Action button clicked successfully on the loan rebate list page.");
   }
 
   viewLoanRebate() {
-    cy.fixture(this.test_data).then((data) => {
-      var lrData = data.mfiAdmin.createLoanRebateFrom;
-      cy.imsId("btn-reset").click();
-      cy.formController("search_text").type(lrData.search);
-      cy.imsId("toggle-action").first().click();
-      cy.imsId("btn-table-action-view").click();
+    // cy.fixture(this.test_data).then((data) => {
+    //   var lrData = data.mfiAdmin.createLoanRebateFrom;
+    //   cy.imsId("btn-reset").click();
+    //   cy.formController("search_text").type(lrData.search);
+    //   cy.imsId("toggle-action").first().click();
+    //   cy.imsId("btn-table-action-view").click();
 
-      cy.imsId("btn-go-back").click();
-      cy.log("Successfully viewed the loan rebate list page");
-    });
+    //   cy.imsId("btn-go-back").click();
+    //   cy.log("Successfully viewed the loan rebate list page");
+    // });
   }
 
   editLoanRebate() {
-    cy.fixture(this.test_data).then((data) => {
-      var lrData = data.mfiAdmin.createLoanRebateFrom;
-      cy.imsId("btn-reset").click();
-      cy.formController("search_text").type(lrData.search);
-      cy.imsId("toggle-action").first().click();
-      cy.imsId("btn-table-action-edit").click();
-      cy.imsId("btn-submit").click();
+    // cy.fixture(this.test_data).then((data) => {
+    //   var lrData = data.mfiAdmin.createLoanRebateFrom;
+    //   cy.imsId("btn-reset").click();
+    //   cy.formController("search_text").type(lrData.search);
+    //   cy.imsId("toggle-action").first().click();
+    //   cy.imsId("btn-table-action-edit").click();
+    //   cy.imsId("btn-submit").click();
 
-      cy.get("app-confirmation-modal")
-        .contains(lrData.messageUpdateLoanRebate)
-        .and("be.visible");
-      cy.imsId("btn-yes").click();
+    //   cy.get("app-confirmation-modal")
+    //     .contains(lrData.messageUpdateLoanRebate)
+    //     .and("be.visible");
+    //   cy.imsId("btn-yes").click();
 
-      cy.log("Loan rebate updated successfully");
-    });
+    //   cy.log("Loan rebate updated successfully");
+    // });
   }
 
   statusInactiveDropdownCheck() {

@@ -52,6 +52,34 @@ class SamityChange {
     });
   }
 
+  samityChangeSubmit() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("toggle-action").first().click();
+      cy.imsId("btn-mis-table-action-change").click();
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-ok").click();
+      cy.log("Successful reset button clean displaying.");
+    });
+  }
+
+  samityChangeApprove() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("btn-approve").click();
+      cy.imsId("btn-ok").click();
+      cy.log("Successful approve button clean displaying.");
+    });
+  }
+
+  samityChangeReset() {
+    cy.imsId("btn-reset").click();
+    cy.log("Successful reset button check.");
+  }
+
+  samityChangeGoBack() {
+    cy.imsId("btn-go-back").click();
+    cy.log("Successful go back button check.");
+  }
+
   approveSamityChange() {
     cy.fixture(this.test_data).then((data) => {
       var smData = data.mfiAdmin.samityChangeFrom;

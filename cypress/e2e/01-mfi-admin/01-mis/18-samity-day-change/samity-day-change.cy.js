@@ -39,43 +39,59 @@ describe("18. Samity Day Change Module Test Cases", function () {
     samity_day_change.samityDayChange();
   });
 
-  it("18.05. Verify mfi-admin to successfully approve an samity day change record after creation.", function () {
+  it("18.05. Verify that the Submit button for creating a new samity day functions correctly.", function () {
+    samity_day_change.samityChangeSubmit();
+  });
+
+  it("18.06. Verify that the Approve button for the new samity day change functions correctly.", function () {
+    samity_day_change.samityChangeApprove();
+  });
+  
+  it("18.07. Verify that the Reset button in the New samity day Change form functions correctly.", function () {
+    samity_day_change.samityChangeReset();
+  });
+
+  it("18.08. Verify that the Go Back button functions correctly on the new samity day change screen.", function () {
+    samity_day_change.samityChangeGoBack();
+  });
+
+  it("18.09. Verify mfi-admin to successfully approve an samity day change record after creation.", function () {
     samity_day_change.approveSamityDayChange();
   });
 
-  it("18.06. Verify the user can filter inactive employee records using the status dropdown on the samity day change List page.", function () {
+  it("18.10. Verify the user can filter inactive employee records using the status dropdown on the samity day change List page.", function () {
     samity_day_change.statusInactiveDropdownCheck();
   });
 
-  it("18.07. Verify check if the filter for active results works correctly with the status dropdown.", function () {
+  it("18.11. Verify check if the filter for active results works correctly with the status dropdown.", function () {
     samity_day_change.statusActiveDropdownCheck();
   });
 
-  it("18.08. Verify that the search results are displayed correctly when searching by samity day change name.", function () {
+  it("18.12. Verify that the search results are displayed correctly when searching by samity day change name.", function () {
     samity_day_change.searchInSamityDayChangeName();
   });
 
-  it("18.09. Verify the grid list resets successfully when the reset button is clicked on the samity day change page.", function () {
+  it("18.13. Verify the grid list resets successfully when the reset button is clicked on the samity day change page.", function () {
     samity_day_change.gridResetButtonCheck();
   });
 
-  it("18.10. Verify that the grid list is refreshed successfully when the refresh button is clicked on the samity day change page.", function () {
+  it("18.14. Verify that the grid list is refreshed successfully when the refresh button is clicked on the samity day change page.", function () {
     samity_day_change.gridRefreshButtonCheck();
   });
 
-  it("18.11. Verify display the grid list successfully when the Draft button on is clicked on the samity day change page", function () {
+  it("18.15. Verify display the grid list successfully when the Draft button on is clicked on the samity day change page", function () {
     samity_day_change.gridDraftButton();
   });
 
-  it("18.12. Verify display the grid list successfully when the Draft button off is clicked on the samity day change page", function () {
+  it("18.16. Verify display the grid list successfully when the Draft button off is clicked on the samity day change page", function () {
     samity_day_change.gridDraftButtonOff();
   });
 
-  it("18.13. Verify check that the samity day change  office selection works correctly from the dropdown on the samity list page.", function () {
+  it("18.17. Verify check that the samity day change  office selection works correctly from the dropdown on the samity list page.", function () {
     samity_day_change.selectofficeDropdown();
   });
 
-  it("18.14 Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("18.18 Verify check that the grid list content changes correctly from english to bangla.", function () {
     samity_day_change.gridLanguageSwitchCheck();
   });
 });

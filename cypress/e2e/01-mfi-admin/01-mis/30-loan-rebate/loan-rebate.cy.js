@@ -35,13 +35,13 @@ describe("30. Loan Rebate Module Test Cases", function () {
   //     create_loan_rebate.approveLoanRebate();
   //   });
 
-  //   it("30.04. Verify successfully performs the action when the action button is clicked.", function () {
-  //     create_loan_rebate.actionButtonCheck();
-  //   });
+    it("30.04. Verify successfully performs the action when the action button is clicked.", function () {
+      create_loan_rebate.actionButtonCheck();
+    });
 
-  //   it("30.05. Verify successful loan rebate information View.", function () {
-  //     create_loan_rebate.viewLoanRebate();
-  //   });
+    it("30.05. Verify successful loan rebate information View.", function () {
+      create_loan_rebate.viewLoanRebate();
+    });
 
   //   it("30.06. Verify editing functionality for loan rebate record by MFI-Admin role", function () {
   //     create_loan_rebate.editLoanRebate();

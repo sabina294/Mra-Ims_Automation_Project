@@ -48,18 +48,6 @@ class LoanProductManagementCreation {
     });
   }
 
-    selectOfficeDropdown() {
-    cy.fixture(this.test_data).then((data) => {
-      var lpData = data.branchManager.loanProductFrom;
-      cy.imsId("btn-reset").click();
-      cy.formController("office_id").type(lpData.selectOffice).type("{enter}");
-      cy.log(
-        "Loan Product Management office dropdown check successfully"
-      );
-    });
-  }
-
-  
   searchInLoanProductName() {
     cy.fixture(this.test_data).then((data) => {
       var lpData = data.branchManager.loanProductFrom;

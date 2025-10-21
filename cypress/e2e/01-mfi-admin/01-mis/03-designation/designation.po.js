@@ -228,7 +228,7 @@ class DesignationCreation {
   gridRefreshButtonCheck() {
     cy.imsId("btn-refresh").click();
     cy.log(
-      "successfully refresh page  displayed the grid list of the designation "
+      "successfully refresh page  displayed the grid list of the designation"
     );
   }
 

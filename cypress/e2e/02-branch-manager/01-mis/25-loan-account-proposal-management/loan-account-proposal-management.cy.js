@@ -43,27 +43,51 @@ describe("25. Loan Account Proposal Management Module Test Cases", function () {
     create_loan_account_proposal_management.viewLoanAccountProposalManagement();
   });
 
-  it("25.06. Verify that the user can filter the inactive Loan Account Proposal Management s using the Status Dropdown on the Loan Account Proposal Management  List page.", function () {
+  // it("25.06. Verify the loan account proposal management creation reset button clears all entered input values.", function () {
+  //   create_loan_account_proposal_management.editResetButtonCheck();
+  // });
+
+  // it("25.07. Verify validation messages appear for required fields when the submit button is clicked with empty inputs.", function () {
+  //   create_loan_account_proposal_management.editValidationMessageCheck();
+  // });
+
+  // it("25.08. Verify that clicking the go back button on the loan account proposal management create page redirects the user to the loan account proposal management list page.", function () {
+  //   create_loan_account_proposal_management.editGoBackButtonCheck();
+  // });
+
+  it("25.09. Verify that the user can filter the inactive Loan Account Proposal Management s using the Status Dropdown on the Loan Account Proposal Management  List page.", function () {
     create_loan_account_proposal_management.statusInactiveDropdownCheck();
   });
 
-  it("25.07. Verify Filter Active Result by Status Dropdown", function () {
+  it("25.10. Verify Filter Active Result by Status Dropdown", function () {
     create_loan_account_proposal_management.statusActiveDropdownCheck();
   });
 
-  it("25.08. Verify Successful Search Result by Loan Account Proposal Management  Name", function () {
+  it("25.11. Verify Successful Search Result by Loan Account Proposal Management  Name", function () {
     create_loan_account_proposal_management.searchInLoanAccountProposalName();
   });
 
-  it("25.09. Verify Successful Reset of Grid List Using the Reset Button on Loan Account Proposal Management  Page.", function () {
+  it("25.12. Verify Successful Reset of Grid List Using the Reset Button on Loan Account Proposal Management  Page.", function () {
     create_loan_account_proposal_management.gridResetButtonCheck();
   });
 
-  it("25.10. Verify Successful Refresh of Grid List Using the Refresh Button on Loan Account Proposal Management  Page.", function () {
+  it("25.13. Verify Successful Refresh of Grid List Using the Refresh Button on Loan Account Proposal Management  Page.", function () {
     create_loan_account_proposal_management.gridRefreshButtonCheck();
   });
 
-  it("25.11. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("25.14. Verify the loan account proposal management creation reset button clears all entered input values.", function () {
+    create_loan_account_proposal_management.createResetButtonCheck();
+  });
+
+  it("25.15. Verify validation messages appear for required fields when the submit button is clicked with empty inputs.", function () {
+    create_loan_account_proposal_management.createValidationMessageCheck();
+  });
+
+  it("25.16. Verify that clicking the go back button on the loan account proposal management create page redirects the user to the loan account proposal management list page.", function () {
+    create_loan_account_proposal_management.createGoBackButtonCheck();
+  });
+
+  it("25.17. Verify check that the grid list content changes correctly from english to bangla.", function () {
     create_loan_account_proposal_management.gridLanguageSwitchCheck();
   });
 });

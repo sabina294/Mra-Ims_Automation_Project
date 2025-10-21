@@ -61,7 +61,6 @@ class RejectedEmployee {
     });
   }
 
-
   rejectedEmployee() {
     cy.fixture(this.test_data).then((data) => {
       const emData = data.mraAdmin.rejectedEmployeeFrom;
@@ -115,7 +114,6 @@ class RejectedEmployee {
       cy.formController("search_text").type(emData.search);
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
-
       cy.imsId("btn-go-back").click();
       cy.log("Successfully viewed the rejected employee list page");
     });
@@ -176,6 +174,7 @@ class RejectedEmployee {
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-edit").click();
       cy.imsId("btn-go-back").click();
+
       cy.log("Successful edit go back button check.");
     });
   }
@@ -194,7 +193,7 @@ class RejectedEmployee {
   statusActiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       var emData = data.mraAdmin.rejectedEmployeeFrom;
-            cy.imsId("btn-reset").click();
+      cy.imsId("btn-reset").click();
       cy.formController("status").type(emData.statusSelect).type("{enter}");
       cy.log(
         "rejected employee form status active dropdown check successfully"
