@@ -44,7 +44,7 @@ describe("22. Member Samity Transfer Module Test Cases", function () {
     member_samity_transfer.transferResetButtonCheck();
   });
 
-  it("22.06. Verify validation messages appear for required fields when the Draft button is clicked with empty inputs.", function () {
+  it("22.06. Verify validation messages appear for required fields when the go back button is clicked with empty inputs.", function () {
     member_samity_transfer.transferGoBackButtonCheck();
   });
 

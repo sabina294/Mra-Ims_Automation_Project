@@ -23,7 +23,7 @@
     },
     "createDesignationFrom": {
       "nameEn": "Test Designation",
-      "nameBn": "পরীক্ষার পদবী",
+      "nameBn": "পরীক্ষার পদবী",   
       "shortName": "TP",
       "status": "Active",
       "selectStatus": "Inactive",
@@ -179,7 +179,7 @@
       "messageSaveEmp": "Mfi employee has been saved",
       "messageUpdateEmp": "Mfi employee has been updated"
     },
-     "rejectedEmployeeFrom": {
+    "rejectedEmployeeFrom": {
       "empNameEn": "Sabina Yeasmin",
       "empNameBn": "সাবিনা ইয়াসমিন",
       "empMobileNo": "01887949170",
@@ -446,7 +446,8 @@
       "savingsProduct": "General Savings",
       "samity": "1020-101 (Ashulia Mohila Samity)",
       "member": "3-1003 (Jesiya Akter)",
-      "recoDepositAmount": "2000",
+      "recoDepositAmount": "500",
+      "openingBalance": "500",
       "search": "Samia",
       "selectStatus": "Inactive",
       "statusSelect": "Active"
@@ -913,7 +914,8 @@
       "savingsProduct": "General Savings",
       "samity": "1020-101 (Ashulia Mohila Samity)",
       "member": "1-1001 (Fariya)",
-      "recoDepositAmount": "2000",
+      "recoDepositAmount": "500",
+      "openingBalance": "500",
       "search": "Samia",
       "selectStatus": "Inactive",
       "statusSelect": "Active"

@@ -84,20 +84,28 @@ describe("13. Office Management Module Test Cases", function () {
     create_office_management.gridCheckboxCheck();
   });
 
-  it("13.15. Verify the office management creation reset button clears all entered input values.", function () {
+  it("13.15. Verify that the checkbox lock button operates correctly when selected.", function () {
+    create_office_management.gridCheckboxLockButtonCheck();
+  });
+
+  it("13.16. Verify that the checkbox unlock button operates correctly when selected.", function () {
+    create_office_management.gridCheckboxUnlockButtonCheck();
+  });
+
+  it("13.17. Verify the office management creation reset button clears all entered input values.", function () {
     create_office_management.createResetButtonCheck();
   });
 
-  it("13.16. Verify validation messages appear for required fields when the submit button is clicked with empty inputs.", function () {
+  it("13.18. Verify validation messages appear for required fields when the submit button is clicked with empty inputs.", function () {
     create_office_management.createValidationMessageCheck();
   });
 
-  it("13.17. Verify that clicking the go back button on the office management create page redirects the user to the office management list page.", function () {
+  it("13.19. Verify that clicking the go back button on the office management create page redirects the user to the office management list page.", function () {
     create_office_management.createGoBackButtonCheck();
   });
 
 
-  it("13.18. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("13.20. Verify check that the grid list content changes correctly from english to bangla.", function () {
     create_office_management.gridLanguageSwitchCheck();
   });
 });

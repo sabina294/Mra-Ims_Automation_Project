@@ -179,7 +179,7 @@
       "messageSaveEmp": "Mfi employee has been saved",
       "messageUpdateEmp": "Mfi employee has been updated"
     },
-     "rejectedEmployeeFrom": {
+    "rejectedEmployeeFrom": {
       "empNameEn": "Sabina Yeasmin",
       "empNameBn": "সাবিনা ইয়াসমিন",
       "empMobileNo": "01887949170",
@@ -411,7 +411,7 @@
       "selectOffice": "1020 (Ashulia)",
       "selectSamity": "1020-107 (Kumkumari Mohila Samity)",
       "selectMember": "1-1001 (Lamiya Akter)",
-      "selectLoanAccount": "AGRO-1020-107-1001-1",
+      "selectLoanAccount": "JAGO-1020-107-1001-1",
       "inputAmount": "5000",
       "search": "Lamiya Akter",
       "selectStatus": "Inactive",
@@ -446,7 +446,8 @@
       "savingsProduct": "General Savings",
       "samity": "1020-101 (Ashulia Mohila Samity)",
       "member": "3-1003 (Jesiya Akter)",
-      "recoDepositAmount": "2000",
+      "recoDepositAmount": "500",
+      "openingBalance": "500",
       "search": "Samia",
       "selectStatus": "Inactive",
       "statusSelect": "Active"
@@ -913,7 +914,8 @@
       "savingsProduct": "General Savings",
       "samity": "1020-101 (Ashulia Mohila Samity)",
       "member": "1-1001 (Fariya)",
-      "recoDepositAmount": "2000",
+      "recoDepositAmount": "500",
+      "openingBalance": "500",
       "search": "Samia",
       "selectStatus": "Inactive",
       "statusSelect": "Active"

@@ -37,6 +37,15 @@ class LoanRebate {
     // });
   }
 
+  goBackButtonCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("btn-add-new").click();
+        cy.imsId('btn-go-back').click();
+      cy.log("Successfully go back button check.");
+    });
+  }
+
+
   approveLoanRebate() {
     // cy.fixture(this.test_data).then((data) => {
     //   var lrData = data.mfiAdmin.createLoanRebateFrom;

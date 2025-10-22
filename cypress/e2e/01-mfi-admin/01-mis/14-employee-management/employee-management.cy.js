@@ -87,23 +87,31 @@ describe("14. Employee Management Module Test Cases", function () {
     create_employee_management.gridCheckboxCheck();
   });
 
-  it("14.17. Verify the employee management creation reset button clears all entered input values.", function () {
+  it("14.17. Verify that the checkbox lock button operates correctly when selected.", function () {
+    create_employee_management.gridCheckboxLockButtonCheck();
+  });
+
+  it("14.18. Verify that the checkbox unlock button operates correctly when selected.", function () {
+    create_employee_management.gridCheckboxUnlockButtonCheck();
+  });
+
+  it("14.19. Verify the employee management creation reset button clears all entered input values.", function () {
     create_employee_management.createResetButtonCheck();
   });
 
-  it("14.18. Verify validation messages appear for required fields when the submit button is clicked with empty inputs.", function () {
+  it("14.20. Verify validation messages appear for required fields when the submit button is clicked with empty inputs.", function () {
     create_employee_management.createValidationMessageCheck();
   });
 
-  it("14.19. Verify validation messages appear for required fields when the approve button is clicked with empty inputs.", function () {
+  it("14.21. Verify validation messages appear for required fields when the approve button is clicked with empty inputs.", function () {
     create_employee_management.createApproveButtonCheck();
   });
 
-  it("14.20. Verify that clicking the go back button on the employee management create page redirects the user to the employee management list page.", function () {
+  it("14.22. Verify that clicking the go back button on the employee management create page redirects the user to the employee management list page.", function () {
     create_employee_management.createGoBackButtonCheck();
   });
 
-  it("14.21. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("14.23. Verify check that the grid list content changes correctly from english to bangla.", function () {
     create_employee_management.gridLanguageSwitchCheck();
   });
 });

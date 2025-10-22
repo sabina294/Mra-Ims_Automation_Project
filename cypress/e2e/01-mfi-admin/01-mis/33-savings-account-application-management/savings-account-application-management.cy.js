@@ -39,9 +39,9 @@ describe("33. Savings Account Application Management Module Test Cases", functio
     create_savings_account_application_management.actionButtonCheck();
   });
 
-  // it("33.05. Verify the user can successfully view the savings account application management information, including the name and description.", function () {
-  //   create_savings_account_application_management.viewSavingsAccApplicationManag();
-  // });
+  it("33.05. Verify the user can successfully view the savings account application management information, including the name and description.", function () {
+    create_savings_account_application_management.viewSavingsAccApplicationManag();
+  });
 
   it("33.06. Verify the user can filter inactive employee records using the status dropdown on the savings account application management List page.", function () {
     create_savings_account_application_management.statusInactiveDropdownCheck();

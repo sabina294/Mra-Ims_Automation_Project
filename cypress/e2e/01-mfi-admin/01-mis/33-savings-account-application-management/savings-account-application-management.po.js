@@ -14,25 +14,18 @@ class SavingsAccApplicationManagementCreation {
   createSavingsAccApplicationManagement() {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId("btn-add-new").click();
-
-      // cy.imsId("btn-submit").and("be.visible");
-
-      // var saamData = data.mfiAdmin.createSavingsAccApplicationMang;
-      // cy.formController("office_id").type(saamData.office).type("{enter}");
-      // cy.formController("savings_product_id")
-      //   .type(saamData.savingsProduct)
-      //   .type("{enter}");
-      // cy.formController("samity_id").type(saamData.samity).type("{enter}");
-      // cy.formController("member_id").type(saamData.member).type("{enter}");
-      // cy.formController("savings_amount").type(saamData.recoDepositAmount);
-      cy.imsId("btn-go-back").click();
-
-      // cy.imsId("btn-submit").click();
-      // cy.imsId("btn-yes").click();
-      // cy.get("app-confirmation-modal")
-      //   .contains(saamData.messageSaveEmp)
-      //   .and("be.visible");
-      // cy.imsId("btn-ok").click();
+      var saamData = data.mfiAdmin.createSavingsAccApplicationMang;
+      cy.formController("office_id").type(saamData.office).type("{enter}");
+      cy.formController("savings_product_id")
+        .type(saamData.savingsProduct)
+        .type("{enter}");
+      cy.formController("samity_id").type(saamData.samity).type("{enter}");
+      cy.formController("member_id").type(saamData.member).type("{enter}");
+      cy.formController("savings_amount").type(saamData.recoDepositAmount);
+      cy.formController("opening_balance").type(saamData.openingBalance);
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-yes").click();
+      cy.imsId("btn-ok").click();
 
       cy.log("Successfully created saving account application  management");
     });
@@ -44,13 +37,13 @@ class SavingsAccApplicationManagementCreation {
       cy.formController("search_text").type(saamData.search);
       cy.imsId("menu-my-task").click();
       cy.imsId("submenu-awaiting-savings-account-proposal").click();
-      // cy.imsId("toggle-action").first().click();
-      // cy.imsId("btn-table-action-view").click();
-      // cy.imsId("btn-lock").click();
-      // cy.imsId("btn-approve").click();
-      // cy.imsId("btn-Approve").click();
-      // cy.imsId("btn-yes").click();
-      // cy.imsId("btn-ok").click();
+      cy.imsId("toggle-action").first().click();
+      cy.imsId("btn-table-action-view").click();
+      cy.imsId("btn-lock").click();
+      cy.imsId("btn-approve").click();
+      cy.imsId("btn-Approve").click();
+      cy.imsId("btn-yes").click();
+      cy.imsId("btn-ok").click();
 
       cy.log("Successfully approve savings account application management");
     });
@@ -70,11 +63,9 @@ class SavingsAccApplicationManagementCreation {
   viewSavingsAccApplicationManag() {
     cy.fixture(this.test_data).then((data) => {
       var saamData = data.mfiAdmin.createSavingsAccApplicationMang;
-
       // cy.formController("search_text").type(saamData.search);
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
-
       cy.imsId("btn-go-back").click();
       cy.log(
         "Successfully viewed the savings account application management list page"
