@@ -7,13 +7,15 @@ class LoanAccountProposalManagementCreation {
         "menu-loan-account",
         "submenu-loan-account-proposal-management"
       );
+      cy.wait(3000);
       cy.log("Successfully Loan account proposal Management list page.");
     });
   }
   createLoanAccountProposalManagement() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
       var lapData = data.mfiAdmin.createLoanAccountFrom;
+      cy.imsId("btn-add-new").click();
+      cy.wait(3000);
       cy.formController("office_id").type(lapData.office).type("{enter}");
       cy.wait(2000);
       cy.formController("samity_id").type(lapData.samity).type("{enter}");

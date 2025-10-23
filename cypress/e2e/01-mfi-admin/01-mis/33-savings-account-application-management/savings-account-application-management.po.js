@@ -7,15 +7,18 @@ class SavingsAccApplicationManagementCreation {
         "menu-savings-account",
         "submenu-savings-account-application-management"
       );
+      cy.wait(3000);
       cy.log("Successfully Savings Account Application Management list page.");
     });
   }
 
   createSavingsAccApplicationManagement() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
       var saamData = data.mfiAdmin.createSavingsAccApplicationMang;
+      cy.imsId("btn-add-new").click();
+      cy.wait(3000);
       cy.formController("office_id").type(saamData.office).type("{enter}");
+      cy.wait(2000);
       cy.formController("savings_product_id")
         .type(saamData.savingsProduct)
         .type("{enter}");
