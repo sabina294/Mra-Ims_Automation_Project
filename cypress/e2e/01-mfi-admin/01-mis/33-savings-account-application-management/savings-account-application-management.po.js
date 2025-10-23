@@ -87,6 +87,7 @@ class SavingsAccApplicationManagementCreation {
   statusActiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       var saamData = data.mfiAdmin.createSavingsAccApplicationMang;
+      cy.imsId("btn-reset").click();
       cy.formController("status").type(saamData.statusSelect).type("{enter}");
       cy.log(
         "Savings account application management form status active dropdown check successfully"

@@ -63,7 +63,19 @@ describe("13. Office Module Test Cases", function () {
     grid_office.gridDraftButtonOff();
   });
 
-  it("13.11. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("13.11. Verify that the checkbox functions correctly.", function () {
+    grid_office.gridCheckboxCheck();
+  });
+
+  it("13.12. Verify that the checkbox lock button operates correctly when selected.", function () {
+    grid_office.gridCheckboxLockButtonCheck();
+  });
+
+  it("13.13. Verify that the checkbox unlock button operates correctly when selected.", function () {
+    grid_office.gridCheckboxUnlockButtonCheck();
+  });
+
+  it("13.14. Verify check that the grid list content changes correctly from english to bangla.", function () {
     grid_office.gridLanguageSwitchCheck();
   });
 });

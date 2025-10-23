@@ -71,31 +71,43 @@ describe("15. Samity management Module Test Cases", function () {
     create_samity_management.gridRefreshButtonCheck();
   });
 
-  it("15.13. Verify a new samity management record is created successfully when all required fields are filled with valid data.", function () {
+  it("15.13. Verify that the checkbox functions correctly.", function () {
+    create_samity_management.gridCheckboxCheck();
+  });
+
+  it("15.14. Verify that the checkbox lock button operates correctly when selected.", function () {
+    create_samity_management.gridCheckboxLockButtonCheck();
+  });
+
+  it("15.15. Verify that the checkbox unlock button operates correctly when selected.", function () {
+    create_samity_management.gridCheckboxUnlockButtonCheck();
+  });
+
+  it("15.16. Verify a new samity management record is created successfully when all required fields are filled with valid data.", function () {
     create_samity_management.createDraftButton();
   });
 
-  it("15.14. Verify display the grid list successfully when the Draft button on is clicked on the Samity Management page", function () {
+  it("15.17. Verify display the grid list successfully when the Draft button on is clicked on the Samity Management page", function () {
     create_samity_management.gridDraftButton();
   });
 
-  it("15.15. Verify display the grid list successfully when the Draft button off is clicked on the Samity Management page", function () {
+  it("15.18. Verify display the grid list successfully when the Draft button off is clicked on the Samity Management page", function () {
     create_samity_management.gridDraftButtonOff();
   });
 
-  it("15.16. Verify the samity management creation reset button clears all entered input values.", function () {
+  it("15.19. Verify the samity management creation reset button clears all entered input values.", function () {
     create_samity_management.createResetButtonCheck();
   });
 
-  it("15.17. Verify validation messages appear for required fields when the submit button is clicked with empty inputs.", function () {
+  it("15.20. Verify validation messages appear for required fields when the submit button is clicked with empty inputs.", function () {
     create_samity_management.createValidationMessageCheck();
   });
 
-  it("15.18. Verify that clicking the go back button on the samity management create page redirects the user to the samity management list page.", function () {
+  it("15.21. Verify that clicking the go back button on the samity management create page redirects the user to the samity management list page.", function () {
     create_samity_management.createGoBackButtonCheck();
   });
 
-  it("15.19. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("15.22. Verify check that the grid list content changes correctly from english to bangla.", function () {
     create_samity_management.gridLanguageSwitchCheck();
   });
 });
