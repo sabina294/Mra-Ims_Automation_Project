@@ -13,7 +13,6 @@ class LedgerSetting {
         cy.log("Action button clicked successfully on the ledger sub group list page.");
     }
 
-
     editResetButton() {
         cy.imsId("toggle-action").first().click();
         cy.imsId("btn-table-action-edit").click();
@@ -28,6 +27,15 @@ class LedgerSetting {
         cy.imsId("btn-table-action-edit").click();
         cy.imsId("btn-go-back").click();
         cy.log("Successful edit go back button check.");
+    }
+
+    createValidationMessageCheck() {
+        cy.imsId("toggle-action").first().click();
+        cy.imsId("btn-table-action-edit").click();
+        cy.imsId("btn-submit").click();
+        cy.imsId("btn-yes").click();
+        cy.imsId("btn-ok").click();
+        cy.log("Successful validation message displaying.");
     }
 
     statusInactiveDropdownCheck() {

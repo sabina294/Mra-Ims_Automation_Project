@@ -37,7 +37,6 @@ describe("04. Manual Journal Module Test Cases", function () {
         create_manual_journal.actionButtonCheck();
     });
 
-
     it("04.04. Verify the user can view all relevant details of a manual journal, including its associated fields.", function () {
         create_manual_journal.viewManualJournal();
     });
@@ -77,7 +76,6 @@ describe("04. Manual Journal Module Test Cases", function () {
     it("04.13. Verify that clicking the go back button on the manual journal create page redirects the user to the manual journal list page.", function () {
         create_manual_journal.createGoBackButtonCheck();
     });
-
 
     it("04.14. Verify that clicking the delete button on the manual journal create page redirects the user to the manual journal list page.", function () {
         create_manual_journal.createDeleteButtonCheck();

@@ -8,6 +8,14 @@ class BalanceSheet {
         });
     }
 
+    selectofficeDropdown() {
+        cy.fixture(this.test_data).then((data) => {
+            var bsData = data.mfiAdmin.createBalanceSheetFrom;
+            cy.formController("office_id").type(bsData.office);
+            cy.log("Successfully select office in the balance sheet list page.");
+        });
+    }
+
     gridLanguageSwitchCheck() {
         cy.imsId("profile-menu").click();
         cy.imsId("btn-lang-bangla").click();
@@ -18,8 +26,6 @@ class BalanceSheet {
         cy.imsId("btn-go-back").click();
         cy.log("Successful go back button check.");
     }
-
-
 }
 
 export const create_balance_sheet = new BalanceSheet();

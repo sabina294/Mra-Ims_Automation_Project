@@ -45,9 +45,9 @@ describe("06 Fund Module Test Cases", function () {
         create_fund_Transfer.statusActiveDropdownCheck();
     });
 
-    // it("06.06. Verify the search returns correct results when searching by fund name.", function () {
-    //     create_fund_Transfer.searchName();
-    // });
+    it("06.06. Verify the search returns correct results when searching by fund name.", function () {
+        create_fund_Transfer.searchName();
+    });
 
     it("06.07. Verify the grid list resets successfully when the reset button is clicked on the fund page.", function () {
         create_fund_Transfer.gridResetButtonCheck();

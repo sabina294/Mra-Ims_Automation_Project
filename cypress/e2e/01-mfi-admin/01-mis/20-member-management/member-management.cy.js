@@ -70,7 +70,7 @@ describe("20. Member Management Module Test Cases", function () {
     create_member_management.gridResetButtonCheck();
   });
 
-  it("20.13. Verify a new member management record is created successfully when all required fields are filled with valid data", function () {
+  it("20.13. Verify the grid list resets successfully when the refresh button is clicked on the member management page ", function () {
     create_member_management.gridRefreshButtonCheck();
   });
 

@@ -27,14 +27,6 @@ class ManualJournalCreation {
 
             cy.formController("debited_amount").type(mjData.debitedAmount);
             cy.formController("credited_amount").type(mjData.creditedAmount);
-            //   cy.formArrayController("ledger_id", 0, "ledger_id")
-            //   .first().type(mjData.ledger2).type("{enter}");
-
-
-            // cy.formController("ledger_id").type(mjData.ledger2).type("{enter}");
-            // cy.formController("description").type(mjData.description2);
-            // cy.formController("debited_amount").type(mjData.debitedAmount2);
-            // cy.formController("credited_amount").type(mjData.creditedAmount2);
             cy.imsId("btn-submit").click();
             cy.imsId("btn-yes").click();
             cy.imsId("btn-ok").click();

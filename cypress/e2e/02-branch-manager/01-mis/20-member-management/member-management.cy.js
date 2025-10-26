@@ -74,15 +74,27 @@ describe("20. Member Management Module Test Cases", function () {
     create_member_management.gridRefreshButtonCheck();
   });
 
-  it("20.14. Verify display the grid list successfully when the Draft button on is clicked on the member management page", function () {
+  it("20.14. Verify that the checkbox functions correctly.", function () {
+    create_member_management.gridCheckboxCheck();
+  });
+
+  it("20.15. Verify that the checkbox lock button operates correctly when selected.", function () {
+    create_member_management.gridCheckboxLockButtonCheck();
+  });
+
+  it("20.16. Verify that the checkbox unlock button operates correctly when selected.", function () {
+    create_member_management.gridCheckboxUnlockButtonCheck();
+  });
+
+  it("20.17. Verify display the grid list successfully when the Draft button on is clicked on the member management page", function () {
     create_member_management.gridDraftButton();
   });
 
-  it("20.15. Verify display the grid list successfully when the Draft button off is clicked on the member management page", function () {
+  it("20.18. Verify display the grid list successfully when the Draft button off is clicked on the member management page", function () {
     create_member_management.gridDraftButtonOff();
   });
 
-  it("20.16. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("20.19. Verify check that the grid list content changes correctly from english to bangla.", function () {
     create_member_management.gridLanguageSwitchCheck();
   });
 });

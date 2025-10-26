@@ -79,9 +79,7 @@ class FinancialPeriodManagementCreation {
         cy.imsId("btn-draft-on").click();
         cy.log("Draft button should be clickable and functional.");
     }
-
-
-
+    
     createResetButtonCheck() {
         cy.imsId("btn-add-new").click();
         cy.imsId("btn-reset").click();
