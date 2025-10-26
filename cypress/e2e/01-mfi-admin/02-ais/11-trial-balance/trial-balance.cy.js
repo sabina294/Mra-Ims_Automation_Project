@@ -29,12 +29,19 @@ describe("11. Trial Balance Module Test Cases", function () {
         create_trial_balance.gridTrialBalanceListPage();
     });
 
-    it("11.02. Verify check that the grid list content changes correctly from english to bangla.", function () {
+    // it("11.02. Verify check that the trial balance office selection works correctly from the dropdown on the trial balance list page.", function () {
+    //     create_trial_balance.selectofficeDropdown();
+    // });
+
+    it("11.03. Verify the grid list resets successfully when the refresh button is clicked on the trial balance page", function () {
+        create_trial_balance.gridRefreshButtonCheck();
+    });
+
+    it("11.04. Verify check that the grid list content changes correctly from english to bangla.", function () {
         create_trial_balance.gridLanguageSwitchCheck();
     });
 
-
-    it("11.03. Verify that clicking the go back button on the trial balance grid page redirects the user to the trial balance list page.", function () {
+    it("11.05. Verify that clicking the go back button on the trial balance grid page redirects the user to the trial balance list page.", function () {
         create_trial_balance.gridGoBackButtonCheck();
     });
 

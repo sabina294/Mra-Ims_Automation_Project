@@ -8,6 +8,13 @@ class BalanceSheet {
         });
     }
 
+    gridRefreshButtonCheck() {
+    cy.imsId("btn-reload").click();
+    cy.log(
+      "successfully refresh page  displayed the grid list of the Balance Sheet form "
+    );
+  }
+
     selectofficeDropdown() {
         cy.fixture(this.test_data).then((data) => {
             var bsData = data.mfiAdmin.createBalanceSheetFrom;

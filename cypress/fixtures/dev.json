@@ -23,7 +23,7 @@
     },
     "createDesignationFrom": {
       "nameEn": "Test Designation",
-      "nameBn": "পরীক্ষার পদবী",   
+      "nameBn": "পরীক্ষার পদবী",
       "shortName": "TP",
       "status": "Active",
       "selectStatus": "Inactive",
@@ -566,6 +566,12 @@
       "statusSelect": "Active"
     },
     "createBalanceSheetFrom": {
+      "office": "1002 (Dhaka Regional Office)"
+    },
+    "createTrialBalanceFrom": {
+      "office": "1002 (Dhaka Regional Office)"
+    },
+    "createGeneralLedgerFrom": {
       "office": "1002 (Dhaka Regional Office)"
     }
   },
