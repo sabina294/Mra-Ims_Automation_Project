@@ -248,6 +248,14 @@ class EmployeeManagementCreation {
     cy.log("Successful go back button check.");
   }
 
+   createDraftButtonCheck() {
+    cy.imsId("btn-add-new").click();
+    cy.imsId("btn-draft").click();
+    cy.imsId("btn-ok").click();
+    cy.imsId("btn-go-back").click();
+    cy.log("Successful draft button check.");
+  }
+
   gridLanguageSwitchCheck() {
     cy.imsId("profile-menu").click();
     cy.imsId("btn-lang-bangla").click();

@@ -104,7 +104,6 @@ describe("13. Office Management Module Test Cases", function () {
     create_office_management.createGoBackButtonCheck();
   });
 
-
   it("13.20. Verify check that the grid list content changes correctly from english to bangla.", function () {
     create_office_management.gridLanguageSwitchCheck();
   });
