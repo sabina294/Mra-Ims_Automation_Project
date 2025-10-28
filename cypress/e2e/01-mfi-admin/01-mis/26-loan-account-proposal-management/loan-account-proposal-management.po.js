@@ -33,7 +33,7 @@ class LoanAccountProposalManagementCreation {
         .type(lapData.economicPurpose)
         .type("{enter}");
 
-        
+
       cy.formController("loan_product_id")
         .type(lapData.loanProduct)
         .type("{enter}");
@@ -166,6 +166,22 @@ class LoanAccountProposalManagementCreation {
     cy.log(
       "successfully refresh page  displayed the grid list of the Loan account proposal Management "
     );
+  }
+
+  gridCheckboxCheck() {
+    cy.imsId("row-checkbox-0").click();
+    // cy.imsId("btn-reset").click();
+    cy.log("Checkbox should be clickable and functional.");
+  }
+
+  gridDraftButton() {
+    cy.imsId("btn-draft-on").click();
+    cy.log("Draft button should be clickable and functional.");
+  }
+
+  gridDraftButtonOff() {
+    cy.imsId("btn-draft-on").click();
+    cy.log("Draft button should be clickable and functional.");
   }
 
   createResetButtonCheck() {

@@ -855,6 +855,13 @@
       "SelectOffice": "1020 (Ashulia)",
       "messageLoanAccountManagement": "Loan account has been updated"
     },
+    "loanDisbursementFrom": {
+      "samity": "Ashulia Mohila Samity",
+      "selectStatus": "Inactive",
+      "statusSelect": "Active",
+      "SelectOffice": "1020 (Ashulia)",
+      "messageLoanDisbursement": "Loan Disbursement has been updated"
+    },
     "createClientWelfareFrom": {
       "selectSamity": "1020-101 (Ashulia Mohila Samity)",
       "selectMember": "3-1003 (Jesiya Akter)",
@@ -871,7 +878,7 @@
       "selectLoanAccount": "AGRO-1020-105-1001-1 (Loan Account)",
       "penaltyAmount": "50",
       "amount": "500",
-      "search": "Sohana Aktar Hashmi",
+      "search": "Srabonti",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
       "approveMessage": "Loan Penalty Authorization for Loan Account Is Successful",
@@ -881,11 +888,11 @@
     "createLoanRebateFrom": {
       "selectOffice": "1020 (Ashulia)",
       "selectSamity": "1020-106 (Belma Mohila Samity)",
-      "selectMember": "1-1001 (Sima akter)",
-      "selectLoanAccount": "AGRO-1020-106-1001-1",
+      "selectMember": "2-1002 (Marjana Akter)",
+      "selectLoanAccount": "AGRO-1020-106-1002-1",
       "selectRebate": "Full",
       "rebateAmount": "50",
-      "search": "Sohana Aktar Hashmi",
+      "search": "Marjana Akter",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
       "messageSaveLoanRebate": "Loan rebate has been saved"
@@ -893,11 +900,11 @@
     "createLoanWaiverFrom": {
       "selectOffice": "1020 (Ashulia)",
       "selectSamity": "1020-106 (Belma Mohila Samity)",
-      "selectMember": "1-1001 (Sima akter)",
-      "selectLoanAccount": "AGRO-1020-106-1001-1",
+      "selectMember": "5-1005 (Usha Akter)",
+      "selectLoanAccount": "AGRO-1020-106-1005-1",
       "selectRebate": "Full",
       "inputAmount": "5000",
-      "search": "Sohana Aktar Hashmi",
+      "search": "Akhi Nur",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
       "messageSaveLoanRebate": "Loan waiver has been saved"

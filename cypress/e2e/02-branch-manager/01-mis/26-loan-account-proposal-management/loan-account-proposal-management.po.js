@@ -172,7 +172,23 @@ class LoanAccountProposalManagementCreation {
     );
   }
 
-    createResetButtonCheck() {
+  gridCheckboxCheck() {
+    cy.imsId("row-checkbox-0").click();
+    // cy.imsId("btn-reset").click();
+    cy.log("Checkbox should be clickable and functional.");
+  }
+
+  gridDraftButton() {
+    cy.imsId("btn-draft-on").click();
+    cy.log("Draft button should be clickable and functional.");
+  }
+
+  gridDraftButtonOff() {
+    cy.imsId("btn-draft-on").click();
+    cy.log("Draft button should be clickable and functional.");
+  }
+
+  createResetButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
       var lapData = data.branchManager.createLoanAccountFrom;
       cy.imsId("btn-add-new").click();
