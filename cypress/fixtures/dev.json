@@ -179,6 +179,7 @@
       "messageSaveEmp": "Mfi employee has been saved",
       "messageUpdateEmp": "Mfi employee has been updated"
     },
+    "approveEmployeeFrom": {},
     "rejectedEmployeeFrom": {
       "empNameEn": "Sabina Yeasmin",
       "empNameBn": "সাবিনা ইয়াসমিন",
@@ -201,7 +202,6 @@
       "messageSaveEmp": "Mfi employee has been saved",
       "messageUpdateEmp": "Mfi employee has been updated"
     },
-    "approveEmployeeFrom": {},
     "createSamityFrom": {
       "samityNameEn": "Test Samity",
       "samityNameBn": "পরীক্ষা সমিতি",
@@ -223,6 +223,7 @@
       "messageSaveSamity": "Unauth samity has been saved",
       "messageUpdateSamity": "Samity has been updated"
     },
+    "approveSamityFrom": {},
     "rejectedSamityFrom": {
       "samityNameEn": "Test Samity",
       "samityNameBn": "পরীক্ষা সমিতি",
@@ -290,6 +291,7 @@
       "messageApproveMember": "Member has been approved successfully",
       "messageUpdateMember": "Member has been updated"
     },
+    "approveMemberFrom": {},
     "createRejectedMemberFrom": {
       "office": "1020 (Ashulia)",
       "smity": "1020-101 (Ashulia Mohila Samity)",
@@ -367,6 +369,7 @@
       "messageSaveLoanAccount": "Loan account proposal has been saved",
       "messageUpdateLoanAccount": "Do you want to update this loan account?"
     },
+    "approveLLoanAccountFrom": {},
     "loanAccountManagementFrom": {
       "samity": "Chhaya Mohila Samity",
       "SelectOffice": "1020 (Ashulia)",
@@ -423,6 +426,7 @@
       "messageSaveLoanRebate": "Loan Rebate Collection for this Loan Account is successful",
       "messageUpdateLoanRebate": "Do you want to update this loan rebate?"
     },
+    "loanProvisionFrom": {},
     "createSavingsProduct": {
       "office": "1020 (Ashulia)",
       "savingsType": "General Savings",
@@ -479,10 +483,18 @@
       "calendarYear": "2024",
       "messageSaveHoliday": "Mfi holiday has been saved"
     },
+    "gridProcessDashboard": {},
     "gridStagingData": {
       "selectOffice": "1020 (Ashulia)",
       "selectSamity": "1020-101 (Ashulia Mohila Samity)",
       "selectEmployee": "GAIS UDDIN KHAN"
+    },
+    "gridDayEndProcess": {},
+    "gridDayForward": {},
+    "gridMonthEndProcess": {},
+    "regularCollectionFrom": {
+      "office": "1020 (Ashulia)",
+      "samity": "1020-101 (Ashulia Mohila Samity)"
     },
     "gridSavingsWithdraw": {
       "samity": "Shomaj Kallyan Samity",
