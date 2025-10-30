@@ -496,9 +496,17 @@
       "office": "1020 (Ashulia)",
       "samity": "1020-101 (Ashulia Mohila Samity)"
     },
+    "specialCollectionFrom": {
+      "office": "1020 (Ashulia)",
+      "samity": "1020-101 (Ashulia Mohila Samity)"
+    },
     "gridSavingsWithdraw": {
       "samity": "Shomaj Kallyan Samity",
       "selectOffice": "1020 (Ashulia)"
+    },
+    "loanAdjustmentFrom": {
+      "office": "1020 (Ashulia)",
+      "samity": "1020-101 (Ashulia Mohila Samity)"
     },
     "chartOfAccounts": {
       "ledgergroup": "Asset",
