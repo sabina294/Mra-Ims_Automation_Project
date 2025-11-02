@@ -17,11 +17,9 @@ class FinancialPeriodManagementCreation {
             cy.formController("period_type").type(fpmData.periodType).type("{enter}");
             cy.formController("start_date").click();
             cy.contains(19).click();
-            cy.imsId("btn-go-back").click();
-
-            // cy.imsId("btn-submit").click();
-            // cy.imsId("btn-yes").click();
-            // cy.imsId("btn-ok").click();
+            cy.imsId("btn-submit").click();
+            cy.imsId("btn-yes").click();
+            cy.imsId("btn-ok").click();
 
             cy.log("Successfully created financial period management");
         });
@@ -31,6 +29,12 @@ class FinancialPeriodManagementCreation {
     actionButtonCheck() {
         cy.imsId("toggle-action").first().click();
         cy.log("Action button clicked successfully on the financial period management list page.");
+    }
+
+    createDetailsViewCheck() {
+        cy.imsId("btn-table-action-view").first().click();
+        cy.imsId("btn-go-back").first().click();
+        cy.log("View button clicked successfully on the financial period management list page.");
     }
 
     statusInactiveDropdownCheck() {
@@ -79,7 +83,7 @@ class FinancialPeriodManagementCreation {
         cy.imsId("btn-draft-on").click();
         cy.log("Draft button should be clickable and functional.");
     }
-    
+
     createResetButtonCheck() {
         cy.imsId("btn-add-new").click();
         cy.imsId("btn-reset").click();

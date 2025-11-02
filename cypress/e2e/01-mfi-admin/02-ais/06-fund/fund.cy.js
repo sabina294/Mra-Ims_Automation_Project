@@ -33,9 +33,9 @@ describe("06 Fund Module Test Cases", function () {
         create_fund_Transfer.createfund();
     });
 
-    // it("06.03. Verify successfully performs the action when the action button is clicked.", function () {
-    //     create_fund_Transfer.actionButtonCheck();
-    // });
+    it("06.03. Verify successfully performs the action when the action button is clicked.", function () {
+        create_fund_Transfer.actionButtonCheck();
+    });
 
     it("06.04. Verify the user can filter inactive funds using the status dropdown on the fund list page.", function () {
         create_fund_Transfer.statusInactiveDropdownCheck();

@@ -17,10 +17,9 @@ class LedgerSubGroupCreation {
             cy.formController("ledger_subgroup_name_en").type(lsgData.ledgerSubGroupNameEn);
             cy.formController("ledger_subgroup_name_bn").type(lsgData.ledgerSubGroupNameBn);
             cy.formController("balance_sheet_item").type(lsgData.balanceSheet).type("{enter}");
-            cy.imsId("btn-go-back").click();
-            // cy.imsId("btn-submit").click();
-            // cy.imsId("btn-yes").click();
-            // cy.imsId("btn-ok").click();
+            cy.imsId("btn-submit").click();
+            cy.imsId("btn-yes").click();
+            cy.imsId("btn-ok").click();
 
             cy.log("Successfully created ledger sub group");
         });

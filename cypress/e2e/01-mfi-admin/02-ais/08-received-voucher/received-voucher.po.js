@@ -12,34 +12,43 @@ class ReceivedVoucherCreation {
         cy.fixture(this.test_data).then((data) => {
             var rvData = data.mfiAdmin.receivedVoucher;
             cy.imsId("btn-add-new").click();
-
             cy.formController("voucher_name_en").type(rvData.voucherNameEn);
             cy.formController("voucher_name_bn").type(rvData.voucherNameBn);
-            // cy.formController("received_date").click();
-            // cy.contanins(19).click();
-            // cy.formController("received_mode").type(rvData.receivedMode).type("{enter}");
-            // cy.formController("voucher_prepared_by").type(rvData.peparedBy).type("{enter}");
-            // cy.formController("remarks").type(rvData.remarks).type("{enter}");
-            // cy.formController("transaction_date").click();
-            // cy.contanins(19).click();
-            // cy.formController("ledger_id").type(rvData.ledger).type("{enter}");
-            // cy.formController("remarks").type(rvData.remarks1);
-            // cy.formController("transaction_amount").type(rvData.amount);
-            cy.imsId("btn-go-back").click();
-
-            // cy.imsId("btn-submit").click();
-            // cy.imsId("btn-yes").click();
-            // cy.imsId("btn-ok").click();
+            cy.formController("payment_date").click();
+            cy.wait(1000);
+            cy.contains(19).click();
+            cy.formController("payment_mode").type(rvData.paymentMode).type("{enter}");
+            cy.formController("voucher_prepared_by").type(rvData.preparedBy).type("{enter}");
+            cy.wait(1000);
+            cy.formController("remarks").eq(0).type(rvData.remarks).type("{enter}");
+            cy.imsId("btn-ok").click();
+            cy.formController("transaction_date").click();
+            cy.wait(1000);
+            cy.contains(19).click();
+            cy.wait(1000);
+            cy.formController("ledger_id").eq(1).type(rvData.ledger).type("{enter}");
+            cy.wait(1000);
+            cy.formController("remarks").eq(1).type(rvData.remarks1);
+            cy.formController("transaction_amount").clear().type(rvData.amount);
+            cy.imsId("btn-submit").click();
+            cy.imsId("btn-yes").click();
+            cy.imsId("btn-ok").click();
 
             cy.log("Successfully created received voucher");
         });
     }
 
-
     actionButtonCheck() {
         cy.imsId("toggle-action").first().click();
         cy.log("Action button clicked successfully on the received voucher list page.");
     }
+
+     detailsViewCheck() {
+        // cy.imsId("btn-table-action-view").click();
+        // cy.imsId("btn-go-back").click();
+        // cy.log("Details view button clicked successfully on the received voucher list page.");
+    }
+
 
     statusInactiveDropdownCheck() {
         cy.fixture(this.test_data).then((data) => {
@@ -106,7 +115,7 @@ class ReceivedVoucherCreation {
         cy.log("Successful delete button check.");
     }
 
-     createDeleteButtonCheck() {
+    createDeleteButtonCheck() {
         cy.imsId("btn-add-new").click();
         cy.imsId("btn-add-icon").click();
         cy.imsId("btn-remove-icon").eq(1).click();

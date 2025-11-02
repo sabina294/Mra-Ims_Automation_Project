@@ -15,22 +15,24 @@ class PaymentVoucherCreation {
 
             cy.formController("voucher_name_en").type(pvData.voucherNameEn);
             cy.formController("voucher_name_bn").type(pvData.voucherNameBn);
-            // cy.formController("payment_date").click();
-            // cy.wait(2000);
-            // cy.contains(19).click();
-            // cy.formController("payment_mode").type(pvData.paymentMode).type("{enter}");
-            // cy.formController("voucher_prepared_by").type(pvData.peparedBy).type("{enter}");
-            // cy.formController("remarks").type(pvData.remarks).type("{enter}");
-            // cy.formController("transaction_date").click();
-            // cy.contains(19).click();
-            // cy.formController("ledger_id").type(pvData.ledger).type("{enter}");
-            // cy.formController("remarks").type(pvData.remarks1);
-            // cy.formController("transaction_amount").type(pvData.amount);
-            cy.imsId("btn-go-back").click();
-
-            // cy.imsId("btn-submit").click();
-            // cy.imsId("btn-yes").click();
-            // cy.imsId("btn-ok").click();
+            cy.formController("payment_date").click();
+            cy.wait(2000);
+            cy.contains(19).click();
+            cy.formController("payment_mode").type(pvData.paymentMode).type("{enter}");
+            cy.formController("voucher_prepared_by").type(pvData.preparedBy).type("{enter}");
+            cy.wait(1000);
+            cy.formController("remarks").eq(0).type(pvData.remarks);
+            cy.formController("transaction_date").click();
+            cy.wait(1000);
+            cy.contains(19).click();
+            cy.wait(1000);
+            cy.formController("ledger_id").eq(1).type(pvData.ledger).type("{enter}");
+            cy.wait(1000);
+            cy.formController("remarks").eq(1).type(pvData.remarks1);
+            cy.formController("transaction_amount").clear().type(pvData.amount);
+            cy.imsId("btn-submit").click();
+            cy.imsId("btn-yes").click();
+            cy.imsId("btn-ok").click();
 
             cy.log("Successfully created payment voucher");
         });
@@ -40,6 +42,12 @@ class PaymentVoucherCreation {
     actionButtonCheck() {
         cy.imsId("toggle-action").first().click();
         cy.log("Action button clicked successfully on the payment voucher list page.");
+    }
+
+     detailsViewCheck() {
+        // cy.imsId("btn-table-action-view").click();
+        // cy.imsId("btn-go-back").click();
+        // cy.log("Details view button clicked successfully on the payment voucher list page.");
     }
 
     statusInactiveDropdownCheck() {
@@ -112,7 +120,7 @@ class PaymentVoucherCreation {
     createDeleteButtonCheck() {
         cy.imsId("btn-add-new").click();
         cy.imsId("btn-add-icon").click();
-        cy.imsId("btn-remove-icon").eq(1).click();  
+        cy.imsId("btn-remove-icon").eq(1).click();
         cy.imsId("btn-go-back").click();
         cy.log("Successful delete button check.");
     }

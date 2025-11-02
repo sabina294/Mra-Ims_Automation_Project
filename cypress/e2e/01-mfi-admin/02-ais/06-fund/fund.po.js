@@ -12,17 +12,16 @@ class fundTransferCreation {
         cy.fixture(this.test_data).then((data) => {
             var ftData = data.mfiAdmin.fund;
             cy.imsId("btn-add-new").click();
-            cy.formController("recipient_office_id").type(ftData.office);
+            cy.formController("recipient_office_id").type(ftData.office).type("{enter}");
             cy.wait(2000);
             cy.formController("transaction_amount").type(ftData.Amount);
             cy.wait(1000);
             cy.formController("sender_pay_mode").type(ftData.senderPayment).type("{enter}");
             cy.formController("recipient_received_mode").type(ftData.recipientReceivedMode).type("{enter}");
             cy.formController("remarks").type(ftData.remarks);
-            cy.imsId("btn-go-back").click();
-            // cy.imsId("btn-submit").click();
-            // cy.imsId("btn-yes").click();
-            // cy.imsId("btn-ok").click();
+            cy.imsId("btn-submit").click();
+            cy.imsId("btn-yes").click();
+            cy.imsId("btn-ok").click();
 
             cy.log("Successfully created fund transfer");
         });

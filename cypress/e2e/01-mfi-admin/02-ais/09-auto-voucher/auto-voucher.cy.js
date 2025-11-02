@@ -29,7 +29,6 @@ describe("09 Auto Voucher Module Test Cases", function () {
         grid_auto_voucher.gridreceivedVoucherListPage();
     });
 
-
     it("09.02. Verify the user can filter inactive auto vouchers using the status dropdown on the auto voucher list page.", function () {
         grid_auto_voucher.statusInactiveDropdownCheck();
     });
@@ -53,6 +52,5 @@ describe("09 Auto Voucher Module Test Cases", function () {
     it("09.07. Verify check that the grid list content changes correctly from english to bangla.", function () {
         grid_auto_voucher.gridLanguageSwitchCheck();
     });
-
 
 });

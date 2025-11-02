@@ -37,47 +37,51 @@ describe("05 Financial Financial Period Management Module Test Cases", function 
         create_financial_period_management.actionButtonCheck();
     });
 
-    it("05.04. Verify the user can filter inactive financial period managements using the status dropdown on the financial period management list page.", function () {
+    it("05.04. Verify that clicking the details view on the financial period management create page redirects the user to the financial period management list page.", function () {
+        create_financial_period_management.createDetailsViewCheck();
+    });
+
+    it("05.05. Verify the user can filter inactive financial period managements using the status dropdown on the financial period management list page.", function () {
         create_financial_period_management.statusInactiveDropdownCheck();
     });
 
-    it("05.05. Verify the active result is filtered correctly by the status dropdown.", function () {
+    it("05.06. Verify the active result is filtered correctly by the status dropdown.", function () {
         create_financial_period_management.statusActiveDropdownCheck();
     });
 
-    it("05.06. Verify the search returns correct results when searching by financial period management name.", function () {
+    it("05.07. Verify the search returns correct results when searching by financial period management name.", function () {
         create_financial_period_management.searchName();
     });
 
-    it("05.07. Verify the grid list resets successfully when the reset button is clicked on the financial period management page.", function () {
+    it("05.08. Verify the grid list resets successfully when the reset button is clicked on the financial period management page.", function () {
         create_financial_period_management.gridResetButtonCheck();
     });
 
-    it("05.08. Verify that the grid list is refreshed successfully when the refresh button is clicked on the financial period management page.", function () {
+    it("05.09. Verify that the grid list is refreshed successfully when the refresh button is clicked on the financial period management page.", function () {
         create_financial_period_management.gridRefreshButtonCheck();
     });
 
-    it("05.09. Verify display the grid list successfully when the Draft button on is clicked on the financial period management page", function () {
+    it("05.10. Verify display the grid list successfully when the Draft button on is clicked on the financial period management page", function () {
         create_financial_period_management.gridDraftButton();
     });
 
-    it("05.10. Verify display the grid list successfully when the Draft button off is clicked on the financial period management page", function () {
+    it("05.11. Verify display the grid list successfully when the Draft button off is clicked on the financial period management page", function () {
         create_financial_period_management.gridDraftButtonOff();
     });
 
-    it("05.11. Verify the financial period management creation reset button clears all entered input values.", function () {
+    it("05.12. Verify the financial period management creation reset button clears all entered input values.", function () {
         create_financial_period_management.createResetButtonCheck();
     });
 
-    it("05.12. Verify validation messages appear for required fields when the submit button is clicked with empty inputs.", function () {
+    it("05.13. Verify validation messages appear for required fields when the submit button is clicked with empty inputs.", function () {
         create_financial_period_management.createValidationMessageCheck();
     });
 
-    it("05.13. Verify that clicking the go back button on the financial period management create page redirects the user to the financial period management list page.", function () {
+    it("05.14. Verify that clicking the go back button on the financial period management create page redirects the user to the financial period management list page.", function () {
         create_financial_period_management.createGoBackButtonCheck();
     });
 
-    it("05.14. Verify check that the grid list content changes correctly from english to bangla.", function () {
+    it("05.15. Verify check that the grid list content changes correctly from english to bangla.", function () {
         create_financial_period_management.gridLanguageSwitchCheck();
     });
 
