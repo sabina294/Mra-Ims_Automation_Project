@@ -13,8 +13,6 @@ class LoanAccountProposalManagementCreation {
   createLoanAccountProposalManagement() {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId("btn-add-new").click();
-      // cy.imsId('btn-submit').and('be.visible');
-
       var lapData = data.branchManager.createLoanAccountFrom;
       cy.formController("samity_id").type(lapData.samity).type("{enter}");
       cy.formController("member_id").type(lapData.member).type("{enter}");
@@ -37,8 +35,6 @@ class LoanAccountProposalManagementCreation {
 
       cy.formController("expected_disburse_dt").click();
       cy.contains("13").click();
-      // cy.imsId("btn-go-back").click();
-
       cy.imsId("btn-submit").click();
       cy.imsId("btn-yes").click();
 
@@ -56,7 +52,6 @@ class LoanAccountProposalManagementCreation {
       var lapData = data.branchManager.createLoanAccountFrom;
       cy.imsId("menu-my-task").click();
       cy.imsId("submenu-awaiting-loan-account-proposal").click();
-      // cy.formController("search_text").type(lapData.memberNameEn);
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
       cy.imsId("btn-approve").click();

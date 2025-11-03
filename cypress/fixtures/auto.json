@@ -877,7 +877,7 @@
       "messageLoanAccountManagement": "Loan account has been updated"
     },
     "loanDisbursementFrom": {
-      "samity": "Ashulia Mohila Samity",
+      "samity": "Dipti Mohila Samity",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
       "SelectOffice": "1020 (Ashulia)",
@@ -885,8 +885,8 @@
     },
     "createClientWelfareFrom": {
       "selectSamity": "1020-101 (Ashulia Mohila Samity)",
-      "selectMember": "3-1003 (Jesiya Akter)",
-      "selectLoanAccount": "AGRO-1020-101-1003-1",
+      "selectMember": "2-1002 (Rabeya Akter)",
+      "selectLoanAccount": "AGRO-1020-101-1002-1",
       "inputAmount": "5000",
       "search": "Jesiya Akter",
       "approveMessage": "Welfare Fund Authorization for Loan Account Is Successful",
