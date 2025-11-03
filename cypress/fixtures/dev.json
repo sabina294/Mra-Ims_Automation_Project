@@ -770,6 +770,7 @@
       "samityNameEn": "Shibpur Mohila Samity",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
+      "fieldOfficer": "EMP-0124 - SHUMSHDDIN",
       "messageSamityChange": "Samity has been updated"
     },
     "samityDayChangeFrom": {
@@ -777,13 +778,13 @@
       "selectStatus": "Inactive",
       "statusSelect": "Active",
       "newSamityDay": "Monday",
-      "messageSamityDayChange": "Samity day has been updated"
+      "messageSamityDayChange": "Samity has been updated"
     },
     "samityCloseFrom": {
       "samityNameEn": "Ghoshgati Mohila Samity",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
-      "messageSamityClose": "Samity has been closed successfully."
+      "messageSamityClose": "Samity has been updated."
     },
     "createMemberFrom": {
       "smity": "1020-101 (Ashulia Mohila Samity)",
@@ -828,11 +829,11 @@
       "messageUpdateRejectedMember": "Member has been updated"
     },
     "memberSamityTransferFrom": {
-      "memberNameEn": "Fariya",
-      "newSamityTransfer": "1028-101 (Barachala Mohila Samity)",
+      "memberNameEn": "Misti Akter",
+      "newSamityTransfer": "1020-101 (Ashulia Mohila Samity)",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
-      "SelectOffice": "1019 (Amin Bazar)",
+      "SelectOffice": "1020 (Ashulia)",
       "messagesamityTransfer": "Member samity transfer has been updated"
     },
     "memberPassbookFrom": {

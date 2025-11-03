@@ -11,8 +11,6 @@ class EmployeeManagementCreation {
   createEmployeeManagement() {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId("btn-add-new").click();
-      // cy.imsId("btn-submit").and("be.visible");
-
       var emData = data.branchManager.createEmpMangFrom;
       cy.formController("emp_name_en").type(emData.empNameEn);
       cy.formController("emp_name_bn").type(emData.empNameBn);
@@ -138,10 +136,8 @@ class EmployeeManagementCreation {
   editEmployeeManagement() {
     cy.imsId("toggle-action").first().click();
     cy.imsId("btn-table-action-edit").click();
-    // cy.imsId("btn-submit").click();
-    // cy.imsId("btn-ok").click();
-    cy.imsId("btn-go-back").click();
-
+    cy.imsId("btn-submit").click();
+    cy.imsId("btn-ok").click();
     cy.log("Employee Management updated successfully");
   }
 
@@ -159,6 +155,7 @@ class EmployeeManagementCreation {
   statusActiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       var emData = data.branchManager.createEmpMangFrom;
+      cy.imsId("btn-reset").click();
       cy.formController("status").type(emData.statusSelect).type("{enter}");
       cy.log(
         "Employee Management form status active dropdown check successfully"

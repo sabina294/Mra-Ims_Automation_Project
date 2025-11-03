@@ -11,7 +11,6 @@ class SamityCreation {
   createSamity() {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId("btn-add-new").click();
-      // cy.imsId('btn-submit').and('be.visible')
       var smData = data.branchManager.createSamityFrom;
       cy.formController("samity_name_en").first().type(smData.samityNameEn);
       cy.formController("samity_name_bn").type(smData.samityNameBn);
@@ -79,9 +78,6 @@ class SamityCreation {
       // cy.formController("search_text").type(smData.samityNameEn);
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
-
-      // cy.get("app-mfi-mis").contains(smData.samityNameEn).and("be.visible");
-
       cy.imsId("btn-go-back").click();
       cy.log("Successfully viewed the samity list page");
     });
@@ -143,7 +139,6 @@ class SamityCreation {
   createDraftButton() {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId("btn-add-new").click();
-      // cy.imsId('btn-submit').and('be.visible')
       var smData = data.branchManager.createSamityFrom;
       cy.formController("samity_name_en").first().type(smData.draftName);
       cy.formController("samity_name_bn").type(smData.draftNameBn);

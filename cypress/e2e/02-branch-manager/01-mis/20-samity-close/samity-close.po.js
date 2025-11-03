@@ -29,18 +29,12 @@ class SamityClose {
 
   samityClose() {
     cy.fixture(this.test_data).then((data) => {
-      // cy.imsId('btn-submit').and('be.visible')
       var scData = data.branchManager.samityCloseFrom;
       cy.imsId("btn-reset").click();
-      // cy.formController("search_text").type(scData.samityNameEn);
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-mis-table-action-close").click();
-      cy.imsId("btn-no").click();
-      // cy.get("app-confirmation-modal")
-      //   .contains(scData.messageSamityChange)
-      //   .and("be.visible");
-
-      // cy.imsId("btn-ok").click();
+      cy.imsId("btn-yes").click();
+      cy.imsId("btn-ok").click();
       cy.log("Successfully Samity close");
     });
   }
@@ -49,16 +43,15 @@ class SamityClose {
     cy.fixture(this.test_data).then((data) => {
       var scData = data.branchManager.samityCloseFrom;
       cy.imsId("menu-my-task").click();
-      cy.imsId("submenu-awaiting-samity-field-officer-change").click();
-      // cy.formController("search_text").type(scData.samityNameEn);
-      // cy.imsId("toggle-action").first().click();
-      // cy.imsId("btn-table-action-view").click();
-      // cy.imsId("btn-lock").click();
-      // cy.imsId("btn-approve").click();
-      // cy.imsId("btn-submit").click();
-      // cy.imsId("btn-ok").click();
+      cy.imsId("submenu-awaiting-samity-close").click();
+      cy.imsId("toggle-action").first().click();
+      cy.imsId("btn-table-action-view").click();
+      cy.imsId("btn-lock").click();
+      cy.imsId("btn-approve").click();
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-ok").click();
 
-      cy.log("Successfully approve samity change");
+      cy.log("Successfully approve samity close");
     });
   }
 

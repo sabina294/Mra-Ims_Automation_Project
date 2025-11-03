@@ -30,23 +30,17 @@ class SamityDayChange {
   }
   samityDayChange() {
     cy.fixture(this.test_data).then((data) => {
-      // cy.imsId('btn-submit').and('be.visible')
       var sdData = data.branchManager.samityDayChangeFrom;
       cy.imsId("btn-reset").click();
-      // cy.formController("search_text").type(sdData.samityNameEn);
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-mis-table-action-change").click();
       cy.formController("new_samity_day").type(sdData.newSamityDay).type("{enter}");
-      cy.imsId("btn-go-back").click();
-
-      // cy.imsId("btn-submit").click();
-
-      // cy.imsId("btn-yes").click();
-      // cy.get("app-confirmation-modal")
-      //   .contains(sdData.messageSamityChange)
-      //   .and("be.visible");
-
-      // cy.imsId("btn-ok").click();
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-yes").click();
+      cy.get("app-confirmation-modal")
+        .contains(sdData.messageSamityDayChange)
+        .and("be.visible");
+      cy.imsId("btn-ok").click();
       cy.log("Successfully field officer change samity");
     });
   }
@@ -55,14 +49,13 @@ class SamityDayChange {
     cy.fixture(this.test_data).then((data) => {
       var sdData = data.branchManager.samityDayChangeFrom;
       cy.imsId("menu-my-task").click();
-      cy.imsId("submenu-awaiting-samity-field-officer-change").click();
-      // cy.formController("search_text").type(sdData.samityNameEn);
-      // cy.imsId("toggle-action").first().click();
-      // cy.imsId("btn-table-action-view").click();
-      // cy.imsId("btn-lock").click();
-      // cy.imsId("btn-approve").click();
-      // cy.imsId("btn-submit").click();
-      // cy.imsId("btn-ok").click();
+      cy.imsId("submenu-awaiting-samity-day-change").click();
+      cy.imsId("toggle-action").first().click();
+      cy.imsId("btn-table-action-view").click();
+      cy.imsId("btn-lock").click();
+      cy.imsId("btn-approve").click();
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-ok").click();
 
       cy.log("Successfully approve samity change");
     });

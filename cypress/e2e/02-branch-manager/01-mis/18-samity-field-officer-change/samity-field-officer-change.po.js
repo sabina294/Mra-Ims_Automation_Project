@@ -30,15 +30,11 @@ class SamityChange {
   }
   samityChange() {
     cy.fixture(this.test_data).then((data) => {
-      // cy.imsId('btn-submit').and('be.visible')
       var smData = data.branchManager.samityChangeFrom;
       cy.imsId("btn-reset").click();
-      cy.formController("search_text").type(smData.samityNameEn);
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-mis-table-action-change").click();
-      cy.formController("field_officer_id").click();
-      cy.get('div[class="ant-select-item-option-content"]').first().click();
-
+      cy.formController("field_officer_id").type(smData.fieldOfficer).type("{enter}");
       cy.imsId("btn-submit").click();
 
       cy.imsId("btn-yes").click();
@@ -56,13 +52,12 @@ class SamityChange {
       var smData = data.branchManager.samityChangeFrom;
       cy.imsId("menu-my-task").click();
       cy.imsId("submenu-awaiting-samity-field-officer-change").click();
-      // cy.formController("search_text").type(smData.samityNameEn);
-      // cy.imsId("toggle-action").first().click();
-      // cy.imsId("btn-table-action-view").click();
-      // cy.imsId("btn-lock").click();
-      // cy.imsId("btn-approve").click();
-      // cy.imsId("btn-submit").click();
-      // cy.imsId("btn-ok").click();
+      cy.imsId("toggle-action").first().click();
+      cy.imsId("btn-table-action-view").click();
+      cy.imsId("btn-lock").click();
+      cy.imsId("btn-approve").click();
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-ok").click();
 
       cy.log("Successfully approve samity change");
     });

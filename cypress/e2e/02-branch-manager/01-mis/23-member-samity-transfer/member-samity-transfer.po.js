@@ -23,18 +23,33 @@ class MemberSamityTransfer {
       cy.formController("new_samity_id")
         .type(mstData.newSamityTransfer)
         .type("{enter}");
-            cy.imsId("btn-go-back").click();
-      // cy.imsId("btn-submit").click();
-
-      // cy.imsId("btn-yes").click();
-      // cy.get("app-confirmation-modal")
-      //   .contains(mstData.messagesamityTransfer)
-      //   .and("be.visible");
-      // cy.imsId("btn-ok").click();
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-yes").click();
+      cy.get("app-confirmation-modal")
+        .contains(mstData.messagesamityTransfer)
+        .and("be.visible");
+      cy.imsId("btn-ok").click();
 
       cy.log("Successfully member samity transfer");
     });
   }
+
+  approveSamityTransfer() {
+    // cy.fixture(this.test_data).then((data) => {
+    //   var smData = data.branchManager.samityChangeFrom;
+    //   cy.imsId("menu-my-task").click();
+    //   cy.imsId("submenu-awaiting-member-samity-transfer").click();
+    //   cy.imsId("toggle-action").first().click();
+    //   cy.imsId("btn-table-action-view").click();
+    //   cy.imsId("btn-lock").click();
+    //   cy.imsId("btn-approve").click();
+    //   cy.imsId("btn-submit").click();
+    //   cy.imsId("btn-ok").click();
+
+    //   cy.log("Successfully approve member samity transfer");
+    // });
+  }
+
   statusInactiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       var mstData = data.branchManager.memberSamityTransferFrom;
@@ -62,7 +77,7 @@ class MemberSamityTransfer {
       cy.log("Successfully search in the Samity field officer change");
     });
   }
- 
+
   gridResetButtonCheck() {
     cy.imsId("btn-reset").click();
     cy.log("Successful clean displaying.");

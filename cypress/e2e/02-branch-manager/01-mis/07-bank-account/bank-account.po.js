@@ -11,34 +11,24 @@ class BankAccountCreation {
   createBankAccount() {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId("btn-add-new").click();
-      cy.imsId("btn-go-back").click();
 
-      // cy.imsId("btn-submit").and("be.visible");
+      var baData = data.branchManager.createBankAccountFrom;
+      var randomNumber = Math.floor(1000 + Math.random() * 9000);
+      var accNumber = baData.accNumber + "-" + randomNumber;
 
-      // var baData = data.branchManager.createBankAccountFrom;
-
-      // var randomNumber = Math.floor(1000 + Math.random() * 9000);
-      // var accNumber = baData.accNumber + "-" + randomNumber;
-
-      // cy.formController("bank_id").type(baData.bankName).type("{enter}");
-      // cy.formController("bank_branch_id")
-      //   .type(baData.branchName)
-      //   .type("{enter}");
-      // cy.formController("account_name_en").type(baData.accNameEn);
-      // cy.formController("account_name_bn").type(baData.accNameBn);
-      // cy.formController("account_type")
-      //   .type(baData.accountType)
-      //   .type("{enter}");
-      // cy.formController("account_no").type(accNumber);
-
-      // cy.imsId("btn-submit").click();
-
-      // cy.imsId("btn-yes").click();
-      // cy.get("app-confirmation-modal")
-      //   .contains(baData.messageSaveBankAccount)
-      //   .and("be.visible");
-
-      // cy.imsId("btn-ok").click();
+      cy.formController("bank_id").type(baData.bankName).type("{enter}");
+      cy.formController("bank_branch_id")
+        .type(baData.branchName)
+        .type("{enter}");
+      cy.formController("account_name_en").type(baData.accNameEn);
+      cy.formController("account_name_bn").type(baData.accNameBn);
+      cy.formController("account_type")
+        .type(baData.accountType)
+        .type("{enter}");
+      cy.formController("account_no").type(accNumber);
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-yes").click();
+      cy.imsId("btn-ok").click();
       cy.log("Successfully created bank account");
     });
   }
@@ -280,18 +270,12 @@ class BankAccountCreation {
 
   editBankAccount() {
     cy.fixture(this.test_data).then((data) => {
+      var baData = data.branchManager.createBankAccountFrom;
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-edit").click();
-      cy.imsId("btn-go-back").click();
-
-      // cy.imsId("btn-submit").click();
-      // cy.imsId("btn-yes").click();
-
-      // var baData = data.branchManager.createBankAccountFrom;
-      // cy.get("app-confirmation-modal")
-      //   .contains(baData.messageUpdateBankAccount)
-      //   .and("be.visible");
-      // cy.imsId("btn-ok").click();
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-yes").click();
+      cy.imsId("btn-ok").click();
       cy.log("Bank Account updated successfully");
     });
   }

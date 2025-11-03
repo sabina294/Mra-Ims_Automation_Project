@@ -10,8 +10,6 @@ class RejectedEmployee {
   createEmployeeManagement() {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId("btn-add-new").click();
-      // cy.imsId("btn-submit").and("be.visible");
-
       var emData = data.branchManager.rejectedEmployeeFrom;
       cy.formController("emp_name_en").type(emData.empNameEn);
       cy.formController("emp_name_bn").type(emData.empNameBn);
@@ -70,34 +68,34 @@ class RejectedEmployee {
   }
 
   rejectedEmployee() {
-  cy.fixture(this.test_data).then((data) => {
-    const emData = data.branchManager.rejectedEmployeeFrom;
+    cy.fixture(this.test_data).then((data) => {
+      const emData = data.branchManager.rejectedEmployeeFrom;
 
-    cy.imsId("menu-my-task").click();
-    cy.imsId("submenu-awaiting-employee-management").click();
-    cy.imsId("toggle-action").first().click();
-    cy.imsId("btn-table-action-view").click();
+      cy.imsId("menu-my-task").click();
+      cy.imsId("submenu-awaiting-employee-management").click();
+      cy.imsId("toggle-action").first().click();
+      cy.imsId("btn-table-action-view").click();
 
-    cy.imsId("btn-lock").click();
-    cy.imsId("btn-reject").click();
+      cy.imsId("btn-lock").click();
+      cy.imsId("btn-reject").click();
 
-    // ✅ Wait for modal and textarea to appear and be ready
-    cy.get("nz-modal-container").should("be.visible");
-    cy.imsId("approver-remarks-textarea")
-      .should("be.visible")
-      .and("not.be.disabled")
-      .clear()
-      .type(emData.rejectRemarks);
+      // ✅ Wait for modal and textarea to appear and be ready
+      cy.get("nz-modal-container").should("be.visible");
+      cy.imsId("approver-remarks-textarea")
+        .should("be.visible")
+        .and("not.be.disabled")
+        .clear()
+        .type(emData.rejectRemarks);
 
-    cy.imsId("btn-Reject").click();
-    cy.imsId("btn-yes").click();
+      cy.imsId("btn-Reject").click();
+      cy.imsId("btn-yes").click();
 
-    // ✅ Wait until modal is closed before moving on
+      // ✅ Wait until modal is closed before moving on
       cy.imsId("btn-ok").click();
 
-    cy.log("✅ Successfully rejected employee");
-  });
-}
+      cy.log("✅ Successfully rejected employee");
+    });
+  }
 
   actionButtonCheck() {
     cy.selectMenu("menu-employee", "submenu-rejected-employee");
@@ -149,10 +147,9 @@ class RejectedEmployee {
   editEmployeeManagement() {
     cy.imsId("toggle-action").first().click();
     cy.imsId("btn-table-action-edit").click();
-    // cy.imsId("btn-submit").click();
-    // cy.imsId("btn-ok").click();
-    cy.imsId("btn-go-back").click();
-
+    cy.imsId("btn-submit").click();
+    cy.imsId("btn-yes").click();
+    cy.imsId("btn-ok").click();
     cy.log("Rejected Employee updated successfully");
   }
 
@@ -170,13 +167,14 @@ class RejectedEmployee {
   statusActiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       var emData = data.branchManager.rejectedEmployeeFrom;
+      cy.imsId("btn-reset").click();
       cy.formController("status").type(emData.statusSelect).type("{enter}");
       cy.log(
         "Rejected Employee form status active dropdown check successfully"
       );
     });
   }
-       
+
   searchInEmployeeName() {
     cy.fixture(this.test_data).then((data) => {
       var emData = data.branchManager.rejectedEmployeeFrom;

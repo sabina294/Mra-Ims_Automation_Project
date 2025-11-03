@@ -37,7 +37,7 @@ class LoanProductManagementCreation {
       );
     });
   }
-  
+
   statusActiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       var lpData = data.branchManager.loanProductFrom;
@@ -46,6 +46,18 @@ class LoanProductManagementCreation {
         "Loan Product Management status active dropdown check successfully"
       );
     });
+  }
+
+  gridResetButtonCheck() {
+    cy.imsId("btn-reset").click();
+    cy.log("Successful clean displaying.");
+  }
+
+  gridRefreshButtonCheck() {
+    cy.imsId("btn-refresh").click();
+    cy.log(
+      "successfully refresh page  displayed the grid list of the loan product management"
+    );
   }
 
   searchInLoanProductName() {

@@ -149,7 +149,7 @@ class RrejectedMember {
       var rejmData = data.branchManager.createRejectedMemberFrom;
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-mis-table-action-edit").click();
-            cy.imsId("btn-go-back").click();
+      cy.imsId("btn-go-back").click();
 
       // cy.imsId("btn-submit").click();
       // cy.imsId("btn-yes").click();

@@ -33,38 +33,42 @@ describe("23. Member Samity Transfer Module Test Cases", function () {
   });
 
   it('23.03. Verify successful processing of a new  samity transfer.', function () {
-      member_samity_transfer.newSamityTransfer();
+    member_samity_transfer.newSamityTransfer();
   })
 
-  it("23.04. Verify that the user can filter the inactive Member Samity Transfers using the Status Dropdown on the Member Samity Transfer List page.", function () {
+  it("23.04. Verify that a member samity transfer record is successfully approved after the transfer.", function () {
+    member_samity_transfer.approveSamityTransfer();
+  });
+
+  it("23.05. Verify that the user can filter the inactive Member Samity Transfers using the Status Dropdown on the Member Samity Transfer List page.", function () {
     member_samity_transfer.statusInactiveDropdownCheck();
   });
 
-  it("23.05. Verify Filter Active Result by Status Dropdown", function () {
+  it("23.06. Verify Filter Active Result by Status Dropdown", function () {
     member_samity_transfer.statusActiveDropdownCheck();
   });
 
-  it("21.06. Verify Successful Search Result by Member Samity Transfer Name", function () {
+  it("23.07. Verify Successful Search Result by Member Samity Transfer Name", function () {
     member_samity_transfer.searchInMemberSamityTransferName();
   });
 
-  it("23.07.Verify Successful Reset of Grid List Using the Reset Button on Member Samity Transfer Page.", function () {
+  it("23.08.Verify Successful Reset of Grid List Using the Reset Button on Member Samity Transfer Page.", function () {
     member_samity_transfer.gridResetButtonCheck();
   });
 
-  it("23.08. Verify Successful Refresh of Grid List Using the Refresh Button on Member Samity Transfer Page.", function () {
+  it("23.09. Verify Successful Refresh of Grid List Using the Refresh Button on Member Samity Transfer Page.", function () {
     member_samity_transfer.gridRefreshButtonCheck();
   });
 
-  it("23.09. Verify display the grid list successfully when the Draft button on is clicked on the Member Samity Transfer page", function () {
+  it("23.10. Verify display the grid list successfully when the Draft button on is clicked on the Member Samity Transfer page", function () {
     member_samity_transfer.gridDraftButton();
   });
 
-  it("23.10. Verify display the grid list successfully when the Draft button off is clicked on the Member Samity Transfer page", function () {
+  it("23.11. Verify display the grid list successfully when the Draft button off is clicked on the Member Samity Transfer page", function () {
     member_samity_transfer.gridDraftButtonOff();
   });
 
-  it("23.11. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("23.12. Verify check that the grid list content changes correctly from english to bangla.", function () {
     member_samity_transfer.gridLanguageSwitchCheck();
   });
 });
