@@ -956,12 +956,12 @@
       "openingBalance": "500",
       "search": "Samia",
       "selectStatus": "Inactive",
-      "statusSelect": "Active"
+      "statusSelect": "Approved"
     },
     "createSavingsAccountManagement": {
       "search": "Samia",
       "selectStatus": "Inactive",
-      "statusSelect": "Active"
+      "statusSelect": "Approved"
     },
     "gridCalendarYear": {
       "holidayTitleBn": "পরীক্ষার ছুটি",
