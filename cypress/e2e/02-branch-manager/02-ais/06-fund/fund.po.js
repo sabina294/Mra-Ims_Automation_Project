@@ -1,37 +1,48 @@
 class FundTransferCreation {
     test_data = Cypress.env("TEST_DATA");
 
-    gridFinancialPeriodListPage() {
+    gridFundListPage() {
         cy.fixture(this.test_data).then((data) => {
             cy.selectMenu1("menu-fund");
             cy.log("Successfully fund transfer list page.");
         });
     }
 
-    createFinancialPeriodManagement() {
+    createFundTransfer() {
         cy.fixture(this.test_data).then((data) => {
             var ftData = data.branchManager.fund;
-            // cy.get('.primary-large-button').click();
             cy.imsId("btn-add-new").click();
-            cy.imsId("btn-go-back").click();
-
-            // cy.formController("name_en").type(ftData.nameEn);
-            // cy.formController("name_bn").type(ftData.nameBn);
-            // cy.formController("period_type").type(ftData.periodType).type("{enter}");
-            // cy.formController("start_date").click();
-            // cy.contanins(19).click();
-            // cy.imsId("btn-submit").click();
-            // cy.imsId("btn-yes").click();
-            // cy.imsId("btn-ok").click();
-
+            cy.formController("transaction_amount").type(ftData.amount);
+            cy.formController("sender_pay_mode").type(ftData.paymentMode).type("{enter}");
+            cy.formController("recipient_received_mode").type(ftData.receivedMode).type("{enter}");
+            cy.imsId("btn-submit").click();
+            cy.imsId("btn-yes").click();
+            cy.imsId("btn-ok").click();
             cy.log("Successfully created fund transfer");
         });
     }
 
-
     actionButtonCheck() {
         cy.imsId("toggle-action").first().click();
         cy.log("Action button clicked successfully on the fund transfer list page.");
+    }
+
+    viewFund() {
+        cy.fixture(this.test_data).then((data) => {
+            cy.imsId("toggle-action").first().click();
+            cy.imsId("btn-table-action-view").click();
+            cy.imsId("btn-go-back").click();
+            cy.log("Successfully viewed the fund transfer page");
+        });
+    }
+
+    verifyFundTransfer() {
+        cy.fixture(this.test_data).then((data) => {
+            cy.imsId("toggle-action").first().click();
+            cy.imsId("btn-table-action-verify").click();
+            cy.imsId("btn-go-back").click();
+            cy.log("Successfully viewed the fund  transfer page");
+        });
     }
 
     statusInactiveDropdownCheck() {
@@ -55,7 +66,7 @@ class FundTransferCreation {
         cy.fixture(this.test_data).then((data) => {
             var ftData = data.branchManager.fund;
             cy.imsId("btn-reset").click();
-            cy.formController("search_text").type(ftData.nameEn);
+            cy.formController("search_text").type(ftData.search);
             cy.log("Successfully search in the fund transfer");
         });
     }

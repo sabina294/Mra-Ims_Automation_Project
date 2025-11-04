@@ -1041,20 +1041,22 @@
       "statusSelect": "Active"
     },
     "fund": {
-      "nameEn": "Test Transfer",
-      "nameBn": "পরীক্ষা স্থানান্তর",
+      "amount": "5000",
+      "paymentMode": "Cash",
+      "receivedMode":"Cash",
       "selectStatus": "Inactive",
-      "statusSelect": "Active"
+      "statusSelect": "Active",
+      "search":"5000"
     },
     "paymentVoucher": {
       "voucherNameEn": "Test Voucher",
       "voucherNameBn": "টেস্ট ভাউচার",
       "paymentMode": "Cash",
-      "peparedBy": "Abdul Alim",
+      "preparedBy": "MD.ABDUR RAHAMAN",
       "remarks": "Done",
-      "ledger": "501019-1001 (Gas)",
+      "ledger": "501018-1020 (Office Rent)",
       "remarks1": "Done",
-      "amount": "1000",
+      "amount": "5000",
       "selectStatus": "Inactive",
       "statusSelect": "Active"
     },
@@ -1062,11 +1064,11 @@
       "voucherNameEn": "Test Voucher",
       "voucherNameBn": "টেস্ট ভাউচার",
       "paymentMode": "Cash",
-      "peparedBy": "Abdul Alim",
+      "preparedBy": "MD.ABDUR RAHAMAN",
       "remarks": "Done",
-      "ledger": "501019-1001 (Gas)",
+      "ledger": "401004-1020 (Service Fee)",
       "remarks1": "Done",
-      "amount": "1000",
+      "amount": "5000",
       "selectStatus": "Inactive",
       "statusSelect": "Active"
     }

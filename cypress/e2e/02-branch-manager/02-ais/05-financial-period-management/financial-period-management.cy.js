@@ -29,39 +29,47 @@ describe("05 Financial Financial Period Management Module Test Cases", function 
         grid_financial_period_management.gridFinancialPeriodListPage();
     });
 
-    it("05.03. Verify successfully performs the action when the action button is clicked.", function () {
+    it("05.02. Verify successfully performs the action when the action button is clicked.", function () {
         grid_financial_period_management.actionButtonCheck();
     });
 
-    it("05.04. Verify the user can filter inactive financial period managements using the status dropdown on the financial period management list page.", function () {
+    it("05.03. Verify the user can view all relevant details of a financial period, including its associated fields.", function () {
+        grid_financial_period_management.viewFinancialPeriod();
+    });
+
+    it("05.04. Verify the user can go back of a financial period, including its associated fields.", function () {
+        grid_financial_period_management.closeGoBackButtonCheck();
+    });
+
+    it("05.05. Verify the user can filter inactive financial period managements using the status dropdown on the financial period management list page.", function () {
         grid_financial_period_management.statusInactiveDropdownCheck();
     });
 
-    it("05.05. Verify the active result is filtered correctly by the status dropdown.", function () {
+    it("05.06. Verify the active result is filtered correctly by the status dropdown.", function () {
         grid_financial_period_management.statusActiveDropdownCheck();
     });
 
-    it("05.06. Verify the search returns correct results when searching by financial period management name.", function () {
+    it("05.07. Verify the search returns correct results when searching by financial period management name.", function () {
         grid_financial_period_management.searchName();
     });
 
-    it("05.07. Verify the grid list resets successfully when the reset button is clicked on the financial period management page.", function () {
+    it("05.08. Verify the grid list resets successfully when the reset button is clicked on the financial period management page.", function () {
         grid_financial_period_management.gridResetButtonCheck();
     });
 
-    it("05.08. Verify that the grid list is refreshed successfully when the refresh button is clicked on the financial period management page.", function () {
+    it("05.09. Verify that the grid list is refreshed successfully when the refresh button is clicked on the financial period management page.", function () {
         grid_financial_period_management.gridRefreshButtonCheck();
     });
 
-    it("05.09. Verify display the grid list successfully when the Draft button on is clicked on the financial period management page", function () {
+    it("05.10. Verify display the grid list successfully when the Draft button on is clicked on the financial period management page", function () {
         grid_financial_period_management.gridDraftButton();
     });
 
-    it("05.10. Verify display the grid list successfully when the Draft button off is clicked on the financial period management page", function () {
+    it("05.11. Verify display the grid list successfully when the Draft button off is clicked on the financial period management page", function () {
         grid_financial_period_management.gridDraftButtonOff();
     });
 
-    it("05.14. Verify check that the grid list content changes correctly from english to bangla.", function () {
+    it("05.12. Verify check that the grid list content changes correctly from english to bangla.", function () {
         grid_financial_period_management.gridLanguageSwitchCheck();
     });
 
