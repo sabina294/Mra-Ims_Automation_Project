@@ -585,6 +585,11 @@
       "selectStatus": "Inactive",
       "statusSelect": "Active"
     },
+    "autoVoucherFrom": {
+      "preparedBy":"tem-1020-bm",
+      "selectStatus": "Inactive",
+      "statusSelect": "Active"
+    },
     "createBalanceSheetFrom": {
       "office": "1002 (Dhaka Regional Office)"
     },
@@ -1069,6 +1074,12 @@
       "ledger": "401004-1020 (Service Fee)",
       "remarks1": "Done",
       "amount": "5000",
+      "selectStatus": "Inactive",
+      "statusSelect": "Active"
+    },
+
+     "autoVoucherFrom": {
+      "preparedBy":"tem-1020-bm",
       "selectStatus": "Inactive",
       "statusSelect": "Active"
     }
