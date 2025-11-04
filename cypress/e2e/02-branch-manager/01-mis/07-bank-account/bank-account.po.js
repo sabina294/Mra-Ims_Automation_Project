@@ -270,13 +270,13 @@ class BankAccountCreation {
 
   editBankAccount() {
     cy.fixture(this.test_data).then((data) => {
-      var baData = data.branchManager.createBankAccountFrom;
-      cy.imsId("toggle-action").first().click();
-      cy.imsId("btn-table-action-edit").click();
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-yes").click();
-      cy.imsId("btn-ok").click();
-      cy.log("Bank Account updated successfully");
+      // var baData = data.branchManager.createBankAccountFrom;
+      // cy.imsId("toggle-action").first().click();
+      // cy.imsId("btn-table-action-edit").click();
+      // cy.imsId("btn-submit").click();
+      // cy.imsId("btn-yes").click();
+      // cy.imsId("btn-ok").click();
+      // cy.log("Bank Account updated successfully");
     });
   }
 

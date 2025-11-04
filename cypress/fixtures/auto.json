@@ -639,7 +639,6 @@
       "accountType": "Savings Account",
       "accNumber": "0020672606",
       "status": "Active",
-      "search": "Mohanpur Office",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
       "messageSaveBankAccount": "Mfi bank account has been saved",
