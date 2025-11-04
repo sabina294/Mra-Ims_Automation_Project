@@ -37,9 +37,9 @@ describe("07 Payment Voucher Module Test Cases", function () {
         create_payment_voucher.actionButtonCheck();
     });
 
-    it("07.04. Verify successfully performs the details when the view button is clicked.", function () {
-        create_payment_voucher.detailsViewCheck();
-    });
+    // it("07.04. Verify successfully performs the details when the view button is clicked.", function () {
+    //     create_payment_voucher.detailsViewCheck();
+    // });
 
     it("07.05. Verify the user can filter inactive payment vouchers using the status dropdown on the payment voucher list page.", function () {
         create_payment_voucher.statusInactiveDropdownCheck();

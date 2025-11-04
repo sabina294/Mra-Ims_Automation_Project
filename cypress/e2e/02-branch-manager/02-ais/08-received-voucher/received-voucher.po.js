@@ -44,11 +44,11 @@ class ReceivedVoucherCreation {
     }
 
      detailsViewCheck() {
-        // cy.imsId("btn-table-action-view").click();
-        // cy.imsId("btn-go-back").click();
-        // cy.log("Details view button clicked successfully on the received voucher list page.");
+        cy.imsId("btn-table-action-view").click();
+        cy.imsId("btn-go-back").click();
+        cy.log("Details view button clicked successfully on the received voucher list page.");
     }
-    
+
     statusInactiveDropdownCheck() {
         cy.fixture(this.test_data).then((data) => {
             var rvData = data.branchManager.receivedVoucher;

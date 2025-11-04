@@ -45,11 +45,11 @@ class PaymentVoucherCreation {
     }
 
     detailsViewCheck() {
-        // cy.imsId("btn-table-action-view").click();
-        // cy.imsId("btn-go-back").click();
-        // cy.log("Details view button clicked successfully on the payment voucher list page.");
+        cy.imsId("btn-table-action-view").click();
+        cy.imsId("btn-go-back").click();
+        cy.log("Details view button clicked successfully on the payment voucher list page.");
     }
-    
+
     statusInactiveDropdownCheck() {
         cy.fixture(this.test_data).then((data) => {
             var pvData = data.branchManager.paymentVoucher;

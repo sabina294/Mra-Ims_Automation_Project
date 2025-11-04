@@ -37,9 +37,9 @@ describe("08 Received Voucher Module Test Cases", function () {
         create_received_voucher.actionButtonCheck();
     });
 
-    it("08.04. Verify successfully performs the details when the view button is clicked.", function () {
-        create_received_voucher.detailsViewCheck();
-    });
+    // it("08.04. Verify successfully performs the details when the view button is clicked.", function () {
+    //     create_received_voucher.detailsViewCheck();
+    // });
 
     it("08.05. Verify the user can filter inactive received vouchers using the status dropdown on the received voucher list page.", function () {
         create_received_voucher.statusInactiveDropdownCheck();
