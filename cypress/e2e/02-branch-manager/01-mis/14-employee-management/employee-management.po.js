@@ -134,17 +134,22 @@ class EmployeeManagementCreation {
   }
 
   editEmployeeManagement() {
+    cy.fixture(this.test_data).then((data) => {
+    var emData = data.branchManager.createEmpMangFrom;
+    cy.imsId("btn-reset").click();
+    cy.formController("search_text").type(emData.empNameEn);
     cy.imsId("toggle-action").first().click();
     cy.imsId("btn-table-action-edit").click();
     cy.imsId("btn-submit").click();
+    cy.imsId("btn-yes").click();
     cy.imsId("btn-ok").click();
     cy.log("Employee Management updated successfully");
+    });
   }
 
   statusInactiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       var emData = data.branchManager.createEmpMangFrom;
-      cy.imsId("btn-reset").click();
       cy.formController("status").type(emData.selectStatus).type("{enter}");
       cy.log(
         "Employee Management form status inactive dropdown check successfully"
@@ -237,10 +242,10 @@ class EmployeeManagementCreation {
   }
 
   createDraftButtonCheck() {
-    cy.imsId("toggle-action").first().click();
-    cy.imsId("btn-table-action-edit").click();
+    cy.imsId("btn-add-new").click();
     cy.imsId("btn-draft").click();
     cy.imsId("btn-ok").click();
+    cy.imsId("btn-go-back").click();
     cy.log("Successful draft button check.");
   }
 

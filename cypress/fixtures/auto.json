@@ -73,7 +73,7 @@
       "status": "Active",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
-      "search": "Mohanpur Office",
+      "search": "Arpara Office",
       "messageSaveBankAccount": "Mfi bank account has been saved",
       "messageUpdateBankAccount": "Mfi bank account has been updated"
     },
@@ -585,8 +585,8 @@
       "selectStatus": "Inactive",
       "statusSelect": "Active"
     },
-     "autoVoucherFrom": {
-      "preparedBy":"tem-1020-bm",
+    "autoVoucherFrom": {
+      "preparedBy": "tem-1020-bm",
       "selectStatus": "Inactive",
       "statusSelect": "Active"
     },
@@ -639,6 +639,7 @@
       "accountType": "Savings Account",
       "accNumber": "0020672606",
       "status": "Active",
+      "search": "Arpara Office",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
       "messageSaveBankAccount": "Mfi bank account has been saved",
@@ -1047,10 +1048,10 @@
     "fund": {
       "amount": "5000",
       "paymentMode": "Cash",
-      "receivedMode":"Cash",
+      "receivedMode": "Cash",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
-      "search":"5000"
+      "search": "5000"
     },
     "paymentVoucher": {
       "voucherNameEn": "Test Voucher",
@@ -1076,8 +1077,8 @@
       "selectStatus": "Inactive",
       "statusSelect": "Active"
     },
-     "autoVoucherFrom": {
-      "preparedBy":"tem-1020-bm",
+    "autoVoucherFrom": {
+      "preparedBy": "tem-1020-bm",
       "selectStatus": "Inactive",
       "statusSelect": "Active"
     }
