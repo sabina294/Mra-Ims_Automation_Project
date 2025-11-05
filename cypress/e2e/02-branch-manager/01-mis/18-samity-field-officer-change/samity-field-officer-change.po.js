@@ -66,8 +66,7 @@ class SamityChange {
   statusInactiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       var smData = data.branchManager.samityChangeFrom;
-      cy.selectMenu("menu-samity", "submenu-samity-field-officer-change");
-      cy.imsId("btn-reset").click();
+      // cy.selectMenu("menu-samity", "submenu-samity-field-officer-change");
       cy.formController("status").type(smData.selectStatus).type("{enter}");
       cy.log(
         "samity field officer change status inactive dropdown check successfully"
@@ -77,6 +76,7 @@ class SamityChange {
   statusActiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       var smData = data.branchManager.samityChangeFrom;
+      cy.imsId("btn-reset").click();
       cy.formController("status").type(smData.statusSelect).type("{enter}");
       cy.log(
         "samity field officer change status active dropdown check successfully"
