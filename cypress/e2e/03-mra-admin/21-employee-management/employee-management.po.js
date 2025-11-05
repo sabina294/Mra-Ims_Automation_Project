@@ -11,8 +11,6 @@ class EmployeeManagementCreation {
   createEmployeeManagement() {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId("btn-add-new").click();
-      // cy.imsId("btn-submit").and("be.visible");
-
       var emData = data.mraAdmin.createEmployeeFrom;
       cy.formController("name_en").type(emData.employeeNameEn);
       cy.formController("name_bn").type(emData.employeeNameBn);
@@ -215,24 +213,18 @@ class EmployeeManagementCreation {
   }
 
   editEmployeeManagement() {
-    // cy.fixture(this.test_data).then((data) => {
-    //   var emData = data.mraAdmin.createEmployeeFrom;
-    //   cy.imsId("btn-reset").click();
+    cy.fixture(this.test_data).then((data) => {
+      var emData = data.mraAdmin.createEmployeeFrom;
+      cy.imsId("btn-reset").click();
+      cy.formController("search_text").type(emData.employeeNameEn);
+      cy.imsId("toggle-action").first().click();
+      cy.imsId("btn-table-action-edit").click();
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-yes").click();
+      cy.imsId("btn-ok").click();
 
-    //   cy.formController("search_text").type(emData.search);
-    //   cy.imsId("toggle-action").first().click();
-    //   cy.imsId("btn-table-action-edit").click();
-    //   cy.imsId("btn-submit").click();
-
-    //   var emData = data.mraAdmin.createEmployeeFrom;
-    //   cy.imsId("btn-yes").click();
-    //   cy.get("app-confirmation-modal")
-    //     .contains(emData.messageUpdateEmployee)
-    //     .and("be.visible");
-    //   cy.imsId("btn-ok").click();
-
-    //   cy.log("Employee Management updated successfully");
-    // });
+      cy.log("Employee Management updated successfully");
+    });
   }
 
   editResetButton() {
@@ -305,6 +297,23 @@ class EmployeeManagementCreation {
     );
   }
 
+   gridCheckboxCheck() {
+    cy.imsId("row-checkbox-3").click();
+    cy.imsId("btn-reset").click();
+    cy.log("Checkbox should be clickable and functional.");
+  }
+
+  gridCheckboxLockButtonCheck() {
+    cy.imsId("btn-lock").click();
+    cy.log("Checkbox lock button should be clickable and functional.");
+  }
+
+  gridCheckboxUnlockButtonCheck() {
+    cy.imsId("row-checkbox-3").click();
+    cy.imsId("btn-unlock").click();
+    cy.log("Checkbox unlock button should be clickable and functional.");
+  }
+
   gridDraftButton() {
     cy.imsId("btn-draft-on").click();
     cy.log("Draft button should be clickable and functional.");
@@ -313,12 +322,6 @@ class EmployeeManagementCreation {
   gridDraftButtonOff() {
     cy.imsId("btn-draft-on").click();
     cy.log("Draft button should be clickable and functional.");
-  }
-
-  gridCheckboxCheck() {
-    cy.imsId("row-checkbox-0").click();
-    cy.imsId("btn-reset").click();
-    cy.log("Checkbox should be clickable and functional.");
   }
 
   createResetButtonCheck() {

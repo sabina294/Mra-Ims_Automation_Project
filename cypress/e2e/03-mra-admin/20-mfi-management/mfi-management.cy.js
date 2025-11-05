@@ -93,31 +93,39 @@ describe("20. MFI Management Module Test Cases.", function () {
     create_mfi_management.gridRefreshButtonCheck();
   });
 
-  it("20.18. Verify display the grid list successfully when the Draft button on is clicked on the mfi management page", function () {
-    create_mfi_management.gridDraftButton();
-  });
-
-  it("20.19. Verify display the grid list successfully when the Draft button off is clicked on the mfi management page", function () {
-    create_mfi_management.gridDraftButtonOff();
-  });
-
-  it("20.20. Verify that the checkbox functions correctly.", function () {
+  it("20.18. Verify that the checkbox functions correctly.", function () {
     create_mfi_management.gridCheckboxCheck();
   });
 
-  it("20.21. Verify the mfi management creation reset button clears all entered input values.", function () {
+  it("20.19. Verify that the checkbox lock button operates correctly when selected.", function () {
+    create_mfi_management.gridCheckboxLockButtonCheck();
+  });
+
+  it("20.20. Verify that the checkbox unlock button operates correctly when selected.", function () {
+    create_mfi_management.gridCheckboxUnlockButtonCheck();
+  });
+
+  it("20.21. Verify display the grid list successfully when the Draft button on is clicked on the mfi management page", function () {
+    create_mfi_management.gridDraftButton();
+  });
+
+  it("20.22. Verify display the grid list successfully when the Draft button off is clicked on the mfi management page", function () {
+    create_mfi_management.gridDraftButtonOff();
+  });
+
+  it("20.23. Verify the mfi management creation reset button clears all entered input values.", function () {
     create_mfi_management.createResetButtonCheck();
   });
 
-  it("20.22. Verify validation messages appear for required fields when the submit button is clicked with empty inputs.", function () {
+  it("20.24. Verify validation messages appear for required fields when the submit button is clicked with empty inputs.", function () {
     create_mfi_management.createValidationMessageCheck();
   });
 
-  it("20.23. Verify that clicking the go back button on the mfi management create page redirects the user to the mfi management list page.", function () {
+  it("20.25. Verify that clicking the go back button on the mfi management create page redirects the user to the mfi management list page.", function () {
     create_mfi_management.createGoBackButtonCheck();
   });
 
-  it("20.24. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("20.26. Verify check that the grid list content changes correctly from english to bangla.", function () {
     create_mfi_management.gridLanguageSwitchCheck();
   });
 });

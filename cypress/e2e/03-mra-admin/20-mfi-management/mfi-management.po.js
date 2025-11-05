@@ -11,8 +11,6 @@ class MfiCreation {
   createMfi() {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId("btn-add-new").click();
-      // cy.imsId('btn-submit').and('be.visible');
-
       const generateLicenceNo = () => {
         const rand = () => Math.floor(10000 + Math.random() * 90000);
 
@@ -47,8 +45,6 @@ class MfiCreation {
   createAllField() {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId("btn-add-new").click();
-      // cy.imsId('btn-submit').and('be.visible');
-
       const generateLicenceNo = () => {
         const rand = () => Math.floor(10000 + Math.random() * 90000);
 
@@ -93,8 +89,6 @@ class MfiCreation {
   createWithoutOneMandatoryField() {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId("btn-add-new").click();
-      // cy.imsId('btn-submit').and('be.visible');
-
       const generateLicenceNo = () => {
         const rand = () => Math.floor(10000 + Math.random() * 90000);
 
@@ -222,19 +216,19 @@ class MfiCreation {
   }
 
   editResetButton() {
-    // cy.imsId("toggle-action").first().click();
-    // cy.imsId("btn-table-action-edit").click();
-    // cy.imsId("btn-reset").click();
-    // cy.imsId("btn-go-back").click();
+    cy.imsId("toggle-action").first().click();
+    cy.imsId("btn-table-action-edit").click();
+    cy.imsId("btn-reset").click();
+    cy.imsId("btn-go-back").click();
 
-    // cy.log("Successful clean displaying");
+    cy.log("Successful clean displaying");
   }
 
   editGoBackButton() {
-    // cy.imsId("toggle-action").first().click();
-    // cy.imsId("btn-table-action-edit").click();
-    // cy.imsId("btn-go-back").click();
-    // cy.log("Successful edit go back button check.");
+    cy.imsId("toggle-action").first().click();
+    cy.imsId("btn-table-action-edit").click();
+    cy.imsId("btn-go-back").click();
+    cy.log("Successful edit go back button check.");
   }
 
   statusInactiveDropdownCheck() {
@@ -275,6 +269,23 @@ class MfiCreation {
     );
   }
 
+  gridCheckboxCheck() {
+    cy.imsId("row-checkbox-0").click();
+    cy.imsId("btn-reset").click();
+    cy.log("Checkbox should be clickable and functional.");
+  }
+
+  gridCheckboxLockButtonCheck() {
+    cy.imsId("btn-lock").click();
+    cy.log("Checkbox lock button should be clickable and functional.");
+  }
+
+  gridCheckboxUnlockButtonCheck() {
+    cy.imsId("row-checkbox-0").click();
+    cy.imsId("btn-unlock").click();
+    cy.log("Checkbox unlock button should be clickable and functional.");
+  }
+
   createResetButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
       var mfiData = data.mraAdmin.createMfiManFrom;
@@ -294,12 +305,6 @@ class MfiCreation {
   gridDraftButtonOff() {
     cy.imsId("btn-draft-on").click();
     cy.log("Draft button should be clickable and functional.");
-  }
-
-  gridCheckboxCheck() {
-    cy.imsId("row-checkbox-0").click();
-    cy.imsId("btn-reset").click();
-    cy.log("Checkbox should be clickable and functional.");
   }
 
   createValidationMessageCheck() {

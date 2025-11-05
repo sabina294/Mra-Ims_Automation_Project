@@ -11,8 +11,6 @@ class BankCreation {
   createBank() {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId("btn-add-new").click();
-      // cy.imsId("btn-submit").and("be.visible");
-
       var bankData = data.mraAdmin.createbankFrom;
       cy.formController("name_en").type(bankData.nameEn);
       cy.formController("name_bn").type(bankData.nameBn);
@@ -31,8 +29,6 @@ class BankCreation {
   createAllField() {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId("btn-add-new").click();
-      // cy.imsId("btn-submit").and("be.visible");
-
       var bankData = data.mraAdmin.createbankFrom;
       cy.formController("name_en").type(bankData.nameEn);
       cy.formController("name_bn").type(bankData.nameBn);
@@ -54,8 +50,6 @@ class BankCreation {
   createWithoutOneMandatoryField() {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId("btn-add-new").click();
-      // cy.imsId("btn-submit").and("be.visible");
-
       var bankData = data.mraAdmin.createbankFrom;
       cy.formController("name_bn").type(bankData.nameBn);
       cy.formController("website").type(bankData.website);
