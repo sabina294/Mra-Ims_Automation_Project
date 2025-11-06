@@ -66,6 +66,23 @@ class Samity {
     );
   }
 
+  gridCheckboxCheck() {
+    cy.imsId("row-checkbox-2").click();
+    cy.imsId("btn-reset").click();
+    cy.log("Checkbox should be clickable and functional.");
+  }
+
+  gridCheckboxLockButtonCheck() {
+    cy.imsId("btn-lock").click();
+    cy.log("Checkbox lock button should be clickable and functional.");
+  }
+
+  gridCheckboxUnlockButtonCheck() {
+    cy.imsId("row-checkbox-2").click();
+    cy.imsId("btn-unlock").click();
+    cy.log("Checkbox unlock button should be clickable and functional.");
+  }
+
   gridDraftButton() {
     cy.imsId("btn-draft-on").click();
     cy.log("Draft button should be clickable and functional.");
@@ -74,12 +91,6 @@ class Samity {
   gridDraftButtonOff() {
     cy.imsId("btn-draft-on").click();
     cy.log("Draft button should be clickable and functional.");
-  }
-
-  gridCheckboxCheck() {
-    cy.imsId("row-checkbox-2").click();
-    cy.imsId("btn-reset").click();
-    cy.log("Checkbox should be clickable and functional.");
   }
 
   gridLanguageSwitchCheck() {

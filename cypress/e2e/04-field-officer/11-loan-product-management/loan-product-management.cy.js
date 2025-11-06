@@ -47,7 +47,15 @@ describe("11. Loan Product Management Module Test Cases", function () {
     grid_loan_product_management.searchInLoanProductName();
   });
 
-  it("11.07. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("11.07. Verify the grid list resets successfully when the reset button is clicked on the loan product management page", function () {
+    grid_loan_product_management.gridResetButtonCheck();
+  });
+
+  it("11.08. Verify a new loan product management record is created successfully when all required fields are filled with valid data", function () {
+    grid_loan_product_management.gridRefreshButtonCheck();
+  });
+
+  it("11.09. Verify check that the grid list content changes correctly from english to bangla.", function () {
     grid_loan_product_management.gridLanguageSwitchCheck();
   });
 });

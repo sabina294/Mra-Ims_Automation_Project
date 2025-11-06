@@ -27,9 +27,9 @@ describe("12. Loan Account Proposal Management Module Test Cases", function () {
     create_loan_account_proposal_management.gridLoanAccountProposalManagementListPage();
   });
 
-  // it("12.02. Verify successful creation of a Loan Account Proposal Management record by MFI-Admin role", function () {
-  //   create_loan_account_proposal_management.createLoanAccountProposalManagement();
-  // });
+  it("12.02. Verify successful creation of a Loan Account Proposal Management record by MFI-Admin role", function () {
+    create_loan_account_proposal_management.createLoanAccountProposalManagement();
+  });
 
   it("12.03. Verify successfully performs the action when the action button is clicked.", function () {
     create_loan_account_proposal_management.actionButtonCheck();
@@ -59,7 +59,31 @@ describe("12. Loan Account Proposal Management Module Test Cases", function () {
     create_loan_account_proposal_management.gridRefreshButtonCheck();
   });
 
-  it("12.10. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("12.10. Verify that the checkbox functions correctly.", function () {
+    create_loan_account_proposal_management.gridCheckboxCheck();
+  });
+
+  // it("12.11. Verify that the checkbox lock button operates correctly when selected.", function () {
+  //   create_loan_account_proposal_management.gridCheckboxLockButtonCheck();
+  // });
+
+  // it("12.12. Verify that the checkbox unlock button operates correctly when selected.", function () {
+  //   create_loan_account_proposal_management.gridCheckboxUnlockButtonCheck();
+  // });
+
+  it("12.13. Verify the loan account proposal management creation reset button clears all entered input values.", function () {
+    create_loan_account_proposal_management.createResetButtonCheck();
+  });
+
+  it("12.14. Verify validation messages appear for required fields when the submit button is clicked with empty inputs.", function () {
+    create_loan_account_proposal_management.createValidationMessageCheck();
+  });
+
+  it("12.15. Verify that clicking the go back button on the loan account proposal management create page redirects the user to the loan account proposal management list page.", function () {
+    create_loan_account_proposal_management.createGoBackButtonCheck();
+  });
+
+  it("12.16. Verify check that the grid list content changes correctly from english to bangla.", function () {
     create_loan_account_proposal_management.gridLanguageSwitchCheck();
   });
 });

@@ -55,19 +55,31 @@ describe("06. Office Module Test Cases", function () {
     grid_office.gridRefreshButtonCheck();
   });
 
-  it("06.09. Verify display the grid list successfully when the Draft button on is clicked on the office page", function () {
-    grid_office.gridDraftButton();
-  });
-
-  it("06.10. Verify display the grid list successfully when the Draft button off is clicked on the office page", function () {
-    grid_office.gridDraftButtonOff();
-  });
-
-  it("06.11. Verify that the checkbox functions correctly.", function () {
+  it("06.09. Verify that the checkbox functions correctly.", function () {
     grid_office.gridCheckboxCheck();
   });
 
-  it("06.12. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("06.10. Verify that the checkbox lock button operates correctly when selected.", function () {
+    grid_office.gridCheckboxLockButtonCheck();
+  });
+
+  it("06.11. Verify that the checkbox unlock button operates correctly when selected.", function () {
+    grid_office.gridCheckboxUnlockButtonCheck();
+  });
+
+  it("06.12. Verify display the grid list successfully when the Draft button on is clicked on the office page", function () {
+    grid_office.gridDraftButton();
+  });
+
+  it("06.13. Verify display the grid list successfully when the Draft button off is clicked on the office page", function () {
+    grid_office.gridDraftButtonOff();
+  });
+
+  it("06.14. Verify that the checkbox functions correctly.", function () {
+    grid_office.gridCheckboxCheck();
+  });
+
+  it("06.15. Verify check that the grid list content changes correctly from english to bangla.", function () {
     grid_office.gridLanguageSwitchCheck();
   });
 });

@@ -62,27 +62,51 @@ describe("09. Member Management Module Test Cases", function () {
     create_member_management.searchInMemberManagementName();
   });
 
-  it("09.11. Verify the grid list resets successfully when the reset button is clicked on the member management page", function () {
+  it("09.11. Verify validation messages appear for required fields when the Submit button is clicked with empty inputs.", function () {
+    create_member_management.createSubmitButtonCheck();
+  });
+
+  it("09.12. Verify validation messages appear for required fields when the Draft button is clicked with empty inputs.", function () {
+    create_member_management.createDraftButtonCheck();
+  });
+
+  it("09.13. Verify validation messages appear for required fields when the Reset button is clicked with empty inputs.", function () {
+    create_member_management.createResetButtonCheck();
+  });
+
+  it("09.14. Verify validation messages appear for required fields when the Go Back button is clicked with empty inputs.", function () {
+    create_member_management.createGoBackButtonCheck();
+  });
+
+  it("09.15. Verify the grid list resets successfully when the reset button is clicked on the member management page", function () {
     create_member_management.gridResetButtonCheck();
   });
 
-  it("09.12. Verify a new member management record is created successfully when all required fields are filled with valid data", function () {
+  it("09.16. Verify a new member management record is created successfully when all required fields are filled with valid data", function () {
     create_member_management.gridRefreshButtonCheck();
   });
 
-  it("09.13. Verify display the grid list successfully when the Draft button on is clicked on the member management page", function () {
-    create_member_management.gridDraftButton();
-  });
-
-  it("09.14. Verify display the grid list successfully when the Draft button off is clicked on the member management page", function () {
-    create_member_management.gridDraftButtonOff();
-  });
-
-  it("09.15. Verify that the checkbox functions correctly.", function () {
+  it("09.17. Verify that the checkbox functions correctly.", function () {
     create_member_management.gridCheckboxCheck();
   });
 
-  it("09.16. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("09.18. Verify that the checkbox lock button operates correctly when selected.", function () {
+    create_member_management.gridCheckboxLockButtonCheck();
+  });
+
+  it("09.19. Verify that the checkbox unlock button operates correctly when selected.", function () {
+    create_member_management.gridCheckboxUnlockButtonCheck();
+  });
+
+  it("09.20. Verify display the grid list successfully when the Draft button on is clicked on the member management page", function () {
+    create_member_management.gridDraftButton();
+  });
+
+  it("09.21. Verify display the grid list successfully when the Draft button off is clicked on the member management page", function () {
+    create_member_management.gridDraftButtonOff();
+  });
+
+  it("09.22. Verify check that the grid list content changes correctly from english to bangla.", function () {
     create_member_management.gridLanguageSwitchCheck();
   });
 });

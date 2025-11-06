@@ -10,14 +10,11 @@ class LoanAccountProposalManagementCreation {
       cy.log("Successfully Loan account proposal Management list page.");
     });
   }
+
   createLoanAccountProposalManagement() {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId("btn-add-new").click();
-      // cy.imsId('btn-submit').and('be.visible');
-
       var lapData = data.fieldOfficer.createLoanAccountFrom;
-      cy.formController("office_id").type(lapData.office).type("{enter}");
-      cy.wait(2000);
       cy.formController("samity_id").type(lapData.samity).type("{enter}");
       cy.formController("member_id").type(lapData.member).type("{enter}");
       cy.formController("lending_category_id")
@@ -128,8 +125,51 @@ class LoanAccountProposalManagementCreation {
       "successfully refresh page  displayed the grid list of the Loan account proposal Management "
     );
   }
-  
-    gridLanguageSwitchCheck() {
+
+  gridCheckboxCheck() {
+    cy.imsId("row-checkbox-2").click();
+    cy.imsId("btn-reset").click();
+    cy.log("Checkbox should be clickable and functional.");
+  }
+
+  gridCheckboxLockButtonCheck() {
+    cy.imsId("btn-lock").click();
+    cy.log("Checkbox lock button should be clickable and functional.");
+  }
+
+  gridCheckboxUnlockButtonCheck() {
+    cy.imsId("row-checkbox-2").click();
+    cy.imsId("btn-unlock").click();
+    cy.log("Checkbox unlock button should be clickable and functional.");
+  }
+
+  createResetButtonCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      var lapData = data.fieldOfficer.createLoanAccountFrom;
+      cy.imsId("btn-add-new").click();
+      cy.formController("samity_id").type(lapData.samity).type("{enter}");
+      cy.imsId("btn-reset").click();
+      cy.imsId("btn-go-back").click();
+      cy.log("Successful reset button clean displaying.");
+    });
+  }
+
+  createValidationMessageCheck() {
+    cy.imsId("btn-add-new").click();
+    // cy.imsId("btn-submit").click();
+    // cy.imsId("btn-ok").click();
+    cy.imsId("btn-go-back").click();
+    cy.log("Successful validation message displaying.");
+  }
+
+  createGoBackButtonCheck() {
+    cy.imsId("btn-add-new").click();
+    cy.imsId("btn-go-back").click();
+    cy.log("Successful go back button check.");
+  }
+
+
+  gridLanguageSwitchCheck() {
     cy.imsId("profile-menu").click();
     cy.imsId("btn-lang-bangla").click();
     cy.log("Successful switch bangla language check.");

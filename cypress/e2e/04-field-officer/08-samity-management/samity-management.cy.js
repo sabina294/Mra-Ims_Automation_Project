@@ -55,19 +55,27 @@ describe("08. Samity management Module Test Cases", function () {
     grid_samity_management.gridRefreshButtonCheck();
   });
 
-  it("08.09. Verify display the grid list successfully when the Draft button on is clicked on the Samity Management page", function () {
-    grid_samity_management.gridDraftButton();
-  });
-
-  it("08.10. Verify display the grid list successfully when the Draft button off is clicked on the Samity Management page", function () {
-    grid_samity_management.gridDraftButtonOff();
-  });
-
-  it("08.11. Verify that the checkbox functions correctly.", function () {
+  it("08.09. Verify that the checkbox functions correctly.", function () {
     grid_samity_management.gridCheckboxCheck();
   });
 
-  it("08.12. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("08.10. Verify that the checkbox lock button operates correctly when selected.", function () {
+    grid_samity_management.gridCheckboxLockButtonCheck();
+  });
+
+  it("08.11. Verify that the checkbox unlock button operates correctly when selected.", function () {
+    grid_samity_management.gridCheckboxUnlockButtonCheck();
+  });
+
+  it("08.12. Verify display the grid list successfully when the Draft button on is clicked on the Samity Management page", function () {
+    grid_samity_management.gridDraftButton();
+  });
+
+  it("08.13. Verify display the grid list successfully when the Draft button off is clicked on the Samity Management page", function () {
+    grid_samity_management.gridDraftButtonOff();
+  });
+
+  it("08.14. Verify check that the grid list content changes correctly from english to bangla.", function () {
     grid_samity_management.gridLanguageSwitchCheck();
   });
 });

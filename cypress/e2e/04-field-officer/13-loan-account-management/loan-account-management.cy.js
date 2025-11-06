@@ -31,9 +31,9 @@ describe("13. Loan Account Management Module Test Cases", function () {
     grid_loan_account_management.actionButtonCheck();
   });
 
-  // it('13.03. Verify successful Loan Account Management  information View.', function () {
-  //     grid_loan_account_management.viewLoanAccountManagement();
-  // });
+  it('13.03. Verify successful Loan Account Management  information View.', function () {
+      grid_loan_account_management.viewLoanAccountManagement();
+  });
 
   it("13.04. Verify that the user can filter the inactive Loan Account Management s using the Status Dropdown on the Loan Account Management  List page.", function () {
     grid_loan_account_management.statusInactiveDropdownCheck();

@@ -87,49 +87,30 @@ class MemberManagementCreation {
   }
 
   editMemberManagement() {
-    // cy.fixture(this.test_data).then((data) => {
-    //   var memData = data.fieldOfficer.createMemberFrom;
-    //   cy.imsId("btn-reset").click();
-    //   cy.formController("search_text").type(memData.search);
-    //   cy.imsId("toggle-action").first().click();
-    //   cy.imsId("btn-mis-table-action-edit").click();
-    //   cy.imsId("btn-submit").click();
-
-    //   cy.imsId("btn-yes").click();
-
-    //   cy.get("app-confirmation-modal")
-    //     .contains(memData.messageUpdateMember)
-    //     .and("be.visible");
-    //   cy.imsId("btn-ok").click();
-
-    //   cy.log("Member Management updated successfully");
-    // });
+    cy.fixture(this.test_data).then((data) => {
+      var memData = data.fieldOfficer.createMemberFrom;
+      cy.imsId("btn-reset").click();
+      cy.formController("search_text").type(memData.search);
+      cy.imsId("toggle-action").first().click();
+      cy.imsId("btn-mis-table-action-edit").click();
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-ok").click();
+      cy.log("Member Management updated successfully");
+    });
   }
 
   editResetButton() {
-    // cy.fixture(this.test_data).then((data) => {
-    //   var memData = data.fieldOfficer.createMemberFrom;
-    //   cy.imsId("btn-reset").click();
-    //   cy.formController("search_text").type(memData.search);
-    //   cy.imsId("toggle-action").first().click();
-    //   cy.imsId("btn-mis-table-action-edit").click();
-    //   cy.imsId("btn-reset").click();
-    //   cy.imsId("btn-go-back").click();
-
-    //   cy.log("Successful clean displaying");
-    // });
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("btn-reset").click();
+      cy.log("Successful clean displaying");
+    });
   }
 
   editGoBackButton() {
-    // cy.imsId("btn-reset").click();
-    // cy.fixture(this.test_data).then((data) => {
-    //   var memData = data.fieldOfficer.createMemberFrom;
-    //   cy.formController("search_text").type(memData.search);
-    //   cy.imsId("toggle-action").first().click();
-    //   cy.imsId("btn-mis-table-action-edit").click();
-    //   cy.imsId("btn-go-back").click();
-    //   cy.log("Successful edit go back button check.");
-    // });
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("btn-go-back").click();
+      cy.log("Successful edit go back button check.");
+    });
   }
 
   statusInactiveDropdownCheck() {
@@ -158,6 +139,31 @@ class MemberManagementCreation {
     });
   }
 
+
+  createSubmitButtonCheck() {
+    cy.imsId("btn-add-new").click();
+    cy.imsId("btn-submit").click();
+    cy.imsId("btn-ok").click();
+    cy.log("Successful submit button check.");
+  }
+
+  createDraftButtonCheck() {
+    cy.imsId("btn-draft").click();
+    cy.imsId("btn-ok").click();
+    cy.log("Successful draft button check.");
+  }
+
+  createResetButtonCheck() {
+    cy.imsId("btn-reset").click();
+    cy.log("Successful reset button check.");
+  }
+
+  createGoBackButtonCheck() {
+    cy.imsId("btn-go-back").click();
+    cy.log("Successful go back button check.");
+  }
+
+
   gridResetButtonCheck() {
     cy.imsId("btn-reset").click();
     cy.log("Successful clean displaying.");
@@ -168,6 +174,23 @@ class MemberManagementCreation {
     cy.log(
       "successfully refresh page  displayed the grid list of the Member management "
     );
+  }
+
+  gridCheckboxCheck() {
+    cy.imsId("row-checkbox-2").click();
+    cy.imsId("btn-reset").click();
+    cy.log("Checkbox should be clickable and functional.");
+  }
+
+  gridCheckboxLockButtonCheck() {
+    cy.imsId("btn-lock").click();
+    cy.log("Checkbox lock button should be clickable and functional.");
+  }
+
+  gridCheckboxUnlockButtonCheck() {
+    cy.imsId("row-checkbox-2").click();
+    cy.imsId("btn-unlock").click();
+    cy.log("Checkbox unlock button should be clickable and functional.");
   }
 
   gridDraftButton() {

@@ -59,19 +59,27 @@ describe("07. Employee Management Module Test Cases", function () {
     grid_employee_management.gridRefreshButtonCheck();
   });
 
-  it("07.10. Verify display the grid list successfully when the Draft button on is clicked on the employee management page", function () {
-    grid_employee_management.gridDraftButton();
-  });
-
-  it("07.11. Verify display the grid list successfully when the Draft button off is clicked on the employee management page", function () {
-    grid_employee_management.gridDraftButtonOff();
-  });
-
-  it("07.12. Verify that the checkbox functions correctly.", function () {
+  it("07.10. Verify that the checkbox functions correctly.", function () {
     grid_employee_management.gridCheckboxCheck();
   });
 
-  it("07.13. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("07.11. Verify that the checkbox lock button operates correctly when selected.", function () {
+    grid_employee_management.gridCheckboxLockButtonCheck();
+  });
+
+  it("07.12. Verify that the checkbox unlock button operates correctly when selected.", function () {
+    grid_employee_management.gridCheckboxUnlockButtonCheck();
+  });
+
+  it("07.13. Verify display the grid list successfully when the Draft button on is clicked on the employee management page", function () {
+    grid_employee_management.gridDraftButton();
+  });
+
+  it("07.14. Verify display the grid list successfully when the Draft button off is clicked on the employee management page", function () {
+    grid_employee_management.gridDraftButtonOff();
+  });
+
+  it("07.15. Verify check that the grid list content changes correctly from english to bangla.", function () {
     grid_employee_management.gridLanguageSwitchCheck();
   });
 });
