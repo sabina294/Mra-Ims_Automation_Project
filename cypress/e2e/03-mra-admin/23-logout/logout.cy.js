@@ -18,7 +18,11 @@ describe("23. Logout Test", function () {
     });
   });
 
-  it("23.01. Verify the user can log out successfully.", function () {
+  it("23.01. Verify check that the grid list content changes correctly from english to bangla.", function () {
+    logout_page.gridLanguageSwitchCheck();
+  });
+
+  it("23.02. Verify the user can log out successfully.", function () {
     logout_page.logout();
   });
 });
