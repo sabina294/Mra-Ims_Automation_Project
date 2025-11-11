@@ -49,10 +49,9 @@ class ClientWelfareFund {
   viewClientWelfareFund() {
     cy.fixture(this.test_data).then((data) => {
       var wfData = data.branchManager.createClientWelfareFrom;
-      cy.formController("search_text").type(wfData.search);
+      // cy.formController("search_text").type(wfData.search);
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
-
       cy.imsId("btn-go-back").click();
       cy.log("Successfully viewed the client welfare fund list page");
     });

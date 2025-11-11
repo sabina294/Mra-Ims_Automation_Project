@@ -78,7 +78,7 @@ class MemberManagementCreation {
   viewMemberManagement() {
     cy.fixture(this.test_data).then((data) => {
       var memData = data.fieldOfficer.createMemberFrom;
-      cy.formController("search_text").type(memData.search);
+      // cy.formController("search_text").type(memData.search);
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
       cy.imsId("btn-go-back").click();

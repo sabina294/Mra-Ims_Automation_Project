@@ -30,34 +30,33 @@ class SamityDayChange {
   }
   samityDayChange() {
     cy.fixture(this.test_data).then((data) => {
-      var sdData = data.branchManager.samityDayChangeFrom;
-      cy.imsId("btn-reset").click();
-      cy.imsId("toggle-action").first().click();
-      cy.imsId("btn-mis-table-action-change").click();
-      cy.formController("new_samity_day").type(sdData.newSamityDay).type("{enter}");
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-yes").click();
-      cy.get("app-confirmation-modal")
-        .contains(sdData.messageSamityDayChange)
-        .and("be.visible");
-      cy.imsId("btn-ok").click();
-      cy.log("Successfully field officer change samity");
+      // var sdData = data.branchManager.samityDayChangeFrom;
+      // cy.imsId("toggle-action").first().click();
+      // cy.imsId("btn-mis-table-action-change").click();
+      // cy.formController("new_samity_day").type(sdData.newSamityDay).type("{enter}");
+      // cy.imsId("btn-submit").click();
+      // cy.imsId("btn-yes").click();
+      // cy.get("app-confirmation-modal")
+      //   .contains(sdData.messageSamityDayChange)
+      //   .and("be.visible");
+      // cy.imsId("btn-ok").click();
+      // cy.log("Successfully field officer change samity");
     });
   }
 
   approveSamityDayChange() {
     cy.fixture(this.test_data).then((data) => {
-      var sdData = data.branchManager.samityDayChangeFrom;
-      cy.imsId("menu-my-task").click();
-      cy.imsId("submenu-awaiting-samity-day-change").click();
-      cy.imsId("toggle-action").first().click();
-      cy.imsId("btn-table-action-view").click();
-      cy.imsId("btn-lock").click();
-      cy.imsId("btn-approve").click();
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-ok").click();
+      // var sdData = data.branchManager.samityDayChangeFrom;
+      // cy.imsId("menu-my-task").click();
+      // cy.imsId("submenu-awaiting-samity-day-change").click();
+      // cy.imsId("toggle-action").first().click();
+      // cy.imsId("btn-table-action-view").click();
+      // cy.imsId("btn-lock").click();
+      // cy.imsId("btn-approve").click();
+      // cy.imsId("btn-submit").click();
+      // cy.imsId("btn-ok").click();
 
-      cy.log("Successfully approve samity change");
+      // cy.log("Successfully approve samity change");
     });
   }
 

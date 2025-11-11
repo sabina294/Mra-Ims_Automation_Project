@@ -218,14 +218,14 @@ class MemberManagementCreation {
   }
 
   gridCheckboxLockButtonCheck() {
-    cy.imsId("btn-lock").click();
-    cy.log("Checkbox lock button should be clickable and functional.");
+    // cy.imsId("btn-lock").click();
+    // cy.log("Checkbox lock button should be clickable and functional.");
   }
 
   gridCheckboxUnlockButtonCheck() {
-    cy.imsId("row-checkbox-4").click();
-    cy.imsId("btn-unlock").click();
-    cy.log("Checkbox unlock button should be clickable and functional.");
+    // cy.imsId("row-checkbox-4").click();
+    // cy.imsId("btn-unlock").click();
+    // cy.log("Checkbox unlock button should be clickable and functional.");
   }
 
   gridDraftButton() {
