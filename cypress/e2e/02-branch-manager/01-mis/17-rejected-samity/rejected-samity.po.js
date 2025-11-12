@@ -89,14 +89,10 @@ class RejectedSamity {
     cy.wait(1000);
     cy.imsId("btn-mis-table-action-edit").click();
     cy.imsId("btn-reset").click();
-    cy.imsId("btn-go-back").click();
-
     cy.log("Successful clean displaying");
   }
 
   editGoBackButton() {
-    cy.imsId("toggle-action").first().click();
-    cy.imsId("btn-mis-table-action-edit").click();
     cy.imsId("btn-go-back").click();
     cy.log("Successful edit go back button check.");
   }

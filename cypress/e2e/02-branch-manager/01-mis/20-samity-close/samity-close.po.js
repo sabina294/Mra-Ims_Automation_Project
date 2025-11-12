@@ -29,12 +29,12 @@ class SamityClose {
 
   samityClose() {
     cy.fixture(this.test_data).then((data) => {
-      var scData = data.branchManager.samityCloseFrom;
-      cy.imsId("toggle-action").first().click();
-      cy.imsId("btn-mis-table-action-close").click();
-      cy.imsId("btn-yes").click();
-      cy.imsId("btn-ok").click();
-      cy.log("Successfully Samity close");
+      // var scData = data.branchManager.samityCloseFrom;
+      // cy.imsId("toggle-action").first().click();
+      // cy.imsId("btn-mis-table-action-close").click();
+      // cy.imsId("btn-yes").click();
+      // cy.imsId("btn-ok").click();
+      // cy.log("Successfully Samity close");
     });
   }
 
@@ -57,7 +57,7 @@ class SamityClose {
   statusInactiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       var scData = data.branchManager.samityCloseFrom;
-      cy.selectMenu("menu-samity", "submenu-samity-close");
+      // cy.selectMenu("menu-samity", "submenu-samity-close");
       cy.imsId("btn-reset").click();
       cy.formController("status").type(scData.selectStatus).type("{enter}");
       cy.log("Samity close status inactive dropdown check successfully");

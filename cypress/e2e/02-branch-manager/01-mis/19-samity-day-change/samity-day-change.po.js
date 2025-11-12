@@ -63,7 +63,7 @@ class SamityDayChange {
   statusInactiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       var sdData = data.branchManager.samityDayChangeFrom;
-      cy.selectMenu("menu-samity", "submenu-samity-day-change");
+      // cy.selectMenu("menu-samity", "submenu-samity-day-change");
       cy.imsId("btn-reset").click();
       cy.formController("status").type(sdData.selectStatus).type("{enter}");
       cy.log(

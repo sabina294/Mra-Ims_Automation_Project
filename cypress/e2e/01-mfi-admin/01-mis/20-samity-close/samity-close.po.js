@@ -65,7 +65,7 @@ class SamityClose {
   statusInactiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       var scData = data.mfiAdmin.samityCloseFrom;
-      cy.selectMenu("menu-samity", "submenu-samity-close");
+      // cy.selectMenu("menu-samity", "submenu-samity-close");
       cy.imsId("btn-reset").click();
       cy.formController("status").type(scData.selectStatus).type("{enter}");
       cy.log("Samity close status inactive dropdown check successfully");
