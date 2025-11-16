@@ -33,7 +33,7 @@ class LoanAccountProposalManagementCreation {
         .type(lapData.loanProduct)
         .type("{enter}");
       cy.formController("applied_loan_amount").type(lapData.appliedLoanAmount);
-
+      cy.wait(1000);
       cy.formController("expected_disburse_dt").click();
       cy.contains("13").click();
 
