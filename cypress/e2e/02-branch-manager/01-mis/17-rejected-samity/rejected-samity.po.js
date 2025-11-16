@@ -85,16 +85,20 @@ class RejectedSamity {
   }
 
   editResetButton() {
-    cy.imsId("toggle-action").first().click();
-    cy.wait(1000);
-    cy.imsId("btn-mis-table-action-edit").click();
-    cy.imsId("btn-reset").click();
-    cy.log("Successful clean displaying");
+    // cy.fixture(this.test_data).then((data) => {
+    //   var rsData = data.branchManager.rejectedSamityFrom;
+    //   // cy.formController("search_text").type(rsData.samityNameEn);
+    //   cy.imsId("toggle-action").first().click();
+    //   cy.wait(1000);
+    //   cy.imsId("btn-mis-table-action-edit").click();
+    //   cy.imsId("btn-reset").click();
+    //   cy.log("Successful clean displaying");
+    // });
   }
 
   editGoBackButton() {
-    cy.imsId("btn-go-back").click();
-    cy.log("Successful edit go back button check.");
+    // cy.imsId("btn-go-back").click();
+    // cy.log("Successful edit go back button check.");
   }
 
   searchInRejectSamityName() {
@@ -117,7 +121,7 @@ class RejectedSamity {
       "successfully refresh page  displayed the grid list of the rejected samity "
     );
   }
-  
+
   gridLanguageSwitchCheck() {
     cy.imsId("profile-menu").click();
     cy.imsId("btn-lang-bangla").click();

@@ -81,9 +81,6 @@ class MemberManagementCreation {
       cy.imsId("btn-lock").click();
       cy.imsId("btn-approve").click();
       cy.imsId("btn-submit").click();
-      // cy.get("app-confirmation-modal")
-      //   .contains(memData.messageApproveMember)
-      //   .and("be.visible");
       cy.imsId("btn-ok").click();
       cy.log("Successfully approved the member management ");
     });
