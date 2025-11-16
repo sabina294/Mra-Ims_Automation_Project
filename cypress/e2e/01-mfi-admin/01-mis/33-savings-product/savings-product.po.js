@@ -11,8 +11,6 @@ class SavingsProductCreation {
   createSavingsProduct() {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId("btn-add-new").click();
-      //   cy.imsId('btn-submit').and('be.visible')
-
       var spData = data.mfiAdmin.createSavingsProduct;
 
       cy.formController("office_id_list").type(spData.office).type("{enter}");
@@ -40,7 +38,7 @@ class SavingsProductCreation {
         .type(spData.intersetPostin)
         .type("{enter}");
       cy.formController("start_date").click();
-      cy.contains("12").click();
+      cy.contains("15").click();
       cy.imsId("btn-submit").click();
       cy.imsId("btn-yes").click();
       cy.get("app-confirmation-modal")

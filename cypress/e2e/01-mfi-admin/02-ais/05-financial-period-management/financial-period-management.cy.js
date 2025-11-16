@@ -5,7 +5,7 @@
 import "cypress-file-upload";
 import { create_financial_period_management } from "./financial-period-management.po";
 
-describe("05 Financial Financial Period Management Module Test Cases", function () {
+describe("05 Financial Period Management Module Test Cases", function () {
     const baseURL = Cypress.env("BASE_URL");
     const test_data = Cypress.env("TEST_DATA");
     before(() => {
