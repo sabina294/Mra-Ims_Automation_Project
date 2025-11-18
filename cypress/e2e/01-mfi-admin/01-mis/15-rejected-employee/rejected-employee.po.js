@@ -17,7 +17,8 @@ class RejectedEmployee {
       cy.formController("emp_name_bn").type(emData.empNameBn);
       cy.formController("date_of_birth").click();
       cy.wait(2000);
-      cy.contains("28").click();
+      cy.contains("15").click();
+      cy.wait(1000);
       cy.formController("gender").click();
       cy.get(
         ".ant-form-item-control-input-content > .ant-radio-group > :nth-child(1) > .ant-radio > .ant-radio-input"
@@ -170,6 +171,7 @@ class RejectedEmployee {
   statusActiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       var emData = data.mfiAdmin.rejectedEmployeeFrom;
+      cy.imsId("btn-reset").click();
       cy.formController("status").type(emData.statusSelect).type("{enter}");
       cy.log(
         "Rejected Employee form status active dropdown check successfully"
