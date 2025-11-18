@@ -181,8 +181,8 @@
     },
     "approveEmployeeFrom": {},
     "rejectedEmployeeFrom": {
-      "empNameEn": "Sabina Yeasmin",
-      "empNameBn": "সাবিনা ইয়াসমিন",
+      "empNameEn": "Sadia",
+      "empNameBn": "সাদিয়া",
       "empMobileNo": "01887949170",
       "nidNumber": "0003463473656",
       "office": "1020 (Ashulia)",
@@ -197,7 +197,7 @@
       "adressEn": "Sylhet",
       "selectStatus": "Rejected",
       "statusSelect": "Approved",
-      "search": "Sabina Yeasmin",
+      "search": "Sadia",
       "rejectRemarks": "Reject",
       "messageSaveEmp": "Mfi employee has been saved",
       "messageUpdateEmp": "Mfi employee has been updated"
@@ -225,8 +225,8 @@
     },
     "approveSamityFrom": {},
     "rejectedSamityFrom": {
-      "samityNameEn": "Test Samity",
-      "samityNameBn": "পরীক্ষা সমিতি",
+      "samityNameEn": "Feni Samity",
+      "samityNameBn": "ফেনী সমিতি",
       "draftName": "Test",
       "draftNameBn": "পরীক্ষা",
       "samityType": "Female",
@@ -295,7 +295,7 @@
     "createRejectedMemberFrom": {
       "office": "1020 (Ashulia)",
       "smity": "1020-101 (Ashulia Mohila Samity)",
-      "memberNameEn": "Sabina Yeasmin",
+      "memberNameEn": "Samia",
       "mfiProgram": "Jagoron",
       "savingsId": "General Savings",
       "occupation": "Business",
@@ -634,8 +634,8 @@
     "createBankAccountFrom": {
       "bankName": "AGRANI BANK LTD.",
       "branchName": "BHANDARIA",
-      "accNameEn": "Sabina Yeasmin",
-      "accNameBn": "সাবিনা ইয়াসমিন",
+      "accNameEn": "Farjana",
+      "accNameBn": "ফারজানা",
       "accountType": "Savings Account",
       "accNumber": "0020672606",
       "status": "Active",
@@ -706,8 +706,8 @@
       "messageUpdateEmp": "Mfi employee has been updated"
     },
     "rejectedEmployeeFrom": {
-      "empNameEn": "Sabina Yeasmin",
-      "empNameBn": "সাবিনা ইয়াসমিন",
+      "empNameEn": "Nadia",
+      "empNameBn": "নাদিয়া",
       "empMobileNo": "01887949170",
       "nidNumber": "0003463473656",
       "office": "1020 (Ashulia)",
@@ -728,8 +728,8 @@
       "messageUpdateEmp": "Mfi employee has been updated"
     },
     "createSamityFrom": {
-      "samityNameEn": "Test Samity",
-      "samityNameBn": "পরীক্ষা সমিতি",
+      "samityNameEn": "Chhagalnaiya Samity",
+      "samityNameBn": "ছাগলনাইয়া সমিতি",
       "draftName": "Test",
       "draftNameBn": "পরীক্ষা",
       "samityType": "Female",
@@ -749,8 +749,8 @@
       "messageUpdateSamity": "Samity has been updated"
     },
     "rejectedSamityFrom": {
-      "samityNameEn": "Test Samity",
-      "samityNameBn": "পরীক্ষা সমিতি",
+      "samityNameEn": "Mohila Samity",
+      "samityNameBn": "মহিলা সমিতি",
       "draftName": "Test",
       "draftNameBn": "পরীক্ষা",
       "samityType": "Female",
@@ -813,7 +813,7 @@
     },
     "createRejectedMemberFrom": {
       "smity": "1020-101 (Ashulia Mohila Samity)",
-      "memberNameEn": "Sabina Yeasmin",
+      "memberNameEn": "Mukta",
       "mfiProgram": "Jagoron",
       "savingsId": "General Savings",
       "occupation": "Business",
