@@ -52,11 +52,11 @@ describe("30. Loan Penalty Module Test Cases", function () {
   });
 
   it("30.08. Verify that the user can filter the inactive Loan Penalty using the Status Dropdown on the Loan Penalty List page.", function () {
-    create_loan_penalty.statusInactiveDropdownCheck();
+    create_loan_penalty.statusSubmittedDropdownCheck();
   });
 
   it("30.09. Verify Filter Active Result by Status Dropdown", function () {
-    create_loan_penalty.statusActiveDropdownCheck();
+    create_loan_penalty.statusApprovedDropdownCheck();
   });
 
   it("30.10. Verify Successful Search Result by Loan penalty Name", function () {

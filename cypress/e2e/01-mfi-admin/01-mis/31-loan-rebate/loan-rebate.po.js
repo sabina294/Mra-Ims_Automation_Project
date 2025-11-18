@@ -102,22 +102,22 @@ class LoanRebate {
     // });
   }
 
-  statusInactiveDropdownCheck() {
+  statusSubmittedDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       var lrData = data.mfiAdmin.createLoanRebateFrom;
       cy.imsId("btn-reset").click();
       cy.formController("status").type(lrData.selectStatus).type("{enter}");
       cy.log(
-        "loan rebate status inactive dropdown check successfully"
+        "loan rebate status submitted dropdown check successfully"
       );
     });
   }
-  statusActiveDropdownCheck() {
+  statusApprovedDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       var lrData = data.mfiAdmin.createLoanRebateFrom;
       cy.formController("status").type(lrData.statusSelect).type("{enter}");
       cy.log(
-        "loan rebate status active dropdown check successfully"
+        "loan rebate status approved dropdown check successfully"
       );
     });
   }

@@ -35,23 +35,27 @@ describe("28. Loan Disbursement Module Test Cases", function () {
         create_loan_disbursement.viewLoanDisbursement();
     });
 
-    it("28.04. Verify Successful Search Result by Loan Disbursement Name", function () {
+    it('28.04. Verify that the “Go Back” button works correctly on the Loan Disbursement Information View page.', function () {
+        create_loan_disbursement.GoBackButton();
+    });
+
+    it("28.05. Verify Successful Search Result by Loan Disbursement Name", function () {
         create_loan_disbursement.searchInLoanDisbursementName();
     });
 
-    it('28.05. Verify the functionality and expected behavior of the "Successful Office Status" dropdown.', function () {
+    it('28.06. Verify the functionality and expected behavior of the "Successful Office Status" dropdown.', function () {
         create_loan_disbursement.statusOfficeDropdownCheck();
     });
 
-    it("28.06. Verify Successful Reset of Grid List Using the Reset Button on Loan Disbursement  Page.", function () {
+    it("28.07. Verify Successful Reset of Grid List Using the Reset Button on Loan Disbursement  Page.", function () {
         create_loan_disbursement.gridResetButtonCheck();
     });
 
-    it("28.07. Verify Successful Refresh of Grid List Using the Refresh Button on Loan Disbursement  Page.", function () {
+    it("28.08. Verify Successful Refresh of Grid List Using the Refresh Button on Loan Disbursement  Page.", function () {
         create_loan_disbursement.gridRefreshButtonCheck();
     });
 
-    it("28.08. Verify check that the grid list content changes correctly from english to bangla.", function () {
+    it("28.09. Verify check that the grid list content changes correctly from english to bangla.", function () {
         create_loan_disbursement.gridLanguageSwitchCheck();
     });
 });

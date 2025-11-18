@@ -103,22 +103,22 @@ class LoanPenalty {
     });
   }
 
-    statusInactiveDropdownCheck() {
+  statusSubmittedDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       var lpData = data.mfiAdmin.createLoanPenaltyFrom;
       cy.imsId("btn-reset").click();
       cy.formController("status").type(lpData.selectStatus).type("{enter}");
       cy.log(
-        "loan penalty status inactive dropdown check successfully"
+        "loan penalty status submitted dropdown check successfully"
       );
     });
   }
-  statusActiveDropdownCheck() {
+  statusApprovedDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       var lpData = data.mfiAdmin.createLoanPenaltyFrom;
       cy.formController("status").type(lpData.statusSelect).type("{enter}");
       cy.log(
-        "loan penalty status active dropdown check successfully"
+        "loan penalty status approved dropdown check successfully"
       );
     });
   }

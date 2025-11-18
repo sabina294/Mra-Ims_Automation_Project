@@ -76,24 +76,24 @@ class SavingsAccApplicationManagementCreation {
     });
   }
 
-  statusInactiveDropdownCheck() {
+  statusApprovedDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       var saamData = data.mfiAdmin.createSavingsAccApplicationMang;
       cy.imsId("btn-reset").click();
       cy.formController("status").type(saamData.selectStatus).type("{enter}");
       cy.log(
-        "Savings account application management form status inactive dropdown check successfully"
+        "Savings account application management form status approved dropdown check successfully"
       );
     });
   }
 
-  statusActiveDropdownCheck() {
+  statusRejectedDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       var saamData = data.mfiAdmin.createSavingsAccApplicationMang;
       cy.imsId("btn-reset").click();
       cy.formController("status").type(saamData.statusSelect).type("{enter}");
       cy.log(
-        "Savings account application management form status active dropdown check successfully"
+        "Savings account application management form status rejected dropdown check successfully"
       );
     });
   }

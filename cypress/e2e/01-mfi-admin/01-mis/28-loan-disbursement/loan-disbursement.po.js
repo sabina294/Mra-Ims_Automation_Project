@@ -21,8 +21,14 @@ class LoanDisbursement {
             cy.formController("search_text").type(laData.samity);
             cy.imsId("toggle-action").first().click();
             cy.imsId("btn-table-action-view").click();
-            cy.imsId("btn-go-back").click();
             cy.log("Successfully viewed the Loan Disbursement list page");
+        });
+    }
+
+    GoBackButton() {
+        cy.fixture(this.test_data).then((data) => {
+            cy.imsId("btn-go-back").click();
+            cy.log("Successfully viewed Go Back button the Loan Disbursement list page");
         });
     }
 

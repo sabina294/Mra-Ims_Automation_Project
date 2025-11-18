@@ -157,24 +157,24 @@ class RejectedEmployee {
     cy.log("Rejected Employee updated successfully");
   }
 
-  statusInactiveDropdownCheck() {
+  statusRejectedDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       var emData = data.mfiAdmin.rejectedEmployeeFrom;
       cy.imsId("btn-reset").click();
       cy.formController("status").type(emData.selectStatus).type("{enter}");
       cy.log(
-        "Rejected Employee form status inactive dropdown check successfully"
+        "Rejected Employee form status rejected dropdown check successfully"
       );
     });
   }
 
-  statusActiveDropdownCheck() {
+  statusApprovedDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       var emData = data.mfiAdmin.rejectedEmployeeFrom;
       cy.imsId("btn-reset").click();
       cy.formController("status").type(emData.statusSelect).type("{enter}");
       cy.log(
-        "Rejected Employee form status active dropdown check successfully"
+        "Rejected Employee form status approved dropdown check successfully"
       );
     });
   }

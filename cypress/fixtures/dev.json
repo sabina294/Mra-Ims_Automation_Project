@@ -195,8 +195,8 @@
       "district": "Sunamganj",
       "thana": "Tahirpur",
       "adressEn": "Sylhet",
-      "selectStatus": "Inactive",
-      "statusSelect": "Active",
+      "selectStatus": "Rejected",
+      "statusSelect": "Approved",
       "search": "Sabina Yeasmin",
       "rejectRemarks": "Reject",
       "messageSaveEmp": "Mfi employee has been saved",
@@ -404,8 +404,8 @@
       "selectLoanAccount": "AGRO-1020-101-1001-1",
       "inputAmount": "5000",
       "search": "Fariya",
-      "selectStatus": "Inactive",
-      "statusSelect": "Active",
+      "selectStatus": "Submitted",
+      "statusSelect": "Approved",
       "approveMessage": "Loan Penalty Authorization for Loan Account Is Successful",
       "messageSaveLoanPenalty": "Loan Penalty Collection for this Loan Account is successful",
       "messageUpdateLoanPenalty": "Do you want to update this loan penalty?"
@@ -417,8 +417,8 @@
       "selectLoanAccount": "JAGO-1020-107-1001-1",
       "inputAmount": "5000",
       "search": "Lamiya Akter",
-      "selectStatus": "Inactive",
-      "statusSelect": "Active",
+      "selectStatus": "Submitted",
+      "statusSelect": "Approved",
       "office": "1020 (Ashulia)",
       "rebateType": "Full",
       "rebatetAmount": "50",
@@ -453,13 +453,13 @@
       "recoDepositAmount": "500",
       "openingBalance": "500",
       "search": "Samia",
-      "selectStatus": "Inactive",
-      "statusSelect": "Active"
+      "selectStatus": "Approved",
+      "statusSelect": "Rejected"
     },
     "createSavingsAccountManagement": {
       "search": "Samia",
-      "selectStatus": "Inactive",
-      "statusSelect": "Active",
+      "selectStatus": "Approved",
+      "statusSelect": "Rejected",
       "selectOffice": "1020 (Ashulia)"
     },
     "createCalendarYear": {

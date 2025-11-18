@@ -36,11 +36,11 @@ describe("35. Savings Account Management Module Test Cases", function () {
   });
 
   it("35.04. Verify the user can filter inactive employee records using the status dropdown on the savings account application management List page.", function () {
-    create_savings_account_management.statusInactiveDropdownCheck();
+    create_savings_account_management.statusApprovedDropdownCheck();
   });
 
   it("35.05. Verify check if the filter for active results works correctly with the status dropdown.", function () {
-    create_savings_account_management.statusActiveDropdownCheck();
+    create_savings_account_management.statusRejectedDropdownCheck();
   });
 
   it('35.06. Verify the functionality and expected behavior of the "Successful Office Status" dropdown.', function () {

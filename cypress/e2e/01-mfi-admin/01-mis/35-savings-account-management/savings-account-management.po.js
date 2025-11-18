@@ -31,23 +31,24 @@ class SavingsAccountManagementCreation {
     });
   }
 
-  statusInactiveDropdownCheck() {
+  statusApprovedDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       var samData = data.mfiAdmin.createSavingsAccountManagement;
       cy.imsId("btn-reset").click();
       cy.formController("status").type(samData.selectStatus).type("{enter}");
       cy.log(
-        "Savings account  management form status inactive dropdown check successfully"
+        "Savings account  management form status approved dropdown check successfully"
       );
     });
   }
 
-  statusActiveDropdownCheck() {
+  statusRejectedDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       var samData = data.mfiAdmin.createSavingsAccountManagement;
+      cy.imsId("btn-reset").click();
       cy.formController("status").type(samData.statusSelect).type("{enter}");
       cy.log(
-        "Savings account management form status active dropdown check successfully"
+        "Savings account management form status rejected dropdown check successfully"
       );
     });
   }

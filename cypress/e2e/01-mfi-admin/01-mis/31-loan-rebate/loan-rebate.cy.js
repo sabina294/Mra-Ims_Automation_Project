@@ -53,11 +53,11 @@ describe("31. Loan Rebate Module Test Cases", function () {
   //   });
 
   it("31.08. Verify that the user can filter the inactive Loan Rebate using the Status Dropdown on the Loan Rebate List page.", function () {
-    create_loan_rebate.statusInactiveDropdownCheck();
+    create_loan_rebate.statusSubmittedDropdownCheck();
   });
 
   it("31.09. Verify Filter Active Result by Status Dropdown", function () {
-    create_loan_rebate.statusActiveDropdownCheck();
+    create_loan_rebate.statusApprovedDropdownCheck();
   });
 
   it("31.10. Verify Successful Search Result by Loan rebate Name", function () {
