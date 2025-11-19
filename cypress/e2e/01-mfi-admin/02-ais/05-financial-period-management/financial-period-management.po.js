@@ -16,7 +16,9 @@ class FinancialPeriodManagementCreation {
             cy.formController("name_bn").type(fpmData.nameBn);
             cy.formController("period_type").type(fpmData.periodType).type("{enter}");
             cy.formController("start_date").click();
-            cy.contains(19).click();
+            cy.wait(1000);
+            cy.contains(15).click();
+            cy.wait(1000);
             cy.imsId("btn-submit").click();
             cy.imsId("btn-yes").click();
             cy.imsId("btn-ok").click();
