@@ -35,7 +35,7 @@ class LoanAccountProposalManagementCreation {
       cy.formController("applied_loan_amount").type(lapData.appliedLoanAmount);
       cy.wait(1000);
       cy.formController("expected_disburse_dt").click();
-      cy.contains("13").click();
+      cy.contains("13").click({ force: true });
 
       cy.imsId("btn-submit").click();
       cy.imsId("btn-yes").click();

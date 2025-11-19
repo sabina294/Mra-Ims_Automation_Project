@@ -17,7 +17,7 @@ class RejectedEmployee {
       cy.formController("emp_name_bn").type(emData.empNameBn);
       cy.formController("date_of_birth").click();
       cy.wait(2000);
-      cy.contains("15").click();
+      cy.contains("15").click({ force: true });
       cy.wait(1000);
       cy.formController("gender").click();
       cy.get(

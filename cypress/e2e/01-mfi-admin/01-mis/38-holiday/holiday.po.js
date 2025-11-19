@@ -16,7 +16,7 @@ class HolidayCreation {
       cy.formController("type").type(hData.holidayType).type("{enter}");
       cy.formController("end_date").click();
       cy.wait(3000);
-      cy.contains("30").click();
+      cy.contains("30").click({ force: true });
       cy.wait(3000);
       cy.formController("holiday_title_bn").type(hData.holidayTitleBn);
       cy.formController("holiday_title_en").type(hData.holidayTitleEn);
