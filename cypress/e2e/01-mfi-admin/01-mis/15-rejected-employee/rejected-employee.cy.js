@@ -60,7 +60,7 @@ describe("15. Rejected Employee Module Test Cases", function () {
     });
 
     it("15.10. Verify check if the filter for active results works correctly with the status dropdown.", function () {
-        create_rejected_employee.statusApproveDropdownCheck();
+        create_rejected_employee.statusApprovedDropdownCheck();
     });
 
     it("15.11. Verify that the search results are displayed correctly when searching by rejected employee name.", function () {

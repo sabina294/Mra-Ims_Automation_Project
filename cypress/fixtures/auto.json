@@ -181,8 +181,8 @@
     },
     "approveEmployeeFrom": {},
     "rejectedEmployeeFrom": {
-      "empNameEn": "Sadia",
-      "empNameBn": "সাদিয়া",
+       "empNameEn": "Sabina Yeasmin",
+      "empNameBn": "সাবিনা ইয়াসমিন",
       "empMobileNo": "01887949170",
       "nidNumber": "0003463473656",
       "office": "1020 (Ashulia)",
@@ -197,7 +197,7 @@
       "adressEn": "Sylhet",
       "selectStatus": "Rejected",
       "statusSelect": "Approved",
-      "search": "Sadia",
+      "search": "Sabina Yeasmin",
       "rejectRemarks": "Reject",
       "messageSaveEmp": "Mfi employee has been saved",
       "messageUpdateEmp": "Mfi employee has been updated"
@@ -705,9 +705,9 @@
       "messageSaveEmp": "Mfi employee has been saved",
       "messageUpdateEmp": "Mfi employee has been updated"
     },
-    "rejectedEmployeeFrom": {
-      "empNameEn": "Nadia",
-      "empNameBn": "নাদিয়া",
+   "rejectedEmployeeFrom": {
+     "empNameEn": "Sabina Yeasmin",
+      "empNameBn": "সাবিনা ইয়াসমিন",
       "empMobileNo": "01887949170",
       "nidNumber": "0003463473656",
       "office": "1020 (Ashulia)",
@@ -720,8 +720,8 @@
       "district": "Sunamganj",
       "thana": "Tahirpur",
       "adressEn": "Sylhet",
-      "selectStatus": "Inactive",
-      "statusSelect": "Active",
+      "selectStatus": "Rejected",
+      "statusSelect": "Approved",
       "search": "Sabina Yeasmin",
       "rejectRemarks": "Reject",
       "messageSaveEmp": "Mfi employee has been saved",

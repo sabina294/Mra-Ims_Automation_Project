@@ -162,6 +162,7 @@ class RejectedEmployee {
       var emData = data.mfiAdmin.rejectedEmployeeFrom;
       cy.imsId("btn-reset").click();
       cy.formController("status").type(emData.selectStatus).type("{enter}");
+      cy.imsId("btn-reset").click();
       cy.log(
         "Rejected Employee form status rejected dropdown check successfully"
       );
