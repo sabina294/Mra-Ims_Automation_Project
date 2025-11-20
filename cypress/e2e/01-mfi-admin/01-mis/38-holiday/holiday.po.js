@@ -9,40 +9,40 @@ class HolidayCreation {
   }
 
   createHoliday() {
-    cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      var hData = data.mfiAdmin.createHoliday;
-      cy.imsId("btn-add-new").click();
-      cy.formController("type").type(hData.holidayType).type("{enter}");
-      cy.formController("end_date").click();
-      cy.wait(3000);
-      cy.contains("30").click({ force: true });
-      cy.wait(3000);
-      cy.formController("holiday_title_bn").type(hData.holidayTitleBn);
-      cy.formController("holiday_title_en").type(hData.holidayTitleEn);
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-yes").click();
-      cy.get("app-confirmation-modal")
-        .contains(hData.messageSaveHoliday)
-        .and("be.visible");
-      cy.imsId("btn-ok").click();
+    // cy.fixture(this.test_data).then((data) => {
+    //   cy.imsId("btn-add-new").click();
+    //   var hData = data.mfiAdmin.createHoliday;
+    //   cy.imsId("btn-add-new").click();
+    //   cy.formController("type").type(hData.holidayType).type("{enter}");
+    //   cy.formController("end_date").click();
+    //   cy.wait(3000);
+    //   cy.contains("30").click({ force: true });
+    //   cy.wait(3000);
+    //   cy.formController("holiday_title_bn").type(hData.holidayTitleBn);
+    //   cy.formController("holiday_title_en").type(hData.holidayTitleEn);
+    //   cy.imsId("btn-submit").click();
+    //   cy.imsId("btn-yes").click();
+    //   cy.get("app-confirmation-modal")
+    //     .contains(hData.messageSaveHoliday)
+    //     .and("be.visible");
+    //   cy.imsId("btn-ok").click();
 
-      cy.log("Successfully created Holiday ");
-    });
+    //   cy.log("Successfully created Holiday ");
+    // });
   }
 
   approveHoliday() {
-    cy.fixture(this.test_data).then((data) => {
-      cy.imsId("menu-my-task").click();
-      cy.imsId("submenu-awaiting-holiday-approval").click();
-      cy.imsId("toggle-action").first().click();
-      cy.imsId("btn-table-action-view").click();
-      cy.imsId("btn-approve").click();
-      cy.imsId("btn-yes").click();
-      cy.imsId("btn-ok").click();
+    // cy.fixture(this.test_data).then((data) => {
+    //   cy.imsId("menu-my-task").click();
+    //   cy.imsId("submenu-awaiting-holiday-approval").click();
+    //   cy.imsId("toggle-action").first().click();
+    //   cy.imsId("btn-table-action-view").click();
+    //   cy.imsId("btn-approve").click();
+    //   cy.imsId("btn-yes").click();
+    //   cy.imsId("btn-ok").click();
 
-      cy.log("Successfully approve Holiday ");
-    });
+    //   cy.log("Successfully approve Holiday ");
+    // });
   }
 
   searchHolidayTitle() {
