@@ -264,4 +264,5 @@ class DesignationCreation {
   }
 }
 
+
 export const create_designation = new DesignationCreation();
