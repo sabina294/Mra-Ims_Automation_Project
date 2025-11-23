@@ -26,20 +26,6 @@ class HolidayCreation {
     });
   }
 
-  approveHoliday() {
-    cy.fixture(this.test_data).then((data) => {
-      cy.imsId("menu-my-task").click();
-      cy.imsId("submenu-awaiting-holiday-approval").click();
-      cy.imsId("toggle-action").first().click();
-      cy.imsId("btn-table-action-view").click();
-      cy.imsId("btn-approve").click();
-      cy.imsId("btn-yes").click();
-      cy.imsId("btn-ok").click();
-
-      cy.log("Successfully approve Holiday ");
-    });
-  }
-
   createResetButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId("btn-add-new").click();
@@ -61,6 +47,20 @@ class HolidayCreation {
     cy.log("Successful go back button check.");
   }
 
+  approveHoliday() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("menu-my-task").click();
+      cy.imsId("submenu-awaiting-holiday-approval").click();
+      cy.imsId("toggle-action").first().click();
+      cy.imsId("btn-table-action-view").click();
+      cy.imsId("btn-approve").click();
+      cy.imsId("btn-yes").click();
+      cy.imsId("btn-ok").click();
+
+      cy.log("Successfully approve Holiday ");
+    });
+  }
+  
   searchHolidayTitle() {
     cy.fixture(this.test_data).then((data) => {
       var hData = data.branchManager.createHoliday;
