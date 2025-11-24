@@ -989,12 +989,12 @@
       "loanAmount": "500",
       "loanAmount2": "500"
     },
-    "specialCollection": {
-      "selectSamity": "1020-103-Kuturia Mohila Samity",
-      "selectMember": "1020-103-1001-Jule Akter ",
-      "selectAccount": "AGRO-1020-103-1001-1 (Loan Account) ",
+     "specialCollection": {
+      "selectSamity": "1020-103 (Kuturia Mohila Samity)",
+      "selectMember": "1-1001 (Jule Akter )",
+      "selectAccount": "AGRO-1020-103-1001-1 (Loan Account)",
       "inputAmount": "1000"
-    },
+    },   
     "savingsWithdraw": {
       "selectSamity": "1020-101 (Ashulia Mohila Samity)",
       "selectMember": "GAIS UDDIN KHAN",
