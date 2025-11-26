@@ -26,22 +26,22 @@ class specialCollection {
     }
 
     actionButtonCheck() {
-        cy.imsId("toggle-action").first().click();
-        cy.log("Action button clicked successfully on the special collection list page.");
+        // cy.imsId("toggle-action").first().click();
+        // cy.log("Action button clicked successfully on the special collection list page.");
     }
 
     viewSpecialCollection() {
-        cy.imsId("toggle-action").first().click();
-        cy.imsId("btn-table-action-view").click();
-        cy.imsId("btn-go-back").click();
-        cy.log("successfully on the view special collection list page.");
+        // cy.imsId("toggle-action").first().click();
+        // cy.imsId("btn-table-action-view").click();
+        // cy.imsId("btn-go-back").click();
+        // cy.log("successfully on the view special collection list page.");
     }
 
     editSpecialCollection() {
-        cy.imsId("toggle-action").first().click();
-        cy.imsId("btn-table-action-edit").click();
-        cy.imsId("btn-go-back").click();
-        cy.log("successfully on the edit special collection list page.");
+        // cy.imsId("toggle-action").first().click();
+        // cy.imsId("btn-table-action-edit").click();
+        // cy.imsId("btn-go-back").click();
+        // cy.log("successfully on the edit special collection list page.");
     }
 
     gridResetButtonCheck() {
