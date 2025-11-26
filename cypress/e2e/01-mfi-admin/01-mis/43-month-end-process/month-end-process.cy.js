@@ -27,7 +27,7 @@ describe("43. Month End Process Module Test Cases", function () {
         grid_month_end_process.gridMonthEndProcessListPage();
     });
 
-    it("43.04. Verify check that the grid list content changes correctly from english to bangla.", function () {
+    it("43.02. Verify check that the grid list content changes correctly from english to bangla.", function () {
         grid_month_end_process.gridLanguageSwitchCheck();
     });
 });
