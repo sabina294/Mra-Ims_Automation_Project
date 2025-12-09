@@ -43,15 +43,18 @@ class FeeConfiguration {
     cy.imsId("btn-table-action-view").click();
     cy.imsId("switch-button").click();
     cy.imsId("btn-reset").click();
-    cy.imsId("btn-go-back").click();
 
     cy.log("Successful clean displaying");
   }
 
+  editSubmitButton() {
+    cy.imsId("btn-submit").click();
+    cy.imsId("btn-ok").click();
+
+    cy.log("Successful submit validation check.");
+  }
+
   editGoBackButton() {
-    cy.imsId("toggle-action").first().click();
-    cy.imsId("btn-table-action-view").click();
-    cy.imsId("switch-button").click();
     cy.imsId("btn-go-back").click();
     cy.log("Successful edit go back button check.");
   }

@@ -23,20 +23,50 @@ class EmployeeManagement {
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
 
-      cy.imsId("btn-go-back").click();
       cy.log("Successfully viewed the employee management list page");
     });
+  }
+
+  viewGoBackButton() {
+    cy.imsId("btn-go-back").click();
+
+    cy.log("Successfully view go back the employee management list page");
+
   }
 
   turnOnEditMode() {
     cy.imsId("toggle-action").first().click();
     cy.imsId("btn-table-action-view").click();
     cy.get('.ant-switch-inner > .hidden').click();
-    // cy.imsId("switch-button").click();
-    cy.imsId("btn-go-back").click();
 
     cy.log("Employee Management form Edit Mode toggled successfully");
   }
+
+  editResetButton() {
+    cy.imsId("btn-reset").click();
+
+    cy.log("Successful clean displaying");
+  }
+
+  editSubmitButton() {
+    cy.imsId("btn-submit").click();
+    cy.imsId("btn-ok").click();
+
+    cy.log("Successful submit validation check.");
+  }
+
+  editDraftButton() {
+    cy.imsId("btn-draft").click();
+    cy.imsId("btn-ok").click();
+
+    cy.log("Successful draft button validation check.");
+  }
+
+  editGoBackButton() {
+    cy.imsId("btn-go-back").click();
+    cy.log("Successful edit go back button check.");
+  }
+
 
   statusInactiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
@@ -81,20 +111,20 @@ class EmployeeManagement {
   }
 
   gridCheckboxCheck() {
-    // cy.imsId("row-checkbox-2").click();
-    // cy.imsId("btn-reset").click();
-    // cy.log("Checkbox should be clickable and functional.");
+    cy.imsId("row-checkbox-9").click();
+    cy.imsId("btn-reset").click();
+    cy.log("Checkbox should be clickable and functional.");
   }
 
   gridCheckboxLockButtonCheck() {
-    // cy.imsId("btn-lock").click();
-    // cy.log("Checkbox lock button should be clickable and functional.");
+    cy.imsId("btn-lock").click();
+    cy.log("Checkbox lock button should be clickable and functional.");
   }
 
   gridCheckboxUnlockButtonCheck() {
-    // cy.imsId("row-checkbox-2").click();
-    // cy.imsId("btn-unlock").click();
-    // cy.log("Checkbox unlock button should be clickable and functional.");
+    cy.imsId("row-checkbox-9").click();
+    cy.imsId("btn-unlock").click();
+    cy.log("Checkbox unlock button should be clickable and functional.");
   }
 
   gridDraftButton() {

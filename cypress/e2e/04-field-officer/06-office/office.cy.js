@@ -35,51 +35,55 @@ describe("06. Office Module Test Cases", function () {
     grid_office.viewOffice();
   });
 
-  it("06.04. Verify the user can filter inactive offices using the status dropdown on the office list page.", function () {
+  it("06.04. Verify that clicking the go back button on the office view page redirects the user to the office list page.", function () {
+    grid_office.viewGoBackButton();
+  });
+
+  it("06.05. Verify the user can filter inactive offices using the status dropdown on the office list page.", function () {
     grid_office.statusInactiveDropdownCheck();
   });
 
-  it("06.05. Verify the active result is filtered correctly by the status dropdown.", function () {
+  it("06.06. Verify the active result is filtered correctly by the status dropdown.", function () {
     grid_office.statusActiveDropdownCheck();
   });
 
-  it("06.06. Verify the search returns correct results when searching by office name.", function () {
+  it("06.07. Verify the search returns correct results when searching by office name.", function () {
     grid_office.searchInOfficeManagementName();
   });
 
-  it("06.07. Verify the grid list resets successfully when the reset button is clicked on the office page.", function () {
+  it("06.08. Verify the grid list resets successfully when the reset button is clicked on the office page.", function () {
     grid_office.gridResetButtonCheck();
   });
 
-  it("06.08. Verify that the grid list is refreshed successfully when the refresh button is clicked on the office page.", function () {
+  it("06.09. Verify that the grid list is refreshed successfully when the refresh button is clicked on the office page.", function () {
     grid_office.gridRefreshButtonCheck();
   });
 
-  it("06.09. Verify that the checkbox functions correctly.", function () {
+  it("06.10. Verify that the checkbox functions correctly.", function () {
     grid_office.gridCheckboxCheck();
   });
 
-  it("06.10. Verify that the checkbox lock button operates correctly when selected.", function () {
+  it("06.11. Verify that the checkbox lock button operates correctly when selected.", function () {
     grid_office.gridCheckboxLockButtonCheck();
   });
 
-  it("06.11. Verify that the checkbox unlock button operates correctly when selected.", function () {
+  it("06.12. Verify that the checkbox unlock button operates correctly when selected.", function () {
     grid_office.gridCheckboxUnlockButtonCheck();
   });
 
-  it("06.12. Verify display the grid list successfully when the Draft button on is clicked on the office page", function () {
+  it("06.13. Verify display the grid list successfully when the Draft button on is clicked on the office page", function () {
     grid_office.gridDraftButton();
   });
 
-  it("06.13. Verify display the grid list successfully when the Draft button off is clicked on the office page", function () {
+  it("06.14. Verify display the grid list successfully when the Draft button off is clicked on the office page", function () {
     grid_office.gridDraftButtonOff();
   });
 
-  it("06.14. Verify that the checkbox functions correctly.", function () {
+  it("06.15. Verify that the checkbox functions correctly.", function () {
     grid_office.gridCheckboxCheck();
   });
 
-  it("06.15. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("06.16. Verify check that the grid list content changes correctly from english to bangla.", function () {
     grid_office.gridLanguageSwitchCheck();
   });
 });

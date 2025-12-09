@@ -23,10 +23,49 @@ class Samity {
       cy.imsId("btn-table-action-view").click();
 
       cy.get("app-mfi-mis").contains(smData.search).and("be.visible");
-
-      cy.imsId("btn-go-back").click();
       cy.log("Successfully viewed the samity list page");
     });
+  }
+
+  viewGoBackButton() {
+    cy.imsId("btn-go-back").click();
+    cy.imsId("btn-reset").click();
+
+    cy.log("Successfully view go back the samity management list page");
+
+  }
+
+  turnOnEditMode() {
+    cy.imsId("toggle-action").first().click();
+    cy.imsId("btn-table-action-view").click();
+    cy.get('.ant-switch-inner > .hidden').click();
+
+    cy.log("Samity Management form Edit Mode toggled successfully");
+  }
+
+  editResetButton() {
+    cy.imsId("btn-reset").click();
+
+    cy.log("Successful clean displaying");
+  }
+
+  editSubmitButton() {
+    cy.imsId("btn-submit").click();
+    cy.imsId("btn-ok").click();
+
+    cy.log("Successful submit validation check.");
+  }
+
+  editDraftButton() {
+    cy.imsId("btn-draft").click();
+    cy.imsId("btn-ok").click();
+
+    cy.log("Successful draft button validation check.");
+  }
+
+  editGoBackButton() {
+    cy.imsId("btn-go-back").click();
+    cy.log("Successful edit go back button check.");
   }
 
   statusInactiveDropdownCheck() {

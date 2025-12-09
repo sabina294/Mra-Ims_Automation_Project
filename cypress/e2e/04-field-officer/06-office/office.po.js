@@ -24,16 +24,14 @@ class OfficeGrid {
 
       cy.get("app-mfi-mis").contains(omData.officeNameEn).and("be.visible");
 
-      cy.imsId("btn-go-back").click();
       cy.log("Successfully viewed the office list page");
     });
   }
 
-  editGoBackButton() {
-    cy.imsId("toggle-action").first().click();
-    cy.imsId("btn-table-action-edit").click();
-    cy.imsId("btn-back").click();
-    cy.log("Successful edit go back button check.");
+  viewGoBackButton() {
+    cy.imsId("btn-go-back").click();
+
+    cy.log("Successful view go back button check.");
   }
 
   statusInactiveDropdownCheck() {
@@ -116,4 +114,3 @@ class OfficeGrid {
 
 export const grid_office = new OfficeGrid();
 
- 
