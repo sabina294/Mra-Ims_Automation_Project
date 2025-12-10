@@ -61,12 +61,17 @@ class LoanAccountProposalManagementCreation {
       cy.formController("search_text").type(lapData.memberNameEn);
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
-
-      cy.imsId("btn-go-back").click();
       cy.log(
         "Successfully viewed the Loan account proposal Management list page"
       );
     });
+  }
+  
+  viewGoBackButton() {
+    cy.imsId("btn-go-back").click();
+    cy.log(
+      "Successfully viewed go back the Loan account proposal Management  list page"
+    );
   }
 
   editLoanAccountProposalManagement() {

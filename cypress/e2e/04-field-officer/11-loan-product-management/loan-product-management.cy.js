@@ -35,27 +35,47 @@ describe("11. Loan Product Management Module Test Cases", function () {
     grid_loan_product_management.viewLoanProductManagement();
   });
 
-  it("11.04. Verify the user can filter inactive employee records using the status dropdown on the loan product management List page.", function () {
+  it("11.04. Verify that clicking the go back button on the loan product management view page redirects the user to the loan product management list page.", function () {
+    grid_loan_product_management.viewGoBackButton();
+  });
+
+  it("11.05. Verify that the loan product management forms edit mode can be toggled on and off all fields should be disabled or return to view-only mode.", function () {
+    grid_loan_product_management.turnOnEditMode();
+  });
+
+  it("11.06. Verify the loan product management edit reset button functions correctly.", function () {
+    grid_loan_product_management.editResetButton();
+  });
+
+  it("11.07. Verify the loan product management submit button functions correctly.", function () {
+    grid_loan_product_management.editSubmitButton();
+  });
+
+  it("11.08. Verify that clicking the go back button on the loan product management edit page redirects the user to the loan product management list page.", function () {
+    grid_loan_product_management.editGoBackButton();
+  });
+
+  it("11.09. Verify the user can filter inactive employee records using the status dropdown on the loan product management List page.", function () {
     grid_loan_product_management.statusInactiveDropdownCheck();
   });
 
-  it("11.05. Verify check if the filter for active results works correctly with the status dropdown ", function () {
+  it("11.10. Verify check if the filter for active results works correctly with the status dropdown ", function () {
     grid_loan_product_management.statusActiveDropdownCheck();
   });
 
-  it("11.06. Verify that the search results are displayed correctly when searching by loan product management name.", function () {
+  it("11.11. Verify that the search results are displayed correctly when searching by loan product management name.", function () {
     grid_loan_product_management.searchInLoanProductName();
   });
 
-  it("11.07. Verify the grid list resets successfully when the reset button is clicked on the loan product management page", function () {
+  it("11.12. Verify the grid list resets successfully when the reset button is clicked on the loan product management page", function () {
     grid_loan_product_management.gridResetButtonCheck();
   });
 
-  it("11.08. Verify a new loan product management record is created successfully when all required fields are filled with valid data", function () {
+  it("11.13. Verify a new loan product management record is created successfully when all required fields are filled with valid data", function () {
     grid_loan_product_management.gridRefreshButtonCheck();
   });
 
-  it("11.09. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("11.14. Verify check that the grid list content changes correctly from english to bangla.", function () {
     grid_loan_product_management.gridLanguageSwitchCheck();
   });
 });

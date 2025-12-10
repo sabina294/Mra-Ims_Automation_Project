@@ -22,9 +22,40 @@ class LoanProductManagement {
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
 
-      cy.imsId("btn-go-back").click();
       cy.log("Successfully viewed the loan product management list page");
     });
+  }
+
+  viewGoBackButton() {
+    cy.imsId("btn-go-back").click();
+    cy.log("Successfully viewed go back the loan product management list page");
+
+  }
+
+  turnOnEditMode() {
+    cy.imsId("toggle-action").first().click();
+    cy.imsId("btn-table-action-view").click();
+    cy.get('.ant-switch-inner > .hidden').click();
+
+    cy.log("loan product Management form Edit Mode toggled successfully");
+  }
+
+  editResetButton() {
+    cy.imsId("btn-reset").click();
+
+    cy.log("Successful clean displaying");
+  }
+
+  editSubmitButton() {
+    cy.imsId("btn-submit").click();
+    cy.imsId("btn-ok").click();
+
+    cy.log("Successful submit validation check.");
+  }
+
+  editGoBackButton() {
+    cy.imsId("btn-go-back").click();
+    cy.log("Successful edit go back button check.");
   }
 
   statusInactiveDropdownCheck() {

@@ -81,9 +81,14 @@ class MemberManagementCreation {
       // cy.formController("search_text").type(memData.search);
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
-      cy.imsId("btn-go-back").click();
       cy.log("Successfully viewed the member management list page");
     });
+  }
+
+  viewGoBackButton() {
+    cy.imsId("btn-go-back").click();
+    cy.log("Successfully viewed go back the member management list page");
+
   }
 
   editMemberManagement() {
@@ -106,6 +111,13 @@ class MemberManagementCreation {
     });
   }
 
+  editDraftButton() {
+    cy.imsId("btn-draft").click();
+    cy.imsId("btn-ok").click();
+
+    cy.log("Successful draft button validation check.");
+  }
+  
   editGoBackButton() {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId("btn-go-back").click();
@@ -177,7 +189,7 @@ class MemberManagementCreation {
   }
 
   gridCheckboxCheck() {
-    cy.imsId("row-checkbox-2").click();
+    cy.imsId("row-checkbox-4").click();
     cy.imsId("btn-reset").click();
     cy.log("Checkbox should be clickable and functional.");
   }
@@ -188,7 +200,7 @@ class MemberManagementCreation {
   }
 
   gridCheckboxUnlockButtonCheck() {
-    cy.imsId("row-checkbox-2").click();
+    cy.imsId("rrow-checkbox-4").click();
     cy.imsId("btn-unlock").click();
     cy.log("Checkbox unlock button should be clickable and functional.");
   }
@@ -201,12 +213,6 @@ class MemberManagementCreation {
   gridDraftButtonOff() {
     cy.imsId("btn-draft-on").click();
     cy.log("Draft button should be clickable and functional.");
-  }
-
-  gridCheckboxCheck() {
-    cy.imsId("row-checkbox-2").click();
-    cy.imsId("btn-reset").click();
-    cy.log("Checkbox should be clickable and functional.");
   }
 
   gridLanguageSwitchCheck() {

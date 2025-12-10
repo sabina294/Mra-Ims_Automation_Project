@@ -22,10 +22,16 @@ class LoanAccountManagement {
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
 
-      cy.imsId("btn-go-back").click();
       cy.log("Successfully viewed the Loan account Management list page");
     });
   }
+  viewGoBackButton() {
+    cy.imsId("btn-go-back").click();
+    cy.log(
+      "Successfully viewed go back the Loan account Management  list page"
+    );
+  }
+
   statusInactiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       var laData = data.fieldOfficer.loanAccountManagementFrom;
@@ -37,6 +43,7 @@ class LoanAccountManagement {
       );
     });
   }
+
   statusActiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       var laData = data.fieldOfficer.loanAccountManagementFrom;
@@ -46,6 +53,7 @@ class LoanAccountManagement {
       );
     });
   }
+
   searchInLoanAccountName() {
     cy.fixture(this.test_data).then((data) => {
       var laData = data.fieldOfficer.loanAccountManagementFrom;
@@ -59,6 +67,7 @@ class LoanAccountManagement {
     cy.imsId("btn-reset").click();
     cy.log("Successful clean displaying.");
   }
+
   gridRefreshButtonCheck() {
     cy.imsId("btn-refresh").click();
     cy.log(

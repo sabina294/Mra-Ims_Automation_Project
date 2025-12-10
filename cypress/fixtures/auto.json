@@ -181,7 +181,7 @@
     },
     "approveEmployeeFrom": {},
     "rejectedEmployeeFrom": {
-       "empNameEn": "Sabina Yeasmin",
+      "empNameEn": "Sabina Yeasmin",
       "empNameBn": "সাবিনা ইয়াসমিন",
       "empMobileNo": "01887949170",
       "nidNumber": "0003463473656",
@@ -705,8 +705,8 @@
       "messageSaveEmp": "Mfi employee has been saved",
       "messageUpdateEmp": "Mfi employee has been updated"
     },
-   "rejectedEmployeeFrom": {
-     "empNameEn": "Sabina Yeasmin",
+    "rejectedEmployeeFrom": {
+      "empNameEn": "Sabina Yeasmin",
       "empNameBn": "সাবিনা ইয়াসমিন",
       "empMobileNo": "01887949170",
       "nidNumber": "0003463473656",
@@ -989,12 +989,12 @@
       "loanAmount": "500",
       "loanAmount2": "500"
     },
-     "specialCollection": {
+    "specialCollection": {
       "selectSamity": "1020-103 (Kuturia Mohila Samity)",
       "selectMember": "1-1001 (Jule Akter )",
       "selectAccount": "AGRO-1020-103-1001-1 (Loan Account)",
       "inputAmount": "1000"
-    },   
+    },
     "savingsWithdraw": {
       "selectSamity": "1020-101 (Ashulia Mohila Samity)",
       "selectMember": "GAIS UDDIN KHAN",
@@ -1484,6 +1484,18 @@
       "SelectOffice": "1019 (Amin Bazar)",
       "messageLoanAccountManagement": "Loan account has been updated"
     },
+    "createLoanPenaltyForm": {
+      "selectOffice": "1019 (Amin Bazar)",
+      "selectSamity": "1019-101 (Salepur Mohila Samity)",
+      "selectMember": "1-1001 (Farhani Akter Rume)",
+      "selectLoanAccount": "AGRO-1019-101-1001-1",
+      "selectRebate": "Full",
+      "inputAmount": "5000",
+      "search": "Amira Rahman",
+      "selectStatus": "Submitted",
+      "statusSelect": "Approved",
+      "messageSaveLoanRebate": "Loan rebate has been saved"
+    },
     "createLoanRebateFrom": {
       "selectOffice": "1019 (Amin Bazar)",
       "selectSamity": "1019-101 (Salepur Mohila Samity)",
@@ -1492,8 +1504,8 @@
       "selectRebate": "Full",
       "inputAmount": "5000",
       "search": "Amira Rahman",
-      "selectStatus": "Inactive",
-      "statusSelect": "Active",
+      "selectStatus": "Submitted",
+      "statusSelect": "Approved",
       "messageSaveLoanRebate": "Loan rebate has been saved"
     },
     "createLoanWaiverFrom": {
@@ -1503,8 +1515,8 @@
       "selectRebate": "Full",
       "inputAmount": "5000",
       "search": "Sohana Aktar Hashmi",
-      "selectStatus": "Inactive",
-      "statusSelect": "Active",
+      "selectStatus": "Submitted",
+      "statusSelect": "Approved",
       "messageSaveLoanRebate": "Loan rebate has been saved"
     },
     "gridSavingsProduct": {
