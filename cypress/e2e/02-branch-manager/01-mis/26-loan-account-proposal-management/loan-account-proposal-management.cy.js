@@ -51,11 +51,11 @@ describe("26. Loan Account Proposal Management Module Test Cases", function () {
   //   create_loan_account_proposal_management.editValidationMessageCheck();
   // });
 
-  // it("26.08. Verify that clicking the go back button on the loan account proposal management create page redirects the user to the loan account proposal management list page.", function () {
+  // it("26.08. Verify that clicking the go back button on the loan account proposal management.", function () {
   //   create_loan_account_proposal_management.editGoBackButtonCheck();
   // });
 
-  it("26.09. Verify that the user can filter the inactive Loan Account Proposal Management s using the Status Dropdown on the Loan Account Proposal Management  List page.", function () {
+  it("26.09. Verify that the user can filter the inactive Status Dropdown on the Loan Account Proposal Management  List page.", function () {
     create_loan_account_proposal_management.statusInactiveDropdownCheck();
   });
 
@@ -103,7 +103,7 @@ describe("26. Loan Account Proposal Management Module Test Cases", function () {
     create_loan_account_proposal_management.createValidationMessageCheck();
   });
 
-  it("26.21. Verify that clicking the go back button on the loan account proposal management create page redirects the user to the loan account proposal management list page.", function () {
+  it("26.21. Verify that clicking the go back button on the loan account proposal management list page.", function () {
     create_loan_account_proposal_management.createGoBackButtonCheck();
   });
 
