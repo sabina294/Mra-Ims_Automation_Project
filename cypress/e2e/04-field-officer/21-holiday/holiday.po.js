@@ -56,6 +56,15 @@ class HolidayCreation {
     });
   }
 
+  selectHolidayYear() {
+    cy.fixture(this.test_data).then((data) => {
+      var hData = data.fieldOfficer.createHoliday;
+      cy.imsId("btn-reset").click();
+      cy.formController("calendar_year").type(hData.calendarYear).type("{enter}");
+      cy.log("Successfully selected calendar year in the Holiday form");
+    });
+  }
+
   gridResetButtonCheck() {
     cy.imsId("btn-reset").click();
     cy.log("Successful clean displaying.");
@@ -77,6 +86,31 @@ class HolidayCreation {
     cy.imsId("btn-draft-on").click();
     cy.log("Draft button should be clickable and functional.");
   }
+
+   createSubmitButtonCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("btn-add-new").click();
+      var hData = data.fieldOfficer.createHoliday;
+      cy.imsId("btn-add-new").click();
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-ok").click();
+
+      cy.log("Successful submit button check.");
+    });
+  }
+  createResetButtonCheck() {
+    cy.imsId("btn-submit").click();
+    cy.imsId("btn-ok").click();
+    cy.log("Successful reset button check.");
+
+  }
+
+  createGoBackButtonCheck() {
+    cy.imsId("btn-go-back").click();
+    cy.log("Successful go back button check.");
+
+  }
+
   
   gridLanguageSwitchCheck() {
     cy.imsId("profile-menu").click();

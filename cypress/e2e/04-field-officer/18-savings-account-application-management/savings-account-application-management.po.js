@@ -68,11 +68,16 @@ class SavingsAccApplicationManagementCreation {
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
 
-      cy.imsId("btn-go-back").click();
       cy.log(
         "Successfully viewed the savings account application management list page"
       );
     });
+  }
+
+  viewGoBackButton() {
+    cy.imsId("btn-go-back").click();
+    cy.log("Successfully viewed go back the savings account application management list page");
+
   }
 
   statusInactiveDropdownCheck() {
@@ -89,6 +94,7 @@ class SavingsAccApplicationManagementCreation {
   statusActiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       var saamData = data.fieldOfficer.createSavingsAccApplicationMang;
+      cy.imsId("btn-reset").click();
       cy.formController("status").type(saamData.statusSelect).type("{enter}");
       cy.log(
         "Savings account application management form status active dropdown check successfully"
@@ -135,21 +141,24 @@ class SavingsAccApplicationManagementCreation {
       cy.imsId("btn-add-new").click();
       cy.formController("savings_amount").type(saamData.recoDepositAmount);
       cy.imsId("btn-reset").click();
-      cy.imsId("btn-go-back").click();
       cy.log("Successful clean displaying.");
     });
   }
 
+  createDraftButtonCheck() {
+    cy.imsId("btn-draft").click();
+    cy.imsId("btn-ok").click();
+    cy.log("Successful draft button check.");
+
+  }
+
   createValidationMessageCheck() {
-    cy.imsId("btn-add-new").click();
     cy.imsId("btn-submit").click();
     cy.imsId("btn-ok").click();
-    cy.imsId("btn-go-back").click();
     cy.log("Successful validation message displaying.");
   }
 
   createGoBackButtonCheck() {
-    cy.imsId("btn-add-new").click();
     cy.imsId("btn-go-back").click();
     cy.log("Successful go back button check.");
   }

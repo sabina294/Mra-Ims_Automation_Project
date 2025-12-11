@@ -1,7 +1,7 @@
 require("dotenv").config();
 const dotenv = require("dotenv");
 const path = require("path");
-const env = process.env.CYPRESS_ENV || "auto";
+const env = process.env.CYPRESS_ENV || "dev";
 const { defineConfig } = require("cypress");
 const envPath = path.resolve(__dirname, `cypress/env/.env.${env}`);
 const mochawesome = require("cypress-mochawesome-reporter/plugin");
@@ -19,7 +19,7 @@ module.exports = defineConfig({
     testIsolation: false,
     watchForFileChanges: false,
     chromeWebSecurity: false,
-    screenshotOnRunFailure: true,
+    screenshotOnRunFailure: false,
     redirectionLimit: 20,
     pageLoadTimeout: 10000,
     requestTimeout: 5000,

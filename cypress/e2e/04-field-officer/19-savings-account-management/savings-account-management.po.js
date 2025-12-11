@@ -26,9 +26,14 @@ class SavingsAccountManagementCreation {
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
 
-      cy.imsId("btn-go-back").click();
       cy.log("Successfully viewed the savings account  management list page");
     });
+  }
+
+  viewGoBackButton() {
+    cy.imsId("btn-go-back").click();
+    cy.log("Successfully viewed go back the savings account  management list page");
+
   }
 
   statusInactiveDropdownCheck() {
