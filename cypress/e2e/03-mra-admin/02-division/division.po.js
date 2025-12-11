@@ -146,10 +146,17 @@ class DivisionCreation {
       cy.get("app-mra-mfi").contains(divData.nameEn).and("be.visible");
       cy.get("app-mra-mfi").contains(divData.nameBn).and("be.visible");
 
-      cy.imsId("btn-go-back").click();
       cy.log("Successfully viewed the division list page");
     });
   }
+
+  viewGoBackButton() {
+    cy.imsId("btn-go-back").click();
+
+    cy.log("Successfully view go back the division list page");
+
+  }
+
 
   editDivision() {
     cy.fixture(this.test_data).then((data) => {

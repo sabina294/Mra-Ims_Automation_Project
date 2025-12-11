@@ -200,9 +200,15 @@ class DistrictCreation {
       cy.imsId("btn-table-action-view").click();
 
       cy.get("app-mra-mfi").contains(disData.nameEn).and("be.visible");
-      cy.imsId("btn-go-back").click();
       cy.log("Successfully viewed the district list page");
     });
+  }
+
+  viewGoBackButton() {
+    cy.imsId("btn-go-back").click();
+
+    cy.log("Successfully view go back the district list page");
+
   }
 
   turnOffOnEditMode() {

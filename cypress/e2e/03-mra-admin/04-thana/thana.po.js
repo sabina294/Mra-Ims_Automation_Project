@@ -268,9 +268,15 @@ class ThanaCreation {
       cy.imsId("btn-table-action-view").click();
 
       cy.get("app-mra-mfi").contains(upaData.nameEn).and("be.visible");
-      cy.imsId("btn-go-back").click();
       cy.log("Successfully viewed the thana list page");
     });
+  }
+
+  viewGoBackButton() {
+    cy.imsId("btn-go-back").click();
+
+    cy.log("Successfully view go back the thana list page");
+
   }
 
   turnOffOnEditMode() {

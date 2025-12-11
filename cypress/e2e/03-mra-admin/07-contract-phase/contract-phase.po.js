@@ -73,14 +73,14 @@ class ContractPhaseCreation {
       cy.formController("name_en").type(conPhaData.nameEn);
       cy.formController("name_bn").type(conPhaData.nameBn);
 
-     cy.imsId("btn-submit").click();
+      cy.imsId("btn-submit").click();
       cy.imsId("btn-ok").click();
       cy.imsId("btn-go-back").click();
 
       cy.log(
         "Successful cannot creation contract phase without one mandatory field."
       );
-    
+
     });
   }
 
@@ -117,9 +117,15 @@ class ContractPhaseCreation {
       cy.get("app-mra-mfi").contains(conPhaData.nameEn).and("be.visible");
       cy.get("app-mra-mfi").contains(conPhaData.nameBn).and("be.visible");
 
-      cy.imsId("btn-go-back").click();
       cy.log("Successfully viewed the contract phase list page");
     });
+  }
+
+  viewGoBackButton() {
+    cy.imsId("btn-go-back").click();
+
+    cy.log("Successfully view go back the contract phase list page");
+
   }
 
   turnOffOnEditMode() {

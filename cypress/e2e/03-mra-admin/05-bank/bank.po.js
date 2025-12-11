@@ -92,12 +92,18 @@ class BankCreation {
       cy.get("app-mra-mfi").contains(bankData.nameEn).and("be.visible");
       cy.get("app-mra-mfi").contains(bankData.nameBn).and("be.visible");
 
-      cy.imsId("btn-go-back").click();
       cy.log("Successfully viewed the bank list page");
     });
   }
 
-    turnOffOnEditMode() {
+  viewGoBackButton() {
+    cy.imsId("btn-go-back").click();
+
+    cy.log("Successfully view go back the bank list page");
+
+  }
+
+  turnOffOnEditMode() {
     cy.imsId("toggle-action").first().click();
     cy.imsId("btn-table-action-edit").click();
     cy.imsId("switch-button").click();
