@@ -200,7 +200,7 @@ class MemberManagementCreation {
   }
 
   gridCheckboxUnlockButtonCheck() {
-    cy.imsId("rrow-checkbox-4").click();
+    cy.imsId("row-checkbox-4").click();
     cy.imsId("btn-unlock").click();
     cy.log("Checkbox unlock button should be clickable and functional.");
   }
