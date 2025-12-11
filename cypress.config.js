@@ -9,6 +9,12 @@ dotenv.config({ path: envPath });
 
 module.exports = defineConfig({
   e2e: {
+    specPattern: [
+      "cypress/e2e/01-mfi-admin/**/*.cy.js",
+      "cypress/e2e/02-branch-manager/**/*.cy.js",
+      "cypress/e2e/03-mra-admin/**/*.cy.js",
+      "cypress/e2e/04-field-officer/**/*.cy.js"
+    ],
     baseUrl: process.env.CYPRESS_BASE_URL,
     setupNodeEvents(on, config) {
       mochawesome(on);
