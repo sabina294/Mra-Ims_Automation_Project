@@ -239,9 +239,15 @@ class EconomicPurposeCreation {
       cy.get("app-mra-mfi").contains(ecoPurData.nameEn).and("be.visible");
       cy.get("app-mra-mfi").contains(ecoPurData.nameBn).and("be.visible");
 
-      cy.imsId("btn-go-back").click();
       cy.log("Successfully viewed the economic purpose list page");
     });
+  }
+
+  viewGoBackButton() {
+    cy.imsId("btn-go-back").click();
+
+    cy.log("Successfully view go back the economic purpose list page");
+
   }
 
   turnOffOnEditMode() {

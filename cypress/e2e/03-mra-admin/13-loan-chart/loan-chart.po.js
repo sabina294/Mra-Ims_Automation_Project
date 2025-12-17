@@ -4,7 +4,7 @@ class LoanChartUpdate {
   gridLoanChartListPage() {
     cy.fixture(this.test_data).then((data) => {
       cy.selectMenu("menu-configuration", "submenu-loan-classification-chart");
-      cy.log("Successfully loanchart list page.");
+      cy.log("Successfully loan classification chart list page.");
     });
   }
 
@@ -14,21 +14,26 @@ class LoanChartUpdate {
       cy.imsId("btn-update").and("be.visible");
 
       var loChart = data.mraAdmin.updateloanChartFrom;
-            cy.imsId("btn-go-back").click();
-      // cy.imsId("btn-update").click();
-      // cy.get("app-confirmation-modal")
-      //   .contains(loChart.messageUpdateLoCh)
-      //   .and("be.visible");
-      // cy.imsId("btn-yes").click();
-      // cy.imsId("btn-ok").click();
+      cy.imsId("min-over-due-day-6").type(loChart.minOverDays);
+      cy.imsId("max-over-due-day-6").type(loChart.maxOverDays);
+      cy.imsId("accumulation-rate-6").type(loChart.accRate);
+      cy.imsId("min-over-due-day-7").type(loChart.minOver1Days);
+      cy.imsId("max-over-due-day-7").type(loChart.maxOver1Days);
+      cy.imsId("accumulation-rate-7").type(loChart.acc1Rate);
+      cy.imsId("btn-update").click();
+      cy.imsId("btn-yes").click();
+      cy.get("app-confirmation-modal")
+        .contains(loChart.messageUpdateLoCh)
+        .and("be.visible");
+      cy.imsId("btn-ok").click();
 
-      cy.log("Successfully updated loan chart");
+      cy.log("Successfully updated loan classification chart");
     });
   }
 
   actionButtonCheck() {
     cy.imsId("toggle-action").first().click();
-    cy.log("Action button clicked successfully on the loan chart list page.");
+    cy.log("Action button clicked successfully on the loan classification chart list page.");
   }
 
   viewloanchart() {
@@ -39,9 +44,14 @@ class LoanChartUpdate {
       cy.imsId("btn-table-action-view").click();
 
       cy.get("app-mra-mfi").contains(loChart.chartNameEn).and("be.visible");
-      cy.imsId("btn-go-back").click();
-      cy.log("Successfully viewed the loanchart list page");
+      cy.log("Successfully viewed the loan classification chart list page");
     });
+  }
+
+  viewGoBackButton() {
+    cy.imsId("btn-go-back").click();
+
+    cy.log("Successfully view go back the loan classification chart list page");
   }
 
   editResetButton() {
@@ -65,7 +75,7 @@ class LoanChartUpdate {
       var loChart = data.mraAdmin.updateloanChartFrom;
       cy.imsId("btn-reset").click();
       cy.formController("status").type(loChart.selectStatus).type("{enter}");
-      cy.log("Loanchart update inactive dropdown check successfully");
+      cy.log("Loan classification chart update inactive dropdown check successfully");
     });
   }
 
@@ -73,7 +83,7 @@ class LoanChartUpdate {
     cy.fixture(this.test_data).then((data) => {
       var loChart = data.mraAdmin.updateloanChartFrom;
       cy.formController("status").type(loChart.statusSelect).type("{enter}");
-      cy.log("Loanchart update active dropdown check successfully");
+      cy.log("Loan classification chart update active dropdown check successfully");
     });
   }
 
@@ -94,7 +104,7 @@ class LoanChartUpdate {
   gridRefreshButtonCheck() {
     cy.imsId("btn-refresh").click();
     cy.log(
-      "successfully refresh page  displayed the grid list of the loanchart update refresh list "
+      "successfully refresh page  displayed the grid list of the loan classification chart update refresh list "
     );
   }
 

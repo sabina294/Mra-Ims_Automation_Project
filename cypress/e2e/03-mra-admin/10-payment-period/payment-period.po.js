@@ -270,10 +270,15 @@ class PaymentPeriodCreation {
       cy.get("app-mra-mfi")
         .contains(payPerData.PaymentPeriodId)
         .and("be.visible");
-
-      cy.imsId("btn-go-back").click();
       cy.log("Successfully viewed the payment period list page");
     });
+  }
+
+   viewGoBackButton() {
+    cy.imsId("btn-go-back").click();
+
+    cy.log("Successfully view go back the payment period list page");
+
   }
 
   turnOffOnEditMode() {

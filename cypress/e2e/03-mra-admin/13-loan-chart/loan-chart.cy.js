@@ -42,39 +42,43 @@ describe("13. Loan Cassification Chart Module Test Cases.", function () {
     update_loan_chart.viewloanchart();
   });
 
-  it("13.05. Verify the loan chart edit reset button functions correctly.", function () {
+  it("13.05. Verify that clicking the go back button on the Loan classification chart view page redirects the user to the Loan classification chart list page.", function () {
+    update_loan_chart.viewGoBackButton();
+  });
+
+  it("13.06. Verify the loan chart edit reset button functions correctly.", function () {
     update_loan_chart.editResetButton();
   });
 
-  it("13.06. Verify that clicking the go back button on the loan chart edit page redirects the user to the loan chart list page.", function () {
+  it("13.07. Verify that clicking the go back button on the loan chart edit page redirects the user to the loan chart list page.", function () {
     update_loan_chart.editGoBackButton();
   });
 
-  it("13.07. Verify check that the user can filter inactive loan charts using the status dropdown on the loan chart list page.", function () {
+  it("13.08. Verify check that the user can filter inactive loan charts using the status dropdown on the loan chart list page.", function () {
     update_loan_chart.statusInactiveDropdownCheck();
   });
 
-  it("13.08. Verify check if the filter by status dropdown correctly filters active results.", function () {
+  it("13.09. Verify check if the filter by status dropdown correctly filters active results.", function () {
     update_loan_chart.statusActiveDropdownCheck();
   });
 
-  it("13.09. Verify that the search results are accurate when filtered by loan chart name.", function () {
+  it("13.10. Verify that the search results are accurate when filtered by loan chart name.", function () {
     update_loan_chart.searchInChartName();
   });
 
-  it("13.10. Verify the grid list resets successfully when the reset button is clicked on the loan chart page.", function () {
+  it("13.11. Verify the grid list resets successfully when the reset button is clicked on the loan chart page.", function () {
     update_loan_chart.gridResetButtonCheck();
   });
 
-  it("13.11. Verify that the grid list is refreshed successfully when the refresh button is clicked on the loan chart page.", function () {
+  it("13.12. Verify that the grid list is refreshed successfully when the refresh button is clicked on the loan chart page.", function () {
     update_loan_chart.gridRefreshButtonCheck();
   });
 
-  it("13.12. Verify that clicking the go back button on the loan chart create page redirects the user to the loan chart list page.", function () {
+  it("13.13. Verify that clicking the go back button on the loan chart create page redirects the user to the loan chart list page.", function () {
     update_loan_chart.createGoBackButtonCheck();
   });
 
-  it("13.13. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("13.14. Verify check that the grid list content changes correctly from english to bangla.", function () {
     update_loan_chart.gridLanguageSwitchCheck();
   });
 });

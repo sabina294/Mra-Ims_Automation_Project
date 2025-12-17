@@ -157,9 +157,14 @@ class LoanClassStatusCreation {
         .contains(loanClasStaData.description)
         .and("be.visible");
 
-      cy.imsId("btn-go-back").click();
       cy.log("Successfully viewed the loan class status list page");
     });
+  }
+
+  viewGoBackButton() {
+    cy.imsId("btn-go-back").click();
+
+    cy.log("Successfully view go back the loan class status list page");
   }
 
   turnOffOnEditMode() {

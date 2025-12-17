@@ -1228,7 +1228,13 @@
       "chartNameBn": "নিয়মিত",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
-      "messageUpdateLoCh": "Do you wish to update this loan classification chart",
+      "minOverDays": "5",
+      "maxOverDays": "10",
+      "accRate": "5",
+      "minOver1Days": "10",
+      "maxOver1Days": "20",
+      "acc1Rate": "5",
+      "messageUpdateLoCh": "Loan classification chart has been updated",
       "messageEditLoCh": "Do you wish to update this loan classification chart"
     },
     "createOrgLegForm": {

@@ -77,59 +77,63 @@ describe("11. Payment Method Module Test Cases.", function () {
     create_payment_method.viewPaymentMethod();
   });
 
-  it("11.14. Verify that the payment method forms edit mode can be toggled on and off all fields should be disabled or return to view-only mode.", function () {
+  it("11.14. Verify that clicking the go back button on the payment method view page redirects the user to the payment method list page.", function () {
+    create_payment_method.viewGoBackButton();
+  });
+
+  it("11.15. Verify that the payment method forms edit mode can be toggled on and off all fields should be disabled or return to view-only mode.", function () {
     create_payment_method.turnOffOnEditMode();
   });
 
-  it("11.15. Verify the payment method name and description can be edited successfully.", function () {
+  it("11.16. Verify the payment method name and description can be edited successfully.", function () {
     create_payment_method.editPaymentMethod();
   });
 
-  it("11.16. Verify the payment method edit reset button functions correctly.", function () {
+  it("11.17. Verify the payment method edit reset button functions correctly.", function () {
     create_payment_method.editResetButton();
   });
 
-  it("11.17. Verify the payment method edit submit button functions correctly.", function () {
+  it("11.18. Verify the payment method edit submit button functions correctly.", function () {
     create_payment_method.editSubmitButton();
   });
 
-  it("11.18. Verify that clicking the go back button on the payment method edit page redirects the user to the payment method  list page.", function () {
+  it("11.19. Verify that clicking the go back button on the payment method edit page redirects the user to the payment method  list page.", function () {
     create_payment_method.editGoBackButton();
   });
 
-  it("11.19. Verify the user can filter inactive payment methods using the status dropdown on the payment method list page.", function () {
+  it("11.20. Verify the user can filter inactive payment methods using the status dropdown on the payment method list page.", function () {
     create_payment_method.statusInactiveDropdownCheck();
   });
 
-  it("11.20. Verify the active result is filtered correctly by the status dropdown.", function () {
+  it("11.21. Verify the active result is filtered correctly by the status dropdown.", function () {
     create_payment_method.statusActiveDropdownCheck();
   });
 
-  it("11.21. Verify the search returns correct results when searching by payment method name.", function () {
+  it("11.22. Verify the search returns correct results when searching by payment method name.", function () {
     create_payment_method.searchInPaymentMethodName();
   });
 
-  it("11.22. Verify the grid list resets successfully when the reset button is clicked on the payment method page.", function () {
+  it("11.23. Verify the grid list resets successfully when the reset button is clicked on the payment method page.", function () {
     create_payment_method.gridResetButtonCheck();
   });
 
-  it("11.23. Verify that the grid list is refreshed successfully when the refresh button is clicked on the payment method page.", function () {
+  it("11.24. Verify that the grid list is refreshed successfully when the refresh button is clicked on the payment method page.", function () {
     create_payment_method.gridRefreshButtonCheck();
   });
 
-  it("11.24. Verify the payment method creation reset button clears all entered input values.", function () {
+  it("11.25. Verify the payment method creation reset button clears all entered input values.", function () {
     create_payment_method.createResetButtonCheck();
   });
 
-  it("11.25. Verify validation messages appear for required fields when the submit button is clicked with empty inputs.", function () {
+  it("11.26. Verify validation messages appear for required fields when the submit button is clicked with empty inputs.", function () {
     create_payment_method.createValidationMessageCheck();
   });
 
-  it("11.26. Verify that clicking the go back button on the payment method create page redirects the user to the payment method list page.", function () {
+  it("11.27. Verify that clicking the go back button on the payment method create page redirects the user to the payment method list page.", function () {
     create_payment_method.createGoBackButtonCheck();
   });
 
-  it("11.27. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("11.28. Verify check that the grid list content changes correctly from english to bangla.", function () {
     create_payment_method.gridLanguageSwitchCheck();
   });
 });

@@ -115,7 +115,7 @@ class LoanTypeCreation {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId("btn-add-new").click();
       cy.imsId("btn-submit").and("be.visible");
-       cy.imsId("btn-reset").click();
+      cy.imsId("btn-reset").click();
 
       var loanTData = data.mraAdmin.createloanTypeFrom;
       cy.formController("name_en").type(loanTData.nameEn);
@@ -169,9 +169,15 @@ class LoanTypeCreation {
       cy.get("app-mra-mfi").contains(loanTData.nameEn).and("be.visible");
       cy.get("app-mra-mfi").contains(loanTData.nameBn).and("be.visible");
 
-      cy.imsId("btn-go-back").click();
       cy.log("Successfully viewed the loan type list page");
     });
+  }
+
+  viewGoBackButton() {
+    cy.imsId("btn-go-back").click();
+
+    cy.log("Successfully view go back the loan type list page");
+
   }
 
   turnOffOnEditMode() {

@@ -260,9 +260,14 @@ class PaymentMethodCreation {
         .contains(payMetData.descriptionEn)
         .and("be.visible");
 
-      cy.imsId("btn-go-back").click();
       cy.log("Successfully viewed the payment method list page");
     });
+  }
+
+  viewGoBackButton() {
+    cy.imsId("btn-go-back").click();
+
+    cy.log("Successfully view go back the payment method list page");
   }
 
   turnOffOnEditMode() {
