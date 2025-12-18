@@ -120,9 +120,14 @@ class MaritalStatusCreation {
         .contains(maritalStatusData.nameBn)
         .and("be.visible");
 
-      cy.imsId("btn-go-back").click();
       cy.log("Successfully viewed the marital status list page");
     });
+  }
+
+  viewGoBackButton() {
+    cy.imsId("btn-go-back").click();
+
+    cy.log("Successfully view go back the marital status list page");
   }
 
   turnOffOnEditMode() {

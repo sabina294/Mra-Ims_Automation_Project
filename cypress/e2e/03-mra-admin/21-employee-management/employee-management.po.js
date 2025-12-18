@@ -83,103 +83,102 @@ class EmployeeManagementCreation {
   }
 
   createAllField() {
-    // cy.fixture(this.test_data).then((data) => {
-    //   cy.imsId("btn-add-new").click();
-    //   // cy.imsId("btn-submit").and("be.visible");
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("btn-add-new").click();
 
-    //   var emData = data.mraAdmin.createEmployeeFrom;
-    //   cy.formController("name_en").type(emData.employeeNameEn);
-    //   cy.formController("name_bn").type(emData.employeeNameBn);
-    //   cy.formController("date_of_birth").click();
-    //   cy.contains("24").click();
-    //   cy.formController("blood_group").type(emData.bloodGroup).type("{enter}");
-    //   cy.formController("marital_status")
-    //     .type(emData.maritalStatus)
-    //     .type("{enter}");
-    //   cy.formController("gender").click();
-    //   cy.get(
-    //     ".ant-form-item-control-input-content > .ant-radio-group > :nth-child(1) > .ant-radio > .ant-radio-input"
-    //   ).click();
-    //   cy.formController("religion").type(emData.religion).type("{enter}");
-    //   cy.formController("academic_qualification")
-    //     .type(emData.academicQualification)
-    //     .type("{enter}");
-    //   cy.formController("tin_no").type(emData.tinNo);
-    //   cy.formController("contactNo").type(emData.employeeMobileNo);
-    //   cy.formController("emailAddress").type(emData.personalMail);
-    //   cy.get("#nz-tabs-0-tab-1").click();
-    //   cy.formController("nid_number").type(emData.nidNumber);
-    //   cy.formController("nid_issue_date").click();
-    //   cy.contains("24").click();
-    //   cy.formController("birth_reg_no").type(emData.birthRegNo);
-    //   cy.formController("birth_issue_date").click();
-    //   cy.contains("24").click();
-    //   cy.formController("passport_no").type(emData.passportNo);
-    //   cy.formController("passport_issue_date").click();
-    //   cy.contains("24").click();
-    //   cy.formController("passport_expiration_date").click();
-    //   cy.contains("24").click();
-    //   cy.formController("driving_license_no").type(emData.drivingLicNo);
-    //   cy.formController("other_doc_name").type(emData.otherDocName);
-    //   cy.formController("other_id_no").type(emData.otherId);
-    //   cy.get("#nz-tabs-0-tab-2").click();
-    //   cy.formController("department_id")
-    //     .type(emData.department)
-    //     .type("{enter}");
-    //   cy.formController("designation_id")
-    //     .type(emData.designation)
-    //     .type("{enter}");
-    //   cy.formController("reporting_manager_id")
-    //     .type(emData.reportingManager)
-    //     .type("{enter}");
-    //   cy.get("#nz-tabs-0-tab-3").click();
-    //   cy.formController("father_name_en").type(emData.fatherNameEn);
-    //   cy.formController("father_name_bn").type(emData.fatherNameBn);
-    //   cy.formController("mother_name_en").type(emData.motherNameEn);
-    //   cy.formController("mother_name_bn").type(emData.motherNameBn);
+      var emData = data.mraAdmin.createEmployeeFrom;
+      cy.formController("name_en").type(emData.employeeNameEn);
+      cy.formController("name_bn").type(emData.employeeNameBn);
+      cy.formController("date_of_birth").click();
+      cy.contains("24").click();
+      cy.formController("blood_group").type(emData.bloodGroup).type("{enter}");
+      cy.formController("marital_status")
+        .type(emData.maritalStatus)
+        .type("{enter}");
+      cy.formController("gender").click();
+      cy.get(
+        ".ant-form-item-control-input-content > .ant-radio-group > :nth-child(1) > .ant-radio > .ant-radio-input"
+      ).click();
+      cy.formController("religion").type(emData.religion).type("{enter}");
+      cy.formController("academic_qualification")
+        .type(emData.academicQualification)
+        .type("{enter}");
+      cy.formController("tin_no").type(emData.tinNo);
+      cy.formController("contactNo").type(emData.employeeMobileNo);
+      cy.formController("emailAddress").type(emData.personalMail);
+      cy.get("#nz-tabs-0-tab-1").click();
+      cy.formController("nid_number").type(emData.nidNumber);
+      cy.formController("nid_issue_date").click();
+      cy.contains("24").click();
+      cy.formController("birth_reg_no").type(emData.birthRegNo);
+      cy.formController("birth_issue_date").click();
+      cy.contains("24").click();
+      cy.formController("passport_no").type(emData.passportNo);
+      cy.formController("passport_issue_date").click();
+      cy.contains("24").click();
+      cy.formController("passport_expiration_date").click();
+      cy.contains("24").click();
+      cy.formController("driving_license_no").type(emData.drivingLicNo);
+      cy.formController("other_doc_name").type(emData.otherDocName);
+      cy.formController("other_id_no").type(emData.otherId);
+      cy.get("#nz-tabs-0-tab-2").click();
+      cy.formController("department_id")
+        .type(emData.department)
+        .type("{enter}");
+      cy.formController("designation_id")
+        .type(emData.designation)
+        .type("{enter}");
+      cy.formController("reporting_manager_id")
+        .type(emData.reportingManager)
+        .type("{enter}");
+      cy.get("#nz-tabs-0-tab-3").click();
+      cy.formController("father_name_en").type(emData.fatherNameEn);
+      cy.formController("father_name_bn").type(emData.fatherNameBn);
+      cy.formController("mother_name_en").type(emData.motherNameEn);
+      cy.formController("mother_name_bn").type(emData.motherNameBn);
 
-    //   cy.get("#nz-tabs-0-tab-4").click();
-    //   cy.formController("res_division_id")
-    //     .type(emData.division)
-    //     .type("{enter}");
-    //   cy.formController("res_district_id")
-    //     .type(emData.district)
-    //     .type("{enter}");
-    //   cy.formController("res_upazila_id").type(emData.thana).type("{enter}");
-    //   cy.formController("res_post_office_id")
-    //     .type(emData.postalOffice)
-    //     .type("{enter}");
-    //   cy.formController("res_union_id").type(emData.union).type("{enter}");
-    //   cy.formController("res_address_line_1").type(emData.adressEn);
-    //   cy.formController("res_address_line_2").type(emData.adressBn);
-    //   cy.imsId("ck-box").click();
-    //   cy.get("#nz-tabs-0-tab-5").click();
-    //   cy.imsId("btn_photo_image_id").attachFile("employeePhoto1.jpg");
-    //   cy.wait(1000);
-    //   cy.imsId("btn_nid_front_doc_id").attachFile("nidPront1.jpg");
-    //   cy.wait(1000);
-    //   cy.imsId("btn_nid_back_doc_id").attachFile("nidBack1.jpg");
-    //   cy.wait(1000);
-    //   cy.imsId("btn_birth_reg_doc_id").attachFile("birthRegPart1.jpg");
-    //   cy.wait(1000);
-    //   cy.imsId("btn_passport_doc_id").attachFile("passportImg1.jpg");
-    //   cy.wait(1000);
-    //   cy.imsId("btn_driving_license_doc_id").attachFile("drivingLicence1.jpg");
-    //   cy.wait(1000);
-    //   cy.imsId("btn_other_id_doc_id").attachFile("otherDoc1.jpg");
-    //   cy.wait(1000);
-    //   cy.imsId("btn_tin_doc_id").attachFile("tinDocImg1.jpg");
-    //   cy.wait(1000);
+      cy.get("#nz-tabs-0-tab-4").click();
+      cy.formController("res_division_id")
+        .type(emData.division)
+        .type("{enter}");
+      cy.formController("res_district_id")
+        .type(emData.district)
+        .type("{enter}");
+      cy.formController("res_upazila_id").type(emData.thana).type("{enter}");
+      cy.formController("res_post_office_id")
+        .type(emData.postalOffice)
+        .type("{enter}");
+      cy.formController("res_union_id").type(emData.union).type("{enter}");
+      cy.formController("res_address_line_1").type(emData.adressEn);
+      cy.formController("res_address_line_2").type(emData.adressBn);
+      cy.imsId("ck-box").click();
+      cy.get("#nz-tabs-0-tab-5").click();
+      cy.imsId("btn_photo_image_id").attachFile("employeePhoto1.jpg");
+      cy.wait(1000);
+      cy.imsId("btn_nid_front_doc_id").attachFile("nidPront1.jpg");
+      cy.wait(1000);
+      cy.imsId("btn_nid_back_doc_id").attachFile("nidBack1.jpg");
+      cy.wait(1000);
+      cy.imsId("btn_birth_reg_doc_id").attachFile("birthRegPart1.jpg");
+      cy.wait(1000);
+      cy.imsId("btn_passport_doc_id").attachFile("passportImg1.jpg");
+      cy.wait(1000);
+      cy.imsId("btn_driving_license_doc_id").attachFile("drivingLicence1.jpg");
+      cy.wait(1000);
+      cy.imsId("btn_other_id_doc_id").attachFile("otherDoc1.jpg");
+      cy.wait(1000);
+      cy.imsId("btn_tin_doc_id").attachFile("tinDocImg1.jpg");
+      cy.wait(1000);
 
-    //   cy.imsId("btn-submit").click();
-    //   cy.imsId("btn-yes").click();
-    //   cy.get("app-confirmation-modal")
-    //     .contains(emData.messageSaveEmployee)
-    //     .and("be.visible");
-    //   cy.imsId("btn-ok").click();
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-yes").click();
+      cy.get("app-confirmation-modal")
+        .contains(emData.messageSaveEmployee)
+        .and("be.visible");
+      cy.imsId("btn-ok").click();
 
-    //   cy.log("Successfully created employee management all fields");
-    // });
+      cy.log("Successfully created employee management all fields");
+    });
   }
 
   actionButtonCheck() {
@@ -198,18 +197,24 @@ class EmployeeManagementCreation {
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
 
-      cy.imsId("btn-go-back").click();
       cy.log("Successfully viewed the employee management list page");
     });
   }
 
-  turnOffOnEditMode() {
-    // cy.imsId("toggle-action").first().click();
-    // cy.imsId("btn-table-action-edit").click();
-    // cy.imsId("switch-button").click();
-    // cy.imsId("btn-go-back").click();
+  viewGoBackButton() {
+    cy.imsId("btn-go-back").click();
 
-    // cy.log("Employee management form Edit Mode toggled successfully");
+    cy.log("Successfully view go back the Employee management list page");
+  }
+
+  turnOffOnEditMode() {
+    cy.imsId("toggle-action").first().click();
+    cy.imsId("btn-table-action-view").click();
+    cy.get('.ant-switch-inner > .hidden').click();
+    cy.imsId("btn-go-back").click();
+
+
+    cy.log("Employee management form Edit Mode toggled successfully");
   }
 
   editEmployeeManagement() {
@@ -236,23 +241,36 @@ class EmployeeManagementCreation {
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-edit").click();
       cy.imsId("btn-reset").click();
-      cy.imsId("btn-go-back").click();
 
       cy.log("Successful clean displaying");
     });
   }
 
-  editGoBackButton() {
-    cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-reset").click();
+  editDraftButton() {
+    cy.imsId("btn-draft").first().click();
+    cy.imsId("btn-ok").click();
 
-      var emData = data.mraAdmin.createEmployeeFrom;
-      cy.formController("search_text").type(emData.search);
-      cy.imsId("toggle-action").first().click();
-      cy.imsId("btn-table-action-edit").click();
+    cy.log("Successful draft button check.");
+  }
+
+  editSubmitButton() {
+    cy.imsId("btn-submit").first().click();
+    cy.imsId("btn-ok").click();
+
+    cy.log("Successful submit button check.");
+  }
+
+  editApproveButton() {
+    cy.imsId("btn-approve").first().click();
+    cy.imsId("btn-ok").click();
+
+    cy.log("Successful approve button check.");
+  }
+
+  editGoBackButton() {
       cy.imsId("btn-go-back").click();
       cy.log("Successful edit go back button check.");
-    });
+
   }
 
   statusInactiveDropdownCheck() {
@@ -298,20 +316,20 @@ class EmployeeManagementCreation {
   }
 
    gridCheckboxCheck() {
-    cy.imsId("row-checkbox-3").click();
+    cy.imsId("row-checkbox-1").click();
     cy.imsId("btn-reset").click();
     cy.log("Checkbox should be clickable and functional.");
   }
 
   gridCheckboxLockButtonCheck() {
-    // cy.imsId("btn-lock").click();
-    // cy.log("Checkbox lock button should be clickable and functional.");
+    cy.imsId("btn-lock").click();
+    cy.log("Checkbox lock button should be clickable and functional.");
   }
 
   gridCheckboxUnlockButtonCheck() {
-    // cy.imsId("row-checkbox-3").click();
-    // cy.imsId("btn-unlock").click();
-    // cy.log("Checkbox unlock button should be clickable and functional.");
+    cy.imsId("row-checkbox-1").click();
+    cy.imsId("btn-unlock").click();
+    cy.log("Checkbox unlock button should be clickable and functional.");
   }
 
   gridDraftButton() {

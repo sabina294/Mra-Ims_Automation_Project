@@ -130,9 +130,14 @@ class GenderCreation {
       cy.get("app-mra-mfi").contains(genderData.nameBn).and("be.visible");
       cy.get("app-mra-mfi").contains(genderData.genderId).and("be.visible");
 
-      cy.imsId("btn-go-back").click();
       cy.log("Successfully viewed the gender list page");
     });
+  }
+
+  viewGoBackButton() {
+    cy.imsId("btn-go-back").click();
+
+    cy.log("Successfully view go back the gender list page");
   }
 
   turnOffOnEditMode() {

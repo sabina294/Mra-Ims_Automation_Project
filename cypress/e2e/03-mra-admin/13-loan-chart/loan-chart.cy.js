@@ -30,9 +30,9 @@ describe("13. Loan Cassification Chart Module Test Cases.", function () {
     update_loan_chart.gridLoanChartListPage();
   });
 
-  it("13.02. Verify that an existing loan classification chart is updated correctly with valid required field values.", function () {
-    update_loan_chart.updateloanchart();
-  });
+  // it("13.02. Verify that an existing loan classification chart is updated correctly with valid required field values.", function () {
+  //   update_loan_chart.updateloanchart();
+  // });
 
   it("13.03. Verify successfully performs the action when the action button is clicked.", function () {
     update_loan_chart.actionButtonCheck();

@@ -17,9 +17,9 @@ class LoanChartUpdate {
       cy.imsId("min-over-due-day-6").type(loChart.minOverDays);
       cy.imsId("max-over-due-day-6").type(loChart.maxOverDays);
       cy.imsId("accumulation-rate-6").type(loChart.accRate);
-      // cy.imsId("min-over-due-day-7").type(loChart.minOver1Days);
-      // cy.imsId("max-over-due-day-7").type(loChart.maxOver1Days);
-      // cy.imsId("accumulation-rate-7").type(loChart.acc1Rate);
+      cy.imsId("min-over-due-day-7").type(loChart.minOver1Days);
+      cy.imsId("max-over-due-day-7").type(loChart.maxOver1Days);
+      cy.imsId("accumulation-rate-7").type(loChart.acc1Rate);
       cy.imsId("btn-update").click();
       cy.imsId("btn-yes").click();
       cy.get("app-confirmation-modal")

@@ -106,10 +106,16 @@ class RemarksCreation {
       cy.get("app-mra-mfi").contains(remarksData.nameEn).and("be.visible");
       cy.get("app-mra-mfi").contains(remarksData.nameBn).and("be.visible");
 
-      cy.imsId("btn-go-back").click();
       cy.log("Successfully viewed the remarks list page");
     });
   }
+
+  viewGoBackButton() {
+    cy.imsId("btn-go-back").click();
+
+    cy.log("Successfully view go back the remarks list page");
+  }
+
 
   turnOffOnEditMode() {
     cy.imsId("toggle-action").first().click();

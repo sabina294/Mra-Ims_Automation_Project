@@ -160,7 +160,6 @@ class MfiCreation {
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
       cy.imsId("btn-lock").click();
-
       cy.imsId("btn-Approve").click();
       cy.imsId("btn-yes").click();
       cy.imsId("btn-ok").click();
@@ -170,6 +169,7 @@ class MfiCreation {
   }
 
   actionButtonCheck() {
+    // cy.selectMenu("menu-mfi-management", "menu-mfi-management");
     cy.imsId("toggle-action").first().click();
     cy.log(
       "Action button clicked successfully on the mfi management list page."
@@ -183,50 +183,62 @@ class MfiCreation {
       cy.formController("search_text").type(mfiData.search);
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
-      cy.imsId("btn-go-back").click();
+
       cy.log("Successfully viewed the MFI management list page");
     });
   }
 
-  turnOffOnEditMode() {
-    // cy.imsId("toggle-action").first().click();
-    // cy.imsId("btn-table-action-edit").click();
-    // cy.imsId("switch-button").click();
-    // cy.imsId("btn-go-back").click();
+  viewGoBackButton() {
+    cy.imsId("btn-go-back").click();
 
-    // cy.log("Mfi management form Edit Mode toggled successfully");
+    cy.log("Successfully view go back the MFI management list page");
+  }
+
+  turnOffOnEditMode() {
+    cy.imsId("toggle-action").first().click();
+    cy.imsId("btn-table-action-view").click();
+    cy.get('.ant-switch-inner > .hidden').click();
+
+    cy.log("Mfi management form Edit Mode toggled successfully");
   }
 
   editMfi() {
-    // cy.fixture(this.test_data).then((data) => {
-    //   cy.imsId("toggle-action").first().click();
-    //   cy.imsId("btn-table-action-edit").click(); z
-    //   cy.imsId("btn-submit").click();
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("toggle-action").first().click();
+      cy.imsId("btn-table-action-edit").click();
 
-    //   var mfiData = data.mraAdmin.createMfiManFrom;
-    //   cy.imsId("btn-yes").click();
-
-    //   cy.get("app-confirmation-modal")
-    //     .contains(mfiData.messageUpdateMfiManagement)
-    //     .and("be.visible");
-    //   cy.imsId("btn-ok").click();
-
-    //   cy.log("MFI management updated successfully");
-    // });
+      cy.log("MFI management updated successfully");
+    });
   }
 
   editResetButton() {
-    cy.imsId("toggle-action").first().click();
-    cy.imsId("btn-table-action-edit").click();
     cy.imsId("btn-reset").click();
-    cy.imsId("btn-go-back").click();
 
     cy.log("Successful clean displaying");
   }
 
+  editDraftButton() {
+    cy.imsId("btn-draft").first().click();
+    cy.imsId("btn-ok").click();
+
+    cy.log("Successful draft button check.");
+  }
+
+  editSubmitButton() {
+    cy.imsId("btn-submit").first().click();
+    cy.imsId("btn-ok").click();
+
+    cy.log("Successful submit button check.");
+  }
+
+  editApproveButton() {
+    cy.imsId("btn-approve").first().click();
+    cy.imsId("btn-ok").click();
+
+    cy.log("Successful approve button check.");
+  }
+
   editGoBackButton() {
-    cy.imsId("toggle-action").first().click();
-    cy.imsId("btn-table-action-edit").click();
     cy.imsId("btn-go-back").click();
     cy.log("Successful edit go back button check.");
   }
@@ -276,14 +288,14 @@ class MfiCreation {
   }
 
   gridCheckboxLockButtonCheck() {
-    // cy.imsId("btn-lock").click();
-    // cy.log("Checkbox lock button should be clickable and functional.");
+    cy.imsId("btn-lock").click();
+    cy.log("Checkbox lock button should be clickable and functional.");
   }
 
   gridCheckboxUnlockButtonCheck() {
-    // cy.imsId("row-checkbox-0").click();
-    // cy.imsId("btn-unlock").click();
-    // cy.log("Checkbox unlock button should be clickable and functional.");
+    cy.imsId("row-checkbox-0").click();
+    cy.imsId("btn-unlock").click();
+    cy.log("Checkbox unlock button should be clickable and functional.");
   }
 
   createResetButtonCheck() {

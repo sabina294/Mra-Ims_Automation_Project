@@ -113,9 +113,14 @@ class OccupationCreation {
       cy.get("app-mra-mfi").contains(occupationData.nameEn).and("be.visible");
       cy.get("app-mra-mfi").contains(occupationData.nameBn).and("be.visible");
 
-      cy.imsId("btn-go-back").click();
       cy.log("Successfully viewed the occupation list page");
     });
+  }
+
+  viewGoBackButton() {
+    cy.imsId("btn-go-back").click();
+
+    cy.log("Successfully view go back the occupation list page");
   }
 
   turnOffOnEditMode() {

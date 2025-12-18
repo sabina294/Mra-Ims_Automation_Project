@@ -115,10 +115,14 @@ class OrganizationLegalFormCreation {
 
       cy.get("app-mra-mfi").contains(orgLegalFormData.nameEn).and("be.visible");
       cy.get("app-mra-mfi").contains(orgLegalFormData.nameBn).and("be.visible");
-
-      cy.imsId("btn-go-back").click();
       cy.log("Successfully viewed the organization legal form list page");
     });
+  }
+
+   viewGoBackButton() {
+    cy.imsId("btn-go-back").click();
+
+    cy.log("Successfully view go back the organization legal form list page");
   }
 
   turnOffOnEditMode() {

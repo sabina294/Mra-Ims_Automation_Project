@@ -114,9 +114,14 @@ class EducationCreation {
       cy.get("app-mra-mfi").contains(eduData.nameEn).and("be.visible");
       cy.get("app-mra-mfi").contains(eduData.nameBn).and("be.visible");
 
-      cy.imsId("btn-go-back").click();
       cy.log("Successfully viewed the education list page");
     });
+  }
+
+   viewGoBackButton() {
+    cy.imsId("btn-go-back").click();
+    
+    cy.log("Successfully view go back the education list page");
   }
 
   turnOffOnEditMode() {
