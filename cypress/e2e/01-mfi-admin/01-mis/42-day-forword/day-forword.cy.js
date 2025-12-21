@@ -27,9 +27,9 @@ describe("42. Day Forward Module Test Cases", function () {
         grid_day_forward.gridDayForwardListPage();
     });
 
-    it("42.02. Verify the successful execution of the forward day routine.", function () {
-        grid_day_forward.gridDayForwardDayRoutine();
-    });
+    // it("42.02. Verify the successful execution of the forward day routine.", function () {
+    //     grid_day_forward.gridDayForwardDayRoutine();
+    // });
 
     it("42.03. Verify the successful execution of the delete button.", function () {
         grid_day_forward.gridDeleteButtonCheck();

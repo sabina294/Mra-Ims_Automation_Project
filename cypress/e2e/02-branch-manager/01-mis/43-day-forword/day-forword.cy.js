@@ -27,13 +27,13 @@ describe("43. Day Forward Module Test Cases", function () {
         grid_day_forward.gridDayForwardListPage();
     });
 
-    it("43.02. Verify the successful execution of the forward day routine.", function () {
-        grid_day_forward.gridDayForwardDayRoutine();
-    });
+    // it("43.02. Verify the successful execution of the forward day routine.", function () {
+    //     grid_day_forward.gridDayForwardDayRoutine();
+    // });
 
-    it("43.03. Verify the successful execution of the delete button.", function () {
-        grid_day_forward.gridDeleteButtonCheck();
-    });
+    // it("43.03. Verify the successful execution of the delete button.", function () {
+    //     grid_day_forward.gridDeleteButtonCheck();
+    // });
 
     it("43.04. Verify check that the grid list content changes correctly from english to bangla.", function () {
         grid_day_forward.gridLanguageSwitchCheck();

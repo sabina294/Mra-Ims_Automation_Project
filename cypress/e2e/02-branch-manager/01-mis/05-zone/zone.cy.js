@@ -34,39 +34,47 @@ describe("05. Zone Module Test Cases", function () {
     grid_zone.viewZone();
   });
 
-  it("05.04. Verify that the zone forms edit mode can be toggled on and off all fields should be disabled or return to view-only mode.", function () {
+  it("05.04. Verify that clicking the go back button on the zone view page redirects the user to the zone list page.", function () {
+    grid_zone.viewGoBackButton();
+  });
+
+  it("05.05. Verify that the zone forms edit mode can be toggled on and off all fields should be disabled or return to view-only mode.", function () {
     grid_zone.turnOnEditMode();
   });
 
-  it("05.05. Verify the zone edit reset button functions correctly.", function () {
+  it("05.06. Verify the zone edit reset button functions correctly.", function () {
     grid_zone.editResetButton();
   });
 
-  it("05.06. Verify that clicking the go back button on the zone edit page redirects the user to the zone list page.", function () {
+  it("05.07. Verify the zone edit submit button functions correctly.", function () {
+    grid_zone.editSubmitButton();
+  });
+
+  it("05.08. Verify that clicking the go back button on the zone edit page redirects the user to the zone list page.", function () {
     grid_zone.editGoBackButton();
   });
 
-  it("05.07. Verify the user can filter inactive zones using the status dropdown on the zone list page.", function () {
+  it("05.09. Verify the user can filter inactive zones using the status dropdown on the zone list page.", function () {
     grid_zone.statusInactiveDropdownCheck();
   });
 
-  it("05.08. Verify the active result is filtered correctly by the status dropdown.", function () {
+  it("05.10. Verify the active result is filtered correctly by the status dropdown.", function () {
     grid_zone.statusActiveDropdownCheck();
   });
 
-  it("05.09. Verify the search returns correct results when searching by zone name.", function () {
+  it("05.11. Verify the search returns correct results when searching by zone name.", function () {
     grid_zone.searchInZoneName();
   });
 
-  it("05.10. Verify the grid list resets successfully when the reset button is clicked on the zone page.", function () {
+  it("05.12. Verify the grid list resets successfully when the reset button is clicked on the zone page.", function () {
     grid_zone.gridResetButtonCheck();
   });
 
-  it("05.11. Verify that the grid list is refreshed successfully when the refresh button is clicked on the zone page.", function () {
+  it("05.13. Verify that the grid list is refreshed successfully when the refresh button is clicked on the zone page.", function () {
     grid_zone.gridRefreshButtonCheck();
   });
 
-  it("05.12. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("05.14. Verify check that the grid list content changes correctly from english to bangla.", function () {
     grid_zone.gridLanguageSwitchCheck();
   });
 });

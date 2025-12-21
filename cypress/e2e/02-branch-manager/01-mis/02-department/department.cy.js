@@ -37,39 +37,47 @@ describe("02. Department Module Test Cases", function () {
     grid_department.viewDepartment();
   });
 
-  it("02.04. Verify that the department forms edit mode can be toggled on and off all fields should be disabled or return to view-only mode.", function () {
+  it("02.04. Verify that clicking the go back button on the department view page redirects the user to the department list page.", function () {
+    grid_department.viewGoBackButton();
+  });
+
+  it("02.05. Verify that the department forms edit mode can be toggled on and off all fields should be disabled or return to view-only mode.", function () {
     grid_department.turnOnEditMode();
   });
 
-  it("02.05. Verify the department edit reset button functions correctly.", function () {
+  it("02.06. Verify the department edit reset button functions correctly.", function () {
     grid_department.editResetButton();
   });
 
-  it("02.06. Verify that clicking the go back button on the department edit page redirects the user to the department list page.", function () {
+  it("02.07. Verify the department edit submit button functions correctly.", function () {
+    grid_department.editSubmitButton();
+  });
+
+  it("02.08. Verify that clicking the go back button on the department edit page redirects the user to the department list page.", function () {
     grid_department.editGoBackButton();
   });
 
-  it("02.07. Verify the user can filter inactive departments using the status dropdown on the department list page.", function () {
+  it("02.09. Verify the user can filter inactive departments using the status dropdown on the department list page.", function () {
     grid_department.statusInactiveDropdownCheck();
   });
 
-  it("02.08. Verify the active result is filtered correctly by the status dropdown.", function () {
+  it("02.10. Verify the active result is filtered correctly by the status dropdown.", function () {
     grid_department.statusActiveDropdownCheck();
   });
 
-  it("02.09. Verify the search returns correct results when searching by department name.", function () {
+  it("02.11. Verify the search returns correct results when searching by department name.", function () {
     grid_department.searchInDepartmentName();
   });
 
-  it("02.10. Verify the grid list resets successfully when the reset button is clicked on the department page.", function () {
+  it("02.12. Verify the grid list resets successfully when the reset button is clicked on the department page.", function () {
     grid_department.gridResetButtonCheck();
   });
 
-  it("02.11. Verify that the grid list is refreshed successfully when the refresh button is clicked on the department page.", function () {
+  it("02.13. Verify that the grid list is refreshed successfully when the refresh button is clicked on the department page.", function () {
     grid_department.gridRefreshButtonCheck();
   });
 
-  it("02.13. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("02.14. Verify check that the grid list content changes correctly from english to bangla.", function () {
     grid_department.gridLanguageSwitchCheck();
   });
 });
