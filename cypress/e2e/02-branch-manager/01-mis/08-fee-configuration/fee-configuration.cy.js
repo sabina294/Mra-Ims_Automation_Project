@@ -35,39 +35,47 @@ describe("08. Fee Configuration Module Test Cases ", function () {
     grid_fee_configuration.viewFeeConfiguration();
   });
 
-  it("08.04. Verify that the fee configuration forms edit mode can be toggled on and off all fields should be disabled or return to view-only mode.", function () {
+  it("08.04. Verify that clicking the go back button on the fee configuration view page redirects the user to the fee configuration list page.", function () {
+    grid_fee_configuration.viewGoBackButton();
+  });
+
+  it("08.05. Verify that the fee configuration forms edit mode can be toggled on and off all fields should be disabled or return to view-only mode.", function () {
     grid_fee_configuration.turnOnEditMode();
   });
 
-  it("08.05. Verify the fee configuration edit reset button functions correctly.", function () {
+  it("08.06. Verify the fee configuration edit reset button functions correctly.", function () {
     grid_fee_configuration.editResetButton();
   });
 
-  it("08.06. Verify that clicking the go back button on the fee configuration edit page redirects the user to the fee configuration list page.", function () {
+  it("08.07. Verify the fee configuration edit submit button functions correctly.", function () {
+    grid_fee_configuration.editSubmitButton();
+  });
+
+  it("08.08. Verify that clicking the go back button on the fee configuration edit page redirects the user to the fee configuration list page.", function () {
     grid_fee_configuration.editGoBackButton();
   });
 
-  it("08.07. Verify the user can filter inactive fee configurations using the status dropdown on the fee configuration list page.", function () {
+  it("08.09. Verify the user can filter inactive fee configurations using the status dropdown on the fee configuration list page.", function () {
     grid_fee_configuration.statusInactiveDropdownCheck();
   });
 
-  it("08.08. Verify the active result is filtered correctly by the status dropdown.", function () {
+  it("08.10. Verify the active result is filtered correctly by the status dropdown.", function () {
     grid_fee_configuration.statusActiveDropdownCheck();
   });
 
-  it("08.09. Verify the search returns correct results when searching by fee configuration name.", function () {
+  it("08.11. Verify the search returns correct results when searching by fee configuration name.", function () {
     grid_fee_configuration.searchInFeeConfigurationName();
   });
 
-  it("08.10. Verify the grid list resets successfully when the reset button is clicked on the fee configuration page.", function () {
+  it("08.12. Verify the grid list resets successfully when the reset button is clicked on the fee configuration page.", function () {
     grid_fee_configuration.gridResetButtonCheck();
   });
 
-  it("08.11. Verify that the grid list is refreshed successfully when the refresh button is clicked on the fee configuration page.", function () {
+  it("08.13. Verify that the grid list is refreshed successfully when the refresh button is clicked on the fee configuration page.", function () {
     grid_fee_configuration.gridRefreshButtonCheck();
   });
 
-  it("08.12. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("08.14. Verify check that the grid list content changes correctly from english to bangla.", function () {
     grid_fee_configuration.gridLanguageSwitchCheck();
   });
 });

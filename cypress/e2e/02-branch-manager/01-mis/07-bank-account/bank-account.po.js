@@ -250,9 +250,15 @@ class BankAccountCreation {
       cy.formController("search_text").type(baData.search);
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
-      cy.imsId("btn-go-back").click();
       cy.log("Successfully viewed the bank account list page");
     });
+  }
+
+  viewGoBackButton() {
+    cy.imsId("btn-go-back").click();
+
+    cy.log("Successfully view go back the bank account list page");
+
   }
 
   turnOffEditMode() {
@@ -267,7 +273,7 @@ class BankAccountCreation {
   editBankAccount() {
     cy.fixture(this.test_data).then((data) => {
       var baData = data.branchManager.createBankAccountFrom;
-       cy.imsId("btn-reset").click();
+      cy.imsId("btn-reset").click();
       cy.formController("search_text").type(baData.accNameEn);
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-edit").click();
@@ -297,7 +303,7 @@ class BankAccountCreation {
   editSubmitButton() {
     cy.fixture(this.test_data).then((data) => {
       var baData = data.branchManager.createBankAccountFrom;
-       cy.imsId("btn-reset").click();
+      cy.imsId("btn-reset").click();
       cy.formController("search_text").type(baData.search);
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-edit").click();
