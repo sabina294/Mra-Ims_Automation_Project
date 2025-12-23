@@ -19,34 +19,37 @@ class LoanFund {
       cy.formController("search_text").type(lfData.fundingOrgId);
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
-      cy.imsId("btn-go-back").click();
       cy.log("Successfully viewed the loan fund list page");
     });
+  }
+
+  viewGoBackButton() {
+    cy.imsId("btn-go-back").click();
+
+    cy.log("Successfully view go back the loan fund list page");
   }
 
   turnOnEditMode() {
     cy.imsId("toggle-action").first().click();
     cy.imsId("btn-table-action-view").click();
     cy.imsId("switch-button").click();
-    cy.imsId("btn-go-back").click();
 
     cy.log("Loan fund form Edit Mode toggled successfully");
   }
 
   editResetButton() {
-    cy.imsId("toggle-action").first().click();
-    cy.imsId("btn-table-action-view").click();
-    cy.imsId("switch-button").click();
     cy.imsId("btn-reset").click();
-    cy.imsId("btn-go-back").click();
+    cy.log("Successful clean displaying");
+  }
 
+
+  editSubmitButton() {
+    cy.imsId("btn-submit").click();
+    cy.imsId("btn-ok").click();
     cy.log("Successful clean displaying");
   }
 
   editGoBackButton() {
-    cy.imsId("toggle-action").first().click();
-    cy.imsId("btn-table-action-view").click();
-    cy.imsId("switch-button").click();
     cy.imsId("btn-go-back").click();
     cy.log("Successful edit go back button check.");
   }

@@ -35,39 +35,47 @@ describe("11. Loan Fund Module Test Cases", function () {
     grid_loan_fund.viewLoanFund();
   });
 
-  it("11.04. Verify that the loan fundforms edit mode can be toggled on and off all fields should be disabled or return to view-only mode.", function () {
+  it("11.04. Verify that clicking the go back button on the loan fund view page redirects the user to the loan fund list page.", function () {
+    grid_loan_fund.viewGoBackButton();
+  });
+
+  it("11.05. Verify that the loan fund forms edit mode can be toggled on and off all fields should be disabled or return to view-only mode.", function () {
     grid_loan_fund.turnOnEditMode();
   });
 
-  it("11.05. Verify the loan fundedit reset button functions correctly.", function () {
+  it("11.06. Verify the loan fundedit reset button functions correctly.", function () {
     grid_loan_fund.editResetButton();
   });
 
-  it("11.06. Verify that clicking the go back button on the loan fundedit page redirects the user to the loan fundlist page.", function () {
+  it("11.07. Verify the loan fund edit submit button functions correctly.", function () {
+    grid_loan_fund.editSubmitButton();
+  });
+
+  it("11.08. Verify that clicking the go back button on the loan fund edit page redirects the user to the loan fund list page.", function () {
     grid_loan_fund.editGoBackButton();
   });
 
-  it("11.07. Verify the user can filter inactive loan funds using the status dropdown on the loan fund list page.", function () {
+  it("11.09. Verify the user can filter inactive loan funds using the status dropdown on the loan fund list page.", function () {
     grid_loan_fund.statusInactiveDropdownCheck();
   });
 
-  it("11.08. Verify the active result is filtered correctly by the status dropdown.", function () {
+  it("11.10. Verify the active result is filtered correctly by the status dropdown.", function () {
     grid_loan_fund.statusActiveDropdownCheck();
   });
 
-  it("11.09. Verify the search returns correct results when searching by loan fund name.", function () {
+  it("11.11. Verify the search returns correct results when searching by loan fund name.", function () {
     grid_loan_fund.searchInLoanFundName();
   });
 
-  it("11.10. Verify the grid list resets successfully when the reset button is clicked on the loan fund page.", function () {
+  it("11.12. Verify the grid list resets successfully when the reset button is clicked on the loan fund page.", function () {
     grid_loan_fund.gridResetButtonCheck();
   });
 
-  it("11.11. Verify that the grid list is refreshed successfully when the refresh button is clicked on the loan fund page.", function () {
+  it("11.13. Verify that the grid list is refreshed successfully when the refresh button is clicked on the loan fund page.", function () {
     grid_loan_fund.gridRefreshButtonCheck();
   });
 
-  it("11.12. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("11.14. Verify check that the grid list content changes correctly from english to bangla.", function () {
     grid_loan_fund.gridLanguageSwitchCheck();
   });
 });

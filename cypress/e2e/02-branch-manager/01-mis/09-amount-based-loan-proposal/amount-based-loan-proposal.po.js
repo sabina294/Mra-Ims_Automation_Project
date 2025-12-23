@@ -22,9 +22,15 @@ class AmountBasedLoanProposalApproval {
       cy.formController("search_text").type(ablpaData.roleName);
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
-      cy.imsId("btn-go-back").click();
       cy.log("Successfully viewed the amount based loan list page");
     });
+  }
+
+  viewGoBackButton() {
+    cy.imsId("btn-go-back").click();
+
+    cy.log("Successfully view go back the amount based loan list page");
+
   }
 
   turnOnEditMode() {

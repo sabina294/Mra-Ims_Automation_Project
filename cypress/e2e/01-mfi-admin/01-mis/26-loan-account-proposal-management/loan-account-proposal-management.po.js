@@ -41,7 +41,7 @@ class LoanAccountProposalManagementCreation {
       cy.wait(1000);
       cy.formController("expected_disburse_dt").click();
       cy.wait(3000);
-      cy.contains("20").click({ force: true });
+      cy.contains("22").click({ force: true });
       cy.wait(2000);
 
       cy.imsId("btn-submit").click();

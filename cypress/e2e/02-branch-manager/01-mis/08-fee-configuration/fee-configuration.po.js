@@ -34,7 +34,6 @@ class FeeConfiguration {
 
   }
 
-
   turnOnEditMode() {
     cy.imsId("toggle-action").first().click();
     cy.imsId("btn-table-action-view").click();

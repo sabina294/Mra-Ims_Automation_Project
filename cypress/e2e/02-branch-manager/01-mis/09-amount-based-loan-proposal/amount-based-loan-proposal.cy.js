@@ -1,6 +1,6 @@
 // npm run auto
 // npm run dev
-// npx cypress run --spec cypress/e2e/02-branch-manager/01-mis/09-amount-based-loan-proposal/amount-based-loan-proposal.cy --browser chrome --headed
+// npx cypress run --spec cypress/e2e/02-branch-manager/01-mis/09-amount-based-loan-proposal/amount-based-loan-proposal.cy.js --browser chrome --headed
 
 import "cypress-file-upload";
 import { grid_amount_based_loan } from "./amount-based-loan-proposal.po";
@@ -35,39 +35,43 @@ describe("09. Amount based loan proposal approval Module Test Cases ", function 
     grid_amount_based_loan.viewAmountBasedLoanProposal();
   });
 
-  it("09.04. Verify that the amount based loan forms edit mode can be toggled on and off all fields should be disabled or return to view-only mode.", function () {
+  it("09.04. Verify that clicking the go back button on the amount based loan view page redirects the user to the amount based loan list page.", function () {
+    grid_amount_based_loan.viewGoBackButton();
+  });
+
+  it("09.05. Verify that the amount based loan forms edit mode can be toggled on and off all fields should be disabled or return to view-only mode.", function () {
     grid_amount_based_loan.turnOnEditMode();
   });
 
-  it("09.05. Verify the amount based loan edit reset button functions correctly.", function () {
+  it("09.06. Verify the amount based loan edit reset button functions correctly.", function () {
     grid_amount_based_loan.editResetButton();
   });
 
-  it("09.06. Verify that clicking the go back button on the amount based loan edit page redirects the user to the amount based loan list page.", function () {
+  it("09.07. Verify that clicking the go back button on the amount based loan edit page redirects the user to the amount based loan list page.", function () {
     grid_amount_based_loan.editGoBackButton();
   });
 
-  it("09.07. Verify the user can filter inactive amount based loans using the status dropdown on the amount based loan list page.", function () {
+  it("09.08. Verify the user can filter inactive amount based loans using the status dropdown on the amount based loan list page.", function () {
     grid_amount_based_loan.statusInactiveDropdownCheck();
   });
 
-  it("09.08. Verify the active result is filtered correctly by the status dropdown.", function () {
+  it("09.09. Verify the active result is filtered correctly by the status dropdown.", function () {
     grid_amount_based_loan.statusActiveDropdownCheck();
   });
 
-  it("09.09. Verify the search returns correct results when searching by amount based loan name.", function () {
+  it("09.10. Verify the search returns correct results when searching by amount based loan name.", function () {
     grid_amount_based_loan.searchInRoleName();
   });
 
-  it("09.10. Verify the grid list resets successfully when the reset button is clicked on the amount based loan page.", function () {
+  it("09.11. Verify the grid list resets successfully when the reset button is clicked on the amount based loan page.", function () {
     grid_amount_based_loan.gridResetButtonCheck();
   });
 
-  it("09.11. Verify that the grid list is refreshed successfully when the refresh button is clicked on the amount based loan page.", function () {
+  it("09.12. Verify that the grid list is refreshed successfully when the refresh button is clicked on the amount based loan page.", function () {
     grid_amount_based_loan.gridRefreshButtonCheck();
   });
 
-  it("09.12. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("09.13. Verify check that the grid list content changes correctly from english to bangla.", function () {
     grid_amount_based_loan.gridLanguageSwitchCheck();
   });
 });
