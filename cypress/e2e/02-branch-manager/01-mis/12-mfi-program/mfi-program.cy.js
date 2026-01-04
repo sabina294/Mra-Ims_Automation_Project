@@ -35,7 +35,6 @@ describe("12. MFI program Module Test Cases", function () {
     grid_mfi_program.viewMfiProgram();
   });
 
-
   it("12.04. Verify that clicking the go back button on the mfi program view page redirects the user to the mfi program list page.", function () {
     grid_mfi_program.viewGoBackButton();
   });

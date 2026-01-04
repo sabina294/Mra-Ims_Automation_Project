@@ -21,10 +21,14 @@ class SamityClose {
       cy.imsId("btn-table-action-view").click();
 
       cy.get("app-mfi-mis").contains(scData.samityNameEn).and("be.visible");
-
-      cy.imsId("btn-go-back").click();
       cy.log("Successfully viewed the Samity close list page");
     });
+  }
+
+   viewGoBackButton() {
+    cy.imsId("btn-go-back").click();
+
+    cy.log("Successfully view go back the Samity close list page");
   }
 
   samityClose() {

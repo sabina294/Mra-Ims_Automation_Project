@@ -43,39 +43,43 @@ describe("15. Rejected Employee Module Test Cases", function () {
         create_rejected_employee.viewEmployeeManagement();
     });
 
-    it("15.06. Verify the rejected employee edit reset button functions correctly.", function () {
+    it("15.06. Verify that clicking the go back button on the rejected employee view page redirects the user to the rejected employee list page.", function () {
+        create_rejected_employee.viewGoBackButton();
+    });
+
+    it("15.07. Verify the rejected employee edit reset button functions correctly.", function () {
         create_rejected_employee.editResetButton();
     });
 
-    it("15.07. Verify that clicking the go back button on the rejected employee edit page redirects the user to the rejected employee list page.", function () {
+    it("15.08. Verify that clicking the go back button on the rejected employee edit page redirects the user to the rejected employee list page.", function () {
         create_rejected_employee.editGoBackButton();
     });
 
-    it("15.08. Verify that the rejected employee information is updated with valid information.", function () {
+    it("15.09. Verify that the rejected employee information is updated with valid information.", function () {
         create_rejected_employee.editEmployeeManagement();
     });
 
-    it("15.09. Verify the user can filter inactive employee records using the status dropdown on the Rejected Employee List page.", function () {
+    it("15.10. Verify the user can filter inactive employee records using the status dropdown on the Rejected Employee List page.", function () {
         create_rejected_employee.statusInactiveDropdownCheck();
     });
 
-    it("15.10. Verify check if the filter for active results works correctly with the status dropdown.", function () {
+    it("15.11. Verify check if the filter for active results works correctly with the status dropdown.", function () {
         create_rejected_employee.statusActiveDropdownCheck();
     });
 
-    it("15.11. Verify that the search results are displayed correctly when searching by rejected employee name.", function () {
+    it("15.12. Verify that the search results are displayed correctly when searching by rejected employee name.", function () {
         create_rejected_employee.searchInEmployeeName();
     });
 
-    it("15.12. Verify the grid list resets successfully when the reset button is clicked on the rejected employee page.", function () {
+    it("15.13. Verify the grid list resets successfully when the reset button is clicked on the rejected employee page.", function () {
         create_rejected_employee.gridResetButtonCheck();
     });
 
-    it("15.13. Verify that the grid list is refreshed successfully when the refresh button is clicked on the rejected employee page.", function () {
+    it("15.14. Verify that the grid list is refreshed successfully when the refresh button is clicked on the rejected employee page.", function () {
         create_rejected_employee.gridRefreshButtonCheck();
     });
 
-    it("15.14. Verify check that the grid list content changes correctly from english to bangla.", function () {
+    it("15.15. Verify check that the grid list content changes correctly from english to bangla.", function () {
         create_rejected_employee.gridLanguageSwitchCheck();
     });
 });

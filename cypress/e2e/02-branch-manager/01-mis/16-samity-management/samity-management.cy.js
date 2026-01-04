@@ -43,23 +43,27 @@ describe("16. Samity management Module Test Cases", function () {
     create_samity_management.viewSamity();
   });
 
-  it("16.06. Verify the samity management edit reset button functions correctly.", function () {
+  it("16.06. Verify that clicking the go back button on the samity management view page redirects the user to the samity management list page.", function () {
+    create_samity_management.viewGoBackButton();
+  });
+
+  it("16.07. Verify the samity management edit reset button functions correctly.", function () {
     create_samity_management.editResetButton();
   });
 
-  it("16.07. Verify that clicking the go back button on the samity management edit page redirects the user to the samity management list page.", function () {
+  it("16.08. Verify that clicking the go back button on the samity management edit page redirects the user to the samity management list page.", function () {
     create_samity_management.editGoBackButton();
   });
 
-  it("16.08. Verify the user can filter inactive employee records using the status dropdown on the samity management List page.", function () {
+  it("16.09. Verify the user can filter inactive employee records using the status dropdown on the samity management List page.", function () {
     create_samity_management.statusInactiveDropdownCheck();
   });
 
-  it("16.09. Verify check if the filter for active results works correctly with the status dropdown.", function () {
+  it("16.10. Verify check if the filter for active results works correctly with the status dropdown.", function () {
     create_samity_management.statusActiveDropdownCheck();
   });
 
-  it("16.10. Verify that the search results are displayed correctly when searching by samity management name.", function () {
+  it("16.11. Verify that the search results are displayed correctly when searching by samity management name.", function () {
     create_samity_management.searchInSamityManagementName();
   });
 

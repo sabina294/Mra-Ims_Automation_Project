@@ -43,27 +43,39 @@ describe("17. Rejected Samity Module Test Cases", function () {
     create_rejected_samity.viewRejectedSamity();
   });
 
-  it("17.06. Verify the rejected samity edit reset button functions correctly.", function () {
+  it("17.06. Verify that clicking the go back button on the rejected samity view page redirects the user to the rejected samity list page.", function () {
+    create_rejected_samity.viewGoBackButton();
+  });
+
+  it("17.07. Verify the rejected samity edit reset button functions correctly.", function () {
     create_rejected_samity.editResetButton();
   });
 
-  it("17.07. Verify that clicking the go back button on the rejected samity edit page redirects the user to the rejected samity list page.", function () {
+  it("17.08. Verify the rejected samity edit reset button functions correctly.", function () {
+    create_rejected_samity.editDraftButton();
+  });
+
+  it("17.09. Verify the rejected samity edit reset button functions correctly.", function () {
+    create_rejected_samity.editSubmitButton();
+  });
+
+  it("17.10. Verify that clicking the go back button on the rejected samity edit page redirects the user to the rejected samity list page.", function () {
     create_rejected_samity.editGoBackButton();
   });
 
-  it("17.08. Verify that the search results are displayed correctly when searching by rejected samity name.", function () {
+  it("17.11. Verify that the search results are displayed correctly when searching by rejected samity name.", function () {
     create_rejected_samity.searchInRejectSamityName();
   });
 
-  it("17.09. Verify the grid list resets successfully when the reset button is clicked on the rejected samity page.", function () {
+  it("17.12. Verify the grid list resets successfully when the reset button is clicked on the rejected samity page.", function () {
     create_rejected_samity.gridResetButtonCheck();
   });
 
-  it("17.10. Verify that the grid list is refreshed successfully when the refresh button is clicked on the rejected samity page.", function () {
+  it("17.13. Verify that the grid list is refreshed successfully when the refresh button is clicked on the rejected samity page.", function () {
     create_rejected_samity.gridRefreshButtonCheck();
   });
 
-  it("17.11. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("17.14. Verify check that the grid list content changes correctly from english to bangla.", function () {
     create_rejected_samity.gridLanguageSwitchCheck();
   });
 });

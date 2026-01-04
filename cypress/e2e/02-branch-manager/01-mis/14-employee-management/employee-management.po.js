@@ -101,10 +101,14 @@ class EmployeeManagementCreation {
       cy.formController("search_text").type(emData.empNameEn);
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
-
-      cy.imsId("btn-go-back").click();
       cy.log("Successfully viewed the employee management list page");
     });
+  }
+
+  viewGoBackButton() {
+    cy.imsId("btn-go-back").click();
+
+    cy.log("Successfully view go back the  employee management list page");
   }
 
   editResetButton() {
@@ -135,15 +139,15 @@ class EmployeeManagementCreation {
 
   editEmployeeManagement() {
     cy.fixture(this.test_data).then((data) => {
-    var emData = data.branchManager.createEmpMangFrom;
-    cy.imsId("btn-reset").click();
-    cy.formController("search_text").type(emData.empNameEn);
-    cy.imsId("toggle-action").first().click();
-    cy.imsId("btn-table-action-edit").click();
-    cy.imsId("btn-submit").click();
-    cy.imsId("btn-yes").click();
-    cy.imsId("btn-ok").click();
-    cy.log("Employee Management updated successfully");
+      var emData = data.branchManager.createEmpMangFrom;
+      cy.imsId("btn-reset").click();
+      cy.formController("search_text").type(emData.empNameEn);
+      cy.imsId("toggle-action").first().click();
+      cy.imsId("btn-table-action-edit").click();
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-yes").click();
+      cy.imsId("btn-ok").click();
+      cy.log("Employee Management updated successfully");
     });
   }
 
@@ -206,14 +210,14 @@ class EmployeeManagementCreation {
   }
 
   gridCheckboxLockButtonCheck() {
-    // cy.imsId("btn-lock").click();
-    // cy.log("Checkbox lock button should be clickable and functional.");
+    cy.imsId("btn-lock").click();
+    cy.log("Checkbox lock button should be clickable and functional.");
   }
 
   gridCheckboxUnlockButtonCheck() {
-    // cy.imsId("row-checkbox-9").click();
-    // cy.imsId("btn-unlock").click();
-    // cy.log("Checkbox unlock button should be clickable and functional.");
+    cy.imsId("row-checkbox-9").click();
+    cy.imsId("btn-unlock").click();
+    cy.log("Checkbox unlock button should be clickable and functional.");
   }
 
   createResetButtonCheck() {

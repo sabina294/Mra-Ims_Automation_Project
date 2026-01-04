@@ -157,7 +157,6 @@ class DivisionCreation {
 
   }
 
-
   editDivision() {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId("toggle-action").first().click();

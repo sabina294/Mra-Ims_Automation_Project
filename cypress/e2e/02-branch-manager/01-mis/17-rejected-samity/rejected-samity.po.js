@@ -79,26 +79,45 @@ class RejectedSamity {
       // cy.formController("search_text").type(rsData.samityNameEn);
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
-      cy.imsId("btn-go-back").click();
       cy.log("Successfully viewed the samity list page");
     });
   }
 
-  editResetButton() {
-    // cy.fixture(this.test_data).then((data) => {
-    //   var rsData = data.branchManager.rejectedSamityFrom;
-    //   // cy.formController("search_text").type(rsData.samityNameEn);
-    //   cy.imsId("toggle-action").first().click();
-    //   cy.wait(1000);
-    //   cy.imsId("btn-mis-table-action-edit").click();
-    //   cy.imsId("btn-reset").click();
-    //   cy.log("Successful clean displaying");
-    // });
+  viewGoBackButton() {
+    cy.imsId("btn-go-back").click();
+
+    cy.log("Successfully view go back the rejected samity list page");
   }
 
+  editResetButton() {
+    cy.fixture(this.test_data).then((data) => {
+      var rsData = data.branchManager.rejectedSamityFrom;
+      // cy.formController("search_text").type(rsData.samityNameEn);
+      cy.imsId("toggle-action").first().click();
+      cy.wait(1000);
+      cy.imsId("btn-mis-table-action-edit").click();
+      cy.imsId("btn-reset").click();
+      cy.log("Successful clean displaying");
+    });
+  }
+
+  editSubmitButton() {
+    cy.imsId("btn-submit").click();
+    cy.imsId("btn-ok").click();
+
+    cy.log("Successful submit validation check.");
+  }
+
+  editDraftButton() {
+    cy.imsId("btn-draft").click();
+    cy.imsId("btn-ok").click();
+
+    cy.log("Successful draft button validation check.");
+  }
+  
   editGoBackButton() {
-    // cy.imsId("btn-go-back").click();
-    // cy.log("Successful edit go back button check.");
+    cy.imsId("btn-go-back").click();
+    cy.log("Successful edit go back button check.");
   }
 
   searchInRejectSamityName() {

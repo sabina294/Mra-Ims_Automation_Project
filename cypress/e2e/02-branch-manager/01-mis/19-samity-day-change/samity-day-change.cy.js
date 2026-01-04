@@ -35,43 +35,47 @@ describe("19. Samity Day Change Module Test Cases", function () {
     samity_day_change.viewSamityDayChange();
   });
 
-  it("19.04. Verify new day change with valid information by MFI-Admin role", function () {
+  it("19.04. Verify that clicking the go back button on the samity day change view page redirects the user to the samity day change list page.", function () {
+    samity_day_change.viewGoBackButton();
+  });
+
+  it("19.05. Verify new day change with valid information", function () {
     samity_day_change.samityDayChange();
   });
 
-  it("19.05. Verify mfi-admin to successfully approve an samity day change record after creation.", function () {
+  it("19.06. Verify mfi-admin to successfully approve an samity day change record after creation.", function () {
     samity_day_change.approveSamityDayChange();
   });
 
-  it("19.06. Verify the user can filter inactive employee records using the status dropdown on the samity day change List page.", function () {
+  it("19.07. Verify the user can filter inactive employee records using the status dropdown on the samity day change List page.", function () {
     samity_day_change.statusInactiveDropdownCheck();
   });
 
-  it("19.07. Verify check if the filter for active results works correctly with the status dropdown.", function () {
+  it("19.08. Verify check if the filter for active results works correctly with the status dropdown.", function () {
     samity_day_change.statusActiveDropdownCheck();
   });
 
-  it("19.08. Verify that the search results are displayed correctly when searching by samity day change name.", function () {
+  it("19.09. Verify that the search results are displayed correctly when searching by samity day change name.", function () {
     samity_day_change.searchInSamityDayChangeName();
   });
 
-  it("19.09. Verify the grid list resets successfully when the reset button is clicked on the samity day change page.", function () {
+  it("19.10. Verify the grid list resets successfully when the reset button is clicked on the samity day change page.", function () {
     samity_day_change.gridResetButtonCheck();
   });
 
-  it("19.10. Verify that the grid list is refreshed successfully when the refresh button is clicked on the samity day change page.", function () {
+  it("19.11. Verify that the grid list is refreshed successfully when the refresh button is clicked on the samity day change page.", function () {
     samity_day_change.gridRefreshButtonCheck();
   });
 
-  it("19.11. Verify display the grid list successfully when the Draft button on is clicked on the samity day change page", function () {
+  it("19.12. Verify display the grid list successfully when the Draft button on is clicked on the samity day change page", function () {
     samity_day_change.gridDraftButton();
   });
 
-  it("19.12. Verify display the grid list successfully when the Draft button off is clicked on the samity day change page", function () {
+  it("19.13. Verify display the grid list successfully when the Draft button off is clicked on the samity day change page", function () {
     samity_day_change.gridDraftButtonOff();
   });
 
-  it("19.13 Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("19.14. Verify check that the grid list content changes correctly from english to bangla.", function () {
     samity_day_change.gridLanguageSwitchCheck();
   });
 });
