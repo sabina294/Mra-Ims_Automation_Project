@@ -8,11 +8,50 @@ class MemberSamityTransfer {
     });
   }
 
+    gridDraftButton() {
+    cy.imsId("btn-draft-on").click();
+    cy.log("Draft button should be clickable and functional.");
+  }
+
+  gridDraftButtonOff() {
+    cy.imsId("btn-draft-on").click();
+    cy.log("Draft button should be clickable and functional.");
+  }
+
   viewMemberSamityTransfer() {
     cy.imsId("toggle-action").first().click();
     cy.imsId("btn-table-action-view").click();
-    cy.imsId("btn-go-back").click();
     cy.log("Successfully viewed the member samity transfer list page");
+  }
+
+  viewGoBackButton() {
+    cy.imsId("btn-go-back").click();
+
+    cy.log("Successfully view go back the member samity transfer list page");
+  }
+
+  transferResetButton() {
+    cy.imsId("toggle-action").first().click();
+    cy.imsId("btn-mis-table-action-transfer").click();
+    cy.imsId("btn-reset").click();
+    cy.log("Successfully member samity transfer reset button");
+  }
+
+  transferSubmitButton() {
+    cy.imsId("btn-submit").click();
+    cy.imsId("btn-ok").click();
+    cy.log("Successfully member samity transfer submit button");
+  }
+
+  transferApproveButton() {
+    cy.imsId("btn-approve").click();
+    cy.imsId("btn-ok").click();
+    cy.log("Successfully member samity transfer approve button");
+  }
+
+  transferGoBackButton() {
+    cy.imsId("btn-go-back").click();
+    cy.log("Successfully member samity transfer go back button");
   }
 
   newSamityTransfer() {
@@ -35,19 +74,19 @@ class MemberSamityTransfer {
   }
 
   approveSamityTransfer() {
-    // cy.fixture(this.test_data).then((data) => {
-    //   var smData = data.branchManager.samityChangeFrom;
-    //   cy.imsId("menu-my-task").click();
-    //   cy.imsId("submenu-awaiting-member-samity-transfer").click();
-    //   cy.imsId("toggle-action").first().click();
-    //   cy.imsId("btn-table-action-view").click();
-    //   cy.imsId("btn-lock").click();
-    //   cy.imsId("btn-approve").click();
-    //   cy.imsId("btn-submit").click();
-    //   cy.imsId("btn-ok").click();
+    cy.fixture(this.test_data).then((data) => {
+      var smData = data.branchManager.samityChangeFrom;
+      cy.imsId("menu-my-task").click();
+      cy.imsId("submenu-awaiting-member-samity-transfer").click();
+      cy.imsId("toggle-action").first().click();
+      cy.imsId("btn-table-action-view").click();
+      cy.imsId("btn-lock").click();
+      cy.imsId("btn-approve").click();
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-ok").click();
 
-    //   cy.log("Successfully approve member samity transfer");
-    // });
+      cy.log("Successfully approve member samity transfer");
+    });
   }
 
   statusInactiveDropdownCheck() {
@@ -87,16 +126,6 @@ class MemberSamityTransfer {
     cy.log(
       "successfully refresh page  displayed the grid list of the samity field officer change "
     );
-  }
-
-  gridDraftButton() {
-    cy.imsId("btn-draft-on").click();
-    cy.log("Draft button should be clickable and functional.");
-  }
-
-  gridDraftButtonOff() {
-    cy.imsId("btn-draft-on").click();
-    cy.log("Draft button should be clickable and functional.");
   }
 
   gridLanguageSwitchCheck() {

@@ -101,9 +101,14 @@ class MemberManagementCreation {
       cy.formController("search_text").type(memData.memberNameEn);
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
-      cy.imsId("btn-go-back").click();
       cy.log("Successfully viewed the member management list page");
     });
+  }
+
+  viewGoBackButton() {
+    cy.imsId("btn-go-back").click();
+
+    cy.log("Successfully view go back the Member management list page");
   }
 
   editMemberManagement() {

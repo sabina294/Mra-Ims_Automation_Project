@@ -63,7 +63,6 @@ class RrejectedMember {
     });
   }
 
-
   myTaskRejectedMember() {
     cy.fixture(this.test_data).then((data) => {
       var rejmData = data.branchManager.createRejectedMemberFrom;
@@ -112,20 +111,14 @@ class RrejectedMember {
       cy.imsId("toggle-action").first().click();
 
       cy.imsId("btn-table-action-view").click();
-
-      cy.imsId("btn-go-back").click();
       cy.log("Successfully viewed the rejected member list page");
     });
   }
 
-  statusOfficeDropdownCheck() {
-    cy.fixture(this.test_data).then((data) => {
-      var rejmData = data.branchManager.createRejectedMemberFrom;
-      cy.formController("office_id")
-        .type(rejmData.SelectOffice)
-        .type("{enter}");
-      cy.log("Rejected member status office dropdown check successfully");
-    });
+  viewGoBackButton() {
+    cy.imsId("btn-go-back").click();
+
+    cy.log("Successfully view go back the rejected member list page");
   }
 
   editResetButton() {
