@@ -23,10 +23,38 @@ class SavingsProductCreation {
       cy.imsId("btn-table-action-view").click();
 
       cy.get("app-mfi-mis").contains(spData.intersetTerms).and("be.visible");
-
-      cy.imsId("btn-go-back").click();
       cy.log("Successfully viewed the savings product list page");
     });
+  }
+
+  viewGoBackButton() {
+    cy.imsId("btn-go-back").click();
+
+    cy.log("Successfully view go back the savings product list page");
+  }
+
+  turnOnEditMode() {
+    cy.imsId("toggle-action").first().click();
+    cy.imsId("btn-table-action-view").click();
+    cy.imsId("switch-button").click();
+
+    cy.log("Savings product form Edit Mode toggled successfully");
+  }
+
+  editResetButton() {
+    cy.imsId("btn-reset").click();
+    cy.log("Successful clean displaying");
+  }
+
+  editSubmitButton() {
+    cy.imsId("btn-submit").click();
+    cy.imsId("btn-ok").click();
+    cy.log("Successful clean displaying");
+  }
+
+  editGoBackButton() {
+    cy.imsId("btn-go-back").click();
+    cy.log("Successful edit go back button check.");
   }
 
   statusInactiveDropdownCheck() {

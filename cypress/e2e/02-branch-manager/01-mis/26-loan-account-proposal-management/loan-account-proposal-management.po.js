@@ -71,6 +71,24 @@ class LoanAccountProposalManagementCreation {
     );
   }
 
+  viewLoanAccountProposalManagement() {
+    cy.fixture(this.test_data).then((data) => {
+      var lapData = data.branchManager.createLoanAccountFrom;
+      cy.formController("search_text").type(lapData.memberNameEn);
+      cy.imsId("toggle-action").first().click();
+      cy.imsId("btn-table-action-view").click();
+      cy.log(
+        "Successfully viewed the Loan account proposal Management list page"
+      );
+    });
+  }
+
+  viewGoBackButton() {
+    cy.imsId("btn-go-back").click();
+
+    cy.log("Successfully view go back the loan account proposal management list page");
+  }
+
   editResetButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId("toggle-action").first().click();
@@ -95,21 +113,6 @@ class LoanAccountProposalManagementCreation {
     cy.imsId("btn-table-action-edit").click();
     cy.imsId("btn-go-back").click();
     cy.log("Successful go back button check.");
-  }
-
-
-  viewLoanAccountProposalManagement() {
-    cy.fixture(this.test_data).then((data) => {
-      var lapData = data.branchManager.createLoanAccountFrom;
-      cy.formController("search_text").type(lapData.memberNameEn);
-      cy.imsId("toggle-action").first().click();
-      cy.imsId("btn-table-action-view").click();
-
-      cy.imsId("btn-go-back").click();
-      cy.log(
-        "Successfully viewed the Loan account proposal Management list page"
-      );
-    });
   }
 
   editLoanAccountProposalManagement() {
@@ -175,22 +178,22 @@ class LoanAccountProposalManagementCreation {
   }
 
   gridCheckboxCheck() {
-    cy.imsId("row-checkbox-2").click();
+    cy.imsId("row-checkbox-4").click();
     cy.imsId("btn-reset").click();
     cy.log("Checkbox should be clickable and functional.");
   }
 
   gridCheckboxLockButtonCheck() {
-    // cy.imsId("btn-lock").click();
-    // cy.log("Checkbox lock button should be clickable and functional.");
+    cy.imsId("btn-lock").click();
+    cy.log("Checkbox lock button should be clickable and functional.");
   }
 
   gridCheckboxUnlockButtonCheck() {
-    // cy.imsId("row-checkbox-2").click();
-    // cy.imsId("btn-unlock").click();
-    // cy.log("Checkbox unlock button should be clickable and functional.");
+    cy.imsId("row-checkbox-4").click();
+    cy.imsId("btn-unlock").click();
+    cy.log("Checkbox unlock button should be clickable and functional.");
   }
-  
+
   gridDraftButton() {
     cy.imsId("btn-draft-on").click();
     cy.log("Draft button should be clickable and functional.");
@@ -203,25 +206,19 @@ class LoanAccountProposalManagementCreation {
 
   createResetButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var lapData = data.branchManager.createLoanAccountFrom;
       cy.imsId("btn-add-new").click();
-      cy.formController("samity_id").type(lapData.samity).type("{enter}");
       cy.imsId("btn-reset").click();
-      cy.imsId("btn-go-back").click();
       cy.log("Successful reset button clean displaying.");
     });
   }
 
   createValidationMessageCheck() {
-    cy.imsId("btn-add-new").click();
-    // cy.imsId("btn-submit").click();
-    // cy.imsId("btn-ok").click();
-    cy.imsId("btn-go-back").click();
+    cy.imsId("btn-submit").click();
+    cy.imsId("btn-ok").click();
     cy.log("Successful validation message displaying.");
   }
 
   createGoBackButtonCheck() {
-    cy.imsId("btn-add-new").click();
     cy.imsId("btn-go-back").click();
     cy.log("Successful go back button check.");
   }

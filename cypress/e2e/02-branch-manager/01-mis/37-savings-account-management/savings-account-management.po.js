@@ -14,7 +14,7 @@ class SavingsAccountManagementCreation {
   actionButtonCheck() {
     cy.imsId("toggle-action").first().click();
     cy.log(
-      "Action button clicked successfully on the savings account  management list page."
+      "Action button clicked successfully on the savings account management list page."
     );
   }
 
@@ -26,9 +26,14 @@ class SavingsAccountManagementCreation {
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
 
-      cy.imsId("btn-go-back").click();
-      cy.log("Successfully viewed the savings account  management list page");
+      cy.log("Successfully viewed the savings account management list page");
     });
+  }
+
+  viewGoBackButton() {
+    cy.imsId("btn-go-back").click();
+
+    cy.log("Successfully view go back the savings account management list page");
   }
 
   statusInactiveDropdownCheck() {

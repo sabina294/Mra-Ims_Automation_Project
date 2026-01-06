@@ -35,27 +35,47 @@ describe("35. Savings Product Module Test Cases", function () {
     create_savings_product.viewSavingsProduct();
   });
 
-  it("35.04. Verify the user can filter inactive savings products using the status dropdown on the savings product list page.", function () {
+  it("35.04. Verify that clicking the go back button on the Savings Product view page redirects the user to the Savings Product list page.", function () {
+    create_savings_product.viewGoBackButton();
+  });
+
+  it("35.05. Verify that the savings product forms edit mode can be toggled on and off all fields should be disabled or return to view-only mode.", function () {
+    create_savings_product.turnOnEditMode();
+  });
+
+  it("35.06. Verify the savings product edit reset button functions correctly.", function () {
+    create_savings_product.editResetButton();
+  });
+
+  it("35.07. Verify the savings product edit submit button functions correctly.", function () {
+    create_savings_product.editSubmitButton();
+  });
+
+  it("35.08. Verify that clicking the go back button on the savings product edit page redirects the user to the savings product list page.", function () {
+    create_savings_product.editGoBackButton();
+  });
+
+  it("35.09. Verify the user can filter inactive savings products using the status dropdown on the savings product list page.", function () {
     create_savings_product.statusInactiveDropdownCheck();
   });
 
-  it("35.05. Verify the active result is filtered correctly by the status dropdown.", function () {
+  it("35.10. Verify the active result is filtered correctly by the status dropdown.", function () {
     create_savings_product.statusActiveDropdownCheck();
   });
 
-  it("35.06. Verify the search returns correct results when searching by savings product name.", function () {
+  it("35.11. Verify the search returns correct results when searching by savings product name.", function () {
     create_savings_product.searchInSavingsProductName();
   });
 
-  it("35.07. Verify the grid list resets successfully when the reset button is clicked on the savings product page.", function () {
+  it("35.12. Verify the grid list resets successfully when the reset button is clicked on the savings product page.", function () {
     create_savings_product.gridResetButtonCheck();
   });
 
-  it("35.08. Verify that the grid list is refreshed successfully when the refresh button is clicked on the savings product page.", function () {
+  it("35.13. Verify that the grid list is refreshed successfully when the refresh button is clicked on the savings product page.", function () {
     create_savings_product.gridRefreshButtonCheck();
   });
 
-  it("35.09. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("35.14. Verify check that the grid list content changes correctly from english to bangla.", function () {
     create_savings_product.gridLanguageSwitchCheck();
   });
 });

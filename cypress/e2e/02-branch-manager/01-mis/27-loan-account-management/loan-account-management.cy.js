@@ -32,30 +32,34 @@ describe("27. Loan Account Management Module Test Cases", function () {
   });
 
   it('27.03. Verify successful Loan Account Management  information View.', function () {
-      create_loan_account_management.viewLoanAccountManagement();
+    create_loan_account_management.viewLoanAccountManagement();
   });
 
-  it("27.04. Verify that the user can filter the inactive Loan Account Management s using the Status Dropdown on the Loan Account Management  List page.", function () {
+  it("27.04. Verify that clicking the go back button on the Loan Account Management  view page redirects the user to the Loan Account Management list page.", function () {
+    create_loan_account_management.viewGoBackButton();
+  });
+
+  it("27.05. Verify that the user can filter the inactive Loan Account Management s using the Status Dropdown on the Loan Account Management  List page.", function () {
     create_loan_account_management.statusInactiveDropdownCheck();
   });
 
-  it("27.05. Verify Filter Active Result by Status Dropdown", function () {
+  it("27.06. Verify Filter Active Result by Status Dropdown", function () {
     create_loan_account_management.statusActiveDropdownCheck();
   });
 
-  it("27.06. Verify Successful Search Result by Loan Account Management  Name", function () {
+  it("27.07. Verify Successful Search Result by Loan Account Management  Name", function () {
     create_loan_account_management.searchInLoanAccountName();
   });
 
-  it("27.07. Verify Successful Reset of Grid List Using the Reset Button on Loan Account Management  Page.", function () {
+  it("27.08. Verify Successful Reset of Grid List Using the Reset Button on Loan Account Management  Page.", function () {
     create_loan_account_management.gridResetButtonCheck();
   });
 
-  it("27.08 .Verify Successful Refresh of Grid List Using the Refresh Button on Loan Account Management  Page.", function () {
+  it("27.09. Verify Successful Refresh of Grid List Using the Refresh Button on Loan Account Management  Page.", function () {
     create_loan_account_management.gridRefreshButtonCheck();
   });
 
-  it("27.09. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("27.10. Verify check that the grid list content changes correctly from english to bangla.", function () {
     create_loan_account_management.gridLanguageSwitchCheck();
   });
 });
