@@ -27,29 +27,29 @@ describe("31. Loan Penalty Module Test Cases", function () {
     create_loan_penalty.gridLoanPenaltyListPage();
   });
 
-  it("31.02. Verify successful creation of a Loan penalty record by branch manager role", function () {
+  // it("31.02. Verify that the branch manager can successfully save a loan penalty record using the Save button.", function () {
+  //   create_loan_penalty.createSave();
+  // });
+
+  it("31.03. Verify that the branch manager can successfully add a loan penalty record using the add icon button.", function () {
+    create_loan_penalty.createAddIconPenalty();
+  });
+
+  it("31.04. Verify that the branch manager can successfully remove a loan penalty record using the remove icon button.", function () {
+    create_loan_penalty.createRemoveIconPenalty();
+  });
+
+  it("31.05. Verify successful creation of a Loan penalty record by branch manager role", function () {
     create_loan_penalty.createLoanPenalty();
   });
 
-  it("31.03. Verify that the branch manager can navigate back from the loan penalty record screen using the Go Back button.", function () {
+  it("31.06. Verify that the branch manager can navigate back from the loan penalty record screen using the Go Back button.", function () {
     create_loan_penalty.createGoBack();
   });
 
-  // it("31.04. Verify that the branch manager can successfully add a loan penalty record using the add icon button.", function () {
-  //   create_loan_penalty.createAddIconPenalty();
-  // });
-
-  // it("31.05. Verify that the branch manager can successfully remove a loan penalty record using the remove icon button.", function () {
-  //   create_loan_penalty.createRemoveIconPenalty();
-  // });
-
-  // it("31.06. Verify that the branch manager can successfully save a loan penalty record as a draft.", function () {
+  // it("31.07. Verify that the branch manager can successfully save a loan penalty record as a draft.", function () {
   //   create_loan_penalty.createSaveAsDraft();
   // });
-
-  it("31.07. Verify that the branch manager can successfully save a loan penalty record using the Save button.", function () {
-    create_loan_penalty.createSave();
-  });
 
   it("31.08. Verify successfully performs the action when the action button is clicked.", function () {
     create_loan_penalty.actionButtonCheck();

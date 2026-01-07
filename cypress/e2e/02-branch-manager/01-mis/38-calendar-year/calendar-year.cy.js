@@ -35,27 +35,31 @@ describe("38. Calendar Year Module Test Cases", function () {
     grid_calendar_year.viewCalendar();
   });
 
-  it("38.04. Verify that the search results are displayed correctly when searching by calendar year name.", function () {
+  it("38.04. Verify that clicking the go back button on the calendar year view page redirects the user to the calendar year list page.", function () {
+    grid_calendar_year.viewGoBackButton();
+  });
+
+  it("38.05. Verify that the search results are displayed correctly when searching by calendar year name.", function () {
     grid_calendar_year.searchCalendarStatus();
   });
 
-  it("38.05. Verify the grid list resets successfully when the reset button is clicked on the calendar year page.", function () {
+  it("38.06. Verify the grid list resets successfully when the reset button is clicked on the calendar year page.", function () {
     grid_calendar_year.gridResetButtonCheck();
   });
 
-  it("38.06. Verify that the grid list is refreshed successfully when the refresh button is clicked on the calendar year page.", function () {
+  it("38.07. Verify that the grid list is refreshed successfully when the refresh button is clicked on the calendar year page.", function () {
     grid_calendar_year.gridRefreshButtonCheck();
   });
 
-  it("38.06. Verify display the grid list successfully when the Draft button on is clicked on the calendar year page", function () {
+  it("38.08. Verify display the grid list successfully when the Draft button on is clicked on the calendar year page", function () {
     grid_calendar_year.gridDraftButton();
   });
 
-  it("38.07. Verify display the grid list successfully when the Draft button off is clicked on the calendar year page", function () {
+  it("38.09. Verify display the grid list successfully when the Draft button off is clicked on the calendar year page", function () {
     grid_calendar_year.gridDraftButtonOff();
   });
 
-  it("38.08. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("38.10. Verify check that the grid list content changes correctly from english to bangla.", function () {
     grid_calendar_year.gridLanguageSwitchCheck();
   });
 });

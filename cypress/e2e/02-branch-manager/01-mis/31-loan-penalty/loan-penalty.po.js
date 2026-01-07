@@ -7,6 +7,55 @@ class LoanPenalty {
       cy.log("Successfully Loan penalty list page.");
     });
   }
+
+   createSave() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("btn-add-new").click();
+
+      var lpData = data.branchManager.createLoanPenaltyFrom;
+      cy.formController("samity_id").type(lpData.selectSamity).type("{enter}");
+      cy.wait(2000);
+      cy.formController("member_id").type(lpData.selectMember).type("{enter}");
+      cy.wait(2000);
+      cy.formController("loan_account_id")
+        .type(lpData.selectLoanAccount)
+        .type("{enter}");
+      cy.wait(2000);
+      cy.imsId("loan-input-0").clear().type(lpData.penaltyAmount);
+      cy.wait(2000);
+      cy.imsId("btn-save").click();
+      cy.imsId("btn-ok").click();
+      cy.log("Successfully created Loan penalty");
+    });
+  }
+
+   createAddIconPenalty() {
+    cy.fixture(this.test_data).then((data) => {
+       cy.imsId("btn-add-new").click();
+      var lpData = data.branchManager.createLoanPenaltyFrom;
+      cy.formController("samity_id").type(lpData.selectSamity).type("{enter}");
+      cy.wait(2000);
+      cy.formController("member_id").type(lpData.selectMember).type("{enter}");
+      cy.wait(2000);
+      cy.formController("loan_account_id")
+        .type(lpData.selectLoanAccount)
+        .type("{enter}");
+      cy.wait(2000);
+      cy.imsId("loan-input-0").clear().type(lpData.penaltyAmount);
+      cy.wait(2000);
+      cy.imsId("btn-go-back").click();
+      cy.imsId("add-icon-button").click();
+      cy.log("Successfully created Loan penalty");
+    });
+  }
+
+  createRemoveIconPenalty() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("remove-icon-button").first().click();
+      cy.imsId("btn-go-back").click();
+    });
+  }
+
   createLoanPenalty() {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId("btn-add-new").click();
@@ -30,9 +79,9 @@ class LoanPenalty {
       cy.log("Successfully created Loan penalty");
     });
   }
-
-  createGoBack() {
-    cy.fixture(this.test_data).then((data) => {
+  
+   createGoBack() {
+      cy.fixture(this.test_data).then((data) => {
       cy.imsId("btn-add-new").click();
       var lpData = data.branchManager.createLoanPenaltyFrom;
       cy.formController("samity_id").type(lpData.selectSamity).type("{enter}");
@@ -44,23 +93,8 @@ class LoanPenalty {
         .type("{enter}");
       cy.wait(2000);
       cy.imsId("btn-go-back").click();
-      cy.log("Successfully created Loan penalty");
-    });
-  }
-
-
-  createAddIconPenalty() {
-    cy.fixture(this.test_data).then((data) => {
-      cy.imsId("add-icon-button").click();
-      cy.log("Successfully created Loan penalty");
-    });
-  }
-
-  createRemoveIconPenalty() {
-    cy.fixture(this.test_data).then((data) => {
-      cy.imsId("remove-icon-button").first().click();
-      cy.imsId("btn-go-back").click();
-    });
+      cy.log("Successfully go back Loan penalty");
+      });
   }
 
   createSaveAsDraft() {
@@ -77,31 +111,6 @@ class LoanPenalty {
       cy.wait(2000);
       cy.imsId("btn-draft").click();
       cy.imsId("btn-go-back").click();
-      cy.log("Successfully created Loan penalty");
-    });
-  }
-
-  createSave() {
-    cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-
-      var lpData = data.branchManager.createLoanPenaltyFrom;
-      cy.formController("samity_id").type(lpData.selectSamity).type("{enter}");
-      cy.wait(2000);
-      cy.formController("member_id").type(lpData.selectMember).type("{enter}");
-      cy.wait(2000);
-      cy.formController("loan_account_id")
-        .type(lpData.selectLoanAccount)
-        .type("{enter}");
-      cy.wait(2000);
-      cy.imsId("loan-input-0").clear().type(lpData.penaltyAmount);
-      cy.wait(2000);
-      cy.imsId("btn-save").click();
-      // cy.imsId("amount-input").type(lpData.amount);
-      // cy.wait(2000);
-      // cy.imsId("btn-save").click();
-      // cy.imsId("btn-yes").click();
-      // cy.imsId("btn-ok").click();
       cy.log("Successfully created Loan penalty");
     });
   }

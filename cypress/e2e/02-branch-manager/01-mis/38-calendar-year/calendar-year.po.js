@@ -22,10 +22,14 @@ class CalendarYear {
       cy.formController("search_text").type(cyData.search);
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
-
-      cy.imsId("btn-go-back").click();
       cy.log("Successfully viewed the Calendar Year list page");
     });
+  }
+
+  viewGoBackButton() {
+    cy.imsId("btn-go-back").click();
+
+    cy.log("Successfully view go back the Calendar Year list page");
   }
 
   searchCalendarStatus() {

@@ -917,7 +917,7 @@
       "selectMember": "2-1002 (Marjana Akter)",
       "selectLoanAccount": "AGRO-1020-106-1002-1",
       "selectRebate": "Full",
-      "rebateAmount": "50",
+      "Amount": "58,839",
       "search": "Marjana Akter",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
@@ -975,6 +975,10 @@
       "dayOfMonth": "5",
       "monthOfYear": "3",
       "messageSaveCalendar": "Mfi calendar year has been saved"
+    },
+    "calendarManagement": {
+      "year": "2025",
+      "month": "2025 - January"
     },
     "createHoliday": {
       "holidayType": "All",

@@ -27,7 +27,15 @@ describe("39. Calendar Management Module Test Cases", function () {
     grid_calendar_management.gridCalendarManagListPage();
   });
 
-  it("39.02. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  // it("39.02. Verify check if the filter for calendar year results works correctly with the year dropdown ", function () {
+  //   grid_calendar_management.calendarYearDropdownCheck();
+  // });
+
+  // it("39.03. Verify check if the filter for month results works correctly with the month dropdown ", function () {
+  //   grid_calendar_management.monthDropdownCheck();
+  // });
+
+  it("39.04. Verify check that the grid list content changes correctly from english to bangla.", function () {
     grid_calendar_management.gridLanguageSwitchCheck();
   });
 });

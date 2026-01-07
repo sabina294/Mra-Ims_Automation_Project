@@ -4,64 +4,117 @@ class LoanWaiver {
   gridLoanWaiverListPage() {
     cy.fixture(this.test_data).then((data) => {
       cy.selectMenu("menu-loan-account", "submenu-loan-waiver");
-      cy.log("Successfully Loan rebate list page.");
+      cy.log("Successfully Loan waiver list page.");
     });
   }
-  createLoanWaiver() {
+  createResetButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId("btn-add-new").click();
-      // cy.imsId('btn-submit').and('be.visible');
-
       var lwData = data.branchManager.createLoanWaiverFrom;
-      //   cy.formController("office_id").type(lwData.selectOffice).type("{enter}");
       cy.formController("samity_id").type(lwData.selectSamity).type("{enter}");
       cy.formController("member_id").type(lwData.selectMember).type("{enter}");
       cy.formController("loan_account_id")
         .type(lwData.selectLoanAccount)
         .type("{enter}");
       cy.wait(2000);
-      //   cy.formController("rebate_type")
-      //     .type(lwData.selectRebate)
-      //     .type("{enter}");
-      // cy.formController("rebate_amount").type(lwData.amount).type("{enter}");
-      // cy.formController("amount").type(lwData.inputAmount);
-      cy.imsId("btn-go-back").click();
+      cy.imsId("btn-reset").click();
+      cy.log("Successfully Loan waiver reset button.");
+    });
+  }
 
-      //   cy.imsId("btn-submit").click();
-      //   cy.imsId("btn-yes").click();
+  createValidationMessageCheck() {
+    cy.imsId("btn-submit").click();
+    cy.imsId("btn-ok").click();
+    cy.log("Successfully Loan waiver submit button.");
 
-      //   cy.get("app-confirmation-modal")
-      //     .contains(lwData.messageSaveLoanRebate)
-      //     .and("be.visible");
-      //   cy.imsId("btn-ok").click();
+  }
 
-      cy.log("Successfully created Loan rebate");
+  createDraftButtonCheck() {
+    cy.imsId("btn-draft").click();
+    cy.imsId("btn-ok").click();
+    cy.log("Successfully Loan waiver draft button.");
+  }
+
+  createAddIconButtonCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("btn-add-new").click();
+      var lwData = data.branchManager.createLoanWaiverFrom;
+      cy.formController("samity_id").type(lwData.selectSamity).type("{enter}");
+      cy.formController("member_id").type(lwData.selectMember).type("{enter}");
+      cy.formController("loan_account_id")
+        .type(lwData.selectLoanAccount)
+        .type("{enter}");
+      cy.wait(2000);
+      cy.imsId("btn-add-method-0").click();
+      cy.log("Successfully Loan waiver add icon button.");
+    });
+  }
+
+  createRemoveIconButtonCheck() {
+    cy.imsId("btn-remove-method-0").click();
+    cy.log("Successfully Loan waiver remove icon button.");
+  }
+
+  createGoBackButtonCheck() {
+    cy.imsId("btn-go-back").click();
+    cy.imsId("btn-go-back").click();
+    cy.log("Successfully Loan waiver go back button.");
+  }
+
+  createLoanWaiver() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("btn-add-new").click();
+      var lwData = data.branchManager.createLoanWaiverFrom;
+      cy.formController("samity_id").type(lwData.selectSamity).type("{enter}");
+      cy.formController("member_id").type(lwData.selectMember).type("{enter}");
+      cy.formController("loan_account_id")
+        .type(lwData.selectLoanAccount)
+        .type("{enter}");
+      cy.wait(2000);
+      cy.formController("rebate_type")
+        .type(lwData.selectRebate)
+        .type("{enter}");
+      cy.formController("rebate_amount").type(lwData.amount).type("{enter}");
+      cy.formController("amount").type(lwData.inputAmount);
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-yes").click();
+
+      cy.get("app-confirmation-modal")
+        .contains(lwData.messageSaveLoanRebate)
+        .and("be.visible");
+      cy.imsId("btn-ok").click();
+
+      cy.log("Successfully created Loan waiver");
     });
   }
 
   actionButtonCheck() {
-    // cy.imsId("toggle-action").first().click();
-    // cy.log("Action button clicked successfully on the loan welfare list page.");
+    cy.imsId("toggle-action").first().click();
+    cy.log("Action button clicked successfully on the loan welfare list page.");
   }
 
   viewLoanWaiver() {
     cy.fixture(this.test_data).then((data) => {
-      // var lwData = data.branchManager.createLoanWaiverFrom;
-      // cy.formController("search_text").type(lwData.search);
-      // cy.imsId("toggle-action").first().click();
-      // cy.imsId("btn-table-action-view").click();
-
-      // cy.imsId("btn-go-back").click();
-      // cy.log("Successfully viewed the Loan rebate list page");
+      var lwData = data.branchManager.createLoanWaiverFrom;
+      cy.formController("search_text").type(lwData.search);
+      cy.imsId("toggle-action").first().click();
+      cy.imsId("btn-table-action-view").click();
+      cy.log("Successfully viewed the Loan waiver list page");
     });
+  }
+
+  viewGoBackButton() {
+    cy.imsId("btn-go-back").click();
+
+    cy.log("Successfully view go back the Loan waiver list page");
   }
 
   statusInactiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       var lwData = data.branchManager.createLoanWaiverFrom;
-      //   cy.imsId("btn-reset").click();
+      cy.imsId("btn-reset").click();
       cy.formController("status").type(lwData.selectStatus).type("{enter}");
-      cy.log("Loan rebate status inactive dropdown check successfully");
+      cy.log("Loan waiver status inactive dropdown check successfully");
     });
   }
 
@@ -69,16 +122,16 @@ class LoanWaiver {
     cy.fixture(this.test_data).then((data) => {
       var lwData = data.branchManager.createLoanWaiverFrom;
       cy.formController("status").type(lwData.statusSelect).type("{enter}");
-      cy.log("Loan rebate  status active dropdown check successfully");
+      cy.log("Loan waiver  status active dropdown check successfully");
     });
   }
 
   searchInLoanWaivereName() {
     cy.fixture(this.test_data).then((data) => {
       var lwData = data.branchManager.createLoanWaiverFrom;
-      //   cy.imsId("btn-reset").click();
+      cy.imsId("btn-reset").click();
       cy.formController("search_text").type(lwData.search);
-      cy.log("Successfully search in the Loan rebate");
+      cy.log("Successfully search in the Loan waiver");
     });
   }
 
@@ -90,92 +143,9 @@ class LoanWaiver {
   gridRefreshButtonCheck() {
     cy.imsId("btn-refresh").click();
     cy.log(
-      "successfully refresh page  displayed the grid list of the Loan rebate "
+      "successfully refresh page  displayed the grid list of the Loan waiver "
     );
   }
-
-  createResetButtonCheck() {
-    cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      var lwData = data.branchManager.createLoanWaiverFrom;
-      cy.formController("samity_id").type(lwData.selectSamity).type("{enter}");
-      cy.formController("member_id").type(lwData.selectMember).type("{enter}");
-      cy.formController("loan_account_id")
-        .type(lwData.selectLoanAccount)
-        .type("{enter}");
-      cy.wait(2000);
-      cy.imsId("btn-go-back").click();
-    });
-  }
-
-  createValidationMessageCheck() {
-    cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      var lwData = data.branchManager.createLoanWaiverFrom;
-      cy.formController("samity_id").type(lwData.selectSamity).type("{enter}");
-      cy.formController("member_id").type(lwData.selectMember).type("{enter}");
-      cy.formController("loan_account_id")
-        .type(lwData.selectLoanAccount)
-        .type("{enter}");
-      cy.wait(2000);
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-ok").click();
-      cy.imsId("btn-go-back").click();
-    });
-  }
-
-  createDraftButtonCheck() {
-    cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      var lwData = data.branchManager.createLoanWaiverFrom;
-      cy.formController("samity_id").type(lwData.selectSamity).type("{enter}");
-      cy.formController("member_id").type(lwData.selectMember).type("{enter}");
-      cy.formController("loan_account_id")
-        .type(lwData.selectLoanAccount)
-        .type("{enter}");
-      cy.wait(2000);
-      cy.imsId("btn-draft").click();
-      cy.imsId("btn-ok").click();
-      cy.imsId("btn-go-back").click();
-    });
-  }
-
-  createGoBackButtonCheck() {
-    cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      var lwData = data.branchManager.createLoanWaiverFrom;
-      cy.formController("samity_id").type(lwData.selectSamity).type("{enter}");
-      cy.formController("member_id").type(lwData.selectMember).type("{enter}");
-      cy.formController("loan_account_id")
-        .type(lwData.selectLoanAccount)
-        .type("{enter}");
-      cy.wait(2000);
-      cy.imsId("btn-add-method-0").click();
-      cy.imsId("btn-go-back").click();
-    });
-  }
-
-   createAddIconButtonCheck() {
-    cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      var lwData = data.branchManager.createLoanWaiverFrom;
-      cy.formController("samity_id").type(lwData.selectSamity).type("{enter}");
-      cy.formController("member_id").type(lwData.selectMember).type("{enter}");
-      cy.formController("loan_account_id")
-        .type(lwData.selectLoanAccount)
-        .type("{enter}");
-      cy.wait(2000);
-      cy.imsId("btn-add-method-0").click();
-    });
-  }
-
-  createRemoveIconButtonCheck() {
-    cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-remove-method-1").click();
-      cy.imsId("btn-go-back").click();
-    });
-  }
-
 
   gridLanguageSwitchCheck() {
     cy.imsId("profile-menu").click();
