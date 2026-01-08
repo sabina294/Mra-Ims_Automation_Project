@@ -31,9 +31,13 @@ class FundTransferCreation {
         cy.fixture(this.test_data).then((data) => {
             cy.imsId("toggle-action").first().click();
             cy.imsId("btn-table-action-view").click();
-            cy.imsId("btn-go-back").click();
             cy.log("Successfully viewed the fund transfer page");
         });
+    }
+
+    viewGoBackfund() {
+        cy.imsId("btn-go-back").click();
+        cy.log("Successfully go back the fund transfer page");
     }
 
     verifyFundTransfer() {

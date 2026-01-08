@@ -8,6 +8,11 @@ class TrialBalance {
         });
     }
 
+     gridRefreshButtonCheck() {
+        cy.imsId("btn-reload").click();
+        cy.log("Successful refresh displaying.");
+    }
+    
     gridLanguageSwitchCheck() {
         cy.imsId("profile-menu").click();
         cy.imsId("btn-lang-bangla").click();

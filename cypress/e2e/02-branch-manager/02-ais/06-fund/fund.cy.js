@@ -37,47 +37,51 @@ describe("06 Fund Module Test Cases", function () {
         create_fund_Transfer.actionButtonCheck();
     });
 
-    it("05.04. Verify the user can view all relevant details of a fund, including its associated fields.", function () {
+    it("06.04. Verify the user can view all relevant details of a fund, including its associated fields.", function () {
         create_fund_Transfer.viewFund();
     });
 
-    it("05.05. Verify the user can verify relevant details of a fund, including its associated fields.", function () {
+    it("06.05. Verify the user can go back of a fund, including its associated fields.", function () {
+        create_fund_Transfer.viewGoBackfund();
+    });
+
+    it("06.06. Verify the user can verify relevant details of a fund, including its associated fields.", function () {
         create_fund_Transfer.verifyFundTransfer();
     });
 
-    it("06.06. Verify the user can filter inactive funds using the status dropdown on the fund list page.", function () {
+    it("06.07. Verify the user can filter inactive funds using the status dropdown on the fund list page.", function () {
         create_fund_Transfer.statusInactiveDropdownCheck();
     });
 
-    it("06.07. Verify the active result is filtered correctly by the status dropdown.", function () {
+    it("06.08. Verify the active result is filtered correctly by the status dropdown.", function () {
         create_fund_Transfer.statusActiveDropdownCheck();
     });
 
-    it("06.08. Verify the search returns correct results when searching by fund name.", function () {
+    it("06.09. Verify the search returns correct results when searching by fund name.", function () {
         create_fund_Transfer.searchName();
     });
 
-    it("06.09. Verify the grid list resets successfully when the reset button is clicked on the fund page.", function () {
+    it("06.10. Verify the grid list resets successfully when the reset button is clicked on the fund page.", function () {
         create_fund_Transfer.gridResetButtonCheck();
     });
 
-    it("06.10. Verify that the grid list is refreshed successfully when the refresh button is clicked on the fund page.", function () {
+    it("06.11. Verify that the grid list is refreshed successfully when the refresh button is clicked on the fund page.", function () {
         create_fund_Transfer.gridRefreshButtonCheck();
     });
 
-    it("06.11. Verify the fund creation reset button clears all entered input values.", function () {
+    it("06.12. Verify the fund creation reset button clears all entered input values.", function () {
         create_fund_Transfer.createResetButtonCheck();
     });
 
-    it("06.12. Verify validation messages appear for required fields when the submit button is clicked with empty inputs.", function () {
+    it("06.13. Verify validation messages appear for required fields when the submit button is clicked with empty inputs.", function () {
         create_fund_Transfer.createValidationMessageCheck();
     });
 
-    it("06.13. Verify that clicking the go back button on the fund create page redirects the user to the fund list page.", function () {
+    it("06.14. Verify that clicking the go back button on the fund create page redirects the user to the fund list page.", function () {
         create_fund_Transfer.createGoBackButtonCheck();
     });
 
-    it("06.14. Verify check that the grid list content changes correctly from english to bangla.", function () {
+    it("06.15. Verify check that the grid list content changes correctly from english to bangla.", function () {
         create_fund_Transfer.gridLanguageSwitchCheck();
     });
 

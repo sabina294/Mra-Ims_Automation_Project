@@ -14,7 +14,6 @@ class ManualJournalCreation {
             cy.imsId("btn-add-new").click();
             cy.imsId("btn-delete").first().click();
 
-
             cy.formController("reference").type(mjData.reference);
             // First description field
             cy.formController("description").eq(0).type(mjData.description);
@@ -47,19 +46,16 @@ class ManualJournalCreation {
             cy.formController("search_text").type(mjData.nameEn);
             cy.imsId("toggle-action").first().click();
             cy.imsId("btn-table-action-view").click();
-            cy.imsId("btn-go-back").click();
             cy.log("Successfully viewed the manual journal page");
         });
     }
 
     goBackManualJournal() {
-        cy.imsId("toggle-action").first().click();
-        cy.imsId("btn-table-action-view").click();
         cy.imsId("btn-go-back").click();
         cy.log("Successfully go back the manual journal page");
     }
 
-    statusInactiveDropdownCheck() {
+    statusApproveDropdownCheck() {
         cy.fixture(this.test_data).then((data) => {
             var mjData = data.branchManager.manualJournal;
             cy.imsId("btn-reset").click();
@@ -68,7 +64,7 @@ class ManualJournalCreation {
         });
     }
 
-    statusActiveDropdownCheck() {
+    statusRejectedDropdownCheck() {
         cy.fixture(this.test_data).then((data) => {
             var mjData = data.branchManager.manualJournal;
             cy.formController("status").type(mjData.statusSelect).type("{enter}");
@@ -131,7 +127,7 @@ class ManualJournalCreation {
         cy.imsId("btn-go-back").click();
         cy.log("Successful delete button check.");
     }
-    
+
     gridLanguageSwitchCheck() {
         cy.imsId("profile-menu").click();
         cy.imsId("btn-lang-bangla").click();

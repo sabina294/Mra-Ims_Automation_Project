@@ -46,11 +46,11 @@ describe("04. Manual Journal Module Test Cases", function () {
     });
 
     it("04.06. Verify the user can filter inactive manual journals using the status dropdown on the manual journal list page.", function () {
-        create_manual_journal.statusInactiveDropdownCheck();
+        create_manual_journal.statusApproveDropdownCheck();
     });
 
     it("04.07. Verify the active result is filtered correctly by the status dropdown.", function () {
-        create_manual_journal.statusActiveDropdownCheck();
+        create_manual_journal.statusRejectedDropdownCheck();
     });
 
     it("04.08. Verify the search returns correct results when searching by manual journal name.", function () {
@@ -81,7 +81,7 @@ describe("04. Manual Journal Module Test Cases", function () {
         create_manual_journal.createDeleteButtonCheck();
     });
 
-    it("04.15. Verify that clicking the Add New Journal Details button on the Manual Journal Create page redirects the user to the Manual Journal List page.", function () {
+    it("04.15. Verify that clicking the add New Journal Details button on the Manual Journal Create page redirects the user to the Manual Journal List page.", function () {
         create_manual_journal.createNewJournalDetailsButtonCheck();
     });
 

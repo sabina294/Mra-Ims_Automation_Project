@@ -1,7 +1,7 @@
 class AutoVoucher {
     test_data = Cypress.env("TEST_DATA");
 
-    gridreceivedVoucherListPage() {
+    gridAutoVoucherListPage() {
         cy.fixture(this.test_data).then((data) => {
             cy.selectMenu("menu-voucher", "submenu-auto-voucher");
             cy.log("Successfully auto voucher list page.");

@@ -45,8 +45,12 @@ class ReceivedVoucherCreation {
 
      detailsViewCheck() {
         cy.imsId("btn-table-action-view").click();
-        cy.imsId("btn-go-back").click();
         cy.log("Details view button clicked successfully on the received voucher list page.");
+    }
+
+    viewGoBackReceivedVoucher() {
+        cy.imsId("btn-go-back").eq(0).click();
+        cy.log("Successfully go back the received voucher page");
     }
 
     statusInactiveDropdownCheck() {
@@ -90,36 +94,30 @@ class ReceivedVoucherCreation {
     createResetButtonCheck() {
         cy.imsId("btn-add-new").click();
         cy.imsId("btn-reset").click();
-        cy.imsId("btn-go-back").click();
         cy.log("Successful reset button clean displaying.");
     }
 
     createValidationMessageCheck() {
-        cy.imsId("btn-add-new").click();
         cy.imsId("btn-submit").click();
         cy.imsId("btn-ok").click();
-        cy.imsId("btn-go-back").click();
         cy.log("Successful validation message displaying.");
     }
 
     createGoBackButtonCheck() {
-        cy.imsId("btn-add-new").click();
-        cy.imsId("btn-go-back").click();
+        cy.imsId("btn-go-back").eq(1).click();
         cy.log("Successful go back button check.");
     }
 
     createNewJournalDetailsButtonCheck() {
-        cy.imsId("btn-add-new").click();
-        cy.imsId("btn-add-icon").click();
-        cy.imsId("btn-go-back").click();
+        cy.imsId("btn-add-new").eq(0).click();
+        cy.imsId("btn-add-icon").eq(0).click();
         cy.log("Successful delete button check.");
     }
 
     createDeleteButtonCheck() {
-        cy.imsId("btn-add-new").click();
-        cy.imsId("btn-add-icon").click();
-        cy.imsId("btn-remove-icon").eq(1).click();
-        cy.imsId("btn-go-back").click();
+        cy.imsId("btn-remove-icon").eq(0).click();
+        cy.wait(1000);
+        cy.imsId("btn-go-back").eq(1).click();
         cy.log("Successful delete button check.");
     }
 

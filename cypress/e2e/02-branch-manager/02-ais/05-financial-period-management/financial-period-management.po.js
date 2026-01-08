@@ -13,23 +13,30 @@ class FinancialPeriodManagementCreation {
         cy.log("Action button clicked successfully on the financial period management list page.");
     }
 
-
     viewFinancialPeriod() {
         cy.fixture(this.test_data).then((data) => {
             cy.imsId("toggle-action").first().click();
             cy.imsId("btn-table-action-view").click();
-            cy.imsId("btn-go-back").click();
             cy.log("Successfully viewed the financial period management page");
         });
     }
 
+    goBackFinancialPeriod() {
+        cy.imsId("btn-go-back").eq(0).click();
+        cy.log("Successfully go back the financial period management page");
+    }
+
+    closeFinancialPeriod() {
+        cy.fixture(this.test_data).then((data) => {
+            cy.imsId("toggle-action").first().click();
+            cy.imsId("btn-table-action-close").click();
+            cy.log("Successfully closed the financial period management page");
+        });
+    }
+
     closeGoBackButtonCheck() {
-        // cy.fixture(this.test_data).then((data) => {
-        //     cy.imsId("toggle-action").first().click();
-        //     cy.imsId("btn-table-action-close").click();
-        //     cy.imsId("btn-go-back").click();
-        //     cy.log("Successfully go back the financial period management page");
-        // });
+        cy.imsId("btn-go-back").eq(1).click();
+        cy.log("Successfully go back the financial period management page");
     }
 
     statusInactiveDropdownCheck() {

@@ -37,51 +37,55 @@ describe("08 Received Voucher Module Test Cases", function () {
         create_received_voucher.actionButtonCheck();
     });
 
-    // it("08.04. Verify successfully performs the details when the view button is clicked.", function () {
-    //     create_received_voucher.detailsViewCheck();
-    // });
+    it("08.04. Verify successfully performs the details when the view button is clicked.", function () {
+        create_received_voucher.detailsViewCheck();
+    });
 
-    it("08.05. Verify the user can filter inactive received vouchers using the status dropdown on the received voucher list page.", function () {
+    it("08.05. Verify the user can go back of a received voucher, including its associated fields.", function () {
+        create_received_voucher.viewGoBackReceivedVoucher();
+    });
+
+    it("08.06. Verify the user can filter inactive received vouchers using the status dropdown on the received voucher list page.", function () {
         create_received_voucher.statusInactiveDropdownCheck();
     });
 
-    it("08.06. Verify the active result is filtered correctly by the status dropdown.", function () {
+    it("08.07. Verify the active result is filtered correctly by the status dropdown.", function () {
         create_received_voucher.statusActiveDropdownCheck();
     });
 
-    it("08.07. Verify the search returns correct results when searching by received voucher name.", function () {
+    it("08.08. Verify the search returns correct results when searching by received voucher name.", function () {
         create_received_voucher.searchName();
     });
 
-    it("08.08. Verify the grid list resets successfully when the reset button is clicked on the received voucher page.", function () {
+    it("08.09. Verify the grid list resets successfully when the reset button is clicked on the received voucher page.", function () {
         create_received_voucher.gridResetButtonCheck();
     });
 
-    it("08.09. Verify that the grid list is refreshed successfully when the refresh button is clicked on the received voucher page.", function () {
+    it("08.10. Verify that the grid list is refreshed successfully when the refresh button is clicked on the received voucher page.", function () {
         create_received_voucher.gridRefreshButtonCheck();
     });
 
-    it("08.10. Verify the received voucher creation reset button clears all entered input values.", function () {
+    it("08.11. Verify the received voucher creation reset button clears all entered input values.", function () {
         create_received_voucher.createResetButtonCheck();
     });
 
-    it("08.11. Verify validation messages appear for required fields when the submit button is clicked with empty inputs.", function () {
+    it("08.12. Verify validation messages appear for required fields when the submit button is clicked with empty inputs.", function () {
         create_received_voucher.createValidationMessageCheck();
     });
 
-    it("08.12. Verify that clicking the go back button on the received voucher create page redirects the user to the received voucher list page.", function () {
+    it("08.13. Verify that clicking the go back button on the received voucher create page redirects the user to the received voucher list page.", function () {
         create_received_voucher.createGoBackButtonCheck();
     });
 
-    it("08.13. Verify that clicking the Add New Journal Details button on the received voucher Create page redirects the user to the received voucher List page.", function () {
+    it("08.14. Verify that clicking the Add New Journal Details button on the received voucher Create page redirects the user to the received voucher List page.", function () {
         create_received_voucher.createNewJournalDetailsButtonCheck();
     });
 
-    it("08.14. Verify that clicking the delete button on the received voucher create page redirects the user to the received voucher list page.", function () {
+    it("08.15. Verify that clicking the delete button on the received voucher create page redirects the user to the received voucher list page.", function () {
         create_received_voucher.createDeleteButtonCheck();
     });
 
-    it("08.15. Verify check that the grid list content changes correctly from english to bangla.", function () {
+    it("08.16. Verify check that the grid list content changes correctly from english to bangla.", function () {
         create_received_voucher.gridLanguageSwitchCheck();
     });
 

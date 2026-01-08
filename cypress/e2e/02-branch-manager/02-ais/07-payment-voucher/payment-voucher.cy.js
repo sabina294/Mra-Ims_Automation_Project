@@ -37,53 +37,55 @@ describe("07 Payment Voucher Module Test Cases", function () {
         create_payment_voucher.actionButtonCheck();
     });
 
-    // it("07.04. Verify successfully performs the details when the view button is clicked.", function () {
-    //     create_payment_voucher.detailsViewCheck();
-    // });
+    it("07.04. Verify successfully performs the details when the view button is clicked.", function () {
+        create_payment_voucher.detailsViewCheck();
+    });
 
-    it("07.05. Verify the user can filter inactive payment vouchers using the status dropdown on the payment voucher list page.", function () {
+    it("07.05. Verify the user can go back of a payment voucher, including its associated fields.", function () {
+        create_payment_voucher.viewGoBackPaymentVoucher();
+    });
+
+    it("07.06. Verify the user can filter inactive payment vouchers using the status dropdown on the payment voucher list page.", function () {
         create_payment_voucher.statusInactiveDropdownCheck();
     });
 
-    it("07.06. Verify the active result is filtered correctly by the status dropdown.", function () {
+    it("07.07. Verify the active result is filtered correctly by the status dropdown.", function () {
         create_payment_voucher.statusActiveDropdownCheck();
     });
 
-    it("07.07. Verify the search returns correct results when searching by payment voucher name.", function () {
+    it("07.08. Verify the search returns correct results when searching by payment voucher name.", function () {
         create_payment_voucher.searchName();
     });
 
-    it("07.08. Verify the grid list resets successfully when the reset button is clicked on the payment voucher page.", function () {
+    it("07.09. Verify the grid list resets successfully when the reset button is clicked on the payment voucher page.", function () {
         create_payment_voucher.gridResetButtonCheck();
     });
 
-    it("07.09. Verify that the grid list is refreshed successfully when the refresh button is clicked on the payment voucher page.", function () {
+    it("07.10. Verify that the grid list is refreshed successfully when the refresh button is clicked on the payment voucher page.", function () {
         create_payment_voucher.gridRefreshButtonCheck();
     });
 
-    it("07.10. Verify the payment voucher creation reset button clears all entered input values.", function () {
+    it("07.11. Verify the payment voucher creation reset button clears all entered input values.", function () {
         create_payment_voucher.createResetButtonCheck();
     });
 
-    it("07.11. Verify validation messages appear for required fields when the submit button is clicked with empty inputs.", function () {
+    it("07.12. Verify validation messages appear for required fields when the submit button is clicked with empty inputs.", function () {
         create_payment_voucher.createValidationMessageCheck();
     });
 
-    it("07.12. Verify that clicking the go back button on the payment voucher create page redirects the user to the payment voucher list page.", function () {
+    it("07.13. Verify that clicking the go back button on the payment voucher create page redirects the user to the payment voucher list page.", function () {
         create_payment_voucher.createGoBackButtonCheck();
     });
 
-    it("07.13. Verify that clicking the Add New Journal Details button on the Manual Journal Create page redirects the user to the Manual Journal List page.", function () {
+    it("07.14. Verify that clicking the Add New Journal Details button on the Manual Journal Create page redirects the user to the Manual Journal List page.", function () {
         create_payment_voucher.createNewJournalDetailsButtonCheck();
     });
 
-    it("07.14. Verify that clicking the delete button on the manual journal create page redirects the user to the manual journal list page.", function () {
+    it("07.15. Verify that clicking the delete button on the manual journal create page redirects the user to the manual journal list page.", function () {
         create_payment_voucher.createDeleteButtonCheck();
     });
 
-    it("07.15. Verify check that the grid list content changes correctly from english to bangla.", function () {
+    it("07.16. Verify check that the grid list content changes correctly from english to bangla.", function () {
         create_payment_voucher.gridLanguageSwitchCheck();
     });
-
-
 });

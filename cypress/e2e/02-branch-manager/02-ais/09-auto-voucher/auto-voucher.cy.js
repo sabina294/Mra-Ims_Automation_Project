@@ -26,7 +26,7 @@ describe("09 Auto Voucher Module Test Cases", function () {
     });
 
     it("09.01. Verify the auto voucher list page loads correctly.", function () {
-        grid_auto_voucher.gridreceivedVoucherListPage();
+        grid_auto_voucher.gridAutoVoucherListPage();
     });
 
     it("09.02. Verify the user can filter inactive auto vouchers using the status dropdown on the auto voucher list page.", function () {

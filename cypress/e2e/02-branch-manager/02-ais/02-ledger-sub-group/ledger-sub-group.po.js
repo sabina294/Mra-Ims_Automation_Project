@@ -115,7 +115,6 @@ class LedgerSubGroupCreation {
         cy.log("Successful submit button check");
     }
 
-
     statusInactiveDropdownCheck() {
         cy.fixture(this.test_data).then((data) => {
             var lsgData = data.branchManager.ledgerSubGroup;
@@ -130,6 +129,15 @@ class LedgerSubGroupCreation {
             var lsgData = data.branchManager.ledgerSubGroup;
             cy.formController("status").type(lsgData.statusSelect).type("{enter}");
             cy.log("ledger sub group status active dropdown check successfully");
+        });
+    }
+
+    ledgerGroupId() {
+        cy.fixture(this.test_data).then((data) => {
+            var lsgData = data.branchManager.ledgerSubGroup;
+            cy.imsId("btn-reset").click();
+            cy.formController("ledger_group").type(lsgData.ledgerGroupId);
+            cy.log("Successfully filter in the ledger sub group");
         });
     }
 
@@ -167,7 +175,7 @@ class LedgerSubGroupCreation {
 
 
     gridLedgerSubGroupDropdown() {
-          cy.fixture(this.test_data).then((data) => {
+        cy.fixture(this.test_data).then((data) => {
             var lsgData = data.branchManager.ledgerSubGroup;
             cy.formController("ledger_group").click().type(lsgData.ledgerGroupId).type("{enter}");
         });

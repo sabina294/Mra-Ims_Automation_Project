@@ -29,11 +29,15 @@ describe("12. General Ledger Module Test Cases", function () {
         create_general_ledger.gridGeneralLedgerListPage();
     });
 
-    it("12.02. Verify check that the grid list content changes correctly from english to bangla.", function () {
+    it("12.02. Verify that the grid list is refreshed successfully when the refresh button is clicked on the general ledger page.", function () {
+        create_general_ledger.gridRefreshButtonCheck();
+    });
+
+    it("12.03. Verify check that the grid list content changes correctly from english to bangla.", function () {
         create_general_ledger.gridLanguageSwitchCheck();
     });
 
-    it("12.03. Verify that clicking the go back button on the General Ledger grid page redirects the user to the General Ledger list page.", function () {
+    it("12.04. Verify that clicking the go back button on the General Ledger grid page redirects the user to the General Ledger list page.", function () {
         create_general_ledger.gridGoBackButtonCheck();
     });
 
