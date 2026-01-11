@@ -39,7 +39,7 @@ npm init -y
 ### 4. Install cypress
 
 Cypress is a powerful JavaScript-based end-to-end testing framework designed for testing web applications. It provides a comprehensive testing environment that enables you to write, execute, and debug tests in real-time. By running directly in the browser, Cypress offers faster test execution and a more intuitive debugging experience compared to other testing frameworks.
-The current version I am using is Cypress `v14.3.3`. To install or update to the latest version, open your preferred terminal and run the following command:
+The current version I am using is Cypress `v14.5.4`. To install or update to the latest version, open your preferred terminal and run the following command:
 
 ```sh
 npm install cypress --save-dev

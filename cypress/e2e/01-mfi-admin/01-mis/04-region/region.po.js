@@ -112,10 +112,14 @@ class RegionCreation {
       cy.imsId("btn-table-action-view").click();
 
       cy.get("app-mfi-mis").contains(regData.nameEn).and("be.visible");
-
-      cy.imsId("btn-go-back").click();
       cy.log("Successfully viewed the region list page");
     });
+  }
+  
+   viewGoBackButton() {
+    cy.imsId("btn-go-back").click();
+    cy.log("Successfully view go back the region list page");
+
   }
 
   turnOffEditMode() {

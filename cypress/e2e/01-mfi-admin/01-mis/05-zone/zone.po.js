@@ -136,10 +136,14 @@ class ZoneCreation {
       cy.imsId("btn-table-action-view").click();
 
       cy.get("app-mfi-mis").contains(zoData.nameEn).and("be.visible");
-
-      cy.imsId("btn-go-back").click();
       cy.log("Successfully viewed the zone list page");
     });
+  }
+
+  viewGoBackButton() {
+    cy.imsId("btn-go-back").click();
+    cy.log("Successfully view go back the zone list page");
+
   }
 
   turnOffEditMode() {

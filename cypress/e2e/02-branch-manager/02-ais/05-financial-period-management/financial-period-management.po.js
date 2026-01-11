@@ -35,7 +35,7 @@ class FinancialPeriodManagementCreation {
     }
 
     closeGoBackButtonCheck() {
-        cy.imsId("btn-go-back").eq(1).click();
+        cy.imsId("btn-go-back").click();
         cy.log("Successfully go back the financial period management page");
     }
 

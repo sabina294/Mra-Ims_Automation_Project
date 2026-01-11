@@ -49,7 +49,7 @@ class ReceivedVoucherCreation {
     }
 
     viewGoBackReceivedVoucher() {
-        cy.imsId("btn-go-back").eq(0).click();
+        cy.imsId("btn-go-back").click();
         cy.log("Successfully go back the received voucher page");
     }
 
@@ -90,7 +90,6 @@ class ReceivedVoucherCreation {
         );
     }
 
-
     createResetButtonCheck() {
         cy.imsId("btn-add-new").click();
         cy.imsId("btn-reset").click();
@@ -104,23 +103,21 @@ class ReceivedVoucherCreation {
     }
 
     createGoBackButtonCheck() {
-        cy.imsId("btn-go-back").eq(1).click();
+        cy.imsId("btn-go-back").click();
         cy.log("Successful go back button check.");
     }
 
     createNewJournalDetailsButtonCheck() {
-        cy.imsId("btn-add-new").eq(0).click();
-        cy.imsId("btn-add-icon").eq(0).click();
-        cy.log("Successful delete button check.");
+        cy.imsId("btn-add-new").click();
+        cy.imsId("btn-add-icon-0").click();
+        cy.log("Successful add button check.");
     }
 
     createDeleteButtonCheck() {
-        cy.imsId("btn-remove-icon").eq(0).click();
-        cy.wait(1000);
-        cy.imsId("btn-go-back").eq(1).click();
+        cy.imsId("btn-remove-icon-1").click();
+        cy.imsId("btn-go-back").click();
         cy.log("Successful delete button check.");
     }
-
 
     gridLanguageSwitchCheck() {
         cy.imsId("profile-menu").click();

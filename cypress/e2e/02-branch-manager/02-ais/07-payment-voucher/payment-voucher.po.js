@@ -106,19 +106,19 @@ class PaymentVoucherCreation {
     }
 
     createGoBackButtonCheck() {
-        cy.imsId("btn-go-back").eq(0).click();
+        cy.imsId("btn-go-back").click();
         cy.log("Successful go back button check.");
     }
 
     createNewJournalDetailsButtonCheck() {
         cy.imsId("btn-add-new").click();
-        cy.imsId("btn-add-icon").click();
-        cy.log("Successful delete button check.");
+        cy.imsId("btn-add-icon-0").click();
+        cy.log("Successful add button check.");
     }
 
     createDeleteButtonCheck() {        
-        cy.imsId("btn-remove-icon").eq(1).click();
-        cy.imsId("btn-go-back").eq(1).click();
+        cy.imsId("btn-remove-icon-1").click();
+        cy.imsId("btn-go-back").click();
         cy.log("Successful delete button check.");
     }
 

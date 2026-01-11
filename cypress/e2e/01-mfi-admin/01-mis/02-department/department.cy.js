@@ -52,59 +52,63 @@ describe("02. Department Module Test Cases", function () {
     create_department.viewDepartment();
   });
 
-  it("02.08. Verify that the department forms edit mode can be toggled on and off all fields should be disabled or return to view-only mode.", function () {
+  it("02.08. Verify that clicking the go back button on the department view page redirects the user to the department list page.", function () {
+    create_department.viewGoBackButton();
+  });
+
+  it("02.09. Verify that the department forms edit mode can be toggled on and off all fields should be disabled or return to view-only mode.", function () {
     create_department.turnOffEditMode();
   });
 
-  it("02.09. Verify the department name and description can be edited successfully.", function () {
+  it("02.10. Verify the department name and description can be edited successfully.", function () {
     create_department.editDepartment();
   });
 
-  it("02.10. Verify the department edit reset button functions correctly.", function () {
+  it("02.11. Verify the department edit reset button functions correctly.", function () {
     create_department.editResetButton();
   });
 
-  it("02.11. Verify the department edit submit button functions correctly.", function () {
+  it("02.12. Verify the department edit submit button functions correctly.", function () {
     create_department.editSubmitButton();
   });
 
-  it("02.12. Verify that clicking the go back button on the department edit page redirects the user to the department list page.", function () {
+  it("02.13. Verify that clicking the go back button on the department edit page redirects the user to the department list page.", function () {
     create_department.editGoBackButton();
   });
 
-  it("02.13. Verify the user can filter inactive departments using the status dropdown on the department list page.", function () {
+  it("02.14. Verify the user can filter inactive departments using the status dropdown on the department list page.", function () {
     create_department.statusInactiveDropdownCheck();
   });
 
-  it("02.14. Verify the active result is filtered correctly by the status dropdown.", function () {
+  it("02.15. Verify the active result is filtered correctly by the status dropdown.", function () {
     create_department.statusActiveDropdownCheck();
   });
 
-  it("02.15. Verify the search returns correct results when searching by department name.", function () {
+  it("02.16. Verify the search returns correct results when searching by department name.", function () {
     create_department.searchInDepartmentName();
   });
 
-  it("02.16. Verify the grid list resets successfully when the reset button is clicked on the department page.", function () {
+  it("02.17. Verify the grid list resets successfully when the reset button is clicked on the department page.", function () {
     create_department.gridResetButtonCheck();
   });
 
-  it("02.17. Verify that the grid list is refreshed successfully when the refresh button is clicked on the department page.", function () {
+  it("02.18. Verify that the grid list is refreshed successfully when the refresh button is clicked on the department page.", function () {
     create_department.gridRefreshButtonCheck();
   });
 
-  it("02.18. Verify the department creation reset button clears all entered input values.", function () {
+  it("02.19. Verify the department creation reset button clears all entered input values.", function () {
     create_department.createResetButtonCheck();
   });
 
-  it("02.19. Verify validation messages appear for required fields when the submit button is clicked with empty inputs.", function () {
+  it("02.20. Verify validation messages appear for required fields when the submit button is clicked with empty inputs.", function () {
     create_department.createValidationMessageCheck();
   });
 
-  it("02.20. Verify that clicking the go back button on the department create page redirects the user to the department list page.", function () {
+  it("02.21. Verify that clicking the go back button on the department create page redirects the user to the department list page.", function () {
     create_department.createGoBackButtonCheck();
   });
 
-  it("02.21. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("02.22. Verify check that the grid list content changes correctly from english to bangla.", function () {
     create_department.gridLanguageSwitchCheck();
   });
 });
