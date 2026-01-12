@@ -55,59 +55,63 @@ describe("10. Funding-organizations Module Test Cases ", function () {
     create_funding_organization.viewFundingOrganization();
   });
 
-  it("10.09. Verify that the funding organization forms edit mode can be toggled on and off all fields should be disabled or return to view-only mode.", function () {
+  it("10.09. Verify that clicking the go back button on the funding organization view page redirects the user to the funding organization list page.", function () {
+    create_funding_organization.viewGoBackButton();
+  });
+
+  it("10.10. Verify that the funding organization forms edit mode can be toggled on and off all fields should be disabled or return to view-only mode.", function () {
     create_funding_organization.turnOffEditMode();
   });
 
-  it("10.10. Verify the funding organization name and description can be edited successfully.", function () {
+  it("10.11. Verify the funding organization name and description can be edited successfully.", function () {
     create_funding_organization.editFundingOrganization();
   });
 
-  it("10.11. Verify the funding organization edit reset button functions correctly.", function () {
+  it("10.12. Verify the funding organization edit reset button functions correctly.", function () {
     create_funding_organization.editResetButton();
   });
 
-  it("10.12. Verify the funding organization edit submit button functions correctly.", function () {
+  it("10.13. Verify the funding organization edit submit button functions correctly.", function () {
     create_funding_organization.editSubmitButton();
   });
 
-  it("10.13. Verify that clicking the go back button on the funding organization edit page redirects the user to the funding organization list page.", function () {
+  it("10.14. Verify that clicking the go back button on the funding organization edit page redirects the user to the funding organization list page.", function () {
     create_funding_organization.editGoBackButton();
   });
 
-  it("10.14. Verify the user can filter inactive funding organizations using the status dropdown on the funding organization list page.", function () {
+  it("10.15. Verify the user can filter inactive funding organizations using the status dropdown on the funding organization list page.", function () {
     create_funding_organization.statusInactiveDropdownCheck();
   });
 
-  it("10.15. Verify the active result is filtered correctly by the status dropdown.", function () {
+  it("10.16. Verify the active result is filtered correctly by the status dropdown.", function () {
     create_funding_organization.statusActiveDropdownCheck();
   });
 
-  it("10.16. Verify the search returns correct results when searching by funding organization name.", function () {
+  it("10.17. Verify the search returns correct results when searching by funding organization name.", function () {
     create_funding_organization.searchInFundingOrganizationName();
   });
 
-  it("10.17. Verify the grid list resets successfully when the reset button is clicked on the funding organization page.", function () {
+  it("10.18. Verify the grid list resets successfully when the reset button is clicked on the funding organization page.", function () {
     create_funding_organization.gridResetButtonCheck();
   });
 
-  it("10.18. Verify that the grid list is refreshed successfully when the refresh button is clicked on the funding organization page.", function () {
+  it("10.19. Verify that the grid list is refreshed successfully when the refresh button is clicked on the funding organization page.", function () {
     create_funding_organization.gridRefreshButtonCheck();
   });
 
-  it("10.19. Verify the funding organization creation reset button clears all entered input values.", function () {
+  it("10.20. Verify the funding organization creation reset button clears all entered input values.", function () {
     create_funding_organization.createResetButtonCheck();
   });
 
-  it("10.20. Verify validation messages appear for required fields when the submit button is clicked with empty inputs.", function () {
+  it("10.21. Verify validation messages appear for required fields when the submit button is clicked with empty inputs.", function () {
     create_funding_organization.createValidationMessageCheck();
   });
 
-  it("10.21. Verify that clicking the go back button on the funding organization create page redirects the user to the funding organization list page.", function () {
+  it("10.22. Verify that clicking the go back button on the funding organization create page redirects the user to the funding organization list page.", function () {
     create_funding_organization.createGoBackButtonCheck();
   });
 
-  it("10.22. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("10.23. Verify check that the grid list content changes correctly from english to bangla.", function () {
     create_funding_organization.gridLanguageSwitchCheck();
   });
 });

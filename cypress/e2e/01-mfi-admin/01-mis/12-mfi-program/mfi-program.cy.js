@@ -64,59 +64,63 @@ describe("12. MFI program Module Test Cases", function () {
     create_mfi_program.viewMfiProgram();
   });
 
-  it("12.11. Verify that the mfi program forms edit mode can be toggled on and off all fields should be disabled or return to view-only mode.", function () {
+  it("12.11. Verify that clicking the go back button on the mfi program view page redirects the user to the mfi program list page.", function () {
+    create_mfi_program.viewGoBackButton();
+  });
+
+  it("12.12. Verify that the mfi program forms edit mode can be toggled on and off all fields should be disabled or return to view-only mode.", function () {
     create_mfi_program.turnOffEditMode();
   });
 
-  it("12.12. Verify the mfi program name and description can be edited successfully.", function () {
+  it("12.13. Verify the mfi program name and description can be edited successfully.", function () {
     create_mfi_program.editMfiProgram();
   });
 
-  it("12.13. Verify the mfi program edit reset button functions correctly.", function () {
+  it("12.14. Verify the mfi program edit reset button functions correctly.", function () {
     create_mfi_program.editResetButton();
   });
 
-  it("12.14. Verify the mfi program edit submit button functions correctly.", function () {
+  it("12.15. Verify the mfi program edit submit button functions correctly.", function () {
     create_mfi_program.editSubmitButton();
   });
 
-  it("12.15. Verify that clicking the go back button on the mfi program edit page redirects the user to the mfi program list page.", function () {
+  it("12.16. Verify that clicking the go back button on the mfi program edit page redirects the user to the mfi program list page.", function () {
     create_mfi_program.editGoBackButton();
   });
 
-  it("12.16. Verify the user can filter inactive mfi programs using the status dropdown on the mfi program list page.", function () {
+  it("12.17. Verify the user can filter inactive mfi programs using the status dropdown on the mfi program list page.", function () {
     create_mfi_program.statusInactiveDropdownCheck();
   });
 
-  it("12.17. Verify the active result is filtered correctly by the status dropdown.", function () {
+  it("12.18. Verify the active result is filtered correctly by the status dropdown.", function () {
     create_mfi_program.statusActiveDropdownCheck();
   });
 
-  it("12.18. Verify the search returns correct results when searching by mfi program name.", function () {
+  it("12.19. Verify the search returns correct results when searching by mfi program name.", function () {
     create_mfi_program.searchInMfiProgramName();
   });
 
-  it("12.19. Verify the grid list resets successfully when the reset button is clicked on the mfi program page.", function () {
+  it("12.20. Verify the grid list resets successfully when the reset button is clicked on the mfi program page.", function () {
     create_mfi_program.gridResetButtonCheck();
   });
 
-  it("12.20. Verify that the grid list is refreshed successfully when the refresh button is clicked on the mfi program page.", function () {
+  it("12.21. Verify that the grid list is refreshed successfully when the refresh button is clicked on the mfi program page.", function () {
     create_mfi_program.gridRefreshButtonCheck();
   });
 
-  it("12.21. Verify the mfi program creation reset button clears all entered input values.", function () {
+  it("12.22. Verify the mfi program creation reset button clears all entered input values.", function () {
     create_mfi_program.createResetButtonCheck();
   });
 
-  it("12.22. Verify validation messages appear for required fields when the submit button is clicked with empty inputs.", function () {
+  it("12.23. Verify validation messages appear for required fields when the submit button is clicked with empty inputs.", function () {
     create_mfi_program.createValidationMessageCheck();
   });
 
-  it("12.23. Verify that clicking the go back button on the mfi program create page redirects the user to the mfi program list page.", function () {
+  it("12.24. Verify that clicking the go back button on the mfi program create page redirects the user to the mfi program list page.", function () {
     create_mfi_program.createGoBackButtonCheck();
   });
 
-  it("12.24. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("12.25. Verify check that the grid list content changes correctly from english to bangla.", function () {
     create_mfi_program.gridLanguageSwitchCheck();
   });
 });

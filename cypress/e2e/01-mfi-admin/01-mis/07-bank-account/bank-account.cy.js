@@ -67,63 +67,67 @@ describe("07. Bank Account Module Test Cases", function () {
     create_bank_account.viewBankAccount();
   });
 
-  it("07.12. Verify that the bank account forms edit mode can be toggled on and off all fields should be disabled or return to view-only mode.", function () {
+  it("07.12. Verify that clicking the go back button on the bank account view page redirects the user to the bank account list page.", function () {
+    create_bank_account.viewGoBackButton();
+  });
+
+  it("07.13. Verify that the bank account forms edit mode can be toggled on and off all fields should be disabled or return to view-only mode.", function () {
     create_bank_account.turnOffEditMode();
   });
 
-  it("07.13. Verify the bank account name and description can be edited successfully.", function () {
+  it("07.14. Verify the bank account name and description can be edited successfully.", function () {
     create_bank_account.editBankAccount();
   });
 
-  it("07.14. Verify the bank account edit reset button functions correctly.", function () {
+  it("07.15. Verify the bank account edit reset button functions correctly.", function () {
     create_bank_account.editResetButton();
   });
 
-  it("07.15. Verify the bank account edit submit button functions correctly.", function () {
+  it("07.16. Verify the bank account edit submit button functions correctly.", function () {
     create_bank_account.editSubmitButton();
   });
 
-  it("07.16. Verify that clicking the go back button on the bank account edit page redirects the user to the bank account list page.", function () {
+  it("07.17. Verify that clicking the go back button on the bank account edit page redirects the user to the bank account list page.", function () {
     create_bank_account.editGoBackButton();
   });
 
-  it("07.17. Verify the user can filter inactive bank accounts using the status dropdown on the bank account list page.", function () {
+  it("07.18. Verify the user can filter inactive bank accounts using the status dropdown on the bank account list page.", function () {
     create_bank_account.statusInactiveDropdownCheck();
   });
 
-  it("07.18. Verify the active result is filtered correctly by the status dropdown.", function () {
+  it("07.19. Verify the active result is filtered correctly by the status dropdown.", function () {
     create_bank_account.statusActiveDropdownCheck();
   });
 
-  it("07.19. Verify the search returns correct results when searching by bank account name.", function () {
+  it("07.20. Verify the search returns correct results when searching by bank account name.", function () {
     create_bank_account.searchInBankAccountName();
   });
 
-  it("07.20. Verify the grid list resets successfully when the reset button is clicked on the bank account page.", function () {
+  it("07.21. Verify the grid list resets successfully when the reset button is clicked on the bank account page.", function () {
     create_bank_account.gridResetButtonCheck();
   });
 
-  it("07.21. Verify that the grid list is refreshed successfully when the refresh button is clicked on the bank account page.", function () {
+  it("07.22. Verify that the grid list is refreshed successfully when the refresh button is clicked on the bank account page.", function () {
     create_bank_account.gridRefreshButtonCheck();
   });
 
-  it("07.22. Verify the bank account creation reset button clears all entered input values.", function () {
+  it("07.23. Verify the bank account creation reset button clears all entered input values.", function () {
     create_bank_account.createResetButtonCheck();
   });
 
-  it("07.23. Verify validation messages appear for required fields when the submit button is clicked with empty inputs.", function () {
+  it("07.24. Verify validation messages appear for required fields when the submit button is clicked with empty inputs.", function () {
     create_bank_account.createValidationMessageCheck();
   });
 
-  it("07.24. Verify that clicking the go back button on the bank account create page redirects the user to the bank account list page.", function () {
+  it("07.25. Verify that clicking the go back button on the bank account create page redirects the user to the bank account list page.", function () {
     create_bank_account.createGoBackButtonCheck();
   });
 
-  it("07.25. Verify pagination functions as expected on the last page of the bank account list.", function () {
+  it("07.26. Verify pagination functions as expected on the last page of the bank account list.", function () {
     create_bank_account.paginationCheck();
   });
 
-  it("07.26. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("07.27. Verify check that the grid list content changes correctly from english to bangla.", function () {
     create_bank_account.gridLanguageSwitchCheck();
   });
 });

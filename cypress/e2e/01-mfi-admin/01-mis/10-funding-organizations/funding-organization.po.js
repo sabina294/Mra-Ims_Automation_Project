@@ -151,10 +151,14 @@ class FundingOrganizationCreation {
       cy.imsId("btn-table-action-view").click();
 
       cy.get("app-mfi-mis").contains(foData.FundingNameEn).and("be.visible");
-
-      cy.imsId("btn-go-back").click();
       cy.log("Successfully viewed the funding organization list page");
     });
+  }
+
+   viewGoBackButton() {
+    cy.imsId("btn-go-back").click();
+    cy.log("Successfully view go back the funding organization list page");
+
   }
 
   turnOffEditMode() {

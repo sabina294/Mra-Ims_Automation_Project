@@ -103,10 +103,14 @@ class EmployeeManagementCreation {
       cy.formController("search_text").type(emData.empNameEn);
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
-
-      cy.imsId("btn-go-back").click();
       cy.log("Successfully viewed the employee management list page");
     });
+  }
+
+  viewGoBackButton() {
+    cy.imsId("btn-go-back").click();
+    cy.log("Successfully view go back the employee management list page");
+
   }
 
   editResetButton() {
@@ -197,21 +201,21 @@ class EmployeeManagementCreation {
     cy.log("Draft button should be clickable and functional.");
   }
 
-   gridCheckboxCheck() {
-    cy.imsId("row-checkbox-0").click();
-    // cy.imsId("btn-reset").click();
+  gridCheckboxCheck() {
+    cy.imsId("row-checkbox-6").click();
+    cy.imsId("btn-reset").click();
     cy.log("Checkbox should be clickable and functional.");
   }
-  
-   gridCheckboxLockButtonCheck() {
-    // cy.imsId("btn-lock").click();
-    // cy.log("Checkbox lock button should be clickable and functional.");
+
+  gridCheckboxLockButtonCheck() {
+    cy.imsId("btn-lock").click();
+    cy.log("Checkbox lock button should be clickable and functional.");
   }
 
   gridCheckboxUnlockButtonCheck() {
-    // cy.imsId("row-checkbox-0").click();
-    // cy.imsId("btn-unlock").click();
-    // cy.log("Checkbox unlock button should be clickable and functional.");
+    cy.imsId("row-checkbox-6").click();
+    cy.imsId("btn-unlock").click();
+    cy.log("Checkbox unlock button should be clickable and functional.");
   }
 
   createResetButtonCheck() {
@@ -248,7 +252,7 @@ class EmployeeManagementCreation {
     cy.log("Successful go back button check.");
   }
 
-   createDraftButtonCheck() {
+  createDraftButtonCheck() {
     cy.imsId("btn-add-new").click();
     cy.imsId("btn-draft").click();
     cy.imsId("btn-ok").click();

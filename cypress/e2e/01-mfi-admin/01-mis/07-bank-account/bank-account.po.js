@@ -254,11 +254,16 @@ class BankAccountCreation {
       cy.formController("search_text").type(baData.search);
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
-      cy.imsId("btn-go-back").click();
       cy.log("Successfully viewed the bank account list page");
     });
   }
 
+  viewGoBackButton() {
+    cy.imsId("btn-go-back").click();
+    cy.log("Successfully view go back the bank account list page");
+
+  }
+  
   turnOffEditMode() {
     cy.imsId("toggle-action").first().click();
     cy.imsId("btn-table-action-edit").click();
@@ -287,32 +292,20 @@ class BankAccountCreation {
     cy.imsId("toggle-action").first().click();
     cy.imsId("btn-table-action-edit").click();
     cy.imsId("btn-reset").click();
-    cy.imsId("btn-go-back").click();
-
     cy.log("Successful clean displaying");
   }
 
+  editSubmitButton() {
+    cy.imsId("btn-submit").click();
+    cy.imsId("btn-ok").click();
+    cy.log("Successfully submit button check bank account");
+  }
+
   editGoBackButton() {
-    cy.imsId("toggle-action").first().click();
-    cy.imsId("btn-table-action-edit").click();
     cy.imsId("btn-go-back").click();
     cy.log("Successful edit go back button check.");
   }
 
-  editSubmitButton() {
-    cy.fixture(this.test_data).then((data) => {
-      var baData = data.mfiAdmin.createBankAccountFrom;
-      cy.imsId("btn-reset").click();
-      cy.formController("search_text").type(baData.search);
-      cy.imsId("toggle-action").first().click();
-      cy.imsId("btn-table-action-edit").click();
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-ok").click();
-      cy.imsId("btn-go-back").click();
-
-      cy.log("Successfully updated bank account");
-    });
-  }
 
   statusInactiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
@@ -359,21 +352,17 @@ class BankAccountCreation {
       cy.imsId("btn-add-new").click();
       cy.formController("account_name_en").type(baData.accNameEn);
       cy.imsId("btn-reset").click();
-      cy.imsId("btn-go-back").click();
       cy.log("Successful reset button clean displaying.");
     });
   }
 
   createValidationMessageCheck() {
-    cy.imsId("btn-add-new").click();
     cy.imsId("btn-submit").click();
     cy.imsId("btn-ok").click();
-    cy.imsId("btn-go-back").click();
     cy.log("Successful validation message displaying.");
   }
 
   createGoBackButtonCheck() {
-    cy.imsId("btn-add-new").click();
     cy.imsId("btn-go-back").click();
     cy.log("Successful go back button check.");
   }

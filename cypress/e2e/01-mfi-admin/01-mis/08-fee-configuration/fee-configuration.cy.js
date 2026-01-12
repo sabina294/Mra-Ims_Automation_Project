@@ -67,59 +67,63 @@ describe("08. Fee Configuration Module Test Cases ", function () {
     create_fee_configuration.viewFeeConfiguration();
   });
 
-  it("08.12. Verify that the fee configuration forms edit mode can be toggled on and off all fields should be disabled or return to view-only mode.", function () {
+  it("08.12. Verify that clicking the go back button on the fee configuration view page redirects the user to the fee configuration list page.", function () {
+    create_fee_configuration.viewGoBackButton();
+  });
+
+  it("08.13. Verify that the fee configuration forms edit mode can be toggled on and off all fields should be disabled or return to view-only mode.", function () {
     create_fee_configuration.turnOffEditMode();
   });
 
-  it("08.13. Verify the fee configuration name and description can be edited successfully.", function () {
+  it("08.14. Verify the fee configuration name and description can be edited successfully.", function () {
     create_fee_configuration.editFeeConfiguration();
   });
 
-  it("08.14. Verify the fee configuration edit reset button functions correctly.", function () {
+  it("08.15. Verify the fee configuration edit reset button functions correctly.", function () {
     create_fee_configuration.editResetButton();
   });
 
-  it("08.15. Verify the fee configuration edit submit button functions correctly.", function () {
+  it("08.16. Verify the fee configuration edit submit button functions correctly.", function () {
     create_fee_configuration.editSubmitButton();
   });
 
-  it("08.16. Verify that clicking the go back button on the fee configuration edit page redirects the user to the fee configuration list page.", function () {
+  it("08.17. Verify that clicking the go back button on the fee configuration edit page redirects the user to the fee configuration list page.", function () {
     create_fee_configuration.editGoBackButton();
   });
 
-  it("08.17. Verify the user can filter inactive fee configurations using the status dropdown on the fee configuration list page.", function () {
+  it("08.18. Verify the user can filter inactive fee configurations using the status dropdown on the fee configuration list page.", function () {
     create_fee_configuration.statusInactiveDropdownCheck();
   });
 
-  it("08.18. Verify the active result is filtered correctly by the status dropdown.", function () {
+  it("08.19. Verify the active result is filtered correctly by the status dropdown.", function () {
     create_fee_configuration.statusActiveDropdownCheck();
   });
 
-  it("08.19. Verify the search returns correct results when searching by fee configuration name.", function () {
+  it("08.20. Verify the search returns correct results when searching by fee configuration name.", function () {
     create_fee_configuration.searchInFeeConfigurationName();
   });
 
-  it("08.20. Verify the grid list resets successfully when the reset button is clicked on the fee configuration page.", function () {
+  it("08.21. Verify the grid list resets successfully when the reset button is clicked on the fee configuration page.", function () {
     create_fee_configuration.gridResetButtonCheck();
   });
 
-  it("08.21. Verify that the grid list is refreshed successfully when the refresh button is clicked on the fee configuration page.", function () {
+  it("08.22. Verify that the grid list is refreshed successfully when the refresh button is clicked on the fee configuration page.", function () {
     create_fee_configuration.gridRefreshButtonCheck();
   });
 
-  it("08.22. Verify the fee configuration creation reset button clears all entered input values.", function () {
+  it("08.23. Verify the fee configuration creation reset button clears all entered input values.", function () {
     create_fee_configuration.createResetButtonCheck();
   });
 
-  it("08.23. Verify validation messages appear for required fields when the submit button is clicked with empty inputs.", function () {
+  it("08.24. Verify validation messages appear for required fields when the submit button is clicked with empty inputs.", function () {
     create_fee_configuration.createValidationMessageCheck();
   });
 
-  it("08.24. Verify that clicking the go back button on the fee configuration create page redirects the user to the fee configuration list page.", function () {
+  it("08.25. Verify that clicking the go back button on the fee configuration create page redirects the user to the fee configuration list page.", function () {
     create_fee_configuration.createGoBackButtonCheck();
   });
 
-  it("08.25. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("08.26. Verify check that the grid list content changes correctly from english to bangla.", function () {
     create_fee_configuration.gridLanguageSwitchCheck();
   });
 });
