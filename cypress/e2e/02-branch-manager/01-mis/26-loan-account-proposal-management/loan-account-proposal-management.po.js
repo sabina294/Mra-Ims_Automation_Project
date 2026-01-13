@@ -38,10 +38,6 @@ class LoanAccountProposalManagementCreation {
       cy.contains("13").click({ force: true });
       cy.imsId("btn-submit").click();
       cy.imsId("btn-yes").click();
-
-      // cy.get("app-confirmation-modal")
-      //   .contains(lapData.messageSaveLoanAccount)
-      //   .and("be.visible");
       cy.imsId("btn-ok").click();
 
       cy.log("Successfully created loan account proposal management");
@@ -56,15 +52,19 @@ class LoanAccountProposalManagementCreation {
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
       cy.imsId("btn-approve").click();
-      cy.imsId("approved_loan_amount").type(lapData.approvedLoanAmount);
+      cy.get('nz-modal-container', { timeout: 15000 })
+      .should('be.visible');
+      cy.imsId("approved_loan_amount").should('be.visible')
+      .clear().type(lapData.approvedLoanAmount);
+     cy.imsId('btn-ok').click();  
       cy.imsId("btn-yes").click();
-      cy.imsId("btn-ok").click();
 
       cy.log("Successfully approve loan account proposal management");
     });
   }
 
   actionButtonCheck() {
+    cy.selectMenu("menu-loan-account", "submenu-loan-account-proposal-management");
     cy.imsId("toggle-action").first().click();
     cy.log(
       "Action button clicked successfully on the loan account proposal management list page."
@@ -85,69 +85,26 @@ class LoanAccountProposalManagementCreation {
 
   viewGoBackButton() {
     cy.imsId("btn-go-back").click();
-
     cy.log("Successfully view go back the loan account proposal management list page");
   }
 
-  editResetButtonCheck() {
-    cy.fixture(this.test_data).then((data) => {
-      cy.imsId("toggle-action").first().click();
-      cy.imsId("btn-table-action-edit").click();
-      cy.imsId("btn-reset").click();
-      cy.imsId("btn-go-back").click();
-      cy.log("Successful reset button clean displaying.");
-    });
-  }
-
-  editValidationMessageCheck() {
-    cy.imsId("toggle-action").first().click();
-    cy.imsId("btn-table-action-edit").click();
-    // cy.imsId("btn-submit").click();
-    // cy.imsId("btn-ok").click();
-    cy.imsId("btn-go-back").click();
-    cy.log("Successful validation message displaying.");
-  }
-
-  editGoBackButtonCheck() {
-    cy.imsId("toggle-action").first().click();
-    cy.imsId("btn-table-action-edit").click();
-    cy.imsId("btn-go-back").click();
-    cy.log("Successful go back button check.");
-  }
-
-  editLoanAccountProposalManagement() {
-    cy.fixture(this.test_data).then((data) => {
-      var lapData = data.branchManager.createLoanAccountFrom;
-      cy.imsId("btn-reset").click();
-      cy.formController("search_text").type(lapData.memberNameEn);
-      cy.imsId("toggle-action").first().click();
-      cy.imsId("btn-table-action-edit").click();
-      cy.imsId("btn-submit").click();
-
-      cy.get("app-confirmation-modal")
-        .contains(lapData.messageUpdateLoanAccount)
-        .and("be.visible");
-      cy.imsId("btn-yes").click();
-
-      cy.log("Loan account proposal Management updated successfully");
-    });
-  }
-  statusInactiveDropdownCheck() {
+  statusApproveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       var lapData = data.branchManager.createLoanAccountFrom;
       cy.imsId("btn-reset").click();
       cy.formController("status").type(lapData.selectStatus).type("{enter}");
       cy.log(
-        "Loan account proposal Management status inactive dropdown check successfully"
+        "Loan account proposal Management status approve dropdown check successfully"
       );
     });
   }
-  statusActiveDropdownCheck() {
+
+  statusRejectedDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       var lapData = data.branchManager.createLoanAccountFrom;
       cy.formController("status").type(lapData.statusSelect).type("{enter}");
       cy.log(
-        "Loan account proposal Management status active dropdown check successfully"
+        "Loan account proposal Management status rejected dropdown check successfully"
       );
     });
   }
@@ -169,29 +126,6 @@ class LoanAccountProposalManagementCreation {
     cy.log(
       "successfully refresh page  displayed the grid list of the Loan account proposal Management "
     );
-  }
-
-  gridCheckboxCheck() {
-    cy.imsId("row-checkbox-0").click();
-    // cy.imsId("btn-reset").click();
-    cy.log("Checkbox should be clickable and functional.");
-  }
-
-  gridCheckboxCheck() {
-    cy.imsId("row-checkbox-4").click();
-    cy.imsId("btn-reset").click();
-    cy.log("Checkbox should be clickable and functional.");
-  }
-
-  gridCheckboxLockButtonCheck() {
-    cy.imsId("btn-lock").click();
-    cy.log("Checkbox lock button should be clickable and functional.");
-  }
-
-  gridCheckboxUnlockButtonCheck() {
-    cy.imsId("row-checkbox-4").click();
-    cy.imsId("btn-unlock").click();
-    cy.log("Checkbox unlock button should be clickable and functional.");
   }
 
   gridDraftButton() {

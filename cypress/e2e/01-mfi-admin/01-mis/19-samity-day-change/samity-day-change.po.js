@@ -8,7 +8,38 @@ class SamityDayChange {
     });
   }
 
+  samityDayChange() {
+    cy.fixture(this.test_data).then((data) => {
+      var sdData = data.mfiAdmin.samityDayChangeFrom;
+      cy.imsId("btn-reset").click();
+      cy.imsId("toggle-action").first().click();
+      cy.imsId("btn-mis-table-action-change").click();
+      cy.formController("new_samity_day").type(sdData.newSamityDay).type("{enter}");
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-yes").click();
+      cy.imsId("btn-ok").click();
+      cy.log("Successfully samity day change");
+    });
+  }
+
+  approveSamityDayChange() {
+    cy.fixture(this.test_data).then((data) => {
+      var sdData = data.mfiAdmin.samityDayChangeFrom;
+      cy.imsId("menu-my-task").click();
+      cy.imsId("submenu-awaiting-samity-day-change").click();
+      cy.imsId("toggle-action").first().click();
+      cy.imsId("btn-table-action-view").click();
+      cy.imsId("btn-lock").click();
+      cy.imsId("btn-approve").click();
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-ok").click();
+
+      cy.log("Successfully approve samity day change");
+    });
+  }
+
   actionButtonCheck() {
+    cy.selectMenu("menu-samity", "submenu-samity-day-change");
     cy.imsId("toggle-action").first().click();
     cy.log(
       "Action button clicked successfully on the samity day change list page."
@@ -16,49 +47,23 @@ class SamityDayChange {
   }
 
   viewSamityDayChange() {
-    cy.fixture(this.test_data).then((data) => {
-      var sdData = data.mfiAdmin.samityDayChangeFrom;
-      cy.formController("search_text").type(sdData.samityNameEn);
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
-
-      // cy.get("app-mfi-mis").contains(sdData.samityNameEn).and("be.visible");
-
-      cy.imsId("btn-go-back").click();
-      cy.log("Successfully viewed the samity change list page");
-    });
-  }
-  samityDayChange() {
-    cy.fixture(this.test_data).then((data) => {
-      // cy.imsId('btn-submit').and('be.visible')
-      var sdData = data.mfiAdmin.samityDayChangeFrom;
-      cy.imsId("btn-reset").click();
-      cy.formController("search_text").type(sdData.samityNameEn);
-      cy.imsId("toggle-action").first().click();
-      cy.imsId("btn-mis-table-action-change").click();
-      // cy.formController("new_samity_day").clear().type(sdData.newSamityDay).type("{enter}");
-      cy.imsId("btn-go-back").click();
-
-      // cy.imsId("btn-submit").click();
-
-      // cy.imsId("btn-yes").click();
-      // cy.get("app-confirmation-modal")
-      //   .contains(sdData.messageSamityChange)
-      //   .and("be.visible");
-
-      // cy.imsId("btn-ok").click();
-      cy.log("Successfully field officer change samity");
-    });
+      cy.log("Successfully viewed the samity day change list page");
   }
 
-    samityChangeSubmit() {
-    cy.fixture(this.test_data).then((data) => {
-      cy.imsId("toggle-action").first().click();
-      cy.imsId("btn-mis-table-action-change").click();
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-ok").click();
-      cy.log("Successful reset button clean displaying.");
-    });
+  viewGoBackButton() {
+    cy.imsId("btn-go-back").click();
+    cy.log("Successfully view go back the samity day change list page");
+
+  }
+  
+ samityChangeSubmit() {
+    cy.imsId("toggle-action").first().click();
+    cy.imsId("btn-mis-table-action-change").click();
+    cy.imsId("btn-submit").click();
+    cy.imsId("btn-ok").click();
+    cy.log("Successful submit button clean displaying.");
   }
 
   samityChangeApprove() {
@@ -78,30 +83,10 @@ class SamityDayChange {
     cy.imsId("btn-go-back").click();
     cy.log("Successful go back button check.");
   }
-  
-  approveSamityDayChange() {
-    cy.fixture(this.test_data).then((data) => {
-      var sdData = data.mfiAdmin.samityDayChangeFrom;
-      cy.imsId("menu-my-task").click();
-      cy.imsId("submenu-awaiting-samity-field-officer-change").click();
-      cy.formController("search_text").type(sdData.samityNameEn);
-      // cy.imsId("toggle-action").first().click();
-      // cy.imsId("btn-table-action-view").click();
-      // cy.imsId("btn-go-back").click();
-
-      // cy.imsId("btn-lock").click();
-      // cy.imsId("btn-approve").click();
-      // cy.imsId("btn-submit").click();
-      // cy.imsId("btn-ok").click();
-
-      cy.log("Successfully approve samity change");
-    });
-  }
 
   statusInactiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       var sdData = data.mfiAdmin.samityDayChangeFrom;
-      cy.selectMenu("menu-samity", "submenu-samity-day-change");
       cy.imsId("btn-reset").click();
       cy.formController("status").type(sdData.selectStatus).type("{enter}");
       cy.log(

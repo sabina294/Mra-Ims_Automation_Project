@@ -59,11 +59,11 @@ describe("15. Rejected Employee Module Test Cases", function () {
         create_rejected_employee.editEmployeeManagement();
     });
 
-    it("15.10. Verify the user can filter inactive employee records using the status dropdown on the Rejected Employee List page.", function () {
+    it("15.10. Verify the user can filter rejected employee records using the status dropdown on the Rejected Employee List page.", function () {
         create_rejected_employee.statusRejectedDropdownCheck();
     });
 
-    it("15.11. Verify check if the filter for active results works correctly with the status dropdown.", function () {
+    it("15.11. Verify check if the filter for approved results works correctly with the status dropdown.", function () {
         create_rejected_employee.statusApprovedDropdownCheck();
     });
 

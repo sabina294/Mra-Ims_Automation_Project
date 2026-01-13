@@ -27,24 +27,24 @@ describe("19. Samity Day Change Module Test Cases", function () {
     samity_day_change.gridSamityChangeListPage();
   });
 
-  it("19.02. Verify successfully performs the action when the action button is clicked.", function () {
-    samity_day_change.actionButtonCheck();
-  });
-
-  it("19.03. Verify the user can successfully view the samity day change information, including the name and description.", function () {
-    samity_day_change.viewSamityDayChange();
-  });
-
-  it("19.04. Verify that clicking the go back button on the samity day change view page redirects the user to the samity day change list page.", function () {
-    samity_day_change.viewGoBackButton();
-  });
-
-  it("19.05. Verify new day change with valid information", function () {
+  it("19.02. Verify new day change with valid information", function () {
     samity_day_change.samityDayChange();
   });
 
-  it("19.06. Verify mfi-admin to successfully approve an samity day change record after creation.", function () {
+  it("19.03. Verify mfi-admin to successfully approve an samity day change record after creation.", function () {
     samity_day_change.approveSamityDayChange();
+  });
+
+  it("19.04. Verify successfully performs the action when the action button is clicked.", function () {
+    samity_day_change.actionButtonCheck();
+  });
+
+  it("19.05. Verify the user can successfully view the samity day change information, including the name and description.", function () {
+    samity_day_change.viewSamityDayChange();
+  });
+
+  it("19.06. Verify that clicking the go back button on the samity day change view page redirects the user to the samity day change list page.", function () {
+    samity_day_change.viewGoBackButton();
   });
 
   it("19.07. Verify the user can filter inactive employee records using the status dropdown on the samity day change List page.", function () {

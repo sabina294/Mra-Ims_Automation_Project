@@ -125,6 +125,7 @@ class RejectedEmployee {
     cy.log("Successfully view go back the Rejected Employee list page");
 
   }
+  
   editResetButton() {
     cy.fixture(this.test_data).then((data) => {
       var emData = data.mfiAdmin.rejectedEmployeeFrom;
@@ -164,7 +165,7 @@ class RejectedEmployee {
   statusRejectedDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       var emData = data.mfiAdmin.rejectedEmployeeFrom;
-      cy.imsId("btn-reset").clicck();
+      cy.imsId("btn-reset").click();
       cy.formController("status").type(emData.selectStatus).type("{enter}");
       cy.imsId("btn-reset").click();
       cy.log(

@@ -11,7 +11,6 @@ class SamityCreation {
   createSamity() {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId("btn-add-new").click();
-      // cy.imsId('btn-submit').and('be.visible')
       var smData = data.mfiAdmin.createSamityFrom;
       cy.formController("samity_name_en").first().type(smData.samityNameEn);
       cy.formController("samity_name_bn").type(smData.samityNameBn);
@@ -103,7 +102,6 @@ class SamityCreation {
   createWithoutNameBn() {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId("btn-add-new").click();
-      // cy.imsId('btn-submit').and('be.visible')
       var smData = data.mfiAdmin.createSamityFrom;
       cy.formController("samity_name_en").first().type(smData.samityNameEn);
       cy.formController("samity_type").type(smData.samityType).type("{enter}");
@@ -151,24 +149,42 @@ class SamityCreation {
       cy.imsId("btn-table-action-view").click();
 
       cy.get("app-mfi-mis").contains(smData.samityNameEn).and("be.visible");
-
-      cy.imsId("btn-go-back").click();
       cy.log("Successfully viewed the samity list page");
     });
+  }
+
+  viewGoBackButton() {
+    cy.imsId("btn-go-back").click();
+    cy.log("Successfully view go back the Samity Management list page");
+
   }
 
   editResetButton() {
     cy.imsId("toggle-action").first().click();
     cy.imsId("btn-table-action-edit").click();
     cy.imsId("btn-reset").click();
-    cy.imsId("btn-go-back").click();
+    cy.log("Successful reset button working");
+  }
 
-    cy.log("Successful clean displaying");
+  editDraftButton() {
+    cy.imsId("btn-draft").click();
+    cy.imsId("btn-ok").click();
+    cy.log("Successful draft button working");
+  }
+
+  editSubmitButton() {
+    cy.imsId("btn-submit").click();
+    cy.imsId("btn-ok").click();
+    cy.log("Successful submit button working");
+  }
+
+  editApproveButton() {
+    cy.imsId("btn-approve").click();
+    cy.imsId("btn-ok").click();
+    cy.log("Successful approve button working");
   }
 
   editGoBackButton() {
-    cy.imsId("toggle-action").first().click();
-    cy.imsId("btn-table-action-edit").click();
     cy.imsId("btn-go-back").click();
     cy.log("Successful edit go back button check.");
   }
@@ -214,7 +230,6 @@ class SamityCreation {
   createDraftButton() {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId("btn-add-new").click();
-      // cy.imsId('btn-submit').and('be.visible')
       var smData = data.mfiAdmin.createSamityFrom;
       cy.formController("samity_name_en").first().type(smData.draftName);
       cy.formController("samity_name_bn").type(smData.draftNameBn);
@@ -269,14 +284,14 @@ class SamityCreation {
   }
   
    gridCheckboxLockButtonCheck() {
-    // cy.imsId("btn-lock").click();
-    // cy.log("Checkbox lock button should be clickable and functional.");
+    cy.imsId("btn-lock").click();
+    cy.log("Checkbox lock button should be clickable and functional.");
   }
 
   gridCheckboxUnlockButtonCheck() {
-    // cy.imsId("row-checkbox-0").click();
-    // cy.imsId("btn-unlock").click();
-    // cy.log("Checkbox unlock button should be clickable and functional.");
+    cy.imsId("row-checkbox-0").click();
+    cy.imsId("btn-unlock").click();
+    cy.log("Checkbox unlock button should be clickable and functional.");
   }
 
   selectofficeDropdown() {

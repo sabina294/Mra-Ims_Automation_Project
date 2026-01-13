@@ -27,24 +27,24 @@ describe("20. Samity Close Module Test Cases", function () {
     Samity_close.gridSamityCloseListPage();
   });
 
-  it("20.02. Verify successfully performs the action when the action button is clicked.", function () {
-    Samity_close.actionButtonCheck();
-  });
-
-  it("20.03. Verify the user can successfully view the samity close information, including the name and description.", function () {
-    Samity_close.viewSamityClose();
-  });
-
-  it("20.04. Verify that clicking the go back button on the samity close view page redirects the user to the samity close list page.", function () {
-    Samity_close.viewGoBackButton();
-  });
-
-  it("20.05. Verify samity close with valid information by MFI-Admin role", function () {
+  it("20.02. Verify samity close with valid information by MFI-Admin role", function () {
     Samity_close.samityClose();
   });
 
-  it("20.06. Verify mfi-admin to successfully approve an samity close record after creation.", function () {
+  it("20.03. Verify mfi-admin to successfully approve an samity close record after creation.", function () {
     Samity_close.approveSamityClose();
+  });
+
+  it("20.04. Verify successfully performs the action when the action button is clicked.", function () {
+    Samity_close.actionButtonCheck();
+  });
+
+  it("20.05. Verify the user can successfully view the samity close information, including the name and description.", function () {
+    Samity_close.viewSamityClose();
+  });
+
+  it("20.06. Verify that clicking the go back button on the samity close view page redirects the user to the samity close list page.", function () {
+    Samity_close.viewGoBackButton();
   });
 
   it("20.07. Verify the user can filter inactive employee records using the status dropdown on the samity close List page.", function () {

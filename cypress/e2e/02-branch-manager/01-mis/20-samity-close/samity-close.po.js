@@ -8,7 +8,36 @@ class SamityClose {
     });
   }
 
+   samityClose() {
+    cy.fixture(this.test_data).then((data) => {
+      var scData = data.branchManager.samityCloseFrom;
+      cy.formController("search_text").type(scData.samityNameEn);
+      cy.imsId("toggle-action").first().click();
+      cy.imsId("btn-mis-table-action-close").click();
+      cy.imsId("btn-yes").click();
+      cy.imsId("btn-ok").click();
+      cy.log("Successfully Samity close");
+    });
+  }
+
+  approveSamityClose() {
+    cy.fixture(this.test_data).then((data) => {
+      var scData = data.branchManager.samityCloseFrom;
+      cy.imsId("menu-my-task").click();
+      cy.imsId("submenu-awaiting-samity-close").click();
+      cy.imsId("toggle-action").first().click();
+      cy.imsId("btn-table-action-view").click();
+      cy.imsId("btn-lock").click();
+      cy.imsId("btn-approve").click();
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-ok").click();
+
+      cy.log("Successfully approve samity close");
+    });
+  }
+
   actionButtonCheck() {
+    cy.selectMenu("menu-samity", "submenu-samity-close");
     cy.imsId("toggle-action").first().click();
     cy.log("Action button clicked successfully on the Samity close list page.");
   }
@@ -31,37 +60,9 @@ class SamityClose {
     cy.log("Successfully view go back the Samity close list page");
   }
 
-  samityClose() {
-    cy.fixture(this.test_data).then((data) => {
-      // var scData = data.branchManager.samityCloseFrom;
-      // cy.imsId("toggle-action").first().click();
-      // cy.imsId("btn-mis-table-action-close").click();
-      // cy.imsId("btn-yes").click();
-      // cy.imsId("btn-ok").click();
-      // cy.log("Successfully Samity close");
-    });
-  }
-
-  approveSamityClose() {
-    cy.fixture(this.test_data).then((data) => {
-      // var scData = data.branchManager.samityCloseFrom;
-      // cy.imsId("menu-my-task").click();
-      // cy.imsId("submenu-awaiting-samity-close").click();
-      // cy.imsId("toggle-action").first().click();
-      // cy.imsId("btn-table-action-view").click();
-      // cy.imsId("btn-lock").click();
-      // cy.imsId("btn-approve").click();
-      // cy.imsId("btn-submit").click();
-      // cy.imsId("btn-ok").click();
-
-      // cy.log("Successfully approve samity close");
-    });
-  }
-
   statusInactiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       var scData = data.branchManager.samityCloseFrom;
-      // cy.selectMenu("menu-samity", "submenu-samity-close");
       cy.imsId("btn-reset").click();
       cy.formController("status").type(scData.selectStatus).type("{enter}");
       cy.log("Samity close status inactive dropdown check successfully");

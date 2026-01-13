@@ -121,22 +121,32 @@ class EmployeeManagementCreation {
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-edit").click();
       cy.imsId("btn-reset").click();
-      cy.imsId("btn-go-back").click();
 
       cy.log("Successful clean displaying");
     });
   }
 
+  editDraftButton() {
+    cy.imsId("btn-draft").click();
+    cy.imsId("btn-ok").click();
+    cy.log("Successful draft button working");
+  }
+
+  editSubmitButton() {
+    cy.imsId("btn-submit").click();
+    cy.imsId("btn-ok").click();
+    cy.log("Successful submit button working");
+  }
+
+  editApproveButton() {
+    cy.imsId("btn-approve").click();
+    cy.imsId("btn-ok").click();
+    cy.log("Successful approve button working");
+  }
+
   editGoBackButton() {
-    cy.fixture(this.test_data).then((data) => {
-      var emData = data.mfiAdmin.createEmpMangFrom;
-      cy.imsId("btn-reset").click();
-      cy.formController("search_text").type(emData.search);
-      cy.imsId("toggle-action").first().click();
-      cy.imsId("btn-table-action-edit").click();
       cy.imsId("btn-go-back").click();
       cy.log("Successful edit go back button check.");
-    });
   }
 
   editEmployeeManagement() {

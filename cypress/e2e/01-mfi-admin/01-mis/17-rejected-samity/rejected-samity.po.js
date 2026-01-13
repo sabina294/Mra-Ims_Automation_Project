@@ -82,10 +82,14 @@ class RejectedSamity {
       cy.imsId("btn-table-action-view").click();
 
       cy.get("app-mfi-mis").contains(rsData.samityNameEn).and("be.visible");
-
-      cy.imsId("btn-go-back").click();
-      cy.log("Successfully viewed the samity list page");
+      cy.log("Successfully viewed the rejected samity list page");
     });
+  }
+
+  viewGoBackButton() {
+    cy.imsId("btn-go-back").click();
+    cy.log("Successfully view go back the rejected samity list page");
+
   }
 
   editResetButton() {
@@ -93,14 +97,22 @@ class RejectedSamity {
     cy.wait(1000);
     cy.imsId("btn-mis-table-action-edit").click();
     cy.imsId("btn-reset").click();
-    cy.imsId("btn-go-back").click();
-
-    cy.log("Successful clean displaying");
+    cy.log("Successful reset button working");
   }
 
+  editDraftButton() {
+    cy.imsId("btn-draft").click();
+    cy.imsId("btn-ok").click();
+    cy.log("Successful draft button working");
+  }
+
+  editSubmitButton() {
+    cy.imsId("btn-submit").click();
+    cy.imsId("btn-ok").click();
+    cy.log("Successful submit button working");
+  }
+  
   editGoBackButton() {
-    cy.imsId("toggle-action").first().click();
-    cy.imsId("btn-mis-table-action-edit").click();
     cy.imsId("btn-go-back").click();
     cy.log("Successful edit go back button check.");
   }

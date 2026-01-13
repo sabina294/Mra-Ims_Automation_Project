@@ -8,35 +8,11 @@ class SamityChange {
     });
   }
 
-  actionButtonCheck() {
-    cy.imsId("toggle-action").first().click();
-    cy.log(
-      "Action button clicked successfully on the samity change list page."
-    );
-  }
-
-  viewSamityChange() {
-    cy.fixture(this.test_data).then((data) => {
-      var smData = data.branchManager.samityChangeFrom;
-      cy.formController("search_text").type(smData.samityNameEn);
-      cy.imsId("toggle-action").first().click();
-      cy.imsId("btn-table-action-view").click();
-
-      cy.get("app-mfi-mis").contains(smData.samityNameEn).and("be.visible");
-      cy.log("Successfully viewed the samity change list page");
-    });
-  }
-
-   viewGoBackButton() {
-    cy.imsId("btn-go-back").click();
-
-    cy.log("Successfully view go back the samity change list page");
-  }
-
   samityChange() {
     cy.fixture(this.test_data).then((data) => {
       var smData = data.branchManager.samityChangeFrom;
       cy.imsId("btn-reset").click();
+      cy.formController("search_text").type(smData.samityNameEn);
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-mis-table-action-change").click();
       cy.formController("field_officer_id").type(smData.fieldOfficer).type("{enter}");
@@ -68,10 +44,35 @@ class SamityChange {
     });
   }
 
+  actionButtonCheck() {
+    cy.selectMenu("menu-samity", "submenu-samity-field-officer-change");
+    cy.imsId("toggle-action").first().click();
+    cy.log(
+      "Action button clicked successfully on the samity change list page."
+    );
+  }
+
+  viewSamityChange() {
+    cy.fixture(this.test_data).then((data) => {
+      var smData = data.branchManager.samityChangeFrom;
+      cy.formController("search_text").type(smData.samityNameEn);
+      cy.imsId("toggle-action").first().click();
+      cy.imsId("btn-table-action-view").click();
+
+      cy.get("app-mfi-mis").contains(smData.samityNameEn).and("be.visible");
+      cy.log("Successfully viewed the samity change list page");
+    });
+  }
+
+   viewGoBackButton() {
+    cy.imsId("btn-go-back").click();
+
+    cy.log("Successfully view go back the samity change list page");
+  }
+
   statusInactiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       var smData = data.branchManager.samityChangeFrom;
-      // cy.selectMenu("menu-samity", "submenu-samity-field-officer-change");
       cy.formController("status").type(smData.selectStatus).type("{enter}");
       cy.log(
         "samity field officer change status inactive dropdown check successfully"
