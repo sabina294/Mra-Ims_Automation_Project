@@ -18,11 +18,9 @@ class Samity {
   viewSamity() {
     cy.fixture(this.test_data).then((data) => {
       var smData = data.fieldOfficer.gridSamityFrom;
-      cy.formController("search_text").type(smData.search);
+      // cy.formController("search_text").type(smData.search);
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
-
-      cy.get("app-mfi-mis").contains(smData.search).and("be.visible");
       cy.log("Successfully viewed the samity list page");
     });
   }

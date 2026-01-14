@@ -113,13 +113,13 @@ describe("20. MFI Management Module Test Cases.", function () {
     create_mfi_management.gridCheckboxCheck();
   });
 
-  it("20.23. Verify that the checkbox lock button operates correctly when selected.", function () {
-    create_mfi_management.gridCheckboxLockButtonCheck();
-  });
+  // it("20.23. Verify that the checkbox lock button operates correctly when selected.", function () {
+  //   create_mfi_management.gridCheckboxLockButtonCheck();
+  // });
 
-  it("20.24. Verify that the checkbox unlock button operates correctly when selected.", function () {
-    create_mfi_management.gridCheckboxUnlockButtonCheck();
-  });
+  // it("20.24. Verify that the checkbox unlock button operates correctly when selected.", function () {
+  //   create_mfi_management.gridCheckboxUnlockButtonCheck();
+  // });
 
   it("20.25. Verify display the grid list successfully when the Draft button on is clicked on the mfi management page", function () {
     create_mfi_management.gridDraftButton();

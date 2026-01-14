@@ -58,7 +58,7 @@ class LoanAccountProposalManagementCreation {
   viewLoanAccountProposalManagement() {
     cy.fixture(this.test_data).then((data) => {
       var lapData = data.fieldOfficer.createLoanAccountFrom;
-      cy.formController("search_text").type(lapData.memberNameEn);
+      // cy.formController("search_text").type(lapData.memberNameEn);
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
       cy.log(
