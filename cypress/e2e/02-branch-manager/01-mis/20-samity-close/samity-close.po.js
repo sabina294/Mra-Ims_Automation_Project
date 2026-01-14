@@ -45,11 +45,11 @@ class SamityClose {
   viewSamityClose() {
     cy.fixture(this.test_data).then((data) => {
       var scData = data.branchManager.samityCloseFrom;
-      cy.formController("search_text").type(scData.samityNameEn);
+      cy.formController("search_text").type(scData.search);
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
 
-      cy.get("app-mfi-mis").contains(scData.samityNameEn).and("be.visible");
+      cy.get("app-mfi-mis").contains(scData.search).and("be.visible");
       cy.log("Successfully viewed the Samity close list page");
     });
   }

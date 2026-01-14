@@ -100,51 +100,57 @@ class MemberManagementCreation {
       cy.formController("search_text").type(memData.search);
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
-      cy.imsId("btn-go-back").click();
       cy.log("Successfully viewed the member management list page");
     });
   }
 
-  editMemberManagement() {
-    cy.fixture(this.test_data).then((data) => {
-      var memData = data.mfiAdmin.createMemberFrom;
-      cy.imsId("btn-reset").click();
-      cy.formController("search_text").type(memData.search);
-      cy.imsId("toggle-action").first().click();
-      cy.imsId("btn-mis-table-action-edit").click();
-      // cy.imsId("btn-submit").click();
-      // cy.imsId("btn-ok").click();
-      cy.imsId("btn-go-back").click();
+  viewGoBackButton() {
+    cy.imsId("btn-go-back").click();
+    cy.log("Successfully view go back the member management list page");
 
-      cy.log("Member Management updated successfully");
-    });
   }
 
   editResetButton() {
-    cy.fixture(this.test_data).then((data) => {
-      var memData = data.mfiAdmin.createMemberFrom;
-      cy.imsId("btn-reset").click();
-      cy.formController("search_text").type(memData.search);
-      cy.imsId("btn-reset").click();
-      cy.imsId("toggle-action").first().click();
-      cy.imsId("btn-mis-table-action-edit").click();
-      cy.imsId("btn-reset").click();
-      cy.imsId("btn-go-back").click();
+    cy.imsId("toggle-action").first().click();
+    cy.imsId("btn-mis-table-action-edit").click();
+    cy.imsId("btn-reset").click();
+    cy.log("Successful reset button working");
+  }
 
-      cy.log("Successful clean displaying");
-    });
+  editDraftButton() {
+    cy.imsId("btn-draft").click();
+    cy.imsId("btn-ok").click();
+    cy.log("Successful draft button working");
+  }
+
+  editSubmitButton() {
+    cy.imsId("btn-submit").click();
+    cy.imsId("btn-ok").click();
+    cy.log("Successful submit button working");
+  }
+
+  editApproveButton() {
+    cy.imsId("btn-approve").click();
+    cy.imsId("btn-ok").click();
+    cy.log("Successful approve button working");
   }
 
   editGoBackButton() {
+    cy.imsId("btn-go-back").click();
+    cy.log("Successful edit go back button check.");
+  }
+
+   editMemberManagement() {
     cy.fixture(this.test_data).then((data) => {
       var memData = data.mfiAdmin.createMemberFrom;
       cy.imsId("btn-reset").click();
       cy.formController("search_text").type(memData.search);
-
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-mis-table-action-edit").click();
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-ok").click();
       cy.imsId("btn-go-back").click();
-      cy.log("Successful edit go back button check.");
+      cy.log("Member Management updated successfully");
     });
   }
 

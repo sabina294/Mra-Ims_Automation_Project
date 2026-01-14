@@ -331,7 +331,7 @@
       "account": "AGRO-1019-101-1002-1"
     },
     "loanProductFrom": {
-      "office": "1020 (Ashulia)",
+      "office": "1002 (Dhaka Regional Office)",
       "mfiProgram": "Jagoron",
       "loanProductNameEn": "Test Loan Product",
       "loanProductNameBn": "পরীক্ষার ঋণ পণ্য",
@@ -786,9 +786,10 @@
       "messageSamityDayChange": "Samity has been updated"
     },
     "samityCloseFrom": {
-      "samityNameEn": "Binodpur Mohila Samity",
+      "samityNameEn": "Chhagalnaiya Samity",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
+      "search": "Kumkumari Mohila Samity",
       "messageSamityClose": "Samity has been updated."
     },
     "createMemberFrom": {

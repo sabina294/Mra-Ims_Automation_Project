@@ -112,10 +112,14 @@ class RrejectedMember {
       cy.imsId("toggle-action").first().click();
 
       cy.imsId("btn-table-action-view").click();
-
-      cy.imsId("btn-go-back").click();
       cy.log("Successfully viewed the rejected member list page");
     });
+  }
+
+  viewGoBackButton() {
+    cy.imsId("btn-go-back").click();
+    cy.log("Successfully view go back the rejected member list page");
+
   }
 
   statusOfficeDropdownCheck() {

@@ -7,59 +7,21 @@ class LoanProductManagementCreation {
       cy.log("Successfully Loan product management list page.");
     });
   }
+
   createLoanProductManagement() {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId("btn-add-new").click();
-      cy.imsId("btn-go-back").click();
-
-        // cy.imsId('btn-submit').and('be.visible');
-
-      // var lpData = data.mfiAdmin.loanProductFrom;
-      // cy.formController("office_id_list").type(lpData.office).type("{enter}");
-      // cy.wait(2000);
-      // cy.formController("mfi_program_id")
-      //   .type(lpData.mfiProgram)
-      //   .type("{enter}");
-      // cy.formController("loan_product_name_en").type(lpData.loanProductNameEn);
-      // cy.formController("loan_product_name_bn").type(lpData.loanProductNameBn);
-      // cy.formController("product_nature")
-      //   .type(lpData.productNature)
-      //   .type("{enter}");
-      // cy.formController("loan_type_id").type(lpData.loanType).type("{enter}");
-      // cy.formController("repayment_frequency")
-      //   .type(lpData.repaymentFrequency)
-      //   .type("{enter}");
-      // cy.formController("min_loan_amount").type(lpData.minimumLoanAmount);
-      // cy.formController("max_loan_amount").type(lpData.maximumLoanAmount);
-      // cy.formController("min_installment_no").type(lpData.minimuminstallment);
-      // cy.formController("default_installment_no").type(
-      //   lpData.defaultInstallment
-      // );
-      // cy.formController("max_installment_no").type(lpData.maximumInstallment);
-      // cy.formController("interest_calc_method")
-      //   .type(lpData.interestCalculationRate)
-      //   .type("{enter}");
-      // cy.formController("service_charge_rate").type(lpData.serviceCharge);
-      // cy.imsId("btn-submit").click();
-      // cy.imsId("btn-yes").click();
-
-      // cy.get("app-confirmation-modal")
-      //   .contains(lpData.messageSaveLoanProduct)
-      //   .and("be.visible");
-      // cy.imsId("btn-ok").click();
-
-      cy.log("Successfully created loan product management");
-    });
-  }
-
-  createWithoutOffice() {
-    cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-
-      // cy.imsId("btn-submit").and("be.visible");
-
       var lpData = data.mfiAdmin.loanProductFrom;
-      // cy.formController("office_id_list").type(lpData.office).type("{enter}");
+      cy.formController("office_id_list").click();
+      cy.get(".cdk-overlay-pane nz-option-item")
+        .should("have.length.greaterThan", 0)
+        .each(($el) => {
+          if ($el.text().includes(lpData.office)) {
+            cy.wrap($el).click();
+            return false; // stop loop
+          }
+        });
+      cy.wait(2000);
       cy.formController("mfi_program_id")
         .type(lpData.mfiProgram)
         .type("{enter}");
@@ -83,15 +45,48 @@ class LoanProductManagementCreation {
         .type(lpData.interestCalculationRate)
         .type("{enter}");
       cy.formController("service_charge_rate").type(lpData.serviceCharge);
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-yes").click();
+
+      cy.get("app-confirmation-modal")
+        .contains(lpData.messageSaveLoanProduct)
+        .and("be.visible");
+      cy.imsId("btn-ok").click();
+
+      cy.log("Successfully created loan product management");
+    });
+  }
+
+  createWithoutOffice() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("btn-add-new").click();
+      var lpData = data.mfiAdmin.loanProductFrom;
+      cy.formController("mfi_program_id")
+        .type(lpData.mfiProgram)
+        .type("{enter}");
+      cy.formController("loan_product_name_en").type(lpData.loanProductNameEn);
+      cy.formController("loan_product_name_bn").type(lpData.loanProductNameBn);
+      cy.formController("product_nature")
+        .type(lpData.productNature)
+        .type("{enter}");
+      cy.formController("loan_type_id").type(lpData.loanType).type("{enter}");
+      cy.formController("repayment_frequency")
+        .type(lpData.repaymentFrequency)
+        .type("{enter}");
+      cy.formController("min_loan_amount").type(lpData.minimumLoanAmount);
+      cy.formController("max_loan_amount").type(lpData.maximumLoanAmount);
+      cy.formController("min_installment_no").type(lpData.minimuminstallment);
+      cy.formController("default_installment_no").type(
+        lpData.defaultInstallment
+      );
+      cy.formController("max_installment_no").type(lpData.maximumInstallment);
+      cy.formController("interest_calc_method")
+        .type(lpData.interestCalculationRate)
+        .type("{enter}");
+      cy.formController("service_charge_rate").type(lpData.serviceCharge);
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-ok").click();
       cy.imsId("btn-go-back").click();
-
-      // cy.imsId("btn-submit").click();
-      // cy.imsId("btn-yes").click();
-
-      // cy.get("app-confirmation-modal")
-      //   .contains(lpData.messageSaveLoanProduct)
-      //   .and("be.visible");
-      // cy.imsId("btn-ok").click();
 
       cy.log("Successfully created loan product management");
     });
@@ -110,23 +105,49 @@ class LoanProductManagementCreation {
       cy.formController("search_text").type(lpData.search);
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
-      cy.imsId("btn-go-back").click();
       cy.log("Successfully viewed the loan product management list page");
     });
   }
+
+  viewGoBackButton() {
+    cy.imsId("btn-go-back").click();
+    cy.log("Successfully view go back the loan product management list page");
+
+  }
+
+  createResetButton() {
+    cy.imsId("btn-add-new").click();
+    cy.imsId("btn-reset").click();
+    cy.log("Successful clean displaying");
+  }
+
+  createSubmitButton() {
+    cy.imsId("btn-submit").click();
+    cy.imsId("btn-ok").click();
+    cy.log("Successful submit button working");
+  }
+
+  createGoBackButton() {
+    cy.imsId("btn-go-back").click();
+    cy.log("Successful go back button working");
+  }
+
 
   editResetButton() {
     cy.imsId("toggle-action").first().click();
     cy.imsId("btn-table-action-edit").click();
     cy.imsId("btn-reset").click();
-    cy.imsId("btn-go-back").click();
 
     cy.log("Successful clean displaying");
   }
 
+  editSubmitButton() {
+    cy.imsId("btn-submit").click();
+    cy.imsId("btn-ok").click();
+    cy.log("Successful edit submit button check.");
+  }
+
   editGoBackButton() {
-    cy.imsId("toggle-action").first().click();
-    cy.imsId("btn-table-action-edit").click();
     cy.imsId("btn-go-back").click();
     cy.log("Successful edit go back button check.");
   }
@@ -138,44 +159,16 @@ class LoanProductManagementCreation {
       cy.formController("search_text").type(lpData.search);
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-edit").click();
-      cy.imsId("btn-go-back").click();
-
-      // cy.imsId("btn-submit").click();
-
-      // cy.get("app-confirmation-modal")
-      //   .contains(lpData.messageUpdateLoanProduct)
-      //   .and("be.visible");
-      // cy.imsId("btn-yes").click();
+      cy.imsId("btn-submit").click();
+      cy.get("app-confirmation-modal")
+        .contains(lpData.messageUpdateLoanProduct)
+        .and("be.visible");
+      cy.imsId("btn-yes").click();
+      cy.imsId("btn-ok").click();
 
       cy.log("Loan product Management updated successfully");
     });
   }
-
-  editResetButton() {
-    cy.imsId("toggle-action").first().click();
-    cy.imsId("btn-table-action-edit").click();
-    cy.imsId("btn-reset").click();
-    cy.imsId("btn-go-back").click();
-
-    cy.log("Successful clean displaying");
-  }
-
-  editGoBackButton() {
-    cy.imsId("toggle-action").first().click();
-    cy.imsId("btn-table-action-edit").click();
-    cy.imsId("btn-go-back").click();
-    cy.log("Successful edit go back button check.");
-  }
-
-  editSubmitButton() {
-    cy.imsId("toggle-action").first().click();
-    cy.imsId("btn-table-action-edit").click();
-    cy.imsId("btn-submit").click();
-    cy.imsId("btn-yes").click();
-    cy.imsId("btn-ok").click(); 
-    cy.log("Successful edit submit button check.");
-  }
-
 
   statusInactiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {

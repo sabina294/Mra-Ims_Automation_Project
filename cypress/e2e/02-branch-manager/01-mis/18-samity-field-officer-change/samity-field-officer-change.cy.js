@@ -27,7 +27,7 @@ describe("18. Samity Field Officer Change Module Test Cases", function () {
     samity_field_officer_change.gridSamityChangeListPage();
   });
 
-   it("18.02. Verify new field officer change with valid information by MFI-Admin role", function () {
+   it("18.02. Verify new field officer change with valid information", function () {
     samity_field_officer_change.samityChange();
   });
 

@@ -27,7 +27,7 @@ describe("20. Samity Close Module Test Cases", function () {
     Samity_close.gridSamityCloseListPage();
   });
 
-  it("20.02. Verify samity close with valid information by MFI-Admin role", function () {
+  it("20.02. Verify samity close with valid information", function () {
     Samity_close.samityClose();
   });
 
