@@ -393,6 +393,10 @@
       "search": "Jule Akter",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
+      "OfficeSelect": "1022 (Benukhali)",
+      "SamitySelect": "1022-101 (Bijoy Mohila Samity)",
+      "MemberSelect": "1-1001 (Sumaya Farooq)",
+      "LoanAccountSelect": "AGRO-1022-101-1001-1",
       "approveMessage": "Welfare Fund Authorization for Loan Account Is Successful",
       "messageSaveLoanWelfareFund": "Welfare Fund Collection for this Loan Account is successful",
       "messageUpdateLoanWelfareFund": "Do you want to update this loan welfare fund?"

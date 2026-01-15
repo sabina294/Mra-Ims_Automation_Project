@@ -11,6 +11,7 @@ class LoanAccountProposalManagementCreation {
       cy.log("Successfully Loan account proposal Management list page.");
     });
   }
+
   createLoanAccountProposalManagement() {
     cy.fixture(this.test_data).then((data) => {
       var lapData = data.mfiAdmin.createLoanAccountFrom;
@@ -43,20 +44,55 @@ class LoanAccountProposalManagementCreation {
       cy.wait(3000);
       cy.contains("22").click({ force: true });
       cy.wait(2000);
-
       cy.imsId("btn-submit").click();
       cy.imsId("btn-yes").click();
-
-      // cy.get("app-confirmation-modal")
-      //   .contains(lapData.messageSaveLoanAccount)
-      //   .and("be.visible");
       cy.imsId("btn-ok").click();
 
       cy.log("Successfully created loan account proposal management");
     });
   }
 
+ approveLoanAccountProposal() {
+  cy.fixture(this.test_data).then((data) => {
+    const lapData = data.mfiAdmin.createLoanAccountFrom;
+
+    cy.imsId("menu-my-task").click();
+    cy.imsId("submenu-awaiting-loan-account-proposal").click();
+
+    cy.imsId("toggle-action").first().click();
+    cy.imsId("btn-table-action-view").click();
+
+    cy.imsId("btn-approve").click();
+
+    // ✅ Wait for approve modal to open
+    cy.get('nz-modal-container', { timeout: 15000 })
+      .should('be.visible');
+
+    cy.imsId("approved_loan_amount")
+      .should('be.visible')
+      .clear()
+      .type(lapData.appliedLoanAmount);
+
+    cy.imsId('btn-ok').click();
+
+    // ✅ Confirm dialog
+    cy.get('nz-modal-container').should('be.visible');
+    cy.imsId("btn-yes").click();
+
+    // ✅ MOST IMPORTANT PART
+    // Wait until ALL modals are destroyed
+    cy.get('nz-modal-container', { timeout: 20000 })
+      .should('not.exist');
+
+    cy.log("Successfully approved loan account proposal");
+  });
+}
+
   actionButtonCheck() {
+    // cy.selectMenu(
+    //   "menu-loan-account",
+    //   "submenu-loan-account-proposal-management"
+    // );
     cy.imsId("toggle-action").first().click();
     cy.log(
       "Action button clicked successfully on the loan account proposal management list page."
@@ -70,12 +106,16 @@ class LoanAccountProposalManagementCreation {
       cy.formController("search_text").type(lapData.memberNameEn);
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
-
-      cy.imsId("btn-go-back").click();
       cy.log(
         "Successfully viewed the Loan account proposal Management list page"
       );
     });
+  }
+
+  viewGoBackButton() {
+    cy.imsId("btn-go-back").click();
+    cy.log("Successfully view go back the Loan account Management list page");
+
   }
 
   editResetButtonCheck() {
@@ -134,6 +174,7 @@ class LoanAccountProposalManagementCreation {
   statusActiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       var lapData = data.mfiAdmin.createLoanAccountFrom;
+      cy.imsId("btn-reset").click();
       cy.formController("status").type(lapData.statusSelect).type("{enter}");
       cy.log(
         "Loan account proposal Management status active dropdown check successfully"
@@ -157,21 +198,17 @@ class LoanAccountProposalManagementCreation {
       );
     });
   }
+
   gridResetButtonCheck() {
     cy.imsId("btn-reset").click();
     cy.log("Successful clean displaying.");
   }
+
   gridRefreshButtonCheck() {
     cy.imsId("btn-refresh").click();
     cy.log(
       "successfully refresh page  displayed the grid list of the Loan account proposal Management "
     );
-  }
-
-  gridCheckboxCheck() {
-    cy.imsId("row-checkbox-0").click();
-    // cy.imsId("btn-reset").click();
-    cy.log("Checkbox should be clickable and functional.");
   }
 
   gridDraftButton() {
@@ -184,27 +221,58 @@ class LoanAccountProposalManagementCreation {
     cy.log("Draft button should be clickable and functional.");
   }
 
+  gridDraftActionButton() {
+    cy.imsId("btn-draft-on").click();
+    cy.imsId("toggle-action").eq(0).click();
+    cy.log("Draft button should be clickable action button and functional.");
+  }
+
+   gridDraftEditButton() {
+    cy.imsId("btn-table-action-edit").click();
+    cy.log("Draft button should be clickable edit button and functional.");
+  }
+
+   gridDraftEditResetButton() {
+    cy.imsId("btn-reset").click();
+    cy.log("Draft button should be clickable reset button and functional.");
+  }
+
+   gridDraftEditSubmitButton() {
+    cy.imsId("btn-submit").click();
+    cy.imsId("btn-ok").click();
+    cy.log("Draft button should be clickable submit button and functional.");
+  }
+
+   gridDraftEditDraftButton() {
+    cy.imsId("btn-draft").click();
+    cy.imsId("btn-ok").click();
+    cy.log("Draft button should be clickable draft button and functional.");
+  }
+
+   gridDraftEditGoBackButton() {
+    cy.imsId("btn-go-back").eq(0).click();
+    cy.log("Draft button should be clickable go back button and functional.");
+  }
+
   createResetButtonCheck() {
-    cy.fixture(this.test_data).then((data) => {
-      var lapData = data.mfiAdmin.createLoanAccountFrom;
       cy.imsId("btn-add-new").click();
-      cy.formController("samity_id").type(lapData.samity).type("{enter}");
       cy.imsId("btn-reset").click();
-      cy.imsId("btn-go-back").click();
       cy.log("Successful reset button clean displaying.");
-    });
   }
 
   createValidationMessageCheck() {
-    cy.imsId("btn-add-new").click();
-    // cy.imsId("btn-submit").click();
-    // cy.imsId("btn-ok").click();
-    cy.imsId("btn-go-back").click();
-    cy.log("Successful validation message displaying.");
+    cy.imsId("btn-submit").click();
+    cy.imsId("btn-ok").click();
+    cy.log("Successful submit button validation message displaying.");
+  }
+
+   createDraftButtonCheck() {
+    cy.imsId("btn-draft").click();
+    cy.imsId("btn-ok").click();
+    cy.log("Successful draft button validation message displaying.");
   }
 
   createGoBackButtonCheck() {
-    cy.imsId("btn-add-new").click();
     cy.imsId("btn-go-back").click();
     cy.log("Successful go back button check.");
   }

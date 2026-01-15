@@ -43,8 +43,8 @@ describe("29. Client Welfare Fund Module Test Cases", function () {
     create_client_welfare_fund.viewClientWelfareFund();
   });
 
-  it("29.06. Verify editing functionality for loan welfare fund record by MFI-Admin role", function () {
-    create_client_welfare_fund.editClientWelfareFund();
+  it("29.06. Verify that clicking the go back button on the client welfare fund view page redirects the user to the client welfare fund list page.", function () {
+    create_client_welfare_fund.viewGoBackButton();
   });
 
   it("29.07. Verify Successful Search Result by Loan welfare fund Name", function () {
@@ -55,11 +55,23 @@ describe("29. Client Welfare Fund Module Test Cases", function () {
     create_client_welfare_fund.gridResetButtonCheck();
   });
 
-  it("29.09.Verify Successful Refresh of Grid List Using the Refresh Button on Loan welfare fund Page.", function () {
+  it("29.09. Verify Successful Refresh of Grid List Using the Refresh Button on Loan welfare fund Page.", function () {
     create_client_welfare_fund.gridRefreshButtonCheck();
   });
-  
-  it("29.10. Verify check that the grid list content changes correctly from english to bangla.", function () {
+
+  it("29.10. Verify the Loan welfare fund creation reset button clears all entered input values.", function () {
+    create_client_welfare_fund.createResetButtonCheck();
+  });
+
+  it("29.11. Verify validation messages appear for required fields when the submit button is clicked with empty inputs.", function () {
+    create_client_welfare_fund.createValidationMessageCheck();
+  });
+
+  it("29.12. Verify that clicking the go back button on the Loan welfare fund create page redirects the user to the Loan welfare fund list page.", function () {
+    create_client_welfare_fund.createGoBackButtonCheck();
+  });
+
+  it("29.13. Verify check that the grid list content changes correctly from english to bangla.", function () {
     create_client_welfare_fund.gridLanguageSwitchCheck();
   });
 });
