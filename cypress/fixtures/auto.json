@@ -476,7 +476,9 @@
       "messageSaveCalendar": "Mfi calendar year has been saved"
     },
     "gridCalendarManagement": {
-      "office": "1020 (Ashulia)"
+      "office": "1020 (Ashulia)",
+      "year": "2025"  
+
     },
     "createHoliday": {
       "holidayType": "All",
@@ -484,7 +486,7 @@
       "holidayTitleEn": "Test Holiday",
       "search": "Weekly Holiday",
       "office": "1002 (Dhaka Regional Office)",
-      "calendarYear": "2024",
+      "calendarYear": "2025",
       "messageSaveHoliday": "Mfi holiday has been saved"
     },
     "gridProcessDashboard": {},

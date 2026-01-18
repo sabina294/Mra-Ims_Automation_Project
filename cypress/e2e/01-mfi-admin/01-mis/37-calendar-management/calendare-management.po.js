@@ -16,6 +16,14 @@ class CalendarManagementCreation {
     });
   }
 
+  calendarYearDropdownCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      var cmData = data.mfiAdmin.gridCalendarManagement;
+      cy.formController("calendar_year").clear().type(cmData.year);
+      cy.log("Successful year selected");
+    });
+  }
+
   gridLanguageSwitchCheck() {
     cy.imsId("profile-menu").click();
     cy.imsId("btn-lang-bangla").click();

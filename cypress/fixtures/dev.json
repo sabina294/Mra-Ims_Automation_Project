@@ -419,7 +419,7 @@
       "selectSamity": "1020-107 (Kumkumari Mohila Samity)",
       "selectMember": "1-1001 (Lamiya Akter)",
       "selectLoanAccount": "JAGO-1020-107-1001-1",
-      "inputAmount": "5000",
+      "inputAmount": "50",
       "search": "Lamiya Akter",
       "selectStatus": "Submitted",
       "statusSelect": "Approved",
@@ -476,7 +476,8 @@
       "messageSaveCalendar": "Mfi calendar year has been saved"
     },
     "gridCalendarManagement": {
-      "office": "1020 (Ashulia)"
+      "office": "1020 (Ashulia)",
+      "year": "2025"  
     },
     "createHoliday": {
       "holidayType": "All",
@@ -484,7 +485,7 @@
       "holidayTitleEn": "Test Holiday",
       "search": "Weekly Holiday",
       "office": "1002 (Dhaka Regional Office)",
-      "calendarYear": "2024",
+      "calendarYear": "2025",
       "messageSaveHoliday": "Mfi holiday has been saved"
     },
     "gridProcessDashboard": {},

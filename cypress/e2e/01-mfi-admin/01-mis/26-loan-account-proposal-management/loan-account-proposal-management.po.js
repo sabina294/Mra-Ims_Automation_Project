@@ -52,7 +52,7 @@ class LoanAccountProposalManagementCreation {
     });
   }
 
- approveLoanAccountProposal() {
+approveLoanAccountProposal() {
   cy.fixture(this.test_data).then((data) => {
     const lapData = data.mfiAdmin.createLoanAccountFrom;
 
@@ -64,7 +64,7 @@ class LoanAccountProposalManagementCreation {
 
     cy.imsId("btn-approve").click();
 
-    // ✅ Wait for approve modal to open
+    // 1️⃣ Wait for approve modal
     cy.get('nz-modal-container', { timeout: 15000 })
       .should('be.visible');
 
@@ -75,12 +75,19 @@ class LoanAccountProposalManagementCreation {
 
     cy.imsId('btn-ok').click();
 
-    // ✅ Confirm dialog
+    // 2️⃣ First confirmation modal
     cy.get('nz-modal-container').should('be.visible');
-    cy.imsId("btn-yes").click();
+    cy.imsId("btn-yes").first().click();
 
-    // ✅ MOST IMPORTANT PART
-    // Wait until ALL modals are destroyed
+    // 3️⃣ Second confirmation modal (if exists)
+    cy.get('nz-modal-container').should('be.visible');
+    cy.imsId("btn-yes").first().click();
+
+    // 4️⃣ Final success modal
+    cy.get('nz-modal-container').should('be.visible');
+    cy.imsId('btn-ok').click();
+
+    // 🔥 MOST IMPORTANT LINE
     cy.get('nz-modal-container', { timeout: 20000 })
       .should('not.exist');
 
@@ -89,10 +96,10 @@ class LoanAccountProposalManagementCreation {
 }
 
   actionButtonCheck() {
-    // cy.selectMenu(
-    //   "menu-loan-account",
-    //   "submenu-loan-account-proposal-management"
-    // );
+    cy.selectMenu(
+      "menu-loan-account",
+      "submenu-loan-account-proposal-management"
+    );
     cy.imsId("toggle-action").first().click();
     cy.log(
       "Action button clicked successfully on the loan account proposal management list page."
@@ -250,7 +257,7 @@ class LoanAccountProposalManagementCreation {
   }
 
    gridDraftEditGoBackButton() {
-    cy.imsId("btn-go-back").eq(0).click();
+    cy.imsId("btn-go-back").click();
     cy.log("Draft button should be clickable go back button and functional.");
   }
 

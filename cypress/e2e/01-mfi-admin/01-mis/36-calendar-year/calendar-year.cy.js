@@ -43,43 +43,47 @@ describe("36. Calendar Year Module Test Cases", function () {
     create_calendar_year.viewCalendar();
   });
 
-  it("36.06. Verify that the search results are displayed correctly when searching by calendar year name.", function () {
+  it("36.06. Verify that clicking the go back button on the calendar year view page redirects the user to the calendar year list page.", function () {
+    create_calendar_year.viewGoBackButton();
+  });
+
+  it("36.07. Verify that the search results are displayed correctly when searching by calendar year name.", function () {
     create_calendar_year.searchCalendarStatus();
   });
 
-  it("36.07. Verify the grid list resets successfully when the reset button is clicked on the calendar year page.", function () {
+  it("36.08. Verify the grid list resets successfully when the reset button is clicked on the calendar year page.", function () {
     create_calendar_year.gridResetButtonCheck();
   });
 
-  it("36.08. Verify that the grid list is refreshed successfully when the refresh button is clicked on the calendar year page.", function () {
+  it("36.09. Verify that the grid list is refreshed successfully when the refresh button is clicked on the calendar year page.", function () {
     create_calendar_year.gridRefreshButtonCheck();
   });
 
-  it("36.09. Verify display the grid list successfully when the Draft button on is clicked on the calendar year page", function () {
+  it("36.10. Verify display the grid list successfully when the Draft button on is clicked on the calendar year page", function () {
     create_calendar_year.gridDraftButton();
   });
 
-  it("36.10. Verify display the grid list successfully when the Draft button off is clicked on the calendar year page", function () {
+  it("36.11. Verify display the grid list successfully when the Draft button off is clicked on the calendar year page", function () {
     create_calendar_year.gridDraftButtonOff();
   });
 
-  it('36.11. Verify the functionality and expected behavior of the "Successful Office Status" dropdown.', function () {
+  it('36.12. Verify the functionality and expected behavior of the "Successful Office Status" dropdown.', function () {
     create_calendar_year.statusOfficeDropdownCheck();
   });
 
-  it("36.12. Verify the calendar year creation reset button clears all entered input values.", function () {
+  it("36.13. Verify the calendar year creation reset button clears all entered input values.", function () {
     create_calendar_year.createResetButtonCheck();
   });
 
-  it("36.13. Verify that clicking the go back button on the calendar year create page redirects the user to the calendar year list page.", function () {
+  it("36.14. Verify that clicking the go back button on the calendar year create page redirects the user to the calendar year list page.", function () {
     create_calendar_year.createGoBackButtonCheck();
   });
 
-  it("36.14. Verify that clicking the submit button  on the calendar year create page redirects the user to the calendar year list page.", function () {
+  it("36.15. Verify that clicking the submit button  on the calendar year create page redirects the user to the calendar year list page.", function () {
     create_calendar_year.createSubmitButtonCheck();
   });
 
-  it("36.15. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("36.16. Verify check that the grid list content changes correctly from english to bangla.", function () {
     create_calendar_year.gridLanguageSwitchCheck();
   });
 });

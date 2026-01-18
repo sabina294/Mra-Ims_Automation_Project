@@ -35,31 +35,35 @@ describe("35. Savings Account Management Module Test Cases", function () {
     create_savings_account_management.viewSavingsAccountManag();
   });
 
-  it("35.04. Verify the user can filter inactive employee records using the status dropdown on the savings account application management List page.", function () {
+  it("35.04. Verify that clicking the go back button on the savings account management view page redirects the user to the savings account management list page.", function () {
+    create_savings_account_management.viewGoBackButton();
+  });
+
+  it("35.05. Verify the user can filter inactive employee records using the status dropdown on the savings account management List page.", function () {
     create_savings_account_management.statusApprovedDropdownCheck();
   });
 
-  it("35.05. Verify check if the filter for active results works correctly with the status dropdown.", function () {
+  it("35.06. Verify check if the filter for active results works correctly with the status dropdown.", function () {
     create_savings_account_management.statusRejectedDropdownCheck();
   });
 
-  it('35.06. Verify the functionality and expected behavior of the "Successful Office Status" dropdown.', function () {
+  it('35.07. Verify the functionality and expected behavior of the "Successful Office Status" dropdown.', function () {
     create_savings_account_management.statusOfficeDropdownCheck();
   });
 
-  it("35.07. Verify that the search results are displayed correctly when searching by savings account application management name.", function () {
+  it("35.08. Verify that the search results are displayed correctly when searching by savings account management name.", function () {
     create_savings_account_management.searchSavingsAccManag();
   });
 
-  it("35.08. Verify the grid list resets successfully when the reset button is clicked on the savings account application management page.", function () {
+  it("35.09. Verify the grid list resets successfully when the reset button is clicked on the savings account management page.", function () {
     create_savings_account_management.gridResetButtonCheck();
   });
 
-  it("35.09. Verify that the grid list is refreshed successfully when the refresh button is clicked on the savings account application management page.", function () {
+  it("35.10. Verify that the grid list is refreshed successfully when the refresh button is clicked on the savings account management page.", function () {
     create_savings_account_management.gridRefreshButtonCheck();
   });
 
-  it("35.10. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("35.11. Verify check that the grid list content changes correctly from english to bangla.", function () {
     create_savings_account_management.gridLanguageSwitchCheck();
   });
 });

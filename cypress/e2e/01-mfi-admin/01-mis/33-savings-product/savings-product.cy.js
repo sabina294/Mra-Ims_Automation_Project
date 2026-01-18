@@ -39,55 +39,59 @@ describe("33. Savings Product Module Test Cases", function () {
     create_savings_product.viewSavingsProduct();
   });
 
-  it("33.05. Verify that the savings product forms edit mode can be toggled on and off all fields should be disabled or return to view-only mode.", function () {
+  it("33.05. Verify that clicking the go back button on the savings product view page redirects the user to the savings product list page.", function () {
+    create_savings_product.viewGoBackButton();
+  });
+
+  it("33.06. Verify that the savings product forms edit mode can be toggled on and off all fields should be disabled or return to view-only mode.", function () {
     create_savings_product.turnOffEditMode();
   });
 
-  it("33.06. Verify the savings product  edit reset button functions correctly.", function () {
+  it("33.07. Verify the savings product  edit reset button functions correctly.", function () {
     create_savings_product.editResetButton();
   });
 
-  it("33.07. Verify that clicking the go back button on the savings product  edit page redirects the user to the savings product  list page.", function () {
+  it("33.08. Verify that clicking the go back button on the savings product  edit page redirects the user to the savings product  list page.", function () {
     create_savings_product.editGoBackButton();
   });
 
-  it("33.08. Verify editing functionality for savings product record by MFI-Admin role", function () {
+  it("33.09. Verify editing functionality for savings product record by MFI-Admin role", function () {
     create_savings_product.editSavingsProduct();
   });
 
-  it("33.09. Verify the user can filter inactive savings products using the status dropdown on the savings product list page.", function () {
+  it("33.10. Verify the user can filter inactive savings products using the status dropdown on the savings product list page.", function () {
     create_savings_product.statusInactiveDropdownCheck();
   });
 
-  it("33.10. Verify the active result is filtered correctly by the status dropdown.", function () {
+  it("33.11. Verify the active result is filtered correctly by the status dropdown.", function () {
     create_savings_product.statusActiveDropdownCheck();
   });
 
-  it("33.11. Verify the search returns correct results when searching by savings product name.", function () {
+  it("33.12. Verify the search returns correct results when searching by savings product name.", function () {
     create_savings_product.searchInSavingsProductName();
   });
 
-  it("33.12. Verify the grid list resets successfully when the reset button is clicked on the savings product page.", function () {
+  it("33.13. Verify the grid list resets successfully when the reset button is clicked on the savings product page.", function () {
     create_savings_product.gridResetButtonCheck();
   });
 
-  it("33.13. Verify that the grid list is refreshed successfully when the refresh button is clicked on the savings product page.", function () {
+  it("33.14. Verify that the grid list is refreshed successfully when the refresh button is clicked on the savings product page.", function () {
     create_savings_product.gridRefreshButtonCheck();
   });
 
-  it("33.14. Verify the savings product creation reset button clears all entered input values.", function () {
+  it("33.15. Verify the savings product creation reset button clears all entered input values.", function () {
     create_savings_product.createResetButtonCheck();
   });
 
-  it("33.15. Verify validation messages appear for required fields when the submit button is clicked with empty inputs.", function () {
+  it("33.16. Verify validation messages appear for required fields when the submit button is clicked with empty inputs.", function () {
     create_savings_product.createValidationMessageCheck();
   });
 
-  it("33.16. Verify that clicking the go back button on the savings product create page redirects the user to the savings product list page.", function () {
+  it("33.17. Verify that clicking the go back button on the savings product create page redirects the user to the savings product list page.", function () {
     create_savings_product.createGoBackButtonCheck();
   });
 
-  it("33.17. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("33.18. Verify check that the grid list content changes correctly from english to bangla.", function () {
     create_savings_product.gridLanguageSwitchCheck();
   });
 });

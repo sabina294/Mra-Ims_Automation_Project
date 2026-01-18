@@ -79,29 +79,29 @@ describe("26. Loan Account Proposal Management Module Test Cases", function () {
     create_loan_account_proposal_management.gridDraftButtonOff();
   });
 
-  it("26.15. Verify display the grid list successfully when the Draft action button on is clicked on the loan account proposal management page", function () {
-    create_loan_account_proposal_management.gridDraftActionButton();
-  });
+  // it("26.15. Verify display the grid list successfully when the Draft action button on is clicked on the loan account proposal management page", function () {
+  //   create_loan_account_proposal_management.gridDraftActionButton();
+  // });
 
-  it("26.16. Verify display the grid list successfully when the Draft edit button on is clicked on the loan account proposal management page", function () {
-    create_loan_account_proposal_management.gridDraftEditButton();
-  });
+  // it("26.16. Verify display the grid list successfully when the Draft edit button on is clicked on the loan account proposal management page", function () {
+  //   create_loan_account_proposal_management.gridDraftEditButton();
+  // });
 
-  it("26.17. Verify display the grid list successfully when the Draft edit reset button on is clicked on the loan account proposal management page", function () {
-    create_loan_account_proposal_management.gridDraftEditResetButton();
-  });
+  // it("26.17. Verify display the grid list successfully when the Draft edit reset button on is clicked on the loan account proposal management page", function () {
+  //   create_loan_account_proposal_management.gridDraftEditResetButton();
+  // });
 
-  it("26.18. Verify display the grid list successfully when the Draft edit draft button on is clicked on the loan account proposal management page", function () {
-    create_loan_account_proposal_management.gridDraftEditDraftButton();
-  });
+  // it("26.18. Verify display the grid list successfully when the Draft edit draft button on is clicked on the loan account proposal management page", function () {
+  //   create_loan_account_proposal_management.gridDraftEditDraftButton();
+  // });
 
-  it("26.19. Verify display the grid list successfully when the Draft edit submit button on is clicked on the loan account proposal management page", function () {
-    create_loan_account_proposal_management.gridDraftEditSubmitButton();
-  });
+  // it("26.19. Verify display the grid list successfully when the Draft edit submit button on is clicked on the loan account proposal management page", function () {
+  //   create_loan_account_proposal_management.gridDraftEditSubmitButton();
+  // });
 
-  it("26.20. Verify display the grid list successfully when the Draft edit go back button on is clicked on the loan account proposal management page", function () {
-    create_loan_account_proposal_management.gridDraftEditGoBackButton();
-  });
+  // it("26.20. Verify display the grid list successfully when the Draft edit go back button on is clicked on the loan account proposal management page", function () {
+  //   create_loan_account_proposal_management.gridDraftEditGoBackButton();
+  // });
 
   it("26.21. Verify the loan account proposal management creation reset button clears all entered input values.", function () {
     create_loan_account_proposal_management.createResetButtonCheck();

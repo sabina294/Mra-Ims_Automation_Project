@@ -28,7 +28,7 @@ class LoanPenalty {
       cy.imsId("btn-yes").click();
 
       cy.get("app-confirmation-modal")
-        .contains(wfData.messageSaveLoanPenalty)
+        .contains(lpData.messageSaveLoanPenalty)
         .and("be.visible");
       cy.imsId('btn-ok').click();
 
