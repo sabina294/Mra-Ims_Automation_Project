@@ -79,9 +79,9 @@ approveLoanAccountProposal() {
     cy.get('nz-modal-container').should('be.visible');
     cy.imsId("btn-yes").first().click();
 
-    // 3️⃣ Second confirmation modal (if exists)
-    cy.get('nz-modal-container').should('be.visible');
-    cy.imsId("btn-yes").first().click();
+    // // 3️⃣ Second confirmation modal (if exists)
+    // cy.get('nz-modal-container').should('be.visible');
+    // cy.imsId("btn-yes").first().click();
 
     // 4️⃣ Final success modal
     cy.get('nz-modal-container').should('be.visible');
