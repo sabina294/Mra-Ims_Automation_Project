@@ -103,23 +103,35 @@ describe("26. Loan Account Proposal Management Module Test Cases", function () {
   //   create_loan_account_proposal_management.gridDraftEditGoBackButton();
   // });
 
-  it("26.21. Verify the loan account proposal management creation reset button clears all entered input values.", function () {
+  it("26.21. Verify the loan account proposal management creation Guarantor button clears all entered input values.", function () {
+    create_loan_account_proposal_management.createAddGuarantorButtonCheck();
+  });
+
+  it("26.22. Verify the loan account proposal management creation Remove button clears all entered input values.", function () {
+    create_loan_account_proposal_management.createRemoveButtonCheck();
+  });
+
+  it("26.23. Verify the loan account proposal management creation reset button clears all entered input values.", function () {
     create_loan_account_proposal_management.createResetButtonCheck();
   });
 
-  it("26.22. Verify validation messages appear for required fields when the submit button is clicked with empty inputs.", function () {
+  it("26.24. Verify the loan account proposal management creation reset button clears all entered input values.", function () {
+    create_loan_account_proposal_management.createResetButtonCheck();
+  });
+
+  it("26.25. Verify validation messages appear for required fields when the submit button is clicked with empty inputs.", function () {
     create_loan_account_proposal_management.createValidationMessageCheck();
   });
 
-  it("26.23. Verify validation messages appear for required fields when the draft button is clicked with empty inputs.", function () {
+  it("26.26. Verify validation messages appear for required fields when the draft button is clicked with empty inputs.", function () {
     create_loan_account_proposal_management.createDraftButtonCheck();
   });
 
-  it("26.24. Verify that clicking the go back button on the loan account proposal management create page redirects the user to the loan account proposal management list page.", function () {
+  it("26.27. Verify that clicking the go back button on the loan account proposal management create page redirects the user to the loan account proposal management list page.", function () {
     create_loan_account_proposal_management.createGoBackButtonCheck();
   });
 
-  it("26.25. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("26.28. Verify check that the grid list content changes correctly from english to bangla.", function () {
     create_loan_account_proposal_management.gridLanguageSwitchCheck();
   });
 });

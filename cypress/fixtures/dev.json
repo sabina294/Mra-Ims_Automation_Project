@@ -477,7 +477,7 @@
     },
     "gridCalendarManagement": {
       "office": "1020 (Ashulia)",
-      "year": "2025"  
+      "year": "2025"
     },
     "createHoliday": {
       "holidayType": "All",
@@ -567,8 +567,8 @@
       "statusSelect": "Active"
     },
     "paymentVoucher": {
-      "voucherNameEn": "Test Voucher",
-      "voucherNameBn": "টেস্ট ভাউচার",
+      "voucherNameEn": "Test Payment Voucher",
+      "voucherNameBn": "টেস্ট পেমেন্ট ভাউচার",
       "paymentMode": "Cash",
       "preparedBy": "Mohammad Rahim",
       "remarks": "Done",
@@ -579,8 +579,8 @@
       "statusSelect": "Active"
     },
     "receivedVoucher": {
-      "voucherNameEn": "Test Voucher",
-      "voucherNameBn": "টেস্ট ভাউচার",
+      "voucherNameEn": "Test received Voucher",
+      "voucherNameBn": "পরীক্ষার প্রাপ্তির ভাউচার",
       "paymentMode": "Cash",
       "preparedBy": "Jakir Hossain",
       "remarks": "Done",
@@ -790,7 +790,7 @@
       "newSamityDay": "Tuesday",
       "messageSamityDayChange": "Samity has been updated"
     },
-   "samityCloseFrom": {
+    "samityCloseFrom": {
       "samityNameEn": "Chhagalnaiya Samity",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
@@ -863,20 +863,21 @@
     },
     "createLoanAccountFrom": {
       "office": "1020 (Ashulia)",
-      "samity": "1020-101 (Ashulia Mohila Samity)",
-      "member": "3-1003 (Jesiya Akter)",
+      "samity": "1020-104 (Kandail Mohila Samity)",
+      "member": "1-1001 (Israt Jahan)",
       "lendingCategory": "Industry",
       "economicSector": "Industry",
       "economicActivity": "Term Loan ( Other than Working Capital Financing)",
       "economicPurpose": "Service Industries",
       "loanProduct": "Rural Micro Credit Monthly",
-      "appliedLoanAmount": "5000",
-      "openingBalance": "5000",
+      "appliedLoanAmount": "50000",
+      "openingBalance": "50000",
       "selectStatus": "Approve",
       "statusSelect": "Rejected",
       "SelectOffice": "1020 (Ashulia)",
       "memberNameEn": "Ashulia Mohila Samity",
-      "approvedLoanAmount": "5000",
+      "searchMember": "Israt Jahan",
+      "approvedLoanAmount": "50000",
       "messageSaveLoanAccount": "Loan account proposal has been saved",
       "messageUpdateLoanAccount": "Do you want to update this loan account?"
     },

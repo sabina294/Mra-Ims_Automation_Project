@@ -19,17 +19,19 @@ class PaymentVoucherCreation {
             cy.wait(2000);
             cy.contains(14).click();
             cy.wait(1000);
-            cy.formController("payment_mode").type(pvData.paymentMode).type("{enter}");
             cy.formController("voucher_prepared_by").type(pvData.preparedBy).type("{enter}");
-            cy.wait(1000);
             cy.formController("remarks").eq(0).type(pvData.remarks);
+            cy.formController("payment_mode").type(pvData.paymentMode).type("{enter}");
+            cy.wait(1000);
+            cy.formController("amount").type(pvData.amount);
+            cy.formController("remarks").eq(1).type(pvData.remarks);
             cy.formController("transaction_date").click();
             cy.wait(1000);
             cy.contains(15).click();
             cy.wait(1000);
-            cy.formController("ledger_id").eq(1).type(pvData.ledger).type("{enter}");
+            cy.formController("ledger_id").type(pvData.ledger).type("{enter}");
             cy.wait(1000);
-            cy.formController("remarks").eq(1).type(pvData.remarks1);
+            cy.formController("remarks").eq(2).type(pvData.remarks1);
             cy.formController("transaction_amount").clear().type(pvData.amount);
             cy.imsId("btn-submit").click();
             cy.imsId("btn-yes").click();
@@ -39,16 +41,37 @@ class PaymentVoucherCreation {
         });
     }
 
+    approvePaymentVoucher() {
+        cy.fixture(this.test_data).then((data) => {
+            var pvData = data.mfiAdmin.paymentVoucher;
+            cy.imsId("menu-my-task").click();
+            cy.imsId("submenu-awaiting-payment-voucher").click();
+            // cy.formController("search_text").type(pvData.voucherNameEn);
+            cy.imsId("toggle-action").first().click();
+            cy.imsId("btn-table-action-view").click();
+            cy.imsId("btn-lock").click();
+            cy.imsId("btn-approve").click();
+            cy.imsId("btn-submit").click();
+            cy.imsId("btn-ok").click();
+
+            cy.log("Successfully approve payment voucher");
+        });
+    }
 
     actionButtonCheck() {
+        cy.selectMenu("menu-voucher", "submenu-payment-voucher");
         cy.imsId("toggle-action").first().click();
         cy.log("Action button clicked successfully on the payment voucher list page.");
     }
 
-     detailsViewCheck() {
+    detailsViewCheck() {
         cy.imsId("btn-table-action-view").click();
-        cy.imsId("btn-go-back").click();
         cy.log("Details view button clicked successfully on the payment voucher list page.");
+    }
+
+    viewGoBackPaymentVoucher() {
+        cy.imsId("btn-go-back").click();
+        cy.log("Successfully go back the payment voucher page");
     }
 
     statusInactiveDropdownCheck() {
@@ -81,6 +104,7 @@ class PaymentVoucherCreation {
         cy.imsId("btn-reset").click();
         cy.log("Successful clean displaying.");
     }
+
     gridRefreshButtonCheck() {
         cy.imsId("btn-refresh").click();
         cy.log(
@@ -88,28 +112,56 @@ class PaymentVoucherCreation {
         );
     }
 
+    gridDraftButton() {
+        cy.imsId("btn-draft-on").click();
+        cy.log("Draft button should be clickable and functional.");
+    }
+
+    gridDraftButtonOff() {
+        cy.imsId("btn-draft-on").click();
+        cy.log("Draft button should be clickable and functional.");
+    }
 
     createResetButtonCheck() {
         cy.imsId("btn-add-new").click();
         cy.imsId("btn-reset").click();
-        cy.imsId("btn-go-back").click();
         cy.log("Successful reset button clean displaying.");
     }
 
     createValidationMessageCheck() {
-        cy.imsId("btn-add-new").click();
         cy.imsId("btn-submit").click();
         cy.imsId("btn-ok").click();
-        cy.imsId("btn-go-back").click();
         cy.log("Successful validation message displaying.");
     }
 
+    createDraftButtonCheck() {
+        cy.imsId("btn-draft").click();
+        cy.imsId("btn-ok").click();
+        cy.log("Successful validation message displaying.");
+    }
+
+    createApproveButtonCheck() {
+        cy.imsId("btn-approve").click();
+        cy.imsId("btn-ok").click();
+        cy.log("Successful validation message displaying.");
+    }
+
+    createPaymentAddIconButtonCheck() {
+        cy.fixture(this.test_data).then((data) => {
+            cy.imsId("btn-add-icon").click();
+        });
+    }
+
+    createPaymentRemoveIconButtonCheck() {
+        cy.fixture(this.test_data).then((data) => {
+            cy.imsId("btn-remove-icon").first().click();
+        });
+    }
+
     createGoBackButtonCheck() {
-        cy.imsId("btn-add-new").click();
         cy.imsId("btn-go-back").click();
         cy.log("Successful go back button check.");
     }
-
 
     createNewJournalDetailsButtonCheck() {
         cy.imsId("btn-add-new").click();

@@ -63,19 +63,31 @@ describe("12. Loan Account Proposal Management Module Test Cases", function () {
     create_loan_account_proposal_management.gridRefreshButtonCheck();
   });
 
-  it("12.11. Verify the loan account proposal management creation reset button clears all entered input values.", function () {
+  it("12.11. Verify the loan account proposal management creation Guarantor button clears all entered input values.", function () {
+    create_loan_account_proposal_management.createAddGuarantorButtonCheck();
+  });
+
+  it("12.12. Verify the loan account proposal management creation Remove button clears all entered input values.", function () {
+    create_loan_account_proposal_management.createRemoveButtonCheck();
+  });
+
+  it("12.13. Verify the loan account proposal management creation reset button clears all entered input values.", function () {
     create_loan_account_proposal_management.createResetButtonCheck();
   });
 
-  it("12.12. Verify validation messages appear for required fields when the submit button is clicked with empty inputs.", function () {
+  it("12.14. Verify validation messages appear for required fields when the submit button is clicked with empty inputs.", function () {
     create_loan_account_proposal_management.createValidationMessageCheck();
   });
 
-  it("12.13. Verify that clicking the go back button on the loan account proposal management create page redirects the user to the loan account proposal management list page.", function () {
+  it("12.15. Verify validation messages appear for required fields when the draft button is clicked with empty inputs.", function () {
+    create_loan_account_proposal_management.createDraftButtonCheck();
+  });
+
+  it("12.16. Verify that clicking the go back button on the loan account proposal management create page redirects the user to the loan account proposal management list page.", function () {
     create_loan_account_proposal_management.createGoBackButtonCheck();
   });
 
-  it("12.14. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("12.17. Verify check that the grid list content changes correctly from english to bangla.", function () {
     create_loan_account_proposal_management.gridLanguageSwitchCheck();
   });
 });

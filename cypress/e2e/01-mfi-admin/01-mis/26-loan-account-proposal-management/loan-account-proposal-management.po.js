@@ -52,48 +52,48 @@ class LoanAccountProposalManagementCreation {
     });
   }
 
-approveLoanAccountProposal() {
-  cy.fixture(this.test_data).then((data) => {
-    const lapData = data.mfiAdmin.createLoanAccountFrom;
+  approveLoanAccountProposal() {
+    cy.fixture(this.test_data).then((data) => {
+      const lapData = data.mfiAdmin.createLoanAccountFrom;
 
-    cy.imsId("menu-my-task").click();
-    cy.imsId("submenu-awaiting-loan-account-proposal").click();
+      cy.imsId("menu-my-task").click();
+      cy.imsId("submenu-awaiting-loan-account-proposal").click();
 
-    cy.imsId("toggle-action").first().click();
-    cy.imsId("btn-table-action-view").click();
+      cy.imsId("toggle-action").first().click();
+      cy.imsId("btn-table-action-view").click();
 
-    cy.imsId("btn-approve").click();
+      cy.imsId("btn-approve").click();
 
-    // 1️⃣ Wait for approve modal
-    cy.get('nz-modal-container', { timeout: 15000 })
-      .should('be.visible');
+      // 1️⃣ Wait for approve modal
+      cy.get('nz-modal-container', { timeout: 15000 })
+        .should('be.visible');
 
-    cy.imsId("approved_loan_amount")
-      .should('be.visible')
-      .clear()
-      .type(lapData.appliedLoanAmount);
+      cy.imsId("approved_loan_amount")
+        .should('be.visible')
+        .clear()
+        .type(lapData.appliedLoanAmount);
 
-    cy.imsId('btn-ok').click();
+      cy.imsId('btn-ok').click();
 
-    // 2️⃣ First confirmation modal
-    cy.get('nz-modal-container').should('be.visible');
-    cy.imsId("btn-yes").first().click();
+      // 2️⃣ First confirmation modal
+      cy.get('nz-modal-container').should('be.visible');
+      cy.imsId("btn-yes").first().click();
 
-    // // 3️⃣ Second confirmation modal (if exists)
-    // cy.get('nz-modal-container').should('be.visible');
-    // cy.imsId("btn-yes").first().click();
+      // // 3️⃣ Second confirmation modal (if exists)
+      // cy.get('nz-modal-container').should('be.visible');
+      // cy.imsId("btn-yes").first().click();
 
-    // 4️⃣ Final success modal
-    cy.get('nz-modal-container').should('be.visible');
-    cy.imsId('btn-ok').click();
+      // 4️⃣ Final success modal
+      cy.get('nz-modal-container').should('be.visible');
+      cy.imsId('btn-ok').click();
 
-    // 🔥 MOST IMPORTANT LINE
-    cy.get('nz-modal-container', { timeout: 20000 })
-      .should('not.exist');
+      // 🔥 MOST IMPORTANT LINE
+      cy.get('nz-modal-container', { timeout: 20000 })
+        .should('not.exist');
 
-    cy.log("Successfully approved loan account proposal");
-  });
-}
+      cy.log("Successfully approved loan account proposal");
+    });
+  }
 
   actionButtonCheck() {
     cy.selectMenu(
@@ -234,37 +234,57 @@ approveLoanAccountProposal() {
     cy.log("Draft button should be clickable action button and functional.");
   }
 
-   gridDraftEditButton() {
+  gridDraftEditButton() {
     cy.imsId("btn-table-action-edit").click();
     cy.log("Draft button should be clickable edit button and functional.");
   }
 
-   gridDraftEditResetButton() {
+  gridDraftEditResetButton() {
     cy.imsId("btn-reset").click();
     cy.log("Draft button should be clickable reset button and functional.");
   }
 
-   gridDraftEditSubmitButton() {
+  gridDraftEditSubmitButton() {
     cy.imsId("btn-submit").click();
     cy.imsId("btn-ok").click();
     cy.log("Draft button should be clickable submit button and functional.");
   }
 
-   gridDraftEditDraftButton() {
+  gridDraftEditDraftButton() {
     cy.imsId("btn-draft").click();
     cy.imsId("btn-ok").click();
     cy.log("Draft button should be clickable draft button and functional.");
   }
 
-   gridDraftEditGoBackButton() {
+  gridDraftEditGoBackButton() {
     cy.imsId("btn-go-back").click();
     cy.log("Draft button should be clickable go back button and functional.");
   }
 
+  createAddGuarantorButtonCheck() {
+    cy.imsId("btn-add-new").should("be.visible").click();
+    cy.imsId("btn-add-guarantor")
+      .should("be.visible")
+      .first()
+      .click();
+
+    cy.log("Successfully clicked 'Add Guarantor' button.");
+  }
+
+  createRemoveButtonCheck() {
+    cy.imsId("btn-remove-guarantor")
+      .should("be.visible")
+      .first()
+      .click();
+    cy.log("Successfully clicked 'Remove Guarantor' button.");
+  }
+
+
   createResetButtonCheck() {
-      cy.imsId("btn-add-new").click();
+    cy.fixture(this.test_data).then((data) => {
       cy.imsId("btn-reset").click();
       cy.log("Successful reset button clean displaying.");
+    });
   }
 
   createValidationMessageCheck() {
@@ -273,7 +293,7 @@ approveLoanAccountProposal() {
     cy.log("Successful submit button validation message displaying.");
   }
 
-   createDraftButtonCheck() {
+  createDraftButtonCheck() {
     cy.imsId("btn-draft").click();
     cy.imsId("btn-ok").click();
     cy.log("Successful draft button validation message displaying.");

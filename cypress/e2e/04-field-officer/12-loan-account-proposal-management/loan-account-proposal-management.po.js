@@ -66,7 +66,7 @@ class LoanAccountProposalManagementCreation {
       );
     });
   }
-  
+
   viewGoBackButton() {
     cy.imsId("btn-go-back").click();
     cy.log(
@@ -104,6 +104,7 @@ class LoanAccountProposalManagementCreation {
   statusActiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       var lapData = data.fieldOfficer.createLoanAccountFrom;
+      cy.imsId("btn-reset").click();
       cy.formController("status").type(lapData.statusSelect).type("{enter}");
       cy.log(
         "Loan account proposal Management status active dropdown check successfully"
@@ -130,27 +131,45 @@ class LoanAccountProposalManagementCreation {
     );
   }
 
+  createAddGuarantorButtonCheck() {
+    cy.imsId("btn-add-new").should("be.visible").click();
+    cy.imsId("btn-add-guarantor")
+      .should("be.visible")
+      .first()
+      .click();
+
+    cy.log("Successfully clicked 'Add Guarantor' button.");
+  }
+
+  createRemoveButtonCheck() {
+    cy.imsId("btn-remove-guarantor")
+      .should("be.visible")
+      .first()
+      .click();
+    cy.log("Successfully clicked 'Remove Guarantor' button.");
+  }
+
+
   createResetButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var lapData = data.fieldOfficer.createLoanAccountFrom;
-      cy.imsId("btn-add-new").click();
-      cy.formController("samity_id").type(lapData.samity).type("{enter}");
       cy.imsId("btn-reset").click();
-      cy.imsId("btn-go-back").click();
       cy.log("Successful reset button clean displaying.");
     });
   }
 
   createValidationMessageCheck() {
-    cy.imsId("btn-add-new").click();
-    // cy.imsId("btn-submit").click();
-    // cy.imsId("btn-ok").click();
-    cy.imsId("btn-go-back").click();
+    cy.imsId("btn-submit").click();
+    cy.imsId("btn-ok").click();
     cy.log("Successful validation message displaying.");
   }
 
+  createDraftButtonCheck() {
+    cy.imsId("btn-draft").click();
+    cy.imsId("btn-ok").click();
+    cy.log("Successful draft button validation message displaying.");
+  }
+
   createGoBackButtonCheck() {
-    cy.imsId("btn-add-new").click();
     cy.imsId("btn-go-back").click();
     cy.log("Successful go back button check.");
   }

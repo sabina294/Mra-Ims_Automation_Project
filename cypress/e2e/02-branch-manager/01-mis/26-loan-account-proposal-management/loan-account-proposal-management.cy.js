@@ -75,15 +75,31 @@ describe("26. Loan Account Proposal Management Module Test Cases", function () {
     create_loan_account_proposal_management.gridDraftButtonOff();
   });
 
-  it("26.14. Verify the loan account proposal management creation reset button clears all entered input values.", function () {
+  it("26.14. Verify the loan account proposal management creation Guarantor button clears all entered input values.", function () {
+    create_loan_account_proposal_management.createAddGuarantorButtonCheck();
+  });
+
+  it("26.15. Verify the loan account proposal management creation Remove button clears all entered input values.", function () {
+    create_loan_account_proposal_management.createRemoveButtonCheck();
+  });
+
+  it("26.16. Verify the loan account proposal management creation reset button clears all entered input values.", function () {
     create_loan_account_proposal_management.createResetButtonCheck();
   });
 
-  it("26.15. Verify that clicking the go back button on the loan account proposal management list page.", function () {
+  it("26.17. Verify validation messages appear for required fields when the submit button is clicked with empty inputs.", function () {
+    create_loan_account_proposal_management.createValidationMessageCheck();
+  });
+
+  it("26.18. Verify validation messages appear for required fields when the draft button is clicked with empty inputs.", function () {
+    create_loan_account_proposal_management.createDraftButtonCheck();
+  });
+
+  it("26.19. Verify that clicking the go back button on the loan account proposal management list page.", function () {
     create_loan_account_proposal_management.createGoBackButtonCheck();
   });
 
-  it("26.16. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("26.20. Verify check that the grid list content changes correctly from english to bangla.", function () {
     create_loan_account_proposal_management.gridLanguageSwitchCheck();
   });
 });
