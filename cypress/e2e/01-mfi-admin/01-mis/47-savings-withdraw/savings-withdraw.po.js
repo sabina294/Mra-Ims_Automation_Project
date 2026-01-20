@@ -50,6 +50,34 @@ class SavingsWithdraw {
             );
         });
     }
+
+    statusDraftDropdownCheck() {
+        cy.fixture(this.test_data).then((data) => {
+            var swData = data.mfiAdmin.gridSavingsWithdraw;
+            cy.imsId("btn-reset").click();
+            cy.formController("status").type(swData.Status).type("{enter}");
+            cy.log("Savings Withdraw status inactive dropdown check successfully");
+        });
+    }
+
+    statusSubmittedDropdownCheck() {
+        cy.fixture(this.test_data).then((data) => {
+            var swData = data.mfiAdmin.gridSavingsWithdraw;
+            cy.formController("status").type(swData.statusSelect).type("{enter}");
+            cy.log("Savings Withdraw status active dropdown check successfully");
+        });
+    }
+
+    gridHistoryOnButton() {
+        cy.imsId("btn-draft-on").click();
+        cy.log("History button should be clickable and functional.");
+    }
+
+    gridHistoryButtonOff() {
+    cy.imsId("btn-draft-on").click();
+        cy.log("History button should be clickable and functional.");
+    }
+
     gridResetButtonCheck() {
         cy.imsId("btn-reset").click();
         cy.log("Successful clean displaying.");

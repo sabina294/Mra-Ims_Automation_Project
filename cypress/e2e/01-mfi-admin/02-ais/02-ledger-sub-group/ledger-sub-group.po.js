@@ -133,6 +133,15 @@ class LedgerSubGroupCreation {
         });
     }
 
+    statusLedgerGroupIdDropdownCheck() {
+        cy.fixture(this.test_data).then((data) => {
+            var lsgData = data.mfiAdmin.ledgerSubGroup;
+            cy.imsId("btn-reset").click();
+            cy.formController("ledger_group").type(lsgData.ledgerGroupId).type("{enter}");
+            cy.log("ledger sub group status group id dropdown check successfully");
+        });
+    }
+
     searchName() {
         cy.fixture(this.test_data).then((data) => {
             var lsgData = data.mfiAdmin.ledgerSubGroup;

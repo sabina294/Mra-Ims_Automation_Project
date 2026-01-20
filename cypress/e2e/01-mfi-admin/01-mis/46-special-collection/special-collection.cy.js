@@ -1,11 +1,11 @@
 // npm run auto
 // npm run dev
-// npx cypress run --spec cypress/e2e/01-mfi-admin/01-mis/45-special-collection/special-collection.cy.js --browser chrome --headed
+// npx cypress run --spec cypress/e2e/01-mfi-admin/01-mis/46-special-collection/special-collection.cy.js --browser chrome --headed
 
 import "cypress-file-upload";
 import { grid_special_collection } from "./special-collection.po";
 
-describe("45. Special Collection Module Test Cases", function () {
+describe("46. Special Collection Module Test Cases", function () {
     const baseURL = Cypress.env("BASE_URL");
     const test_data = Cypress.env("TEST_DATA");
     before(() => {
@@ -23,27 +23,27 @@ describe("45. Special Collection Module Test Cases", function () {
         cy.logout();
     });
 
-    it("45.01. Verify special Collection Grid List Page loads successfully", function () {
+    it("46.01. Verify special Collection Grid List Page loads successfully", function () {
         grid_special_collection.gridSpecialCollectionListPage();
     });
 
-    it("45.02. Verify Successful Search Result by special Collection Name", function () {
+    it("46.02. Verify Successful Search Result by special Collection Name", function () {
         grid_special_collection.searchInSpecialCollectionName();
     });
 
-    it('45.03. Verify the functionality and expected behavior of the "Successful Office Status" dropdown.', function () {
+    it('46.03. Verify the functionality and expected behavior of the "Successful Office Status" dropdown.', function () {
         grid_special_collection.statusOfficeDropdownCheck();
     });
 
-    it("45.04. Verify Successful Reset of Grid List Using the Reset Button on special Collection  Page.", function () {
+    it("46.04. Verify Successful Reset of Grid List Using the Reset Button on special Collection  Page.", function () {
         grid_special_collection.gridResetButtonCheck();
     });
 
-    it("45.05. Verify Successful Refresh of Grid List Using the Refresh Button on special Collection  Page.", function () {
+    it("46.05. Verify Successful Refresh of Grid List Using the Refresh Button on special Collection  Page.", function () {
         grid_special_collection.gridRefreshButtonCheck();
     });
 
-    it("45.06. Verify check that the grid list content changes correctly from english to bangla.", function () {
+    it("46.06. Verify check that the grid list content changes correctly from english to bangla.", function () {
         grid_special_collection.gridLanguageSwitchCheck();
     });
 });

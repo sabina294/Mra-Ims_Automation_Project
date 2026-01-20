@@ -35,8 +35,12 @@ class FinancialPeriodManagementCreation {
 
     createDetailsViewCheck() {
         cy.imsId("btn-table-action-view").first().click();
-        cy.imsId("btn-go-back").first().click();
         cy.log("View button clicked successfully on the financial period management list page.");
+    }
+
+    goBackFinancialPeriodManagement() {
+        cy.imsId("btn-go-back").click();
+        cy.log("Successfully go back the financial period management page");
     }
 
     statusInactiveDropdownCheck() {
@@ -51,6 +55,7 @@ class FinancialPeriodManagementCreation {
     statusActiveDropdownCheck() {
         cy.fixture(this.test_data).then((data) => {
             var fpmData = data.mfiAdmin.financialPeriodManagement;
+            cy.imsId("btn-reset").click();
             cy.formController("status").type(fpmData.statusSelect).type("{enter}");
             cy.log("ledger sub group status active dropdown check successfully");
         });
