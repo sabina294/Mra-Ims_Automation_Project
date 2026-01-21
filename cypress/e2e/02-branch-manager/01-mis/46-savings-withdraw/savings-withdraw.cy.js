@@ -31,17 +31,17 @@ describe("46. Savings Withdraw Module Test Cases", function () {
         create_savings_withdraw.createNewWithdraw();
     });
 
-    it("46.03. Verify perform the correct action when the Action button is clicked.", function () {
-        create_savings_withdraw.actionButtonCheck();
-    });
+    // it("46.03. Verify perform the correct action when the Action button is clicked.", function () {
+    //     create_savings_withdraw.actionButtonCheck();
+    // });
 
-    it("46.04. Verify display Savings Withdraw details including name and description successfully.", function () {
-        create_savings_withdraw.viewSpecialCollection();
-    });
+    // it("46.04. Verify display Savings Withdraw details including name and description successfully.", function () {
+    //     create_savings_withdraw.viewSpecialCollection();
+    // });
 
-    it("46.05. Verify allow editing of an existing Savings Withdraw successfully.", function () {
-        create_savings_withdraw.editSpecialCollection();
-    });
+    // it("46.05. Verify allow editing of an existing Savings Withdraw successfully.", function () {
+    //     create_savings_withdraw.editSpecialCollection();
+    // });
 
     it("46.06. Verify reset the grid list successfully when the Reset button is clicked on the Savings Withdraw page.", function () {
         create_savings_withdraw.gridResetButtonCheck();

@@ -25,19 +25,31 @@ describe("13. Day End Process Module Test Cases", function () {
         cy.logout();
     });
 
-    it("13.01. Verify the day end process page loads correctly.", function () {
-        grid_day_end_process_ais.gridDayEndProcessPage();
-    });
-
-    it("13.02. Verify that clicking the preview button on the day end process page redirects the user to the process list page.", function () {
-        grid_day_end_process_ais.processPreviewButtonCheck();
-    });
-
-    it("13.03. Verify that clicking the go back button on the day end process page redirects the user to the process list page.", function () {
-        grid_day_end_process_ais.processGoBackButtonCheck();
-    });
-
-    it("13.04. Verify check that the grid list content changes correctly from english to bangla.", function () {
-        grid_day_end_process_ais.gridLanguageSwitchCheck();
-    });
-});
+   it("13.01. Verify the day end process page loads correctly.", function () {
+           grid_day_end_process_ais.gridDayEndProcessPage();
+       });
+   
+       it("13.02. Verify that clicking the preview button on the day end process page redirects the user to the process list page.", function () {
+           grid_day_end_process_ais.processPreviewButtonCheck();
+       });
+   
+       it("13.03. Verify that clicking the go back button on the day end process page redirects the user to the process list page.", function () {
+           grid_day_end_process_ais.processGoBackButtonCheck();
+       });
+   
+       it("13.04. Verify that clicking the previous button on the day end process page redirects the user to the process list page.", function () {
+           grid_day_end_process_ais.processPreviousButtonCheck();
+       });
+   
+       it("13.05. Verify that clicking the search button on the day end process page redirects the user to the process list page.", function () {
+           grid_day_end_process_ais.processSearchButtonCheck();
+       });
+   
+       it("13.06. Verify that clicking the previous preview button on the day end process page redirects the user to the process list page.", function () {
+           grid_day_end_process_ais.PreviousPreviewButtonCheck();
+       });
+   
+       it("13.07. Verify check that the grid list content changes correctly from english to bangla.", function () {
+           grid_day_end_process_ais.gridLanguageSwitchCheck();
+       });
+   });

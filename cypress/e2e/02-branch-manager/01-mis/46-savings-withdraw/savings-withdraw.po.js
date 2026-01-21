@@ -14,7 +14,7 @@ class savingsWithdraw {
             var swData = data.branchManager.savingsWithdraw;
             cy.formController("samityId").click();
             cy.contains(swData.selectSamity).click()
-            cy.formController("employeeId").click();
+            cy.formController("memberId").click();
             cy.contains(swData.selectMember).click()
             cy.formController("accountId").click();
             cy.contains(swData.selectAccount).click()

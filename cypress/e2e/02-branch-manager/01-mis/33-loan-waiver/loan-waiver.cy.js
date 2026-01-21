@@ -27,28 +27,28 @@ describe("33. Loan waiver Module Test Cases", function () {
     create_loan_waiver.gridLoanWaiverListPage();
   });
 
-  it("33.02. Verify the loan waiver creation reset button clears all entered input values.", function () {
-    create_loan_waiver.createResetButtonCheck();
-  });
-
-  it("33.03. Verify validation messages appear for required fields when the submit button is clicked with empty inputs.", function () {
-    create_loan_waiver.createValidationMessageCheck();
-  });
-
-  it("33.04. Verify that clicking the draft button on the loan waiver create page redirects the user to the loan waiver list page.", function () {
-    create_loan_waiver.createDraftButtonCheck();
-  });
-
-  it("33.05. Verify that clicking the go back button on the loan waiver create page redirects the user to the loan waiver list page.", function () {
-    create_loan_waiver.createGoBackButtonCheck();
-  });
-
-  it("33.06. Verify that clicking the add icon  button on the loan waiver create page redirects the user to the loan waiver list page.", function () {
+   it("33.02. Verify that clicking the add icon  button on the loan waiver create page redirects the user to the loan waiver list page.", function () {
     create_loan_waiver.createAddIconButtonCheck();
   });
 
-  it("33.07. Verify that clicking the remove icon  button on the loan waiver create page redirects the user to the loan waiver list page.", function () {
+  it("33.03. Verify that clicking the remove icon  button on the loan waiver create page redirects the user to the loan waiver list page.", function () {
     create_loan_waiver.createRemoveIconButtonCheck();
+  });
+
+  it("33.04. Verify the loan waiver creation reset button clears all entered input values.", function () {
+    create_loan_waiver.createResetButtonCheck();
+  });
+
+  it("33.05. Verify validation messages appear for required fields when the submit button is clicked with empty inputs.", function () {
+    create_loan_waiver.createValidationMessageCheck();
+  });
+
+  it("33.06. Verify that clicking the draft button on the loan waiver create page redirects the user to the loan waiver list page.", function () {
+    create_loan_waiver.createDraftButtonCheck();
+  });
+
+   it("33.07. Verify that clicking the go back button on the loan waiver create page redirects the user to the loan waiver list page.", function () {
+    create_loan_waiver.createGoBackButtonCheck();
   });
 
   it("33.08. Verify successful creation of a Loan waiver record by branch manager role", function () {

@@ -939,7 +939,7 @@
       "selectLoanAccount": "AGRO-1020-106-1005-1",
       "selectRebate": "Full",
       "inputAmount": "5000",
-      "search": "Akhi Nur",
+      "search": "Usha Akter",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
       "messageSaveLoanRebate": "Loan waiver has been saved"
@@ -1010,8 +1010,8 @@
     },
     "savingsWithdraw": {
       "selectSamity": "1020-101 (Ashulia Mohila Samity)",
-      "selectMember": "GAIS UDDIN KHAN",
-      "selectAccount": "GS-1018-103-1002 (Savings Account)",
+      "selectMember": "1002 (Dulali Akter)",
+      "selectAccount": "GS-1020-112-1002-1",
       "inputAmount": "100"
     },
     "chartOfAccounts": {

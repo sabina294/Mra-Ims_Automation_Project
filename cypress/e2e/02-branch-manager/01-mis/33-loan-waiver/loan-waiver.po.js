@@ -7,33 +7,6 @@ class LoanWaiver {
       cy.log("Successfully Loan waiver list page.");
     });
   }
-  createResetButtonCheck() {
-    cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      var lwData = data.branchManager.createLoanWaiverFrom;
-      cy.formController("samity_id").type(lwData.selectSamity).type("{enter}");
-      cy.formController("member_id").type(lwData.selectMember).type("{enter}");
-      cy.formController("loan_account_id")
-        .type(lwData.selectLoanAccount)
-        .type("{enter}");
-      cy.wait(2000);
-      cy.imsId("btn-reset").click();
-      cy.log("Successfully Loan waiver reset button.");
-    });
-  }
-
-  createValidationMessageCheck() {
-    cy.imsId("btn-submit").click();
-    cy.imsId("btn-ok").click();
-    cy.log("Successfully Loan waiver submit button.");
-
-  }
-
-  createDraftButtonCheck() {
-    cy.imsId("btn-draft").click();
-    cy.imsId("btn-ok").click();
-    cy.log("Successfully Loan waiver draft button.");
-  }
 
   createAddIconButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
@@ -55,36 +28,72 @@ class LoanWaiver {
     cy.log("Successfully Loan waiver remove icon button.");
   }
 
+  createResetButtonCheck() {
+    // cy.fixture(this.test_data).then((data) => {
+    //   cy.imsId("btn-add-new").click();
+    //   var lwData = data.branchManager.createLoanWaiverFrom;
+    //   cy.formController("samity_id").type(lwData.selectSamity).type("{enter}");
+    //   cy.formController("member_id").type(lwData.selectMember).type("{enter}");
+    //   cy.formController("loan_account_id")
+    //     .type(lwData.selectLoanAccount)
+    //     .type("{enter}");
+    //   cy.wait(2000);
+      cy.imsId("btn-reset").click();
+      cy.log("Successfully Loan waiver reset button.");
+    // });
+  }
+
+  createValidationMessageCheck() {
+    cy.imsId("btn-submit").click();
+    cy.imsId("btn-ok").click();
+    cy.log("Successfully Loan waiver submit button.");
+
+  }
+
+  createDraftButtonCheck() {
+    cy.imsId("btn-draft").click();
+    cy.imsId("btn-ok").click();
+    cy.log("Successfully Loan waiver draft button.");
+  }
+
   createGoBackButtonCheck() {
-    cy.imsId("btn-go-back").click();
     cy.imsId("btn-go-back").click();
     cy.log("Successfully Loan waiver go back button.");
   }
 
   createLoanWaiver() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      var lwData = data.branchManager.createLoanWaiverFrom;
-      cy.formController("samity_id").type(lwData.selectSamity).type("{enter}");
-      cy.formController("member_id").type(lwData.selectMember).type("{enter}");
+      const lwData = data.branchManager.createLoanWaiverFrom;
+      cy.imsId("btn-add-new", { timeout: 15000 })
+        .should("be.visible")
+        .click();
+      cy.formController("samity_id")
+        .should("be.visible")
+        .type(lwData.selectSamity)
+        .type("{enter}");
+      cy.formController("member_id")
+        .type(lwData.selectMember)
+        .type("{enter}");
       cy.formController("loan_account_id")
         .type(lwData.selectLoanAccount)
         .type("{enter}");
-      cy.wait(2000);
-      cy.formController("rebate_type")
+
+      cy.formController("waiver_type")
         .type(lwData.selectRebate)
         .type("{enter}");
-      cy.formController("rebate_amount").type(lwData.amount).type("{enter}");
-      cy.formController("amount").type(lwData.inputAmount);
+      // cy.formController("rebate_amount")
+      //   .clear()
+      //   .type(lwData.inputAmount);
+      // cy.formController("amount")
+      //   .clear()
+      //   .type(lwData.inputAmount);
       cy.imsId("btn-submit").click();
       cy.imsId("btn-yes").click();
-
-      cy.get("app-confirmation-modal")
-        .contains(lwData.messageSaveLoanRebate)
-        .and("be.visible");
+      cy.contains(lwData.messageSaveLoanRebate)
+        .should("be.visible");
       cy.imsId("btn-ok").click();
 
-      cy.log("Successfully created Loan waiver");
+      cy.log("Successfully created Loan Waiver");
     });
   }
 

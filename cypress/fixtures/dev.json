@@ -1,5 +1,5 @@
 {
-  "baseURL": "https://ims2-dev.celloscope.net/",
+  "baseURL": "https://ims2-auto.com/",
   "credential": {
     "mraAdminUserId": "mra-admin-2",
     "mraAdminPassword": "123456",
@@ -362,8 +362,8 @@
       "economicPurpose": "Service Industries",
       "loanProduct": "Micro Enterprise",
       "appliedLoanAmount": "5000",
-      "selectStatus": "Inactive",
-      "statusSelect": "Active",
+      "selectStatus": "Approve",
+      "statusSelect": "Rejected",
       "SelectOffice": "1020 (Ashulia)",
       "memberNameEn": "Zahra Ahmed",
       "messageSaveLoanAccount": "Loan account proposal has been saved",
@@ -419,7 +419,7 @@
       "selectSamity": "1020-107 (Kumkumari Mohila Samity)",
       "selectMember": "1-1001 (Lamiya Akter)",
       "selectLoanAccount": "JAGO-1020-107-1001-1",
-      "inputAmount": "50",
+      "inputAmount": "5000",
       "search": "Lamiya Akter",
       "selectStatus": "Submitted",
       "statusSelect": "Approved",
@@ -727,8 +727,8 @@
       "district": "Sunamganj",
       "thana": "Tahirpur",
       "adressEn": "Sylhet",
-      "selectStatus": "Inactive",
-      "statusSelect": "Active",
+      "selectStatus": "Rejected",
+      "statusSelect": "Approved",
       "search": "Sabina Yeasmin",
       "rejectRemarks": "Reject",
       "messageSaveEmp": "Mfi employee has been saved",
@@ -779,14 +779,14 @@
       "rejectRemarks": "Reject"
     },
     "samityChangeFrom": {
-      "samityNameEn": "Kuturia Mohila Samity",
+      "samityNameEn": "Suzabad Mohila Samity",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
       "fieldOfficer": "EMP-0119 - JOYMOT ALI",
       "messageSamityChange": "Samity has been updated"
     },
     "samityDayChangeFrom": {
-      "samityNameEn": "Kandail Mohila Samity",
+      "samityNameEn": "Majhail Mohila Samity",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
       "newSamityDay": "Tuesday",
@@ -939,7 +939,7 @@
       "selectLoanAccount": "AGRO-1020-106-1005-1",
       "selectRebate": "Full",
       "inputAmount": "5000",
-      "search": "Akhi Nur",
+      "search": "Usha Akter",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
       "messageSaveLoanRebate": "Loan waiver has been saved"
@@ -1003,15 +1003,15 @@
       "loanAmount2": "500"
     },
     "specialCollection": {
-      "selectSamity": "1020-105 (Sadarpur Mohila Samity)",
-      "selectMember": "1-1001 (Srabonti)",
-      "selectAccount": "AGRO-1020-105-1001-1 (Loan Account)  ",
+      "selectSamity": "1020-103 (Kuturia Mohila Samity)",
+      "selectMember": "1-1001 (Jule Akter )",
+      "selectAccount": "AGRO-1020-103-1001-1 (Loan Account)",
       "inputAmount": "1000"
     },
-    "savingsWithdraw": {
+     "savingsWithdraw": {
       "selectSamity": "1020-101 (Ashulia Mohila Samity)",
-      "selectMember": "GAIS UDDIN KHAN",
-      "selectAccount": "GS-1018-103-1002 (Savings Account)",
+      "selectMember": "1002 (Dulali Akter)",
+      "selectAccount": "GS-1020-112-1002-1",
       "inputAmount": "100"
     },
     "chartOfAccounts": {
@@ -1241,11 +1241,11 @@
       "chartNameBn": "নিয়মিত",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
-      "minOverDays": "5",
-      "maxOverDays": "10",
+      "minOverDays": "10",
+      "maxOverDays": "20",
       "accRate": "5",
-      "minOver1Days": "10",
-      "maxOver1Days": "20",
+      "minOver1Days": "5",
+      "maxOver1Days": "10",
       "acc1Rate": "5",
       "messageUpdateLoCh": "Loan classification chart has been updated",
       "messageEditLoCh": "Do you wish to update this loan classification chart"
@@ -1513,7 +1513,7 @@
       "search": "Amira Rahman",
       "selectStatus": "Submitted",
       "statusSelect": "Approved",
-      "messageSaveLoanPenalty": "Loan penalty has been saved"
+      "messageSaveLoanRebate": "Loan rebate has been saved"
     },
     "createLoanRebateFrom": {
       "selectOffice": "1019 (Amin Bazar)",
@@ -1536,7 +1536,7 @@
       "search": "Sohana Aktar Hashmi",
       "selectStatus": "Submitted",
       "statusSelect": "Approved",
-      "messageSaveLoanWaiver": "Loan waiver has been saved"
+      "messageSaveLoanRebate": "Loan rebate has been saved"
     },
     "gridSavingsProduct": {
       "office": "1025 (Madhukhali)",

@@ -8,7 +8,7 @@ class DayEndProcessAis {
         });
     }
     processPreviewButtonCheck() {
-        cy.imsId("btn-preview").click();
+        cy.imsId("btn-preview").eq(0).click();
         cy.log("Successful preview button check.");
     }
 
@@ -17,10 +17,31 @@ class DayEndProcessAis {
         cy.log("Successful go back button check.");
     }
 
+    processPreviousButtonCheck() {
+        cy.imsId("previous-toggle-input")
+            .should('exist')
+            .click({ force: true });
+        cy.log("Successful previous button check.");
+    }
+
+    processSearchButtonCheck() {
+        cy.imsId("search-button").click();
+        cy.log("Successful search button check.");
+    }
+
+    PreviousPreviewButtonCheck() {
+        cy.imsId("btn-preview")
+            .should("be.visible")
+            .first()
+            .click();
+
+        cy.log("Successful preview button check.");
+    }
+
     gridLanguageSwitchCheck() {
         cy.imsId("profile-menu").click();
         cy.imsId("btn-lang-bangla").click();
-        cy.log("Unsccessful switch bangla language check.");
+        cy.log("Successful switch bangla language check.");
     }
 }
 
