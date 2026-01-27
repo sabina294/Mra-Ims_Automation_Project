@@ -361,11 +361,12 @@
       "economicActivity": "Term Loan ( Other than Working Capital Financing)",
       "economicPurpose": "Service Industries",
       "loanProduct": "Micro Enterprise",
-      "appliedLoanAmount": "5000",
+      "appliedLoanAmount": "50000",
       "selectStatus": "Approve",
       "statusSelect": "Rejected",
       "SelectOffice": "1020 (Ashulia)",
       "memberNameEn": "Zahra Ahmed",
+      "search":"Chadnee",
       "messageSaveLoanAccount": "Loan account proposal has been saved",
       "messageUpdateLoanAccount": "Do you want to update this loan account?"
     },
