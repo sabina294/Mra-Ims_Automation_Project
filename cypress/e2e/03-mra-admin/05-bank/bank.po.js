@@ -47,7 +47,7 @@ class BankCreation {
     });
   }
 
-  createWithoutOneMandatoryField() {
+  createWithoutMandatoryFieldNameEn() {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId("btn-add-new").click();
       var bankData = data.mraAdmin.createbankFrom;
@@ -64,7 +64,92 @@ class BankCreation {
     });
   }
 
-  createWithoutMandatoryField() {
+  createWithoutMandatoryFieldNameBn() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("btn-add-new").click();
+      var bankData = data.mraAdmin.createbankFrom;
+      cy.formController("name_en").type(bankData.nameEn);
+      cy.formController("website").type(bankData.website);
+      cy.formController("bank_code").type(bankData.bankCode);
+      cy.formController("bank_short_code").type(bankData.bankShortCode);
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-ok").click();
+      cy.imsId("btn-go-back").click();
+      cy.log("Successfully can not created bank");
+    });
+  }
+
+  createWithoutMandatoryFieldWebsite() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("btn-add-new").click();
+      var bankData = data.mraAdmin.createbankFrom;
+      cy.formController("name_en").type(bankData.nameEn);
+      cy.formController("name_bn").type(bankData.nameBn);
+      cy.formController("bank_code").type(bankData.bankCode);
+      cy.formController("bank_short_code").type(bankData.bankShortCode);
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-ok").click();
+      cy.imsId("btn-go-back").click();
+      cy.log("Successfully can not created bank");
+    });
+  }
+
+  createWithoutMandatoryFieldBankCode() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("btn-add-new").click();
+      var bankData = data.mraAdmin.createbankFrom;
+      cy.formController("name_en").type(bankData.nameEn);
+      cy.formController("name_bn").type(bankData.nameBn);
+      cy.formController("website").type(bankData.website);
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-yes").click();
+
+      cy.get("app-confirmation-modal")
+        .contains(bankData.messageSaveBa)
+        .and("be.visible");
+      cy.imsId("btn-ok").click();
+      cy.log("Successfully created bank");
+    });
+  }
+
+  createWithoutMandatoryFieldBankShortCode() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("btn-add-new").click();
+      var bankData = data.mraAdmin.createbankFrom;
+      cy.formController("name_en").type(bankData.nameEn);
+      cy.formController("name_bn").type(bankData.nameBn);
+      cy.formController("website").type(bankData.website);
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-yes").click();
+
+      cy.get("app-confirmation-modal")
+        .contains(bankData.messageSaveBa)
+        .and("be.visible");
+      cy.imsId("btn-ok").click();
+      cy.log("Successfully created bank");
+    });
+  }
+
+  createWithoutMandatoryFieldStatus() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("btn-add-new").click();
+      var bankData = data.mraAdmin.createbankFrom;
+      cy.formController("name_en").type(bankData.nameEn);
+      cy.formController("name_bn").type(bankData.nameBn);
+      cy.formController("website").type(bankData.website);
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-yes").click();
+
+      cy.get("app-confirmation-modal")
+        .contains(bankData.messageSaveBa)
+        .and("be.visible");
+      cy.imsId("btn-ok").click();
+      cy.log("Successfully created bank");
+    });
+  }
+
+
+  createWithoutMandatoryAllField() {
     cy.fixture(this.test_data).then((data) => {
       var bankData = data.mraAdmin.createbankFrom;
       cy.imsId("btn-add-new").click();

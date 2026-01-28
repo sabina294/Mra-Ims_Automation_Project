@@ -25,99 +25,100 @@ describe("02. Division Module Test Cases.", function () {
     cy.logout();
   });
 
-  it("02.01. Verify the division list page loads without errors.", function () {
+  it("02.01. Verify that the Division List page loads successfully without any errors.", function () {
     create_division.gridDivisionListPage();
   });
 
-  it("02.02. Verify a new division is created successfully when all required fields are filled with valid data.", function () {
+  it("02.02. Verify that a new division is created successfully when all mandatory fields are filled with valid data.", function () {
     create_division.createDivision();
   });
 
-  it("02.03. Verify that a division cannot be created without a division name english, even if all other fields are valid.", function () {
+  it("02.03. Verify that the system does not allow division creation when the English division name is not provided.", function () {
     create_division.createWithoutNameEn();
   });
 
-  it("02.04. Verify that a division cannot be created without a division name bangla, even if all other fields are valid.", function () {
+  it("02.04. Verify that the system does not allow division creation when the Bangla division name is not provided.", function () {
     create_division.createWithoutNameBn();
   });
 
-  it("02.05. Verify that a division cannot be created without a division code, even if all other fields are valid.", function () {
+  it("02.05. Verify that the system does not allow division creation when the division code is not provided.", function () {
     create_division.createWithoutDivisionCode();
   });
 
-  it("02.06. Verify that a division cannot be created without established year, even if all other fields are valid.", function () {
+  it("02.06. Verify that the system does not allow division creation when the established year is not provided.", function () {
     create_division.createWithoutEstabYear();
   });
 
-  it("02.07. Verify that a division cannot be created without status, even if all other fields are valid.", function () {
+  it("02.07. Verify that the system does not allow division creation when the status field is not selected.", function () {
     create_division.createWithoutStatus();
   });
 
-  it("02.08. Verify successfully performs the action when the action button is clicked.", function () {
+  it("02.08. Verify that the correct action options are displayed and functional when the action button is clicked from the division list.", function () {
     create_division.actionButtonCheck();
   });
 
-  it("02.09. Verify the user can view all relevant details of a division, including its associated fields.", function () {
+  it("02.09. Verify that all division details are displayed correctly on the Division View page.", function () {
     create_division.viewDivision();
   });
 
-  it("02.10. Verify that clicking the go back button on the division view page redirects the user to the division list page.", function () {
+  it("02.10. Verify that clicking the Go Back button on the Division View page redirects the user to the Division List page.", function () {
     create_division.viewGoBackButton();
   });
 
-  it("02.11. Verify that the division forms edit mode can be toggled on and off all fields should be disabled or return to view-only mode.", function () {
+  it("02.11. Verify that edit mode can be turned off and all fields become disabled or view-only.", function () {
     create_division.turnOffEditMode();
   });
 
-  it("02.12. Verify the division name and description can be edited successfully.", function () {
+  it("02.12. Verify that the division name and description can be updated successfully in edit mode.", function () {
     create_division.editDivision();
   });
 
-  it("02.13. Verify the division edit reset button functions correctly.", function () {
+  it("02.13. Verify that clicking the Reset button on the Division Edit page restores the original values.", function () {
     create_division.editResetButton();
   });
 
-  it("02.14. Verify the division edit submit button functions correctly.", function () {
+  it("02.14. Verify that updated division information is saved successfully after clicking the Submit button.", function () {
     create_division.editSubmitButton();
   });
 
-  it("02.15. Verify that clicking the go back button on the division edit page redirects the user to the division list page.", function () {
+  it("02.15. Verify that clicking the Go Back button on the Division Edit page redirects the user to the Division List page.", function () {
     create_division.editGoBackButton();
   });
 
-  it("02.16. Verify the user can filter inactive divisions using the status dropdown on the division list page.", function () {
+  it("02.16. Verify that inactive divisions are filtered correctly using the Status dropdown.", function () {
     create_division.statusInactiveDropdownCheck();
   });
 
-  it("02.17. Verify the active result is filtered correctly by the status dropdown.", function () {
+  it("02.17. Verify that active divisions are filtered correctly using the Status dropdown.", function () {
     create_division.statusActiveDropdownCheck();
   });
 
-  it("02.18. Verify the search returns correct results when searching by division name.", function () {
+  it("02.18. Verify that the search functionality returns accurate results when searching by division name.", function () {
     create_division.searchInDivisionName();
   });
 
-  it("02.19. Verify the grid list resets successfully when the reset button is clicked on the division page.", function () {
+  it("02.19. Verify that the division grid resets successfully when the Reset button is clicked.", function () {
     create_division.gridResetButtonCheck();
   });
 
-  it("02.20. Verify that the grid list is refreshed successfully when the refresh button is clicked on the division page.", function () {
+  it("02.20. Verify that the division grid refreshes successfully when the Refresh button is clicked.", function () {
     create_division.gridRefreshButtonCheck();
   });
 
-  it("02.21. Verify the division creation reset button clears all entered input values.", function () {
+  it("02.21. Verify that the Reset button on the Create Division form clears all entered input values.", function () {
     create_division.createResetButtonCheck();
   });
 
-  it("02.22. Verify validation messages appear for required fields when the submit button is clicked with empty inputs.", function () {
+  it("02.22. Verify that validation messages are displayed for all required fields when submitting the form with empty inputs.", function () {
     create_division.createValidationMessageCheck();
   });
 
-  it("02.23. Verify that clicking the go back button on the division create page redirects the user to the division list page.", function () {
+  it("02.23. Verify that clicking the Go Back button on the Create Division page redirects the user to the Division List page.", function () {
     create_division.createGoBackButtonCheck();
   });
 
-  it("02.24. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("02.24. Verify that the division grid content updates correctly when switching the language from English to Bangla.", function () {
     create_division.gridLanguageSwitchCheck();
   });
+
 });

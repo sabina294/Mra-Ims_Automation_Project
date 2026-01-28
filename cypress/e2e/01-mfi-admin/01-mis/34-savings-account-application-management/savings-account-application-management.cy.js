@@ -83,9 +83,9 @@ describe("34. Savings Account Application Management Module Test Cases", functio
     create_savings_account_application_management.createValidationMessageCheck();
   });
 
-  // it("34.16. Verify validation messages appear for required fields when the draft button is clicked with empty inputs.", function () {
-  //   create_savings_account_application_management.createDraftButtonCheck();
-  // });
+  it("34.16. Verify validation messages appear for required fields when the draft button is clicked with empty inputs.", function () {
+    create_savings_account_application_management.createDraftButtonCheck();
+  });
 
   it("34.17. Verify that clicking the go back button on the savings account application management create page redirects the user to the savings account application management list page.", function () {
     create_savings_account_application_management.createGoBackButtonCheck();

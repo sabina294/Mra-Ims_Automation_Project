@@ -79,9 +79,9 @@ describe("18. Savings Account Application Management Module Test Cases", functio
     create_savings_account_application_management.createResetButtonCheck();
   });
 
-  // it("18.14. Verify the savings account application management creation draft button clears all entered input values.", function () {
-  //   create_savings_account_application_management.createDraftButtonCheck();
-  // });
+  it("18.14. Verify the savings account application management creation draft button clears all entered input values.", function () {
+    create_savings_account_application_management.createDraftButtonCheck();
+  });
 
   it("18.15. Verify validation messages appear for required fields when the submit button is clicked with empty inputs.", function () {
     create_savings_account_application_management.createValidationMessageCheck();

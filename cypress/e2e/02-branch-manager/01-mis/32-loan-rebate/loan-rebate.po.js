@@ -103,7 +103,7 @@ class LoanRebate {
       cy.formController("rebate_type")
         .type(lrData.selectRebate)
         .type("{enter}");
-      cy.formController("amount").type(lrData.Amount);
+      // cy.formController("amount").type(lrData.Amount);
       cy.imsId("btn-submit").click();
       cy.imsId("btn-yes").click();
 

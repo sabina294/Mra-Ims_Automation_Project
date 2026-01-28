@@ -149,6 +149,7 @@ class SavingsAccApplicationManagementCreation {
 
   createDraftButtonCheck() {
     cy.imsId("btn-draft").click();
+    cy.imsId("btn-ok").click();
     cy.log("Successful draft button check.");
   }
 

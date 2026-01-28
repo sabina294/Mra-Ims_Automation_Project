@@ -66,7 +66,7 @@ class LoanAccountProposalManagementCreation {
   }
 
   actionButtonCheck() {
-    cy.selectMenu("menu-loan-account", "submenu-loan-account-proposal-management");
+    // cy.selectMenu("menu-loan-account", "submenu-loan-account-proposal-management");
     cy.imsId("toggle-action").first().click();
     cy.log(
       "Action button clicked successfully on the loan account proposal management list page."
@@ -131,6 +131,47 @@ class LoanAccountProposalManagementCreation {
     );
   }
 
+
+   draftLoanAccountProposalManagement() {
+    cy.fixture(this.test_data).then((data) => {
+      var lapData = data.branchManager.createLoanAccountFrom;
+      cy.imsId("btn-add-new").click();
+      cy.wait(3000);
+      cy.formController("office_id").type(lapData.office).type("{enter}");
+      cy.wait(2000);
+      cy.formController("samity_id").type(lapData.samity).type("{enter}");
+      cy.formController("member_id").type(lapData.member).type("{enter}");
+      // cy.formController("lending_category_id")
+      //   .type(lapData.lendingCategory)
+      //   .type("{enter}");
+      // cy.formController("econ_sector")
+      //   .type(lapData.economicSector)
+      //   .type("{enter}");
+      // cy.formController("econ_activity")
+      //   .type(lapData.economicActivity)
+      //   .type("{enter}");
+      cy.formController("econ_purpose_mra_code")
+        .type(lapData.economicPurpose)
+        .type("{enter}");
+
+
+      cy.formController("loan_product_id")
+        .type(lapData.loanProduct)
+        .type("{enter}");
+      cy.formController("applied_loan_amount").type(lapData.appliedLoanAmount);
+      cy.wait(1000);
+      cy.formController("expected_disburse_dt").click();
+      cy.wait(3000);
+      cy.contains("22").click({ force: true });
+      cy.wait(2000);
+      cy.imsId("btn-draft").click();
+      cy.imsId("btn-yes").click();
+      cy.imsId("btn-ok").click();
+
+      cy.log("Successfully draft loan account proposal management");
+    });
+  }
+
   gridDraftButton() {
     cy.imsId("btn-draft-on").click();
     cy.log("Draft button should be clickable and functional.");
@@ -139,6 +180,39 @@ class LoanAccountProposalManagementCreation {
   gridDraftButtonOff() {
     cy.imsId("btn-draft-on").click();
     cy.log("Draft button should be clickable and functional.");
+  }
+
+  gridDraftActionButton() {
+    cy.imsId("btn-draft-on").click();
+    cy.imsId("toggle-action").eq(0).click();
+    cy.log("Draft button should be clickable action button and functional.");
+  }
+
+  gridDraftEditButton() {
+    cy.imsId("btn-table-action-edit").click();
+    cy.log("Draft button should be clickable edit button and functional.");
+  }
+
+  gridDraftEditResetButton() {
+    cy.imsId("btn-reset").click();
+    cy.log("Draft button should be clickable reset button and functional.");
+  }
+
+  gridDraftEditSubmitButton() {
+    cy.imsId("btn-submit").click();
+    cy.imsId("btn-ok").click();
+    cy.log("Draft button should be clickable submit button and functional.");
+  }
+
+  gridDraftEditDraftButton() {
+    cy.imsId("btn-draft").click();
+    cy.imsId("btn-ok").click();
+    cy.log("Draft button should be clickable draft button and functional.");
+  }
+
+  gridDraftEditGoBackButton() {
+    cy.imsId("btn-go-back").click();
+    cy.log("Draft button should be clickable go back button and functional.");
   }
 
   createAddGuarantorButtonCheck() {
