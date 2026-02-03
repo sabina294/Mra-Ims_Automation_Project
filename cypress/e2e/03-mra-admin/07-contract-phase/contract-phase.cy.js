@@ -25,95 +25,95 @@ describe("07. Contract Phase Module Test Cases.", function () {
     cy.logout();
   });
 
-  it("07.01. Verify the contract phase list page loads without errors.", function () {
+  it("07.01. Verify that the Contract Phase list page loads successfully without any errors.", function () {
     create_contract_phase.gridContractPhaseListPage();
   });
 
-  it("07.02. Verify a new contract phase is created successfully when all required fields are filled with valid data.", function () {
+  it("07.02. Verify that a new Contract Phase is created successfully when all required fields are filled with valid data.", function () {
     create_contract_phase.createContractPhase();
   });
 
-  it("07.03. Verify creating a contract phase without an name en, even if all other fields are valid.", function () {
+  it("07.03. Verify that the Contract Phase cannot be created when the English name field is left empty.", function () {
     create_contract_phase.createWithoutNameEn();
   });
 
-  it("07.04. Verify creating a contract phase without an name bn, even if all other fields are valid.", function () {
+  it("07.04. Verify that the Contract Phase cannot be created when the Bangla name field is left empty.", function () {
     create_contract_phase.createWithoutNameBn();
   });
 
-  it("07.05. Verify creating a contract phase without an status, even if all other fields are valid..", function () {
+  it("07.05. Verify that the Contract Phase cannot be created when the status field is not selected.", function () {
     create_contract_phase.createWithoutStatus();
   });
 
-  it("07.06. Verify check if a contract phase cannot be created when a mandatory field is missing.", function () {
+  it("07.06. Verify that the Contract Phase cannot be created when any mandatory field is missing.", function () {
     create_contract_phase.createWithoutOneMandatoryField();
   });
 
-  it("07.07. Verify successfully performs the action when the action button is clicked.", function () {
+  it("07.07. Verify that the action button functions correctly when clicked.", function () {
     create_contract_phase.actionButtonCheck();
   });
 
-  it("07.08. Verify the user can view all relevant details of a contract phase, including its associated fields.", function () {
+  it("07.08. Verify that the user can view all details of a Contract Phase successfully.", function () {
     create_contract_phase.viewContractPhase();
   });
 
-  it("07.09. Verify that clicking the go back button on the contract phase view page redirects the user to the contract phase list page.", function () {
+  it("07.09. Verify that clicking the Go Back button on the Contract Phase view page redirects to the Contract Phase list page.", function () {
     create_contract_phase.viewGoBackButton();
   });
 
-  it("07.10. Verify that the contract phase forms edit mode can be toggled on and off all fields should be disabled or return to view-only mode.", function () {
+  it("07.10. Verify that the Contract Phase edit mode can be toggled on and off and fields become enabled or disabled accordingly.", function () {
     create_contract_phase.turnOffOnEditMode();
   });
 
-  it("07.11. Verify the contract phase name and description can be edited successfully.", function () {
+  it("07.11. Verify that the Contract Phase name and description can be edited successfully.", function () {
     create_contract_phase.editContractPhase();
   });
 
-  it("07.12. Verify the contract phase edit reset button functions correctly.", function () {
+  it("07.12. Verify that the Contract Phase edit reset button resets all modified fields correctly.", function () {
     create_contract_phase.editResetButton();
   });
 
-  it("07.13. Verify the contract phase edit submit button functions correctly.", function () {
+  it("07.13. Verify that the Contract Phase edit submit button updates the data successfully.", function () {
     create_contract_phase.editSubmitButton();
   });
 
-  it("07.14. Verify that clicking the go back button on the contract phase  edit page redirects the user to the contract phase list page.", function () {
+  it("07.14. Verify that clicking the Go Back button on the Contract Phase edit page redirects to the Contract Phase list page.", function () {
     create_contract_phase.editGoBackButton();
   });
 
-  it("07.15. Verify the user can filter inactive contract phases using the status dropdown on the contract phase list page.", function () {
+  it("07.15. Verify that inactive Contract Phases are filtered correctly using the status dropdown.", function () {
     create_contract_phase.statusInactiveDropdownCheck();
   });
 
-  it("07.16. Verify the active result is filtered correctly by the status dropdown.", function () {
+  it("07.16. Verify that active Contract Phases are filtered correctly using the status dropdown.", function () {
     create_contract_phase.statusActiveDropdownCheck();
   });
 
-  it("07.17. Verify the search returns correct results when searching by contract phase name.", function () {
+  it("07.17. Verify that the search functionality returns correct results when searching by Contract Phase name.", function () {
     create_contract_phase.searchInContractPhasetName();
   });
 
-  it("07.18. Verify the grid list resets successfully when the reset button is clicked on the contract phase page.", function () {
+  it("07.18. Verify that clicking the reset button clears all applied filters and resets the grid list.", function () {
     create_contract_phase.gridResetButtonCheck();
   });
 
-  it("07.19. Verify that the grid list is refreshed successfully when the refresh button is clicked on the contract phase page.", function () {
+  it("07.19. Verify that clicking the refresh button reloads the Contract Phase grid list successfully.", function () {
     create_contract_phase.gridRefreshButtonCheck();
   });
 
-  it("07.20. Verify the contract phase creation reset button clears all entered input values.", function () {
+  it("07.20. Verify that the Contract Phase creation reset button clears all entered input values.", function () {
     create_contract_phase.createResetButtonCheck();
   });
 
-  it("07.21. Verify validation messages appear for required fields when the submit button is clicked with empty inputs.", function () {
+  it("07.21. Verify that validation messages are displayed for required fields when submitting the form with empty inputs.", function () {
     create_contract_phase.createValidationMessageCheck();
   });
 
-  it("07.22. Verify that clicking the go back button on the contract phase create page redirects the user to the contract phase list page.", function () {
+  it("07.22. Verify that clicking the Go Back button on the Contract Phase create page redirects to the Contract Phase list page.", function () {
     create_contract_phase.createGoBackButtonCheck();
   });
 
-  it("07.23. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("07.23. Verify that the Contract Phase grid list content switches correctly between English and Bangla.", function () {
     create_contract_phase.gridLanguageSwitchCheck();
   });
 });

@@ -51,6 +51,26 @@ class LoanTypeCreation {
     });
   }
 
+  createWithoutloanTypeNameBn() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("btn-add-new").click();
+      cy.imsId("btn-submit").and("be.visible");
+
+      var loanTData = data.mraAdmin.createloanTypeFrom;
+      cy.formController("name_en").type(loanTData.nameEn);
+      cy.formController("loan_type_id").type(loanTData.loanTypeId);
+      cy.formController("product_nature_id").type(loanTData.productNatureId);
+      cy.formController("description").type(loanTData.loanTypeDescription);
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-ok").click();
+      cy.imsId("btn-go-back").click();
+
+      cy.log(
+        "Successful cannot creation loan type  without one mandatory field."
+      );
+    });
+  }
+
   createWithoutloanTypeId() {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId("btn-add-new").click();

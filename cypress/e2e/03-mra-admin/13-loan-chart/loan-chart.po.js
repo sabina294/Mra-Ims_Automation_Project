@@ -39,8 +39,7 @@ class LoanChartUpdate {
   viewloanchart() {
     cy.fixture(this.test_data).then((data) => {
       var loChart = data.mraAdmin.updateloanChartFrom;
-      cy.formController("search_text").type(loChart.chartNameEn);
-      cy.imsId("toggle-action").first().click();
+      // cy.formController("search_text").type(loChart.chartNameEn);
       cy.imsId("btn-table-action-view").click();
 
       cy.get("app-mra-mfi").contains(loChart.chartNameEn).and("be.visible");
@@ -58,14 +57,16 @@ class LoanChartUpdate {
     cy.imsId("toggle-action").first().click();
     cy.imsId("btn-table-action-edit").click();
     cy.imsId("btn-reset").click();
-    cy.imsId("btn-go-back").click();
-
     cy.log("Successful clean displaying");
   }
 
+  editSubmitButton() {
+    cy.imsId("btn-submit").click();
+    cy.imsId("btn-ok").click();
+    cy.log("Successful submit button displaying");
+  }
+
   editGoBackButton() {
-    cy.imsId("toggle-action").first().click();
-    cy.imsId("btn-table-action-edit").click();
     cy.imsId("btn-go-back").click();
     cy.log("Successful edit go back button check.");
   }

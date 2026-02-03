@@ -25,103 +25,107 @@ describe("9. Loan Type Module Test Cases.", function () {
     cy.logout();
   });
 
-  it("09.01. Verify the loan type list page loads without errors.", function () {
+  it("09.01. Verify that the Loan Type list page loads successfully without any errors.", function () {
     create_loan_type.gridLoanTypeListPage();
   });
 
-  it("09.02. Verify a new loan type is created successfully when all required fields are filled with valid data.", function () {
+  it("09.02. Verify that a new Loan Type is created successfully when all required fields are filled with valid data.", function () {
     create_loan_type.createLoanType();
   });
 
-  it("09.03. Verify creating a loan type without an loan type name en, even if all other fields are valid.", function () {
+  it("09.03. Verify that a Loan Type cannot be created without the Loan Type Name (English), even when all other fields are valid.", function () {
     create_loan_type.createWithoutloanTypeNameEn();
   });
 
-  it("09.04. Verify creating a loan type without an loan type id, even if all other fields are valid.", function () {
+  it("09.04. Verify that a Loan Type cannot be created without the Loan Type Name (Bangla), even when all other fields are valid.", function () {
+    create_loan_type.createWithoutloanTypeNameBn();
+  });
+
+  it("09.05. Verify that a Loan Type cannot be created without the Loan Type ID, even when all other fields are valid.", function () {
     create_loan_type.createWithoutloanTypeId();
   });
 
-  it("09.05. Verify creating a loan type without an product nature id, even if all other fields are valid.", function () {
+  it("09.06. Verify that a Loan Type cannot be created without selecting a Product Nature, even when all other fields are valid.", function () {
     create_loan_type.createWithoutProductId();
   });
 
-  it("09.06. Verify creating a loan type without an loan type description, even if all other fields are valid.", function () {
+  it("09.07. Verify that a Loan Type cannot be created without a description, even when all other fields are valid.", function () {
     create_loan_type.createWithoutDescription();
   });
 
-  it("09.07. Verify creating a loan type without an loan type status, even if all other fields are valid.", function () {
+  it("09.08. Verify that a Loan Type cannot be created without selecting a status, even when all other fields are valid.", function () {
     create_loan_type.createWithoutStatus();
   });
 
-  it("09.08. Verify check if a loan type cannot be created when a mandatory field is missing.", function () {
+  it("09.09. Verify that a Loan Type cannot be created when any mandatory field is missing.", function () {
     create_loan_type.createWithoutOneMandatoryField();
   });
 
-  it("09.09. Verify successfully performs the action when the action button is clicked.", function () {
+  it("09.10. Verify that the action buttons on the Loan Type list page function correctly.", function () {
     create_loan_type.actionButtonCheck();
   });
 
-  it("09.10. Verify the user can view all relevant details of a loan type, including its associated fields.", function () {
+  it("09.11. Verify that the user can view all relevant Loan Type details, including associated fields.", function () {
     create_loan_type.viewLoanType();
   });
 
-  it("09.11. Verify that clicking the go back button on the loan type view page redirects the user to the loan type list page.", function () {
+  it("09.12. Verify that clicking the Go Back button on the Loan Type view page redirects the user to the Loan Type list page.", function () {
     create_loan_type.viewGoBackButton();
   });
 
-  it("09.12. Verify that the Loan type forms edit mode can be toggled on and off all fields should be disabled or return to view-only mode.", function () {
+  it("09.13. Verify that the Loan Type edit mode can be toggled on and off, and fields are properly enabled or disabled accordingly.", function () {
     create_loan_type.turnOffOnEditMode();
   });
 
-  it("09.13. Verify the loan type name and description can be edited successfully.", function () {
+  it("09.14. Verify that the Loan Type name and description can be edited successfully.", function () {
     create_loan_type.editLoanType();
   });
 
-  it("09.14. Verify the loan type edit reset button functions correctly.", function () {
+  it("09.15. Verify that the Loan Type edit Reset button clears all modified values.", function () {
     create_loan_type.editResetButton();
   });
 
-  it("09.15. Verify the loan type edit submit button functions correctly.", function () {
+  it("09.16. Verify that the Loan Type edit Submit button updates the Loan Type successfully.", function () {
     create_loan_type.editSubmitButton();
   });
 
-  it("09.16. Verify that clicking the go back button on the loan type edit page redirects the user to the loan type list page.", function () {
+  it("09.17. Verify that clicking the Go Back button on the Loan Type edit page redirects the user to the Loan Type list page.", function () {
     create_loan_type.editGoBackButton();
   });
 
-  it("09.17. Verify the user can filter inactive loan types using the status dropdown on the loan type list page.", function () {
+  it("09.18. Verify that inactive Loan Types can be filtered using the Status dropdown on the Loan Type list page.", function () {
     create_loan_type.statusInactiveDropdownCheck();
   });
 
-  it("09.18. Verify the active result is filtered correctly by the status dropdown.", function () {
+  it("09.19. Verify that active Loan Types are filtered correctly using the Status dropdown.", function () {
     create_loan_type.statusActiveDropdownCheck();
   });
 
-  it("09.19. Verify the search returns correct results when searching by loan type name.", function () {
+  it("09.20. Verify that the search functionality returns correct results when searching by Loan Type name.", function () {
     create_loan_type.searchInLoanTypeName();
   });
 
-  it("09.20. Verify the grid list resets successfully when the reset button is clicked on the loan type page.", function () {
+  it("09.21. Verify that clicking the Reset button restores the Loan Type grid list to its default state.", function () {
     create_loan_type.gridResetButtonCheck();
   });
 
-  it("09.21. Verify that the grid list is refreshed successfully when the refresh button is clicked on the loan type page.", function () {
+  it("09.22. Verify that clicking the Refresh button reloads the Loan Type grid list successfully.", function () {
     create_loan_type.gridRefreshButtonCheck();
   });
 
-  it("09.22. Verify the loan type creation reset button clears all entered input values.", function () {
+  it("09.23. Verify that the Loan Type creation Reset button clears all entered input values.", function () {
     create_loan_type.createResetButtonCheck();
   });
 
-  it("09.23. Verify validation messages appear for required fields when the submit button is clicked with empty inputs.", function () {
+  it("09.24. Verify that validation messages are displayed for required fields when submitting the form with empty inputs.", function () {
     create_loan_type.createValidationMessageCheck();
   });
 
-  it("09.24. Verify that clicking the go back button on the loan type create page redirects the user to the loan type list page.", function () {
+  it("09.25. Verify that clicking the Go Back button on the Loan Type creation page redirects the user to the Loan Type list page.", function () {
     create_loan_type.createGoBackButtonCheck();
   });
 
-  it("09.25. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("09.26. Verify that the Loan Type grid list content switches correctly between English and Bangla languages.", function () {
     create_loan_type.gridLanguageSwitchCheck();
   });
 });
