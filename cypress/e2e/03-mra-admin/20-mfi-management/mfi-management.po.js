@@ -86,7 +86,7 @@ class MfiCreation {
     });
   }
 
-  createWithoutOneMandatoryField() {
+  createWithoutMandatoryFieldNameEn() {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId("btn-add-new").click();
       const generateLicenceNo = () => {
@@ -114,11 +114,10 @@ class MfiCreation {
       cy.formController("name_en").type(mfiData.userName);
       cy.formController("name_bn").type(mfiData.userNameBn);
       cy.formController("user_email").type(mfiData.userEmail);
-      cy.formController("user_contact_no").type(mfiData.userContractNo);
-      cy.formController("login_id").type(mfiData.loginId);
-      cy.formController("password").type(mfiData.password);
-      cy.formController("confirm_password").type(mfiData.confirmPassword);
-
+      cy.formController("user_contact_no").clear().type(mfiData.userContractNo);
+      cy.formController("login_id").clear().type(mfiData.loginId);
+      cy.formController("password").clear().type(mfiData.password);
+      cy.formController("confirm_password").clear().type(mfiData.confirmPassword);
       cy.imsId("btn-submit").click();
       cy.imsId("btn-ok").click();
       cy.imsId("btn-go-back").click();
@@ -126,6 +125,851 @@ class MfiCreation {
       cy.log(
         "Successful cannot creation mfi management without one mandatory field."
       );
+    });
+  }
+
+  createWithoutOptionalFieldNameBn() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("btn-add-new").click();
+      const generateLicenceNo = () => {
+        const rand = () => Math.floor(10000 + Math.random() * 90000);
+
+        const rand2 = () => Math.floor(10000 + Math.random() * 90000);
+
+        const rand3 = () => Math.floor(10000 + Math.random() * 90000);
+        return `${rand()}-${rand2()}-${rand3()}`;
+      };
+      const licnceNo = generateLicenceNo();
+      const mfiId = licnceNo.slice(-4);
+
+      var mfiData = data.mraAdmin.createMfiManFrom;
+      cy.formController("mfi_name_en").first().type(mfiData.mfiNameEn);
+      cy.formController("licence_no").type(licnceNo);
+      cy.formController("institute_id").type(mfiId.toString());
+      cy.formController("mnemonic").type(mfiData.mnemonic);
+      cy.formController("formation").type(mfiData.formation);
+      cy.formController("website").type(mfiData.webSite);
+      cy.formController("email").type(mfiData.email);
+      cy.formController("contact_no").type(mfiData.contactNo);
+      cy.formController("address_en").type(mfiData.adressEn);
+      cy.formController("address_bn").type(mfiData.adressBn);
+      cy.formController("name_en").type(mfiData.userName);
+      cy.formController("name_bn").type(mfiData.userNameBn);
+      cy.formController("user_email").type(mfiData.userEmail);
+      cy.formController("user_contact_no").clear().type(mfiData.userContractNo);
+      cy.formController("login_id").clear().type(mfiData.loginId);
+      cy.formController("password").clear().type(mfiData.password);
+      cy.formController("confirm_password").clear().type(mfiData.confirmPassword);
+
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-yes").click();
+      cy.get("app-confirmation-modal")
+        .contains(mfiData.messageSaveMfiManagement)
+        .and("be.visible");
+      cy.imsId("btn-ok").click();
+      cy.log("Successfully created MFI management all field");
+    });
+  }
+
+  createWithoutMandatoryFieldLicenceNo() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("btn-add-new").click();
+      const generateLicenceNo = () => {
+        const rand = () => Math.floor(10000 + Math.random() * 90000);
+
+        const rand2 = () => Math.floor(10000 + Math.random() * 90000);
+
+        const rand3 = () => Math.floor(10000 + Math.random() * 90000);
+        return `${rand()}-${rand2()}-${rand3()}`;
+      };
+      const licnceNo = generateLicenceNo();
+      const mfiId = licnceNo.slice(-4);
+
+      var mfiData = data.mraAdmin.createMfiManFrom;
+      cy.formController("mfi_name_en").first().type(mfiData.mfiNameEn);
+      cy.formController("mfi_name_bn").first().type(mfiData.mfiNmaeBn);
+      cy.formController("institute_id").type(mfiId.toString());
+      cy.formController("mnemonic").type(mfiData.mnemonic);
+      cy.formController("formation").type(mfiData.formation);
+      cy.formController("website").type(mfiData.webSite);
+      cy.formController("email").type(mfiData.email);
+      cy.formController("contact_no").type(mfiData.contactNo);
+      cy.formController("address_en").type(mfiData.adressEn);
+      cy.formController("address_bn").type(mfiData.adressBn);
+      cy.formController("name_en").type(mfiData.userName);
+      cy.formController("name_bn").type(mfiData.userNameBn);
+      cy.formController("user_email").type(mfiData.userEmail);
+      cy.formController("user_contact_no").clear().type(mfiData.userContractNo);
+      cy.formController("login_id").clear().type(mfiData.loginId);
+      cy.formController("password").clear().type(mfiData.password);
+      cy.formController("confirm_password").clear().type(mfiData.confirmPassword);
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-ok").click();
+      cy.imsId("btn-go-back").click();
+
+      cy.log("Successfully created MFI management all field");
+    });
+  }
+
+  createWithoutMandatoryFieldMfiId() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("btn-add-new").click();
+      const generateLicenceNo = () => {
+        const rand = () => Math.floor(10000 + Math.random() * 90000);
+
+        const rand2 = () => Math.floor(10000 + Math.random() * 90000);
+
+        const rand3 = () => Math.floor(10000 + Math.random() * 90000);
+        return `${rand()}-${rand2()}-${rand3()}`;
+      };
+      const licnceNo = generateLicenceNo();
+      const mfiId = licnceNo.slice(-4);
+
+      var mfiData = data.mraAdmin.createMfiManFrom;
+      cy.formController("mfi_name_en").first().type(mfiData.mfiNameEn);
+      cy.formController("mfi_name_bn").first().type(mfiData.mfiNmaeBn);
+      cy.formController("licence_no").type(licnceNo);
+      cy.formController("mnemonic").type(mfiData.mnemonic);
+      cy.formController("formation").type(mfiData.formation);
+      cy.formController("website").type(mfiData.webSite);
+      cy.formController("email").type(mfiData.email);
+      cy.formController("contact_no").type(mfiData.contactNo);
+      cy.formController("address_en").type(mfiData.adressEn);
+      cy.formController("address_bn").type(mfiData.adressBn);
+      cy.formController("name_en").type(mfiData.userName);
+      cy.formController("name_bn").type(mfiData.userNameBn);
+      cy.formController("user_email").type(mfiData.userEmail);
+      cy.formController("user_contact_no").clear().type(mfiData.userContractNo);
+      cy.formController("login_id").clear().type(mfiData.loginId);
+      cy.formController("password").clear().type(mfiData.password);
+      cy.formController("confirm_password").clear().type(mfiData.confirmPassword);
+
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-ok").click();
+      cy.imsId("btn-go-back").click();
+
+      cy.log("Successfully created MFI management all field");
+    });
+  }
+
+  createWithoutMandatoryFieldMnemonic() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("btn-add-new").click();
+      const generateLicenceNo = () => {
+        const rand = () => Math.floor(10000 + Math.random() * 90000);
+
+        const rand2 = () => Math.floor(10000 + Math.random() * 90000);
+
+        const rand3 = () => Math.floor(10000 + Math.random() * 90000);
+        return `${rand()}-${rand2()}-${rand3()}`;
+      };
+      const licnceNo = generateLicenceNo();
+      const mfiId = licnceNo.slice(-4);
+
+      var mfiData = data.mraAdmin.createMfiManFrom;
+      cy.formController("mfi_name_en").first().type(mfiData.mfiNameEn);
+      cy.formController("mfi_name_bn").first().type(mfiData.mfiNmaeBn);
+      cy.formController("licence_no").type(licnceNo);
+      cy.formController("institute_id").type(mfiId.toString());
+      cy.formController("formation").type(mfiData.formation);
+      cy.formController("website").type(mfiData.webSite);
+      cy.formController("email").type(mfiData.email);
+      cy.formController("contact_no").type(mfiData.contactNo);
+      cy.formController("address_en").type(mfiData.adressEn);
+      cy.formController("address_bn").type(mfiData.adressBn);
+      cy.formController("name_en").type(mfiData.userName);
+      cy.formController("name_bn").type(mfiData.userNameBn);
+      cy.formController("user_email").type(mfiData.userEmail);
+      cy.formController("user_contact_no").clear().type(mfiData.userContractNo);
+      cy.formController("login_id").clear().type(mfiData.loginId);
+      cy.formController("password").clear().type(mfiData.password);
+      cy.formController("confirm_password").clear().type(mfiData.confirmPassword);
+
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-ok").click();
+      cy.imsId("btn-go-back").click();
+
+      cy.log("Successfully created MFI management all field");
+    });
+  }
+
+  createWithoutOptionalFieldFormation() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("btn-add-new").click();
+      const generateLicenceNo = () => {
+        const rand = () => Math.floor(10000 + Math.random() * 90000);
+
+        const rand2 = () => Math.floor(10000 + Math.random() * 90000);
+
+        const rand3 = () => Math.floor(10000 + Math.random() * 90000);
+        return `${rand()}-${rand2()}-${rand3()}`;
+      };
+      const licnceNo = generateLicenceNo();
+      const mfiId = licnceNo.slice(-4);
+
+      var mfiData = data.mraAdmin.createMfiManFrom;
+      cy.formController("mfi_name_en").first().type(mfiData.mfiNameEn);
+      cy.formController("mfi_name_bn").first().type(mfiData.mfiNmaeBn);
+      cy.formController("licence_no").type(licnceNo);
+      cy.formController("institute_id").type(mfiId.toString());
+      cy.formController("mnemonic").type(mfiData.mnemonic);
+      cy.formController("website").type(mfiData.webSite);
+      cy.formController("email").type(mfiData.email);
+      cy.formController("contact_no").type(mfiData.contactNo);
+      cy.formController("address_en").type(mfiData.adressEn);
+      cy.formController("address_bn").type(mfiData.adressBn);
+      cy.formController("name_en").type(mfiData.userName);
+      cy.formController("name_bn").type(mfiData.userNameBn);
+      cy.formController("user_email").type(mfiData.userEmail);
+      cy.formController("user_contact_no").clear().type(mfiData.userContractNo);
+      cy.formController("login_id").clear().type(mfiData.loginId);
+      cy.formController("password").clear().type(mfiData.password);
+      cy.formController("confirm_password").clear().type(mfiData.confirmPassword);
+
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-yes").click();
+      cy.get("app-confirmation-modal")
+        .contains(mfiData.messageSaveMfiManagement)
+        .and("be.visible");
+      cy.imsId("btn-ok").click();
+      cy.log("Successfully created MFI management all field");
+    });
+  }
+
+  createWithoutOptionalFieldWebsite() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("btn-add-new").click();
+      const generateLicenceNo = () => {
+        const rand = () => Math.floor(10000 + Math.random() * 90000);
+
+        const rand2 = () => Math.floor(10000 + Math.random() * 90000);
+
+        const rand3 = () => Math.floor(10000 + Math.random() * 90000);
+        return `${rand()}-${rand2()}-${rand3()}`;
+      };
+      const licnceNo = generateLicenceNo();
+      const mfiId = licnceNo.slice(-4);
+
+      var mfiData = data.mraAdmin.createMfiManFrom;
+      cy.formController("mfi_name_en").first().type(mfiData.mfiNameEn);
+      cy.formController("mfi_name_bn").first().type(mfiData.mfiNmaeBn);
+      cy.formController("licence_no").type(licnceNo);
+      cy.formController("institute_id").type(mfiId.toString());
+      cy.formController("mnemonic").type(mfiData.mnemonic);
+      cy.formController("formation").type(mfiData.formation);
+      cy.formController("email").type(mfiData.email);
+      cy.formController("contact_no").type(mfiData.contactNo);
+      cy.formController("address_en").type(mfiData.adressEn);
+      cy.formController("address_bn").type(mfiData.adressBn);
+      cy.formController("name_en").type(mfiData.userName);
+      cy.formController("name_bn").type(mfiData.userNameBn);
+      cy.formController("user_email").type(mfiData.userEmail);
+      cy.formController("user_contact_no").clear().type(mfiData.userContractNo);
+      cy.formController("login_id").clear().type(mfiData.loginId);
+      cy.formController("password").clear().type(mfiData.password);
+      cy.formController("confirm_password").clear().type(mfiData.confirmPassword);
+
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-yes").click();
+      cy.get("app-confirmation-modal")
+        .contains(mfiData.messageSaveMfiManagement)
+        .and("be.visible");
+      cy.imsId("btn-ok").click();
+      cy.log("Successfully created MFI management all field");
+    });
+  }
+
+  createWithoutOptionalFieldEmail() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("btn-add-new").click();
+      const generateLicenceNo = () => {
+        const rand = () => Math.floor(10000 + Math.random() * 90000);
+
+        const rand2 = () => Math.floor(10000 + Math.random() * 90000);
+
+        const rand3 = () => Math.floor(10000 + Math.random() * 90000);
+        return `${rand()}-${rand2()}-${rand3()}`;
+      };
+      const licnceNo = generateLicenceNo();
+      const mfiId = licnceNo.slice(-4);
+
+      var mfiData = data.mraAdmin.createMfiManFrom;
+      cy.formController("mfi_name_en").first().type(mfiData.mfiNameEn);
+      cy.formController("mfi_name_bn").first().type(mfiData.mfiNmaeBn);
+      cy.formController("licence_no").type(licnceNo);
+      cy.formController("institute_id").type(mfiId.toString());
+      cy.formController("mnemonic").type(mfiData.mnemonic);
+      cy.formController("formation").type(mfiData.formation);
+      cy.formController("website").type(mfiData.webSite);
+      cy.formController("contact_no").type(mfiData.contactNo);
+      cy.formController("address_en").type(mfiData.adressEn);
+      cy.formController("address_bn").type(mfiData.adressBn);
+      cy.formController("name_en").type(mfiData.userName);
+      cy.formController("name_bn").type(mfiData.userNameBn);
+      cy.formController("user_email").type(mfiData.userEmail);
+      cy.formController("user_contact_no").clear().type(mfiData.userContractNo);
+      cy.formController("login_id").clear().type(mfiData.loginId);
+      cy.formController("password").clear().type(mfiData.password);
+      cy.formController("confirm_password").clear().type(mfiData.confirmPassword);
+
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-yes").click();
+      cy.get("app-confirmation-modal")
+        .contains(mfiData.messageSaveMfiManagement)
+        .and("be.visible");
+      cy.imsId("btn-ok").click();
+      cy.log("Successfully created MFI management all field");
+    });
+  }
+
+  createWithoutOptionalFieldContactNo() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("btn-add-new").click();
+      const generateLicenceNo = () => {
+        const rand = () => Math.floor(10000 + Math.random() * 90000);
+
+        const rand2 = () => Math.floor(10000 + Math.random() * 90000);
+
+        const rand3 = () => Math.floor(10000 + Math.random() * 90000);
+        return `${rand()}-${rand2()}-${rand3()}`;
+      };
+      const licnceNo = generateLicenceNo();
+      const mfiId = licnceNo.slice(-4);
+
+      var mfiData = data.mraAdmin.createMfiManFrom;
+      cy.formController("mfi_name_en").first().type(mfiData.mfiNameEn);
+      cy.formController("mfi_name_bn").first().type(mfiData.mfiNmaeBn);
+      cy.formController("licence_no").type(licnceNo);
+      cy.formController("institute_id").type(mfiId.toString());
+      cy.formController("mnemonic").type(mfiData.mnemonic);
+      cy.formController("formation").type(mfiData.formation);
+      cy.formController("website").type(mfiData.webSite);
+      cy.formController("email").type(mfiData.email);
+      cy.formController("address_en").type(mfiData.adressEn);
+      cy.formController("address_bn").type(mfiData.adressBn);
+      cy.formController("name_en").type(mfiData.userName);
+      cy.formController("name_bn").type(mfiData.userNameBn);
+      cy.formController("user_email").type(mfiData.userEmail);
+      cy.formController("user_contact_no").clear().type(mfiData.userContractNo);
+      cy.formController("login_id").clear().type(mfiData.loginId);
+      cy.formController("password").clear().type(mfiData.password);
+      cy.formController("confirm_password").clear().type(mfiData.confirmPassword);
+
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-yes").click();
+      cy.get("app-confirmation-modal")
+        .contains(mfiData.messageSaveMfiManagement)
+        .and("be.visible");
+      cy.imsId("btn-ok").click();
+      cy.log("Successfully created MFI management all field");
+    });
+  }
+
+  createWithoutOptionalFieldAdressEn() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("btn-add-new").click();
+      const generateLicenceNo = () => {
+        const rand = () => Math.floor(10000 + Math.random() * 90000);
+
+        const rand2 = () => Math.floor(10000 + Math.random() * 90000);
+
+        const rand3 = () => Math.floor(10000 + Math.random() * 90000);
+        return `${rand()}-${rand2()}-${rand3()}`;
+      };
+      const licnceNo = generateLicenceNo();
+      const mfiId = licnceNo.slice(-4);
+
+      var mfiData = data.mraAdmin.createMfiManFrom;
+      cy.formController("mfi_name_en").first().type(mfiData.mfiNameEn);
+      cy.formController("mfi_name_bn").first().type(mfiData.mfiNmaeBn);
+      cy.formController("licence_no").type(licnceNo);
+      cy.formController("institute_id").type(mfiId.toString());
+      cy.formController("mnemonic").type(mfiData.mnemonic);
+      cy.formController("formation").type(mfiData.formation);
+      cy.formController("website").type(mfiData.webSite);
+      cy.formController("email").type(mfiData.email);
+      cy.formController("contact_no").type(mfiData.contactNo);
+      cy.formController("address_bn").type(mfiData.adressBn);
+      cy.formController("name_en").type(mfiData.userName);
+      cy.formController("name_bn").type(mfiData.userNameBn);
+      cy.formController("user_email").type(mfiData.userEmail);
+      cy.formController("user_contact_no").clear().type(mfiData.userContractNo);
+      cy.formController("login_id").clear().type(mfiData.loginId);
+      cy.formController("password").clear().type(mfiData.password);
+      cy.formController("confirm_password").clear().type(mfiData.confirmPassword);
+
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-yes").click();
+      cy.get("app-confirmation-modal")
+        .contains(mfiData.messageSaveMfiManagement)
+        .and("be.visible");
+      cy.imsId("btn-ok").click();
+      cy.log("Successfully created MFI management all field");
+    });
+  }
+
+  createWithoutOptionalFieldAdressBn() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("btn-add-new").click();
+      const generateLicenceNo = () => {
+        const rand = () => Math.floor(10000 + Math.random() * 90000);
+
+        const rand2 = () => Math.floor(10000 + Math.random() * 90000);
+
+        const rand3 = () => Math.floor(10000 + Math.random() * 90000);
+        return `${rand()}-${rand2()}-${rand3()}`;
+      };
+      const licnceNo = generateLicenceNo();
+      const mfiId = licnceNo.slice(-4);
+
+      var mfiData = data.mraAdmin.createMfiManFrom;
+      cy.formController("mfi_name_en").first().type(mfiData.mfiNameEn);
+      cy.formController("mfi_name_bn").first().type(mfiData.mfiNmaeBn);
+      cy.formController("licence_no").type(licnceNo);
+      cy.formController("institute_id").type(mfiId.toString());
+      cy.formController("mnemonic").type(mfiData.mnemonic);
+      cy.formController("formation").type(mfiData.formation);
+      cy.formController("website").type(mfiData.webSite);
+      cy.formController("email").type(mfiData.email);
+      cy.formController("contact_no").type(mfiData.contactNo);
+      cy.formController("address_en").type(mfiData.adressEn);
+      cy.formController("name_en").type(mfiData.userName);
+      cy.formController("name_bn").type(mfiData.userNameBn);
+      cy.formController("user_email").type(mfiData.userEmail);
+      cy.formController("user_contact_no").clear().type(mfiData.userContractNo);
+      cy.formController("login_id").clear().type(mfiData.loginId);
+      cy.formController("password").clear().type(mfiData.password);
+      cy.formController("confirm_password").clear().type(mfiData.confirmPassword);
+
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-yes").click();
+      cy.get("app-confirmation-modal")
+        .contains(mfiData.messageSaveMfiManagement)
+        .and("be.visible");
+      cy.imsId("btn-ok").click();
+      cy.log("Successfully created MFI management all field");
+    });
+  }
+
+
+  createWithoutMandatoryFieldSavingsCategory() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("btn-add-new").click();
+      const generateLicenceNo = () => {
+        const rand = () => Math.floor(10000 + Math.random() * 90000);
+
+        const rand2 = () => Math.floor(10000 + Math.random() * 90000);
+
+        const rand3 = () => Math.floor(10000 + Math.random() * 90000);
+        return `${rand()}-${rand2()}-${rand3()}`;
+      };
+      const licnceNo = generateLicenceNo();
+      const mfiId = licnceNo.slice(-4);
+
+      var mfiData = data.mraAdmin.createMfiManFrom;
+      cy.imsId("btn-reset").click();
+      cy.formController("mfi_name_en").first().type(mfiData.mfiNameEn);
+      cy.formController("mfi_name_bn").first().type(mfiData.mfiNmaeBn);
+      cy.formController("licence_no").type(licnceNo);
+      cy.formController("institute_id").type(mfiId.toString());
+      cy.formController("mnemonic").type(mfiData.mnemonic);
+      cy.formController("formation").type(mfiData.formation);
+      cy.formController("website").type(mfiData.webSite);
+      cy.formController("email").type(mfiData.email);
+      cy.formController("contact_no").type(mfiData.contactNo);
+      cy.formController("address_en").type(mfiData.adressEn);
+      cy.formController("address_bn").type(mfiData.adressBn);
+      cy.formController("name_en").type(mfiData.userName);
+      cy.formController("name_bn").type(mfiData.userNameBn);
+      cy.formController("user_email").type(mfiData.userEmail);
+      cy.formController("user_contact_no").clear().type(mfiData.userContractNo);
+      cy.formController("login_id").clear().type(mfiData.loginId);
+      cy.formController("password").clear().type(mfiData.password);
+      cy.formController("confirm_password").clear().type(mfiData.confirmPassword);
+
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-ok").click();
+      cy.imsId("btn-go-back").click();
+      cy.log("Successfully created MFI management all field");
+    });
+  }
+
+  createWithoutMandatoryFieldOfficeType() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("btn-add-new").click();
+      const generateLicenceNo = () => {
+        const rand = () => Math.floor(10000 + Math.random() * 90000);
+
+        const rand2 = () => Math.floor(10000 + Math.random() * 90000);
+
+        const rand3 = () => Math.floor(10000 + Math.random() * 90000);
+        return `${rand()}-${rand2()}-${rand3()}`;
+      };
+      const licnceNo = generateLicenceNo();
+      const mfiId = licnceNo.slice(-4);
+
+      var mfiData = data.mraAdmin.createMfiManFrom;
+      cy.imsId("btn-reset").click();
+      cy.formController("mfi_name_en").first().type(mfiData.mfiNameEn);
+      cy.formController("mfi_name_bn").first().type(mfiData.mfiNmaeBn);
+      cy.formController("licence_no").type(licnceNo);
+      cy.formController("institute_id").type(mfiId.toString());
+      cy.formController("mnemonic").type(mfiData.mnemonic);
+      cy.formController("formation").type(mfiData.formation);
+      cy.formController("website").type(mfiData.webSite);
+      cy.formController("email").type(mfiData.email);
+      cy.formController("contact_no").type(mfiData.contactNo);
+      cy.formController("address_en").type(mfiData.adressEn);
+      cy.formController("address_bn").type(mfiData.adressBn);
+      cy.formController("name_en").type(mfiData.userName);
+      cy.formController("name_bn").type(mfiData.userNameBn);
+      cy.formController("user_email").type(mfiData.userEmail);
+      cy.formController("user_contact_no").clear().type(mfiData.userContractNo);
+      cy.formController("login_id").clear().type(mfiData.loginId);
+      cy.formController("password").clear().type(mfiData.password);
+      cy.formController("confirm_password").clear().type(mfiData.confirmPassword);
+
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-ok").click();
+      cy.imsId("btn-go-back").click();
+      cy.log("Successfully created MFI management all field");
+    });
+  }
+
+
+  createWithoutMandatoryFieldUserNameEn() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("btn-add-new").click();
+      const generateLicenceNo = () => {
+        const rand = () => Math.floor(10000 + Math.random() * 90000);
+
+        const rand2 = () => Math.floor(10000 + Math.random() * 90000);
+
+        const rand3 = () => Math.floor(10000 + Math.random() * 90000);
+        return `${rand()}-${rand2()}-${rand3()}`;
+      };
+      const licnceNo = generateLicenceNo();
+      const mfiId = licnceNo.slice(-4);
+
+      var mfiData = data.mraAdmin.createMfiManFrom;
+      cy.formController("mfi_name_en").first().type(mfiData.mfiNameEn);
+      cy.formController("mfi_name_bn").first().type(mfiData.mfiNmaeBn);
+      cy.formController("licence_no").type(licnceNo);
+      cy.formController("institute_id").type(mfiId.toString());
+      cy.formController("mnemonic").type(mfiData.mnemonic);
+      cy.formController("formation").type(mfiData.formation);
+      cy.formController("website").type(mfiData.webSite);
+      cy.formController("email").type(mfiData.email);
+      cy.formController("contact_no").type(mfiData.contactNo);
+      cy.formController("address_en").type(mfiData.adressEn);
+      cy.formController("address_bn").type(mfiData.adressBn);
+      cy.formController("name_bn").type(mfiData.userNameBn);
+      cy.formController("user_email").type(mfiData.userEmail);
+      cy.formController("user_contact_no").clear().type(mfiData.userContractNo);
+      cy.formController("login_id").clear().type(mfiData.loginId);
+      cy.formController("password").clear().type(mfiData.password);
+      cy.formController("confirm_password").clear().type(mfiData.confirmPassword);
+
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-ok").click();
+      cy.imsId("btn-go-back").click();
+      cy.log("Successfully created MFI management all field");
+    });
+  }
+
+
+  createWithoutOptionalFieldUserNameBn() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("btn-add-new").click();
+      const generateLicenceNo = () => {
+        const rand = () => Math.floor(10000 + Math.random() * 90000);
+
+        const rand2 = () => Math.floor(10000 + Math.random() * 90000);
+
+        const rand3 = () => Math.floor(10000 + Math.random() * 90000);
+        return `${rand()}-${rand2()}-${rand3()}`;
+      };
+      const licnceNo = generateLicenceNo();
+      const mfiId = licnceNo.slice(-4);
+
+      var mfiData = data.mraAdmin.createMfiManFrom;
+      cy.formController("mfi_name_en").first().type(mfiData.mfiNameEn);
+      cy.formController("mfi_name_bn").first().type(mfiData.mfiNmaeBn);
+      cy.formController("licence_no").type(licnceNo);
+      cy.formController("institute_id").type(mfiId.toString());
+      cy.formController("mnemonic").type(mfiData.mnemonic);
+      cy.formController("formation").type(mfiData.formation);
+      cy.formController("website").type(mfiData.webSite);
+      cy.formController("email").type(mfiData.email);
+      cy.formController("contact_no").type(mfiData.contactNo);
+      cy.formController("address_en").type(mfiData.adressEn);
+      cy.formController("address_bn").type(mfiData.adressBn);
+      cy.formController("name_en").type(mfiData.userName);
+      cy.formController("user_email").type(mfiData.userEmail);
+      cy.formController("user_contact_no").clear().type(mfiData.userContractNo);
+      cy.formController("login_id").clear().type(mfiData.loginId);
+      cy.formController("password").clear().type(mfiData.password);
+      cy.formController("confirm_password").clear().type(mfiData.confirmPassword);
+
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-yes").click();
+      cy.get("app-confirmation-modal")
+        .contains(mfiData.messageSaveMfiManagement)
+        .and("be.visible");
+      cy.imsId("btn-ok").click();
+      cy.log("Successfully created MFI management all field");
+    });
+  }
+
+
+  createWithoutOptionalFieldUserEmail() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("btn-add-new").click();
+      const generateLicenceNo = () => {
+        const rand = () => Math.floor(10000 + Math.random() * 90000);
+
+        const rand2 = () => Math.floor(10000 + Math.random() * 90000);
+
+        const rand3 = () => Math.floor(10000 + Math.random() * 90000);
+        return `${rand()}-${rand2()}-${rand3()}`;
+      };
+      const licnceNo = generateLicenceNo();
+      const mfiId = licnceNo.slice(-4);
+
+      var mfiData = data.mraAdmin.createMfiManFrom;
+      cy.formController("mfi_name_en").first().type(mfiData.mfiNameEn);
+      cy.formController("mfi_name_bn").first().type(mfiData.mfiNmaeBn);
+      cy.formController("licence_no").type(licnceNo);
+      cy.formController("institute_id").type(mfiId.toString());
+      cy.formController("mnemonic").type(mfiData.mnemonic);
+      cy.formController("formation").type(mfiData.formation);
+      cy.formController("website").type(mfiData.webSite);
+      cy.formController("email").type(mfiData.email);
+      cy.formController("contact_no").type(mfiData.contactNo);
+      cy.formController("address_en").type(mfiData.adressEn);
+      cy.formController("address_bn").type(mfiData.adressBn);
+      cy.formController("name_en").type(mfiData.userName);
+      cy.formController("name_bn").type(mfiData.userNameBn);
+      cy.formController("user_contact_no").clear().type(mfiData.userContractNo);
+      cy.formController("login_id").clear().type(mfiData.loginId);
+      cy.formController("password").clear().type(mfiData.password);
+      cy.formController("confirm_password").clear().type(mfiData.confirmPassword);
+
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-yes").click();
+      cy.get("app-confirmation-modal")
+        .contains(mfiData.messageSaveMfiManagement)
+        .and("be.visible");
+      cy.imsId("btn-ok").click();
+      cy.log("Successfully created MFI management all field");
+    });
+  }
+
+
+  createWithoutOptionalFieldUserContactNo() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("btn-add-new").click();
+      const generateLicenceNo = () => {
+        const rand = () => Math.floor(10000 + Math.random() * 90000);
+
+        const rand2 = () => Math.floor(10000 + Math.random() * 90000);
+
+        const rand3 = () => Math.floor(10000 + Math.random() * 90000);
+        return `${rand()}-${rand2()}-${rand3()}`;
+      };
+      const licnceNo = generateLicenceNo();
+      const mfiId = licnceNo.slice(-4);
+
+      var mfiData = data.mraAdmin.createMfiManFrom;
+      cy.formController("mfi_name_en").first().type(mfiData.mfiNameEn);
+      cy.formController("mfi_name_bn").first().type(mfiData.mfiNmaeBn);
+      cy.formController("licence_no").type(licnceNo);
+      cy.formController("institute_id").type(mfiId.toString());
+      cy.formController("mnemonic").type(mfiData.mnemonic);
+      cy.formController("formation").type(mfiData.formation);
+      cy.formController("website").type(mfiData.webSite);
+      cy.formController("email").type(mfiData.email);
+      cy.formController("contact_no").type(mfiData.contactNo);
+      cy.formController("address_en").type(mfiData.adressEn);
+      cy.formController("address_bn").type(mfiData.adressBn);
+      cy.formController("name_en").type(mfiData.userName);
+      cy.formController("name_bn").type(mfiData.userNameBn);
+      cy.formController("user_email").type(mfiData.userEmail);
+      cy.formController("login_id").clear().type(mfiData.loginId);
+      cy.formController("password").clear().type(mfiData.password);
+      cy.formController("confirm_password").clear().type(mfiData.confirmPassword);
+
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-yes").click();
+      cy.get("app-confirmation-modal")
+        .contains(mfiData.messageSaveMfiManagement)
+        .and("be.visible");
+      cy.imsId("btn-ok").click();
+      cy.log("Successfully created MFI management all field");
+    });
+  }
+
+  createWithoutMandatoryFieldLoginId() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("btn-add-new").click();
+      const generateLicenceNo = () => {
+        const rand = () => Math.floor(10000 + Math.random() * 90000);
+
+        const rand2 = () => Math.floor(10000 + Math.random() * 90000);
+
+        const rand3 = () => Math.floor(10000 + Math.random() * 90000);
+        return `${rand()}-${rand2()}-${rand3()}`;
+      };
+      const licnceNo = generateLicenceNo();
+      const mfiId = licnceNo.slice(-4);
+
+      var mfiData = data.mraAdmin.createMfiManFrom;
+      cy.formController("mfi_name_en").first().type(mfiData.mfiNameEn);
+      cy.formController("mfi_name_bn").first().type(mfiData.mfiNmaeBn);
+      cy.formController("licence_no").type(licnceNo);
+      cy.formController("institute_id").type(mfiId.toString());
+      cy.formController("mnemonic").type(mfiData.mnemonic);
+      cy.formController("formation").type(mfiData.formation);
+      cy.formController("website").type(mfiData.webSite);
+      cy.formController("email").type(mfiData.email);
+      cy.formController("contact_no").type(mfiData.contactNo);
+      cy.formController("address_en").type(mfiData.adressEn);
+      cy.formController("address_bn").type(mfiData.adressBn);
+      cy.formController("name_en").type(mfiData.userName);
+      cy.formController("name_bn").type(mfiData.userNameBn);
+      cy.formController("user_email").type(mfiData.userEmail);
+      cy.formController("user_contact_no").clear().type(mfiData.userContractNo);
+      cy.formController("password").clear().type(mfiData.password);
+      cy.formController("confirm_password").clear().type(mfiData.confirmPassword);
+
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-ok").click();
+      cy.imsId("btn-go-back").click();
+      cy.log("Successfully created MFI management all field");
+    });
+  }
+
+  createWithoutMandatoryFieldPassword() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("btn-add-new").click();
+      const generateLicenceNo = () => {
+        const rand = () => Math.floor(10000 + Math.random() * 90000);
+
+        const rand2 = () => Math.floor(10000 + Math.random() * 90000);
+
+        const rand3 = () => Math.floor(10000 + Math.random() * 90000);
+        return `${rand()}-${rand2()}-${rand3()}`;
+      };
+      const licnceNo = generateLicenceNo();
+      const mfiId = licnceNo.slice(-4);
+
+      var mfiData = data.mraAdmin.createMfiManFrom;
+      cy.formController("mfi_name_en").first().type(mfiData.mfiNameEn);
+      cy.formController("mfi_name_bn").first().type(mfiData.mfiNmaeBn);
+      cy.formController("licence_no").type(licnceNo);
+      cy.formController("institute_id").type(mfiId.toString());
+      cy.formController("mnemonic").type(mfiData.mnemonic);
+      cy.formController("formation").type(mfiData.formation);
+      cy.formController("website").type(mfiData.webSite);
+      cy.formController("email").type(mfiData.email);
+      cy.formController("contact_no").type(mfiData.contactNo);
+      cy.formController("address_en").type(mfiData.adressEn);
+      cy.formController("address_bn").type(mfiData.adressBn);
+      cy.formController("name_en").type(mfiData.userName);
+      cy.formController("name_bn").type(mfiData.userNameBn);
+      cy.formController("user_email").type(mfiData.userEmail);
+      cy.formController("user_contact_no").clear().type(mfiData.userContractNo);
+      cy.formController("login_id").clear().type(mfiData.loginId);
+      cy.formController("confirm_password").clear().type(mfiData.confirmPassword);
+
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-ok").click();
+      cy.imsId("btn-go-back").click();
+      cy.log("Successfully created MFI management all field");
+    });
+  }
+
+  createWithoutMandatoryFieldConfirmPassword() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("btn-add-new").click();
+      const generateLicenceNo = () => {
+        const rand = () => Math.floor(10000 + Math.random() * 90000);
+
+        const rand2 = () => Math.floor(10000 + Math.random() * 90000);
+
+        const rand3 = () => Math.floor(10000 + Math.random() * 90000);
+        return `${rand()}-${rand2()}-${rand3()}`;
+      };
+      const licnceNo = generateLicenceNo();
+      const mfiId = licnceNo.slice(-4);
+
+      var mfiData = data.mraAdmin.createMfiManFrom;
+      cy.formController("mfi_name_en").first().type(mfiData.mfiNameEn);
+      cy.formController("mfi_name_bn").first().type(mfiData.mfiNmaeBn);
+      cy.formController("licence_no").type(licnceNo);
+      cy.formController("institute_id").type(mfiId.toString());
+      cy.formController("mnemonic").type(mfiData.mnemonic);
+      cy.formController("formation").type(mfiData.formation);
+      cy.formController("website").type(mfiData.webSite);
+      cy.formController("email").type(mfiData.email);
+      cy.formController("contact_no").type(mfiData.contactNo);
+      cy.formController("address_en").type(mfiData.adressEn);
+      cy.formController("address_bn").type(mfiData.adressBn);
+      cy.formController("name_en").type(mfiData.userName);
+      cy.formController("name_bn").type(mfiData.userNameBn);
+      cy.formController("user_email").type(mfiData.userEmail);
+      cy.formController("user_contact_no").clear().type(mfiData.userContractNo);
+      cy.formController("login_id").clear().type(mfiData.loginId);
+      cy.formController("password").clear().type(mfiData.password);
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-ok").click();
+      cy.imsId("btn-go-back").click();
+      cy.log("Successfully created MFI management all field");
+    });
+  }
+
+
+  createWithoutOptionalMfiLogo() {
+    cy.fixture(this.test_data).then((data) => {
+      // cy.imsId("btn-add-new").click();
+      const generateLicenceNo = () => {
+        const rand = () => Math.floor(10000 + Math.random() * 90000);
+
+        const rand2 = () => Math.floor(10000 + Math.random() * 90000);
+
+        const rand3 = () => Math.floor(10000 + Math.random() * 90000);
+        return `${rand()}-${rand2()}-${rand3()}`;
+      };
+      const licnceNo = generateLicenceNo();
+      const mfiId = licnceNo.slice(-4);
+
+      var mfiData = data.mraAdmin.createMfiManFrom;
+      cy.formController("mfi_name_en").first().type(mfiData.mfiNameEn);
+      cy.formController("mfi_name_bn").first().type(mfiData.mfiNmaeBn);
+      cy.formController("licence_no").type(licnceNo);
+      cy.formController("institute_id").type(mfiId.toString());
+      cy.formController("mnemonic").type(mfiData.mnemonic);
+      cy.formController("formation").type(mfiData.formation);
+      cy.formController("website").type(mfiData.webSite);
+      cy.formController("email").type(mfiData.email);
+      cy.formController("contact_no").type(mfiData.contactNo);
+      cy.formController("address_en").type(mfiData.adressEn);
+      cy.formController("address_bn").type(mfiData.adressBn);
+      cy.formController("name_en").type(mfiData.userName);
+      cy.formController("name_bn").type(mfiData.userNameBn);
+      cy.formController("user_email").type(mfiData.userEmail);
+      cy.formController("user_contact_no").clear().type(mfiData.userContractNo);
+      cy.formController("login_id").clear().type(mfiData.loginId);
+      cy.formController("password").clear().type(mfiData.password);
+      cy.formController("confirm_password").clear().type(mfiData.confirmPassword);
+
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-yes").click();
+      cy.get("app-confirmation-modal")
+        .contains(mfiData.messageSaveMfiManagement)
+        .and("be.visible");
+      cy.imsId("btn-ok").click();
+      cy.log("Successfully created MFI management all field");
     });
   }
 

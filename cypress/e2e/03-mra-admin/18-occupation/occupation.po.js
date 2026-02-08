@@ -2,98 +2,84 @@ class OccupationCreation {
   test_data = Cypress.env("TEST_DATA");
 
   gridOccupationListPage() {
-    cy.fixture(this.test_data).then((data) => {
-      cy.selectMenu("menu-configuration", "submenu-occupation");
-      cy.log("Successfully Occupation list page.");
-    });
+    cy.selectMenu("menu-configuration", "submenu-occupation");
+    cy.log("Occupation list page loaded successfully.");
   }
 
   createOccupation() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      cy.imsId("btn-submit").and("be.visible");
+      const occupationData = data.mraAdmin.createoccupationFrom;
 
-      var occupationData = data.mraAdmin.createoccupationFrom;
+      cy.imsId("btn-add-new").click();
       cy.formController("name_en").type(occupationData.nameEn);
       cy.formController("name_bn").type(occupationData.nameBn);
       cy.imsId("btn-submit").click();
 
       cy.get("app-confirmation-modal")
         .contains(occupationData.messageSaveOcc)
-        .and("be.visible");
+        .should("be.visible");
       cy.imsId("btn-yes").click();
       cy.imsId("btn-ok").click();
 
-      cy.log("Successfully created occupation");
+      cy.log("Occupation created successfully.");
     });
   }
 
   createWithoutNameEn() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      cy.imsId("btn-submit").and("be.visible");
+      const occupationData = data.mraAdmin.createoccupationFrom;
 
-      var occupationData = data.mraAdmin.createoccupationFrom;
+      cy.imsId("btn-add-new").click();
       cy.formController("name_bn").type(occupationData.nameBn);
       cy.imsId("btn-submit").click();
       cy.imsId("btn-ok").click();
       cy.imsId("btn-go-back").click();
 
-      cy.log(
-        "Successful cannot creation occupation without one mandatory field."
-      );
+      cy.log("Creation blocked: English name is mandatory.");
     });
   }
+
   createWithoutNameBn() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      cy.imsId("btn-submit").and("be.visible");
+      const occupationData = data.mraAdmin.createoccupationFrom;
 
-      var occupationData = data.mraAdmin.createoccupationFrom;
+      cy.imsId("btn-add-new").click();
       cy.formController("name_en").type(occupationData.nameEn);
       cy.imsId("btn-submit").click();
       cy.imsId("btn-ok").click();
       cy.imsId("btn-go-back").click();
 
-      cy.log(
-        "Successful cannot creation occupation without one mandatory field."
-      );
+      cy.log("Creation blocked: Bangla name is mandatory.");
     });
   }
 
   createWithoutStatus() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      cy.imsId("btn-reset").click();
+      const occupationData = data.mraAdmin.createoccupationFrom;
 
-      var occupationData = data.mraAdmin.createoccupationFrom;
+      cy.imsId("btn-add-new").click()
+      cy.imsId("btn-reset").click();;
       cy.formController("name_en").type(occupationData.nameEn);
       cy.formController("name_bn").type(occupationData.nameBn);
       cy.imsId("btn-submit").click();
       cy.imsId("btn-ok").click();
       cy.imsId("btn-go-back").click();
 
-      cy.log(
-        "Successful cannot creation occupation without one mandatory field."
-      );
+      cy.log("Creation blocked: Status is mandatory.");
     });
   }
 
   createWithoutOneMandatoryField() {
     cy.fixture(this.test_data).then((data) => {
+      const occupationData = data.mraAdmin.createoccupationFrom;
+
       cy.imsId("btn-add-new").click();
-      cy.imsId("btn-submit").and("be.visible");
-
-      var occupationData = data.mraAdmin.createoccupationFrom;
       cy.formController("name_bn").type(occupationData.nameBn);
-
       cy.imsId("btn-submit").click();
       cy.imsId("btn-ok").click();
       cy.imsId("btn-go-back").click();
 
-      cy.log(
-        "Successful cannot creation occupation without one mandatory field."
-      );
+      cy.log("Creation blocked: Mandatory field missing.");
     });
   }
 
@@ -104,23 +90,22 @@ class OccupationCreation {
 
   viewOccupation() {
     cy.fixture(this.test_data).then((data) => {
-      var occupationData = data.mraAdmin.createoccupationFrom;
+      const occupationData = data.mraAdmin.createoccupationFrom;
 
       cy.formController("search_text").type(occupationData.nameEn);
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
 
-      cy.get("app-mra-mfi").contains(occupationData.nameEn).and("be.visible");
-      cy.get("app-mra-mfi").contains(occupationData.nameBn).and("be.visible");
+      cy.get("app-mra-mfi").contains(occupationData.nameEn).should("be.visible");
+      cy.get("app-mra-mfi").contains(occupationData.nameBn).should("be.visible");
 
-      cy.log("Successfully viewed the occupation list page");
+      cy.log("Occupation details viewed successfully.");
     });
   }
 
   viewGoBackButton() {
     cy.imsId("btn-go-back").click();
-
-    cy.log("Successfully view go back the occupation list page");
+    cy.log("Returned to occupation list page successfully.");
   }
 
   turnOffOnEditMode() {
@@ -129,23 +114,24 @@ class OccupationCreation {
     cy.imsId("switch-button").click();
     cy.imsId("btn-go-back").click();
 
-    cy.log("Occupation form Edit Mode toggled successfully");
+    cy.log("Occupation edit mode toggled successfully.");
   }
 
   editOccupation() {
     cy.fixture(this.test_data).then((data) => {
+      const occupationData = data.mraAdmin.createoccupationFrom;
+
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-edit").click();
       cy.imsId("btn-submit").click();
 
-      var occupationData = data.mraAdmin.createoccupationFrom;
       cy.get("app-confirmation-modal")
         .contains(occupationData.messageUpdateOcc)
-        .and("be.visible");
+        .should("be.visible");
       cy.imsId("btn-yes").click();
       cy.imsId("btn-ok").click();
 
-      cy.log("Occupation updated successfully");
+      cy.log("Occupation updated successfully.");
     });
   }
 
@@ -155,16 +141,17 @@ class OccupationCreation {
     cy.imsId("btn-reset").click();
     cy.imsId("btn-go-back").click();
 
-    cy.log("Successful clean displaying");
+    cy.log("Edit form reset successfully.");
   }
 
   editSubmitButton() {
     cy.fixture(this.test_data).then((data) => {
+      const occupationData = data.mraAdmin.createoccupationFrom;
+
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-edit").click();
       cy.imsId("btn-reset").click();
 
-      var occupationData = data.mraAdmin.createoccupationFrom;
       cy.formController("name_en").type(occupationData.nameEn);
       cy.formController("name_bn").type(occupationData.nameBn);
       cy.formController("status").type(occupationData.status).type("{enter}");
@@ -173,11 +160,11 @@ class OccupationCreation {
 
       cy.get("app-confirmation-modal")
         .contains(occupationData.messageUpdateOcc)
-        .and("be.visible");
+        .should("be.visible");
       cy.imsId("btn-yes").click();
       cy.imsId("btn-ok").click();
 
-      cy.log("Successfully updated occupation");
+      cy.log("Occupation edit submitted successfully.");
     });
   }
 
@@ -185,59 +172,62 @@ class OccupationCreation {
     cy.imsId("toggle-action").first().click();
     cy.imsId("btn-table-action-edit").click();
     cy.imsId("btn-go-back").click();
-    cy.log("Successful edit go back button check.");
+
+    cy.log("Returned to list page from edit page successfully.");
   }
 
   statusInactiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var occupationData = data.mraAdmin.createoccupationFrom;
+      const occupationData = data.mraAdmin.createoccupationFrom;
+
       cy.imsId("btn-reset").click();
-      cy.formController("status")
-        .type(occupationData.selectStatus)
-        .type("{enter}");
-      cy.log("occupation form status inactive dropdown check successfully");
+      cy.formController("status").type(occupationData.selectStatus).type("{enter}");
+
+      cy.log("Inactive status filter applied successfully.");
     });
   }
 
   statusActiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var occupationData = data.mraAdmin.createoccupationFrom;
-      cy.formController("status")
-        .type(occupationData.statusSelect)
-        .type("{enter}");
-      cy.log("occupation form status active dropdown check successfully");
+      const occupationData = data.mraAdmin.createoccupationFrom;
+
+      cy.formController("status").type(occupationData.statusSelect).type("{enter}");
+
+      cy.log("Active status filter applied successfully.");
     });
   }
 
   searchInOccupationName() {
     cy.fixture(this.test_data).then((data) => {
-      var occupationData = data.mraAdmin.createoccupationFrom;
+      const occupationData = data.mraAdmin.createoccupationFrom;
+
       cy.imsId("btn-reset").click();
       cy.formController("search_text").type(occupationData.nameEn);
-      cy.log("Successfully search in the occupation form");
+
+      cy.log("Occupation search executed successfully.");
     });
   }
 
   gridResetButtonCheck() {
     cy.imsId("btn-reset").click();
-    cy.log("Successful clean displaying.");
+    cy.log("Grid reset successfully.");
   }
 
   gridRefreshButtonCheck() {
     cy.imsId("btn-refresh").click();
-    cy.log(
-      "successfully refresh page  displayed the grid list of the occupation form "
-    );
+    cy.log("Grid refreshed successfully.");
   }
 
   createResetButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var occupationData = data.mraAdmin.createoccupationFrom;
+      const occupationData = data.mraAdmin.createoccupationFrom;
+
       cy.imsId("btn-add-new").click();
       cy.formController("name_en").type(occupationData.nameEn);
       cy.imsId("btn-reset").click();
       cy.imsId("btn-go-back").click();
-      cy.log("Successful clean displaying.");
+
+      cy.log("Creation form reset successfully.");
     });
   }
 
@@ -246,19 +236,22 @@ class OccupationCreation {
     cy.imsId("btn-submit").click();
     cy.imsId("btn-ok").click();
     cy.imsId("btn-go-back").click();
-    cy.log("Successful validation message displaying.");
+
+    cy.log("Validation messages displayed successfully.");
   }
 
   createGoBackButtonCheck() {
     cy.imsId("btn-add-new").click();
     cy.imsId("btn-go-back").click();
-    cy.log("Successful go back button check.");
+
+    cy.log("Go back button on create page works successfully.");
   }
 
   gridLanguageSwitchCheck() {
     cy.imsId("profile-menu").click();
     cy.imsId("btn-lang-bangla").click();
-    cy.log("Successful switch bangla language check.");
+
+    cy.log("Grid language switched to Bangla successfully.");
   }
 }
 

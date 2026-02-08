@@ -21,127 +21,193 @@ describe("20. MFI Management Module Test Cases.", function () {
     });
   });
 
+
   after(() => {
     cy.logout();
   });
 
-  it("20.01. Verify the mfi management list page loads without errors.", function () {
+  it("20.01. Verify that the MFI Management list page loads successfully without any errors.", function () {
     create_mfi_management.gridMfiManagementListPage();
   });
 
-  it("20.02. Verify a new mfi management is created successfully when all required fields are filled with valid data.", function () {
+  it("20.02. Verify that an MFI Management is created successfully when all required fields are filled with valid data.", function () {
     create_mfi_management.createMfi();
   });
 
-  it("20.03. Verify a new mfi management is created successfully when all fields are filled with valid data.", function () {
+  it("20.03. Verify that an MFI Management is created successfully when all fields are filled with valid data.", function () {
     create_mfi_management.createAllField();
   });
 
-  it("20.04. Verify that a mfi management cannot be created without filling in the mandatory field.", function () {
-    create_mfi_management.createWithoutOneMandatoryField();
+  it("20.04. Verify that the system prevents MFI Management creation when the mandatory English Name field is missing.", function () {
+    create_mfi_management.createWithoutMandatoryFieldNameEn();
   });
 
-  it("20.05. Verify mfi management creation fails when mandatory fields are missing.", function () {
+  it("20.05. Verify that the system allows MFI Management creation without the optional Bangla Name field.", function () {
+    create_mfi_management.createWithoutOptionalFieldNameBn();
+  });
+
+  it("20.06. Verify that the system prevents MFI Management creation when the mandatory License Number field is missing.", function () {
+    create_mfi_management.createWithoutMandatoryFieldLicenceNo();
+  });
+
+  it("20.07. Verify that the system prevents MFI Management creation when the mandatory MFI ID field is missing.", function () {
+    create_mfi_management.createWithoutMandatoryFieldMfiId();
+  });
+
+  it("20.08. Verify that the system prevents MFI Management creation when the mandatory Mnemonic field is missing.", function () {
+    create_mfi_management.createWithoutMandatoryFieldMnemonic();
+  });
+
+  it("20.09. Verify that the system allows MFI Management creation without the optional Formation Date field.", function () {
+    create_mfi_management.createWithoutOptionalFieldFormation();
+  });
+
+  it("20.10. Verify that the system allows MFI Management creation without the optional Website field.", function () {
+    create_mfi_management.createWithoutOptionalFieldWebsite();
+  });
+
+  it("20.12. Verify that the system allows MFI Management creation without the optional Email field.", function () {
+    create_mfi_management.createWithoutOptionalFieldEmail();
+  });
+
+  it("20.13. Verify that the system allows MFI Management creation without the optional Contact Number field.", function () {
+    create_mfi_management.createWithoutOptionalFieldContactNo();
+  });
+
+  it("20.14. Verify that the system allows MFI Management creation without the optional English Address field.", function () {
+    create_mfi_management.createWithoutOptionalFieldAdressEn();
+  });
+
+  it("20.15. Verify that the system allows MFI Management creation without the optional Bangla Address field.", function () {
+    create_mfi_management.createWithoutOptionalFieldAdressBn();
+  });
+
+  // it("20.16. Verify that the system prevents MFI Management creation when the mandatory Savings Category field is missing.", function () {
+  //   create_mfi_management.createWithoutMandatoryFieldSavingsCategory();
+  // });
+
+  // it("20.17. Verify that the system prevents MFI Management creation when the mandatory Office Type field is missing.", function () {
+  //   create_mfi_management.createWithoutMandatoryFieldOfficeType();
+  // });
+
+  it("20.18. Verify that the system prevents MFI Management creation when the mandatory User Name (English) field is missing.", function () {
+    create_mfi_management.createWithoutMandatoryFieldUserNameEn();
+  });
+
+  it("20.19. Verify that the system allows MFI Management creation without the optional User Name (Bangla) field.", function () {
+    create_mfi_management.createWithoutOptionalFieldUserNameBn();
+  });
+
+  it("20.20. Verify that the system allows MFI Management creation without the optional User Email field.", function () {
+    create_mfi_management.createWithoutOptionalFieldUserEmail();
+  });
+
+  it("20.21. Verify that the system allows MFI Management creation without the optional User Contact Number field.", function () {
+    create_mfi_management.createWithoutOptionalFieldUserContactNo();
+  });
+
+  it("20.22. Verify that the system prevents MFI Management creation when the mandatory Login ID field is missing.", function () {
+    create_mfi_management.createWithoutMandatoryFieldLoginId();
+  });
+
+  it("20.23. Verify that the system prevents MFI Management creation when the mandatory Password field is missing.", function () {
+    create_mfi_management.createWithoutMandatoryFieldPassword();
+  });
+
+  it("20.24. Verify that the system prevents MFI Management creation when the mandatory Confirm Password field is missing.", function () {
+    create_mfi_management.createWithoutMandatoryFieldConfirmPassword();
+  });
+
+  it("20.25. Verify that the system allows MFI Management creation without the optional MFI Logo.", function () {
+    create_mfi_management.createWithoutOptionalMfiLogo();
+  });
+
+  it("20.26. Verify that MFI Management creation fails when any mandatory field is missing.", function () {
     create_mfi_management.createWithoutMandatoryField();
   });
 
-  // it("20.06. When the mfi management approved by clicking the lock button, the lock button no longer appears.", function () {
-  //   create_mfi_management.approveMfi();
-  // });
-
-  it("20.07. Verify successfully performs the action when the action button is clicked.", function () {
+  it("20.28. Verify that the action button performs the expected action successfully.", function () {
     create_mfi_management.actionButtonCheck();
   });
 
-  it("20.08. Verify the user can view all relevant details of a mfi management, including its associated fields.", function () {
+  it("20.29. Verify that the user can view all relevant MFI Management details successfully.", function () {
     create_mfi_management.viewMfi();
   });
 
-  it("20.09. Verify that clicking the go back button on the mfi management view page redirects the user to the mfi management list page.", function () {
+  it("20.30. Verify that clicking the Go Back button from the MFI Management view page redirects to the list page.", function () {
     create_mfi_management.viewGoBackButton();
   });
 
-  it("20.10. Verify that the mfi management forms edit mode can be toggled on and off all fields should be disabled or return to view-only mode.", function () {
+  it("20.31. Verify that edit mode can be toggled on and off and fields behave accordingly.", function () {
     create_mfi_management.turnOffOnEditMode();
   });
 
-  // it("20.11. Verify the mfi management name and description can be edited successfully.", function () {
-  //   create_mfi_management.editMfi();
-  // });
-
-  it("20.12. Verify the mfi management edit reset button functions correctly.", function () {
+  it("20.33. Verify that the MFI Management edit reset button functions correctly.", function () {
     create_mfi_management.editResetButton();
   });
 
-  it("20.13. Verify the mfi management edit draft button functions correctly.", function () {
+  it("20.34. Verify that the MFI Management edit draft button functions correctly.", function () {
     create_mfi_management.editDraftButton();
   });
 
-  it("20.14. Verify the mfi management edit submit button functions correctly.", function () {
+  it("20.35. Verify that the MFI Management edit submit button functions correctly.", function () {
     create_mfi_management.editSubmitButton();
   });
 
-  it("20.15. Verify the mfi management edit approve button functions correctly.", function () {
+  it("20.36. Verify that the MFI Management edit approve button functions correctly.", function () {
     create_mfi_management.editApproveButton();
   });
 
-  it("20.16. Verify that clicking the go back button on the mfi management edit page redirects the user to the mfi management list page.", function () {
+  it("20.37. Verify that clicking the Go Back button from the edit page redirects to the MFI Management list page.", function () {
     create_mfi_management.editGoBackButton();
   });
 
-  it("20.17. Verify the user can filter inactive mfi managements using the status dropdown on the mfi management list page.", function () {
+  it("20.38. Verify that inactive MFI Management records can be filtered using the status dropdown.", function () {
     create_mfi_management.statusInactiveDropdownCheck();
   });
 
-  it("20.18. Verify the active result is filtered correctly by the status dropdown.", function () {
+  it("20.39. Verify that active MFI Management records are filtered correctly using the status dropdown.", function () {
     create_mfi_management.statusActiveDropdownCheck();
   });
 
-  it("20.19. Verify the search returns correct results when searching by mfi management name.", function () {
+  it("20.40. Verify that searching by MFI Management name returns correct results.", function () {
     create_mfi_management.searchInMfiManagementName();
   });
 
-  it("20.20. Verify the grid list resets successfully when the reset button is clicked on the mfi management page.", function () {
+  it("20.41. Verify that the grid list resets successfully when the reset button is clicked.", function () {
     create_mfi_management.gridResetButtonCheck();
   });
 
-  it("20.21. Verify that the grid list is refreshed successfully when the refresh button is clicked on the mfi management page.", function () {
+  it("20.42. Verify that the grid list refreshes successfully when the refresh button is clicked.", function () {
     create_mfi_management.gridRefreshButtonCheck();
   });
 
-  it("20.22. Verify that the checkbox functions correctly.", function () {
+  it("20.43. Verify that grid checkbox selection functions correctly.", function () {
     create_mfi_management.gridCheckboxCheck();
   });
 
-  // it("20.23. Verify that the checkbox lock button operates correctly when selected.", function () {
-  //   create_mfi_management.gridCheckboxLockButtonCheck();
-  // });
-
-  // it("20.24. Verify that the checkbox unlock button operates correctly when selected.", function () {
-  //   create_mfi_management.gridCheckboxUnlockButtonCheck();
-  // });
-
-  it("20.25. Verify display the grid list successfully when the Draft button on is clicked on the mfi management page", function () {
+  it("20.46. Verify that draft records are displayed when the Draft toggle is enabled.", function () {
     create_mfi_management.gridDraftButton();
   });
 
-  it("20.26. Verify display the grid list successfully when the Draft button off is clicked on the mfi management page", function () {
+  it("20.47. Verify that draft records are hidden when the Draft toggle is disabled.", function () {
     create_mfi_management.gridDraftButtonOff();
   });
 
-  it("20.27. Verify the mfi management creation reset button clears all entered input values.", function () {
+  it("20.48. Verify that the create form reset button clears all entered input values.", function () {
     create_mfi_management.createResetButtonCheck();
   });
 
-  it("20.28. Verify validation messages appear for required fields when the submit button is clicked with empty inputs.", function () {
+  it("20.49. Verify that validation messages are displayed for required fields when submitting empty form.", function () {
     create_mfi_management.createValidationMessageCheck();
   });
 
-  it("20.29. Verify that clicking the go back button on the mfi management create page redirects the user to the mfi management list page.", function () {
+  it("20.50. Verify that clicking the Go Back button from the create page redirects to the MFI Management list page.", function () {
     create_mfi_management.createGoBackButtonCheck();
   });
 
-  it("20.30. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("20.51. Verify that the grid list content switches correctly between English and Bangla languages.", function () {
     create_mfi_management.gridLanguageSwitchCheck();
   });
+
 });
