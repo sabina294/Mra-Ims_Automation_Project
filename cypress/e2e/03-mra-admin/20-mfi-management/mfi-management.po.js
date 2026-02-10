@@ -931,7 +931,7 @@ class MfiCreation {
 
   createWithoutOptionalMfiLogo() {
     cy.fixture(this.test_data).then((data) => {
-      // cy.imsId("btn-add-new").click();
+      cy.imsId("btn-add-new").click();
       const generateLicenceNo = () => {
         const rand = () => Math.floor(10000 + Math.random() * 90000);
 
