@@ -903,6 +903,7 @@
       "selectSamity": "1020-101 (Ashulia Mohila Samity)",
       "selectMember": "2-1002 (Rabeya Akter)",
       "selectLoanAccount": "AGRO-1020-101-1002-1",
+      "selectPaymentMode" : "Cash",
       "inputAmount": "5000",
       "search": "Jesiya Akter",
       "approveMessage": "Welfare Fund Authorization for Loan Account Is Successful",
