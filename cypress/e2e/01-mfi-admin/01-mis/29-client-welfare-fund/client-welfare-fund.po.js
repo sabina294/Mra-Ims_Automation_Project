@@ -18,6 +18,10 @@ class ClientWelfareFund {
         .type(wfData.selectLoanAccount)
         .type("{enter}");
       cy.wait(2000);
+      cy.formController("payment_mode")
+        .type(wfData.selectPaymentMode)
+        .type("{enter}");
+      cy.wait(2000);
       cy.formController("amount").type(wfData.inputAmount);
       cy.imsId("btn-submit").click();
       cy.imsId("btn-yes").click();

@@ -390,6 +390,7 @@
       "selectSamity": "1020-103 (Kuturia Mohila Samity)",
       "selectMember": "1-1001 (Jule Akter )",
       "selectLoanAccount": "AGRO-1020-103-1001-1",
+      "selectPaymentMode" : "Cash",
       "inputAmount": "5000",
       "search": "Jule Akter",
       "selectStatus": "Inactive",

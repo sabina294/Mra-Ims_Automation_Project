@@ -391,6 +391,7 @@
       "selectMember": "1-1001 (Jule Akter )",
       "selectLoanAccount": "AGRO-1020-103-1001-1",
       "inputAmount": "5000",
+      "selectPaymentMode" : "Cash",
       "search": "Jule Akter",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
