@@ -1208,6 +1208,7 @@
       "descriptionEn": "Test Period",
       "descriptionBn": "পরীক্ষার সময়কাল",
       "PaymentPeriodId": "TP",
+      "PaymentPeriodCode": "1234",
       "status": "Active",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
