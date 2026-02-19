@@ -124,7 +124,7 @@ class LoanRebate {
   viewLoanRebate() {
     cy.fixture(this.test_data).then((data) => {
       var lrData = data.branchManager.createLoanRebateFrom;
-      cy.formController("search_text").type(lrData.search);
+      // cy.formController("search_text").type(lrData.search);
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
       cy.log("Successfully viewed the Loan rebate list page");
