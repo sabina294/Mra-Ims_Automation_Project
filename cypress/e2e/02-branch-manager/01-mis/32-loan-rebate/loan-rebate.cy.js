@@ -51,9 +51,9 @@ describe("32. Loan Rebate Module Test Cases", function () {
     create_loan_rebate.createRemoveIconButtonCheck();
   });
 
-  // it("32.08. Verify successful creation of a Loan rebate record by branch manager role", function () {
-  //   create_loan_rebate.createLoanRebate();
-  // });
+  it("32.08. Verify successful creation of a Loan rebate record by branch manager role", function () {
+    create_loan_rebate.createLoanRebate();
+  });
 
   it("32.09. Verify successfully performs the action when the action button is clicked.", function () {
     create_loan_rebate.actionButtonCheck();

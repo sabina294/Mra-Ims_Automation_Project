@@ -124,7 +124,7 @@ class LoanRebate {
   viewLoanRebate() {
     cy.fixture(this.test_data).then((data) => {
       var lrData = data.branchManager.createLoanRebateFrom;
-      // cy.formController("search_text").type(lrData.search);
+      cy.formController("search_text").type(lrData.search);
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
       cy.log("Successfully viewed the Loan rebate list page");
@@ -150,6 +150,7 @@ class LoanRebate {
   statusActiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       var lrData = data.branchManager.createLoanRebateFrom;
+      cy.imsId("btn-reset").click();
       cy.formController("status").type(lrData.statusSelect).type("{enter}");
       cy.log("Loan rebate  status active dropdown check successfully");
     });
