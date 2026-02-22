@@ -588,8 +588,8 @@ class MfiCreation {
       cy.formController("confirm_password").clear().type(mfiData.confirmPassword);
 
       cy.imsId("btn-submit").click();
+      cy.imsId("btn-yes").click();
       cy.imsId("btn-ok").click();
-      cy.imsId("btn-go-back").click();
       cy.log("Successfully created MFI management all field");
     });
   }
@@ -630,8 +630,8 @@ class MfiCreation {
       cy.formController("confirm_password").clear().type(mfiData.confirmPassword);
 
       cy.imsId("btn-submit").click();
+      cy.imsId("btn-yes").click();
       cy.imsId("btn-ok").click();
-      cy.imsId("btn-go-back").click();
       cy.log("Successfully created MFI management all field");
     });
   }
@@ -1142,17 +1142,6 @@ class MfiCreation {
     cy.log("Checkbox unlock button should be clickable and functional.");
   }
 
-  createResetButtonCheck() {
-    cy.fixture(this.test_data).then((data) => {
-      var mfiData = data.mraAdmin.createMfiManFrom;
-      cy.imsId("btn-add-new").click();
-      cy.formController("name_en").type(mfiData.mfiNameEn);
-      cy.imsId("btn-reset").click();
-      cy.imsId("btn-go-back").click();
-      cy.log("Successful clean displaying.");
-    });
-  }
-
   gridDraftButton() {
     cy.imsId("btn-draft-on").click();
     cy.log("Draft button should be clickable and functional.");
@@ -1163,16 +1152,35 @@ class MfiCreation {
     cy.log("Draft button should be clickable and functional.");
   }
 
+  createResetButtonCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      var mfiData = data.mraAdmin.createMfiManFrom;
+      cy.imsId("btn-add-new").click();
+      cy.formController("name_en").type(mfiData.mfiNameEn);
+      cy.imsId("btn-reset").click();
+      cy.log("Successful clean displaying.");
+    });
+  }
+
+  createDraftButtonCheck() {
+    cy.imsId("btn-draft").click();
+    cy.imsId("btn-ok").click();
+    cy.log("Successful draft button check.");
+  }
+
   createValidationMessageCheck() {
-    cy.imsId("btn-add-new").click();
     cy.imsId("btn-submit").click();
     cy.imsId("btn-ok").click();
-    cy.imsId("btn-go-back").click();
     cy.log("Successful validation message displaying.");
   }
 
+  createApproveButtonCheck() {
+    cy.imsId("btn-approve").click();
+    cy.imsId("btn-ok").click();
+    cy.log("Successful approve button check.");
+  }
+
   createGoBackButtonCheck() {
-    cy.imsId("btn-add-new").click();
     cy.imsId("btn-go-back").click();
     cy.log("Successful go back button check.");
   }

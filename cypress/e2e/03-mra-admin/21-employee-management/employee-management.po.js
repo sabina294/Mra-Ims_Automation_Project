@@ -82,6 +82,109 @@ class EmployeeManagementCreation {
     });
   }
 
+  createWithoutMandatoryFieldNameEn() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("btn-add-new").click();
+      var emData = data.mraAdmin.createEmployeeFrom;
+      cy.formController("name_bn").type(emData.employeeNameBn);
+      cy.formController("date_of_birth").click();
+      cy.contains("24").click({ force: true });
+      cy.formController("gender").click();
+      cy.get(
+        ".ant-form-item-control-input-content > .ant-radio-group > :nth-child(1) > .ant-radio > .ant-radio-input"
+      ).click();
+      cy.formController("tin_no").type(emData.tinNo);
+
+      cy.formController("contactNo").type(emData.employeeMobileNo);
+      cy.get("#nz-tabs-0-tab-1").click();
+      cy.formController("nid_number").type(emData.nidNumber);
+      cy.get("#nz-tabs-0-tab-2").click();
+      cy.formController("department_id")
+        .type(emData.department)
+        .type("{enter}");
+      cy.formController("designation_id")
+        .type(emData.designation)
+        .type("{enter}");
+      cy.get("#nz-tabs-0-tab-3").click();
+      cy.formController("father_name_en").type(emData.fatherNameEn);
+      cy.formController("mother_name_en").type(emData.motherNameEn);
+      cy.get("#nz-tabs-0-tab-4").click();
+      cy.formController("res_division_id")
+        .type(emData.division)
+        .type("{enter}");
+      cy.formController("res_district_id")
+        .type(emData.district)
+        .type("{enter}");
+      cy.formController("res_upazila_id").type(emData.thana).type("{enter}");
+      cy.formController("res_address_line_1").type(emData.adressEn);
+      cy.imsId("ck-box").click();
+      cy.get("#nz-tabs-0-tab-5").click();
+      cy.imsId("btn_photo_image_id").attachFile("employeePhoto1.jpg");
+      cy.wait(1000);
+      cy.imsId("btn_nid_front_doc_id").attachFile("nidPront1.jpg");
+      cy.wait(1000);
+      cy.imsId("btn_nid_back_doc_id").attachFile("nidBack1.jpg");
+      cy.wait(1000);
+      cy.imsId("btn_tin_doc_id").attachFile("tinDocImg1.jpg");
+      cy.wait(1000);
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-ok").click();
+
+      cy.log("Successfully created without mandatory field employee name en");
+    });
+  }
+
+   createWithoutMandatoryFieldDateOfBirth() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("btn-add-new").click();
+      var emData = data.mraAdmin.createEmployeeFrom;
+      cy.formController("name_en").type(emData.employeeNameEn);
+      cy.formController("name_bn").type(emData.employeeNameBn);
+      cy.formController("gender").click();
+      cy.get(
+        ".ant-form-item-control-input-content > .ant-radio-group > :nth-child(1) > .ant-radio > .ant-radio-input"
+      ).click();
+      cy.formController("tin_no").type(emData.tinNo);
+
+      cy.formController("contactNo").type(emData.employeeMobileNo);
+      cy.get("#nz-tabs-0-tab-1").click();
+      cy.formController("nid_number").type(emData.nidNumber);
+      cy.get("#nz-tabs-0-tab-2").click();
+      cy.formController("department_id")
+        .type(emData.department)
+        .type("{enter}");
+      cy.formController("designation_id")
+        .type(emData.designation)
+        .type("{enter}");
+      cy.get("#nz-tabs-0-tab-3").click();
+      cy.formController("father_name_en").type(emData.fatherNameEn);
+      cy.formController("mother_name_en").type(emData.motherNameEn);
+      cy.get("#nz-tabs-0-tab-4").click();
+      cy.formController("res_division_id")
+        .type(emData.division)
+        .type("{enter}");
+      cy.formController("res_district_id")
+        .type(emData.district)
+        .type("{enter}");
+      cy.formController("res_upazila_id").type(emData.thana).type("{enter}");
+      cy.formController("res_address_line_1").type(emData.adressEn);
+      cy.imsId("ck-box").click();
+      cy.get("#nz-tabs-0-tab-5").click();
+      cy.imsId("btn_photo_image_id").attachFile("employeePhoto1.jpg");
+      cy.wait(1000);
+      cy.imsId("btn_nid_front_doc_id").attachFile("nidPront1.jpg");
+      cy.wait(1000);
+      cy.imsId("btn_nid_back_doc_id").attachFile("nidBack1.jpg");
+      cy.wait(1000);
+      cy.imsId("btn_tin_doc_id").attachFile("tinDocImg1.jpg");
+      cy.wait(1000);
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-ok").click();
+
+      cy.log("Successfully created employee management without mandatory field employee date of birth");
+    });
+  }
+
   createAllField() {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId("btn-add-new").click();
@@ -268,8 +371,8 @@ class EmployeeManagementCreation {
   }
 
   editGoBackButton() {
-      cy.imsId("btn-go-back").click();
-      cy.log("Successful edit go back button check.");
+    cy.imsId("btn-go-back").click();
+    cy.log("Successful edit go back button check.");
 
   }
 
@@ -315,7 +418,7 @@ class EmployeeManagementCreation {
     );
   }
 
-   gridCheckboxCheck() {
+  gridCheckboxCheck() {
     cy.imsId("row-checkbox-1").click();
     cy.imsId("btn-reset").click();
     cy.log("Checkbox should be clickable and functional.");
@@ -348,21 +451,29 @@ class EmployeeManagementCreation {
       cy.imsId("btn-add-new").click();
       cy.formController("name_en").type(emData.employeeNameEn);
       cy.imsId("btn-reset").click();
-      cy.imsId("btn-go-back").click();
       cy.log("Successful clean displaying.");
     });
   }
 
+  createDraftButtonCheck() {
+    cy.imsId("btn-draft").click();
+    cy.imsId("btn-ok").click();
+    cy.log("Successful draft button check.");
+  }
+
   createValidationMessageCheck() {
-    cy.imsId("btn-add-new").click();
     cy.imsId("btn-submit").click();
     cy.imsId("btn-ok").click();
-    cy.imsId("btn-go-back").click();
     cy.log("Successful validation message displaying.");
   }
 
+  createApproveButtonCheck() {
+    cy.imsId("btn-approve").click();
+    cy.imsId("btn-ok").click();
+    cy.log("Successful approve button check.");
+  }
+
   createGoBackButtonCheck() {
-    cy.imsId("btn-add-new").click();
     cy.imsId("btn-go-back").click();
     cy.log("Successful go back button check.");
   }
