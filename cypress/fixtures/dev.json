@@ -366,7 +366,7 @@
       "statusSelect": "Rejected",
       "SelectOffice": "1020 (Ashulia)",
       "memberNameEn": "Zahra Ahmed",
-      "search":"Chadnee",
+      "search": "Chadnee",
       "messageSaveLoanAccount": "Loan account proposal has been saved",
       "messageUpdateLoanAccount": "Do you want to update this loan account?"
     },
@@ -390,7 +390,7 @@
       "selectSamity": "1020-103 (Kuturia Mohila Samity)",
       "selectMember": "1-1001 (Jule Akter )",
       "selectLoanAccount": "AGRO-1020-103-1001-1",
-      "selectPaymentMode" : "Cash",
+      "selectPaymentMode": "Cash",
       "inputAmount": "5000",
       "search": "Jule Akter",
       "selectStatus": "Inactive",
@@ -736,6 +736,11 @@
       "messageSaveEmp": "Mfi employee has been saved",
       "messageUpdateEmp": "Mfi employee has been updated"
     },
+    "gridEmpProMangFrom": {
+      "search": "SHUMSHDDIN",
+      "selectStatus": "Inactive",
+      "statusSelect": "Active"
+    },
     "createSamityFrom": {
       "samityNameEn": "Chhagalnaiya Samity",
       "samityNameBn": "ছাগলনাইয়া সমিতি",
@@ -903,7 +908,7 @@
       "selectSamity": "1020-101 (Ashulia Mohila Samity)",
       "selectMember": "2-1002 (Rabeya Akter)",
       "selectLoanAccount": "AGRO-1020-101-1002-1",
-      "selectPaymentMode" : "Cash",
+      "selectPaymentMode": "Cash",
       "inputAmount": "5000",
       "search": "Jesiya Akter",
       "approveMessage": "Welfare Fund Authorization for Loan Account Is Successful",
@@ -1011,7 +1016,7 @@
       "selectAccount": "AGRO-1020-103-1001-1 (Loan Account)",
       "inputAmount": "1000"
     },
-     "savingsWithdraw": {
+    "savingsWithdraw": {
       "selectSamity": "1020-101 (Ashulia Mohila Samity)",
       "selectMember": "1002 (Dulali Akter)",
       "selectAccount": "GS-1020-112-1002-1",
