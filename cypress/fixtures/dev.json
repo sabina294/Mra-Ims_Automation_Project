@@ -736,8 +736,13 @@
       "messageSaveEmp": "Mfi employee has been saved",
       "messageUpdateEmp": "Mfi employee has been updated"
     },
-    "gridEmpProMangFrom": {
+    "gridEmpPromotionFrom": {
       "search": "SHUMSHDDIN",
+      "selectStatus": "Inactive",
+      "statusSelect": "Active"
+    },
+    "gridEmpTransferFrom": {
+      "search": "ABU HANIFA",
       "selectStatus": "Inactive",
       "statusSelect": "Active"
     },
