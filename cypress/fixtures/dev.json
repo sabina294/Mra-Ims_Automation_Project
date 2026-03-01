@@ -737,12 +737,19 @@
       "messageUpdateEmp": "Mfi employee has been updated"
     },
     "gridEmpPromotionFrom": {
+      "newDepartment": "Board of Directors",
+      "newDesignation": "Branch Manager",
       "search": "SHUMSHDDIN",
       "selectStatus": "Inactive",
       "statusSelect": "Active"
     },
     "gridEmpTransferFrom": {
       "search": "ABU HANIFA",
+      "selectStatus": "Inactive",
+      "statusSelect": "Active"
+    },
+    "gridEmpTerminationFrom": {
+      "search": "ROSTOM ALI",
       "selectStatus": "Inactive",
       "statusSelect": "Active"
     },

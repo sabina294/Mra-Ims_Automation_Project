@@ -8,6 +8,48 @@ class EmployeePromotion {
         });
     }
 
+    promotionResetButton() {
+
+        cy.imsId("btn-table-action-promotion")
+            .not(":disabled")
+            .first()
+            .click();
+
+        cy.imsId("btn-reset").click();
+
+        cy.log("Successful clean displaying");
+    }
+
+    promotionSubmitButton() {
+        cy.imsId("btn-submit").click();
+        cy.imsId("btn-ok").click();
+        cy.log("Successfully validation check promotion");
+    }
+
+    promotionGoBackButton() {
+        cy.imsId("btn-go-back").click();
+        cy.log("Successful promotion go back button check.");
+    }
+
+    createEmployeePromotion() {
+        cy.fixture(this.test_data).then((data) => {
+            var empata = data.branchManager.gridEmpPromotionFrom;
+            cy.imsId("btn-table-action-promotion")
+                .not(":disabled")
+                .first()
+                .click();
+            cy.formController("effective_date").click();
+            cy.wait(2000);
+            cy.contains(1).click({ force: true });
+            cy.formController("new_department_id").type(empata.newDepartment).type("{enter}");
+            cy.formController("new_designation_id").type(empata.newDesignation).type("{enter}");
+            cy.imsId("btn-submit").click();
+            cy.imsId("btn-yes").click();
+            cy.imsId("btn-ok").click();
+            cy.log("Successfully created employee promotion");
+        });
+    }
+
     statusInactiveDropdownCheck() {
         cy.fixture(this.test_data).then((data) => {
             var emData = data.branchManager.gridEmpPromotionFrom;
