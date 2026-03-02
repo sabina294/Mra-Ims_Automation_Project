@@ -40,7 +40,7 @@ class EmployeePromotion {
                 .click();
             cy.formController("effective_date").click();
             cy.wait(2000);
-            cy.contains(1).click({ force: true });
+            cy.contains(15).click({ force: true });
             cy.formController("new_department_id").type(empata.newDepartment).type("{enter}");
             cy.formController("new_designation_id").type(empata.newDesignation).type("{enter}");
             cy.imsId("btn-submit").click();

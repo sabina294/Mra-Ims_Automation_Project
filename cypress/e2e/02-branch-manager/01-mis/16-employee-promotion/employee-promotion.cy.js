@@ -39,9 +39,9 @@ describe("16. Employee Promotion Module Test Cases", function () {
         grid_employee_promotion.promotionGoBackButton();
     });
 
-    // it("16.05. Verify a new employee promotion is created successfully when all required fields are filled with valid data.", function () {
-    //     grid_employee_promotion.createEmployeePromotion();
-    // });
+    it("16.05. Verify a new employee promotion is created successfully when all required fields are filled with valid data.", function () {
+        grid_employee_promotion.createEmployeePromotion();
+    });
 
     it("16.06. Verify the user can filter inactive employee promotion records using the status dropdown on the Employee Promotion List page.", function () {
         grid_employee_promotion.statusInactiveDropdownCheck();
