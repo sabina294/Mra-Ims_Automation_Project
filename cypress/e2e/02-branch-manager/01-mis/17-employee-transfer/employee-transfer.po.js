@@ -8,6 +8,29 @@ class EmployeeTransfer {
         });
     }
 
+     transferResetButton() {
+
+        cy.imsId("btn-table-action-transfer")
+            .not(":disabled")
+            .first()
+            .click();
+
+        cy.imsId("btn-reset").click();
+
+        cy.log("Successful clean displaying");
+    }
+
+    transferSubmitButton() {
+        cy.imsId("btn-submit").click();
+        cy.imsId("btn-ok").click();
+        cy.log("Successfully validation check transfer");
+    }
+
+    transferGoBackButton() {
+        cy.imsId("btn-go-back").click();
+        cy.log("Successful transfer go back button check.");
+    }
+
     statusInactiveDropdownCheck() {
         cy.fixture(this.test_data).then((data) => {
             var emData = data.branchManager.gridEmpTransferFrom;
