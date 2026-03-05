@@ -50,6 +50,17 @@ class EmployeePromotion {
         });
     }
 
+    approveNewEmployeePromotion() {
+        cy.imsId("menu-my-task").click();
+        cy.imsId("submenu-awaiting-employee-promotion").click();
+        cy.imsId("toggle-action").first().click();
+        cy.imsId("btn-table-action-view").first().click();
+        cy.imsId("btn-approve").click();
+        cy.imsId("btn-submit").click();
+        cy.imsId("btn-ok").click();
+        cy.log("Successfully approved employee promotion");
+    }
+
     statusInactiveDropdownCheck() {
         cy.fixture(this.test_data).then((data) => {
             var emData = data.branchManager.gridEmpPromotionFrom;
