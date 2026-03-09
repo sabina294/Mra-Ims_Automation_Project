@@ -3,7 +3,7 @@ class DayEndProcessAis {
 
     gridDayEndProcessPage() {
         cy.fixture(this.test_data).then((data) => {
-            cy.selectMenu("menu-process", "submenu-day-end-process-(ais)");
+            cy.selectMenu("menu-process", "submenu-day-end-process-ais");
             cy.log("Successfully Day end process AIS page.");
         });
     }

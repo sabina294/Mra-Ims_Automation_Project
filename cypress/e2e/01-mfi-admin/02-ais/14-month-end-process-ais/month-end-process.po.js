@@ -3,7 +3,7 @@ class MonthEndProcessAis {
 
     gridMonthEndProcessPage() {
         cy.fixture(this.test_data).then(() => {
-            cy.selectMenu("menu-process", "submenu-month-end-process-(ais)");
+            cy.selectMenu("menu-process", "submenu-month-end-process-ais");
             cy.log("Successfully Month end process AIS page.");
         });
     }
