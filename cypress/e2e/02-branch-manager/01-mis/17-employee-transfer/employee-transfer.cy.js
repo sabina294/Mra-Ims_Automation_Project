@@ -39,9 +39,9 @@ describe("17. Employee Transfer Module Test Cases", function () {
         grid_employee_transfer.transferGoBackButton();
     });
 
-    // it("17.05. Verify a new employee transfer is created successfully when all required fields are filled with valid data.", function () {
-    //     grid_employee_transfer.createEmployeeTransfer();
-    // });
+    it("17.05. Verify a new employee transfer is created successfully when all required fields are filled with valid data.", function () {
+        grid_employee_transfer.createEmployeeTransfer();
+    });
 
     it("17.06. Verify the user can filter inactive employee transfer records using the status dropdown on the employee transfer List page.", function () {
         grid_employee_transfer.statusInactiveDropdownCheck();

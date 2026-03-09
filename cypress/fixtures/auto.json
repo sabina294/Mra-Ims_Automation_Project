@@ -746,7 +746,8 @@
     "gridEmpTransferFrom": {
       "search": "ABU HANIFA",
       "selectStatus": "Inactive",
-      "statusSelect": "Active"
+      "statusSelect": "Active",
+      "newOffice": "1002 (Dhaka Regional Office)"
     },
     "gridEmpTerminationFrom": {
       "search": "ROSTOM ALI",

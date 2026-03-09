@@ -8,6 +8,49 @@ class EmployeeTermination {
         });
     }
 
+    createEmployeeTermination() {
+        cy.imsId("btn-table-action-termination")
+            .not(":disabled")
+            .first()
+            .click();
+
+        // ensure view page loaded
+        cy.url().should("include", "employee-termination/view");
+
+        cy.imsId("btn-submit").click();
+        cy.imsId("btn-yes").click();
+        cy.imsId("btn-ok").click();
+
+        cy.log("Successfully created employee termination");
+    }
+
+    terminationGoBackButton() {
+        cy.imsId("btn-table-action-termination")
+            .not(":disabled")
+            .first()
+            .click();
+
+        // ensure view page loaded
+        cy.url().should("include", "employee-termination/view");
+
+        cy.imsId("btn-go-back").click();
+
+        cy.log("Successful termination go back button check.");
+    }
+
+
+    approveNewEmployeeTermination() {
+        cy.imsId("menu-my-task").click();
+        cy.imsId("submenu-awaiting-employee-termination").click();
+        cy.imsId("toggle-action").first().click();
+        cy.imsId("btn-table-action-view").first().click();
+        cy.imsId("btn-approve").click();
+        cy.imsId("btn-submit").click();
+        cy.imsId("btn-ok").click();
+        cy.log("Successfully approved employee promotion");
+    }
+
+
     statusInactiveDropdownCheck() {
         cy.fixture(this.test_data).then((data) => {
             var etData = data.branchManager.gridEmpTerminationFrom;

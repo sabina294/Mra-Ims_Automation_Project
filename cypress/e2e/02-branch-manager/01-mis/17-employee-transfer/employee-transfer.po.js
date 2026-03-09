@@ -8,7 +8,7 @@ class EmployeeTransfer {
         });
     }
 
-     transferResetButton() {
+    transferResetButton() {
 
         cy.imsId("btn-table-action-transfer")
             .not(":disabled")
@@ -31,10 +31,28 @@ class EmployeeTransfer {
         cy.log("Successful transfer go back button check.");
     }
 
+    createEmployeeTransfer() {
+        cy.fixture(this.test_data).then((data) => {
+            var emtData = data.branchManager.gridEmpTransferFrom;
+            cy.imsId("btn-table-action-transfer")
+                .not(":disabled")
+                .first()
+                .click();
+            cy.formController("effective_date").click();
+            cy.wait(2000);
+            cy.contains(15).click({ force: true });
+            cy.formController("new_office_id").type(emtData.newOffice).type("{enter}");
+            cy.imsId("btn-submit").click();
+            cy.imsId("btn-yes").click();
+            cy.imsId("btn-ok").click();
+            cy.log("Successfully created employee transfer");
+        });
+    }
+
     statusInactiveDropdownCheck() {
         cy.fixture(this.test_data).then((data) => {
-            var emData = data.branchManager.gridEmpTransferFrom;
-            cy.formController("status").type(emData.selectStatus).type("{enter}");
+            var emtData = data.branchManager.gridEmpTransferFrom;
+            cy.formController("status").type(emtData.selectStatus).type("{enter}");
             cy.log(
                 "Employee Transfer form status inactive dropdown check successfully"
             );
@@ -43,9 +61,9 @@ class EmployeeTransfer {
 
     statusActiveDropdownCheck() {
         cy.fixture(this.test_data).then((data) => {
-            var emData = data.branchManager.gridEmpTransferFrom;
+            var emtData = data.branchManager.gridEmpTransferFrom;
             cy.imsId("btn-reset").click();
-            cy.formController("status").type(emData.statusSelect).type("{enter}");
+            cy.formController("status").type(emtData.statusSelect).type("{enter}");
             cy.log(
                 "Employee Transfer form status active dropdown check successfully"
             );
@@ -54,9 +72,9 @@ class EmployeeTransfer {
 
     searchInEmployeeName() {
         cy.fixture(this.test_data).then((data) => {
-            var emData = data.branchManager.gridEmpTransferFrom;
+            var emtData = data.branchManager.gridEmpTransferFrom;
             cy.imsId("btn-reset").click();
-            cy.formController("search_text").type(emData.search);
+            cy.formController("search_text").type(emtData.search);
             cy.log("Successfully search in the Employee Transfer form");
         });
     }
