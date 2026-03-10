@@ -26,6 +26,45 @@ class EmployeePromotion {
         cy.log("Successfully validation check promotion");
     }
 
+    createEmployeePromotionWithoutEffectiveDate() {
+        cy.fixture(this.test_data).then((data) => {
+            var empata = data.branchManager.gridEmpPromotionFrom;
+            cy.formController("new_department_id").type(empata.newDepartment).type("{enter}");
+            cy.formController("new_designation_id").type(empata.newDesignation).type("{enter}");
+            cy.imsId("btn-submit").click();
+            cy.imsId("btn-ok").click();
+            cy.imsId("btn-reset").click();
+            cy.log("Successful promotion effective date field check.");
+        });
+    }
+
+    createEmployeePromotionWithoutDepartment() {
+        cy.fixture(this.test_data).then((data) => {
+            var empata = data.branchManager.gridEmpPromotionFrom;
+            cy.formController("effective_date").click();
+            cy.wait(2000);
+            cy.contains(15).click({ force: true });
+            cy.formController("new_designation_id").type(empata.newDesignation).type("{enter}");
+            cy.imsId("btn-submit").click();
+            cy.imsId("btn-ok").click();
+            cy.imsId("btn-reset").click();
+            cy.log("Successful promotion department field check.");
+        });
+    }
+
+    createEmployeePromotionWithoutDesignation() {
+        cy.fixture(this.test_data).then((data) => {
+            var empata = data.branchManager.gridEmpPromotionFrom;
+            cy.formController("effective_date").click();
+            cy.wait(2000);
+            cy.contains(15).click({ force: true });
+            cy.formController("new_department_id").type(empata.newDepartment).type("{enter}");
+            cy.imsId("btn-submit").click();
+            cy.imsId("btn-ok").click();
+            cy.log("Successful promotion designation field check.");
+        });
+    }
+
     promotionGoBackButton() {
         cy.imsId("btn-go-back").click();
         cy.log("Successful promotion go back button check.");
@@ -64,6 +103,7 @@ class EmployeePromotion {
     statusInactiveDropdownCheck() {
         cy.fixture(this.test_data).then((data) => {
             var emData = data.branchManager.gridEmpPromotionFrom;
+            cy.selectMenu("menu-employee", "submenu-employee-promotion");
             cy.formController("status").type(emData.selectStatus).type("{enter}");
             cy.log(
                 "Employee Promotion form status inactive dropdown check successfully"

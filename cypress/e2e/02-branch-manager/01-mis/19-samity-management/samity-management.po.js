@@ -64,8 +64,73 @@ class SamityCreation {
     });
   }
 
+  createWithoutNameEn() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.selectMenu("menu-samity", "submenu-samity-management");
+      cy.imsId("btn-add-new").click();
+      var smData = data.branchManager.createSamityFrom;
+      cy.formController("samity_name_bn").type(smData.samityNameBn);
+      cy.formController("samity_type").type(smData.samityType).type("{enter}");
+      cy.formController("office_id").type(smData.office).type("{enter}");
+      cy.formController("field_officer_id")
+        .type(smData.fieldOfficer)
+        .type("{enter}");
+      cy.formController("mfi_program_id")
+        .type(smData.mfiProgram)
+        .type("{enter}");
+      cy.formController("samity_day").type(smData.samityDay).type("{enter}");
+      cy.formController("samity_meeting_frequency")
+        .type(smData.samityFrequency)
+        .type("{enter}");
+      cy.formController("maximum_member").type(smData.maxMember);
+      cy.formController("working_area_id")
+        .type(smData.workingArea)
+        .type("{enter}");
+      cy.formController("address_line_1").type(smData.adressEn);
+      cy.formController("geo_area_type")
+        .type(smData.geoAreaType)
+        .type("{enter}");
+
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-ok").click();
+      cy.imsId("btn-reset").click();
+      cy.log("Successfully created samity");
+    });
+  }
+
+  createWithoutNameBn() {
+    cy.fixture(this.test_data).then((data) => {
+      var smData = data.branchManager.createSamityFrom;
+      cy.formController("samity_name_en").first().type(smData.samityNameEn);
+      cy.formController("samity_type").type(smData.samityType).type("{enter}");
+      cy.formController("office_id").type(smData.office).type("{enter}");
+      cy.formController("field_officer_id")
+        .type(smData.fieldOfficer)
+        .type("{enter}");
+      cy.formController("mfi_program_id")
+        .type(smData.mfiProgram)
+        .type("{enter}");
+      cy.formController("samity_day").type(smData.samityDay).type("{enter}");
+      cy.formController("samity_meeting_frequency")
+        .type(smData.samityFrequency)
+        .type("{enter}");
+      cy.formController("maximum_member").type(smData.maxMember);
+      cy.formController("working_area_id")
+        .type(smData.workingArea)
+        .type("{enter}");
+      cy.formController("address_line_1").type(smData.adressEn);
+      cy.formController("geo_area_type")
+        .type(smData.geoAreaType)
+        .type("{enter}");
+
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-ok").click();
+      cy.imsId("btn-go-back").click();
+      cy.log("Successfully created samity");
+    });
+  }
+
   actionButtonCheck() {
-    cy.selectMenu("menu-samity", "submenu-samity-management");
     cy.imsId("toggle-action").first().click();
     cy.log(
       "Action button clicked successfully on the samity management list page."

@@ -54,6 +54,7 @@ class EmployeeTermination {
     statusInactiveDropdownCheck() {
         cy.fixture(this.test_data).then((data) => {
             var etData = data.branchManager.gridEmpTerminationFrom;
+            cy.selectMenu("menu-employee", "submenu-employee-termination");
             cy.formController("status").type(etData.selectStatus).type("{enter}");
             cy.log(
                 "Employee Termination form status inactive dropdown check successfully"

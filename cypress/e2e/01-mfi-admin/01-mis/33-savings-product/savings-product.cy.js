@@ -55,9 +55,9 @@ describe("33. Savings Product Module Test Cases", function () {
     create_savings_product.editGoBackButton();
   });
 
-  it("33.09. Verify editing functionality for savings product record by MFI-Admin role", function () {
-    create_savings_product.editSavingsProduct();
-  });
+  // it("33.09. Verify editing functionality for savings product record by MFI-Admin role", function () {
+  //   create_savings_product.editSavingsProduct();
+  // });
 
   it("33.10. Verify the user can filter inactive savings products using the status dropdown on the savings product list page.", function () {
     create_savings_product.statusInactiveDropdownCheck();

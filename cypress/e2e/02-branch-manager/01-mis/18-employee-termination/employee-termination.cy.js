@@ -37,9 +37,9 @@ describe("18. Employee Termination Module Test Cases", function () {
         grid_employee_termination.terminationGoBackButton();
     });
 
-    // it("18.04. Verify that the system successfully creates and approves a new employee termination when all required fields are provided with valid data.", function () {
-    //     grid_employee_termination.approveNewEmployeeTermination();
-    // });
+    it("18.04. Verify that the system successfully creates and approves a new employee termination when all required fields are provided with valid data.", function () {
+        grid_employee_termination.approveNewEmployeeTermination();
+    });
 
     it("18.05. Verify the user can filter inactive employee termination records using the status dropdown on the employee termination List page.", function () {
         grid_employee_termination.statusInactiveDropdownCheck();
