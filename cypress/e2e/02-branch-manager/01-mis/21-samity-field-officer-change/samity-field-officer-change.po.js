@@ -64,11 +64,40 @@ class SamityChange {
     });
   }
 
-   viewGoBackButton() {
+  viewGoBackButton() {
     cy.imsId("btn-go-back").click();
 
     cy.log("Successfully view go back the samity change list page");
   }
+
+  changeResetButtonCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      var smData = data.branchManager.samityChangeFrom;
+      cy.imsId("toggle-action").first().click();
+      cy.imsId("btn-mis-table-action-change").click();
+      cy.imsId("btn-reset").click();
+      cy.log("Successfully samity day change reset button check");
+    });
+  }
+
+  changeSubmitButtonCheck() {
+    cy.imsId("btn-submit").click();
+    cy.imsId("btn-ok").click();
+    cy.log("Successfully samity day   change submit button check");
+
+  }
+
+  changeApproveButtonCheck() {
+    cy.imsId("btn-approve").click();
+    cy.imsId("btn-ok").click();
+    cy.log("Successfully samity day  change approve button check");
+  }
+
+  changeGoBackButtonCheck() {
+    cy.imsId("btn-go-back").click();
+    cy.log("Successfully samity day change go back button check");
+  }
+
 
   statusInactiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
@@ -79,6 +108,7 @@ class SamityChange {
       );
     });
   }
+
   statusActiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       var smData = data.branchManager.samityChangeFrom;
@@ -89,6 +119,7 @@ class SamityChange {
       );
     });
   }
+
   searchInSamityFieldOfficerChangeName() {
     cy.fixture(this.test_data).then((data) => {
       var smData = data.branchManager.samityChangeFrom;

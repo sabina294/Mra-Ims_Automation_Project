@@ -94,7 +94,7 @@ class SamityCreation {
       cy.imsId("btn-submit").click();
       cy.imsId("btn-ok").click();
       cy.imsId("btn-reset").click();
-      cy.log("Successfully created samity");
+      cy.log("Unsuccessfully created without samity name en");
     });
   }
 
@@ -125,7 +125,317 @@ class SamityCreation {
 
       cy.imsId("btn-submit").click();
       cy.imsId("btn-ok").click();
+      cy.imsId("btn-reset").click();
+      cy.log("Unsuccessfully created withoutsamity name bn");
+    });
+  }
+
+  createWithoutSamityType() {
+    cy.fixture(this.test_data).then((data) => {
+      var smData = data.branchManager.createSamityFrom;
+      cy.formController("samity_name_en").first().type(smData.samityNameEn);
+      cy.formController("samity_name_bn").type(smData.samityNameBn);
+      cy.formController("office_id").type(smData.office).type("{enter}");
+      cy.formController("field_officer_id")
+        .type(smData.fieldOfficer)
+        .type("{enter}");
+      cy.formController("mfi_program_id")
+        .type(smData.mfiProgram)
+        .type("{enter}");
+      cy.formController("samity_day").type(smData.samityDay).type("{enter}");
+      cy.formController("samity_meeting_frequency")
+        .type(smData.samityFrequency)
+        .type("{enter}");
+      cy.formController("maximum_member").type(smData.maxMember);
+      cy.formController("working_area_id")
+        .type(smData.workingArea)
+        .type("{enter}");
+      cy.formController("address_line_1").type(smData.adressEn);
+      cy.formController("geo_area_type")
+        .type(smData.geoAreaType)
+        .type("{enter}");
+
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-ok").click();
+      cy.imsId("btn-reset").click();
+      cy.log("Unsuccessfully created  without samity type");
+    });
+  }
+
+  createWithoutOffice() {
+    cy.fixture(this.test_data).then((data) => {
+      var smData = data.branchManager.createSamityFrom;
+      cy.formController("samity_name_en").first().type(smData.samityNameEn);
+      cy.formController("samity_name_bn").type(smData.samityNameBn);
+      cy.formController("samity_type").type(smData.samityType).type("{enter}");
+      cy.formController("field_officer_id")
+        .type(smData.fieldOfficer)
+        .type("{enter}");
+      cy.formController("mfi_program_id")
+        .type(smData.mfiProgram)
+        .type("{enter}");
+      cy.formController("samity_day").type(smData.samityDay).type("{enter}");
+      cy.formController("samity_meeting_frequency")
+        .type(smData.samityFrequency)
+        .type("{enter}");
+      cy.formController("maximum_member").type(smData.maxMember);
+      cy.formController("working_area_id")
+        .type(smData.workingArea)
+        .type("{enter}");
+      cy.formController("address_line_1").type(smData.adressEn);
+      cy.formController("geo_area_type")
+        .type(smData.geoAreaType)
+        .type("{enter}");
+
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-ok").click();
+      cy.imsId("btn-reset").click();
+      cy.log("Successfully created samity");
+    });
+  }
+
+  createWithoutFieldOfficer() {
+    cy.fixture(this.test_data).then((data) => {
+      var smData = data.branchManager.createSamityFrom;
+      cy.formController("samity_name_en").first().type(smData.samityNameEn);
+      cy.formController("samity_name_bn").type(smData.samityNameBn);
+      cy.formController("samity_type").type(smData.samityType).type("{enter}");
+      cy.formController("office_id").type(smData.office).type("{enter}");
+      cy.formController("mfi_program_id")
+        .type(smData.mfiProgram)
+        .type("{enter}");
+      cy.formController("samity_day").type(smData.samityDay).type("{enter}");
+      cy.formController("samity_meeting_frequency")
+        .type(smData.samityFrequency)
+        .type("{enter}");
+      cy.formController("maximum_member").type(smData.maxMember);
+      cy.formController("working_area_id")
+        .type(smData.workingArea)
+        .type("{enter}");
+      cy.formController("address_line_1").type(smData.adressEn);
+      cy.formController("geo_area_type")
+        .type(smData.geoAreaType)
+        .type("{enter}");
+
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-ok").click();
+      cy.imsId("btn-reset").click();
+      cy.log("Successfully created samity");
+    });
+  }
+
+  createWithoutMfiProgram() {
+    cy.fixture(this.test_data).then((data) => {
+      var smData = data.branchManager.createSamityFrom;
+      cy.formController("samity_name_en").first().type(smData.samityNameEn);
+      cy.formController("samity_name_bn").type(smData.samityNameBn);
+      cy.formController("samity_type").type(smData.samityType).type("{enter}");
+      cy.formController("office_id").type(smData.office).type("{enter}");
+      cy.formController("field_officer_id")
+        .type(smData.fieldOfficer)
+        .type("{enter}");
+      cy.formController("samity_day").type(smData.samityDay).type("{enter}");
+      cy.formController("samity_meeting_frequency")
+        .type(smData.samityFrequency)
+        .type("{enter}");
+      cy.formController("maximum_member").type(smData.maxMember);
+      cy.formController("working_area_id")
+        .type(smData.workingArea)
+        .type("{enter}");
+      cy.formController("address_line_1").type(smData.adressEn);
+      cy.formController("geo_area_type")
+        .type(smData.geoAreaType)
+        .type("{enter}");
+
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-ok").click();
+      cy.imsId("btn-reset").click();
+      cy.log("Successfully created samity");
+    });
+  }
+
+  createWithoutSamityDay() {
+    cy.fixture(this.test_data).then((data) => {
+      var smData = data.branchManager.createSamityFrom;
+      cy.formController("samity_name_en").first().type(smData.samityNameEn);
+      cy.formController("samity_name_bn").type(smData.samityNameBn);
+      cy.formController("samity_type").type(smData.samityType).type("{enter}");
+      cy.formController("office_id").type(smData.office).type("{enter}");
+      cy.formController("field_officer_id")
+        .type(smData.fieldOfficer)
+        .type("{enter}");
+      cy.formController("mfi_program_id")
+        .type(smData.mfiProgram)
+        .type("{enter}");
+      cy.formController("samity_meeting_frequency")
+        .type(smData.samityFrequency)
+        .type("{enter}");
+      cy.formController("maximum_member").type(smData.maxMember);
+      cy.formController("working_area_id")
+        .type(smData.workingArea)
+        .type("{enter}");
+      cy.formController("address_line_1").type(smData.adressEn);
+      cy.formController("geo_area_type")
+        .type(smData.geoAreaType)
+        .type("{enter}");
+
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-ok").click();
+      cy.imsId("btn-reset").click();
+      cy.log("Successfully created samity");
+    });
+  }
+
+  createWithoutSamityFrequency() {
+    cy.fixture(this.test_data).then((data) => {
+      var smData = data.branchManager.createSamityFrom;
+      cy.formController("samity_name_en").first().type(smData.samityNameEn);
+      cy.formController("samity_name_bn").type(smData.samityNameBn);
+      cy.formController("samity_type").type(smData.samityType).type("{enter}");
+      cy.formController("office_id").type(smData.office).type("{enter}");
+      cy.formController("field_officer_id")
+        .type(smData.fieldOfficer)
+        .type("{enter}");
+      cy.formController("mfi_program_id")
+        .type(smData.mfiProgram)
+        .type("{enter}");
+      cy.formController("samity_day").type(smData.samityDay).type("{enter}");
+      cy.formController("maximum_member").type(smData.maxMember);
+      cy.formController("working_area_id")
+        .type(smData.workingArea)
+        .type("{enter}");
+      cy.formController("address_line_1").type(smData.adressEn);
+      cy.formController("geo_area_type")
+        .type(smData.geoAreaType)
+        .type("{enter}");
+
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-ok").click();
+      cy.imsId("btn-reset").click();
+      cy.log("Successfully created samity");
+    });
+  }
+
+  createWithoutSamityMaximumMember() {
+    cy.fixture(this.test_data).then((data) => {
+      var smData = data.branchManager.createSamityFrom;
+      cy.formController("samity_name_en").first().type(smData.samityNameEn);
+      cy.formController("samity_name_bn").type(smData.samityNameBn);
+      cy.formController("samity_type").type(smData.samityType).type("{enter}");
+      cy.formController("office_id").type(smData.office).type("{enter}");
+      cy.formController("field_officer_id")
+        .type(smData.fieldOfficer)
+        .type("{enter}");
+      cy.formController("mfi_program_id")
+        .type(smData.mfiProgram)
+        .type("{enter}");
+      cy.formController("samity_day").type(smData.samityDay).type("{enter}");
+      cy.formController("samity_meeting_frequency")
+        .type(smData.samityFrequency)
+        .type("{enter}");
+      cy.formController("working_area_id")
+        .type(smData.workingArea)
+        .type("{enter}");
+      cy.formController("address_line_1").type(smData.adressEn);
+      cy.formController("geo_area_type")
+        .type(smData.geoAreaType)
+        .type("{enter}");
+
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-ok").click();
+      cy.imsId("btn-reset").click();
+      cy.log("Successfully created samity");
+    });
+  }
+
+  createWithoutSamityWorkingArea() {
+    cy.fixture(this.test_data).then((data) => {
+      var smData = data.branchManager.createSamityFrom;
+      cy.formController("samity_name_en").first().type(smData.samityNameEn);
+      cy.formController("samity_name_bn").type(smData.samityNameBn);
+      cy.formController("samity_type").type(smData.samityType).type("{enter}");
+      cy.formController("office_id").type(smData.office).type("{enter}");
+      cy.formController("field_officer_id")
+        .type(smData.fieldOfficer)
+        .type("{enter}");
+      cy.formController("mfi_program_id")
+        .type(smData.mfiProgram)
+        .type("{enter}");
+      cy.formController("samity_day").type(smData.samityDay).type("{enter}");
+      cy.formController("samity_meeting_frequency")
+        .type(smData.samityFrequency)
+        .type("{enter}");
+      cy.formController("maximum_member").type(smData.maxMember);
+      cy.formController("address_line_1").type(smData.adressEn);
+      cy.formController("geo_area_type")
+        .type(smData.geoAreaType)
+        .type("{enter}");
+
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-ok").click();
+      cy.imsId("btn-reset").click();
+      cy.log("Successfully created samity");
+    });
+  }
+
+  createWithoutSamityAdressLine1() {
+    cy.fixture(this.test_data).then((data) => {
+      var smData = data.branchManager.createSamityFrom;
+      cy.formController("samity_name_en").first().type(smData.samityNameEn);
+      cy.formController("samity_name_bn").type(smData.samityNameBn);
+      cy.formController("samity_type").type(smData.samityType).type("{enter}");
+      cy.formController("office_id").type(smData.office).type("{enter}");
+      cy.formController("field_officer_id")
+        .type(smData.fieldOfficer)
+        .type("{enter}");
+      cy.formController("mfi_program_id")
+        .type(smData.mfiProgram)
+        .type("{enter}");
+      cy.formController("samity_day").type(smData.samityDay).type("{enter}");
+      cy.formController("samity_meeting_frequency")
+        .type(smData.samityFrequency)
+        .type("{enter}");
+      cy.formController("maximum_member").type(smData.maxMember);
+      cy.formController("working_area_id")
+        .type(smData.workingArea)
+        .type("{enter}");
+      cy.formController("geo_area_type")
+        .type(smData.geoAreaType)
+        .type("{enter}");
+
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-ok").click();
+      cy.imsId("btn-reset").click();
+      cy.log("Successfully created samity");
+    });
+  }
+
+  createWithoutSamityGeoAreaType() {
+    cy.fixture(this.test_data).then((data) => {
+      var smData = data.branchManager.createSamityFrom;
+      cy.formController("samity_name_en").first().type(smData.samityNameEn);
+      cy.formController("samity_name_bn").type(smData.samityNameBn);
+      cy.formController("samity_type").type(smData.samityType).type("{enter}");
+      cy.formController("office_id").type(smData.office).type("{enter}");
+      cy.formController("field_officer_id")
+        .type(smData.fieldOfficer)
+        .type("{enter}");
+      cy.formController("mfi_program_id")
+        .type(smData.mfiProgram)
+        .type("{enter}");
+      cy.formController("samity_day").type(smData.samityDay).type("{enter}");
+      cy.formController("samity_meeting_frequency")
+        .type(smData.samityFrequency)
+        .type("{enter}");
+      cy.formController("maximum_member").type(smData.maxMember);
+      cy.formController("working_area_id")
+        .type(smData.workingArea)
+        .type("{enter}");
+      cy.formController("address_line_1").type(smData.adressEn);
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-ok").click();
       cy.imsId("btn-go-back").click();
+
       cy.log("Successfully created samity");
     });
   }
@@ -279,21 +589,29 @@ class SamityCreation {
       cy.imsId("btn-add-new").click();
       cy.formController("samity_name_en").type(smData.samityNameEn);
       cy.imsId("btn-reset").click();
-      cy.imsId("btn-go-back").click();
       cy.log("Successful clean displaying.");
     });
   }
 
+  createDraftButtonCheck() {
+    cy.imsId("btn-draft").click();
+    cy.imsId("btn-ok").click();
+    cy.log("Successful draft button check.");
+  }
+
   createValidationMessageCheck() {
-    cy.imsId("btn-add-new").click();
     cy.imsId("btn-submit").click();
     cy.imsId("btn-ok").click();
-    cy.imsId("btn-go-back").click();
     cy.log("Successful validation message displaying.");
   }
 
+  createApproveButtonCheck() {
+    cy.imsId("btn-approve").click();
+    cy.imsId("btn-ok").click();
+    cy.log("Successful approve button check.");
+  }
+
   createGoBackButtonCheck() {
-    cy.imsId("btn-add-new").click();
     cy.imsId("btn-go-back").click();
     cy.log("Successful go back button check.");
   }

@@ -25,51 +25,51 @@ describe("18. Employee Termination Module Test Cases", function () {
         cy.logout();
     });
 
-    it("18.01. Verify the employee termination list page loads correctly.", function () {
+    it("18.01 Verify that the Employee Termination List page loads successfully.", function () {
         grid_employee_termination.gridEmployeeTerminationListPage();
     });
 
-    it("18.02. Verify a new employee termination is created successfully when all required fields are filled with valid data.", function () {
+    it("18.02 Verify that a new employee termination can be created successfully with valid required data.", function () {
         grid_employee_termination.createEmployeeTermination();
     });
 
-    it("18.03. Verify that clicking the go back button on the employee termination page redirects the user to the employee termination list page.", function () {
+    it("18.03 Verify that clicking the Go Back button redirects the user to the Employee Termination List page.", function () {
         grid_employee_termination.terminationGoBackButton();
     });
 
-    it("18.04. Verify that the system successfully creates and approves a new employee termination when all required fields are provided with valid data.", function () {
+    it("18.04 Verify that the system successfully creates and approves a new employee termination with valid required data.", function () {
         grid_employee_termination.approveNewEmployeeTermination();
     });
 
-    it("18.05. Verify the user can filter inactive employee termination records using the status dropdown on the employee termination List page.", function () {
+    it("18.05 Verify that the user can filter inactive employee termination records using the Status dropdown.", function () {
         grid_employee_termination.statusInactiveDropdownCheck();
     });
 
-    it("18.06. Verify check if the filter for active results works correctly with the status dropdown.", function () {
+    it("18.06 Verify that the user can filter active employee termination records using the Status dropdown.", function () {
         grid_employee_termination.statusActiveDropdownCheck();
     });
 
-    it("18.07. Verify that the search results are displayed correctly when searching by employee termination name.", function () {
+    it("18.07 Verify that the search functionality works correctly when searching by employee name.", function () {
         grid_employee_termination.searchInEmployeeName();
     });
 
-    it("18.08. Verify the grid list resets successfully when the reset button is clicked on the employee termination page.", function () {
+    it("18.08 Verify that the grid list resets successfully when the Reset button is clicked.", function () {
         grid_employee_termination.gridResetButtonCheck();
     });
 
-    it("18.09. Verify that the grid list is refreshed successfully when the refresh button is clicked on the employee termination page.", function () {
+    it("18.09 Verify that the grid list refreshes successfully when the Refresh button is clicked.", function () {
         grid_employee_termination.gridRefreshButtonCheck();
     });
 
-    it("18.10. Verify display the grid list successfully when the Draft button on is clicked on the employee termination page", function () {
+    it("18.10 Verify that the grid list displays draft records when the Draft filter is enabled.", function () {
         grid_employee_termination.gridDraftButton();
     });
 
-    it("18.11. Verify display the grid list successfully when the Draft button off is clicked on the employee termination page", function () {
+    it("18.11 Verify that the grid list hides draft records when the Draft filter is disabled.", function () {
         grid_employee_termination.gridDraftButtonOff();
     });
 
-    it("18.12. Verify check that the grid list content changes correctly from english to bangla.", function () {
+    it("18.12 Verify that the grid list content changes correctly when switching the language from English to Bangla.", function () {
         grid_employee_termination.gridLanguageSwitchCheck();
     });
 

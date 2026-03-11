@@ -52,7 +52,6 @@ class SamityDayChange {
     cy.fixture(this.test_data).then((data) => {
       var sdData = data.branchManager.samityDayChangeFrom;
       cy.formController("search_text").type(sdData.samityNameEn);
-      cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
 
       cy.get("app-mfi-mis").contains(sdData.samityNameEn).and("be.visible");
@@ -64,6 +63,34 @@ class SamityDayChange {
     cy.imsId("btn-go-back").click();
 
     cy.log("Successfully view go back the samity change list page");
+  }
+
+    dayChangeResetButtonCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      var sdData = data.branchManager.samityDayChangeFrom;
+      cy.imsId("toggle-action").first().click();
+      cy.imsId("btn-mis-table-action-change").click();
+      cy.imsId("btn-reset").click();
+      cy.log("Successfully field officer change reset button check");
+    });
+  }
+
+  dayChangeSubmitButtonCheck() {
+    cy.imsId("btn-submit").click();
+    cy.imsId("btn-ok").click();
+    cy.log("Successfully field officer change submit button check");
+
+  }
+
+  dayChangeApproveButtonCheck() {
+    cy.imsId("btn-approve").click();
+    cy.imsId("btn-ok").click();
+    cy.log("Successfully field officer change approve button check");
+  }
+
+  dayChangeGoBackButtonCheck() {
+    cy.imsId("btn-go-back").click();
+    cy.log("Successfully field officer change go back button check");
   }
 
   statusInactiveDropdownCheck() {

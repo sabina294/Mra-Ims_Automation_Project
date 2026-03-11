@@ -23,99 +23,99 @@ describe("14. Employee Management Module Test Cases", function () {
     cy.logout();
   });
 
-  it("14.01. Verify the employee management list page loads correctly.", function () {
+  it("14.01. Should load the Employee Management list page correctly", function () {
     create_employee_management.gridEmployeeListPage();
   });
 
-  it("14.02. Verify a new employee management record is created successfully when all required fields are filled with valid data.", function () {
+  it("14.02. Should create a new employee record when all required fields are filled with valid data", function () {
     create_employee_management.createEmployeeManagement();
   });
 
-  it("14.03. Verify mfi-admin to successfully approve an employee management record after creation.", function () {
+  it("14.03. Should allow MFI-admin to approve an employee record after creation", function () {
     create_employee_management.approveEmployee();
   });
 
-  it("14.04. Verify successfully performs the action when the action button is clicked.", function () {
+  it("14.04. Should perform actions correctly when the action button is clicked", function () {
     create_employee_management.actionButtonCheck();
   });
 
-  it("14.05. Verify the user can successfully view the employee management information, including the name and description.", function () {
+  it("14.05. Should view employee management details including name and description", function () {
     create_employee_management.viewEmployeeManagement();
   });
 
-  it("14.06. Verify that clicking the go back button on the employee management view page redirects the user to the employee management list page.", function () {
+  it("14.06. Should redirect to the list page when the Go Back button is clicked from the view page", function () {
     create_employee_management.viewGoBackButton();
   });
 
-  it("14.07. Verify the employee management edit reset button functions correctly.", function () {
+  it("14.07. Should reset the form correctly when the Edit Reset button is clicked", function () {
     create_employee_management.editResetButton();
   });
 
-  it("14.08. Verify that clicking the go back button on the employee management edit page redirects the user to the employee management list page.", function () {
+  it("14.08. Should redirect to the list page when the Go Back button is clicked from the edit page", function () {
     create_employee_management.editGoBackButton();
   });
 
-  it("14.09. Verify that the employee management is updated with valid information.", function () {
+  it("14.09. Should update employee information with valid data", function () {
     create_employee_management.editEmployeeManagement();
   });
 
-  it("14.10. Verify the user can filter inactive employee records using the status dropdown on the Employee Management List page.", function () {
+  it("14.10. Should filter inactive employee records using the status dropdown", function () {
     create_employee_management.statusInactiveDropdownCheck();
   });
 
-  it("14.11. Verify check if the filter for active results works correctly with the status dropdown.", function () {
+  it("14.11. Should filter active employee records correctly using the status dropdown", function () {
     create_employee_management.statusActiveDropdownCheck();
   });
 
-  it("14.12. Verify that the search results are displayed correctly when searching by employee management name.", function () {
+  it("14.12. Should display correct search results when searching by employee name", function () {
     create_employee_management.searchInEmployeeName();
   });
 
-  it("14.13. Verify the grid list resets successfully when the reset button is clicked on the employee management page.", function () {
+  it("14.13. Should reset the grid list when the Reset button is clicked", function () {
     create_employee_management.gridResetButtonCheck();
   });
 
-  it("14.14. Verify that the grid list is refreshed successfully when the refresh button is clicked on the employee management page.", function () {
+  it("14.14. Should refresh the grid list when the Refresh button is clicked", function () {
     create_employee_management.gridRefreshButtonCheck();
   });
 
-  it("14.15. Verify display the grid list successfully when the Draft button on is clicked on the employee management page", function () {
+  it("14.15. Should display the grid list correctly when the Draft button is ON", function () {
     create_employee_management.gridDraftButton();
   });
 
-  it("14.16. Verify display the grid list successfully when the Draft button off is clicked on the employee management page", function () {
+  it("14.16. Should display the grid list correctly when the Draft button is OFF", function () {
     create_employee_management.gridDraftButtonOff();
   });
 
-  it("14.17. Verify that the checkbox functions correctly.", function () {
+  it("14.17. Should select and operate the grid checkbox correctly", function () {
     create_employee_management.gridCheckboxCheck();
   });
 
-  it("14.18. Verify that the checkbox lock button operates correctly when selected.", function () {
+  it("14.18. Should lock selected items correctly using the checkbox lock button", function () {
     create_employee_management.gridCheckboxLockButtonCheck();
   });
 
-  it("14.19. Verify that the checkbox unlock button operates correctly when selected.", function () {
+  it("14.19. Should unlock selected items correctly using the checkbox unlock button", function () {
     create_employee_management.gridCheckboxUnlockButtonCheck();
   });
 
-  it("14.20. Verify the employee management creation reset button clears all entered input values.", function () {
+  it("14.20. Should clear all inputs when the Create Reset button is clicked", function () {
     create_employee_management.createResetButtonCheck();
   });
 
-  it("14.21. Verify validation messages appear for required fields when the submit button is clicked with empty inputs.", function () {
+  it("14.21. Should display validation messages for required fields when submitted empty", function () {
     create_employee_management.createValidationMessageCheck();
   });
 
-  it("14.22. Verify that clicking the go back button on the employee management create page redirects the user to the employee management list page.", function () {
+  it("14.22. Should redirect to the list page when the Go Back button is clicked on the create page", function () {
     create_employee_management.createGoBackButtonCheck();
   });
 
-  it("14.23. Verify that clicking the draft button on the employee management create page redirects the user to the employee management list page.", function () {
+  it("14.23. Should redirect to the list page when the Draft button is clicked on the create page", function () {
     create_employee_management.createDraftButtonCheck();
   });
 
-  it("14.24. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("14.24. Should change grid list content correctly when switching from English to Bangla", function () {
     create_employee_management.gridLanguageSwitchCheck();
   });
 });
