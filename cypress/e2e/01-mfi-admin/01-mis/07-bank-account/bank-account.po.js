@@ -283,6 +283,7 @@ class BankAccountCreation {
       cy.imsId("btn-submit").click();
       cy.imsId("btn-yes").click();
       cy.imsId("btn-ok").click();
+      cy.imsId("btn-go-back").click();
 
       cy.log("Bank Account updated successfully");
     });

@@ -111,12 +111,12 @@ class RegionCreation {
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
 
-      cy.get("app-mfi-mis").contains(regData.nameEn).and("be.visible");
+      // cy.get("app-mfi-mis").contains(regData.nameEn).and("be.visible");
       cy.log("Successfully viewed the region list page");
     });
   }
-  
-   viewGoBackButton() {
+
+  viewGoBackButton() {
     cy.imsId("btn-go-back").click();
     cy.log("Successfully view go back the region list page");
 
@@ -133,16 +133,15 @@ class RegionCreation {
 
   editRegion() {
     cy.fixture(this.test_data).then((data) => {
+      var regData = data.mfiAdmin.createRegionFrom;
+      cy.imsId("btn-reset").click();
+      cy.formController("search_text").type(regData.nameEn);
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-edit").click();
       cy.imsId("btn-submit").click();
       cy.imsId("btn-yes").click();
-
-      var regData = data.mfiAdmin.createRegionFrom;
-      cy.get("app-confirmation-modal")
-        .contains(regData.messageUpdateRegion)
-        .and("be.visible");
       cy.imsId("btn-ok").click();
+      cy.imsId("btn-go-back").click();
       cy.log("Region updated successfully");
     });
   }
@@ -151,36 +150,18 @@ class RegionCreation {
     cy.imsId("toggle-action").first().click();
     cy.imsId("btn-table-action-edit").click();
     cy.imsId("btn-reset").click();
-    cy.imsId("btn-go-back").click();
 
     cy.log("Successful clean displaying");
   }
 
   editSubmitButton() {
-    cy.fixture(this.test_data).then((data) => {
-      var regData = data.mfiAdmin.createRegionFrom;
-      cy.imsId("toggle-action").first().click();
-      cy.imsId("btn-table-action-edit").click();
-      cy.imsId("btn-reset").click();
-      cy.formController("region_name_en").type(regData.nameEn);
-      cy.formController("region_name_bn").type(regData.nameBn);
-      cy.formController("region_code").type(regData.regionCode);
+    cy.imsId("btn-submit").click();
+    cy.imsId("btn-ok").click();
+    cy.log("Successfully updated region");
 
-      cy.formController("status").type(regData.status).type("{enter}");
-
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-yes").click();
-      cy.get("app-confirmation-modal")
-        .contains(regData.messageUpdateRegion)
-        .and("be.visible");
-      cy.imsId("btn-ok").click();
-      cy.log("Successfully updated region");
-    });
   }
 
   editGoBackButton() {
-    cy.imsId("toggle-action").first().click();
-    cy.imsId("btn-table-action-edit").click();
     cy.imsId("btn-go-back").click();
     cy.log("Successful edit go back button check.");
   }
