@@ -17,7 +17,7 @@ class PaymentVoucherCreation {
             cy.formController("voucher_name_bn").type(pvData.voucherNameBn);
             cy.formController("payment_date").click();
             cy.wait(2000);
-            cy.contains(14).click();
+            cy.contains(12).click();
             cy.wait(1000);
             cy.formController("voucher_prepared_by").type(pvData.preparedBy).type("{enter}");
             cy.formController("remarks").eq(0).type(pvData.remarks);
@@ -27,7 +27,7 @@ class PaymentVoucherCreation {
             cy.formController("remarks").eq(1).type(pvData.remarks);
             cy.formController("transaction_date").click();
             cy.wait(1000);
-            cy.contains(15).click();
+            cy.contains(13).click();
             cy.wait(1000);
             cy.formController("ledger_id").type(pvData.ledger).type("{enter}");
             cy.wait(1000);

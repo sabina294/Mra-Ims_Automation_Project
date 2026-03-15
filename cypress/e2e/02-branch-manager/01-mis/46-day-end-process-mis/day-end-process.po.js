@@ -3,7 +3,7 @@ class DayEndProcessMis {
 
   gridDayEndProcessMisListPage() {
     cy.fixture(this.test_data).then((data) => {
-      cy.selectMenu("menu-process", "submenu-day-end-process-(mis)");
+      cy.selectMenu("menu-process", "submenu-day-end-process-mis");
       cy.log("Successfully Day end process list page.");
     });
   }
