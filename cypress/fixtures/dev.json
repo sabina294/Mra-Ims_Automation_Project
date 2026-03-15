@@ -1126,6 +1126,7 @@
       "selectStatus": "Inactive",
       "statusSelect": "Active",
       "status": "Active",
+      "search":"Rangpur Division",
       "messageSaveDivi": "Division has been saved",
       "messageUpdateDivi": "Division has been updated"
     },

@@ -105,19 +105,23 @@ describe("02. Division Module Test Cases.", function () {
     create_division.gridRefreshButtonCheck();
   });
 
-  it("02.21. Verify that the Reset button on the Create Division form clears all entered input values.", function () {
+  it("02.21. Verify that when the user clicks the Search button on the Division grid page, the system redirects to the Division List page..", function () {
+    create_division.gridSearchButtonCheck();
+  });
+
+  it("02.22. Verify that the Reset button on the Create Division form clears all entered input values.", function () {
     create_division.createResetButtonCheck();
   });
 
-  it("02.22. Verify that validation messages are displayed for all required fields when submitting the form with empty inputs.", function () {
+  it("02.23. Verify that validation messages are displayed for all required fields when submitting the form with empty inputs.", function () {
     create_division.createValidationMessageCheck();
   });
 
-  it("02.23. Verify that clicking the Go Back button on the Create Division page redirects the user to the Division List page.", function () {
+  it("02.24. Verify that clicking the Go Back button on the Create Division page redirects the user to the Division List page.", function () {
     create_division.createGoBackButtonCheck();
   });
 
-  it("02.24. Verify that the division grid content updates correctly when switching the language from English to Bangla.", function () {
+  it("02.25. Verify that the division grid content updates correctly when switching the language from English to Bangla.", function () {
     create_division.gridLanguageSwitchCheck();
   });
 

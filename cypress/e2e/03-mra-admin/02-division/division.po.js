@@ -259,6 +259,16 @@ class DivisionCreation {
     );
   }
 
+  gridSearchButtonCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      var divData = data.mraAdmin.createdivisionFrom;
+      cy.imsId("btn-reset").click();
+      cy.formController("search_text").type(divData.search);
+      cy.imsId("btn-search").click();
+      cy.log("Successful search button click.");
+    });
+  }
+
   createResetButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
       var divData = data.mraAdmin.createdivisionFrom;
