@@ -145,7 +145,11 @@ describe("04. Thana Module Test Cases.", function () {
     create_thana.createGoBackButtonCheck();
   });
 
-  it("04.31. Verify that the grid list content updates correctly when switching the language from English to Bangla.", function () {
+  it("04.31. Verify that when the user clicks the Search button on the thana grid page, the system redirects to the thana List page..", function () {
+    create_thana.gridSearchButtonCheck();
+  });
+
+  it("04.32. Verify that the grid list content updates correctly when switching the language from English to Bangla.", function () {
     create_thana.gridLanguageSwitchCheck();
   });
 

@@ -24,6 +24,7 @@ describe("03. District Module Test Cases.", function () {
   after(() => {
     cy.logout();
   });
+
   it("03.01. Verify that the District List page loads successfully without any errors.", function () {
     create_district.gridDistrictListPage();
   });
@@ -128,7 +129,11 @@ describe("03. District Module Test Cases.", function () {
     create_district.createGoBackButtonCheck();
   });
 
-  it("03.27. Verify that the district grid updates correctly when switching the language from English to Bangla.", function () {
+  it("03.27. Verify that when the user clicks the Search button on the district grid page, the system redirects to the district List page..", function () {
+    create_district.gridSearchButtonCheck();
+  });
+
+  it("03.28. Verify that the district grid updates correctly when switching the language from English to Bangla.", function () {
     create_district.gridLanguageSwitchCheck();
   });
 

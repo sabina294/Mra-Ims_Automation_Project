@@ -129,7 +129,11 @@ describe("05. Bank Module Test Cases.", function () {
     create_bank.createGoBackButtonCheck();
   });
 
-  it("05.27. Verify that the bank grid list content switches correctly between English and Bangla languages.", function () {
+  it("05.27. Verify that when the user clicks the Search button on the Bank grid page, the system redirects to the Bank List page..", function () {
+    create_bank.gridSearchButtonCheck();
+  });
+
+  it("05.28. Verify that the bank grid list content switches correctly between English and Bangla languages.", function () {
     create_bank.gridLanguageSwitchCheck();
   });
 

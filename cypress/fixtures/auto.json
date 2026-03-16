@@ -1139,6 +1139,7 @@
       "status": "Active",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
+      "search":"Sylhet",
       "messageSaveDis": "District has been saved",
       "messageUpdateDis": "District has been updated"
     },
@@ -1153,6 +1154,7 @@
       "status": "Active",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
+      "search":"Haripur",
       "messageSaveUpa": "Thana has been saved",
       "messageUpdateUpa": "Thana has been updated"
     },
@@ -1166,6 +1168,7 @@
       "status": "Active",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
+      "search":"BANGLADESH KRISHI BANK",
       "messageSaveBa": "Bank has been saved",
       "messageUpdateBa": "Bank has been updated"
     },

@@ -296,6 +296,16 @@ class BankCreation {
     cy.log("Successful go back button check.");
   }
 
+  gridSearchButtonCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      var bankData = data.mraAdmin.createbankFrom;
+      cy.imsId("btn-reset").click();
+      cy.formController("search_text").type(bankData.search);
+      cy.imsId("btn-search").click();
+      cy.log("Successful search button click.");
+    });
+  }
+
   gridLanguageSwitchCheck() {
     cy.imsId("profile-menu").click();
     cy.imsId("btn-lang-bangla").click();
