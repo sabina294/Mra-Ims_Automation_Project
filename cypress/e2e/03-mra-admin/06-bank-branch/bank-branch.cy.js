@@ -161,7 +161,11 @@ describe("06. Bank Branch Module Test Cases.", function () {
     create_bank_branch.createGoBackButtonCheck();
   });
 
-  it("06.35 Verify that the grid list content updates correctly when switching language from English to Bangla.", function () {
+  it("06.35. Verify that when the user clicks the Search button on the bank branch grid page, the system redirects to the bank branch List page..", function () {
+    create_bank_branch.gridSearchButtonCheck();
+  });
+
+  it("06.36 Verify that the grid list content updates correctly when switching language from English to Bangla.", function () {
     create_bank_branch.gridLanguageSwitchCheck();
   });
 

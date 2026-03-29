@@ -1189,6 +1189,7 @@
       "status": "Active",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
+      "search":"Test Bank Branch",
       "messageSaveBaB": "Bank branch has been saved",
       "messageUpdateBaB": "Bank branch has been updated"
     },
@@ -1198,6 +1199,7 @@
       "status": "Active",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
+      "search":"Test Requested",
       "messageSaveCoPh": "Do you wish to create a new contact phase",
       "messageUpdateCoPh": "Do you wish to update this contact phase"
     },

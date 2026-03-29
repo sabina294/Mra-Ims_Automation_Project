@@ -113,6 +113,10 @@ describe("07. Contract Phase Module Test Cases.", function () {
     create_contract_phase.createGoBackButtonCheck();
   });
 
+  it("07.23. Verify that when the user clicks the Search button on the Contract Phase grid page, the system redirects to the Contract Phase List page..", function () {
+    create_contract_phase.gridSearchButtonCheck();
+  });
+
   it("07.23. Verify that the Contract Phase grid list content switches correctly between English and Bangla.", function () {
     create_contract_phase.gridLanguageSwitchCheck();
   });
