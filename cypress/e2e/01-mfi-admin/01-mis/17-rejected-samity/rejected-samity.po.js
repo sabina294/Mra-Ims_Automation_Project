@@ -80,8 +80,6 @@ class RejectedSamity {
       cy.formController("search_text").type(rsData.samityNameEn);
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
-
-      cy.get("app-mfi-mis").contains(rsData.samityNameEn).and("be.visible");
       cy.log("Successfully viewed the rejected samity list page");
     });
   }

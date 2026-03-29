@@ -207,8 +207,6 @@ class FeeConfigurationCreation {
       cy.formController("search_text").type(fcData.feeTypeNameEn);
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
-
-      // cy.get("app-mfi-mis").contains(fcData.feeTypeNameEn).and("be.visible");
       cy.log("Successfully viewed the fee configuration list page");
     });
   }

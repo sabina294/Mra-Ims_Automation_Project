@@ -182,8 +182,6 @@ class AmountBasedLoanProposalApprovalCreation {
       cy.formController("search_text").type(ablpaData.roleName);
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
-
-      // cy.get("app-mfi-mis").contains(ablpaData.maxLoanAmount).and("be.visible");
       cy.log("Successfully viewed the amount based loan list page");
     });
   }

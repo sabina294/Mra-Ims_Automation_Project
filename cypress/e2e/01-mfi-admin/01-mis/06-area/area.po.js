@@ -135,8 +135,6 @@ class AreaCreation {
       cy.formController("search_text").type(arData.nameEn);
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
-
-      // cy.get("app-mfi-mis").contains(arData.nameEn).and("be.visible");
       cy.log("Successfully viewed the area list page");
     });
   }

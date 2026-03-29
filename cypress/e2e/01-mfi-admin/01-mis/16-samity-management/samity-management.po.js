@@ -468,8 +468,6 @@ class SamityCreation {
       cy.formController("search_text").type(smData.samityNameEn);
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
-
-      // cy.get("app-mfi-mis").contains(smData.samityNameEn).and("be.visible");
       cy.log("Successfully viewed the samity list page");
     });
   }

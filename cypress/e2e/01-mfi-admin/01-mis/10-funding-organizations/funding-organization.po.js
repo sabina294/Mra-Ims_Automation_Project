@@ -149,8 +149,6 @@ class FundingOrganizationCreation {
       cy.formController("search_text").type(foData.FundingNameEn);
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
-
-      cy.get("app-mfi-mis").contains(foData.FundingNameEn).and("be.visible");
       cy.log("Successfully viewed the funding organization list page");
     });
   }

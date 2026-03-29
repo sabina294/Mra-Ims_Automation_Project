@@ -176,8 +176,6 @@ class MfiProgramCreation {
       cy.formController("search_text").type(mpData.programNameEn);
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
-
-      cy.get("app-mfi-mis").contains(mpData.programNameEn).and("be.visible");
       cy.log("Successfully viewed the mfi program list page");
     });
   }

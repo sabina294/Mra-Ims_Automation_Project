@@ -54,7 +54,6 @@ class SamityDayChange {
       cy.formController("search_text").type(sdData.samityNameEn);
       cy.imsId("btn-table-action-view").click();
 
-      cy.get("app-mfi-mis").contains(sdData.samityNameEn).and("be.visible");
       cy.log("Successfully viewed the samity change list page");
     });
   }

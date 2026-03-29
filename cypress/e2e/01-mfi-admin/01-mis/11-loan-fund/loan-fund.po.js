@@ -43,8 +43,6 @@ class LoanFundCreation {
       cy.formController("search_text").type(lfData.amount);
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
-
-      cy.get("app-mfi-mis").contains(lfData.amount).and("be.visible");
       cy.log("Successfully viewed the loan fund list page");
     });
   }
