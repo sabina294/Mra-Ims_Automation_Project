@@ -125,7 +125,11 @@ describe("9. Loan Type Module Test Cases.", function () {
     create_loan_type.createGoBackButtonCheck();
   });
 
-  it("09.26. Verify that the Loan Type grid list content switches correctly between English and Bangla languages.", function () {
+  it("09.26. Verify that when the user clicks the Search button on the Loan Type grid page, the system redirects to the Loan Type List page..", function () {
+    create_loan_type.gridSearchButtonCheck();
+  });
+
+  it("09.27. Verify that the Loan Type grid list content switches correctly between English and Bangla languages.", function () {
     create_loan_type.gridLanguageSwitchCheck();
   });
 });

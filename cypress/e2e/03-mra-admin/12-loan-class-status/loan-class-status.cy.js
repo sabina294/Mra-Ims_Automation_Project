@@ -125,7 +125,11 @@ describe("12. Loan Class Status Module Test Cases.", function () {
     create_loan_class_status.createGoBackButtonCheck();
   });
 
-  it("12.26. Verify the grid list language switches correctly between English and Bangla.", function () {
+  it("12.26. Verify that when the user clicks the Search button on the Loan Class Status grid page, the system redirects to the Loan Class Status List page..", function () {
+    create_loan_class_status.gridSearchButtonCheck();
+  });
+
+  it("12.27. Verify the grid list language switches correctly between English and Bangla.", function () {
     create_loan_class_status.gridLanguageSwitchCheck();
   });
 });

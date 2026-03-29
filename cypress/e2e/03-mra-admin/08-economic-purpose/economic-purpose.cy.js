@@ -129,7 +129,11 @@ describe("08. Economic Purpose Module Test Cases.", function () {
     create_economic_purpose.createGoBackButtonCheck();
   });
 
-  it("08.27. Verify that the grid list content switches correctly between English and Bangla languages.", function () {
+  it("08.27. Verify that when the user clicks the Search button on the Economic Purpose grid page, the system redirects to the Economic Purpose List page..", function () {
+    create_economic_purpose.gridSearchButtonCheck();
+  });
+
+  it("08.28. Verify that the grid list content switches correctly between English and Bangla languages.", function () {
     create_economic_purpose.gridLanguageSwitchCheck();
   });
 });

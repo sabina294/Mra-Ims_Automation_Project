@@ -133,7 +133,11 @@ describe("11. Payment Method Module Test Cases.", function () {
     create_payment_method.createGoBackButtonCheck();
   });
 
-  it("11.28. Verify that the grid list content switches correctly between English and Bangla languages.", function () {
+  it("11.28. Verify that when the user clicks the Search button on the Payment Method grid page, the system redirects to the Payment Method List page..", function () {
+    create_payment_method.gridSearchButtonCheck();
+  });
+
+  it("11.29. Verify that the grid list content switches correctly between English and Bangla languages.", function () {
     create_payment_method.gridLanguageSwitchCheck();
   });
 });

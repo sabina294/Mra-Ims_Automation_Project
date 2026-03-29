@@ -214,14 +214,6 @@ class LoanClassStatusCreation {
       cy.formController("search_text").type(loanClasStaData.loanClassNameEn);
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
-
-      // cy.get("app-mra-mfi")
-      //   .contains(loanClasStaData.loanClassId)
-      //   .and("be.visible");
-      // cy.get("app-mra-mfi")
-      //   .contains(loanClasStaData.description)
-      //   .and("be.visible");
-
       cy.log("Successfully viewed the loan class status list page");
     });
   }
@@ -367,6 +359,16 @@ class LoanClassStatusCreation {
     cy.imsId("btn-add-new").click();
     cy.imsId("btn-go-back").click();
     cy.log("Successful go back button check.");
+  }
+
+  gridSearchButtonCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      var loanClasStaData = data.mraAdmin.createloanClassStatusFrom;
+      cy.imsId("btn-reset").click();
+      cy.formController("search_text").type(loanClasStaData.search);
+      cy.imsId("btn-search").click();
+      cy.log("Successful search button click.");
+    });
   }
 
   gridLanguageSwitchCheck() {

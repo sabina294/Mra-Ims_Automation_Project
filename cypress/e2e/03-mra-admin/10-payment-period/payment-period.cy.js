@@ -137,7 +137,11 @@ describe("10. Payment Period Module Test Cases.", function () {
     create_payment_period.createGoBackButtonCheck();
   });
 
-  it("10.29. Verify that the grid list content switches correctly between English and Bangla languages.", function () {
+  it("10.29. Verify that when the user clicks the Search button on the Payment Period grid page, the system redirects to the Payment Period List page..", function () {
+    create_payment_period.gridSearchButtonCheck();
+  });
+
+  it("10.30. Verify that the grid list content switches correctly between English and Bangla languages.", function () {
     create_payment_period.gridLanguageSwitchCheck();
   });
 });

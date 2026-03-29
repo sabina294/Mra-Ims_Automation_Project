@@ -1126,7 +1126,7 @@
       "selectStatus": "Inactive",
       "statusSelect": "Active",
       "status": "Active",
-      "search":"Rangpur Division",
+      "search": "Rangpur Division",
       "messageSaveDivi": "Division has been saved",
       "messageUpdateDivi": "Division has been updated"
     },
@@ -1139,7 +1139,7 @@
       "status": "Active",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
-      "search":"Sylhet",
+      "search": "Sylhet",
       "messageSaveDis": "District has been saved",
       "messageUpdateDis": "District has been updated"
     },
@@ -1154,7 +1154,7 @@
       "status": "Active",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
-      "search":"Haripur",
+      "search": "Haripur",
       "messageSaveUpa": "Thana has been saved",
       "messageUpdateUpa": "Thana has been updated"
     },
@@ -1168,7 +1168,7 @@
       "status": "Active",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
-      "search":"BANGLADESH KRISHI BANK",
+      "search": "BANGLADESH KRISHI BANK",
       "messageSaveBa": "Bank has been saved",
       "messageUpdateBa": "Bank has been updated"
     },
@@ -1189,7 +1189,7 @@
       "status": "Active",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
-      "search":"Test Bank Branch",
+      "search": "Test Bank Branch",
       "messageSaveBaB": "Bank branch has been saved",
       "messageUpdateBaB": "Bank branch has been updated"
     },
@@ -1199,7 +1199,7 @@
       "status": "Active",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
-      "search":"Test Requested",
+      "search": "Test Requested",
       "messageSaveCoPh": "Do you wish to create a new contact phase",
       "messageUpdateCoPh": "Do you wish to update this contact phase"
     },
@@ -1213,6 +1213,7 @@
       "lendingCategory": "Industry",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
+      "search": "Educational Expenses",
       "messageSaveEcPu": "Economic purpose has been saved",
       "messageUpdateEcPu": "Economic purpose has been updated"
     },
@@ -1225,6 +1226,7 @@
       "status": "Active",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
+      "search": "Multiple Installment",
       "messageSaveLoTy": "Loan type has been saved",
       "messageUpdateLoTy": "Loan type has been updated"
     },
@@ -1238,6 +1240,7 @@
       "status": "Active",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
+      "search": "Test Period",
       "messageSavePaPe": "Payment period has been saved",
       "messageUpdatePaPe": "Payment period has been updated"
     },
@@ -1250,6 +1253,7 @@
       "status": "Active",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
+      "search": "Cash",
       "messageSavePaMe": "Payment method has been saved",
       "messageUpdatePaMe": "Payment method has been updated"
     },
@@ -1261,6 +1265,7 @@
       "status": "Active",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
+      "search": "Test status",
       "messageSaveLoClSt": "Loan class status has been saved",
       "messageUpdateLoClSt": "Loan class status has been updated"
     },
