@@ -1280,6 +1280,7 @@
       "minOver1Days": "5",
       "maxOver1Days": "10",
       "acc1Rate": "5",
+      "search": "Regular",
       "messageUpdateLoCh": "Loan classification chart has been updated",
       "messageEditLoCh": "Do you wish to update this loan classification chart"
     },
@@ -1289,6 +1290,7 @@
       "status": "Active",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
+      "search": "Test Organization",
       "messageSaveOrgLegForm": "Do you wish to create a new Organinzation Legal Form",
       "messageUpdateOrgLegForm": "Do you wish to update this Organinzation Legal Form"
     },
@@ -1298,6 +1300,7 @@
       "status": "Active",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
+      "search": "Post-Graduation",
       "messageSaveEd": "Education has been saved",
       "messageUpdateEd": "Education has been updated"
     },
@@ -1308,6 +1311,7 @@
       "status": "Active",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
+      "search": "Test Female",
       "messageSaveGe": "Gender has been saved",
       "messageUpdateGe": "Gender has been updated"
     },
@@ -1317,6 +1321,7 @@
       "status": "Active",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
+      "search": "Unmarried",
       "messageSaveMalSt": "Marital status has been saved",
       "messageUpdateMaSt": "Marital status has been updated"
     },

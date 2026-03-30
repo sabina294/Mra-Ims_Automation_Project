@@ -258,6 +258,16 @@ class MaritalStatusCreation {
     cy.log("Returned successfully to the marital status list page from create form.");
   }
 
+  gridSearchButtonCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      const maritalStatusData = data.mraAdmin.createmaritalstatusFrom;
+      cy.imsId("btn-reset").click();
+      cy.formController("search_text").type(maritalStatusData.search);
+      cy.imsId("btn-search").click();
+      cy.log("Successful search button click.");
+    });
+  }
+
   // ---------------- Language Switch ----------------
   gridLanguageSwitchCheck() {
     cy.imsId("profile-menu").click();

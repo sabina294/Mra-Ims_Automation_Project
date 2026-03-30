@@ -118,9 +118,9 @@ class EducationCreation {
     });
   }
 
-   viewGoBackButton() {
+  viewGoBackButton() {
     cy.imsId("btn-go-back").click();
-    
+
     cy.log("Successfully view go back the education list page");
   }
 
@@ -250,6 +250,16 @@ class EducationCreation {
     cy.imsId("btn-add-new").click();
     cy.imsId("btn-go-back").click();
     cy.log("Successful go back button check.");
+  }
+
+  gridSearchButtonCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      var eduData = data.mraAdmin.createeducationFrom;
+      cy.imsId("btn-reset").click();
+      cy.formController("search_text").type(eduData.search);
+      cy.imsId("btn-search").click();
+      cy.log("Successful search button click.");
+    });
   }
 
   gridLanguageSwitchCheck() {

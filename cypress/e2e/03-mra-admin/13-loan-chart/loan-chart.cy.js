@@ -82,7 +82,11 @@ describe("13. Loan Cassification Chart Module Test Cases.", function () {
     update_loan_chart.createGoBackButtonCheck();
   });
 
-  it("13.15. Verify that the grid list content switches correctly between English and Bangla.", function () {
+  it("13.15. Verify that when the user clicks the Search button on the Loan Classification Chart  grid page, the system redirects to the Loan Classification Chart  List page..", function () {
+    update_loan_chart.gridSearchButtonCheck();
+  });
+
+  it("13.16. Verify that the grid list content switches correctly between English and Bangla.", function () {
     update_loan_chart.gridLanguageSwitchCheck();
   });
 });

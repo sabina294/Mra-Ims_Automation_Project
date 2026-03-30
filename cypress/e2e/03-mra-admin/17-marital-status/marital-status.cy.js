@@ -113,7 +113,11 @@ describe("17. Marital Status Module Test Cases.", function () {
     create_marital_status.createGoBackButtonCheck();
   });
 
-  it("17.23. Verify that the grid list content switches correctly between English and Bangla.", function () {
+  it("17.23. Verify that when the user clicks the Search button on the marital status grid page, the system redirects to the marital status List page..", function () {
+    create_marital_status.gridSearchButtonCheck();
+  });
+
+  it("17.24. Verify that the grid list content switches correctly between English and Bangla.", function () {
     create_marital_status.gridLanguageSwitchCheck();
   });
 
