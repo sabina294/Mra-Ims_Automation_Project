@@ -13,9 +13,11 @@ class SamityChange {
       var smData = data.branchManager.samityChangeFrom;
       cy.imsId("btn-reset").click();
       cy.formController("search_text").type(smData.samityNameEn);
+      cy.imsId("btn-search").click();
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-mis-table-action-change").click();
       cy.formController("field_officer_id").type(smData.fieldOfficer).type("{enter}");
+      cy.wait(1000);
       cy.imsId("btn-submit").click();
 
       cy.imsId("btn-yes").click();

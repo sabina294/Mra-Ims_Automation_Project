@@ -12,6 +12,8 @@ class SamityChange {
     cy.fixture(this.test_data).then((data) => {
       var smData = data.mfiAdmin.samityChangeFrom;
       cy.imsId("btn-reset").click();
+      cy.formController("search_text").type(smData.samityNameEn);
+      cy.imsId("btn-search").click();
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-mis-table-action-change").click();
       cy.formController("field_officer_id").type(smData.fieldOfficer).type("{enter}");
