@@ -204,7 +204,7 @@ class EmployeeManagementCreation {
   }
 
   gridCheckboxCheck() {
-    cy.imsId("row-checkbox-9").click();
+    cy.imsId("row-checkbox-8").click();
     cy.imsId("btn-reset").click();
     cy.log("Checkbox should be clickable and functional.");
   }
@@ -215,7 +215,7 @@ class EmployeeManagementCreation {
   }
 
   gridCheckboxUnlockButtonCheck() {
-    cy.imsId("row-checkbox-9").click();
+    cy.imsId("row-checkbox-8").click();
     cy.imsId("btn-unlock").click();
     cy.log("Checkbox unlock button should be clickable and functional.");
   }

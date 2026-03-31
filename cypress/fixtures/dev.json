@@ -693,7 +693,7 @@
       "selectStatus": "Inactive",
       "statusSelect": "Active"
     },
-    "createEmpMangFrom": {
+     "createEmpMangFrom": {
       "empNameEn": "Sabina Yeasmin",
       "empNameBn": "সাবিনা ইয়াসমিন",
       "empMobileNo": "01887949170",
@@ -704,10 +704,10 @@
       "officeNameEn": "1002 (Dhaka Regional Office)",
       "fatherNameEn": "Test Father",
       "motherNameEn": "Test Mother",
-      "division": "Sylhet Division",
-      "district": "Sunamganj",
-      "thana": "Tahirpur",
-      "adressEn": "Sylhet",
+      "division": "Chattogram Division",
+      "district": "Bandarban",
+      "thana": "Bandarban Sadar",
+      "adressEn": "Chattogram",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
       "search": "Jakir Hossain",
@@ -725,10 +725,10 @@
       "officeNameEn": "1020 (Ashulia)",
       "fatherNameEn": "Test Father",
       "motherNameEn": "Test Mother",
-      "division": "Sylhet Division",
-      "district": "Sunamganj",
-      "thana": "Tahirpur",
-      "adressEn": "Sylhet",
+      "division": "Chattogram Division",
+      "district": "Bandarban",
+      "thana": "Bandarban Sadar",
+      "adressEn": "Chattogram",
       "selectStatus": "Rejected",
       "statusSelect": "Approved",
       "search": "Sabina Yeasmin",
@@ -799,7 +799,7 @@
       "rejectRemarks": "Reject"
     },
     "samityChangeFrom": {
-      "samityNameEn": "Suzabad Mohila Samity",
+      "samityNameEn": "Kuturia Mohila Samity",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
       "fieldOfficer": "EMP-0119 - JOYMOT ALI",
@@ -1457,7 +1457,7 @@
       "adressEn": "Sylhet",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
-      "search": "Nurul Alam",
+      "search": "Abul Kalam",
       "messageSaveEmp": "Mfi employee has been saved",
       "messageUpdateEmp": "Mfi employee has been updated"
     },

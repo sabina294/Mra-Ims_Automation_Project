@@ -597,7 +597,7 @@ class SamityCreation {
 
 
   gridCheckboxCheck() {
-    cy.imsId("row-checkbox-0").click();
+    cy.imsId("row-checkbox-7").click();
     cy.imsId("btn-reset").click();
     cy.log("Checkbox should be clickable and functional.");
   }
@@ -608,7 +608,7 @@ class SamityCreation {
   }
 
   gridCheckboxUnlockButtonCheck() {
-    cy.imsId("row-checkbox-0").click();
+    cy.imsId("row-checkbox-7").click();
     cy.imsId("btn-unlock").click();
     cy.log("Checkbox unlock button should be clickable and functional.");
   }

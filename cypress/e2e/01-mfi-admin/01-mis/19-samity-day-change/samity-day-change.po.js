@@ -47,7 +47,6 @@ class SamityDayChange {
   }
 
   viewSamityDayChange() {
-      cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
       cy.log("Successfully viewed the samity day change list page");
   }

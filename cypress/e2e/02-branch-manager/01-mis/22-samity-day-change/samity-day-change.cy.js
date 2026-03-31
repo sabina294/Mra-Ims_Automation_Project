@@ -30,7 +30,7 @@ describe("22. Samity Day Change Module Test Cases", function () {
     samity_day_change.samityDayChange();
   });
 
-  it("22.03. Verify that the MFI Admin can successfully approve a Samity Day Change record after creation.", function () {
+  it("22.03. Verify that the branch manager can successfully approve a Samity Day Change record after creation.", function () {
     samity_day_change.approveSamityDayChange();
   });
 

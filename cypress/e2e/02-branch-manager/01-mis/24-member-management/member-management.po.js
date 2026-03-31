@@ -116,6 +116,7 @@ class MemberManagementCreation {
       var memData = data.branchManager.createMemberFrom;
       cy.imsId("btn-reset").click();
       cy.formController("search_text").type(memData.memberNameEn);
+      cy.imsId("btn-search").click();
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-mis-table-action-edit").click();
       cy.imsId("btn-go-back").click();

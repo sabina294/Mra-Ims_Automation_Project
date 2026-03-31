@@ -147,6 +147,7 @@ class FundingOrganizationCreation {
     cy.fixture(this.test_data).then((data) => {
       var foData = data.mfiAdmin.createFundingOrganizationFrom;
       cy.formController("search_text").type(foData.FundingNameEn);
+      cy.imsId("btn-search").click();
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
       cy.log("Successfully viewed the funding organization list page");

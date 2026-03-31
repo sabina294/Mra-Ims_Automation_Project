@@ -31,7 +31,7 @@ describe("21. Samity Field Officer Change Module Test Cases", function () {
     samity_field_officer_change.samityChange();
   });
 
-  it("21.03. Verify that the MFI Admin can successfully approve a Samity Field Officer Change record after creation.", function () {
+  it("21.03. Verify that the branch manager can successfully approve a Samity Field Officer Change record after creation.", function () {
     samity_field_officer_change.approveSamityChange();
   });
 

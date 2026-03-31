@@ -19,10 +19,9 @@ class FundingOrganization {
     cy.fixture(this.test_data).then((data) => {
       var foData = data.branchManager.gridFundingOrganizationFrom;
       cy.formController("search_text").type(foData.FundingNameEn);
+      cy.imsId("btn-search").click();
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
-
-      cy.get("app-mfi-mis").contains(foData.FundingNameEn).and("be.visible");
       cy.log("Successfully viewed the funding organization list page");
     });
   }

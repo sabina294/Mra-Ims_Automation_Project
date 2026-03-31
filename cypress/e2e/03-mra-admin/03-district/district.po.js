@@ -196,6 +196,7 @@ class DistrictCreation {
     cy.fixture(this.test_data).then((data) => {
       var disData = data.mraAdmin.createdistrictFrom;
       cy.formController("search_text").type(disData.nameEn);
+      cy.imsId("btn-search").click();
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
 

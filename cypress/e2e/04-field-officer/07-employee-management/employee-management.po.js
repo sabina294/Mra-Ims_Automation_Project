@@ -19,7 +19,8 @@ class EmployeeManagement {
     cy.fixture(this.test_data).then((data) => {
       var emData = data.fieldOfficer.gridEmpMangFrom;
 
-      cy.formController("search_text").type(emData.search);
+      cy.formController("search_text").type(emData.empNameEn);
+      cy.imsId("btn-search").click();
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
 
@@ -35,11 +36,17 @@ class EmployeeManagement {
   }
 
   turnOnEditMode() {
+    cy.fixture(this.test_data).then((data) => {
+    var emData = data.fieldOfficer.gridEmpMangFrom;
+    cy.imsId("btn-reset").click();
+    cy.formController("search_text").type(emData.search);
+    cy.imsId("btn-search").click();
     cy.imsId("toggle-action").first().click();
     cy.imsId("btn-table-action-view").click();
-    cy.get('.ant-switch-inner > .hidden').click();
+    cy.imsId("switch-button").click();
 
     cy.log("Employee Management form Edit Mode toggled successfully");
+     });  
   }
 
   editResetButton() {

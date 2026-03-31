@@ -96,6 +96,7 @@ class MemberManagementCreation {
       var memData = data.fieldOfficer.createMemberFrom;
       cy.imsId("btn-reset").click();
       cy.formController("search_text").type(memData.search);
+      cy.imsId("btn-search").click();
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-mis-table-action-edit").click();
       cy.imsId("btn-submit").click();
@@ -147,6 +148,7 @@ class MemberManagementCreation {
       var memData = data.fieldOfficer.createMemberFrom;
       cy.imsId("btn-reset").click();
       cy.formController("search_text").type(memData.search);
+      cy.imsId("btn-search").click();
       cy.log("Successfully search in the Member management");
     });
   }
@@ -189,7 +191,7 @@ class MemberManagementCreation {
   }
 
   gridCheckboxCheck() {
-    cy.imsId("row-checkbox-4").click();
+    cy.imsId("row-checkbox-5").click();
     cy.imsId("btn-reset").click();
     cy.log("Checkbox should be clickable and functional.");
   }
@@ -200,7 +202,7 @@ class MemberManagementCreation {
   }
 
   gridCheckboxUnlockButtonCheck() {
-    cy.imsId("row-checkbox-4").click();
+    cy.imsId("row-checkbox-5").click();
     cy.imsId("btn-unlock").click();
     cy.log("Checkbox unlock button should be clickable and functional.");
   }

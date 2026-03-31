@@ -27,7 +27,7 @@ describe("20. Rejected Samity Module Test Cases", function () {
     create_rejected_samity.createRejectSamity();
   });
 
-  it("20.02. Verify that the MFI Admin can successfully approve a rejected samity record after it is created.", function () {
+  it("20.02. Verify that the branch manager can successfully approve a rejected samity record after it is created.", function () {
     create_rejected_samity.approveRejectedSamity();
   });
 

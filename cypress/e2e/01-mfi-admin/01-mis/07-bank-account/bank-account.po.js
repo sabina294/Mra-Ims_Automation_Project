@@ -278,6 +278,7 @@ class BankAccountCreation {
       var baData = data.mfiAdmin.createBankAccountFrom;
       cy.imsId("btn-reset").click();
       cy.formController("search_text").type(baData.accNameEn);
+      cy.imsId("btn-search").click();
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-edit").click();
       cy.imsId("btn-submit").click();
