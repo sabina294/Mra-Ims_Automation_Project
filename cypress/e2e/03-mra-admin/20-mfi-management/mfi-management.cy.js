@@ -214,7 +214,11 @@ describe("20. MFI Management Module Test Cases.", function () {
     create_mfi_management.createGoBackButtonCheck();
   });
 
-  it("20.48. Verify that the grid list content switches correctly between English and Bangla languages.", function () {
+  it("20.48. Verify that when the user clicks the Search button on the MFI Management grid page, the system redirects to the MFI Management List page..", function () {
+    create_mfi_management.gridSearchButtonCheck();
+  });
+
+  it("20.49. Verify that the grid list content switches correctly between English and Bangla languages.", function () {
     create_mfi_management.gridLanguageSwitchCheck();
   });
 

@@ -139,7 +139,11 @@ describe("21. Employee Management Module Test Cases.", function () {
     create_employee_management.createGoBackButtonCheck();
   });
 
-  it("21.30. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("21.30. Verify that when the user clicks the Search button on the employee management grid page, the system redirects to the employee management List page..", function () {
+    create_employee_management.gridSearchButtonCheck();
+  });
+
+  it("21.31. Verify check that the grid list content changes correctly from english to bangla.", function () {
     create_employee_management.gridLanguageSwitchCheck();
   });
 });

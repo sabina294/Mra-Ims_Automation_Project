@@ -113,7 +113,11 @@ describe("18. Occupation Module Test Cases.", function () {
     create_occupation.createGoBackButtonCheck();
   });
 
-  it("18.23. Should switch grid list content correctly between English and Bangla.", function () {
+  it("18.23. Verify that when the user clicks the Search button on the occupation grid page, the system redirects to the occupation List page..", function () {
+    create_occupation.gridSearchButtonCheck();
+  });
+
+  it("18.24. Should switch grid list content correctly between English and Bangla.", function () {
     create_occupation.gridLanguageSwitchCheck();
   });
 

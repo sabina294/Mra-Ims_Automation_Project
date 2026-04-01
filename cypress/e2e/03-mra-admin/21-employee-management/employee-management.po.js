@@ -316,7 +316,7 @@ class EmployeeManagementCreation {
   }
 
   gridCheckboxCheck() {
-    cy.imsId("row-checkbox-1").click();
+    cy.imsId("row-checkbox-3").click();
     cy.imsId("btn-reset").click();
     cy.log("Checkbox should be clickable and functional.");
   }
@@ -327,7 +327,7 @@ class EmployeeManagementCreation {
   }
 
   gridCheckboxUnlockButtonCheck() {
-    cy.imsId("row-checkbox-1").click();
+    cy.imsId("row-checkbox-3").click();
     cy.imsId("btn-unlock").click();
     cy.log("Checkbox unlock button should be clickable and functional.");
   }
@@ -373,6 +373,16 @@ class EmployeeManagementCreation {
   createGoBackButtonCheck() {
     cy.imsId("btn-go-back").click();
     cy.log("Successful go back button check.");
+  }
+
+  gridSearchButtonCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      var emData = data.mraAdmin.createEmployeeFrom;
+      cy.imsId("btn-reset").click();
+      cy.formController("search_text").type(emData.search);
+      cy.imsId("btn-search").click();
+      cy.log("Successful search button click.");
+    });
   }
 
   gridLanguageSwitchCheck() {

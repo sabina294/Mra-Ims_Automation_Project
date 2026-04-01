@@ -148,6 +148,16 @@ class RemarksCreation {
     cy.log("Create page Go Back button redirected to the Remarks list page.");
   }
 
+    gridSearchButtonCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      const remarksData = data.mraAdmin.createremarksFrom;
+      cy.imsId("btn-reset").click();
+      cy.formController("search_text").type(remarksData.search);
+      cy.imsId("btn-search").click();
+      cy.log("Successful search button click.");
+    });
+  }
+
   /* ------------------ View Remarks ------------------ */
 
   viewRemarks() {

@@ -113,7 +113,11 @@ describe("19. Remarks Module Test Cases.", function () {
     create_remarks.createGoBackButtonCheck();
   });
 
-  it("19.23. Verify that the grid list content switches correctly from English to Bangla.", function () {
+  it("19.23. Verify that when the user clicks the Search button on the Remark grid page, the system redirects to the Remarks List page..", function () {
+    create_remarks.gridSearchButtonCheck();
+  });
+
+  it("19.24. Verify that the grid list content switches correctly from English to Bangla.", function () {
     create_remarks.gridLanguageSwitchCheck();
   });
 

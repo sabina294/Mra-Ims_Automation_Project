@@ -693,7 +693,7 @@
       "selectStatus": "Inactive",
       "statusSelect": "Active"
     },
-     "createEmpMangFrom": {
+    "createEmpMangFrom": {
       "empNameEn": "Sabina Yeasmin",
       "empNameBn": "সাবিনা ইয়াসমিন",
       "empMobileNo": "01887949170",
@@ -1331,6 +1331,7 @@
       "status": "Active",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
+      "search": "Test Business",
       "messageSaveOcc": "Do you wish to create a new occupation",
       "messageUpdateOcc": "Do you wish to update this occupation"
     },
@@ -1340,6 +1341,7 @@
       "status": "Active",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
+      "search": "Test Freedom Fighter",
       "messageSaveRem": "Do you wish to create a new remark",
       "messageUpdateRem": "Do you wish to update this remark"
     },

@@ -164,24 +164,33 @@ class RejectedEmployee {
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-edit").click();
       cy.imsId("btn-reset").click();
-      cy.imsId("btn-go-back").click();
-
       cy.log("Successful clean displaying");
     });
   }
 
+  editDraftButton() {
+    cy.imsId("btn-draft").click();
+    cy.imsId("btn-ok").click();
+    cy.log("Successful draft button check");
+  }
+
+
+  editSubmitButton() {
+    ;
+    cy.imsId("btn-submit").click();
+    cy.imsId("btn-ok").click();
+    cy.log("Successful submit button check");
+  }
+
+  editApproveButton() {
+    cy.imsId("btn-approve").click();
+    cy.imsId("btn-ok").click();
+    cy.log("Successful approve button check");
+  }
+
   editGoBackButton() {
-    cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-reset").click();
-
-      var emData = data.mraAdmin.createEmployeeFrom;
-      cy.formController("search_text").type(emData.search);
-      cy.imsId("toggle-action").first().click();
-      cy.imsId("btn-table-action-edit").click();
-      cy.imsId("btn-go-back").click();
-
-      cy.log("Successful edit go back button check.");
-    });
+    cy.imsId("btn-go-back").click();
+    cy.log("Successful go back button check");
   }
 
   statusInactiveDropdownCheck() {
@@ -225,6 +234,16 @@ class RejectedEmployee {
     cy.log(
       "successfully refresh page  displayed the grid list of the rejected employee form "
     );
+  }
+
+  gridSearchButtonCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      var emData = data.mraAdmin.rejectedEmployeeFrom;
+      cy.imsId("btn-reset").click();
+      cy.formController("search_text").type(emData.search);
+      cy.imsId("btn-search").click();
+      cy.log("Successful search button click.");
+    });
   }
 
   gridLanguageSwitchCheck() {
