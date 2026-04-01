@@ -12,6 +12,8 @@ class SamityDayChange {
     cy.fixture(this.test_data).then((data) => {
       var sdData = data.mfiAdmin.samityDayChangeFrom;
       cy.imsId("btn-reset").click();
+      cy.formController("search_text").type(sdData.samityNameEn);
+      cy.imsId("btn-search").first().click();
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-mis-table-action-change").click();
       cy.formController("new_samity_day").type(sdData.newSamityDay).type("{enter}");
