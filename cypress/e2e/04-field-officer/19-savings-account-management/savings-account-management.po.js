@@ -23,6 +23,7 @@ class SavingsAccountManagementCreation {
       var samData = data.fieldOfficer.createSavingsAccountManagement;
 
       cy.formController("search_text").type(samData.search);
+      cy.imsId("btn-search").click();
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
 

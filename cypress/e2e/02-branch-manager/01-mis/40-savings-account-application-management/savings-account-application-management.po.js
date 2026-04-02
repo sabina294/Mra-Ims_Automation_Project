@@ -37,6 +37,7 @@ class SavingsAccApplicationManagementCreation {
     cy.fixture(this.test_data).then((data) => {
       var saamData = data.branchManager.createSavingsAccApplicationMang;
       cy.formController("search_text").type(saamData.search);
+      cy.imsId("btn-search").click();
       cy.imsId("menu-my-task").click();
       cy.imsId("submenu-awaiting-savings-account-proposal").click();
       cy.imsId("toggle-action").first().click();

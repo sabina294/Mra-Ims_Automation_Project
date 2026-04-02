@@ -65,6 +65,7 @@ class SavingsAccApplicationManagementCreation {
       var saamData = data.fieldOfficer.createSavingsAccApplicationMang;
 
       cy.formController("search_text").type(saamData.search);
+      cy.imsId("btn-search").click();
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
 
