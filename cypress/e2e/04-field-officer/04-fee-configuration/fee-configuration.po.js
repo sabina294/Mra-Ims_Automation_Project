@@ -96,6 +96,16 @@ class FeeConfiguration {
     );
   }
 
+  gridSearchButtonCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      var fcData = data.fieldOfficer.gridFeeConfigurationFrom;
+      cy.imsId("btn-reset").click();
+      cy.formController("search_text").type(fcData.search);
+      cy.imsId("btn-search").click();
+      cy.log("Successful search button click.");
+    });
+  }
+
   gridLanguageSwitchCheck() {
     cy.imsId("profile-menu").click();
     cy.imsId("btn-lang-bangla").click();

@@ -72,7 +72,11 @@ describe("02. Department Module Test Cases", function () {
     grid_department.gridRefreshButtonCheck();
   });
 
-  it("02.13. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("02.13. Verify that when the user clicks the Search button on the department grid page, the system redirects to the department List page..", function () {
+    grid_department.gridSearchButtonCheck();
+  });
+
+  it("02.14. Verify check that the grid list content changes correctly from english to bangla.", function () {
     grid_department.gridLanguageSwitchCheck();
   });
 });

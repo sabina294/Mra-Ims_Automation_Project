@@ -1417,24 +1417,28 @@
       "nameEn": "Board of Directors",
       "nameBn": "পরিচালনা বোর্ড",
       "selectStatus": "Inactive",
-      "statusSelect": "Active"
+      "statusSelect": "Active",
+      "search": "Board of Directors"
     },
     "gridDesignationFrom": {
       "nameEn": "Assistant Director",
       "nameBn": "সহকারী পরিচালক",
       "selectStatus": "Inactive",
-      "statusSelect": "Active"
+      "statusSelect": "Active",
+      "search": "Assistant Director"
     },
     "gridFeeConfigurationFrom": {
       "feeTypeNameEn": "Member Admission Fee",
       "selectStatus": "Inactive",
-      "statusSelect": "Active"
+      "statusSelect": "Active",
+      "search": "Member Admission Fee"
     },
     "gridAmountBasedLoanFrom": {
       "officeTypeId": "Branch Office",
       "roleName": "Branch Accountant",
       "selectStatus": "Inactive",
-      "statusSelect": "Active"
+      "statusSelect": "Active",
+      "search": "Branch Accountant"
     },
     "gridOfficeFrom": {
       "officeNameEn": "Dhaka Regional Office",
