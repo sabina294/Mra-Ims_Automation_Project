@@ -12,6 +12,9 @@ class MemberSamityTransfer {
   newSamityTransfer() {
     cy.fixture(this.test_data).then((data) => {
       var mstData = data.mfiAdmin.memberSamityTransferFrom;
+      cy.imsId("btn-reset").click();
+      cy.formController("search_text").type(mstData.memberNameEn);
+      cy.imsId("btn-search").first().click();
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-mis-table-action-transfer").click();
       cy.formController("new_samity_id")
