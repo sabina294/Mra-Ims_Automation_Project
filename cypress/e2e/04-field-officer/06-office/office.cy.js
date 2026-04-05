@@ -39,7 +39,7 @@ describe("06. Office Module Test Cases", function () {
     grid_office.viewGoBackButton();
   });
 
-  it("06.05. Verify that the office forms edit mode can be toggled on and off all fields should be disabled or return to view-only mode.", function () {
+  it("06.05. Verify that the office forms turn on edit mode can be toggled on and off all fields should be disabled or return to view-only mode.", function () {
     grid_office.turnOnEditMode();
   });
 
