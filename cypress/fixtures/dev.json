@@ -1441,10 +1441,11 @@
       "search": "Branch Accountant"
     },
     "gridOfficeFrom": {
-      "officeNameEn": "Dhaka Regional Office",
-      "officeType": "Regional Office",
+      "officeNameEn": "Nawabganj Area Office",
+      "officeType": "Area Office",
       "selectStatus": "Inactive",
-      "statusSelect": "Active"
+      "statusSelect": "Active",
+      "search": "Nawabganj Area Office"
     },
     "gridEmpMangFrom": {
       "empNameEn": "Sabina Yeasmin",

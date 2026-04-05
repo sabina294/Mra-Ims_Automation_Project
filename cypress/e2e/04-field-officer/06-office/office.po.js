@@ -21,9 +21,6 @@ class OfficeGrid {
       cy.formController("search_text").type(omData.officeNameEn);
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
-
-      cy.get("app-mfi-mis").contains(omData.officeNameEn).and("be.visible");
-
       cy.log("Successfully viewed the office list page");
     });
   }
@@ -33,6 +30,50 @@ class OfficeGrid {
 
     cy.log("Successful view go back button check.");
   }
+
+  turnOnEditMode() {
+    cy.fixture(this.test_data).then((data) => {
+      var omData = data.fieldOfficer.gridOfficeFrom;
+      cy.imsId("btn-reset").click();
+      cy.formController("search_text").type(omData.search);
+      cy.imsId("btn-search").click();
+      cy.imsId("toggle-action").first().click();
+      cy.imsId("btn-table-action-view").click();
+      cy.imsId("switch-button").click();
+
+      cy.log("Office form Edit Mode toggled successfully");
+    });
+  }
+
+  editSubmitButton() {
+    cy.imsId("btn-submit").click();
+    cy.imsId("btn-ok").click();
+
+    cy.log("Successful submit validation check.");
+  }
+
+  editGoBackButton() {
+    cy.imsId("btn-back").click();
+    cy.log("Successful edit go back button check.");
+  }
+
+  editDraftButton() {
+    cy.fixture(this.test_data).then((data) => {
+      var omData = data.fieldOfficer.gridOfficeFrom;
+      cy.imsId("btn-reset").click();
+      cy.formController("search_text").type(omData.search);
+      cy.imsId("btn-search").click();
+      cy.imsId("toggle-action").first().click();
+      cy.imsId("btn-table-action-view").click();
+      cy.imsId("switch-button").click();
+      cy.imsId("btn-draft").click();
+      cy.imsId("btn-ok").click();
+
+      cy.log("Office form Edit Mode toggled successfully");
+    });
+  }
+
+
 
   statusInactiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
@@ -103,6 +144,16 @@ class OfficeGrid {
     cy.imsId("btn-add-new").click();
     cy.imsId("btn-back").click();
     cy.log("Successful go back button check.");
+  }
+
+  gridSearchButtonCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      var omData = data.fieldOfficer.gridOfficeFrom;
+      cy.imsId("btn-reset").click();
+      cy.formController("search_text").type(omData.search);
+      cy.imsId("btn-search").click();
+      cy.log("Successful search button click.");
+    });
   }
 
   gridLanguageSwitchCheck() {

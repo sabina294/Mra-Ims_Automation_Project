@@ -37,16 +37,16 @@ class EmployeeManagement {
 
   turnOnEditMode() {
     cy.fixture(this.test_data).then((data) => {
-    var emData = data.fieldOfficer.gridEmpMangFrom;
-    cy.imsId("btn-reset").click();
-    cy.formController("search_text").type(emData.search);
-    cy.imsId("btn-search").click();
-    cy.imsId("toggle-action").first().click();
-    cy.imsId("btn-table-action-view").click();
-    cy.imsId("switch-button").click();
+      var emData = data.fieldOfficer.gridEmpMangFrom;
+      cy.imsId("btn-reset").click();
+      cy.formController("search_text").type(emData.search);
+      cy.imsId("btn-search").click();
+      cy.imsId("toggle-action").first().click();
+      cy.imsId("btn-table-action-view").click();
+      cy.imsId("switch-button").click();
 
-    cy.log("Employee Management form Edit Mode toggled successfully");
-     });  
+      cy.log("Employee Management form Edit Mode toggled successfully");
+    });
   }
 
   editResetButton() {
@@ -60,6 +60,13 @@ class EmployeeManagement {
     cy.imsId("btn-ok").click();
 
     cy.log("Successful submit validation check.");
+  }
+
+  editApproveButton() {
+    cy.imsId("btn-approve").click();
+    cy.imsId("btn-ok").click();
+
+    cy.log("Successful approve validation check.");
   }
 
   editDraftButton() {
@@ -150,6 +157,16 @@ class EmployeeManagement {
     cy.imsId("btn-draft").click();
     cy.imsId("btn-ok").click();
     cy.log("Successful draft button check.");
+  }
+
+  gridSearchButtonCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      var emData = data.fieldOfficer.gridEmpMangFrom;
+      cy.imsId("btn-reset").click();
+      cy.formController("search_text").type(emData.search);
+      cy.imsId("btn-search").click();
+      cy.log("Successful search button click.");
+    });
   }
 
   gridLanguageSwitchCheck() {

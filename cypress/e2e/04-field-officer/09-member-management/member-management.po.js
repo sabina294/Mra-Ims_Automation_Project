@@ -91,22 +91,10 @@ class MemberManagementCreation {
 
   }
 
-  editMemberManagement() {
-    cy.fixture(this.test_data).then((data) => {
-      var memData = data.fieldOfficer.createMemberFrom;
-      cy.imsId("btn-reset").click();
-      cy.formController("search_text").type(memData.search);
-      cy.imsId("btn-search").click();
-      cy.imsId("toggle-action").first().click();
-      cy.imsId("btn-mis-table-action-edit").click();
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-ok").click();
-      cy.log("Member Management updated successfully");
-    });
-  }
-
   editResetButton() {
     cy.fixture(this.test_data).then((data) => {
+      cy.imsId("toggle-action").first().click();
+      cy.imsId("btn-mis-table-action-edit").click();
       cy.imsId("btn-reset").click();
       cy.log("Successful clean displaying");
     });
@@ -118,11 +106,39 @@ class MemberManagementCreation {
 
     cy.log("Successful draft button validation check.");
   }
-  
+
+  editSubmitButton() {
+    cy.imsId("btn-submit").click();
+    cy.imsId("btn-ok").click();
+
+    cy.log("Successful submit button validation check.");
+  }
+
+  editApproveButton() {
+    cy.imsId("btn-approve").click();
+    cy.imsId("btn-ok").click();
+
+    cy.log("Successful approve button validation check.");
+  }
+
   editGoBackButton() {
+    cy.imsId("btn-go-back").click();
+    cy.log("Successful edit go back button check.");
+
+  }
+
+  editMemberManagement() {
     cy.fixture(this.test_data).then((data) => {
+      var memData = data.fieldOfficer.createMemberFrom;
+      cy.imsId("btn-reset").click();
+      cy.formController("search_text").type(memData.search);
+      cy.imsId("btn-search").click();
+      cy.imsId("toggle-action").first().click();
+      cy.imsId("btn-mis-table-action-edit").click();
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-ok").click();
       cy.imsId("btn-go-back").click();
-      cy.log("Successful edit go back button check.");
+      cy.log("Member Management updated successfully");
     });
   }
 
@@ -138,6 +154,7 @@ class MemberManagementCreation {
   statusActiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       var memData = data.fieldOfficer.createMemberFrom;
+      cy.imsId("btn-reset").click();
       cy.formController("status").type(memData.statusSelect).type("{enter}");
       cy.log("Member management status active dropdown check successfully");
     });
@@ -152,7 +169,6 @@ class MemberManagementCreation {
       cy.log("Successfully search in the Member management");
     });
   }
-
 
   createSubmitButtonCheck() {
     cy.imsId("btn-add-new").click();
@@ -215,6 +231,16 @@ class MemberManagementCreation {
   gridDraftButtonOff() {
     cy.imsId("btn-draft-on").click();
     cy.log("Draft button should be clickable and functional.");
+  }
+
+  gridSearchButtonCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      var memData = data.fieldOfficer.createMemberFrom;
+      cy.imsId("btn-reset").click();
+      cy.formController("search_text").type(memData.search);
+      cy.imsId("btn-search").click();
+      cy.log("Successful search button click.");
+    });
   }
 
   gridLanguageSwitchCheck() {
