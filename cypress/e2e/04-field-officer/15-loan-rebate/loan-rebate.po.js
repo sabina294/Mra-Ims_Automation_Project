@@ -76,7 +76,7 @@ class LoanRebate {
   searchInLoanRebateName() {
     cy.fixture(this.test_data).then((data) => {
       var lrData = data.fieldOfficer.createLoanRebateFrom;
-    //   cy.imsId("btn-reset").click();
+      //   cy.imsId("btn-reset").click();
       cy.formController("search_text").type(lrData.search);
       cy.log("Successfully search in the Loan rebate");
     });
@@ -92,6 +92,16 @@ class LoanRebate {
     cy.log(
       "successfully refresh page  displayed the grid list of the Loan rebate "
     );
+  }
+
+  gridSearchButtonCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      var lrData = data.fieldOfficer.createLoanRebateFrom;
+      cy.imsId("btn-reset").click();
+      cy.formController("search_text").type(lrData.samityNameEn);
+      cy.imsId("btn-search").click();
+      cy.log("Successful search button click.");
+    });
   }
 
   gridLanguageSwitchCheck() {

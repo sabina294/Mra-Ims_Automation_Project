@@ -13,6 +13,7 @@ class SpecialCollection {
             var scData = data.mfiAdmin.specialCollectionFrom;
             cy.imsId("btn-reset").click();
             cy.formController("search_text").type(scData.samity);
+            cy.imsId("btn-search").click();
             cy.log("Successfully search in the Special Collection");
         });
     }

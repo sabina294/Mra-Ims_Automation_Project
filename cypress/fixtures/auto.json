@@ -1546,6 +1546,7 @@
       "selectStatus": "Inactive",
       "statusSelect": "Active",
       "SelectOffice": "1019 (Amin Bazar)",
+      "memberNameEn": "Zahra Ahmed",
       "messageLoanAccountManagement": "Loan account has been updated"
     },
     "createLoanPenaltyForm": {
@@ -1558,6 +1559,7 @@
       "search": "Amira Rahman",
       "selectStatus": "Submitted",
       "statusSelect": "Approved",
+      "samityNameEn": "Salepur Mohila Samity",
       "messageSaveLoanRebate": "Loan rebate has been saved"
     },
     "createLoanRebateFrom": {
@@ -1570,6 +1572,7 @@
       "search": "Amira Rahman",
       "selectStatus": "Submitted",
       "statusSelect": "Approved",
+      "samityNameEn": "Belma Mohila Samity",
       "messageSaveLoanRebate": "Loan rebate has been saved"
     },
     "createLoanWaiverFrom": {
@@ -1581,6 +1584,7 @@
       "search": "Sohana Aktar Hashmi",
       "selectStatus": "Submitted",
       "statusSelect": "Approved",
+      "samityNameEn": "Belma Mohila Samity",
       "messageSaveLoanRebate": "Loan rebate has been saved"
     },
     "gridSavingsProduct": {

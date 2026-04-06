@@ -77,6 +77,17 @@ class HolidayCreation {
     );
   }
 
+
+  gridSearchButtonCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      var hData = data.fieldOfficer.createHoliday;
+      cy.imsId("btn-reset").click();
+      cy.formController("search_text").type(hData.search);
+      cy.imsId("btn-search").click();
+      cy.log("Successful search button click.");
+    });
+  }
+
   gridDraftButton() {
     cy.imsId("btn-draft-on").click();
     cy.log("Draft button should be clickable and functional.");
@@ -87,7 +98,7 @@ class HolidayCreation {
     cy.log("Draft button should be clickable and functional.");
   }
 
-   createSubmitButtonCheck() {
+  createSubmitButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId("btn-add-new").click();
       var hData = data.fieldOfficer.createHoliday;
@@ -111,7 +122,6 @@ class HolidayCreation {
 
   }
 
-  
   gridLanguageSwitchCheck() {
     cy.imsId("profile-menu").click();
     cy.imsId("btn-lang-bangla").click();

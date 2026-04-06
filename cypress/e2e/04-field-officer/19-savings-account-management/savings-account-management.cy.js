@@ -47,19 +47,23 @@ describe("19. Savings Account Management Module Test Cases", function () {
     create_savings_account_management.statusActiveDropdownCheck();
   });
 
-  it("19.07. Verify that the search results are displayed correctly when searching by savings account application management name.", function () {
+  it("19.07. Verify that the search results are displayed correctly when searching by Savings Account Management name.", function () {
     create_savings_account_management.searchSavingsAccManag();
   });
 
-  it("19.08. Verify the grid list resets successfully when the reset button is clicked on the savings account application management page.", function () {
+  it("19.08. Verify the grid list resets successfully when the reset button is clicked on the Savings Account Management page.", function () {
     create_savings_account_management.gridResetButtonCheck();
   });
 
-  it("19.09. Verify that the grid list is refreshed successfully when the refresh button is clicked on the savings account application management page.", function () {
+  it("19.09. Verify that the grid list is refreshed successfully when the refresh button is clicked on the Savings Account Management page.", function () {
     create_savings_account_management.gridRefreshButtonCheck();
   });
 
-  it("19.10. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("19.10. Verify that when the user clicks the Search button on the Savings Account Management grid page, the system redirects to the Savings Account Management List page..", function () {
+    create_savings_account_management.gridSearchButtonCheck();
+  });
+
+  it("19.11. Verify check that the grid list content changes correctly from english to bangla.", function () {
     create_savings_account_management.gridLanguageSwitchCheck();
   });
 });

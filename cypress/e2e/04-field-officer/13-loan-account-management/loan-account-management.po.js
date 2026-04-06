@@ -75,6 +75,16 @@ class LoanAccountManagement {
     );
   }
 
+  gridSearchButtonCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      var laData = data.fieldOfficer.loanAccountManagementFrom;
+      cy.imsId("btn-reset").click();
+      cy.formController("search_text").type(laData.memberNameEn);
+      cy.imsId("btn-search").click();
+      cy.log("Successful search button click.");
+    });
+  }
+
   gridLanguageSwitchCheck() {
     cy.imsId("profile-menu").click();
     cy.imsId("btn-lang-bangla").click();

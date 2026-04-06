@@ -59,7 +59,11 @@ describe("15. Loan Rebate Module Test Cases", function () {
     create_loan_rebate.gridRefreshButtonCheck();
   });
 
-  it("15.10. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("15.10. Verify that when the user clicks the Search button on the loan rebate grid page, the system redirects to the loan rebate List page..", function () {
+    create_loan_rebate.gridSearchButtonCheck();
+  });
+
+  it("15.11. Verify check that the grid list content changes correctly from english to bangla.", function () {
     create_loan_rebate.gridLanguageSwitchCheck();
   });
 });

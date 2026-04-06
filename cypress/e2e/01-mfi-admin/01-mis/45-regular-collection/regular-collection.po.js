@@ -13,6 +13,7 @@ class ReguralCollection {
             var rcData = data.mfiAdmin.regularCollectionFrom;
             cy.imsId("btn-reset").click();
             cy.formController("search_text").type(rcData.samity);
+            cy.imsId("btn-search").click();
             cy.log("Successfully search in the Regular Collection");
         });
     }

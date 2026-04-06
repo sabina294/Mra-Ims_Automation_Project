@@ -87,7 +87,11 @@ describe("12. Loan Account Proposal Management Module Test Cases", function () {
     create_loan_account_proposal_management.createGoBackButtonCheck();
   });
 
-  it("12.17. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("12.17. Verify that when the user clicks the Search button on the loan account proposal management grid page, the system redirects to the loan account proposal management List page..", function () {
+    create_loan_account_proposal_management.gridSearchButtonCheck();
+  });
+
+  it("12.18. Verify check that the grid list content changes correctly from english to bangla.", function () {
     create_loan_account_proposal_management.gridLanguageSwitchCheck();
   });
 });

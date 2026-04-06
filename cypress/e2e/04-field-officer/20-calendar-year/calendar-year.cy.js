@@ -59,7 +59,11 @@ describe("20. Calendar Year Module Test Cases", function () {
     grid_calendar_year.gridDraftButtonOff();
   });
 
-  it("20.10. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("20.10. Verify that when the user clicks the Search button on the Calendar Year grid page, the system redirects to the Calendar Year List page..", function () {
+    grid_calendar_year.gridSearchButtonCheck();
+  });
+
+  it("20.11. Verify check that the grid list content changes correctly from english to bangla.", function () {
     grid_calendar_year.gridLanguageSwitchCheck();
   });
 });

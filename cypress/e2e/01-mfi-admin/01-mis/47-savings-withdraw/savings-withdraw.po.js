@@ -38,6 +38,7 @@ class SavingsWithdraw {
             var swData = data.mfiAdmin.gridSavingsWithdraw;
             cy.imsId("btn-reset").click();
             cy.formController("search_text").type(swData.samity);
+            cy.imsId("btn-search").click();
             cy.log("Successfully search in the Savings Withdraw");
         });
     }
