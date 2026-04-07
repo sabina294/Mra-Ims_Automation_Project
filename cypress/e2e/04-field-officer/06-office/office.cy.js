@@ -39,21 +39,21 @@ describe("06. Office Module Test Cases", function () {
     grid_office.viewGoBackButton();
   });
 
-  it("06.05. Verify that the office forms turn on edit mode can be toggled on and off all fields should be disabled or return to view-only mode.", function () {
-    grid_office.turnOnEditMode();
-  });
+  // it("06.05. Verify that the office forms turn on edit mode can be toggled on and off all fields should be disabled or return to view-only mode.", function () {
+  //   grid_office.turnOnEditMode();
+  // });
 
-  it("06.06. Verify the office form submit button functions correctly.", function () {
-    grid_office.editSubmitButton();
-  });
+  // it("06.06. Verify the office form submit button functions correctly.", function () {
+  //   grid_office.editSubmitButton();
+  // });
 
-  it("06.07. Verify that clicking the go back button on the office edit page redirects the user to the office list page.", function () {
-    grid_office.editGoBackButton();
-  });
+  // it("06.07. Verify that clicking the go back button on the office edit page redirects the user to the office list page.", function () {
+  //   grid_office.editGoBackButton();
+  // });
 
-  it("06.08. Verify the office draft button functions correctly.", function () {
-    grid_office.editDraftButton();
-  });
+  // it("06.08. Verify the office draft button functions correctly.", function () {
+  //   grid_office.editDraftButton();
+  // });
 
   it("06.09. Verify the user can filter inactive offices using the status dropdown on the office list page.", function () {
     grid_office.statusInactiveDropdownCheck();

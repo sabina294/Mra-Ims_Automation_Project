@@ -103,6 +103,16 @@ class EmployeeTransfer {
         );
     }
 
+     gridSearchButtonCheck() {
+        cy.fixture(this.test_data).then((data) => {
+            var emtData = data.branchManager.gridEmpTransferFrom;
+            cy.imsId("btn-reset").click();
+            cy.formController("search_text").type(emtData.search);
+            cy.imsId("btn-search").click();
+            cy.log("Successful search button click.");
+        });
+    }
+
     gridDraftButton() {
         cy.imsId("btn-draft-on").click();
         cy.log("Draft button should be clickable and functional.");

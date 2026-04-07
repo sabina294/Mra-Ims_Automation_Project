@@ -74,7 +74,11 @@ describe("05. Zone Module Test Cases", function () {
     grid_zone.gridRefreshButtonCheck();
   });
 
-  it("05.14. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("05.14. Verify that when the user clicks the Search button on the zone grid page, the system redirects to the zone List page..", function () {
+    grid_zone.gridSearchButtonCheck();
+  });
+
+  it("05.15. Verify check that the grid list content changes correctly from english to bangla.", function () {
     grid_zone.gridLanguageSwitchCheck();
   });
 });

@@ -279,7 +279,7 @@ class BankAccountCreation {
       cy.imsId("btn-table-action-edit").click();
       cy.imsId("btn-submit").click();
       // cy.imsId("btn-yes").click();
-      cy.imsId("btn-ok").click();   
+      cy.imsId("btn-ok").click();
       cy.imsId("btn-go-back").click();
       cy.log("Bank Account updated successfully");
     });
@@ -377,6 +377,16 @@ class BankAccountCreation {
     cy.imsId("btn-add-new").click();
     cy.imsId("btn-go-back").click();
     cy.log("Successful go back button check.");
+  }
+
+  gridSearchButtonCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      var baData = data.branchManager.createBankAccountFrom;
+      cy.imsId("btn-reset").click();
+      cy.formController("search_text").type(baData.search);
+      cy.imsId("btn-search").click();
+      cy.log("Successful search button click.");
+    });
   }
 
   gridLanguageSwitchCheck() {

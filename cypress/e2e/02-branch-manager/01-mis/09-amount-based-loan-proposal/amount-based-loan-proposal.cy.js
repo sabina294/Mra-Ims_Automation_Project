@@ -75,7 +75,11 @@ describe("09. Amount based loan proposal approval Module Test Cases ", function 
     grid_amount_based_loan.gridRefreshButtonCheck();
   });
 
-  it("09.14. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("09.14. Verify that when the user clicks the Search button on the amount based loan grid page, the system redirects to the amount based loan List page..", function () {
+    grid_amount_based_loan.gridSearchButtonCheck();
+  });
+
+  it("09.15. Verify check that the grid list content changes correctly from english to bangla.", function () {
     grid_amount_based_loan.gridLanguageSwitchCheck();
   });
 });

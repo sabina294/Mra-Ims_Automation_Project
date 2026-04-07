@@ -67,15 +67,19 @@ describe("17. Employee Transfer Module Test Cases", function () {
         grid_employee_transfer.gridRefreshButtonCheck();
     });
 
-    it("17.12 Verify that Draft records are displayed when the Draft toggle is enabled.", function () {
+    it("17.12. Verify that when the user clicks the Search button on the Employee Transfer grid page, the system redirects to the Employee Transfer List page..", function () {
+        grid_employee_transfer.gridSearchButtonCheck();
+    });
+
+    it("17.13 Verify that Draft records are displayed when the Draft toggle is enabled.", function () {
         grid_employee_transfer.gridDraftButton();
     });
 
-    it("17.13 Verify that Draft records are hidden when the Draft toggle is disabled.", function () {
+    it("17.14 Verify that Draft records are hidden when the Draft toggle is disabled.", function () {
         grid_employee_transfer.gridDraftButtonOff();
     });
 
-    it("17.14 Verify that the grid list content updates correctly when switching the language from English to Bangla.", function () {
+    it("17.15 Verify that the grid list content updates correctly when switching the language from English to Bangla.", function () {
         grid_employee_transfer.gridLanguageSwitchCheck();
     });
 });

@@ -123,7 +123,11 @@ describe("07. Bank Account Module Test Cases", function () {
     create_bank_account.createGoBackButtonCheck();
   });
 
-  it("07.26. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("07.26. Verify that when the user clicks the Search button on the bank account grid page, the system redirects to the bank account List page..", function () {
+    create_bank_account.gridSearchButtonCheck();
+  });
+
+  it("07.27. Verify check that the grid list content changes correctly from english to bangla.", function () {
     create_bank_account.gridLanguageSwitchCheck();
   });
 });

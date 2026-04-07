@@ -226,33 +226,37 @@ class EmployeeManagementCreation {
       cy.imsId("btn-add-new").click();
       cy.formController("emp_name_en").type(emData.empNameEn);
       cy.imsId("btn-reset").click();
-      cy.imsId("btn-go-back").click();
       cy.log("Successful clean displaying.");
     });
   }
 
   createValidationMessageCheck() {
-    cy.imsId("btn-add-new").click();
     cy.imsId("btn-submit").click();
     cy.imsId("btn-ok").click();
-    cy.imsId("btn-go-back").click();
     cy.log("Successful validation message displaying.");
   }
 
+  createDraftButtonCheck() {
+    cy.imsId("btn-draft").click();
+    cy.imsId("btn-ok").click();
+    cy.log("Successful draft button check.");
+  }
+
   createGoBackButtonCheck() {
-    cy.imsId("btn-add-new").click();
     cy.imsId("btn-go-back").click();
     cy.log("Successful go back button check.");
   }
 
-  createDraftButtonCheck() {
-    cy.imsId("btn-add-new").click();
-    cy.imsId("btn-draft").click();
-    cy.imsId("btn-ok").click();
-    cy.imsId("btn-go-back").click();
-    cy.log("Successful draft button check.");
+   gridSearchButtonCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      var emData = data.branchManager.createEmpMangFrom;
+      cy.imsId("btn-reset").click();
+      cy.formController("search_text").type(emData.search);
+      cy.imsId("btn-search").click();
+      cy.log("Successful search button click.");
+    });
   }
-
+  
   gridLanguageSwitchCheck() {
     cy.imsId("profile-menu").click();
     cy.imsId("btn-lang-bangla").click();

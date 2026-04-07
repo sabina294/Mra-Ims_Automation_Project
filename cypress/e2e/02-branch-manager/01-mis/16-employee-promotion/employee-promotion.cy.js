@@ -79,15 +79,19 @@ describe("16. Employee Promotion Module Test Cases", function () {
         grid_employee_promotion.gridRefreshButtonCheck();
     });
 
-    it("16.15. Verify that the grid list displays draft employee promotion records when the Draft filter is enabled.", function () {
+    it("16.15. Verify that when the user clicks the Search button on the rejected employee  grid page, the system redirects to the rejected employee  List page..", function () {
+        grid_employee_promotion.gridSearchButtonCheck();
+    });
+
+    it("16.16. Verify that the grid list displays draft employee promotion records when the Draft filter is enabled.", function () {
         grid_employee_promotion.gridDraftButton();
     });
 
-    it("16.16. Verify that the grid list hides draft employee promotion records when the Draft filter is disabled.", function () {
+    it("16.17. Verify that the grid list hides draft employee promotion records when the Draft filter is disabled.", function () {
         grid_employee_promotion.gridDraftButtonOff();
     });
 
-    it("16.17. Verify that the grid content changes correctly when switching the language from English to Bangla.", function () {
+    it("16.18. Verify that the grid content changes correctly when switching the language from English to Bangla.", function () {
         grid_employee_promotion.gridLanguageSwitchCheck();
     });
 });

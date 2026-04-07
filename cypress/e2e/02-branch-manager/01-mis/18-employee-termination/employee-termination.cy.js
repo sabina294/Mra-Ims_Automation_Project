@@ -61,15 +61,19 @@ describe("18. Employee Termination Module Test Cases", function () {
         grid_employee_termination.gridRefreshButtonCheck();
     });
 
-    it("18.10 Verify that the grid list displays draft records when the Draft filter is enabled.", function () {
+    it("18.10. Verify that when the user clicks the Search button on the employee termination grid page, the system redirects to the employee termination List page..", function () {
+        grid_employee_termination.gridSearchButtonCheck();
+    });
+
+    it("18.11. Verify that the grid list displays draft records when the Draft filter is enabled.", function () {
         grid_employee_termination.gridDraftButton();
     });
 
-    it("18.11 Verify that the grid list hides draft records when the Draft filter is disabled.", function () {
+    it("18.12. Verify that the grid list hides draft records when the Draft filter is disabled.", function () {
         grid_employee_termination.gridDraftButtonOff();
     });
 
-    it("18.12 Verify that the grid list content changes correctly when switching the language from English to Bangla.", function () {
+    it("18.13. Verify that the grid list content changes correctly when switching the language from English to Bangla.", function () {
         grid_employee_termination.gridLanguageSwitchCheck();
     });
 

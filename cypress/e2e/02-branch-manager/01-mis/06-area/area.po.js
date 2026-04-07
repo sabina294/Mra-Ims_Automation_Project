@@ -91,6 +91,16 @@ class Area {
     cy.log("successfully refresh page  displayed the grid list of the area ");
   }
 
+  gridSearchButtonCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      var arData = data.branchManager.gridAreaFrom;
+      cy.imsId("btn-reset").click();
+      cy.formController("search_text").type(arData.search);
+      cy.imsId("btn-search").click();
+      cy.log("Successful search button click.");
+    });
+  }
+
   gridLanguageSwitchCheck() {
     cy.imsId("profile-menu").click();
     cy.imsId("btn-lang-bangla").click();

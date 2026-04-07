@@ -167,7 +167,11 @@ describe("19. Samity management Module Test Cases", function () {
     create_samity_management.createGoBackButtonCheck();
   });
 
-  it("19.37 Verify that the grid list content updates correctly when switching the language from English to Bangla.", function () {
+  it("19.37. Verify that when the user clicks the Search button on the Samity Management grid page, the system redirects to the Samity Management List page..", function () {
+    create_samity_management.gridSearchButtonCheck();
+  });
+
+  it("19.38 Verify that the grid list content updates correctly when switching the language from English to Bangla.", function () {
     create_samity_management.gridLanguageSwitchCheck();
   });
 });

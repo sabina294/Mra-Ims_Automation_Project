@@ -75,7 +75,11 @@ describe("10. Funding-organizations Module Test Cases ", function () {
     grid_funding_organization.gridRefreshButtonCheck();
   });
 
-  it("10.14. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("10.14. Verify that when the user clicks the Search button on the funding organization grid page, the system redirects to the funding organization List page..", function () {
+    grid_funding_organization.gridSearchButtonCheck();
+  });
+
+  it("10.15. Verify check that the grid list content changes correctly from english to bangla.", function () {
     grid_funding_organization.gridLanguageSwitchCheck();
   });
 });

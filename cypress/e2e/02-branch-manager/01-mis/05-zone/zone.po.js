@@ -92,6 +92,16 @@ class Zone {
     cy.log("successfully refresh page  displayed the grid list of the zone ");
   }
 
+  gridSearchButtonCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      var zoData = data.branchManager.gridZoneFrom;
+      cy.imsId("btn-reset").click();
+      cy.formController("search_text").type(zoData.search);
+      cy.imsId("btn-search").click();
+      cy.log("Successful search button click.");
+    });
+  }
+
   gridLanguageSwitchCheck() {
     cy.imsId("profile-menu").click();
     cy.imsId("btn-lang-bangla").click();

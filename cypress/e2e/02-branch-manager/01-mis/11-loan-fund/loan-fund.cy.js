@@ -75,7 +75,11 @@ describe("11. Loan Fund Module Test Cases", function () {
     grid_loan_fund.gridRefreshButtonCheck();
   });
 
-  it("11.14. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("11.14. Verify that when the user clicks the Search button on the loan fund grid page, the system redirects to the loan fund List page..", function () {
+    grid_loan_fund.gridSearchButtonCheck();
+  });
+
+  it("11.15. Verify check that the grid list content changes correctly from english to bangla.", function () {
     grid_loan_fund.gridLanguageSwitchCheck();
   });
 });

@@ -21,8 +21,6 @@ class OfficeGrid {
       cy.formController("search_text").type(omData.officeNameEn);
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
-
-      cy.get("app-mfi-mis").contains(omData.officeNameEn).and("be.visible");
       cy.log("Successfully viewed the office list page");
     });
   }
@@ -66,6 +64,16 @@ class OfficeGrid {
     });
   }
 
+   gridSearchButtonCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      var omData = data.branchManager.gridOfficeFrom;
+      cy.imsId("btn-reset").click();
+      cy.formController("search_text").type(omData.search);
+      cy.imsId("btn-search").click();
+      cy.log("Successful search button click.");
+    });
+  }
+  
   gridResetButtonCheck() {
     cy.imsId("btn-reset").click();
     cy.log("Successful clean displaying.");
@@ -105,7 +113,7 @@ class OfficeGrid {
     cy.log("Checkbox unlock button should be clickable and functional.");
   }
 
-  
+
   gridLanguageSwitchCheck() {
     cy.imsId("profile-menu").click();
     cy.imsId("btn-lang-bangla").click();

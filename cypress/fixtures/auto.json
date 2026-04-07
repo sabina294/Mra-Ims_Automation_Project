@@ -390,8 +390,8 @@
       "selectSamity": "1020-103 (Kuturia Mohila Samity)",
       "selectMember": "1-1001 (Jule Akter )",
       "selectLoanAccount": "AGRO-1020-103-1001-1",
-      "inputAmount": "5000",
       "selectPaymentMode": "Cash",
+      "inputAmount": "5000",
       "search": "Jule Akter",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
@@ -614,31 +614,36 @@
       "nameEn": "Board of Directors",
       "nameBn": "পরিচালনা বোর্ড",
       "selectStatus": "Inactive",
-      "statusSelect": "Active"
+      "statusSelect": "Active",
+      "search": "Test Department"
     },
     "gridDesignationFrom": {
       "nameEn": "Assistant Director",
       "nameBn": "সহকারী পরিচালক",
       "selectStatus": "Inactive",
-      "statusSelect": "Active"
+      "statusSelect": "Active",
+      "search": "Test Designation"
     },
     "gridRegionFrom": {
       "nameEn": "Dhaka",
       "nameBn": "ঢাকা",
       "selectStatus": "Inactive",
-      "statusSelect": "Active"
+      "statusSelect": "Active",
+      "search": "Test Region"
     },
     "gridZoneFrom": {
       "nameEn": "Magura",
       "nameBn": "মাগুরা",
       "selectStatus": "Inactive",
-      "statusSelect": "Active"
+      "statusSelect": "Active",
+      "search": "Test Zone"
     },
     "gridAreaFrom": {
       "nameEn": "Monirampur",
       "nameBn": "মনিরামপুর",
       "selectStatus": "Inactive",
-      "statusSelect": "Active"
+      "statusSelect": "Active",
+      "search": "Test Area"
     },
     "createBankAccountFrom": {
       "bankName": "AGRANI BANK LTD.",
@@ -657,27 +662,31 @@
     "gridFeeConfigurationFrom": {
       "feeTypeNameEn": "Member Admission Fee",
       "selectStatus": "Inactive",
-      "statusSelect": "Active"
+      "statusSelect": "Active",
+      "search": "Test Fee "
     },
     "gridAmountBasedLoanFrom": {
       "officeTypeId": "Branch Office",
       "roleName": "Branch Accountant",
       "selectStatus": "Inactive",
-      "statusSelect": "Active"
+      "statusSelect": "Active",
+      "search": "Branch Office"
     },
     "gridFundingOrganizationFrom": {
       "FundingNameEn": "PKSF",
       "idShortCode": "PKSF",
       "fundingOrgType": "Savings Account",
       "selectStatus": "Inactive",
-      "statusSelect": "Active"
+      "statusSelect": "Active",
+      "search": "Test"
     },
     "gridLoanFundFrom": {
       "bankAccount": "Dhaka Zonal Office",
       "fundingOrgId": "PKSF",
       "amount": "20000000.00",
       "selectStatus": "Inactive",
-      "statusSelect": "Active"
+      "statusSelect": "Active",
+      "search": "Dhaka Zonal Office"
     },
     "gridMfiProgramFrom": {
       "programNameEn": "Sahosh",
@@ -685,13 +694,15 @@
       "fundingCategory": "General Micro-Credit (GMC)",
       "loanFund": "PKSF-1001",
       "selectStatus": "Inactive",
-      "statusSelect": "Active"
+      "statusSelect": "Active",
+      "search": "Sahosh"
     },
     "gridOfficeFrom": {
       "officeNameEn": "Dhaka Regional Office",
       "officeType": "Regional Office",
       "selectStatus": "Inactive",
-      "statusSelect": "Active"
+      "statusSelect": "Active",
+      "search": "Dhaka Regional Office"
     },
     "createEmpMangFrom": {
       "empNameEn": "Sabina Yeasmin",
@@ -772,6 +783,7 @@
       "geoAreaType": "Rural",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
+      "search": "Chhagalnaiya Samity",  
       "messageSaveSamity": "Unauth samity has been saved",
       "messageUpdateSamity": "Samity has been updated"
     },
