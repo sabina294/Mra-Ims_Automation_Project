@@ -883,6 +883,9 @@
       "SelectOffice": "1020 (Ashulia)",
       "messagesamityTransfer": "Member samity transfer has been updated"
     },
+    "memberAttendanceFrom": {
+      "samity": "Binodpur Mohila Samity"
+    },
     "memberPassbookFrom": {
       "samity": "1020-101 (Ashulia Mohila Samity)",
       "member": "3-1003 (Jesiya Akter)",

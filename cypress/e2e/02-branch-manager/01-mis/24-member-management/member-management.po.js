@@ -217,8 +217,18 @@ class MemberManagementCreation {
     );
   }
 
+  gridSearchButtonCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      var memData = data.branchManager.createMemberFrom;
+      cy.imsId("btn-reset").click();
+      cy.formController("search_text").type(memData.memberNameEn);
+      cy.imsId("btn-search").click();
+      cy.log("Successful search button click.");
+    });
+  }
+
   gridCheckboxCheck() {
-    cy.imsId("row-checkbox-4").click();
+    cy.imsId("row-checkbox-2").click();
     // cy.imsId("btn-reset").click();
     cy.log("Checkbox should be clickable and functional.");
   }
@@ -229,7 +239,7 @@ class MemberManagementCreation {
   }
 
   gridCheckboxUnlockButtonCheck() {
-    // cy.imsId("row-checkbox-4").click();
+    // cy.imsId("row-checkbox-2").click();
     // cy.imsId("btn-unlock").click();
     // cy.log("Checkbox unlock button should be clickable and functional.");
   }

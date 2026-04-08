@@ -88,7 +88,11 @@ describe("26. Member Samity Transfer Module Test Cases", function () {
     member_samity_transfer.gridRefreshButtonCheck();
   });
 
-  it("26.17. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("26.17. Verify that when the user clicks the Search button on the Member Samity Transfer  grid page, the system redirects to the Member Samity Transfer List page.", function () {
+    member_samity_transfer.gridSearchButtonCheck();
+  });
+
+  it("26.18. Verify check that the grid list content changes correctly from english to bangla.", function () {
     member_samity_transfer.gridLanguageSwitchCheck();
   });
 });

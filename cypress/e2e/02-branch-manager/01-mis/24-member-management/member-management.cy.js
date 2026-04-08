@@ -94,31 +94,35 @@ describe("24. Member Management Module Test Cases", function () {
     create_member_management.gridResetButtonCheck();
   });
 
-  it("24.19. Verify a new member management record is created successfully when all required fields are filled with valid data", function () {
+  it("24.19. Verify that when the user clicks the Search button on the member management grid page, the system redirects to the member management List page.", function () {
+    create_member_management.gridSearchButtonCheck();
+  });
+
+  it("24.20. Verify a new member management record is created successfully when all required fields are filled with valid data", function () {
     create_member_management.gridRefreshButtonCheck();
   });
 
-  it("24.20. Verify that the checkbox functions correctly.", function () {
+  it("24.21. Verify that the checkbox functions correctly.", function () {
     create_member_management.gridCheckboxCheck();
   });
 
-  it("24.24. Verify that the checkbox lock button operates correctly when selected.", function () {
+  it("24.22. Verify that the checkbox lock button operates correctly when selected.", function () {
     create_member_management.gridCheckboxLockButtonCheck();
   });
 
-  it("24.22. Verify that the checkbox unlock button operates correctly when selected.", function () {
+  it("24.23. Verify that the checkbox unlock button operates correctly when selected.", function () {
     create_member_management.gridCheckboxUnlockButtonCheck();
   });
 
-  it("24.23. Verify display the grid list successfully when the Draft button on is clicked on the member management page", function () {
+  it("24.24. Verify display the grid list successfully when the Draft button on is clicked on the member management page", function () {
     create_member_management.gridDraftButton();
   });
 
-  it("24.24. Verify display the grid list successfully when the Draft button off is clicked on the member management page", function () {
+  it("24.25. Verify display the grid list successfully when the Draft button off is clicked on the member management page", function () {
     create_member_management.gridDraftButtonOff();
   });
 
-  it("24.25. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("24.26. Verify check that the grid list content changes correctly from english to bangla.", function () {
     create_member_management.gridLanguageSwitchCheck();
   });
 });

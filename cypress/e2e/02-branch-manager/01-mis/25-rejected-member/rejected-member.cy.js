@@ -70,7 +70,11 @@ describe("25. Rejected Member Module Test Cases", function () {
     create_rejected_member.gridRefreshButtonCheck();
   });
 
-  it("25.13. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("25.13. Verify that when the user clicks the Search button on the rejected member  grid page, the system redirects to the rejected member  List page.", function () {
+    create_rejected_member.gridSearchButtonCheck();
+  });
+
+  it("25.14. Verify check that the grid list content changes correctly from english to bangla.", function () {
     create_rejected_member.gridLanguageSwitchCheck();
   });
 });
