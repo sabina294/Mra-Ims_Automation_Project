@@ -108,13 +108,21 @@ class RejectedSamity {
     cy.log("Successful submit validation check.");
   }
 
+  editApproveButton() {
+    cy.imsId("btn-approve").click();
+    cy.imsId("btn-ok").click();
+
+    cy.log("Successful approve validation check.");
+  }
+
+
   editDraftButton() {
     cy.imsId("btn-draft").click();
     cy.imsId("btn-ok").click();
 
     cy.log("Successful draft button validation check.");
   }
-  
+
   editGoBackButton() {
     cy.imsId("btn-go-back").click();
     cy.log("Successful edit go back button check.");
@@ -139,6 +147,16 @@ class RejectedSamity {
     cy.log(
       "successfully refresh page  displayed the grid list of the rejected samity "
     );
+  }
+
+  gridSearchButtonCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      var rsData = data.branchManager.rejectedSamityFrom;
+      cy.imsId("btn-reset").click();
+      cy.formController("search_text").type(rsData.search);
+      cy.imsId("btn-search").click();
+      cy.log("Successful search button click.");
+    });
   }
 
   gridLanguageSwitchCheck() {

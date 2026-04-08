@@ -82,15 +82,19 @@ describe("22. Samity Day Change Module Test Cases", function () {
     samity_day_change.gridRefreshButtonCheck();
   });
 
-  it("22.16. Verify that the grid list displays Draft records when the Draft filter is enabled.", function () {
+  it("22.16. Verify that when the user clicks the Search button on the Samity Day Change grid page, the system redirects to the Samity Day Change List page.", function () {
+    samity_day_change.gridSearchButtonCheck();
+  });
+
+  it("22.17. Verify that the grid list displays Draft records when the Draft filter is enabled.", function () {
     samity_day_change.gridDraftButton();
   });
 
-  it("22.17. Verify that the grid list hides Draft records when the Draft filter is disabled.", function () {
+  it("22.18. Verify that the grid list hides Draft records when the Draft filter is disabled.", function () {
     samity_day_change.gridDraftButtonOff();
   });
 
-  it("22.18. Verify that the grid content updates correctly when switching the language from English to Bangla.", function () {
+  it("22.19. Verify that the grid content updates correctly when switching the language from English to Bangla.", function () {
     samity_day_change.gridLanguageSwitchCheck();
   });
 });

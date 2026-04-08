@@ -783,7 +783,7 @@
       "geoAreaType": "Rural",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
-      "search": "Chhagalnaiya Samity",  
+      "search": "Chhagalnaiya Samity",
       "messageSaveSamity": "Unauth samity has been saved",
       "messageUpdateSamity": "Samity has been updated"
     },
@@ -815,6 +815,7 @@
       "selectStatus": "Inactive",
       "statusSelect": "Active",
       "fieldOfficer": "EMP-0119 - JOYMOT ALI",
+      "search": "Kuturia Mohila Samity",
       "messageSamityChange": "Samity has been updated"
     },
     "samityDayChangeFrom": {
@@ -822,6 +823,7 @@
       "selectStatus": "Inactive",
       "statusSelect": "Active",
       "newSamityDay": "Tuesday",
+      "search": "Majhail Mohila Samity",
       "messageSamityDayChange": "Samity has been updated"
     },
     "samityCloseFrom": {

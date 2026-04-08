@@ -83,15 +83,19 @@ describe("21. Samity Field Officer Change Module Test Cases", function () {
     samity_field_officer_change.gridRefreshButtonCheck();
   });
 
-  it("21.16. Verify that the grid list displays draft records when the Draft filter is enabled.", function () {
+  it("21.16. Verify that when the user clicks the Search button on the Samity Field Officer Change grid page, the system redirects to the Samity Field Officer Change List page.", function () {
+    samity_field_officer_change.gridSearchButtonCheck();
+  });
+
+  it("21.17. Verify that the grid list displays draft records when the Draft filter is enabled.", function () {
     samity_field_officer_change.gridDraftButton();
   });
 
-  it("21.17. Verify that the grid list hides draft records when the Draft filter is disabled.", function () {
+  it("21.18. Verify that the grid list hides draft records when the Draft filter is disabled.", function () {
     samity_field_officer_change.gridDraftButtonOff();
   });
 
-  it("21.18. Verify that the grid content changes correctly when switching the language from English to Bangla.", function () {
+  it("21.19. Verify that the grid content changes correctly when switching the language from English to Bangla.", function () {
     samity_field_officer_change.gridLanguageSwitchCheck();
   });
 });

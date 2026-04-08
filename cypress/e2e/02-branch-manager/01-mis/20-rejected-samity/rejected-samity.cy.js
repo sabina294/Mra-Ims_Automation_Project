@@ -59,23 +59,31 @@ describe("20. Rejected Samity Module Test Cases", function () {
     create_rejected_samity.editSubmitButton();
   });
 
-  it("20.10. Verify that clicking the 'Go Back' button on the rejected samity edit page redirects the user to the rejected samity list page.", function () {
+  it("20.10. Verify that the approve button on the rejected samity edit page updates the record successfully.", function () {
+    create_rejected_samity.editApproveButton();
+  });
+
+  it("20.11. Verify that clicking the 'Go Back' button on the rejected samity edit page redirects the user to the rejected samity list page.", function () {
     create_rejected_samity.editGoBackButton();
   });
 
-  it("20.11. Verify that the correct search results are displayed when searching by rejected samity name.", function () {
+  it("20.12. Verify that the correct search results are displayed when searching by rejected samity name.", function () {
     create_rejected_samity.searchInRejectSamityName();
   });
 
-  it("20.12. Verify that the grid list resets successfully when the reset button is clicked.", function () {
+  it("20.13. Verify that the grid list resets successfully when the reset button is clicked.", function () {
     create_rejected_samity.gridResetButtonCheck();
   });
 
-  it("20.13. Verify that the grid list refreshes successfully when the refresh button is clicked.", function () {
+  it("20.14. Verify that the grid list refreshes successfully when the refresh button is clicked.", function () {
     create_rejected_samity.gridRefreshButtonCheck();
   });
 
-  it("20.14. Verify that the grid list content updates correctly when switching the language from English to Bangla.", function () {
+  it("20.15. Verify that when the user clicks the Search button on the Rejected Samity grid page, the system redirects to the Rejected Samity List page.", function () {
+    create_rejected_samity.gridSearchButtonCheck();
+  });
+
+  it("20.16. Verify that the grid list content updates correctly when switching the language from English to Bangla.", function () {
     create_rejected_samity.gridLanguageSwitchCheck();
   });
 });

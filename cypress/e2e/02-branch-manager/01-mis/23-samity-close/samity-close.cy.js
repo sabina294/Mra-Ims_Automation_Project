@@ -67,15 +67,19 @@ describe("23. Samity Close Module Test Cases", function () {
     Samity_close.gridRefreshButtonCheck();
   });
 
-  it("23.12 Verify that the grid list displays draft records when the Draft button is enabled.", function () {
+  it("23.12. Verify that when the user clicks the Search button on the Samity Close grid page, the system redirects to the Samity Close List page.", function () {
+    Samity_close.gridSearchButtonCheck();
+  });
+
+  it("23.13 Verify that the grid list displays draft records when the Draft button is enabled.", function () {
     Samity_close.gridDraftButton();
   });
 
-  it("23.13 Verify that the grid list hides draft records when the Draft button is disabled.", function () {
+  it("23.14 Verify that the grid list hides draft records when the Draft button is disabled.", function () {
     Samity_close.gridDraftButtonOff();
   });
 
-  it("23.14 Verify that the grid list content changes correctly when switching language from English to Bangla.", function () {
+  it("23.15 Verify that the grid list content changes correctly when switching language from English to Bangla.", function () {
     Samity_close.gridLanguageSwitchCheck();
   });
 });

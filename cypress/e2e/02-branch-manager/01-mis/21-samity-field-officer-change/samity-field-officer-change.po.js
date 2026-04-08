@@ -99,7 +99,6 @@ class SamityChange {
     cy.log("Successfully samity day change go back button check");
   }
 
-
   statusInactiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       var smData = data.branchManager.samityChangeFrom;
@@ -148,6 +147,16 @@ class SamityChange {
     cy.log(
       "successfully refresh page  displayed the grid list of the samity field officer change "
     );
+  }
+
+  gridSearchButtonCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      var smData = data.branchManager.samityChangeFrom;
+      cy.imsId("btn-reset").click();
+      cy.formController("search_text").type(smData.search);
+      cy.imsId("btn-search").click();
+      cy.log("Successful search button click.");
+    });
   }
 
   gridDraftButton() {

@@ -101,6 +101,16 @@ class SamityClose {
     );
   }
 
+   gridSearchButtonCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      var scData = data.branchManager.samityCloseFrom;
+      cy.imsId("btn-reset").click();
+      cy.formController("search_text").type(scData.search);
+      cy.imsId("btn-search").click();
+      cy.log("Successful search button click.");
+    });
+  }
+
   gridDraftButton() {
     cy.imsId("btn-draft-on").click();
     cy.log("Draft button should be clickable and functional.");

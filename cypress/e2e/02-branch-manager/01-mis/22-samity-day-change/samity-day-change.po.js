@@ -144,6 +144,16 @@ class SamityDayChange {
     );
   }
 
+    gridSearchButtonCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      var sdData = data.branchManager.samityDayChangeFrom;
+      cy.imsId("btn-reset").click();
+      cy.formController("search_text").type(sdData.search);
+      cy.imsId("btn-search").click();
+      cy.log("Successful search button click.");
+    });
+  }
+
   gridDraftButton() {
     cy.imsId("btn-draft-on").click();
     cy.log("Draft button should be clickable and functional.");
