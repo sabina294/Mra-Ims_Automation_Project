@@ -177,10 +177,21 @@ class LoanRebate {
     );
   }
 
+   gridSearchButtonCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      var lrData = data.branchManager.createLoanRebateFrom;
+      cy.imsId("btn-reset").click();
+      cy.formController("search_text").type(lrData.search);
+      cy.imsId("btn-search").click();
+      
+      cy.log("Successfully search button click.");
+    });
+  }
+
   gridLanguageSwitchCheck() {
     cy.imsId("profile-menu").click();
     cy.imsId("btn-lang-bangla").click();
-    cy.log("Unsccessful switch bangla language check.");
+    cy.log("Successful switch bangla language check.");
   }
 }
 

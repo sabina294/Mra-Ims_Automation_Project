@@ -174,10 +174,21 @@ class LoanPenalty {
     );
   }
 
+   gridSearchButtonCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      var lpData = data.branchManager.createLoanPenaltyFrom;
+      cy.imsId("btn-reset").click();
+      cy.formController("search_text").type(lpData.search);
+      cy.imsId("btn-search").click();
+      
+      cy.log("Successfully search button click.");
+    });
+  }
+
   gridLanguageSwitchCheck() {
     cy.imsId("profile-menu").click();
     cy.imsId("btn-lang-bangla").click();
-    cy.log("Unsuccessful switch bangla language check.");
+    cy.log("Successfull switch bangla language check.");
   }
 }
 

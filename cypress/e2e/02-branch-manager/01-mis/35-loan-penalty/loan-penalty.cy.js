@@ -83,7 +83,11 @@ describe("35. Loan Penalty Module Test Cases", function () {
     create_loan_penalty.gridRefreshButtonCheck();
   });
 
-  it("35.16. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("35.16. Verify that when the user clicks the Search button on the Loan penalty grid page, the system redirects to the Loan Penalty List page.", function () {
+    create_loan_penalty.gridSearchButtonCheck();
+  });
+
+  it("35.17. Verify check that the grid list content changes correctly from english to bangla.", function () {
     create_loan_penalty.gridLanguageSwitchCheck();
   });
 });

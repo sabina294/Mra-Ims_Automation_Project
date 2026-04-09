@@ -67,7 +67,11 @@ describe("33. Client Welfare Fund Module Test Cases", function () {
     create_client_welfare_fund.gridRefreshButtonCheck();
   });
 
-  it("33.12. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("33.12. Verify that when the user clicks the Search button on the Loan welfare fund grid page, the system redirects to the Loan welfare fund List page.", function () {
+    create_client_welfare_fund.gridSearchButtonCheck();
+  });
+
+  it("33.13. Verify check that the grid list content changes correctly from english to bangla.", function () {
     create_client_welfare_fund.gridLanguageSwitchCheck();
   });
 });

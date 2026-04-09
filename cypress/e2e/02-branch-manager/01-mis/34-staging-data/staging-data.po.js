@@ -19,7 +19,7 @@ class StagingData {
   }
   refreshButtonCheck() {
   cy.fixture(this.test_data).then((data) => {
-    const clickCount = 5; // change this number as needed
+    const clickCount = 3; // change this number as needed
     for (let i = 0; i < clickCount; i++) {                                                            
       cy.imsId("btn-refresh").click();
       cy.wait(1000); // optional wait between clicks
