@@ -63,19 +63,23 @@ describe("29. Loan Product Management Module Test Cases", function () {
     create_loan_product_management.statusActiveDropdownCheck();
   });
 
-  it("29.11.Verify Successful Reset of Grid List Using the Reset Button on Loan Product Management Page.", function () {
+  it("29.11. Verify that when the user clicks the Search button on the loan product management grid page, the system redirects to the loan product management List page.", function () {
+    create_loan_product_management.gridSearchButtonCheck();
+  });
+
+  it("29.12.Verify Successful Reset of Grid List Using the Reset Button on Loan Product Management Page.", function () {
     create_loan_product_management.gridResetButtonCheck();
   });
 
-  it("29.12. Verify Successful Refresh of Grid List Using the Refresh Button on Loan Product Management Page.", function () {
+  it("29.13. Verify Successful Refresh of Grid List Using the Refresh Button on Loan Product Management Page.", function () {
     create_loan_product_management.gridRefreshButtonCheck();
   });
 
-  it("29.13. Verify that the search results are displayed correctly when searching by loan product management name.", function () {
+  it("29.14. Verify that the search results are displayed correctly when searching by loan product management name.", function () {
     create_loan_product_management.searchInLoanProductName();
   });
 
-  it("29.14. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("29.15. Verify check that the grid list content changes correctly from english to bangla.", function () {
     create_loan_product_management.gridLanguageSwitchCheck();
   });
 });

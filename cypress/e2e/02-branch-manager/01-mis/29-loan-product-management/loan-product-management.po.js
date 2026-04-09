@@ -76,6 +76,16 @@ class LoanProductManagementCreation {
     });
   }
 
+  gridSearchButtonCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      var lpData = data.branchManager.loanProductFrom;
+      cy.imsId("btn-reset").click();
+      cy.formController("search_text").type(lpData.loanProductNameEn);
+      cy.imsId("btn-search").click();
+      cy.log("Successful search button click.");
+    });
+  }
+
   gridResetButtonCheck() {
     cy.imsId("btn-reset").click();
     cy.log("Successful clean displaying.");
@@ -100,7 +110,7 @@ class LoanProductManagementCreation {
   gridLanguageSwitchCheck() {
     cy.imsId("profile-menu").click();
     cy.imsId("btn-lang-bangla").click();
-    cy.log("Unsccessful switch bangla language check.");
+    cy.log("Successful switch bangla language check.");
   }
 }
 

@@ -27,13 +27,13 @@ describe("30. Loan Account Proposal Management Module Test Cases", function () {
     create_loan_account_proposal_management.gridLoanAccountProposalManagementListPage();
   });
 
-  // it("30.02. Verify successful creation of a Loan Account Proposal Management record by MFI-Admin role", function () {
-  //   create_loan_account_proposal_management.createLoanAccountProposalManagement();
-  // });
+  it("30.02. Verify successful creation of a Loan Account Proposal Management record by MFI-Admin role", function () {
+    create_loan_account_proposal_management.createLoanAccountProposalManagement();
+  });
 
-  // it("30.03. Verify successfully approve a loan account proposal management record after creation.", function () {
-  //   create_loan_account_proposal_management.approveLoanAccountProposal();
-  // });
+  it("30.03. Verify successfully approve a loan account proposal management record after creation.", function () {
+    create_loan_account_proposal_management.approveLoanAccountProposal();
+  });
 
   it("30.04. Verify successfully performs the action when the action button is clicked.", function () {
     create_loan_account_proposal_management.actionButtonCheck();
@@ -67,16 +67,16 @@ describe("30. Loan Account Proposal Management Module Test Cases", function () {
     create_loan_account_proposal_management.gridRefreshButtonCheck();
   });
 
-  // it("30.12. Verify successful draft of a Loan Account Proposal Management record by MFI-Admin role", function () {
+   it("30.12. Verify display the grid list successfully when the Draft button on is clicked on the loan account proposal management page", function () {
+    create_loan_account_proposal_management.gridDraftButton();
+  });
+
+  it("30.13. Verify display the grid list successfully when the Draft button off is clicked on the loan account proposal management page", function () {
+    create_loan_account_proposal_management.gridDraftButtonOff();
+  });
+
+  // it("30.14. Verify successful draft of a Loan Account Proposal Management record by MFI-Admin role", function () {
   //   create_loan_account_proposal_management.draftLoanAccountProposalManagement();
-  // });
-
-  // it("30.13. Verify display the grid list successfully when the Draft button on is clicked on the loan account proposal management page", function () {
-  //   create_loan_account_proposal_management.gridDraftButton();
-  // });
-
-  // it("30.14. Verify display the grid list successfully when the Draft button off is clicked on the loan account proposal management page", function () {
-  //   create_loan_account_proposal_management.gridDraftButtonOff();
   // });
 
   // it("30.15. Verify display the grid list successfully when the Draft action button on is clicked on the loan account proposal management page", function () {
@@ -127,7 +127,11 @@ describe("30. Loan Account Proposal Management Module Test Cases", function () {
     create_loan_account_proposal_management.createGoBackButtonCheck();
   });
 
-  it("30.27. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("30.27. Verify that when the user clicks the Search button on the loan account proposal management grid page, the system redirects to the loan account proposal management List page.", function () {
+    create_loan_account_proposal_management.gridSearchButtonCheck();
+  });
+
+  it("30.28. Verify check that the grid list content changes correctly from english to bangla.", function () {
     create_loan_account_proposal_management.gridLanguageSwitchCheck();
   });
 });

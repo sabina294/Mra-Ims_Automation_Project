@@ -32,7 +32,7 @@ class LoanAccountProposalManagementCreation {
         .type(lapData.loanProduct)
         .type("{enter}");
       cy.formController("applied_loan_amount").type(lapData.appliedLoanAmount);
-      cy.wait(2000);
+      cy.wait(5000);
 
       cy.formController("expected_disburse_dt").click();
       cy.contains("13").click({ force: true });
@@ -50,6 +50,7 @@ class LoanAccountProposalManagementCreation {
       cy.imsId("menu-my-task").click();
       cy.imsId("submenu-awaiting-loan-account-proposal").click();
       cy.formController("search_text").type(lapData.searchMember);
+      cy.imsId("btn-search").click();
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
       cy.imsId("btn-approve").click();
@@ -66,7 +67,7 @@ class LoanAccountProposalManagementCreation {
   }
 
   actionButtonCheck() {
-    // cy.selectMenu("menu-loan-account", "submenu-loan-account-proposal-management");
+    cy.selectMenu("menu-loan-account", "submenu-loan-account-proposal-management");
     cy.imsId("toggle-action").first().click();
     cy.log(
       "Action button clicked successfully on the loan account proposal management list page."
@@ -233,7 +234,6 @@ class LoanAccountProposalManagementCreation {
     cy.log("Successfully clicked 'Remove Guarantor' button.");
   }
 
-
   createResetButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId("btn-reset").click();
@@ -258,10 +258,20 @@ class LoanAccountProposalManagementCreation {
     cy.log("Successful go back button check.");
   }
 
+    gridSearchButtonCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      var lapData = data.branchManager.createLoanAccountFrom;
+      cy.imsId("btn-reset").click();
+      cy.formController("search_text").type(lapData.searchMember);
+      cy.imsId("btn-search").click();
+      cy.log("Successful search button click.");
+    });
+  }
+
   gridLanguageSwitchCheck() {
     cy.imsId("profile-menu").click();
     cy.imsId("btn-lang-bangla").click();
-    cy.log("Unsccessful switch bangla language check.");
+    cy.log("Successful switch bangla language check.");
   }
 }
 
