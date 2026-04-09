@@ -27,7 +27,7 @@ describe("37. Loan waiver Module Test Cases", function () {
     create_loan_waiver.gridLoanWaiverListPage();
   });
 
-   it("37.02. Verify that clicking the add icon  button on the loan waiver create page redirects the user to the loan waiver list page.", function () {
+  it("37.02. Verify that clicking the add icon  button on the loan waiver create page redirects the user to the loan waiver list page.", function () {
     create_loan_waiver.createAddIconButtonCheck();
   });
 
@@ -47,7 +47,7 @@ describe("37. Loan waiver Module Test Cases", function () {
     create_loan_waiver.createDraftButtonCheck();
   });
 
-   it("37.07. Verify that clicking the go back button on the loan waiver create page redirects the user to the loan waiver list page.", function () {
+  it("37.07. Verify that clicking the go back button on the loan waiver create page redirects the user to the loan waiver list page.", function () {
     create_loan_waiver.createGoBackButtonCheck();
   });
 
@@ -87,7 +87,11 @@ describe("37. Loan waiver Module Test Cases", function () {
     create_loan_waiver.gridRefreshButtonCheck();
   });
 
-  it("37.16. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("37.16. Verify that when the user clicks the Search button on the Loan waiver grid page, the system redirects to the Loan waiver List page.", function () {
+    create_loan_waiver.gridSearchButtonCheck();
+  });
+
+  it("37.17. Verify check that the grid list content changes correctly from english to bangla.", function () {
     create_loan_waiver.gridLanguageSwitchCheck();
   });
 });

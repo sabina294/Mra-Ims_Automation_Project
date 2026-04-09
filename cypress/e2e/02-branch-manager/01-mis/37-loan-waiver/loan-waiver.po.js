@@ -38,8 +38,8 @@ class LoanWaiver {
     //     .type(lwData.selectLoanAccount)
     //     .type("{enter}");
     //   cy.wait(2000);
-      cy.imsId("btn-reset").click();
-      cy.log("Successfully Loan waiver reset button.");
+    cy.imsId("btn-reset").click();
+    cy.log("Successfully Loan waiver reset button.");
     // });
   }
 
@@ -154,6 +154,17 @@ class LoanWaiver {
     cy.log(
       "successfully refresh page  displayed the grid list of the Loan waiver "
     );
+  }
+
+  gridSearchButtonCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      var lwData = data.branchManager.createLoanWaiverFrom;
+      cy.imsId("btn-reset").click();
+      cy.formController("search_text").type(lwData.search);
+      cy.imsId("btn-search").click();
+
+      cy.log("Successfully search button click.");
+    });
   }
 
   gridLanguageSwitchCheck() {
