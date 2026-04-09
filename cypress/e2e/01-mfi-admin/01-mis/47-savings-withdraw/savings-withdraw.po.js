@@ -70,12 +70,12 @@ class SavingsWithdraw {
     }
 
     gridHistoryOnButton() {
-        cy.imsId("btn-draft-on").click();
+        cy.imsId("btn-history-on").click();
         cy.log("History button should be clickable and functional.");
     }
 
     gridHistoryButtonOff() {
-    cy.imsId("btn-draft-on").click();
+    cy.imsId("btn-history-on").click();
         cy.log("History button should be clickable and functional.");
     }
 

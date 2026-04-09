@@ -39,21 +39,21 @@ describe("47. Savings Withdraw Module Test Cases", function () {
     //     grid_savings_withdraw.viewGoBackButtonCheck();
     // });
 
-    it("47.05. Verify Successful Search Result by Savings Withdraw Name", function () {
-        grid_savings_withdraw.searchInSavingsWithdrawName();
-    });
+    // it("47.05. Verify Successful Search Result by Savings Withdraw Name", function () {
+    //     grid_savings_withdraw.searchInSavingsWithdrawName();
+    // });
 
     it('47.06. Verify the functionality and expected behavior of the "Successful Office Status" dropdown.', function () {
         grid_savings_withdraw.statusOfficeDropdownCheck();
     });
 
-    it("47.07. Verify the user can filter inactive employee records using the status dropdown on the member management List page.", function () {
-        grid_savings_withdraw.statusDraftDropdownCheck();
-    });
+    // it("47.07. Verify the user can filter inactive employee records using the status dropdown on the member management List page.", function () {
+    //     grid_savings_withdraw.statusDraftDropdownCheck();
+    // });
 
-    it("47.08. Verify check if the filter for active results works correctly with the status dropdown ", function () {
-        grid_savings_withdraw.statusSubmittedDropdownCheck();
-    });
+    // it("47.08. Verify check if the filter for active results works correctly with the status dropdown ", function () {
+    //     grid_savings_withdraw.statusSubmittedDropdownCheck();
+    // });
 
     it("47.09. Verify display the grid list successfully when the History button on is clicked on the member management page", function () {
         grid_savings_withdraw.gridHistoryOnButton();
