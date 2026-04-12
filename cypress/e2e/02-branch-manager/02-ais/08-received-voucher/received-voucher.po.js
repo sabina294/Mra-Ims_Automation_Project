@@ -107,6 +107,17 @@ class ReceivedVoucherCreation {
         cy.log("Grid refreshed successfully on received voucher list page");
     }
 
+    gridSearchButtonCheck() {
+        cy.fixture(this.test_data).then((data) => {
+            var rvData = data.branchManager.receivedVoucher;
+            cy.imsId("btn-reset").click();
+            cy.formController("search_text").type(rvData.voucherNameBn);
+            cy.imsId("btn-search").click();
+
+            cy.log("Successfully search button click.");
+        });
+    }
+
     gridDraftButton() {
         cy.imsId("btn-draft-on").click();
         cy.log("Draft button should be clickable and functional.");

@@ -45,7 +45,18 @@ class AutoVoucher {
             "successfully refresh page  displayed the grid list of the auto voucher "
         );
     }
-    
+
+    gridSearchButtonCheck() {
+        cy.fixture(this.test_data).then((data) => {
+            var avData = data.branchManager.autoVoucherFrom;
+            cy.imsId("btn-reset").click();
+            cy.formController("search_text").type(avData.search);
+            cy.imsId("btn-search").click();
+
+            cy.log("Successfully search button click.");
+        });
+    }
+
     gridLanguageSwitchCheck() {
         cy.imsId("profile-menu").click();
         cy.imsId("btn-lang-bangla").click();

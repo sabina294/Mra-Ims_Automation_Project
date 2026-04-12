@@ -53,6 +53,18 @@ class CalendarYear {
     );
   }
 
+   gridSearchButtonCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      var cyData = data.branchManager.gridCalendarYear;
+      cy.imsId("btn-reset").click();
+      cy.formController("search_text").type(cyData.search);
+      cy.imsId("btn-search").click();
+
+      cy.log("Successfully search button click.");
+    });
+  }
+
+
   gridDraftButton() {
     cy.imsId("btn-draft-on").click();
     cy.log("Draft button should be clickable and functional.");

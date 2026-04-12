@@ -92,6 +92,17 @@ class ManualJournalCreation {
         );
     }
 
+    gridSearchButtonCheck() {
+        cy.fixture(this.test_data).then((data) => {
+            var mjData = data.branchManager.manualJournal;
+            cy.imsId("btn-reset").click();
+            cy.formController("search_text").type(mjData.nameEn);
+            cy.imsId("btn-search").click();
+
+            cy.log("Successfully search button click.");
+        });
+    }
+
     createResetButtonCheck() {
         cy.imsId("btn-add-new").click();
         cy.imsId("btn-reset").click();

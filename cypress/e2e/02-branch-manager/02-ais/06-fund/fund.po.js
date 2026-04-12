@@ -86,6 +86,16 @@ class FundTransferCreation {
         );
     }
 
+    gridSearchButtonCheck() {
+        cy.fixture(this.test_data).then((data) => {
+            var ftData = data.branchManager.fund;
+            cy.imsId("btn-reset").click();
+            cy.formController("search_text").type(ftData.search);
+            cy.imsId("btn-search").click();
+
+            cy.log("Successfully search button click.");
+        });
+    }
 
     createResetButtonCheck() {
         cy.imsId("btn-add-new").click();

@@ -76,6 +76,17 @@ class FinancialPeriodManagementCreation {
         );
     }
 
+    gridSearchButtonCheck() {
+        cy.fixture(this.test_data).then((data) => {
+            var fpmData = data.branchManager.financialPeriodManagement;
+            cy.imsId("btn-reset").click();
+            cy.formController("search_text").type(fpmData.nameEn);
+            cy.imsId("btn-search").click();
+
+            cy.log("Successfully search button click.");
+        });
+    }
+
     gridDraftButton() {
         cy.imsId("btn-draft-on").click();
         cy.log("Draft button should be clickable and functional.");

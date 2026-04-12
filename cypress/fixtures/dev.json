@@ -1132,7 +1132,8 @@
     "autoVoucherFrom": {
       "preparedBy": "tem-1020-bm",
       "selectStatus": "Inactive",
-      "statusSelect": "Active"
+      "statusSelect": "Active",
+      "search": "Payment Voucher"
     }
   },
   "mraAdmin": {

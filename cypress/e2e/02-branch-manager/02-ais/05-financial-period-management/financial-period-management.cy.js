@@ -69,7 +69,11 @@ describe("05 Financial Financial Period Management Module Test Cases", function 
         grid_financial_period_management.gridRefreshButtonCheck();
     });
 
-    it("05.12. Verify display the grid list successfully when the Draft button on is clicked on the financial period management page", function () {
+    it("05.12. Verify that when the user clicks the Search button on the financial period management grid page, the system redirects to the financial period management List page.", function () {
+        grid_financial_period_management.gridSearchButtonCheck();
+    });
+
+    it("05.13. Verify display the grid list successfully when the Draft button on is clicked on the financial period management page", function () {
         grid_financial_period_management.gridDraftButton();
     });
 

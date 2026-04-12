@@ -63,15 +63,19 @@ describe("44. holiday Module Test Cases", function () {
     create_holiday.gridRefreshButtonCheck();
   });
 
-  it("44.11. Verify display the grid list successfully when the Draft button on is clicked on the holiday page", function () {
+  it("44.11. Verify that when the user clicks the Search button on the holiday grid page, the system redirects to the holiday List page.", function () {
+    create_holiday.gridSearchButtonCheck();
+  });
+
+  it("44.12. Verify display the grid list successfully when the Draft button on is clicked on the holiday page", function () {
     create_holiday.gridDraftButton();
   });
 
-  it("44.12. Verify display the grid list successfully when the Draft button off is clicked on the holiday page", function () {
+  it("44.13. Verify display the grid list successfully when the Draft button off is clicked on the holiday page", function () {
     create_holiday.gridDraftButtonOff();
   });
 
-  it("44.13. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("44.14. Verify check that the grid list content changes correctly from english to bangla.", function () {
     create_holiday.gridLanguageSwitchCheck();
   });
 });
