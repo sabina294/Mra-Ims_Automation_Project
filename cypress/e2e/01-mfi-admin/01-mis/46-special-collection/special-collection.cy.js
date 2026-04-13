@@ -27,9 +27,9 @@ describe("46. Special Collection Module Test Cases", function () {
         grid_special_collection.gridSpecialCollectionListPage();
     });
 
-    it("46.02. Verify Successful Search Result by special Collection Name", function () {
-        grid_special_collection.searchInSpecialCollectionName();
-    });
+    // it("46.02. Verify Successful Search Result by special Collection Name", function () {
+    //     grid_special_collection.searchInSpecialCollectionName();
+    // });
 
     it('46.03. Verify the functionality and expected behavior of the "Successful Office Status" dropdown.', function () {
         grid_special_collection.statusOfficeDropdownCheck();

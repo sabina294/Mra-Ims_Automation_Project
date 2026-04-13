@@ -20,6 +20,7 @@ class CalendarYear {
       var cyData = data.branchManager.gridCalendarYear;
 
       cy.formController("search_text").type(cyData.search);
+      cy.imsId("btn-search").click();
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
       cy.log("Successfully viewed the Calendar Year list page");

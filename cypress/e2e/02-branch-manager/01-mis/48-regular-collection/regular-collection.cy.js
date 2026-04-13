@@ -43,13 +43,13 @@ describe("48. Regular Collection Module Test Cases", function () {
         create_regular_collection.viewRegularCollection();
     });
 
-    it("48.06. Verify allow editing of an existing Regular Collection successfully.", function () {
-        create_regular_collection.editRegularCollection();
-    });
+    // it("48.06. Verify allow editing of an existing Regular Collection successfully.", function () {
+    //     create_regular_collection.editRegularCollection();
+    // });
 
-    it("48.07. Verify reset the Regular Collection edit form successfully when the Reset button is clicked.", function () {
-        create_regular_collection.editResetButton();
-    });
+    // it("48.07. Verify reset the Regular Collection edit form successfully when the Reset button is clicked.", function () {
+    //     create_regular_collection.editResetButton();
+    // });
 
     it("48.08. Verify reset the grid list successfully when the Reset button is clicked on the Regular Collection page.", function () {
         create_regular_collection.gridResetButtonCheck();

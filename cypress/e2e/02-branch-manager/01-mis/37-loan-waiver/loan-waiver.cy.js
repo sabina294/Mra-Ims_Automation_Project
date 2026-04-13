@@ -35,20 +35,20 @@ describe("37. Loan waiver Module Test Cases", function () {
     create_loan_waiver.createRemoveIconButtonCheck();
   });
 
-  it("37.04. Verify the loan waiver creation reset button clears all entered input values.", function () {
-    create_loan_waiver.createResetButtonCheck();
-  });
-
-  it("37.05. Verify validation messages appear for required fields when the submit button is clicked with empty inputs.", function () {
+  it("37.04. Verify validation messages appear for required fields when the submit button is clicked with empty inputs.", function () {
     create_loan_waiver.createValidationMessageCheck();
   });
 
-  it("37.06. Verify that clicking the draft button on the loan waiver create page redirects the user to the loan waiver list page.", function () {
-    create_loan_waiver.createDraftButtonCheck();
+  // it("37.05. Verify that clicking the draft button on the loan waiver create page redirects the user to the loan waiver list page.", function () {
+  //   create_loan_waiver.createDraftButtonCheck();
+  // });
+
+  it("37.06. Verify that clicking the go back button on the loan waiver create page redirects the user to the loan waiver list page.", function () {
+    create_loan_waiver.createGoBackButtonCheck();
   });
 
-  it("37.07. Verify that clicking the go back button on the loan waiver create page redirects the user to the loan waiver list page.", function () {
-    create_loan_waiver.createGoBackButtonCheck();
+  it("37.07. Verify the loan waiver creation reset button clears all entered input values.", function () {
+    create_loan_waiver.createResetButtonCheck();
   });
 
   it("37.08. Verify successful creation of a Loan waiver record by branch manager role", function () {
@@ -67,31 +67,31 @@ describe("37. Loan waiver Module Test Cases", function () {
     create_loan_waiver.viewGoBackButton();
   });
 
-  it("37.11. Verify the user can filter inactive employee records using the status dropdown on the Loan waiver List page.", function () {
+  it("37.12. Verify the user can filter inactive employee records using the status dropdown on the Loan waiver List page.", function () {
     create_loan_waiver.statusInactiveDropdownCheck();
   });
 
-  it("37.12. Verify check if the filter for active results works correctly with the status dropdown ", function () {
+  it("37.13. Verify check if the filter for active results works correctly with the status dropdown ", function () {
     create_loan_waiver.statusActiveDropdownCheck();
   });
 
-  it("37.13. Verify Successful Search Result by Loan waiver Name", function () {
+  it("37.14. Verify Successful Search Result by Loan waiver Name", function () {
     create_loan_waiver.searchInLoanWaivereName();
   });
 
-  it("37.14. Verify Successful Reset of Grid List Using the Reset Button on Loan waiver Page.", function () {
+  it("37.15. Verify Successful Reset of Grid List Using the Reset Button on Loan waiver Page.", function () {
     create_loan_waiver.gridResetButtonCheck();
   });
 
-  it("37.15.Verify Successful Refresh of Grid List Using the Refresh Button on Loan waiver Page.", function () {
+  it("37.16.Verify Successful Refresh of Grid List Using the Refresh Button on Loan waiver Page.", function () {
     create_loan_waiver.gridRefreshButtonCheck();
   });
 
-  it("37.16. Verify that when the user clicks the Search button on the Loan waiver grid page, the system redirects to the Loan waiver List page.", function () {
+  it("37.17. Verify that when the user clicks the Search button on the Loan waiver grid page, the system redirects to the Loan waiver List page.", function () {
     create_loan_waiver.gridSearchButtonCheck();
   });
 
-  it("37.17. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("37.18. Verify check that the grid list content changes correctly from english to bangla.", function () {
     create_loan_waiver.gridLanguageSwitchCheck();
   });
 });

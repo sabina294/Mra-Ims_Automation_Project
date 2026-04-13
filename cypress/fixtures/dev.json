@@ -499,6 +499,7 @@
     "gridDayEndProcess": {},
     "gridDayForward": {},
     "gridMonthEndProcess": {},
+
     "regularCollectionFrom": {
       "office": "1020 (Ashulia)",
       "samity": "1020-101 (Ashulia Mohila Samity)"
@@ -1049,8 +1050,8 @@
     },
     "savingsWithdraw": {
       "selectSamity": "1020-101 (Ashulia Mohila Samity)",
-      "selectMember": "1002 (Dulali Akter)",
-      "selectAccount": "GS-1020-112-1002-1",
+      "selectMember": "1-1001 (Fariya)",
+      "selectAccount": "GS-1020-101-1001-1",
       "inputAmount": "100"
     },
     "chartOfAccounts": {

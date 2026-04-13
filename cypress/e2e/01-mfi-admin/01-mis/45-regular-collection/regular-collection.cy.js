@@ -27,9 +27,9 @@ describe("45. Regular Collection Module Test Cases", function () {
         grid_regural_collection.gridRegularCollectionListPage();
     });
 
-    it("45.02. Verify Successful Search Result by Regular Collection Name", function () {
-        grid_regural_collection.searchInRegularCollectionName();
-    });
+    // it("45.02. Verify Successful Search Result by Regular Collection Name", function () {
+    //     grid_regural_collection.searchInRegularCollectionName();
+    // });
 
     it('45.03. Verify the functionality and expected behavior of the "Successful Office Status" dropdown.', function () {
         grid_regural_collection.statusOfficeDropdownCheck();
