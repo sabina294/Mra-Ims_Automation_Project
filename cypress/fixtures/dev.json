@@ -18,6 +18,7 @@
       "status": "Active",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
+      "search": "Test Departments",
       "messageSaveDepartment": "Mfi employee department has been saved",
       "messageUpdateDepartment": "Mfi employee department has been updated"
     },
@@ -28,6 +29,7 @@
       "status": "Active",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
+      "search": "Test Designations",
       "messageSaveDesignation": "Mfi employee designation has been saved",
       "messageUpdateDesignation": "Mfi employee designation has been updated"
     },
@@ -38,6 +40,7 @@
       "status": "Active",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
+      "search": "Test Region",
       "messageSaveRegion": "Region has been saved",
       "messageUpdateRegion": "Region has been updated"
     },
@@ -49,6 +52,7 @@
       "status": "Active",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
+      "search": "Test Zone",
       "messageSaveZone": "Zone has been saved",
       "messageUpdateZone": "Zone has been updated"
     },
@@ -60,6 +64,7 @@
       "status": "Active",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
+      "search": "Test Area",
       "messageSaveArea": "Area has been saved",
       "messageUpdateArea": "Area has been updated"
     },
@@ -85,6 +90,7 @@
       "status": "Active",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
+      "search": "Test Fee",
       "messageSaveFeeConfig": "Mfi fee configuration has been saved",
       "messageUpdateFeeConfig": "Mfi fee configuration has been updated"
     },
@@ -96,6 +102,7 @@
       "status": "Active",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
+      "search": "Branch Manager",
       "messageSaveAmountBasedLoan": "MFI role wise loan amount approval has been saved",
       "messageUpdateAmountBasedLoan": "MFI role wise loan amount approval has been saved"
     },
@@ -106,6 +113,7 @@
       "status": "Active",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
+      "search": "Test",
       "messageSaveFundingOrganization": "Mfi funding organization has been saved",
       "messageUpdateFundingOrganization": "Mfi funding organization has been updated"
     },
@@ -116,6 +124,7 @@
       "status": "Active",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
+      "search": "Dhaka Zonal Office",
       "messageSaveLoanFund": "Mfi loan fund has been saved",
       "messageUpdateLoanFund": "Mfi loan fund has been updated"
     },
@@ -127,6 +136,7 @@
       "status": "Active",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
+      "search": "Sahosh",
       "messageSaveMfiProgram": "Mfi program has been saved",
       "messageUpdateMfiProgram": "Mfi program has been updated"
     },
@@ -499,7 +509,6 @@
     "gridDayEndProcess": {},
     "gridDayForward": {},
     "gridMonthEndProcess": {},
-
     "regularCollectionFrom": {
       "office": "1020 (Ashulia)",
       "samity": "1020-101 (Ashulia Mohila Samity)"

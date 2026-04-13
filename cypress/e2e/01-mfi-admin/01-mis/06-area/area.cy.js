@@ -115,7 +115,11 @@ describe("06. Area Module Test Cases", function () {
     create_area.createGoBackButtonCheck();
   });
 
-  it("06.24. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("06.24. Verify that when the user clicks the Search button on the area grid page, the system redirects to the area List page..", function () {
+    create_area.gridSearchButtonCheck();
+  });
+
+  it("06.25. Verify check that the grid list content changes correctly from english to bangla.", function () {
     create_area.gridLanguageSwitchCheck();
   });
 });

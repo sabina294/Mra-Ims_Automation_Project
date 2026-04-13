@@ -139,7 +139,6 @@ class RegionCreation {
       cy.imsId("btn-submit").click();
       cy.imsId("btn-yes").click();
       cy.imsId("btn-ok").click();
-      cy.imsId("btn-go-back").click();
       cy.log("Region updated successfully");
     });
   }
@@ -222,6 +221,16 @@ class RegionCreation {
     cy.imsId("btn-add-new").click();
     cy.imsId("btn-go-back").click();
     cy.log("Successful go back button check.");
+  }
+
+  gridSearchButtonCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      var regData = data.mfiAdmin.createRegionFrom;
+      cy.imsId("btn-reset").click();
+      cy.formController("search_text").type(regData.search);
+      cy.imsId("btn-search").click();
+      cy.log("Successful search button click.");
+    });
   }
 
   gridLanguageSwitchCheck() {

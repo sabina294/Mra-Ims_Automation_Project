@@ -357,6 +357,16 @@ class BankAccountCreation {
     });
   }
 
+    gridSearchButtonCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      var baData = data.mfiAdmin.createBankAccountFrom;
+      cy.imsId("btn-reset").click();
+      cy.formController("search_text").type(baData.accNameEn);
+      cy.imsId("btn-search").click();
+      cy.log("Successful search button click.");
+    });
+  }
+
   createValidationMessageCheck() {
     cy.imsId("btn-submit").click();
     cy.imsId("btn-ok").click();

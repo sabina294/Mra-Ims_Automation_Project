@@ -176,7 +176,7 @@ class DepartmentCreation {
       cy.log("Department status inactive dropdown check successfully");
     });
   }
-  
+
   statusActiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       var depData = data.mfiAdmin.createDepartmentFrom;
@@ -228,6 +228,16 @@ class DepartmentCreation {
     cy.imsId("btn-add-new").click();
     cy.imsId("btn-go-back").click();
     cy.log("Successful go back button check.");
+  }
+
+  gridSearchButtonCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      var depData = data.mfiAdmin.createDepartmentFrom;
+      cy.imsId("btn-reset").click();
+      cy.formController("search_text").type(depData.search);
+      cy.imsId("btn-search").click();
+      cy.log("Successful search button click.");
+    });
   }
 
   gridLanguageSwitchCheck() {

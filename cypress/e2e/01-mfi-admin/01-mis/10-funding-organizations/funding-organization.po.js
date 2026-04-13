@@ -154,7 +154,7 @@ class FundingOrganizationCreation {
     });
   }
 
-   viewGoBackButton() {
+  viewGoBackButton() {
     cy.imsId("btn-go-back").click();
     cy.log("Successfully view go back the funding organization list page");
 
@@ -290,6 +290,16 @@ class FundingOrganizationCreation {
     cy.imsId("btn-add-new").click();
     cy.imsId("btn-go-back").click();
     cy.log("Successful go back button check.");
+  }
+
+  gridSearchButtonCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      var foData = data.mfiAdmin.createFundingOrganizationFrom;
+      cy.imsId("btn-reset").click();
+      cy.formController("search_text").type(foData.search);
+      cy.imsId("btn-search").click();
+      cy.log("Successful search button click.");
+    });
   }
 
   gridLanguageSwitchCheck() {

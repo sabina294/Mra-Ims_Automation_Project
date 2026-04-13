@@ -111,7 +111,11 @@ describe("04. Region Module Test Cases", function () {
     create_region.createGoBackButtonCheck();
   });
 
-  it("04.23. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("04.23. Verify that when the user clicks the Search button on the region grid page, the system redirects to the region List page..", function () {
+    create_region.gridSearchButtonCheck();
+  });
+
+  it("04.24. Verify check that the grid list content changes correctly from english to bangla.", function () {
     create_region.gridLanguageSwitchCheck();
   });
 });

@@ -111,7 +111,11 @@ describe("03. Designation Module Test Cases", function () {
     create_designation.createGoBackButtonCheck();
   });
 
-  it("03.23. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("03.23. Verify that when the user clicks the Search button on the designation grid page, the system redirects to the designation List page..", function () {
+    create_designation.gridSearchButtonCheck();
+  });
+
+  it("03.24. Verify check that the grid list content changes correctly from english to bangla.", function () {
     create_designation.gridLanguageSwitchCheck();
   });
 });

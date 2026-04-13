@@ -111,23 +111,27 @@ describe("07. Bank Account Module Test Cases", function () {
     create_bank_account.gridRefreshButtonCheck();
   });
 
-  it("07.23. Verify the bank account creation reset button clears all entered input values.", function () {
+  it("07.23. Verify that when the user clicks the Search button on the bank account grid page, the system redirects to the bank account List page..", function () {
+    create_bank_account.gridSearchButtonCheck();
+  });
+
+  it("07.24. Verify the bank account creation reset button clears all entered input values.", function () {
     create_bank_account.createResetButtonCheck();
   });
 
-  it("07.24. Verify validation messages appear for required fields when the submit button is clicked with empty inputs.", function () {
+  it("07.25. Verify validation messages appear for required fields when the submit button is clicked with empty inputs.", function () {
     create_bank_account.createValidationMessageCheck();
   });
 
-  it("07.25. Verify that clicking the go back button on the bank account create page redirects the user to the bank account list page.", function () {
+  it("07.26. Verify that clicking the go back button on the bank account create page redirects the user to the bank account list page.", function () {
     create_bank_account.createGoBackButtonCheck();
   });
 
-  it("07.26. Verify pagination functions as expected on the last page of the bank account list.", function () {
+  it("07.27. Verify pagination functions as expected on the last page of the bank account list.", function () {
     create_bank_account.paginationCheck();
   });
 
-  it("07.27. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("07.28. Verify check that the grid list content changes correctly from english to bangla.", function () {
     create_bank_account.gridLanguageSwitchCheck();
   });
 });

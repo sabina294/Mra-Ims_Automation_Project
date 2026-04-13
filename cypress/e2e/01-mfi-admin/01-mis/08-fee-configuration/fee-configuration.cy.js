@@ -123,7 +123,11 @@ describe("08. Fee Configuration Module Test Cases ", function () {
     create_fee_configuration.createGoBackButtonCheck();
   });
 
-  it("08.26. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("08.26. Verify that when the user clicks the Search button on the fee configuration grid page, the system redirects to the fee configuration List page..", function () {
+    create_fee_configuration.gridSearchButtonCheck();
+  });
+
+  it("08.27. Verify check that the grid list content changes correctly from english to bangla.", function () {
     create_fee_configuration.gridLanguageSwitchCheck();
   });
 });

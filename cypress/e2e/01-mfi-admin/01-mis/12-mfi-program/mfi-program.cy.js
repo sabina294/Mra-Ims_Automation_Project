@@ -120,7 +120,11 @@ describe("12. MFI program Module Test Cases", function () {
     create_mfi_program.createGoBackButtonCheck();
   });
 
-  it("12.25. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("12.25. Verify that when the user clicks the Search button on the mfi program grid page, the system redirects to the mfi program List page..", function () {
+    create_mfi_program.gridSearchButtonCheck();
+  });
+
+  it("12.26. Verify check that the grid list content changes correctly from english to bangla.", function () {
     create_mfi_program.gridLanguageSwitchCheck();
   });
 });

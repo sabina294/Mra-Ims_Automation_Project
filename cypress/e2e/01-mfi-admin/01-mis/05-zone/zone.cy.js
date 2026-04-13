@@ -114,7 +114,11 @@ describe("05. Zone Module Test Cases", function () {
     create_zone.createGoBackButtonCheck();
   });
 
-  it("05.24. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("05.24. Verify that when the user clicks the Search button on the zone grid page, the system redirects to the zone List page..", function () {
+    create_zone.gridSearchButtonCheck();
+  });
+
+  it("05.25. Verify check that the grid list content changes correctly from english to bangla.", function () {
     create_zone.gridLanguageSwitchCheck();
   });
 });
