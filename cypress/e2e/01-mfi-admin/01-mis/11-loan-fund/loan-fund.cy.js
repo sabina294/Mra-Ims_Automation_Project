@@ -47,55 +47,59 @@ describe("11. Loan Fund Module Test Cases", function () {
     create_loan_fund.turnOffEditMode();
   });
 
-  it("11.07. Verify the loan fund name and description can be edited successfully.", function () {
-    create_loan_fund.editLoanFund();
+  it("11.07. Verify the loan fund edit reset button functions correctly.", function () {
+    create_loan_fund.editResetButton();
   });
 
-  it("11.08. Verify the loan fund edit reset button functions correctly.", function () {
-    create_loan_fund.editResetButton();
+  it("11.08. Verify the loan fund edit submit button functions correctly.", function () {
+    create_loan_fund.editSubmitButton();
   });
 
   it("11.09. Verify that clicking the go back button on the loan fund edit page redirects the user to the loan fund list page.", function () {
     create_loan_fund.editGoBackButton();
   });
 
-  it("11.10. Verify the user can filter inactive loan funds using the status dropdown on the loan fund list page.", function () {
+  it("11.10. Verify the loan fund name and description can be edited successfully.", function () {
+    create_loan_fund.editLoanFund();
+  });
+
+  it("11.11. Verify the user can filter inactive loan funds using the status dropdown on the loan fund list page.", function () {
     create_loan_fund.statusInactiveDropdownCheck();
   });
 
-  it("11.11. Verify the active result is filtered correctly by the status dropdown.", function () {
+  it("11.12. Verify the active result is filtered correctly by the status dropdown.", function () {
     create_loan_fund.statusActiveDropdownCheck();
   });
 
-  it("11.12. Verify the search returns correct results when searching by loan fund name.", function () {
+  it("11.13. Verify the search returns correct results when searching by loan fund name.", function () {
     create_loan_fund.searchInLoanFundName();
   });
 
-  it("11.13. Verify the grid list resets successfully when the reset button is clicked on the loan fund page.", function () {
+  it("11.14. Verify the grid list resets successfully when the reset button is clicked on the loan fund page.", function () {
     create_loan_fund.gridResetButtonCheck();
   });
 
-  it("11.14. Verify that the grid list is refreshed successfully when the refresh button is clicked on the loan fund page.", function () {
+  it("11.15. Verify that the grid list is refreshed successfully when the refresh button is clicked on the loan fund page.", function () {
     create_loan_fund.gridRefreshButtonCheck();
   });
 
-  it("11.15. Verify the loan fund creation reset button clears all entered input values.", function () {
+  it("11.16. Verify the loan fund creation reset button clears all entered input values.", function () {
     create_loan_fund.createResetButtonCheck();
   });
 
-  it("11.16. Verify validation messages appear for required fields when the submit button is clicked with empty inputs.", function () {
+  it("11.17. Verify validation messages appear for required fields when the submit button is clicked with empty inputs.", function () {
     create_loan_fund.createValidationMessageCheck();
   });
 
-  it("11.17. Verify that clicking the go back button on the loan fund create page redirects the user to the loan fund list page.", function () {
+  it("11.18. Verify that clicking the go back button on the loan fund create page redirects the user to the loan fund list page.", function () {
     create_loan_fund.createGoBackButtonCheck();
   });
 
-  it("11.18. Verify that when the user clicks the Search button on the loan fund grid page, the system redirects to the loan fund List page..", function () {
+  it("11.19. Verify that when the user clicks the Search button on the loan fund grid page, the system redirects to the loan fund List page..", function () {
     create_loan_fund.gridSearchButtonCheck();
   });
 
-  it("11.19. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("11.20. Verify check that the grid list content changes correctly from english to bangla.", function () {
     create_loan_fund.gridLanguageSwitchCheck();
   });
 });

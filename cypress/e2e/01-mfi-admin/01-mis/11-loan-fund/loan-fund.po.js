@@ -53,9 +53,38 @@ class LoanFundCreation {
 
   }
 
+  turnOffEditMode() {
+    cy.imsId("toggle-action").first().click();
+      cy.imsId("btn-table-action-view").click();
+    cy.imsId("switch-button").click();
+
+    cy.log("Loan fund form Edit Mode toggled successfully");
+  }
+
+  editResetButton() {
+    cy.imsId("btn-reset").click();
+
+    cy.log("Successful clean displaying");
+  }
+
+  editSubmitButton() {
+    cy.imsId("btn-submit").click();
+    cy.imsId("btn-ok").click();
+    cy.log("Successfully updated region");
+
+  }
+
+  editGoBackButton() {
+    cy.imsId("btn-go-back").click();
+    cy.log("Successful edit go back button check.");
+  }
+
   editLoanFund() {
     cy.fixture(this.test_data).then((data) => {
       var lfData = data.mfiAdmin.createLoanFundFrom;
+      cy.imsId("btn-reset").click();
+      cy.formController("search_text").type(lfData.search);
+      cy.imsId("btn-search").click();
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-edit").click();
       cy.imsId("btn-submit").click();
@@ -63,31 +92,6 @@ class LoanFundCreation {
       cy.imsId("btn-ok").click();
       cy.log("Loan fund updated successfully");
     });
-  }
-
-  turnOffEditMode() {
-    cy.imsId("toggle-action").first().click();
-    cy.imsId("btn-table-action-edit").click();
-    cy.imsId("switch-button").click();
-    cy.imsId("btn-go-back").click();
-
-    cy.log("Loan fund form Edit Mode toggled successfully");
-  }
-
-  editResetButton() {
-    cy.imsId("toggle-action").first().click();
-    cy.imsId("btn-table-action-edit").click();
-    cy.imsId("btn-reset").click();
-    cy.imsId("btn-go-back").click();
-
-    cy.log("Successful clean displaying");
-  }
-
-  editGoBackButton() {
-    cy.imsId("toggle-action").first().click();
-    cy.imsId("btn-table-action-edit").click();
-    cy.imsId("btn-go-back").click();
-    cy.log("Successful edit go back button check.");
   }
 
   statusInactiveDropdownCheck() {
@@ -154,7 +158,7 @@ class LoanFundCreation {
     cy.log("Successful go back button check.");
   }
 
-    gridSearchButtonCheck() {
+  gridSearchButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
       var lfData = data.mfiAdmin.createLoanFundFrom;
       cy.imsId("btn-reset").click();

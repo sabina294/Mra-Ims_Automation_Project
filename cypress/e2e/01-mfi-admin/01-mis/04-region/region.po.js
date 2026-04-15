@@ -108,6 +108,7 @@ class RegionCreation {
     cy.fixture(this.test_data).then((data) => {
       var regData = data.mfiAdmin.createRegionFrom;
       cy.formController("search_text").type(regData.nameEn);
+      cy.imsId("btn-search").click();
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
       cy.log("Successfully viewed the region list page");
@@ -122,30 +123,13 @@ class RegionCreation {
 
   turnOffEditMode() {
     cy.imsId("toggle-action").first().click();
-    cy.imsId("btn-table-action-edit").click();
+      cy.imsId("btn-table-action-view").click();
     cy.imsId("switch-button").click();
-    cy.imsId("btn-go-back").click();
 
     cy.log("Region form Edit Mode toggled successfully");
   }
 
-  editRegion() {
-    cy.fixture(this.test_data).then((data) => {
-      var regData = data.mfiAdmin.createRegionFrom;
-      cy.imsId("btn-reset").click();
-      cy.formController("search_text").type(regData.nameEn);
-      cy.imsId("toggle-action").first().click();
-      cy.imsId("btn-table-action-edit").click();
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-yes").click();
-      cy.imsId("btn-ok").click();
-      cy.log("Region updated successfully");
-    });
-  }
-
   editResetButton() {
-    cy.imsId("toggle-action").first().click();
-    cy.imsId("btn-table-action-edit").click();
     cy.imsId("btn-reset").click();
 
     cy.log("Successful clean displaying");
@@ -161,6 +145,21 @@ class RegionCreation {
   editGoBackButton() {
     cy.imsId("btn-go-back").click();
     cy.log("Successful edit go back button check.");
+  }
+
+  editRegion() {
+    cy.fixture(this.test_data).then((data) => {
+      var regData = data.mfiAdmin.createRegionFrom;
+      cy.imsId("btn-reset").click();
+      cy.formController("search_text").type(regData.search);
+      cy.imsId("btn-search").click();
+      cy.imsId("toggle-action").first().click();
+      cy.imsId("btn-table-action-edit").click();
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-yes").click();
+      cy.imsId("btn-ok").click();
+      cy.log("Region updated successfully");
+    });
   }
 
   statusInactiveDropdownCheck() {
@@ -184,6 +183,7 @@ class RegionCreation {
       var regData = data.mfiAdmin.createRegionFrom;
       cy.imsId("btn-reset").click();
       cy.formController("search_text").type(regData.nameEn);
+      cy.imsId("btn-search").click();
       cy.log("Successfully search in the region");
     });
   }

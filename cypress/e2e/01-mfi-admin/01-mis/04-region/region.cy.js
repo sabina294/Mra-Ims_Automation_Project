@@ -63,20 +63,20 @@ describe("04. Region Module Test Cases", function () {
     create_region.turnOffEditMode();
   });
 
-  it("04.11. Verify the region name and description can be edited successfully.", function () {
-    create_region.editRegion();
-  });
-
-  it("04.12. Verify the region edit reset button functions correctly.", function () {
+  it("04.11. Verify the region edit reset button functions correctly.", function () {
     create_region.editResetButton();
   });
 
-  it("04.13. Verify the region edit submit button functions correctly.", function () {
+  it("04.12. Verify the region edit submit button functions correctly.", function () {
     create_region.editSubmitButton();
   });
 
-  it("04.14. Verify that clicking the go back button on the region edit page redirects the user to the region list page.", function () {
+  it("04.13. Verify that clicking the go back button on the region edit page redirects the user to the region list page.", function () {
     create_region.editGoBackButton();
+  });
+
+  it("04.14. Verify the region name and description can be edited successfully.", function () {
+    create_region.editRegion();
   });
 
   it("04.15. Verify the user can filter inactive regions using the status dropdown on the region list page.", function () {
