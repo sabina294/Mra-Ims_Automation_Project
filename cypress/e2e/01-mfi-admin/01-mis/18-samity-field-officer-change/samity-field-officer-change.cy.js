@@ -79,23 +79,27 @@ describe("18. Samity Field Officer Change Module Test Cases", function () {
     samity_field_officer_change.gridResetButtonCheck();
   });
 
-  it("18.15. Verify that the grid list is refreshed successfully when the refresh button is clicked on the samity field officer change page.", function () {
+  it("18.15. Verify that when the user clicks the Search button on the samity field officer change grid page, the system redirects to the samity field officer change List page..", function () {
+    samity_field_officer_change.gridSearchButtonCheck();
+  });
+
+  it("18.16. Verify that the grid list is refreshed successfully when the refresh button is clicked on the samity field officer change page.", function () {
     samity_field_officer_change.gridRefreshButtonCheck();
   });
 
-  it("18.16. Verify display the grid list successfully when the Draft button on is clicked on the samity field officer change page", function () {
+  it("18.17. Verify display the grid list successfully when the Draft button on is clicked on the samity field officer change page", function () {
     samity_field_officer_change.gridDraftButton();
   });
 
-  it("18.17. Verify display the grid list successfully when the Draft button off is clicked on the samity field officer change page", function () {
+  it("18.18. Verify display the grid list successfully when the Draft button off is clicked on the samity field officer change page", function () {
     samity_field_officer_change.gridDraftButtonOff();
   });
 
-  it("18.18. Verify check that the samity field officer change  office selection works correctly from the dropdown on the samity list page.", function () {
+  it("18.19. Verify check that the samity field officer change  office selection works correctly from the dropdown on the samity list page.", function () {
     samity_field_officer_change.selectofficeDropdown();
   });
 
-  it("18.19. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("18.20. Verify check that the grid list content changes correctly from english to bangla.", function () {
     samity_field_officer_change.gridLanguageSwitchCheck();
   });
 }); 

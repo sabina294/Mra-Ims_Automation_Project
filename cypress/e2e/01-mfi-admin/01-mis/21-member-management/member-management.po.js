@@ -140,7 +140,7 @@ class MemberManagementCreation {
     cy.log("Successful edit go back button check.");
   }
 
-   editMemberManagement() {
+  editMemberManagement() {
     cy.fixture(this.test_data).then((data) => {
       var memData = data.mfiAdmin.createMemberFrom;
       cy.imsId("btn-reset").click();
@@ -262,6 +262,16 @@ class MemberManagementCreation {
     cy.imsId("btn-add-new").click();
     cy.imsId("btn-go-back").click();
     cy.log("Successful go back button check.");
+  }
+
+  gridSearchButtonCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      var memData = data.mfiAdmin.createMemberFrom;
+      cy.imsId("btn-reset").click();
+      cy.formController("search_text").type(memData.search);
+      cy.imsId("btn-search").click();
+      cy.log("Successful search button click.");
+    });
   }
 
   gridLanguageSwitchCheck() {

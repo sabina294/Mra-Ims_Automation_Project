@@ -134,7 +134,11 @@ describe("21. Member Management Module Test Cases", function () {
     create_member_management.createGoBackButtonCheck();
   });
 
-  it("21.29. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("21.29. Verify that when the user clicks the Search button on the member management grid page, the system redirects to the member management List page..", function () {
+    create_member_management.gridSearchButtonCheck();
+  });
+
+  it("21.30. Verify check that the grid list content changes correctly from english to bangla.", function () {
     create_member_management.gridLanguageSwitchCheck();
   });
 });

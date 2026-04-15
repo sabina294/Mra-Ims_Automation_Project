@@ -71,15 +71,19 @@ describe("17. Rejected Samity Module Test Cases", function () {
     create_rejected_samity.gridResetButtonCheck();
   });
 
-  it("17.13. Verify that the grid list is refreshed successfully when the refresh button is clicked on the rejected samity page.", function () {
+  it("17.13. Verify that when the user clicks the Search button on the rejected samity grid page, the system redirects to the rejected samity List page..", function () {
+    create_rejected_samity.gridSearchButtonCheck();
+  });
+
+  it("17.14. Verify that the grid list is refreshed successfully when the refresh button is clicked on the rejected samity page.", function () {
     create_rejected_samity.gridRefreshButtonCheck();
   });
 
-  it("17.14. Verify check that the rejected samity  office selection works correctly from the dropdown on the rejected samity list page.", function () {
+  it("17.15. Verify check that the rejected samity  office selection works correctly from the dropdown on the rejected samity list page.", function () {
     create_rejected_samity.selectofficeDropdown();
   });
 
-  it("17.15. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("17.16. Verify check that the grid list content changes correctly from english to bangla.", function () {
     create_rejected_samity.gridLanguageSwitchCheck();
   });
 });

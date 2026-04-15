@@ -125,7 +125,7 @@ class RejectedEmployee {
     cy.log("Successfully view go back the Rejected Employee list page");
 
   }
-  
+
   editResetButton() {
     cy.fixture(this.test_data).then((data) => {
       var emData = data.mfiAdmin.rejectedEmployeeFrom;
@@ -204,6 +204,16 @@ class RejectedEmployee {
     cy.log(
       "successfully refresh page  displayed the grid list of the Rejected Employee form "
     );
+  }
+
+  gridSearchButtonCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      var emData = data.mfiAdmin.rejectedEmployeeFrom;
+      cy.imsId("btn-reset").click();
+      cy.formController("search_text").type(emData.search);
+      cy.imsId("btn-search").click();
+      cy.log("Successful search button click.");
+    });
   }
 
   gridLanguageSwitchCheck() {

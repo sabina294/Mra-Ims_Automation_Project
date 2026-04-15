@@ -145,8 +145,8 @@ class EmployeeManagementCreation {
   }
 
   editGoBackButton() {
-      cy.imsId("btn-go-back").click();
-      cy.log("Successful edit go back button check.");
+    cy.imsId("btn-go-back").click();
+    cy.log("Successful edit go back button check.");
   }
 
   editEmployeeManagement() {
@@ -156,7 +156,7 @@ class EmployeeManagementCreation {
     cy.imsId("btn-yes").click();
     cy.imsId("btn-ok").click();
     cy.log("Employee Management updated successfully");
-   
+
   }
 
   statusInactiveDropdownCheck() {
@@ -255,6 +255,13 @@ class EmployeeManagementCreation {
     cy.log("Successful Approve button check.");
   }
 
+  createDraftButtonCheck() {
+    cy.imsId("btn-add-new").click();
+    cy.imsId("btn-draft").click();
+    cy.imsId("btn-ok").click();
+    cy.imsId("btn-go-back").click();
+    cy.log("Successful draft button check.");
+  }
 
   createGoBackButtonCheck() {
     cy.imsId("btn-add-new").click();
@@ -262,12 +269,14 @@ class EmployeeManagementCreation {
     cy.log("Successful go back button check.");
   }
 
-  createDraftButtonCheck() {
-    cy.imsId("btn-add-new").click();
-    cy.imsId("btn-draft").click();
-    cy.imsId("btn-ok").click();
-    cy.imsId("btn-go-back").click();
-    cy.log("Successful draft button check.");
+  gridSearchButtonCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      var emData = data.mfiAdmin.createEmpMangFrom;
+      cy.imsId("btn-reset").click();
+      cy.formController("search_text").type(emData.search);
+      cy.imsId("btn-search").click();
+      cy.log("Successful search button click.");
+    });
   }
 
   gridLanguageSwitchCheck() {

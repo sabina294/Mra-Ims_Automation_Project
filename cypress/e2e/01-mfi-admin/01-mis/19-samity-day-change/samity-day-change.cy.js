@@ -79,23 +79,27 @@ describe("19. Samity Day Change Module Test Cases", function () {
     samity_day_change.gridResetButtonCheck();
   });
 
-  it("19.15. Verify that the grid list is refreshed successfully when the refresh button is clicked on the samity day change page.", function () {
+  it("19.15. Verify that when the user clicks the Search button on the samity day change grid page, the system redirects to the samity day change List page..", function () {
+    samity_day_change.gridSearchButtonCheck();
+  });
+
+  it("19.16. Verify that the grid list is refreshed successfully when the refresh button is clicked on the samity day change page.", function () {
     samity_day_change.gridRefreshButtonCheck();
   });
 
-  it("19.16. Verify display the grid list successfully when the Draft button on is clicked on the samity day change page", function () {
+  it("19.17. Verify display the grid list successfully when the Draft button on is clicked on the samity day change page", function () {
     samity_day_change.gridDraftButton();
   });
 
-  it("19.17. Verify display the grid list successfully when the Draft button off is clicked on the samity day change page", function () {
+  it("19.18. Verify display the grid list successfully when the Draft button off is clicked on the samity day change page", function () {
     samity_day_change.gridDraftButtonOff();
   });
 
-  it("19.18. Verify check that the samity day change  office selection works correctly from the dropdown on the samity list page.", function () {
+  it("19.19. Verify check that the samity day change  office selection works correctly from the dropdown on the samity list page.", function () {
     samity_day_change.selectofficeDropdown();
   });
 
-  it("19.19. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("19.20. Verify check that the grid list content changes correctly from english to bangla.", function () {
     samity_day_change.gridLanguageSwitchCheck();
   });
 });

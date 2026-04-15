@@ -132,6 +132,17 @@ class MemberSamityTransfer {
     cy.imsId("btn-reset").click();
     cy.log("Successful clean displaying.");
   }
+
+   gridSearchButtonCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      var mstData = data.mfiAdmin.memberSamityTransferFrom;
+      cy.imsId("btn-reset").click();
+      cy.formController("search_text").type(mstData.search);
+      cy.imsId("btn-search").click();
+      cy.log("Successful search button click.");
+    });
+  }
+
   gridRefreshButtonCheck() {
     cy.imsId("btn-refresh").click();
     cy.log(

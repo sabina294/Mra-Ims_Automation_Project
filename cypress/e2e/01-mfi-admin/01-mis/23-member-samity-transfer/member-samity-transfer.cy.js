@@ -84,19 +84,23 @@ describe("23. Member Samity Transfer Module Test Cases", function () {
     member_samity_transfer.gridResetButtonCheck();
   });
 
-  it("23.16. Verify Successful Refresh of Grid List Using the Refresh Button on Member Samity Transfer Page.", function () {
+  it("23.16. Verify that when the user clicks the Search button on the Member Samity Transfer grid page, the system redirects to the Member Samity Transfer List page..", function () {
+    member_samity_transfer.gridSearchButtonCheck();
+  });
+
+  it("23.17. Verify Successful Refresh of Grid List Using the Refresh Button on Member Samity Transfer Page.", function () {
     member_samity_transfer.gridRefreshButtonCheck();
   });
 
-  it("23.17. Verify display the grid list successfully when the Draft button on is clicked on the Member Samity Transfer page", function () {
+  it("23.18. Verify display the grid list successfully when the Draft button on is clicked on the Member Samity Transfer page", function () {
     member_samity_transfer.gridDraftButton();
   });
 
-  it("23.18. Verify display the grid list successfully when the Draft button off is clicked on the Member Samity Transfer page", function () {
+  it("23.19. Verify display the grid list successfully when the Draft button off is clicked on the Member Samity Transfer page", function () {
     member_samity_transfer.gridDraftButtonOff();
   });
 
-  it("23.19. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("23.20. Verify check that the grid list content changes correctly from english to bangla.", function () {
     member_samity_transfer.gridLanguageSwitchCheck();
   });
 });

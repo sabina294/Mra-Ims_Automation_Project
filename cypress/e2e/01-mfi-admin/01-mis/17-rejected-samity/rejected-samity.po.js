@@ -129,6 +129,16 @@ class RejectedSamity {
     cy.log("Successful clean displaying.");
   }
 
+   gridSearchButtonCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      var rsData = data.mfiAdmin.rejectedSamityFrom;
+      cy.imsId("btn-reset").click();
+      cy.formController("search_text").type(rsData.samityNameEn);
+      cy.imsId("btn-search").click();
+      cy.log("Successful search button click.");
+    });
+  }
+
   gridRefreshButtonCheck() {
     cy.imsId("btn-refresh").click();
     cy.log(

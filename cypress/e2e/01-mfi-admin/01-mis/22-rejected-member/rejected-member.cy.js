@@ -70,15 +70,19 @@ describe("22. Rejected Member Module Test Cases", function () {
     create_rejected_member.gridResetButtonCheck();
   });
 
-  it("22.13. Verify a new rejected member record is created successfully when all required fields are filled with valid data", function () {
+  it("22.13. Verify that when the user clicks the Search button on the rejected member grid page, the system redirects to the rejected member List page..", function () {
+    create_rejected_member.gridSearchButtonCheck();
+  });
+
+  it("22.14. Verify a new rejected member record is created successfully when all required fields are filled with valid data", function () {
     create_rejected_member.gridRefreshButtonCheck();
   });
 
-  it("22.14. Verify check that the rejected member  office selection works correctly from the dropdown on the samity list page.", function () {
+  it("22.15. Verify check that the rejected member  office selection works correctly from the dropdown on the samity list page.", function () {
     create_rejected_member.selectofficeDropdown();
   });
 
-  it("22.15. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("22.16. Verify check that the grid list content changes correctly from english to bangla.", function () {
     create_rejected_member.gridLanguageSwitchCheck();
   });
 });

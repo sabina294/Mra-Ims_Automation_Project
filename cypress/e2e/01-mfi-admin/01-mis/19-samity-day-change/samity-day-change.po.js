@@ -49,8 +49,8 @@ class SamityDayChange {
   }
 
   viewSamityDayChange() {
-      cy.imsId("btn-table-action-view").click();
-      cy.log("Successfully viewed the samity day change list page");
+    cy.imsId("btn-table-action-view").click();
+    cy.log("Successfully viewed the samity day change list page");
   }
 
   viewGoBackButton() {
@@ -58,8 +58,8 @@ class SamityDayChange {
     cy.log("Successfully view go back the samity day change list page");
 
   }
-  
- samityChangeSubmit() {
+
+  samityChangeSubmit() {
     cy.imsId("toggle-action").first().click();
     cy.imsId("btn-mis-table-action-change").click();
     cy.imsId("btn-submit").click();
@@ -124,6 +124,16 @@ class SamityDayChange {
   gridResetButtonCheck() {
     cy.imsId("btn-reset").click();
     cy.log("Successful clean displaying.");
+  }
+
+  gridSearchButtonCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      var sdData = data.mfiAdmin.samityDayChangeFrom;
+      cy.imsId("btn-reset").click();
+      cy.formController("search_text").type(sdData.search);
+      cy.imsId("btn-search").click();
+      cy.log("Successful search button click.");
+    });
   }
 
   gridRefreshButtonCheck() {

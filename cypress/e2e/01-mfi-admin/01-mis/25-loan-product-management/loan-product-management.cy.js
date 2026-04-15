@@ -91,15 +91,19 @@ describe("25. Loan Product Management Module Test Cases", function () {
     create_loan_product_management.gridResetButtonCheck();
   });
 
-  it("25.18. Verify a new loan product management record is created successfully when all required fields are filled with valid data", function () {
+  it("25.18. Verify that when the user clicks the Search button on theloan product management grid page, the system redirects to the loan product management List page..", function () {
+    create_loan_product_management.gridSearchButtonCheck();
+  });
+
+  it("25.19. Verify a new loan product management record is created successfully when all required fields are filled with valid data", function () {
     create_loan_product_management.gridRefreshButtonCheck();
   });
 
-  it("25.19. Verify check that the loan product management  office selection works correctly from the dropdown on the loan product list page.", function () {
+  it("25.20. Verify check that the loan product management  office selection works correctly from the dropdown on the loan product list page.", function () {
     create_loan_product_management.selectofficeDropdown();
   });
 
-  it("25.20. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("25.21. Verify check that the grid list content changes correctly from english to bangla.", function () {
     create_loan_product_management.gridLanguageSwitchCheck();
   });
 

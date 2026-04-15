@@ -135,23 +135,27 @@ describe("16. Samity management Module Test Cases", function () {
     create_samity_management.gridRefreshButtonCheck();
   });
 
-  it("16.29. Verify a new samity management record is created successfully when all required fields are filled with valid data.", function () {
+  it("16.19. Verify that when the user clicks the Search button on the samity management grid page, the system redirects to the samity management List page..", function () {
+    create_samity_management.gridSearchButtonCheck();
+  });
+
+  it("16.30. Verify a new samity management record is created successfully when all required fields are filled with valid data.", function () {
     create_samity_management.createDraftButton();
   });
 
-  it("16.30. Verify display the grid list successfully when the Draft button on is clicked on the Samity Management page", function () {
+  it("16.31. Verify display the grid list successfully when the Draft button on is clicked on the Samity Management page", function () {
     create_samity_management.gridDraftButton();
   });
 
-  it("16.31. Verify display the grid list successfully when the Draft button off is clicked on the Samity Management page", function () {
+  it("16.32. Verify display the grid list successfully when the Draft button off is clicked on the Samity Management page", function () {
     create_samity_management.gridDraftButtonOff();
   });
 
-  it("16.32. Verify that the checkbox functions correctly.", function () {
+  it("16.33. Verify that the checkbox functions correctly.", function () {
     create_samity_management.gridCheckboxCheck();
   });
 
-  it("16.33. Verify that the checkbox lock button operates correctly when selected.", function () {
+  it("16.34. Verify that the checkbox lock button operates correctly when selected.", function () {
     create_samity_management.gridCheckboxLockButtonCheck();
   });
 

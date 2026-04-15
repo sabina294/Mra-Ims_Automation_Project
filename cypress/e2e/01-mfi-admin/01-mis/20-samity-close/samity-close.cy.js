@@ -63,23 +63,27 @@ describe("20. Samity Close Module Test Cases", function () {
     Samity_close.gridResetButtonCheck();
   });
 
-  it("20.11. Verify that the grid list is refreshed successfully when the refresh button is clicked on the samity close page.", function () {
+  it("20.11. Verify that when the user clicks the Search button on the samity close grid page, the system redirects to the samity close List page..", function () {
+    Samity_close.gridSearchButtonCheck();
+  });
+
+  it("20.12. Verify that the grid list is refreshed successfully when the refresh button is clicked on the samity close page.", function () {
     Samity_close.gridRefreshButtonCheck();
   });
 
-  it("20.12. Verify display the grid list successfully when the Draft button on is clicked on the samity close page", function () {
+  it("20.13. Verify display the grid list successfully when the Draft button on is clicked on the samity close page", function () {
     Samity_close.gridDraftButton();
   });
 
-  it("20.13. Verify display the grid list successfully when the Draft button off is clicked on the samity close page", function () {
+  it("20.14. Verify display the grid list successfully when the Draft button off is clicked on the samity close page", function () {
     Samity_close.gridDraftButtonOff();
   });
 
-  it("20.14. Verify check that the samity close  office selection works correctly from the dropdown on the samity list page.", function () {
+  it("20.15. Verify check that the samity close  office selection works correctly from the dropdown on the samity list page.", function () {
     Samity_close.selectofficeDropdown();
   });
 
-  it("20.15 Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("20.16. Verify check that the grid list content changes correctly from english to bangla.", function () {
     Samity_close.gridLanguageSwitchCheck();
   });
 });

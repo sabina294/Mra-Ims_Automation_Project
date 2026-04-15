@@ -545,6 +545,15 @@ class SamityCreation {
     );
   }
 
+  gridSearchButtonCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      var smData = data.mfiAdmin.createSamityFrom;
+      cy.imsId("btn-reset").click();
+      cy.formController("search_text").type(smData.search);
+      cy.imsId("btn-search").click();
+      cy.log("Successful search button click.");
+    });
+  }
 
   createDraftButton() {
     cy.fixture(this.test_data).then((data) => {

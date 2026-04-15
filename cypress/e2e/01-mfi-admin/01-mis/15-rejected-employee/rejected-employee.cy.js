@@ -79,7 +79,11 @@ describe("15. Rejected Employee Module Test Cases", function () {
         create_rejected_employee.gridRefreshButtonCheck();
     });
 
-    it("15.15. Verify check that the grid list content changes correctly from english to bangla.", function () {
+    it("15.15. Verify that when the user clicks the Search button on the rejected employee grid page, the system redirects to the employee management List page..", function () {
+        create_rejected_employee.gridSearchButtonCheck();
+    });
+
+    it("15.16. Verify check that the grid list content changes correctly from english to bangla.", function () {
         create_rejected_employee.gridLanguageSwitchCheck();
     });
 });

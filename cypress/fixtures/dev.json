@@ -158,6 +158,7 @@
       "upazilaName": "Tentulia",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
+      "search": "Test Office",
       "messageSaveOffice": "Office has been saved",
       "messageUpdateOffice": "Office has been updated"
     },
@@ -230,6 +231,7 @@
       "geoAreaType": "Rural",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
+      "search": "Test Samity",
       "messageSaveSamity": "Unauth samity has been saved",
       "messageUpdateSamity": "Samity has been updated"
     },
@@ -252,6 +254,7 @@
       "geoAreaType": "Rural",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
+      "search": "Feni Samity",
       "messageSaveSamity": "Unauth samity has been saved",
       "messageUpdateSamity": "Samity has been updated",
       "rejectRemarks": "Reject"
@@ -262,6 +265,7 @@
       "statusSelect": "Active",
       "fieldOfficer": "EMP-0233 - MAHBUB",
       "selectOffice": "1020 (Ashulia)",
+      "search": "Bamonkhali Mohila Samity",
       "messageSamityChange": "Samity has been updated"
     },
     "samityDayChangeFrom": {
@@ -270,6 +274,7 @@
       "statusSelect": "Active",
       "SelectOffice": "1020 (Ashulia)",
       "newSamityDay": "Monday",
+      "search": "Majhail Mohila Samity",
       "messageSamityDayChange": "Samity day has been updated"
     },
     "samityCloseFrom": {
@@ -277,6 +282,7 @@
       "selectStatus": "Inactive",
       "statusSelect": "Active",
       "SelectOffice": "1019 (Amin Bazar)",
+      "search": "Rustampur Mohila Samity",
       "messageSamityClose": "Samity has been closed successfully."
     },
     "createMemberFrom": {
@@ -332,6 +338,7 @@
       "selectStatus": "Inactive",
       "statusSelect": "Active",
       "SelectOffice": "1019 (Amin Bazar)",
+      "search": "Fariya",
       "messagesamityTransfer": "Member samity transfer has been updated"
     },
     "memberPassbookFrom": {
