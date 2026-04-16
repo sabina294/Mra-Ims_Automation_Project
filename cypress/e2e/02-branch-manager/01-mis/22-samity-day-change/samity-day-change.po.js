@@ -54,7 +54,7 @@ class SamityDayChange {
   viewSamityDayChange() {
     cy.fixture(this.test_data).then((data) => {
       var sdData = data.branchManager.samityDayChangeFrom;
-      cy.formController("search_text").type(sdData.samityNameEn);
+      cy.formController("search_text").type(sdData.search);
       cy.imsId("btn-search").click();
       cy.imsId("btn-table-action-view").click();
 

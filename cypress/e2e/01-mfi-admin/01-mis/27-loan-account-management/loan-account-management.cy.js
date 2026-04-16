@@ -63,7 +63,11 @@ describe("27. Loan Account Management Module Test Cases", function () {
     create_loan_account_management.gridRefreshButtonCheck();
   });
 
-  it("27.11. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("27.11. Verify that when the user clicks the Search button on the loan account management grid page, the system redirects to the loan account management List page..", function () {
+    create_loan_account_management.gridSearchButtonCheck();
+  });
+
+  it("27.12. Verify check that the grid list content changes correctly from english to bangla.", function () {
     create_loan_account_management.gridLanguageSwitchCheck();
   });
 });

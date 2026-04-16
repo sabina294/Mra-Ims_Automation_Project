@@ -63,7 +63,11 @@ describe("35. Savings Account Management Module Test Cases", function () {
     create_savings_account_management.gridRefreshButtonCheck();
   });
 
-  it("35.11. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("35.11. Verify that when the user clicks the Search button on the savings account management grid page, the system redirects to the savings account management List page..", function () {
+    create_savings_account_management.gridSearchButtonCheck();
+  });
+
+  it("35.12. Verify check that the grid list content changes correctly from english to bangla.", function () {
     create_savings_account_management.gridLanguageSwitchCheck();
   });
 });

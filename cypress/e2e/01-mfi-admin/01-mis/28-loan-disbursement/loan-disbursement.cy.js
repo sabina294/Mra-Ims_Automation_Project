@@ -55,7 +55,11 @@ describe("28. Loan Disbursement Module Test Cases", function () {
         create_loan_disbursement.gridRefreshButtonCheck();
     });
 
-    it("28.09. Verify check that the grid list content changes correctly from english to bangla.", function () {
+    it("28.09. Verify that when the user clicks the Search button on the loan disbursement grid page, the system redirects to the loan disbursement List page..", function () {
+        create_loan_disbursement.gridSearchButtonCheck();
+    });
+
+    it("28.10. Verify check that the grid list content changes correctly from english to bangla.", function () {
         create_loan_disbursement.gridLanguageSwitchCheck();
     });
 });

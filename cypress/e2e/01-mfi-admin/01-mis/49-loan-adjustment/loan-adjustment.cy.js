@@ -43,7 +43,11 @@ describe("49. Loan Adjustment Module Test Cases", function () {
         grid_loan_adjustment.gridRefreshButtonCheck();
     });
 
-    it("49.06. Verify check that the grid list content changes correctly from english to bangla.", function () {
+    it("49.06. Verify that when the user clicks the Search button on the loan adjustment grid page, the system redirects to the loan adjustment List page..", function () {
+        grid_loan_adjustment.gridSearchButtonCheck();
+    });
+
+    it("49.07. Verify check that the grid list content changes correctly from english to bangla.", function () {
         grid_loan_adjustment.gridLanguageSwitchCheck();
     });
 });

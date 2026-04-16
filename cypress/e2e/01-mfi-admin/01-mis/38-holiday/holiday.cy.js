@@ -55,27 +55,31 @@ describe("38. Holiday Module Test Cases", function () {
     create_holiday.gridResetButtonCheck();
   });
 
-  it("38.09. Verify that the grid list is refreshed successfully when the refresh button is clicked on the holiday page.", function () {
+  it("38.09. Verify that when the user clicks the Search button on the holiday grid page, the system redirects to the holiday List page..", function () {
+    create_holiday.gridSearchButtonCheck();
+  });
+
+  it("38.10. Verify that the grid list is refreshed successfully when the refresh button is clicked on the holiday page.", function () {
     create_holiday.gridRefreshButtonCheck();
   });
 
-  it("38.10. Verify display the grid list successfully when the Draft button on is clicked on the holiday page", function () {
+  it("38.11. Verify display the grid list successfully when the Draft button on is clicked on the holiday page", function () {
     create_holiday.gridDraftButton();
   });
 
-  it("38.11. Verify display the grid list successfully when the Draft button off is clicked on the holiday page", function () {
+  it("38.12. Verify display the grid list successfully when the Draft button off is clicked on the holiday page", function () {
     create_holiday.gridDraftButtonOff();
   });
 
-  it("38.11. Verify check that the holiday  office selection works correctly from the dropdown on the holiday list page.", function () {
+  it("38.13. Verify check that the holiday  office selection works correctly from the dropdown on the holiday list page.", function () {
     create_holiday.selectofficeDropdown();
   });
 
-  it("38.12. Verify check that the holiday  calendar year selection works correctly from the dropdown on the holiday list page.", function () {
+  it("38.14. Verify check that the holiday  calendar year selection works correctly from the dropdown on the holiday list page.", function () {
     create_holiday.selectCalendarYearDropdown();
   });
 
-  it("38.13. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("38.15. Verify check that the grid list content changes correctly from english to bangla.", function () {
     create_holiday.gridLanguageSwitchCheck();
   });
 });

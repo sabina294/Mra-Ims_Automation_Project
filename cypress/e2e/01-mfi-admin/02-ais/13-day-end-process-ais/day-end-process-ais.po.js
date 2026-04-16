@@ -18,7 +18,7 @@ class DayEndProcessAis {
     }
 
     processPreviousButtonCheck() {
-        cy.imsId("previous-toggle-input")
+        cy.imsId("btn-draft-on")
             .should('exist')
             .click({ force: true });
         cy.log("Successful previous button check.");

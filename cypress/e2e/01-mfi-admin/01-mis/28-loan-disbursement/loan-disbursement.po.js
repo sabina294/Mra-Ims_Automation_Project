@@ -59,6 +59,17 @@ class LoanDisbursement {
             "successfully refresh page  displayed the grid list of the Loan Disbursement"
         );
     }
+
+    gridSearchButtonCheck() {
+        cy.fixture(this.test_data).then((data) => {
+            var laData = data.mfiAdmin.loanDisbursementFrom;
+            cy.imsId("btn-reset").click();
+            cy.formController("search_text").type(laData.search);
+            cy.imsId("btn-search").click();
+            cy.log("Successful search button click.");
+        });
+    }
+
     gridLanguageSwitchCheck() {
         cy.imsId("profile-menu").click();
         cy.imsId("btn-lang-bangla").click();

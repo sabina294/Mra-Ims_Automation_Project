@@ -69,7 +69,7 @@ class ClientWelfareFund {
     });
   }
 
-   viewGoBackButton() {
+  viewGoBackButton() {
     cy.imsId("btn-go-back").click();
     cy.log("Successfully view go back the client welfare fund list page");
 
@@ -96,8 +96,8 @@ class ClientWelfareFund {
     );
   }
 
-   createResetButtonCheck() {
-   cy.fixture(this.test_data).then((data) => {
+  createResetButtonCheck() {
+    cy.fixture(this.test_data).then((data) => {
       cy.imsId("btn-add-new").click();
       var wfData = data.mfiAdmin.createClientWelfareFrom;
       cy.formController("office_id").type(wfData.OfficeSelect).type("{enter}");
@@ -121,6 +121,16 @@ class ClientWelfareFund {
   createGoBackButtonCheck() {
     cy.imsId("btn-go-back").click();
     cy.log("Successful go back button check.");
+  }
+
+  gridSearchButtonCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      var wfData = data.mfiAdmin.createClientWelfareFrom;
+      cy.imsId("btn-reset").click();
+      cy.formController("search_text").type(wfData.search);
+      cy.imsId("btn-search").click();
+      cy.log("Successful search button click.");
+    });
   }
 
   gridLanguageSwitchCheck() {

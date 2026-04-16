@@ -38,7 +38,7 @@ class SavingsProductCreation {
         .type(spData.intersetPostin)
         .type("{enter}");
       cy.formController("start_date").click();
-      cy.contains("15").click();
+      cy.contains("14").click();
       cy.imsId("btn-submit").click();
       cy.imsId("btn-yes").click();
       cy.get("app-confirmation-modal")
@@ -179,6 +179,16 @@ class SavingsProductCreation {
     cy.imsId("btn-add-new").click();
     cy.imsId("btn-go-back").click();
     cy.log("Successful go back button check.");
+  }
+
+  gridSearchButtonCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      var spData = data.mfiAdmin.createSavingsProduct;
+      cy.imsId("btn-reset").click();
+      cy.formController("search_text").type(spData.search);
+      cy.imsId("btn-search").click();
+      cy.log("Successful search button click.");
+    });
   }
 
   gridLanguageSwitchCheck() {

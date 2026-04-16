@@ -393,6 +393,7 @@
       "SelectOffice": "1020 (Ashulia)",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
+      "search": "Binodpur Mohila Samity",
       "messageLoanAccountManagement": "Loan account has been updated"
     },
     "loanDisbursementFrom": {
@@ -400,6 +401,7 @@
       "selectStatus": "Inactive",
       "statusSelect": "Active",
       "SelectOffice": "1020 (Ashulia)",
+      "search": "Chadnee",
       "messageLoanDisbursement": "Loan Disbursement has been updated"
     },
     "createClientWelfareFrom": {
@@ -465,6 +467,7 @@
       "intersetPostin": "Monthly",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
+      "search": "General Savings",
       "saveSavingsMessage": "Savings product has been saved",
       "updateSavingsMessage": "Savings product has been updated"
     },
@@ -532,7 +535,8 @@
     },
     "loanAdjustmentFrom": {
       "office": "1020 (Ashulia)",
-      "samity": "1020-101 (Ashulia Mohila Samity)"
+      "samity": "1020-101 (Ashulia Mohila Samity)",
+      "search": "Chadnee"
     },
     "chartOfAccounts": {
       "ledgergroup": "Asset",
@@ -836,11 +840,11 @@
       "messageSamityChange": "Samity has been updated"
     },
     "samityDayChangeFrom": {
-      "samityNameEn": "Majhail Mohila Samity",
+      "samityNameEn": "Chhagalnaiya Samity",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
       "newSamityDay": "Tuesday",
-      "search": "Majhail Mohila Samity",
+      "search": "Chhagalnaiya Samity",
       "messageSamityDayChange": "Samity has been updated"
     },
     "samityCloseFrom": {

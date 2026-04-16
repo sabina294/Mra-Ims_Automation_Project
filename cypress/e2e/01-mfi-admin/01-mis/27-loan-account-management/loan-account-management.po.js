@@ -3,7 +3,7 @@ class LoanAccountManagement {
 
   gridLoanAccountManagementListPage() {
     cy.fixture(this.test_data).then((data) => {
-      cy.selectMenu("menu-loan-account","submenu-loan-account-management");
+      cy.selectMenu("menu-loan-account", "submenu-loan-account-management");
       cy.log("Successfully Loan account Management list page.");
     });
   }
@@ -25,7 +25,7 @@ class LoanAccountManagement {
     });
   }
 
-   viewGoBackButton() {
+  viewGoBackButton() {
     cy.imsId("btn-go-back").click();
     cy.log("Successfully view go back the Loan account Management list page");
 
@@ -77,7 +77,18 @@ class LoanAccountManagement {
       "successfully refresh page  displayed the grid list of the Loan account proposal Management "
     );
   }
-   gridLanguageSwitchCheck() {
+
+  gridSearchButtonCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      var laData = data.mfiAdmin.loanAccountManagementFrom;
+      cy.imsId("btn-reset").click();
+      cy.formController("search_text").type(laData.search);
+      cy.imsId("btn-search").click();
+      cy.log("Successful search button click.");
+    });
+  }
+
+  gridLanguageSwitchCheck() {
     cy.imsId("profile-menu").click();
     cy.imsId("btn-lang-bangla").click();
     cy.log("Unsccessful switch bangla language check.");

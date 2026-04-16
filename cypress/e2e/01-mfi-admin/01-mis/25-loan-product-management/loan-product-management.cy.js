@@ -91,7 +91,7 @@ describe("25. Loan Product Management Module Test Cases", function () {
     create_loan_product_management.gridResetButtonCheck();
   });
 
-  it("25.18. Verify that when the user clicks the Search button on theloan product management grid page, the system redirects to the loan product management List page..", function () {
+  it("25.18. Verify that when the user clicks the Search button on the loan product management grid page, the system redirects to the loan product management List page..", function () {
     create_loan_product_management.gridSearchButtonCheck();
   });
 

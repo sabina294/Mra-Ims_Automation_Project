@@ -120,12 +120,6 @@ class CalendarYearCreation {
     });
   }
 
-  createGoBackButtonCheck() {
-    cy.imsId("btn-add-new").click();
-    cy.imsId("btn-go-back").click();
-    cy.log("Successful go back button check.");
-  }
-
   createSubmitButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId("btn-add-new").click();
@@ -133,6 +127,22 @@ class CalendarYearCreation {
       cy.imsId("btn-yes").click();
       cy.imsId("btn-ok").click();
       cy.log("Successful submit button working.");
+    });
+  }
+
+  createGoBackButtonCheck() {
+    cy.imsId("btn-add-new").click();
+    cy.imsId("btn-go-back").click();
+    cy.log("Successful go back button check.");
+  }
+
+  gridSearchButtonCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      var cyData = data.mfiAdmin.createCalendarYear;
+      cy.imsId("btn-reset").click();
+      cy.formController("search_text").type(cyData.search);
+      cy.imsId("btn-search").click();
+      cy.log("Successful search button click.");
     });
   }
 

@@ -75,15 +75,19 @@ describe("36. Calendar Year Module Test Cases", function () {
     create_calendar_year.createResetButtonCheck();
   });
 
-  it("36.14. Verify that clicking the go back button on the calendar year create page redirects the user to the calendar year list page.", function () {
-    create_calendar_year.createGoBackButtonCheck();
-  });
-
-  it("36.15. Verify that clicking the submit button  on the calendar year create page redirects the user to the calendar year list page.", function () {
+  it("36.14. Verify that clicking the submit button  on the calendar year create page redirects the user to the calendar year list page.", function () {
     create_calendar_year.createSubmitButtonCheck();
   });
 
-  it("36.16. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("36.15. Verify that clicking the go back button on the calendar year create page redirects the user to the calendar year list page.", function () {
+    create_calendar_year.createGoBackButtonCheck();
+  });
+
+  it("36.16. Verify that when the user clicks the Search button on the calendar year grid page, the system redirects to the calendar year List page..", function () {
+    create_calendar_year.gridSearchButtonCheck();
+  });
+
+  it("36.17. Verify check that the grid list content changes correctly from english to bangla.", function () {
     create_calendar_year.gridLanguageSwitchCheck();
   });
 });

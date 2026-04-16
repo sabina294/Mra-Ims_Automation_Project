@@ -91,7 +91,11 @@ describe("33. Savings Product Module Test Cases", function () {
     create_savings_product.createGoBackButtonCheck();
   });
 
-  it("33.18. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("33.18. Verify that when the user clicks the Search button on the savings product grid page, the system redirects to the savings product List page..", function () {
+    create_savings_product.gridSearchButtonCheck();
+  });
+
+  it("33.19. Verify check that the grid list content changes correctly from english to bangla.", function () {
     create_savings_product.gridLanguageSwitchCheck();
   });
 });
