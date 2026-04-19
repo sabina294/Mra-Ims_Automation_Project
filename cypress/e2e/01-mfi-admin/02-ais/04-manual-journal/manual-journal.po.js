@@ -103,6 +103,16 @@ class ManualJournalCreation {
         cy.log("Successful reset button clean displaying.");
     }
 
+    gridSearchButtonCheck() {
+        cy.fixture(this.test_data).then((data) => {
+            var mjData = data.mfiAdmin.manualJournal;
+            cy.imsId("btn-reset").click();
+            cy.formController("search_text").type(mjData.search);
+            cy.imsId("btn-search").click();
+            cy.log("Successful search button click.");
+        });
+    }
+
     createValidationMessageCheck() {
         cy.imsId("btn-add-new").click();
         cy.imsId("btn-submit").click();

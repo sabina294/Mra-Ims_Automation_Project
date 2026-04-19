@@ -112,6 +112,16 @@ class PaymentVoucherCreation {
         );
     }
 
+    gridSearchButtonCheck() {
+        cy.fixture(this.test_data).then((data) => {
+            var pvData = data.mfiAdmin.paymentVoucher;
+            cy.imsId("btn-reset").click();
+            cy.formController("search_text").type(pvData.voucherNameEn);
+            cy.imsId("btn-search").click();
+            cy.log("Successful search button click.");
+        });
+    }
+
     gridDraftButton() {
         cy.imsId("btn-draft-on").click();
         cy.log("Draft button should be clickable and functional.");

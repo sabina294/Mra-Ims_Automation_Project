@@ -69,7 +69,11 @@ describe("06 Fund Module Test Cases", function () {
         create_fund_Transfer.createGoBackButtonCheck();
     });
 
-    it("06.12. Verify check that the grid list content changes correctly from english to bangla.", function () {
+    it("06.12. Verify that when the user clicks the Search button on the fund grid page, the system redirects to the fund List page..", function () {
+        create_fund_Transfer.gridSearchButtonCheck();
+    });
+
+    it("06.13. Verify check that the grid list content changes correctly from english to bangla.", function () {
         create_fund_Transfer.gridLanguageSwitchCheck();
     });
 

@@ -85,9 +85,12 @@ describe("05 Financial Period Management Module Test Cases", function () {
         create_financial_period_management.createGoBackButtonCheck();
     });
 
-    it("05.16. Verify check that the grid list content changes correctly from english to bangla.", function () {
-        create_financial_period_management.gridLanguageSwitchCheck();
+    it("05.16. Verify that when the user clicks the Search button on the financial period management grid page, the system redirects to the financial period management List page..", function () {
+        create_financial_period_management.gridSearchButtonCheck();
     });
 
+    it("05.17. Verify check that the grid list content changes correctly from english to bangla.", function () {
+        create_financial_period_management.gridLanguageSwitchCheck();
+    });
 
 });

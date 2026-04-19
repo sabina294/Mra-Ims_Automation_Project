@@ -92,6 +92,16 @@ class fundTransferCreation {
         cy.log("Successful go back button check.");
     }
 
+     gridSearchButtonCheck() {
+        cy.fixture(this.test_data).then((data) => {
+            var ftData = data.mfiAdmin.fund;
+            cy.imsId("btn-reset").click();
+            cy.formController("search_text").type(ftData.search);
+            cy.imsId("btn-search").click();
+            cy.log("Successful search button click.");
+        });
+    }
+
     gridLanguageSwitchCheck() {
         cy.imsId("profile-menu").click();
         cy.imsId("btn-lang-bangla").click();

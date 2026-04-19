@@ -49,7 +49,11 @@ describe("09 Auto Voucher Module Test Cases", function () {
         grid_auto_voucher.gridRefreshButtonCheck();
     });
 
-    it("09.07. Verify check that the grid list content changes correctly from english to bangla.", function () {
+    it("09.07. Verify that when the user clicks the Search button on the received voucher grid page, the system redirects to the received voucher List page..", function () {
+        grid_auto_voucher.gridSearchButtonCheck();
+    });
+
+    it("09.08. Verify check that the grid list content changes correctly from english to bangla.", function () {
         grid_auto_voucher.gridLanguageSwitchCheck();
     });
 

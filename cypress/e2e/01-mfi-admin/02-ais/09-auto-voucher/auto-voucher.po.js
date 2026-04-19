@@ -11,7 +11,7 @@ class AutoVoucher {
 
     statusInactiveDropdownCheck() {
         cy.fixture(this.test_data).then((data) => {
-            var avData = data.mfiAdmin.receivedVoucher;
+            var avData = data.mfiAdmin.autoVoucherFrom;
             cy.imsId("btn-reset").click();
             cy.formController("status").type(avData.selectStatus).type("{enter}");
             cy.log("ledger sub group status inactive dropdown check successfully");
@@ -20,7 +20,7 @@ class AutoVoucher {
 
     statusActiveDropdownCheck() {
         cy.fixture(this.test_data).then((data) => {
-            var avData = data.mfiAdmin.receivedVoucher;
+            var avData = data.mfiAdmin.autoVoucherFrom;
             cy.formController("status").type(avData.statusSelect).type("{enter}");
             cy.log("ledger sub group status active dropdown check successfully");
         });
@@ -28,9 +28,10 @@ class AutoVoucher {
 
     searchName() {
         cy.fixture(this.test_data).then((data) => {
-            var avData = data.mfiAdmin.receivedVoucher;
+            var avData = data.mfiAdmin.autoVoucherFrom;
             cy.imsId("btn-reset").click();
-            cy.formController("search_text").type(avData.voucherNameBn);
+            cy.formController("search_text").type(avData.search);
+            cy.imsId("btn-search").click();
             cy.log("Successfully search in the auto voucher");
         });
     }
@@ -46,6 +47,15 @@ class AutoVoucher {
         );
     }
 
+    gridSearchButtonCheck() {
+        cy.fixture(this.test_data).then((data) => {
+            var avData = data.mfiAdmin.autoVoucherFrom;
+            cy.imsId("btn-reset").click();
+            cy.formController("search_text").type(avData.search);
+            cy.imsId("btn-search").click();
+            cy.log("Successful search button click.");
+        });
+    }
 
     gridLanguageSwitchCheck() {
         cy.imsId("profile-menu").click();

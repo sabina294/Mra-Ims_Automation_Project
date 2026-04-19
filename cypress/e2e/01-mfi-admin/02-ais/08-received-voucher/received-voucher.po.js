@@ -102,6 +102,16 @@ class ReceivedVoucherCreation {
         cy.log("Grid reset button clicked successfully");
     }
 
+      gridSearchButtonCheck() {
+        cy.fixture(this.test_data).then((data) => {
+            const rvData = data.mfiAdmin.receivedVoucher;
+            cy.imsId("btn-reset").click();
+            cy.formController("search_text").type(rvData.search);
+            cy.imsId("btn-search").click();
+            cy.log("Successful search button click.");
+        });
+    }
+
     gridRefreshButtonCheck() {
         cy.imsId("btn-refresh").click();
         cy.log("Grid refreshed successfully on received voucher list page");

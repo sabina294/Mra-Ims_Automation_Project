@@ -69,53 +69,56 @@ describe("07 Payment Voucher Module Test Cases", function () {
         create_payment_voucher.gridRefreshButtonCheck();
     });
 
-    it("07.12. Verify display the grid list successfully when the Draft button on is clicked on the payment voucher page", function () {
+    it("07.12. Verify that when the user clicks the Search button on the payment voucher grid page, the system redirects to the payment voucher List page..", function () {
+        create_payment_voucher.gridSearchButtonCheck();
+    });
+
+    it("07.13. Verify display the grid list successfully when the Draft button on is clicked on the payment voucher page", function () {
         create_payment_voucher.gridDraftButton();
     });
 
-    it("07.13. Verify display the grid list successfully when the Draft button off is clicked on the payment voucher page", function () {
+    it("07.14. Verify display the grid list successfully when the Draft button off is clicked on the payment voucher page", function () {
         create_payment_voucher.gridDraftButtonOff();
     });
 
-    it("07.14. Verify the payment voucher creation reset button clears all entered input values.", function () {
+    it("07.15. Verify the payment voucher creation reset button clears all entered input values.", function () {
         create_payment_voucher.createResetButtonCheck();
     });
 
-    it("07.15. Verify validation messages appear for required fields when the submit button is clicked with empty inputs.", function () {
+    it("07.16. Verify validation messages appear for required fields when the submit button is clicked with empty inputs.", function () {
         create_payment_voucher.createValidationMessageCheck();
     });
 
-    it("07.16. Verify validation messages appear for required fields when the draft button is clicked with empty inputs.", function () {
+    it("07.17. Verify validation messages appear for required fields when the draft button is clicked with empty inputs.", function () {
         create_payment_voucher.createDraftButtonCheck();
     });
 
-    it("07.17. Verify validation messages appear for required fields when the approve button is clicked with empty inputs.", function () {
+    it("07.18. Verify validation messages appear for required fields when the approve button is clicked with empty inputs.", function () {
         create_payment_voucher.createApproveButtonCheck();
     });
 
-    it("07.18. Verify that clicking the add icon  button on the payment voucher create page redirects the user to the payment voucher list page.", function () {
+    it("07.19. Verify that clicking the add icon  button on the payment voucher create page redirects the user to the payment voucher list page.", function () {
         create_payment_voucher.createPaymentAddIconButtonCheck();
     });
 
-    it("07.19. Verify that clicking the remove icon  button on the payment voucher create page redirects the user to the payment voucher list page.", function () {
+    it("07.20. Verify that clicking the remove icon  button on the payment voucher create page redirects the user to the payment voucher list page.", function () {
         create_payment_voucher.createPaymentRemoveIconButtonCheck();
     });
 
-    it("07.20. Verify that clicking the go back button on the payment voucher create page redirects the user to the payment voucher list page.", function () {
+    it("07.21. Verify that clicking the go back button on the payment voucher create page redirects the user to the payment voucher list page.", function () {
         create_payment_voucher.createGoBackButtonCheck();
     });
 
-    it("07.21. Verify that clicking the Add New Journal Details button on the payment voucher Create page redirects the user to the payment voucher List page.", function () {
+    it("07.22. Verify that clicking the Add New Journal Details button on the payment voucher Create page redirects the user to the payment voucher List page.", function () {
         create_payment_voucher.createNewJournalDetailsButtonCheck();
     });
 
-    it("07.22. Verify that clicking the delete button on the payment voucher create page redirects the user to the payment voucher list page.", function () {
+    it("07.23. Verify that clicking the delete button on the payment voucher create page redirects the user to the payment voucher list page.", function () {
         create_payment_voucher.createDeleteButtonCheck();
     });
 
-    it("07.23. Verify check that the grid list content changes correctly from english to bangla.", function () {
+    it("07.24. Verify check that the grid list content changes correctly from english to bangla.", function () {
         create_payment_voucher.gridLanguageSwitchCheck();
     });
-
 
 });

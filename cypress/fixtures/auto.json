@@ -558,7 +558,8 @@
     "ledgerSetting": {
       "nameEn": "CashAtBank",
       "selectStatus": "Inactive",
-      "statusSelect": "Active"
+      "statusSelect": "Active",
+      "search": "CashAtBank"
     },
     "manualJournal": {
       "reference": "Test journal",
@@ -573,14 +574,16 @@
       "creditedAmount2": "500",
       "nameEn": "Initial Balance",
       "selectStatus": "Approve",
-      "statusSelect": "Rejected"
+      "statusSelect": "Rejected",
+      "search": "Initial Balance"
     },
     "financialPeriodManagement": {
       "nameEn": "Test period",
       "nameBn": "পরীক্ষার সময়কাল",
       "periodType": "Half Yearly",
       "selectStatus": "Inactive",
-      "statusSelect": "Active"
+      "statusSelect": "Active",
+      "search": "2024-2025"
     },
     "fund": {
       "office": "1002 (Dhaka Regional Office)",
@@ -589,7 +592,8 @@
       "recipientReceivedMode": "Cash",
       "remarks": "Done",
       "selectStatus": "Inactive",
-      "statusSelect": "Active"
+      "statusSelect": "Active",
+      "search": "Dhaka Regional Office"
     },
     "paymentVoucher": {
       "voucherNameEn": "Test Payment Voucher",
@@ -601,7 +605,8 @@
       "remarks1": "Done",
       "amount": "1000",
       "selectStatus": "Inactive",
-      "statusSelect": "Active"
+      "statusSelect": "Active",
+      "search": "Test Payment Voucher"
     },
     "receivedVoucher": {
       "voucherNameEn": "Test received Voucher",
@@ -613,12 +618,14 @@
       "remarks1": "Done",
       "amount": "1000",
       "selectStatus": "Inactive",
-      "statusSelect": "Active"
+      "statusSelect": "Active",
+      "search": "Test received Voucher"
     },
     "autoVoucherFrom": {
       "preparedBy": "tem-1020-bm",
       "selectStatus": "Inactive",
-      "statusSelect": "Active"
+      "statusSelect": "Active",
+      "search": "tem-1020-bm"
     },
     "createBalanceSheetFrom": {
       "office": "1002 (Dhaka Regional Office)"

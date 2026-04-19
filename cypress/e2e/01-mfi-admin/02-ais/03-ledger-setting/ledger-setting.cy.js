@@ -65,7 +65,11 @@ describe("03. Ledger Setting Module Test Cases", function () {
         grid_ledger_setting.gridRefreshButtonCheck();
     });
 
-    it("02.11. Verify check that the grid list content changes correctly from english to bangla.", function () {
+    it("02.11. Verify that when the user clicks the Search button on the ledger setting  grid page, the system redirects to the ledger setting  List page..", function () {
+        grid_ledger_setting.gridSearchButtonCheck();
+    });
+
+    it("02.12. Verify check that the grid list content changes correctly from english to bangla.", function () {
         grid_ledger_setting.gridLanguageSwitchCheck();
     });
 

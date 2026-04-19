@@ -65,27 +65,31 @@ describe("04. Manual Journal Module Test Cases", function () {
         create_manual_journal.gridRefreshButtonCheck();
     });
 
-    it("04.11. Verify the manual journal creation reset button clears all entered input values.", function () {
+    it("04.11. Verify that when the user clicks the Search button on the manual journal grid page, the system redirects to the manual journal List page..", function () {
+        create_manual_journal.gridSearchButtonCheck();
+    });
+
+    it("04.12. Verify the manual journal creation reset button clears all entered input values.", function () {
         create_manual_journal.createResetButtonCheck();
     });
 
-    it("04.12. Verify validation messages appear for required fields when the submit button is clicked with empty inputs.", function () {
+    it("04.13. Verify validation messages appear for required fields when the submit button is clicked with empty inputs.", function () {
         create_manual_journal.createValidationMessageCheck();
     });
 
-    it("04.13. Verify that clicking the go back button on the manual journal create page redirects the user to the manual journal list page.", function () {
+    it("04.14. Verify that clicking the go back button on the manual journal create page redirects the user to the manual journal list page.", function () {
         create_manual_journal.createGoBackButtonCheck();
     });
 
-    it("04.14. Verify that clicking the delete button on the manual journal create page redirects the user to the manual journal list page.", function () {
+    it("04.15. Verify that clicking the delete button on the manual journal create page redirects the user to the manual journal list page.", function () {
         create_manual_journal.createDeleteButtonCheck();
     });
 
-    it("04.15. Verify that clicking the Add New Journal Details button on the Manual Journal Create page redirects the user to the Manual Journal List page.", function () {
+    it("04.16. Verify that clicking the Add New Journal Details button on the Manual Journal Create page redirects the user to the Manual Journal List page.", function () {
         create_manual_journal.createNewJournalDetailsButtonCheck();
     });
 
-    it("04.16. Verify check that the grid list content changes correctly from english to bangla.", function () {
+    it("04.17. Verify check that the grid list content changes correctly from english to bangla.", function () {
         create_manual_journal.gridLanguageSwitchCheck();
     });
 
