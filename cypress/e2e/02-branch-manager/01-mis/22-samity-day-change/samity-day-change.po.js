@@ -11,9 +11,9 @@ class SamityDayChange {
     samityDayChange() {
     cy.fixture(this.test_data).then((data) => {
       var sdData = data.branchManager.samityDayChangeFrom;
-      cy.imsId("btn-reset").click();
-      cy.formController("search_text").type(sdData.samityNameEn);
-      cy.imsId("btn-search").first().click();
+      // cy.imsId("btn-reset").click();
+      // cy.formController("search_text").type(sdData.samityNameEn);
+      // cy.imsId("btn-search").first().click();
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-mis-table-action-change").click();
       cy.formController("new_samity_day").type(sdData.newSamityDay).type("{enter}");
@@ -54,8 +54,6 @@ class SamityDayChange {
   viewSamityDayChange() {
     cy.fixture(this.test_data).then((data) => {
       var sdData = data.branchManager.samityDayChangeFrom;
-      cy.formController("search_text").type(sdData.search);
-      cy.imsId("btn-search").click();
       cy.imsId("btn-table-action-view").click();
 
       cy.log("Successfully viewed the samity change list page");

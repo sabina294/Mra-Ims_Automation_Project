@@ -122,6 +122,7 @@ class RrejectedMember {
   }
 
   editResetButton() {
+    cy.imsId("btn-reset").click();
     cy.imsId("toggle-action").first().click();
     cy.imsId("btn-mis-table-action-edit").click();
     cy.imsId("btn-reset").click();

@@ -150,13 +150,18 @@ class EmployeeManagementCreation {
   }
 
   editEmployeeManagement() {
-    cy.imsId("toggle-action").first().click();
-    cy.imsId("btn-table-action-edit").click();
-    cy.imsId("btn-submit").click();
-    cy.imsId("btn-yes").click();
-    cy.imsId("btn-ok").click();
-    cy.log("Employee Management updated successfully");
-
+    cy.fixture(this.test_data).then((data) => {
+      var emData = data.mfiAdmin.createEmpMangFrom;
+      cy.imsId("btn-reset").click();
+      cy.formController("search_text").type(emData.search);
+      cy.imsId("btn-search").click();
+      cy.imsId("toggle-action").first().click();
+      cy.imsId("btn-table-action-edit").click();
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-yes").click();
+      cy.imsId("btn-ok").click();
+      cy.log("Employee Management updated successfully");
+    });
   }
 
   statusInactiveDropdownCheck() {

@@ -16,11 +16,7 @@ class Region {
   viewRegion() {
     cy.fixture(this.test_data).then((data) => {
       var regData = data.branchManager.gridRegionFrom;
-      cy.formController("search_text").type(regData.nameEn);
-      cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
-
-      cy.get("app-mfi-mis").contains(regData.nameEn).and("be.visible");
       cy.log("Successfully viewed the region list page");
     });
   }

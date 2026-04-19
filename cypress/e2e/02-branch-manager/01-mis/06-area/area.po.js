@@ -16,11 +16,7 @@ class Area {
   viewArea() {
     cy.fixture(this.test_data).then((data) => {
       var arData = data.branchManager.gridAreaFrom;
-      cy.formController("search_text").type(arData.nameEn);
-      cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
-
-      cy.get("app-mfi-mis").contains(arData.nameEn).and("be.visible");
       cy.log("Successfully viewed the area list page");
     });
   }

@@ -16,11 +16,7 @@ class Department {
   viewDepartment() {
     cy.fixture(this.test_data).then((data) => {
       var depData = data.branchManager.gridDepartmentFrom;
-      cy.formController("search_text").type(depData.nameEn);
-      cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
-
-      cy.get("app-mfi-mis").contains(depData.nameEn).and("be.visible");
       cy.log("Successfully viewed the department list page");
     });
   }

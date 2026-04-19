@@ -111,8 +111,8 @@ describe("07. Bank Account Module Test Cases", function () {
     create_bank_account.gridRefreshButtonCheck();
   });
 
-  it("07.23. Verify that when the user clicks the Search button on the bank account grid page, the system redirects to the bank account List page..", function () {
-    create_bank_account.gridSearchButtonCheck();
+  it("07.23. Verify pagination functions as expected on the last page of the bank account list.", function () {
+    create_bank_account.paginationCheck();
   });
 
   it("07.24. Verify the bank account creation reset button clears all entered input values.", function () {
@@ -127,8 +127,8 @@ describe("07. Bank Account Module Test Cases", function () {
     create_bank_account.createGoBackButtonCheck();
   });
 
-  it("07.27. Verify pagination functions as expected on the last page of the bank account list.", function () {
-    create_bank_account.paginationCheck();
+  it("07.27. Verify that when the user clicks the Search button on the bank account grid page, the system redirects to the bank account List page..", function () {
+    create_bank_account.gridSearchButtonCheck();
   });
 
   it("07.28. Verify check that the grid list content changes correctly from english to bangla.", function () {

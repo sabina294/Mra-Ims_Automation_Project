@@ -27,15 +27,15 @@ describe("38. Holiday Module Test Cases", function () {
     create_holiday.gridHolidayListPage();
   });
 
-  it("38.02. Verify the loan holiday create reset button functions correctly.", function () {
+  it("38.02. Verify the holiday create reset button functions correctly.", function () {
     create_holiday.createResetButton();
   });
 
-  it("38.03. Verify the loan holiday create submit button functions correctly.", function () {
+  it("38.03. Verify the holiday create submit button functions correctly.", function () {
     create_holiday.createSubmitButton();
   });
 
-  it("38.04. Verify the loan holiday create go back button functions correctly.", function () {
+  it("38.04. Verify the holiday create go back button functions correctly.", function () {
     create_holiday.createGoBackButton();
   });
 
