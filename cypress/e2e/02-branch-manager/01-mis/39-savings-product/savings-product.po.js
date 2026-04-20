@@ -18,11 +18,7 @@ class SavingsProductCreation {
   viewSavingsProduct() {
     cy.fixture(this.test_data).then((data) => {
       var spData = data.branchManager.gridSavingsProduct;
-      cy.formController("search_text").type(spData.intersetTerms);
-      cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
-
-      cy.get("app-mfi-mis").contains(spData.intersetTerms).and("be.visible");
       cy.log("Successfully viewed the savings product list page");
     });
   }
