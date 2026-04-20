@@ -111,15 +111,19 @@ describe("14. Employee Management Module Test Cases", function () {
     create_employee_management.createDraftButtonCheck();
   });
 
-  it("14.23. Should redirect to the list page when the Go Back button is clicked on the create page", function () {
+  it("14.23. Should redirect to the list page when the Approve button is clicked on the create page", function () {
+    create_employee_management.createApproveButtonCheck();
+  });
+
+  it("14.24. Should redirect to the list page when the Go Back button is clicked on the create page", function () {
     create_employee_management.createGoBackButtonCheck();
   });
 
-  it("14.24. Verify that when the user clicks the Search button on the employee grid page, the system redirects to the employee List page..", function () {
+  it("14.25. Verify that when the user clicks the Search button on the employee grid page, the system redirects to the employee List page..", function () {
     create_employee_management.gridSearchButtonCheck();
   });
 
-  it("14.25. Should change grid list content correctly when switching from English to Bangla", function () {
+  it("14.26. Should change grid list content correctly when switching from English to Bangla", function () {
     create_employee_management.gridLanguageSwitchCheck();
   });
 });

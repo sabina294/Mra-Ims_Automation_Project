@@ -242,12 +242,18 @@ class EmployeeManagementCreation {
     cy.log("Successful draft button check.");
   }
 
+  createApproveButtonCheck() {
+    cy.imsId("btn-approve").click();
+    cy.imsId("btn-ok").click();
+    cy.log("Successful approve button check.");
+  }
+
   createGoBackButtonCheck() {
     cy.imsId("btn-go-back").click();
     cy.log("Successful go back button check.");
   }
 
-   gridSearchButtonCheck() {
+  gridSearchButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
       var emData = data.branchManager.createEmpMangFrom;
       cy.imsId("btn-reset").click();
@@ -256,7 +262,7 @@ class EmployeeManagementCreation {
       cy.log("Successful search button click.");
     });
   }
-  
+
   gridLanguageSwitchCheck() {
     cy.imsId("profile-menu").click();
     cy.imsId("btn-lang-bangla").click();

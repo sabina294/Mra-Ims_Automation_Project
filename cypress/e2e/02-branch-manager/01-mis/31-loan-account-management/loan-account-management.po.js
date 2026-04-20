@@ -18,8 +18,6 @@ class LoanAccountManagement {
   viewLoanAccountManagement() {
     cy.fixture(this.test_data).then((data) => {
       var laData = data.branchManager.loanAccountManagementFrom;
-      cy.formController("search_text").type(laData.samity);
-      cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
       cy.log("Successfully viewed the Loan account Management list page");
     });
