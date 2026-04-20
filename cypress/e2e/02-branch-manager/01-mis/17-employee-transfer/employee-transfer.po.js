@@ -43,6 +43,7 @@ class EmployeeTransfer {
       createEmployeeTransferWithoutOffice() {
         cy.fixture(this.test_data).then((data) => {
             var emtData = data.branchManager.gridEmpTransferFrom;
+            cy.imsId("btn-reset").click();
             cy.formController("effective_date").click();
             cy.wait(2000);
             cy.contains(15).click({ force: true });

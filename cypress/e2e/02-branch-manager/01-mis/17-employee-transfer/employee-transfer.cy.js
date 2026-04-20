@@ -35,16 +35,16 @@ describe("17. Employee Transfer Module Test Cases", function () {
         grid_employee_transfer.transferSubmitButton();
     });
 
-    it("17.04. Verify that clicking the Go Back button redirects the user to the Employee Transfer list page.", function () {
-        grid_employee_transfer.transferGoBackButton();
-    });
-
-    it("17.05. Verify the system validation when creating an employee transfer without selecting an effective date.", function () {
+    it("17.04. Verify the system validation when creating an employee transfer without selecting an effective date.", function () {
         grid_employee_transfer.createEmployeeTransferWithoutEffectiveDate();
     });
 
-    it("17.06. Verify the system validation when creating an employee transfer without selecting a office.", function () {
+    it("17.05. Verify the system validation when creating an employee transfer without selecting a office.", function () {
         grid_employee_transfer.createEmployeeTransferWithoutOffice();
+    });
+
+     it("17.06. Verify that clicking the Go Back button redirects the user to the Employee Transfer list page.", function () {
+        grid_employee_transfer.transferGoBackButton();
     });
 
     it("17.07. Verify that a new Employee Transfer is created successfully when all required fields are filled with valid data.", function () {
