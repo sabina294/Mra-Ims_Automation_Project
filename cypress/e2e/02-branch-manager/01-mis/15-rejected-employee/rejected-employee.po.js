@@ -131,22 +131,32 @@ class RejectedEmployee {
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-edit").click();
       cy.imsId("btn-reset").click();
-      cy.imsId("btn-go-back").click();
-
       cy.log("Successful clean displaying");
     });
   }
 
+  editValidationMessageCheck() {
+    cy.imsId("btn-submit").click();
+    cy.imsId("btn-ok").click();
+    cy.log("Successful submit button check displaying");
+  }
+
+  editDraftButtonCheck() {
+    cy.imsId("btn-draft").click();
+    cy.imsId("btn-ok").click();
+    cy.log("Successful draft button check displaying");
+  }
+
+  editApproveButtonCheck() {
+    cy.imsId("btn-approve").click();
+    cy.imsId("btn-ok").click();
+    cy.log("Successful approve button check displaying");
+  }
+
   editGoBackButton() {
-    cy.fixture(this.test_data).then((data) => {
-      var emData = data.branchManager.rejectedEmployeeFrom;
-      cy.imsId("btn-reset").click();
-      cy.formController("search_text").type(emData.search);
-      cy.imsId("toggle-action").first().click();
-      cy.imsId("btn-table-action-edit").click();
       cy.imsId("btn-go-back").click();
       cy.log("Successful edit go back button check.");
-    });
+
   }
 
   editEmployeeManagement() {
@@ -201,7 +211,7 @@ class RejectedEmployee {
     );
   }
 
-   gridSearchButtonCheck() {
+  gridSearchButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
       var emData = data.branchManager.rejectedEmployeeFrom;
       cy.imsId("btn-reset").click();
