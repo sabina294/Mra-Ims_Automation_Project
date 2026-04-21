@@ -1065,6 +1065,10 @@
       "office": "1002 (Dhaka Regional Office)",
       "messageSaveHoliday": "Mfi holiday has been saved"
     },
+    "createStagingDataFrom": {
+      "fieldOfficer": "EMP-0122 - GAIS UDDIN KHAN",
+      "samity": "1020-101 (Ashulia Mohila Samity)"
+    },
     "regularCollection": {
       "loanAmount": "500",
       "loanAmount2": "500"

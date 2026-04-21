@@ -34,4 +34,21 @@ describe("34. Staging Data Module Test Cases", function () {
   it("34.03. Verify that the grid list is refreshed successfully when the refresh button is clicked on the staging data page.", function () {
     create_staging_data.refreshButtonCheck();
   });
+
+  it("34.04. Verify that the grid list is field officer dropdown successfully when the select on the staging data page.", function () {
+    create_staging_data.fieldOfficerDropdownCheck();
+  });
+
+  it("34.05. Verify that the grid list is samity dropdown successfully when the select on the staging data page.", function () {
+    create_staging_data.samityDropdownCheck();
+  });
+
+  it("34.06. Verify that the delete button is available and functioning correctly in the staging list.", function () {
+    create_staging_data.deleteButtonCheck();
+  });
+
+  it("34.07. Verify check that the grid list content changes correctly from english to bangla.", function () {
+    create_staging_data.gridLanguageSwitchCheck();
+  });
+
 });
