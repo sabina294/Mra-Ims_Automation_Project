@@ -25,4 +25,5 @@ describe("23. Logout Test", function () {
   it("23.02. Verify the user can log out successfully.", function () {
     logout_page.logout();
   });
+
 });
