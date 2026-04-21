@@ -68,31 +68,39 @@ describe("26. Member Samity Transfer Module Test Cases", function () {
     member_samity_transfer.approveSamityTransfer();
   });
 
-  it("26.12. Verify that the user can filter the inactive Member Samity Transfers using the Status Dropdown on the Member Samity Transfer List page.", function () {
+  it('26.12. Verify successful processing of a new  samity transfer without new samity field.', function () {
+    member_samity_transfer.withoutNewSamity();
+  })
+
+  it('26.13. Verify successful processing of a new  samity transfer without register book serial id field.', function () {
+    member_samity_transfer.withoutRegisterBookSerialId();
+  })
+
+  it("26.14. Verify that the user can filter the inactive Member Samity Transfers using the Status Dropdown on the Member Samity Transfer List page.", function () {
     member_samity_transfer.statusInactiveDropdownCheck();
   });
 
-  it("26.13. Verify Filter Active Result by Status Dropdown", function () {
+  it("26.15. Verify Filter Active Result by Status Dropdown", function () {
     member_samity_transfer.statusActiveDropdownCheck();
   });
 
-  it("26.14. Verify Successful Search Result by Member Samity Transfer Name", function () {
+  it("26.16. Verify Successful Search Result by Member Samity Transfer Name", function () {
     member_samity_transfer.searchInMemberSamityTransferName();
   });
 
-  it("26.15. Verify Successful Reset of Grid List Using the Reset Button on Member Samity Transfer Page.", function () {
+  it("26.17. Verify Successful Reset of Grid List Using the Reset Button on Member Samity Transfer Page.", function () {
     member_samity_transfer.gridResetButtonCheck();
   });
 
-  it("26.16. Verify Successful Refresh of Grid List Using the Refresh Button on Member Samity Transfer Page.", function () {
+  it("26.18. Verify Successful Refresh of Grid List Using the Refresh Button on Member Samity Transfer Page.", function () {
     member_samity_transfer.gridRefreshButtonCheck();
   });
 
-  it("26.17. Verify that when the user clicks the Search button on the Member Samity Transfer  grid page, the system redirects to the Member Samity Transfer List page.", function () {
+  it("26.19. Verify that when the user clicks the Search button on the Member Samity Transfer  grid page, the system redirects to the Member Samity Transfer List page.", function () {
     member_samity_transfer.gridSearchButtonCheck();
   });
 
-  it("26.18. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("26.20. Verify check that the grid list content changes correctly from english to bangla.", function () {
     member_samity_transfer.gridLanguageSwitchCheck();
   });
 });

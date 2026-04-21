@@ -8,7 +8,7 @@ class MemberSamityTransfer {
     });
   }
 
-    gridDraftButton() {
+  gridDraftButton() {
     cy.imsId("btn-draft-on").click();
     cy.log("Draft button should be clickable and functional.");
   }
@@ -89,6 +89,39 @@ class MemberSamityTransfer {
     });
   }
 
+  withoutNewSamity() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.selectMenu("menu-member", "submenu-member-samity-transfer");
+      var mstData = data.branchManager.memberSamityTransferFrom;
+      cy.imsId("toggle-action").first().click();
+      cy.imsId("btn-mis-table-action-transfer").click();
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-ok").click();
+      cy.imsId("btn-go-back").click();
+
+      cy.log("Successfully member samity transfer without new samity field");
+    });
+  }
+
+  withoutRegisterBookSerialId() {
+    cy.fixture(this.test_data).then((data) => {
+      var mstData = data.branchManager.memberSamityTransferFrom;
+      cy.imsId("toggle-action").first().click();
+      cy.imsId("btn-mis-table-action-transfer").click();
+      cy.formController("new_samity_id")
+        .type(mstData.newSamityTransfer)
+        .type("{enter}");
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-yes").click();
+      cy.get("app-confirmation-modal")
+        .contains(mstData.messagesamityTransfer)
+        .and("be.visible");
+      cy.imsId("btn-ok").click();
+
+      cy.log("Successfully member samity transfer");
+    });
+  }
+
   statusInactiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       var mstData = data.branchManager.memberSamityTransferFrom;
@@ -128,7 +161,7 @@ class MemberSamityTransfer {
     );
   }
 
-    gridSearchButtonCheck() {
+  gridSearchButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
       var mstData = data.branchManager.memberSamityTransferFrom;
       cy.imsId("btn-reset").click();
