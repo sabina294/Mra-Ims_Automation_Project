@@ -17,21 +17,42 @@ class RegularCollection {
         cy.log("Open button clicked successfully on the regular collection list page.");
     }
 
-    collectionCheck() {
+    collectionProcess() {
         cy.fixture(this.test_data).then((data) => {
-            var rcData = data.branchManager.regularCollection;
-            cy.imsId("loan-AGRO-1020-101-1001-1").type(rcData.loanAmount);
-            cy.imsId("loan-JAGO-1020-101-1001-1").type(rcData.loanAmount2);
+            const rcData = data.branchManager.regularCollection;
+            cy.get('tbody tr')
+                .eq(0)
+                .find('input')
+                .eq(0)
+                .clear()
+                .type(rcData.loanAmount);
+            cy.get('tbody tr')
+                .eq(1)
+                .find('input')
+                .eq(0)
+                .clear()
+                .type(rcData.loanAmount2);
+
+            cy.log("Regular collection amount entered successfully");
+        });
+    }
+
+    collectionSave() {
+        cy.fixture(this.test_data).then((data) => {
             cy.imsId("btn-save").click();
             cy.imsId("btn-yes").click();
             cy.imsId("btn-ok").click();
-            cy.log("successfully on the regular collection list page.");
+            cy.log("successfully on the regular collection save.");
         });
     }
 
     viewRegularCollection() {
         cy.imsId("toggle-action").first().click();
         cy.imsId("btn-table-action-view").click();
+        cy.log("successfully on the view regular collection list page.");
+    }
+
+    viewGoBackButton() {
         cy.imsId("btn-go-back").click();
         cy.log("successfully on the view regular collection list page.");
     }
@@ -39,17 +60,30 @@ class RegularCollection {
     editRegularCollection() {
         cy.imsId("toggle-action").first().click();
         cy.imsId("btn-table-action-edit").click();
-        cy.imsId("btn-go-back").click();
         cy.log("successfully on the edit regular collection list page.");
     }
 
-    editResetButton() {
-        cy.imsId("toggle-action").first().click();
-        cy.imsId("btn-table-action-edit").click();
-        cy.imsId("btn-reset").click();
+    editSaveButton() {
+        cy.imsId("btn-save").click();
         cy.imsId("btn-yes").click();
         cy.imsId("btn-ok").click();
-        cy.log("successfully on the regular collection list page.");
+        cy.log("successfully on the edit regular collection save.");
+    }
+
+    collectionGoBack() {
+        cy.imsId("toggle-action").first().click();
+        cy.imsId("btn-table-action-view").click();
+        cy.imsId("btn-go-back").click();
+        cy.log("successfully on the go back regular collection.");
+    }
+
+    collectionSubmit() {
+        cy.imsId("toggle-action").first().click();
+        cy.imsId("btn-table-action-submit").click();
+        cy.imsId("btn-submit").click();
+        cy.imsId("btn-yes").click();
+        cy.imsId("btn-ok").click();
+        cy.log("successfully on the submit regular collection.");
     }
 
     gridResetButtonCheck() {

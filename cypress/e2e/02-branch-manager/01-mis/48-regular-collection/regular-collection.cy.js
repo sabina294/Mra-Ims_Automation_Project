@@ -36,30 +36,46 @@ describe("48. Regular Collection Module Test Cases", function () {
     });
 
     it("48.04. Verify accept the Regular Collection amount and complete the collection process successfully.", function () {
-        create_regular_collection.collectionCheck();
+        create_regular_collection.collectionProcess();
     });
 
-    it("48.05. Verify display Regular Collection details including name and description successfully.", function () {
+    it("48.05. Verify accept the Regular Collection save and complete the collection process successfully.", function () {
+        create_regular_collection.collectionSave();
+    });
+
+    it("48.06. Verify display Regular Collection details including name and description successfully.", function () {
         create_regular_collection.viewRegularCollection();
     });
 
-    // it("48.06. Verify allow editing of an existing Regular Collection successfully.", function () {
-    //     create_regular_collection.editRegularCollection();
-    // });
+    it("48.07. Verify that clicking the go back button on the regular collection view page redirects the user to the regular collection list page.", function () {
+        create_regular_collection.viewGoBackButton();
+    });
 
-    // it("48.07. Verify reset the Regular Collection edit form successfully when the Reset button is clicked.", function () {
-    //     create_regular_collection.editResetButton();
-    // });
+    it("48.08. Verify allow editing of an existing Regular Collection successfully.", function () {
+        create_regular_collection.editRegularCollection();
+    });
 
-    it("48.08. Verify reset the grid list successfully when the Reset button is clicked on the Regular Collection page.", function () {
+    it("48.09. Verify the Regular Collection edit form successfully when the save button is clicked.", function () {
+        create_regular_collection.editSaveButton();
+    });
+
+    it("48.10. Verify the Regular Collection form successfully when the go back button is clicked.", function () {
+        create_regular_collection.collectionGoBack();
+    });
+
+    it("48.11. Verify the Regular Collection form successfully when the Submit button is clicked..", function () {
+        create_regular_collection.collectionSubmit();
+    });
+
+    it("48.12. Verify reset the grid list successfully when the Reset button is clicked on the Regular Collection page.", function () {
         create_regular_collection.gridResetButtonCheck();
     });
 
-    it("48.09. Verify create a new Regular Collection record successfully when all required fields are filled with valid data.", function () {
+    it("48.13. Verify create a new Regular Collection record successfully when all required fields are filled with valid data.", function () {
         create_regular_collection.gridRefreshButtonCheck();
     });
 
-    it("48.10. Verify check that the grid list content changes correctly from english to bangla.", function () {
+    it("48.14. Verify check that the grid list content changes correctly from english to bangla.", function () {
         create_regular_collection.gridLanguageSwitchCheck();
     });
 
