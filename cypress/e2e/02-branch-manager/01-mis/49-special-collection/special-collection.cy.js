@@ -39,19 +39,43 @@ describe("49. Special Collection Module Test Cases", function () {
         create_special_collection.viewSpecialCollection();
     });
 
-    it("49.05. Verify allow editing of an existing Special Collection successfully.", function () {
+    it("49.05. Verify that clicking the go back button on the Special Collection view page redirects the user to the Special Collection list page.", function () {
+        create_special_collection.viewGoBackButton();
+    });
+
+    it("49.06. Verify allow editing of an existing Special Collection successfully.", function () {
         create_special_collection.editSpecialCollection();
     });
 
-    it("49.06. Verify reset the grid list successfully when the Reset button is clicked on the Special Collection page.", function () {
+    it("49.07. Verify allow editing of an existing Special Collection successfully.", function () {
+        create_special_collection.editGoBackButton();
+    });
+
+    // it("49.08. Verify allow editing of an existing Special Collection successfully.", function () {
+    //     create_special_collection.editSaveButton();
+    // });
+
+    it("49.09. Verify reset the grid list successfully when the Reset button is clicked on the Special Collection page.", function () {
         create_special_collection.gridResetButtonCheck();
     });
 
-    it("49.07. Verify create a new Special Collection record successfully when all required fields are filled with valid data.", function () {
+    it("49.10. Verify create a new Special Collection record successfully when all required fields are filled with valid data.", function () {
         create_special_collection.gridRefreshButtonCheck();
     });
 
-    it("49.08. Verify check that the grid list content changes correctly from english to bangla.", function () {
+    it("49.11. Verify that the Grid History button displays the data information successfully.", function () {
+        create_special_collection.gridHistoryButtonOnCheck();
+    });
+
+    it("49.12. Verify that the grid list is field officer dropdown successfully when the select on the special collection page.", function () {
+        create_special_collection.fieldOfficerDropdownCheck();
+    });
+
+    it("49.13. Verify that the Grid History button displays the data information successfully.", function () {
+        create_special_collection.gridHistoryButtonOffCheck();
+    });
+
+    it("49.14. Verify check that the grid list content changes correctly from english to bangla.", function () {
         create_special_collection.gridLanguageSwitchCheck();
     });
 

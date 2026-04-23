@@ -1077,7 +1077,8 @@
       "selectSamity": "1020-103 (Kuturia Mohila Samity)",
       "selectMember": "1-1001 (Jule Akter )",
       "selectAccount": "AGRO-1020-103-1001-1 (Loan Account)",
-      "inputAmount": "1000"
+      "inputAmount": "1000",
+      "fieldOfficer": "EMP-0122 - GAIS UDDIN KHAN"
     },
     "savingsWithdraw": {
       "selectSamity": "1020-101 (Ashulia Mohila Samity)",
