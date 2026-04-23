@@ -20,7 +20,7 @@ class MfiProgramCreation {
         .type(mpData.fundingCategory)
         .type("{enter}");
       cy.formController("loan_fund_ids").type(mpData.loanFund).type("{enter}");
-
+      cy.get("body").click(0, 0);
       cy.imsId("btn-submit").click();
 
       cy.imsId("btn-yes").click();
@@ -44,6 +44,7 @@ class MfiProgramCreation {
         .type(mpData.fundingCategory)
         .type("{enter}");
       cy.formController("loan_fund_ids").type(mpData.loanFund).type("{enter}");
+      cy.get("body").click(0, 0);
       cy.imsId("btn-submit").click();
       cy.imsId("btn-ok").click();
       cy.imsId("btn-go-back").click();
@@ -66,6 +67,8 @@ class MfiProgramCreation {
         .type(mpData.fundingCategory)
         .type("{enter}");
       cy.formController("loan_fund_ids").type(mpData.loanFund).type("{enter}");
+      cy.get("body").click(0, 0);
+
       cy.imsId("btn-submit").click();
 
       cy.imsId("btn-yes").click();
@@ -89,6 +92,7 @@ class MfiProgramCreation {
         .type(mpData.fundingCategory)
         .type("{enter}");
       cy.formController("loan_fund_ids").type(mpData.loanFund).type("{enter}");
+      cy.get("body").click(0, 0);
       cy.imsId("btn-submit").click();
 
       cy.imsId("btn-ok").click();
@@ -109,6 +113,7 @@ class MfiProgramCreation {
       cy.formController("mfi_program_name_en").type(mpData.programNameEn);
       cy.formController("mfi_program_short_name").type(mpData.programShortName);
       cy.formController("loan_fund_ids").type(mpData.loanFund).type("{enter}");
+      cy.get("body").click(0, 0);
       cy.imsId("btn-submit").click();
 
       cy.imsId("btn-ok").click();
@@ -155,6 +160,7 @@ class MfiProgramCreation {
         .type(mpData.fundingCategory)
         .type("{enter}");
       cy.formController("loan_fund_ids").type(mpData.loanFund).type("{enter}");
+      cy.get("body").click(0, 0);
       cy.imsId("btn-submit").click();
       cy.imsId("btn-ok").click();
       cy.imsId("btn-go-back").click();
