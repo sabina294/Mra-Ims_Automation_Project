@@ -1,0 +1,54 @@
+// npm run auto
+// npm run dev
+// npx cypress run --spec cypress/e2e/02-branch-manager/01-mis/42-staging-data/staging-data.cy.js --browser chrome --headed
+
+import "cypress-file-upload";
+import { create_staging_data } from "./staging-data.po";
+
+describe("42. Staging Data Module Test Cases", function () {
+  const baseURL = Cypress.env("BASE_URL");
+  const test_data = Cypress.env("TEST_DATA");
+  before(() => {
+    cy.fixture(test_data).then((d) => {
+      cy.login(
+        baseURL,
+        d.credential.branchManagerUserId,
+        d.credential.branchManagerPassword
+      );
+      cy.changeLanguage("english");
+    });
+  });
+
+  after(() => {
+    cy.logout();
+  });
+
+  it("42.01. Verify Staging data grid List page loads successfully", function () {
+    create_staging_data.gridStagingDataListPage();
+  });
+
+  it("42.02. Verify Staging data generate List page loads successfully", function () {
+    create_staging_data.startProcessStagingData();
+  });
+
+  it("42.03. Verify that the grid list is refreshed successfully when the refresh button is clicked on the staging data page.", function () {
+    create_staging_data.refreshButtonCheck();
+  });
+
+  it("42.04. Verify that the grid list is field officer dropdown successfully when the select on the staging data page.", function () {
+    create_staging_data.fieldOfficerDropdownCheck();
+  });
+
+  it("42.05. Verify that the grid list is samity dropdown successfully when the select on the staging data page.", function () {
+    create_staging_data.samityDropdownCheck();
+  });
+
+  it("42.06. Verify that the delete button is available and functioning correctly in the staging list.", function () {
+    create_staging_data.deleteButtonCheck();
+  });
+
+  it("42.07. Verify check that the grid list content changes correctly from english to bangla.", function () {
+    create_staging_data.gridLanguageSwitchCheck();
+  });
+
+});
