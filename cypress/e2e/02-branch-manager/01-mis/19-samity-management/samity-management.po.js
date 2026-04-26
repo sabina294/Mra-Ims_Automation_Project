@@ -463,19 +463,14 @@ class SamityCreation {
     cy.log("Successfully view go back the samity list page");
   }
 
-
   editResetButton() {
     cy.imsId("toggle-action").first().click();
     cy.imsId("btn-table-action-edit").click();
     cy.imsId("btn-reset").click();
-    cy.imsId("btn-go-back").click();
-
     cy.log("Successful clean displaying");
   }
 
   editGoBackButton() {
-    cy.imsId("toggle-action").first().click();
-    cy.imsId("btn-table-action-edit").click();
     cy.imsId("btn-go-back").click();
     cy.log("Successful edit go back button check.");
   }
