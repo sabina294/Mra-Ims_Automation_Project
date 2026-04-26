@@ -31,27 +31,35 @@ describe("50. Savings Withdraw Module Test Cases", function () {
         create_savings_withdraw.createNewWithdraw();
     });
 
-    // it("50.03. Verify perform the correct action when the Action button is clicked.", function () {
-    //     create_savings_withdraw.actionButtonCheck();
+    it("50.03. Verify a new Savings Withdraw record is created successfully when all required fields are filled with valid data.", function () {
+        create_savings_withdraw.saveNewWithdraw();
+    });
+
+    it("50.04. Verify perform the correct action when the Action button is clicked.", function () {
+        create_savings_withdraw.actionButtonCheck();
+    });
+
+    it("50.05. Verify display Savings Withdraw details including name and description successfully.", function () {
+        create_savings_withdraw.viewWithdraw();
+    });
+
+    it("50.06. Verify display Savings Withdraw details go back button check.", function () {
+        create_savings_withdraw.viewGoBack();
+    });
+
+    // it("50.07. Verify allow editing of an existing Savings Withdraw successfully.", function () {
+    //     create_savings_withdraw.editWithdraw();
     // });
 
-    // it("50.04. Verify display Savings Withdraw details including name and description successfully.", function () {
-    //     create_savings_withdraw.viewSpecialCollection();
-    // });
-
-    // it("50.05. Verify allow editing of an existing Savings Withdraw successfully.", function () {
-    //     create_savings_withdraw.editSpecialCollection();
-    // });
-
-    it("50.06. Verify reset the grid list successfully when the Reset button is clicked on the Savings Withdraw page.", function () {
+    it("50.08. Verify reset the grid list successfully when the Reset button is clicked on the Savings Withdraw page.", function () {
         create_savings_withdraw.gridResetButtonCheck();
     });
 
-    it("50.07. Verify create a new Savings Withdraw record successfully when all required fields are filled with valid data.", function () {
+    it("50.09. Verify create a new Savings Withdraw record successfully when all required fields are filled with valid data.", function () {
         create_savings_withdraw.gridRefreshButtonCheck();
     });
 
-    it("50.08. Verify check that the grid list content changes correctly from english to bangla.", function () {
+    it("50.10. Verify check that the grid list content changes correctly from english to bangla.", function () {
         create_savings_withdraw.gridLanguageSwitchCheck();
     });
 

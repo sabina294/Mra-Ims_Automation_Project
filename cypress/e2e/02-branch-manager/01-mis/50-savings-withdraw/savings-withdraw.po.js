@@ -18,21 +18,17 @@ class savingsWithdraw {
             cy.contains(swData.selectMember).click()
             cy.formController("accountId").click();
             cy.contains(swData.selectAccount).click()
-            // cy.imsId("amount-input").type(swData.inputAmount);
-            cy.imsId("btn-go-back").click();
+            cy.imsId("amount-input").clear().type(swData.inputAmount);
+            cy.log("Successfully created new savings withdraw");
+        });
+    }
 
-            // cy.formController("samityId").type(swData.selectSamity).type("{enter}");
-            // cy.wait(2000);
-            // cy.formController("employeeId").type(swData.selectMember).type("{enter}");
-            // cy.wait(2000);
-            // cy.formController("accountId").type(swData.selectAccount).type("{enter}");
-            // cy.wait(2000);
-            // cy.formController("loanInput").type(swData.inputAmount);
-            // cy.wait(2000);
-
-            // cy.imsId("btn-save").click();
-            // cy.imsId("btn-yes-yes").click();
-            // cy.imsId("btn-ok").click();
+    saveNewWithdraw() {
+        cy.fixture(this.test_data).then((data) => {
+            var swData = data.branchManager.savingsWithdraw;
+            cy.imsId("btn-submit").click();
+            cy.imsId("btn-yes").click();
+            cy.imsId("btn-ok").click();
             cy.log("Successfully created new savings withdraw");
         });
     }
@@ -42,14 +38,17 @@ class savingsWithdraw {
         cy.log("Action button clicked successfully on the savings withdraw list page.");
     }
 
-    viewSpecialCollection() {
-        cy.imsId("toggle-action").first().click();
+    viewWithdraw() {
         cy.imsId("btn-table-action-view").click();
-        cy.imsId("btn-go-back").click();
         cy.log("successfully on the view savings withdraw list page.");
     }
 
-    editSpecialCollection() {
+    viewGoBack() {
+        cy.imsId("btn-go-back").click();
+        cy.log("successfully on the view go back savings withdraw list page.");
+    }
+
+    editWithdraw() {
         cy.imsId("toggle-action").first().click();
         cy.imsId("btn-table-action-edit").click();
         cy.imsId("btn-go-back").click();
@@ -69,10 +68,10 @@ class savingsWithdraw {
     }
 
     gridLanguageSwitchCheck() {
-    cy.imsId("profile-menu").click();
-    cy.imsId("btn-lang-bangla").click();
-    cy.log("Unsuccessful switch bangla language check.");
-  }
+        cy.imsId("profile-menu").click();
+        cy.imsId("btn-lang-bangla").click();
+        cy.log("Unsuccessful switch bangla language check.");
+    }
 
 
 }
