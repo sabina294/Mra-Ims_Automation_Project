@@ -111,6 +111,22 @@ class EmployeeManagementCreation {
     cy.log("Successfully view go back the  employee management list page");
   }
 
+  profileViewEmployeeManagement() {
+    cy.fixture(this.test_data).then((data) => {
+      var emData = data.branchManager.createEmpMangFrom;
+      // cy.formController("search_text").type(emData.empNameEn);
+      cy.imsId("toggle-action").first().click();
+      cy.imsId("btn-table-action-profile").click();
+      cy.log("Successfully profile viewed the employee management list page");
+    });
+  }
+
+  profileViewGoBackButton() {
+    cy.imsId("btn-go-back").click();
+
+    cy.log("Successfully profile view go back the  employee management list page");
+  }
+
   editResetButton() {
     cy.fixture(this.test_data).then((data) => {
       var emData = data.branchManager.createEmpMangFrom;

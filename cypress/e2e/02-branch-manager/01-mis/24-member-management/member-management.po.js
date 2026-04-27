@@ -111,6 +111,22 @@ class MemberManagementCreation {
     cy.log("Successfully view go back the Member management list page");
   }
 
+  profileViewMemberManagement() {
+    cy.fixture(this.test_data).then((data) => {
+      var memData = data.branchManager.createMemberFrom;
+      // cy.formController("search_text").type(memData.memberNameEn);
+      cy.imsId("toggle-action").first().click();
+      cy.imsId("btn-mis-table-action-profile").click();
+      cy.log("Successfully profile viewed the member management list page");
+    });
+  }
+
+  profileViewGoBackButton() {
+    cy.imsId("btn-go-back").click();
+
+    cy.log("Successfully profile view go back the  member management list page");
+  }
+
   editMemberManagement() {
     cy.fixture(this.test_data).then((data) => {
       var memData = data.branchManager.createMemberFrom;

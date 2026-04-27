@@ -46,83 +46,91 @@ describe("24. Member Management Module Test Cases", function () {
     create_member_management.viewGoBackButton();
   });
 
-  it("24.07. Verify editing functionality for Member Management.", function () {
+  it("24.07. Should view member management profile including name and description", function () {
+    create_member_management.profileViewMemberManagement();
+  });
+
+  it("24.08. Should redirect to the list page when the profile view Go Back button is clicked from the view page", function () {
+    create_member_management.profileViewGoBackButton();
+  });
+
+  it("24.09. Verify editing functionality for Member Management.", function () {
     create_member_management.editMemberManagement();
   });
 
-  it("24.08. Verify the member management edit reset button functions correctly.", function () {
+  it("24.10. Verify the member management edit reset button functions correctly.", function () {
     create_member_management.editResetButton();
   });
 
-  it("24.09. Verify that clicking the go back button on the member management edit page redirects the user to the member management list page.", function () {
+  it("24.11. Verify that clicking the go back button on the member management edit page redirects the user to the member management list page.", function () {
     create_member_management.editGoBackButton();
   });
 
-  it("24.10. Verify the user can filter inactive employee records using the status dropdown on the member management List page.", function () {
+  it("24.12. Verify the user can filter inactive employee records using the status dropdown on the member management List page.", function () {
     create_member_management.statusInactiveDropdownCheck();
   });
 
-  it("24.11. Verify check if the filter for active results works correctly with the status dropdown ", function () {
+  it("24.13. Verify check if the filter for active results works correctly with the status dropdown ", function () {
     create_member_management.statusActiveDropdownCheck();
   });
 
-  it("24.12. Verify that the search results are displayed correctly when searching by member management name.", function () {
+  it("24.14. Verify that the search results are displayed correctly when searching by member management name.", function () {
     create_member_management.searchInMemberManagementName();
   });
 
-  it("24.13. Verify validation messages appear for required fields when the Approve button is clicked with empty inputs.", function () {
+  it("24.15. Verify validation messages appear for required fields when the Approve button is clicked with empty inputs.", function () {
     create_member_management.createApproveButtonCheck();
   });
 
-  it("24.14. Verify validation messages appear for required fields when the Submit button is clicked with empty inputs.", function () {
+  it("24.16. Verify validation messages appear for required fields when the Submit button is clicked with empty inputs.", function () {
     create_member_management.createSubmitButtonCheck();
   });
 
-  it("24.15. Verify validation messages appear for required fields when the Draft button is clicked with empty inputs.", function () {
+  it("24.17. Verify validation messages appear for required fields when the Draft button is clicked with empty inputs.", function () {
     create_member_management.createDraftButtonCheck();
   });
 
-  it("24.16. Verify validation messages appear for required fields when the Reset button is clicked with empty inputs.", function () {
+  it("24.18. Verify validation messages appear for required fields when the Reset button is clicked with empty inputs.", function () {
     create_member_management.createResetButtonCheck();
   });
 
-  it("24.17. Verify validation messages appear for required fields when the Go Back button is clicked with empty inputs.", function () {
+  it("24.19. Verify validation messages appear for required fields when the Go Back button is clicked with empty inputs.", function () {
     create_member_management.createGoBackButtonCheck();
   });
 
-  it("24.18. Verify the grid list resets successfully when the reset button is clicked on the member management page", function () {
+  it("24.20. Verify the grid list resets successfully when the reset button is clicked on the member management page", function () {
     create_member_management.gridResetButtonCheck();
   });
 
-  it("24.19. Verify that when the user clicks the Search button on the member management grid page, the system redirects to the member management List page.", function () {
+  it("24.21. Verify that when the user clicks the Search button on the member management grid page, the system redirects to the member management List page.", function () {
     create_member_management.gridSearchButtonCheck();
   });
 
-  it("24.20. Verify a new member management record is created successfully when all required fields are filled with valid data", function () {
+  it("24.22. Verify a new member management record is created successfully when all required fields are filled with valid data", function () {
     create_member_management.gridRefreshButtonCheck();
   });
 
-  it("24.21. Verify that the checkbox functions correctly.", function () {
+  it("24.23. Verify that the checkbox functions correctly.", function () {
     create_member_management.gridCheckboxCheck();
   });
 
-  it("24.22. Verify that the checkbox lock button operates correctly when selected.", function () {
+  it("24.24. Verify that the checkbox lock button operates correctly when selected.", function () {
     create_member_management.gridCheckboxLockButtonCheck();
   });
 
-  it("24.23. Verify that the checkbox unlock button operates correctly when selected.", function () {
+  it("24.25. Verify that the checkbox unlock button operates correctly when selected.", function () {
     create_member_management.gridCheckboxUnlockButtonCheck();
   });
 
-  it("24.24. Verify display the grid list successfully when the Draft button on is clicked on the member management page", function () {
+  it("24.26. Verify display the grid list successfully when the Draft button on is clicked on the member management page", function () {
     create_member_management.gridDraftButton();
   });
 
-  it("24.25. Verify display the grid list successfully when the Draft button off is clicked on the member management page", function () {
+  it("24.27. Verify display the grid list successfully when the Draft button off is clicked on the member management page", function () {
     create_member_management.gridDraftButtonOff();
   });
 
-  it("24.26. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("24.28. Verify check that the grid list content changes correctly from english to bangla.", function () {
     create_member_management.gridLanguageSwitchCheck();
   });
 });
