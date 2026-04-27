@@ -14,7 +14,7 @@ class HolidayCreation {
       var hData = data.branchManager.createHoliday;
       cy.imsId("btn-add-new").click();
       cy.formController("end_date").click();
-      cy.contains("19").click({ force: true });
+      cy.contains("12").click({ force: true });
       cy.wait(2000);
       cy.formController("holiday_title_bn").type(hData.holidayTitleBn);
       cy.formController("holiday_title_en").type(hData.holidayTitleEn);
