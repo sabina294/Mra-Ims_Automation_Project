@@ -1085,8 +1085,17 @@
       "selectMember": "1-1001 (Fariya)",
       "selectAccount": "GS-1020-101-1001-1",
       "inputAmount": "10",
-      "samity":"1020-101 (Ashulia Mohila Samity)",
+      "samity": "1020-101 (Ashulia Mohila Samity)",
       "samityDropdown": "1020-101 (Ashulia Mohila Samity)"
+    },
+    "loanAdjustment": {
+      "selectSamity": "1020-101 (Ashulia Mohila Samity)",
+      "selectMember": "1-1001 (Fariya)",
+      "selectAccount": "GS-1020-101-1001-1",
+      "inputAmount": "10",
+      "samity": "1020-101 (Ashulia Mohila Samity)",
+      "samityDropdown": "1020-101 (Ashulia Mohila Samity)",
+      "search": "Fariya"
     },
     "chartOfAccounts": {
       "ledgergroup": "Asset",

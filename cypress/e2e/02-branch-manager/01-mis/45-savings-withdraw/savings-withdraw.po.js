@@ -48,13 +48,6 @@ class savingsWithdraw {
         cy.log("successfully on the view go back savings withdraw list page.");
     }
 
-    editWithdraw() {
-        cy.imsId("toggle-action").first().click();
-        cy.imsId("btn-table-action-edit").click();
-        cy.imsId("btn-go-back").click();
-        cy.log("successfully on the edit savings withdraw list page.");
-    }
-
     gridResetButtonCheck() {
         cy.imsId("btn-reset").click();
         cy.log("Successful clean displaying.");
