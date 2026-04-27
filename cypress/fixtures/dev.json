@@ -1090,12 +1090,10 @@
     },
     "loanAdjustment": {
       "selectSamity": "1020-101 (Ashulia Mohila Samity)",
-      "selectMember": "1-1001 (Fariya)",
-      "selectAccount": "GS-1020-101-1001-1",
+      "selectMember": "4-1004 (Chadnee)",
+      "selectAccount": "AGRO-1020-101-1004-1 (Loan Account) ",
       "inputAmount": "10",
-      "samity": "1020-101 (Ashulia Mohila Samity)",
-      "samityDropdown": "1020-101 (Ashulia Mohila Samity)",
-      "search": "Fariya"
+      "search": "Chadnee"
     },
     "chartOfAccounts": {
       "ledgergroup": "Asset",

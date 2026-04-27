@@ -12,13 +12,14 @@ class loanAdjustment {
         cy.fixture(this.test_data).then((data) => {
             cy.imsId("btn-add-new").click();
             var laData = data.branchManager.loanAdjustment;
-            cy.formController("samityId").click();
+            cy.formController("samity_id").click();
             cy.contains(laData.selectSamity).click()
-            cy.formController("memberId").click();
+            cy.formController("member_id").click();
             cy.contains(laData.selectMember).click()
-            cy.formController("accountId").click();
+            cy.formController("loan_account_id").click();
             cy.contains(laData.selectAccount).click()
-            cy.imsId("amount-input").clear().type(laData.inputAmount);
+            cy.imsId("checkbox-1").click();
+            cy.imsId("input-1").clear().type(laData.inputAmount);
             cy.log("Successfully created new Loan Adjustment");
         });
     }
@@ -26,7 +27,7 @@ class loanAdjustment {
     saveNewLoanAdjustment() {
         cy.fixture(this.test_data).then((data) => {
             var laData = data.branchManager.loanAdjustment;
-            cy.imsId("btn-submit").click();
+            cy.imsId("btn-save").click();
             cy.imsId("btn-yes").click();
             cy.imsId("btn-ok").click();
             cy.log("Successfully created new Loan Adjustment");
@@ -61,14 +62,29 @@ class loanAdjustment {
     }
 
     gridSearchButtonCheck() {
-    cy.fixture(this.test_data).then((data) => {
-      var laData = data.branchManager.loanAdjustment;
-      cy.imsId("btn-reset").click();
-      cy.formController("search_text").type(laData.search);
-      cy.imsId("btn-search").click();
-      cy.log("Successful search button click.");
-    });
-  }
+        cy.fixture(this.test_data).then((data) => {
+            var laData = data.branchManager.loanAdjustment;
+            cy.imsId("btn-reset").click();
+            cy.formController("search_text").type(laData.search);
+            cy.imsId("btn-search").click();
+            cy.log("Successful search button click.");
+        });
+    }
+
+    createDraftButtonCheck() {
+        cy.fixture(this.test_data).then((data) => {
+            var laData = data.branchManager.loanAdjustment;
+            cy.imsId("btn-add-new").click();
+            cy.imsId("btn-draft").click();
+            cy.imsId("btn-ok").click();
+            cy.log("Successful draft button check.");
+        });
+    }
+
+    createGoBackButtonCheck() {
+        cy.imsId("btn-go-back").click();
+        cy.log("Successful go back button check.");
+    }
 
     gridLanguageSwitchCheck() {
         cy.imsId("profile-menu").click();
