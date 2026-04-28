@@ -961,6 +961,7 @@
       "selectStatus": "Inactive",
       "statusSelect": "Active",
       "SelectOffice": "1020 (Ashulia)",
+      "search": "Kandail Mohila Samity",
       "messageLoanDisbursement": "Loan Disbursement has been updated"
     },
     "createClientWelfareFrom": {
@@ -1094,6 +1095,9 @@
       "selectAccount": "AGRO-1020-101-1004-1 (Loan Account) ",
       "inputAmount": "10",
       "search": "Chadnee"
+    },
+    "cancelSamity": {
+      "remarksCancel": "No needed"
     },
     "chartOfAccounts": {
       "ledgergroup": "Asset",

@@ -23,63 +23,63 @@ describe("11. Loan Fund Module Test Cases", function () {
     cy.logout();
   });
 
-  it("11.01. Verify the loan fund list page loads without errors.", function () {
+  it("11.01 Verify that the Loan Fund list page loads successfully without errors", function () {
     grid_loan_fund.gridLoanFundListPage();
   });
 
-  it("11.02. Verify successfully performs the action when the action button is clicked.", function () {
+  it("11.02 Verify that the action button performs the expected operation successfully", function () {
     grid_loan_fund.actionButtonCheck();
   });
 
-  it("11.03. Verify the user can view all relevant details of a loan fund, including its associated fields.", function () {
+  it("11.03 Verify that a user can view all relevant details of a Loan Fund including associated fields", function () {
     grid_loan_fund.viewLoanFund();
   });
 
-  it("11.04. Verify that clicking the go back button on the loan fund view page redirects the user to the loan fund list page.", function () {
+  it("11.04 Verify that the Go Back button on the Loan Fund view page redirects to the list page", function () {
     grid_loan_fund.viewGoBackButton();
   });
 
-  it("11.05. Verify that the loan fund forms edit mode can be toggled on and off all fields should be disabled or return to view-only mode.", function () {
+  it("11.05 Verify that Loan Fund edit mode can be toggled and all fields behave as expected in view/edit states", function () {
     grid_loan_fund.turnOnEditMode();
   });
 
-  it("11.06. Verify the loan fundedit reset button functions correctly.", function () {
+  it("11.06 Verify that the Loan Fund edit reset button works correctly", function () {
     grid_loan_fund.editResetButton();
   });
 
-  it("11.07. Verify the loan fund edit submit button functions correctly.", function () {
+  it("11.07 Verify that the Loan Fund edit submit button works correctly and saves changes", function () {
     grid_loan_fund.editSubmitButton();
   });
 
-  it("11.08. Verify that clicking the go back button on the loan fund edit page redirects the user to the loan fund list page.", function () {
+  it("11.08 Verify that the Go Back button on the Loan Fund edit page redirects to the list page", function () {
     grid_loan_fund.editGoBackButton();
   });
 
-  it("11.09. Verify the user can filter inactive loan funds using the status dropdown on the loan fund list page.", function () {
+  it("11.09 Verify that inactive Loan Funds can be filtered using the status dropdown", function () {
     grid_loan_fund.statusInactiveDropdownCheck();
   });
 
-  it("11.10. Verify the active result is filtered correctly by the status dropdown.", function () {
+  it("11.10 Verify that active Loan Funds can be filtered correctly using the status dropdown", function () {
     grid_loan_fund.statusActiveDropdownCheck();
   });
 
-  it("11.11. Verify the search returns correct results when searching by loan fund name.", function () {
+  it("11.11 Verify that searching by Loan Fund name returns correct results", function () {
     grid_loan_fund.searchInLoanFundName();
   });
 
-  it("11.12. Verify the grid list resets successfully when the reset button is clicked on the loan fund page.", function () {
+  it("11.12 Verify that the Loan Fund grid resets successfully when the reset button is clicked", function () {
     grid_loan_fund.gridResetButtonCheck();
   });
 
-  it("11.13. Verify that the grid list is refreshed successfully when the refresh button is clicked on the loan fund page.", function () {
+  it("11.13 Verify that the Loan Fund grid refresh button reloads the data successfully", function () {
     grid_loan_fund.gridRefreshButtonCheck();
   });
 
-  it("11.14. Verify that when the user clicks the Search button on the loan fund grid page, the system redirects to the loan fund List page..", function () {
+  it("11.14 Verify that clicking the Search button redirects and loads the Loan Fund list correctly", function () {
     grid_loan_fund.gridSearchButtonCheck();
   });
 
-  it("11.15. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("11.15 Verify that the Loan Fund grid language switch updates content between English and Bangla correctly", function () {
     grid_loan_fund.gridLanguageSwitchCheck();
   });
 });

@@ -23,71 +23,71 @@ describe("47. Loan Penalty Module Test Cases", function () {
     cy.logout();
   });
 
-  it("47.01. Verify Loan penalty Grid List Page loads successfully", function () {
+  it("47.01 Verify that the Loan Penalty Grid List page loads successfully for the Branch Manager", function () {
     create_loan_penalty.gridLoanPenaltyListPage();
   });
 
-  // it("47.02. Verify that the branch manager can successfully save a loan penalty record using the Save button.", function () {
+  // it("47.02 Verify that the Branch Manager can successfully save a Loan Penalty record using the Save button", function () {
   //   create_loan_penalty.createSave();
   // });
 
-  it("47.03. Verify that the branch manager can successfully add a loan penalty record using the add icon button.", function () {
+  it("47.03 Verify that the Branch Manager can successfully add a new Loan Penalty row using the Add Icon button", function () {
     create_loan_penalty.createAddIconPenalty();
   });
 
-  it("47.04. Verify that the branch manager can successfully remove a loan penalty record using the remove icon button.", function () {
+  it("47.04 Verify that the Branch Manager can successfully remove a Loan Penalty row using the Remove Icon button", function () {
     create_loan_penalty.createRemoveIconPenalty();
   });
 
-  it("47.05. Verify successful creation of a Loan penalty record by branch manager role", function () {
+  it("47.05 Verify that the Branch Manager can successfully create a Loan Penalty record", function () {
     create_loan_penalty.createLoanPenalty();
   });
 
-  it("47.06. Verify that the branch manager can navigate back from the loan penalty record screen using the Go Back button.", function () {
+  it("47.06 Verify that the Branch Manager can navigate back from the Loan Penalty entry page using the Go Back button", function () {
     create_loan_penalty.createGoBack();
   });
 
-  // it("47.07. Verify that the branch manager can successfully save a loan penalty record as a draft.", function () {
+  // it("47.07 Verify that the Branch Manager can successfully save a Loan Penalty record as a draft", function () {
   //   create_loan_penalty.createSaveAsDraft();
   // });
 
-  it("47.08. Verify successfully performs the action when the action button is clicked.", function () {
+  it("47.08 Verify that the Action button performs the expected operation successfully", function () {
     create_loan_penalty.actionButtonCheck();
   });
 
-  it("47.09. Verify successful Loan penalty information View.", function () {
+  it("47.09 Verify that the Branch Manager can successfully view Loan Penalty information", function () {
     create_loan_penalty.viewLoanPenalty();
   });
 
-  it("47.10. Verify that clicking the go back button on the Loan Penalty view page redirects the user to the Loan Penalty list page.", function () {
+  it("47.10 Verify that clicking the Go Back button on the Loan Penalty View page redirects the user to the Loan Penalty List page", function () {
     create_loan_penalty.viewGoBackButton();
   });
 
-  it("47.11. Verify the user can filter inactive employee records using the status dropdown on the Loan penalty List page.", function () {
+  it("47.11 Verify that the user can filter inactive Loan Penalty records using the Status dropdown", function () {
     create_loan_penalty.statusInactiveDropdownCheck();
   });
 
-  it("47.12. Verify check if the filter for active results works correctly with the status dropdown ", function () {
+  it("47.12 Verify that the user can filter active Loan Penalty records using the Status dropdown", function () {
     create_loan_penalty.statusActiveDropdownCheck();
   });
 
-  it("47.13. Verify Successful Search Result by Loan penalty Name", function () {
+  it("47.13 Verify successful search results by Loan Penalty name", function () {
     create_loan_penalty.searchInLoanPenaltyName();
   });
 
-  it("47.14. Verify Successful Reset of Grid List Using the Reset Button on Loan penalty Page.", function () {
+  it("47.14 Verify that the Reset button successfully clears filters and resets the Loan Penalty Grid List page", function () {
     create_loan_penalty.gridResetButtonCheck();
   });
 
-  it("47.15. Verify Successful Refresh of Grid List Using the Refresh Button on Loan penalty Page.", function () {
+  it("47.15 Verify that the Refresh button successfully reloads the Loan Penalty Grid List page", function () {
     create_loan_penalty.gridRefreshButtonCheck();
   });
 
-  it("47.16. Verify that when the user clicks the Search button on the Loan penalty grid page, the system redirects to the Loan Penalty List page.", function () {
+  it("47.16 Verify that clicking the Search button on the Loan Penalty Grid page redirects the user to the Loan Penalty List page", function () {
     create_loan_penalty.gridSearchButtonCheck();
   });
 
-  it("47.17. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("47.17 Verify that the grid list content is successfully translated from English to Bangla using the language switch option", function () {
     create_loan_penalty.gridLanguageSwitchCheck();
   });
 });

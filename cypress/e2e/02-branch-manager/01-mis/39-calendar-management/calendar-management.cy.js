@@ -23,19 +23,11 @@ describe("39. Calendar Management Module Test Cases", function () {
     cy.logout();
   });
 
-  it("39.01. Verify the calendar management list page loads correctly.", function () {
+  it("39.01 - Verify that the Calendar Management list page loads successfully", function () {
     grid_calendar_management.gridCalendarManagListPage();
   });
 
-  // it("39.02. Verify check if the filter for calendar year results works correctly with the year dropdown ", function () {
-  //   grid_calendar_management.calendarYearDropdownCheck();
-  // });
-
-  // it("39.03. Verify check if the filter for month results works correctly with the month dropdown ", function () {
-  //   grid_calendar_management.monthDropdownCheck();
-  // });
-
-  it("39.04. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("39.02 - Verify that the grid list content switches correctly from English to Bangla language", function () {
     grid_calendar_management.gridLanguageSwitchCheck();
   });
 });

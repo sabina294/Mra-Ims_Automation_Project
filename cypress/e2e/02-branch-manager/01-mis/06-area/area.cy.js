@@ -23,63 +23,63 @@ describe("06. Area Module Test Cases", function () {
     cy.logout();
   });
 
-  it("06.01. Verify the area list page loads without errors.", function () {
+  it("06.01 Verify that the Area list page loads without errors.", function () {
     grid_area.gridAreaListPage();
   });
 
-  it("06.02. Verify successfully performs the action when the action button is clicked.", function () {
+  it("06.02 Verify that the action button performs the expected behavior when clicked.", function () {
     grid_area.actionButtonCheck();
   });
 
-  it("06.03. Verify the user can view all relevant details of a area, including its associated fields.", function () {
+  it("06.03 Verify that the user can view all relevant details of an Area, including associated fields.", function () {
     grid_area.viewArea();
   });
 
-  it("06.04. Verify that clicking the go back button on the area view page redirects the user to the area list page.", function () {
+  it("06.04 Verify that clicking the Go Back button on the Area view page redirects the user to the Area list page.", function () {
     grid_area.viewGoBackButton();
   });
 
-  it("06.05. Verify that the area forms edit mode can be toggled on and off all fields should be disabled or return to view-only mode.", function () {
+  it("06.05 Verify that edit mode can be toggled on and off and all fields switch between editable and read-only states.", function () {
     grid_area.turnOnEditMode();
   });
 
-  it("06.06. Verify the area edit reset button functions correctly.", function () {
+  it("06.06 Verify that the Area edit reset button functions correctly.", function () {
     grid_area.editResetButton();
   });
 
-  it("06.07. Verify the area edit submit button functions correctly.", function () {
+  it("06.07 Verify that the Area edit submit button successfully saves the changes.", function () {
     grid_area.editSubmitButton();
   });
 
-  it("06.08. Verify that clicking the go back button on the area edit page redirects the user to the area list page.", function () {
+  it("06.08 Verify that clicking the Go Back button on the Area edit page redirects the user to the Area list page.", function () {
     grid_area.editGoBackButton();
   });
 
-  it("06.09. Verify the user can filter inactive areas using the status dropdown on the area list page.", function () {
+  it("06.09 Verify that inactive Areas can be filtered using the status dropdown on the Area list page.", function () {
     grid_area.statusInactiveDropdownCheck();
   });
 
-  it("06.10. Verify the active result is filtered correctly by the status dropdown.", function () {
+  it("06.10 Verify that active Areas are correctly filtered using the status dropdown.", function () {
     grid_area.statusActiveDropdownCheck();
   });
 
-  it("06.11. Verify the search returns correct results when searching by area name.", function () {
+  it("06.11 Verify that searching by Area name returns correct results.", function () {
     grid_area.searchInAreaName();
   });
 
-  it("06.12. Verify the grid list resets successfully when the reset button is clicked on the area page.", function () {
+  it("06.12 Verify that the grid list resets successfully when the reset button is clicked on the Area page.", function () {
     grid_area.gridResetButtonCheck();
   });
 
-  it("06.13. Verify that the grid list is refreshed successfully when the refresh button is clicked on the area page.", function () {
+  it("06.13 Verify that the grid list refreshes successfully when the refresh button is clicked on the Area page.", function () {
     grid_area.gridRefreshButtonCheck();
   });
 
-  it("06.14. Verify that when the user clicks the Search button on the area grid page, the system redirects to the area List page..", function () {
+  it("06.14 Verify that clicking the Search button redirects or updates the Area list correctly.", function () {
     grid_area.gridSearchButtonCheck();
   });
 
-  it("06.15. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("06.15 Verify that the grid list content successfully switches between English and Bangla.", function () {
     grid_area.gridLanguageSwitchCheck();
   });
 });

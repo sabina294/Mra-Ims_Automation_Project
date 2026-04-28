@@ -23,47 +23,47 @@ describe("38. Calendar Year Module Test Cases", function () {
     cy.logout();
   });
 
-  it("38.01. Verify the calendar year list page loads correctly.", function () {
+  it("38.01 - Verify that the Calendar Year list page loads successfully.", function () {
     grid_calendar_year.gridCalendarListPage();
   });
 
-  it("38.02. Verify successfully performs the action when the action button is clicked.", function () {
+  it("38.02 - Verify that the action button performs the expected action successfully.", function () {
     grid_calendar_year.actionButtonCheck();
   });
 
-  it("38.03. Verify the user can successfully view the calendar year information, including the name and description.", function () {
+  it("38.03 - Verify that the user can view Calendar Year details including name and description.", function () {
     grid_calendar_year.viewCalendar();
   });
 
-  it("38.04. Verify that clicking the go back button on the calendar year view page redirects the user to the calendar year list page.", function () {
+  it("38.04 - Verify that the Go Back button redirects the user to the Calendar Year list page.", function () {
     grid_calendar_year.viewGoBackButton();
   });
 
-  it("38.05. Verify that the search results are displayed correctly when searching by calendar year name.", function () {
+  it("38.05 - Verify that searching by Calendar Year name returns correct results.", function () {
     grid_calendar_year.searchCalendarStatus();
   });
 
-  it("38.06. Verify the grid list resets successfully when the reset button is clicked on the calendar year page.", function () {
+  it("38.06 - Verify that the Reset button clears filters and resets the Calendar Year grid.", function () {
     grid_calendar_year.gridResetButtonCheck();
   });
 
-  it("38.07. Verify that the grid list is refreshed successfully when the refresh button is clicked on the calendar year page.", function () {
+  it("38.07 - Verify that the Refresh button reloads the Calendar Year grid successfully.", function () {
     grid_calendar_year.gridRefreshButtonCheck();
   });
 
-  it("38.08. Verify that when the user clicks the Search button on the Calendar Year grid page, the system redirects to the Calendar Year List page.", function () {
+  it("38.08 - Verify that clicking the Search button navigates and displays the Calendar Year list correctly.", function () {
     grid_calendar_year.gridSearchButtonCheck();
   });
 
-  it("38.09. Verify display the grid list successfully when the Draft button on is clicked on the calendar year page", function () {
+  it("38.09 - Verify that Draft records are displayed correctly when the Draft filter is enabled.", function () {
     grid_calendar_year.gridDraftButton();
   });
 
-  it("38.10. Verify display the grid list successfully when the Draft button off is clicked on the calendar year page", function () {
+  it("38.10 - Verify that Draft records are hidden correctly when the Draft filter is disabled.", function () {
     grid_calendar_year.gridDraftButtonOff();
   });
 
-  it("38.11. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("38.11 - Verify that the grid content switches correctly between English and Bangla languages.", function () {
     grid_calendar_year.gridLanguageSwitchCheck();
   });
 });

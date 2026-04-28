@@ -23,111 +23,111 @@ describe("30. Loan Account Proposal Management Module Test Cases", function () {
     cy.logout();
   });
 
-  it("30.01. Verify Loan Account Proposal Management  Grid List Page loads successfully", function () {
+  it("30.01 Verify that the Loan Account Proposal Management grid list page loads successfully", function () {
     create_loan_account_proposal_management.gridLoanAccountProposalManagementListPage();
   });
 
-  it("30.02. Verify successful creation of a Loan Account Proposal Management record by MFI-Admin role", function () {
+  it("30.02 Verify successful creation of a Loan Account Proposal Management", function () {
     create_loan_account_proposal_management.createLoanAccountProposalManagement();
   });
 
-  it("30.03. Verify that the system does not allow loan account creation when the samity is not provided.", function () {
+  it("30.03 Verify that the system prevents loan account creation when Samity is not provided", function () {
     create_loan_account_proposal_management.createWithoutSamity();
   });
 
-  it("30.04. Verify that the system does not allow loan account creation when the member is not provided.", function () {
+  it("30.04 Verify that the system prevents loan account creation when Member is not provided", function () {
     create_loan_account_proposal_management.createWithoutMember();
   });
 
-  it("30.05. Verify that the system does not allow loan account creation when the lending category is not provided.", function () {
+  it("30.05 Verify that the system prevents loan account creation when Lending Category is not provided", function () {
     create_loan_account_proposal_management.createWithoutLendingCategory();
   });
 
-  it("30.06. Verify that the system does not allow loan account creation when the economic sector is not provided.", function () {
+  it("30.06 Verify that the system prevents loan account creation when Economic Sector is not provided", function () {
     create_loan_account_proposal_management.createWithoutEconomicSector();
   });
 
-  it("30.07. Verify that the system does not allow loan account creation when the economic activity is not provided.", function () {
+  it("30.07 Verify that the system prevents loan account creation when Economic Activity is not provided", function () {
     create_loan_account_proposal_management.createWithoutEconomicActivity();
   });
 
-  it("30.08. Verify that the system does not allow loan account creation when the economic purpose is not provided.", function () {
+  it("30.08 Verify that the system prevents loan account creation when Economic Purpose is not provided", function () {
     create_loan_account_proposal_management.createWithoutEconomicPurpose();
   });
 
-  it("30.09. Verify successfully approve a loan account proposal management record after creation.", function () {
+  it("30.09 Verify that a Loan Account Proposal Management record can be successfully approved after creation", function () {
     create_loan_account_proposal_management.approveLoanAccountProposal();
   });
 
-  it("30.10. Verify successfully performs the action when the action button is clicked.", function () {
+  it("30.10 Verify that action buttons perform their expected operations successfully", function () {
     create_loan_account_proposal_management.actionButtonCheck();
   });
 
-  it("30.11. Verify successful Loan Account Proposal Management  information View.", function () {
+  it("30.11 Verify that Loan Account Proposal Management details can be viewed successfully", function () {
     create_loan_account_proposal_management.viewLoanAccountProposalManagement();
   });
 
-  it("30.12. Verify that clicking the go back button on the Loan Account Proposal Management  view page redirects the user to the Loan Account Proposal Management list page.", function () {
+  it("30.12 Verify that the Go Back button on the view page redirects to the Loan Account Proposal Management list page", function () {
     create_loan_account_proposal_management.viewGoBackButton();
   });
 
-  it("30.13. Verify that the user can filter the approve Status Dropdown on the Loan Account Proposal Management  List page.", function () {
+  it("30.13 Verify that Approved status filter works correctly on the Loan Account Proposal Management list page", function () {
     create_loan_account_proposal_management.statusApproveDropdownCheck();
   });
 
-  it("30.14. Verify Filter rejected Result by Status Dropdown", function () {
+  it("30.14 Verify that Rejected status filter works correctly on the Loan Account Proposal Management list page", function () {
     create_loan_account_proposal_management.statusRejectedDropdownCheck();
   });
 
-  it("30.15. Verify Successful Search Result by Loan Account Proposal Management  Name", function () {
+  it("30.15 Verify that search functionality works correctly by Loan Account Proposal Management name", function () {
     create_loan_account_proposal_management.searchInLoanAccountProposalName();
   });
 
-  it("30.16. Verify Successful Reset of Grid List Using the Reset Button on Loan Account Proposal Management  Page.", function () {
+  it("30.16 Verify that the Reset button clears all filters and resets the grid list", function () {
     create_loan_account_proposal_management.gridResetButtonCheck();
   });
 
-  it("30.17. Verify Successful Refresh of Grid List Using the Refresh Button on Loan Account Proposal Management  Page.", function () {
+  it("30.17 Verify that the Refresh button reloads the grid list successfully", function () {
     create_loan_account_proposal_management.gridRefreshButtonCheck();
   });
 
-  it("30.18. Verify display the grid list successfully when the Draft button on is clicked on the loan account proposal management page", function () {
+  it("30.18 Verify that enabling Draft filter displays the correct grid list", function () {
     create_loan_account_proposal_management.gridDraftButton();
   });
 
-  it("30.19. Verify display the grid list successfully when the Draft button off is clicked on the loan account proposal management page", function () {
+  it("30.19 Verify that disabling Draft filter updates the grid list correctly", function () {
     create_loan_account_proposal_management.gridDraftButtonOff();
   });
 
-  it("30.20. Verify the loan account proposal management creation Guarantor button clears all entered input values.", function () {
+  it("30.20 Verify that clicking the Add Guarantor button resets input fields successfully", function () {
     create_loan_account_proposal_management.createAddGuarantorButtonCheck();
   });
 
-  it("30.21. Verify the loan account proposal management creation Remove button clears all entered input values.", function () {
+  it("30.21 Verify that clicking the Remove button clears all entered input values", function () {
     create_loan_account_proposal_management.createRemoveButtonCheck();
   });
 
-  it("30.22. Verify the loan account proposal management creation reset button clears all entered input values.", function () {
+  it("30.22 Verify that clicking the Reset button clears all input fields in the creation form", function () {
     create_loan_account_proposal_management.createResetButtonCheck();
   });
 
-  it("30.23. Verify validation messages appear for required fields when the submit button is clicked with empty inputs.", function () {
+  it("30.23 Verify that validation messages are displayed when required fields are submitted empty", function () {
     create_loan_account_proposal_management.createValidationMessageCheck();
   });
 
-  it("30.24. Verify validation messages appear for required fields when the draft button is clicked with empty inputs.", function () {
+  it("30.24 Verify that validation messages are displayed when draft is submitted with empty required fields", function () {
     create_loan_account_proposal_management.createDraftButtonCheck();
   });
 
-  it("30.25. Verify that clicking the go back button on the loan account proposal management list page.", function () {
+  it("30.25 Verify that the Go Back button on the creation page redirects to the list page", function () {
     create_loan_account_proposal_management.createGoBackButtonCheck();
   });
 
-  it("30.26. Verify that when the user clicks the Search button on the loan account proposal management grid page, the system redirects to the loan account proposal management List page.", function () {
+  it("30.26 Verify that clicking the Search button redirects to the Loan Account Proposal Management list page", function () {
     create_loan_account_proposal_management.gridSearchButtonCheck();
   });
 
-  it("30.27. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("30.27 Verify that grid list language switches correctly between English and Bangla", function () {
     create_loan_account_proposal_management.gridLanguageSwitchCheck();
   });
 });

@@ -22,60 +22,59 @@ describe("44. Special Collection Module Test Cases", function () {
     after(() => {
         cy.logout();
     });
-
-    it("44.01. Verify load the Special Collection list page successfully.", function () {
+    it("44.01. Verify that the Special Collection list page loads successfully.", function () {
         create_special_collection.gridSpecialCollectionListPage();
     });
 
-    it("44.02. Verify a new special collection record is created successfully when all required fields are filled with valid data.", function () {
+    it("44.02. Verify that a new Special Collection record is created successfully when all required fields are filled with valid data.", function () {
         create_special_collection.createNewCollection();
     });
 
-    it("44.03. Verify perform the correct action when the Action button is clicked.", function () {
+    it("44.03. Verify that the correct action is performed when the Action button is clicked.", function () {
         create_special_collection.actionButtonCheck();
     });
 
-    it("44.04. Verify display Special Collection details including name and description successfully.", function () {
+    it("44.04. Verify that the Special Collection details, including name and description, are displayed successfully.", function () {
         create_special_collection.viewSpecialCollection();
     });
 
-    it("44.05. Verify that clicking the go back button on the Special Collection view page redirects the user to the Special Collection list page.", function () {
+    it("44.05. Verify that clicking the Go Back button on the Special Collection view page redirects the user to the Special Collection list page.", function () {
         create_special_collection.viewGoBackButton();
     });
 
-    it("44.06. Verify allow editing of an existing Special Collection successfully.", function () {
+    it("44.06. Verify that an existing Special Collection can be edited successfully.", function () {
         create_special_collection.editSpecialCollection();
     });
 
-    it("44.07. Verify allow editing of an existing Special Collection successfully.", function () {
+    it("44.07. Verify that clicking the Go Back button on the edit page redirects the user to the Special Collection list page.", function () {
         create_special_collection.editGoBackButton();
     });
 
-    // it("44.08. Verify allow editing of an existing Special Collection successfully.", function () {
+    // it("44.08. Verify that clicking the Save button on the edit page updates the Special Collection successfully.", function () {
     //     create_special_collection.editSaveButton();
     // });
 
-    it("44.09. Verify reset the grid list successfully when the Reset button is clicked on the Special Collection page.", function () {
+    it("44.09. Verify that clicking the Reset button resets the grid list successfully on the Special Collection page.", function () {
         create_special_collection.gridResetButtonCheck();
     });
 
-    it("44.10. Verify reset the grid list successfully when the Refresh button is clicked on the Special Collection page.", function () {
+    it("44.10. Verify that clicking the Refresh button reloads the grid list successfully on the Special Collection page.", function () {
         create_special_collection.gridRefreshButtonCheck();
     });
 
-    it("44.11. Verify that the Grid History button displays the data information successfully.", function () {
+    it("44.11. Verify that the Grid History button displays the data information successfully when enabled.", function () {
         create_special_collection.gridHistoryButtonOnCheck();
     });
 
-    it("44.12. Verify that the grid list is field officer dropdown successfully when the select on the special collection page.", function () {
+    it("44.12. Verify that the Field Officer dropdown filters the grid list successfully on the Special Collection page.", function () {
         create_special_collection.fieldOfficerDropdownCheck();
     });
 
-    it("44.13. Verify that the Grid History button displays the data information successfully.", function () {
+    it("44.13. Verify that the Grid History button displays the data information successfully when disabled.", function () {
         create_special_collection.gridHistoryButtonOffCheck();
     });
 
-    it("44.14. Verify check that the grid list content changes correctly from english to bangla.", function () {
+    it("44.14. Verify that the grid list content changes correctly from English to Bangla.", function () {
         create_special_collection.gridLanguageSwitchCheck();
     });
 

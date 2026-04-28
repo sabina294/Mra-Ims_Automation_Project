@@ -23,63 +23,63 @@ describe("12. MFI program Module Test Cases", function () {
     cy.logout();
   });
 
-  it("12.01. Verify the mfi program list page loads without errors.", function () {
+  it("12.01. Verify that the MFI Program List page loads successfully without errors.", function () {
     grid_mfi_program.gridMfiProgramListPage();
   });
 
-  it("12.02. Verify successfully performs the action when the action button is clicked.", function () {
+  it("12.02. Verify that the action button performs the expected action successfully.", function () {
     grid_mfi_program.actionButtonCheck();
   });
 
-  it("12.03. Verify the user can view all relevant details of a mfi program, including its associated fields.", function () {
+  it("12.03. Verify that the user can view all details of an MFI Program, including associated fields.", function () {
     grid_mfi_program.viewMfiProgram();
   });
 
-  it("12.04. Verify that clicking the go back button on the mfi program view page redirects the user to the mfi program list page.", function () {
+  it("12.04. Verify that clicking the Go Back button on the MFI Program View page redirects the user to the list page.", function () {
     grid_mfi_program.viewGoBackButton();
   });
 
-  it("12.05. Verify that the mfi program forms edit mode can be toggled on and off all fields should be disabled or return to view-only mode.", function () {
+  it("12.05. Verify that edit mode can be toggled on and off and fields switch between editable and read-only states.", function () {
     grid_mfi_program.turnOnEditMode();
   });
 
-  it("12.06. Verify the mfi program edit reset button functions correctly.", function () {
+  it("12.06. Verify that the Edit Reset button resets all changes successfully.", function () {
     grid_mfi_program.editResetButton();
   });
 
-  it("12.07. Verify the mfi program edit submit button functions correctly.", function () {
+  it("12.07. Verify that the Edit Submit button submits the updated MFI Program successfully.", function () {
     grid_mfi_program.editSubmitButton();
   });
 
-  it("12.08. Verify that clicking the go back button on the mfi program edit page redirects the user to the mfi program list page.", function () {
+  it("12.08. Verify that clicking the Go Back button on the MFI Program Edit page redirects to the list page.", function () {
     grid_mfi_program.editGoBackButton();
   });
 
-  it("12.09. Verify the user can filter inactive mfi programs using the status dropdown on the mfi program list page.", function () {
+  it("12.09. Verify that inactive MFI Programs can be filtered using the status dropdown.", function () {
     grid_mfi_program.statusInactiveDropdownCheck();
   });
 
-  it("12.10. Verify the active result is filtered correctly by the status dropdown.", function () {
+  it("12.10. Verify that active MFI Programs are filtered correctly using the status dropdown.", function () {
     grid_mfi_program.statusActiveDropdownCheck();
   });
 
-  it("12.11. Verify the search returns correct results when searching by mfi program name.", function () {
+  it("12.11. Verify that searching by MFI Program name returns correct results.", function () {
     grid_mfi_program.searchInMfiProgramName();
   });
 
-  it("12.12. Verify the grid list resets successfully when the reset button is clicked on the mfi program page.", function () {
+  it("12.12. Verify that the Reset button clears filters and resets the grid successfully.", function () {
     grid_mfi_program.gridResetButtonCheck();
   });
 
-  it("12.13. Verify that the grid list is refreshed successfully when the refresh button is clicked on the mfi program page.", function () {
+  it("12.13. Verify that the Refresh button reloads the grid data successfully.", function () {
     grid_mfi_program.gridRefreshButtonCheck();
   });
 
-  it("12.14. Verify that when the user clicks the Search button on the mfi program grid page, the system redirects to the mfi program List page..", function () {
+  it("12.14. Verify that clicking the Search button navigates to the MFI Program List page with results.", function () {
     grid_mfi_program.gridSearchButtonCheck();
   });
 
-  it("12.15. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("12.15. Verify that the grid content language switches correctly between English and Bangla.", function () {
     grid_mfi_program.gridLanguageSwitchCheck();
   });
 });

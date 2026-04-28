@@ -23,155 +23,155 @@ describe("19. Samity management Module Test Cases", function () {
     cy.logout();
   });
 
-  it("19.01 Verify that the Samity Management list page loads successfully.", function () {
+  it("19.01 Verify that the Samity Management list page loads successfully", function () {
     create_samity_management.gridSamityManagementListPage();
   });
 
-  it("19.02 Verify that a new Samity Management record is created successfully when all required fields contain valid data.", function () {
+  it("19.02 Verify that a new Samity Management record is created successfully with valid required data", function () {
     create_samity_management.createSamity();
   });
 
-  it("19.03 Verify that the MFI Admin can successfully approve a Samity Management record after creation.", function () {
+  it("19.03 Verify that the MFI Admin can successfully approve a Samity Management record after creation", function () {
     create_samity_management.approveSamity();
   });
 
-  it("19.04 Verify that a Samity Management record cannot be created without a Samity Name (English).", function () {
+  it("19.04 Verify that a Samity Management record cannot be created without Samity Name (English)", function () {
     create_samity_management.createWithoutNameEn();
   });
 
-  it("19.05 Verify that a Samity Management record cannot be created without a Samity Name (Bangla).", function () {
+  it("19.05 Verify that a Samity Management record cannot be created without Samity Name (Bangla)", function () {
     create_samity_management.createWithoutNameBn();
   });
 
-  it("19.06 Verify that a Samity Management record cannot be created without selecting a Samity Type.", function () {
+  it("19.06 Verify that a Samity Management record cannot be created without selecting Samity Type", function () {
     create_samity_management.createWithoutSamityType();
   });
 
-  it("19.07 Verify that a Samity Management record cannot be created without selecting an Office.", function () {
+  it("19.07 Verify that a Samity Management record cannot be created without selecting Office", function () {
     create_samity_management.createWithoutOffice();
   });
 
-  it("19.08 Verify that a Samity Management record cannot be created without selecting a Field Officer.", function () {
+  it("19.08 Verify that a Samity Management record cannot be created without selecting Field Officer", function () {
     create_samity_management.createWithoutFieldOfficer();
   });
 
-  it("19.09 Verify that a Samity Management record cannot be created without selecting an MFI Program.", function () {
+  it("19.09 Verify that a Samity Management record cannot be created without selecting MFI Program", function () {
     create_samity_management.createWithoutMfiProgram();
   });
 
-  it("19.10 Verify that a Samity Management record cannot be created without selecting a Samity Day.", function () {
+  it("19.10 Verify that a Samity Management record cannot be created without selecting Samity Day", function () {
     create_samity_management.createWithoutSamityDay();
   });
 
-  it("19.11 Verify that a Samity Management record cannot be created without selecting a Samity Frequency.", function () {
+  it("19.11 Verify that a Samity Management record cannot be created without selecting Samity Frequency", function () {
     create_samity_management.createWithoutSamityFrequency();
   });
 
-  it("19.12 Verify that a Samity Management record cannot be created without specifying the Maximum Member.", function () {
+  it("19.12 Verify that a Samity Management record cannot be created without specifying Maximum Member", function () {
     create_samity_management.createWithoutSamityMaximumMember();
   });
 
-  it("19.13 Verify that a Samity Management record cannot be created without specifying the Working Area.", function () {
+  it("19.13 Verify that a Samity Management record cannot be created without specifying Working Area", function () {
     create_samity_management.createWithoutSamityWorkingArea();
   });
 
-  it("19.14 Verify that a Samity Management record cannot be created without entering Address Line 1.", function () {
+  it("19.14 Verify that a Samity Management record cannot be created without Address Line 1", function () {
     create_samity_management.createWithoutSamityAdressLine1();
   });
 
-  it("19.15 Verify that a Samity Management record cannot be created without selecting a Geo Area Type.", function () {
+  it("19.15 Verify that a Samity Management record cannot be created without selecting Geo Area Type", function () {
     create_samity_management.createWithoutSamityGeoAreaType();
   });
 
-  it("19.16 Verify that the Action button performs the expected operation when clicked.", function () {
+  it("19.16 Verify that the Action button performs the expected operation when clicked", function () {
     create_samity_management.actionButtonCheck();
   });
 
-  it("19.17 Verify that the user can successfully view Samity Management details including name and description.", function () {
+  it("19.17 Verify that Samity Management details can be viewed successfully", function () {
     create_samity_management.viewSamity();
   });
 
-  it("19.18 Verify that clicking the Go Back button on the Samity view page redirects the user to the Samity Management list page.", function () {
+  it("19.18 Verify that clicking Go Back on the view page redirects to Samity Management list page", function () {
     create_samity_management.viewGoBackButton();
   });
 
-  it("19.19 Verify that the Reset button on the Samity edit page clears the modified values.", function () {
+  it("19.19 Verify that the Reset button on the edit page clears modified values", function () {
     create_samity_management.editResetButton();
   });
 
-  it("19.20 Verify that clicking the Go Back button on the Samity edit page redirects the user to the Samity Management list page.", function () {
+  it("19.20 Verify that clicking Go Back on the edit page redirects to Samity Management list page", function () {
     create_samity_management.editGoBackButton();
   });
 
-  it("19.21 Verify that inactive Samity records can be filtered using the Status dropdown.", function () {
+  it("19.21 Verify that inactive Samity records can be filtered using Status dropdown", function () {
     create_samity_management.statusInactiveDropdownCheck();
   });
 
-  it("19.22 Verify that active Samity records can be filtered using the Status dropdown.", function () {
+  it("19.22 Verify that active Samity records can be filtered using Status dropdown", function () {
     create_samity_management.statusActiveDropdownCheck();
   });
 
-  it("19.23 Verify that the search results display correctly when searching by Samity Management name.", function () {
+  it("19.23 Verify that Samity Management search works correctly by name", function () {
     create_samity_management.searchInSamityManagementName();
   });
 
-  it("19.24 Verify that the grid list resets successfully when the Reset button is clicked.", function () {
+  it("19.24 Verify that the grid resets successfully when Reset button is clicked", function () {
     create_samity_management.gridResetButtonCheck();
   });
 
-  it("19.25 Verify that the grid list refreshes successfully when the Refresh button is clicked.", function () {
+  it("19.25 Verify that the grid refreshes successfully when Refresh button is clicked", function () {
     create_samity_management.gridRefreshButtonCheck();
   });
 
-  it("19.26 Verify that the grid checkbox functions correctly.", function () {
+  it("19.26 Verify that grid checkbox selection works correctly", function () {
     create_samity_management.gridCheckboxCheck();
   });
 
-  it("19.27 Verify that the Lock button works correctly for selected records.", function () {
+  it("19.27 Verify that Lock button works correctly for selected records", function () {
     create_samity_management.gridCheckboxLockButtonCheck();
   });
 
-  it("19.28 Verify that the Unlock button works correctly for selected records.", function () {
+  it("19.28 Verify that Unlock button works correctly for selected records", function () {
     create_samity_management.gridCheckboxUnlockButtonCheck();
   });
 
-  it("19.29 Verify that a Samity Management record can be saved successfully using the Draft button.", function () {
+  it("19.29 Verify that a Samity Management record can be saved successfully as Draft", function () {
     create_samity_management.createDraftButton();
   });
 
-  it("19.30 Verify that the grid list displays draft records when the Draft filter is enabled.", function () {
+  it("19.30 Verify that draft records are displayed when Draft filter is enabled", function () {
     create_samity_management.gridDraftButton();
   });
 
-  it("19.31 Verify that the grid list hides draft records when the Draft filter is disabled.", function () {
+  it("19.31 Verify that draft records are hidden when Draft filter is disabled", function () {
     create_samity_management.gridDraftButtonOff();
   });
 
-  it("19.32 Verify that the Reset button on the Samity creation page clears all entered input values.", function () {
+  it("19.32 Verify that Reset button clears all input fields on creation page", function () {
     create_samity_management.createResetButtonCheck();
   });
 
-  it("19.33 Verify that validation messages appear when the Draft button is clicked with empty required fields.", function () {
+  it("19.33 Verify validation messages appear when saving Draft with empty required fields", function () {
     create_samity_management.createDraftButtonCheck();
   });
 
-  it("19.34 Verify that validation messages appear when the Submit button is clicked with empty required fields.", function () {
+  it("19.34 Verify validation messages appear when submitting with empty required fields", function () {
     create_samity_management.createValidationMessageCheck();
   });
 
-  it("19.35 Verify that validation messages appear when the Approve button is clicked with empty required fields.", function () {
+  it("19.35 Verify validation messages appear when approving with empty required fields", function () {
     create_samity_management.createApproveButtonCheck();
   });
 
-  it("19.36 Verify that clicking the Go Back button on the Samity creation page redirects the user to the Samity Management list page.", function () {
+  it("19.36 Verify that Go Back on creation page redirects to Samity Management list page", function () {
     create_samity_management.createGoBackButtonCheck();
   });
 
-  it("19.37. Verify that when the user clicks the Search button on the Samity Management grid page, the system redirects to the Samity Management List page..", function () {
+  it("19.37 Verify that clicking Search redirects and updates Samity Management list correctly", function () {
     create_samity_management.gridSearchButtonCheck();
   });
 
-  it("19.38 Verify that the grid list content updates correctly when switching the language from English to Bangla.", function () {
+  it("19.38 Verify that grid updates correctly when switching language from English to Bangla", function () {
     create_samity_management.gridLanguageSwitchCheck();
   });
 });

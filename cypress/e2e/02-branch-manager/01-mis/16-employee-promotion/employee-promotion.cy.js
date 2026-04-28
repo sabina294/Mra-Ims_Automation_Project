@@ -31,31 +31,31 @@ describe("16. Employee Promotion Module Test Cases", function () {
         grid_employee_promotion.promotionResetButton();
     });
 
-    it("16.03. Verify that the Submit button applies the selected filters and displays the results correctly.", function () {
+    it("16.03. Verify that the Submit button applies selected filters and displays results correctly.", function () {
         grid_employee_promotion.promotionSubmitButton();
     });
 
-    it("16.04. Verify the system validation when creating an employee promotion without selecting an effective date.", function () {
+    it("16.04. Verify system validation when creating an employee promotion without selecting an effective date.", function () {
         grid_employee_promotion.createEmployeePromotionWithoutEffectiveDate();
     });
 
-    it("16.05. Verify the system validation when creating an employee promotion without selecting a department.", function () {
+    it("16.05. Verify system validation when creating an employee promotion without selecting a department.", function () {
         grid_employee_promotion.createEmployeePromotionWithoutDepartment();
     });
 
-    it("16.06. Verify the system validation when creating an employee promotion without selecting a designation.", function () {
+    it("16.06. Verify system validation when creating an employee promotion without selecting a designation.", function () {
         grid_employee_promotion.createEmployeePromotionWithoutDesignation();
     });
 
-    it("16.07. Verify that clicking the Go Back button redirects the user to the Employee Promotion List page.", function () {
+    it("16.07. Verify that clicking the Go Back button redirects to the Employee Promotion List page.", function () {
         grid_employee_promotion.promotionGoBackButton();
     });
 
-    it("16.08. Verify that a new employee promotion is created successfully when all required fields contain valid data.", function () {
+    it("16.08. Verify that a new employee promotion is created successfully with valid input data.", function () {
         grid_employee_promotion.createEmployeePromotion();
     });
 
-    it("16.09. Verify that the system successfully creates and approves a new employee promotion with valid data.", function () {
+    it("16.09. Verify that a new employee promotion is created and successfully approved with valid data.", function () {
         grid_employee_promotion.approveNewEmployeePromotion();
     });
 
@@ -67,7 +67,7 @@ describe("16. Employee Promotion Module Test Cases", function () {
         grid_employee_promotion.statusActiveDropdownCheck();
     });
 
-    it("16.12. Verify that search results are displayed correctly when searching by employee name.", function () {
+    it("16.12. Verify that search results are correctly displayed when searching by employee name.", function () {
         grid_employee_promotion.searchInEmployeeName();
     });
 
@@ -79,19 +79,19 @@ describe("16. Employee Promotion Module Test Cases", function () {
         grid_employee_promotion.gridRefreshButtonCheck();
     });
 
-    it("16.15. Verify that when the user clicks the Search button on the rejected employee  grid page, the system redirects to the rejected employee  List page..", function () {
+    it("16.15. Verify that clicking the Search button on the rejected employee grid redirects to the Rejected Employee List page.", function () {
         grid_employee_promotion.gridSearchButtonCheck();
     });
 
-    it("16.16. Verify that the grid list displays draft employee promotion records when the Draft filter is enabled.", function () {
+    it("16.16. Verify that draft employee promotion records are displayed when the Draft filter is enabled.", function () {
         grid_employee_promotion.gridDraftButton();
     });
 
-    it("16.17. Verify that the grid list hides draft employee promotion records when the Draft filter is disabled.", function () {
+    it("16.17. Verify that draft employee promotion records are hidden when the Draft filter is disabled.", function () {
         grid_employee_promotion.gridDraftButtonOff();
     });
 
-    it("16.18. Verify that the grid content changes correctly when switching the language from English to Bangla.", function () {
+    it("16.18. Verify that the grid content updates correctly when switching language from English to Bangla.", function () {
         grid_employee_promotion.gridLanguageSwitchCheck();
     });
 });

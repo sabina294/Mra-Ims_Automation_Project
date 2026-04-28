@@ -23,63 +23,64 @@ describe("04. Region Module Test Cases", function () {
     cy.logout();
   });
 
-  it("04.01. Verify the region list page loads without errors.", function () {
+  it("04.01 Verify that the Region List page loads successfully without any errors.", function () {
     grid_region.gridRegionListPage();
   });
 
-  it("04.02. Verify successfully performs the action when the action button is clicked.", function () {
+  it("04.02 Verify that the action button performs the expected operation successfully.", function () {
     grid_region.actionButtonCheck();
   });
 
-  it("04.03. Verify the user can view all relevant details of a region, including its associated fields.", function () {
+  it("04.03 Verify that the user can view all details of a region, including associated fields.", function () {
     grid_region.viewRegion();
   });
 
-  it("04.04. Verify that clicking the go back button on the region view page redirects the user to the region list page.", function () {
+  it("04.04 Verify that clicking the Go Back button from the Region View page redirects to the Region List page.", function () {
     grid_region.viewGoBackButton();
   });
 
-  it("04.05. Verify that the region forms edit mode can be toggled on and off all fields should be disabled or return to view-only mode.", function () {
+  it("04.05 Verify that the Region Edit mode can be toggled on and off and all fields behave as expected (editable/view-only).", function () {
     grid_region.turnOnEditMode();
   });
 
-  it("04.06. Verify the region edit reset button functions correctly.", function () {
+  it("04.06 Verify that the Reset button in Region Edit form resets all fields correctly.", function () {
     grid_region.editResetButton();
   });
 
-  it("04.07. Verify the region edit submit button functions correctly.", function () {
+  it("04.07 Verify that the Submit button in Region Edit form updates the region successfully.", function () {
     grid_region.editSubmitButton();
   });
 
-  it("04.08. Verify that clicking the go back button on the region edit page redirects the user to the region list page.", function () {
+  it("04.08 Verify that clicking the Go Back button on the Region Edit page redirects to the Region List page.", function () {
     grid_region.editGoBackButton();
   });
 
-  it("04.09. Verify the user can filter inactive regions using the status dropdown on the region list page.", function () {
+  it("04.09 Verify that inactive regions can be filtered using the status dropdown on the Region List page.", function () {
     grid_region.statusInactiveDropdownCheck();
   });
 
-  it("04.10. Verify the active result is filtered correctly by the status dropdown.", function () {
+  it("04.10 Verify that active regions are correctly filtered using the status dropdown.", function () {
     grid_region.statusActiveDropdownCheck();
   });
 
-  it("04.11. Verify the search returns correct results when searching by region name.", function () {
+  it("04.11 Verify that searching by Region Name returns the correct results.", function () {
     grid_region.searchInRegionName();
   });
 
-  it("04.12. Verify the grid list resets successfully when the reset button is clicked on the region page.", function () {
+  it("04.12 Verify that the Reset button clears all filters and resets the Region grid successfully.", function () {
     grid_region.gridResetButtonCheck();
   });
 
-  it("04.13. Verify that the grid list is refreshed successfully when the refresh button is clicked on the region page.", function () {
+  it("04.13 Verify that the Refresh button reloads the Region grid data successfully.", function () {
     grid_region.gridRefreshButtonCheck();
   });
 
-  it("04.14. Verify that when the user clicks the Search button on the region grid page, the system redirects to the region List page..", function () {
+  it("04.14 Verify that clicking the Search button correctly loads filtered results on the Region List page.", function () {
     grid_region.gridSearchButtonCheck();
   });
 
-  it("04.15. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("04.15 Verify that the Region grid language switches correctly between English and Bangla.", function () {
     grid_region.gridLanguageSwitchCheck();
   });
+
 });

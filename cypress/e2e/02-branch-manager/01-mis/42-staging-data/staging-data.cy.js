@@ -23,31 +23,31 @@ describe("42. Staging Data Module Test Cases", function () {
     cy.logout();
   });
 
-  it("42.01. Verify Staging data grid List page loads successfully", function () {
+  it("42.01. Verify that the Staging Data Grid List page loads successfully", function () {
     create_staging_data.gridStagingDataListPage();
   });
 
-  it("42.02. Verify Staging data generate List page loads successfully", function () {
+  it("42.02. Verify that the Staging Data Generate List page loads successfully", function () {
     create_staging_data.startProcessStagingData();
   });
 
-  it("42.03. Verify that the grid list is refreshed successfully when the refresh button is clicked on the staging data page.", function () {
+  it("42.03. Verify that the grid list refreshes successfully when the Refresh button is clicked on the Staging Data page", function () {
     create_staging_data.refreshButtonCheck();
   });
 
-  it("42.04. Verify that the grid list is field officer dropdown successfully when the select on the staging data page.", function () {
+  it("42.04. Verify that the grid list updates successfully when a Field Officer is selected from the dropdown on the Staging Data page", function () {
     create_staging_data.fieldOfficerDropdownCheck();
   });
 
-  it("42.05. Verify that the grid list is samity dropdown successfully when the select on the staging data page.", function () {
+  it("42.05. Verify that the grid list updates successfully when a Samity is selected from the dropdown on the Staging Data page", function () {
     create_staging_data.samityDropdownCheck();
   });
 
-  it("42.06. Verify that the delete button is available and functioning correctly in the staging list.", function () {
+  it("42.06. Verify that the Delete button is available and functions correctly in the Staging Data list", function () {
     create_staging_data.deleteButtonCheck();
   });
 
-  it("42.07. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("42.07. Verify that the grid list content changes correctly from English to Bangla", function () {
     create_staging_data.gridLanguageSwitchCheck();
   });
 

@@ -23,63 +23,63 @@ describe("23. Samity Close Module Test Cases", function () {
     cy.logout();
   });
 
-  it("23.01 Verify that the Samity Close list page loads successfully.", function () {
+  it("23.01 Verify that the Samity Close list page loads successfully", function () {
     Samity_close.gridSamityCloseListPage();
   });
 
-  it("23.02 Verify that a Samity Close record can be created with valid information.", function () {
+  it("23.02 Verify that a Samity Close record can be created with valid information", function () {
     Samity_close.samityClose();
   });
 
-  it("23.03 Verify that the can successfully approve a Samity Close record after creation.", function () {
+  it("23.03 Verify that a Samity Close record can be successfully approved after creation", function () {
     Samity_close.approveSamityClose();
   });
 
-  it("23.04 Verify that the action button performs the expected operation when clicked.", function () {
+  it("23.04 Verify that the action button performs the expected operation when clicked", function () {
     Samity_close.actionButtonCheck();
   });
 
-  it("23.05 Verify that the user can view Samity Close details including name and description.", function () {
+  it("23.05 Verify that the user can view Samity Close details including name and description", function () {
     Samity_close.viewSamityClose();
   });
 
-  it("23.06 Verify that clicking the Go Back button on the Samity Close view page redirects the user to the Samity Close list page.", function () {
+  it("23.06 Verify that clicking the Go Back button redirects the user to the Samity Close list page", function () {
     Samity_close.viewGoBackButton();
   });
 
-  it("23.07 Verify that the user can filter inactive Samity Close records using the Status dropdown on the list page.", function () {
+  it("23.07 Verify that inactive Samity Close records can be filtered using the Status dropdown", function () {
     Samity_close.statusInactiveDropdownCheck();
   });
 
-  it("23.08 Verify that the user can filter active Samity Close records using the Status dropdown.", function () {
+  it("23.08 Verify that active Samity Close records can be filtered using the Status dropdown", function () {
     Samity_close.statusActiveDropdownCheck();
   });
 
-  it("23.09 Verify that the correct results are displayed when searching by Samity Close name.", function () {
+  it("23.09 Verify that correct results are displayed when searching by Samity Close name", function () {
     Samity_close.searchInSamityCloseName();
   });
 
-  it("23.10 Verify that the grid list resets successfully when the Reset button is clicked.", function () {
+  it("23.10 Verify that the grid list resets successfully when the Reset button is clicked", function () {
     Samity_close.gridResetButtonCheck();
   });
 
-  it("23.11 Verify that the grid list refreshes successfully when the Refresh button is clicked.", function () {
+  it("23.11 Verify that the grid list refreshes successfully when the Refresh button is clicked", function () {
     Samity_close.gridRefreshButtonCheck();
   });
 
-  it("23.12. Verify that when the user clicks the Search button on the Samity Close grid page, the system redirects to the Samity Close List page.", function () {
+  it("23.12 Verify that clicking the Search button redirects the user to the Samity Close list page", function () {
     Samity_close.gridSearchButtonCheck();
   });
 
-  it("23.13 Verify that the grid list displays draft records when the Draft button is enabled.", function () {
+  it("23.13 Verify that the grid displays draft records when the Draft filter is enabled", function () {
     Samity_close.gridDraftButton();
   });
 
-  it("23.14 Verify that the grid list hides draft records when the Draft button is disabled.", function () {
+  it("23.14 Verify that the grid hides draft records when the Draft filter is disabled", function () {
     Samity_close.gridDraftButtonOff();
   });
 
-  it("23.15 Verify that the grid list content changes correctly when switching language from English to Bangla.", function () {
+  it("23.15 Verify that the grid content updates correctly when switching language from English to Bangla", function () {
     Samity_close.gridLanguageSwitchCheck();
   });
 });

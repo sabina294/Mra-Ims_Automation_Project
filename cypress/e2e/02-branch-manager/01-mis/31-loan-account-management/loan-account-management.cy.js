@@ -23,47 +23,47 @@ describe("31. Loan Account Management Module Test Cases", function () {
     cy.logout();
   });
 
-  it("31.01. Verify Loan Account Management  Grid List Page loads successfully", function () {
+  it("31.01 Verify that the Loan Account Management grid list page loads successfully", function () {
     create_loan_account_management.gridLoanAccountManagementListPage();
   });
 
-  it("31.02. Verify successfully performs the action when the action button is clicked.", function () {
+  it("31.02 Verify that the action button performs the expected action successfully", function () {
     create_loan_account_management.actionButtonCheck();
   });
 
-  it('31.03. Verify successful Loan Account Management  information View.', function () {
+  it("31.03 Verify that Loan Account Management details can be viewed successfully", function () {
     create_loan_account_management.viewLoanAccountManagement();
   });
 
-  it("31.04. Verify that clicking the go back button on the Loan Account Management  view page redirects the user to the Loan Account Management list page.", function () {
+  it("31.04 Verify that clicking the Go Back button redirects the user to the Loan Account Management list page", function () {
     create_loan_account_management.viewGoBackButton();
   });
 
-  it("31.05. Verify that the user can filter the inactive Loan Account Management s using the Status Dropdown on the Loan Account Management  List page.", function () {
+  it("31.05 Verify that inactive Loan Account Management records can be filtered using the Status dropdown", function () {
     create_loan_account_management.statusInactiveDropdownCheck();
   });
 
-  it("31.06. Verify Filter Active Result by Status Dropdown", function () {
+  it("31.06 Verify that active Loan Account Management records can be filtered using the Status dropdown", function () {
     create_loan_account_management.statusActiveDropdownCheck();
   });
 
-  it("31.07. Verify Successful Search Result by Loan Account Management  Name", function () {
+  it("31.07 Verify that the user can successfully search Loan Account Management records by name", function () {
     create_loan_account_management.searchInLoanAccountName();
   });
 
-  it("31.08. Verify Successful Reset of Grid List Using the Reset Button on Loan Account Management  Page.", function () {
+  it("31.08 Verify that the Reset button clears all filters and restores the default grid list", function () {
     create_loan_account_management.gridResetButtonCheck();
   });
 
-  it("31.09. Verify Successful Refresh of Grid List Using the Refresh Button on Loan Account Management  Page.", function () {
+  it("31.09 Verify that the Refresh button reloads the Loan Account Management grid list successfully", function () {
     create_loan_account_management.gridRefreshButtonCheck();
   });
 
-  it("31.10. Verify that when the user clicks the Search button on the Loan Account Management grid page, the system redirects to the Loan Account Management List page.", function () {
+  it("31.10 Verify that clicking the Search button redirects and displays the Loan Account Management list page correctly", function () {
     create_loan_account_management.gridSearchButtonCheck();
   });
 
-  it("31.11. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("31.11 Verify that the grid list content switches correctly between English and Bangla", function () {
     create_loan_account_management.gridLanguageSwitchCheck();
   });
 });

@@ -23,67 +23,67 @@ describe("20. Rejected Samity Module Test Cases", function () {
     cy.logout();
   });
 
-  it("20.01. Verify that a new rejected samity record is created successfully when all required fields are provided with valid data.", function () {
+  it("20.01 - should create a rejected samity record successfully when valid required data is provided", function () {
     create_rejected_samity.createRejectSamity();
   });
 
-  it("20.02. Verify that the branch manager can successfully approve a rejected samity record after it is created.", function () {
+  it("20.02 - should allow branch manager to approve a newly created rejected samity record", function () {
     create_rejected_samity.approveRejectedSamity();
   });
 
-  it("20.03. Verify that the rejected samity list page loads successfully.", function () {
+  it("20.03 - should load the rejected samity list page successfully", function () {
     create_rejected_samity.gridRejectedSamityListPage();
   });
 
-  it("20.04. Verify that the action button performs the expected operation when clicked.", function () {
+  it("20.04 - should perform the expected action when action button is clicked", function () {
     create_rejected_samity.actionButtonCheck();
   });
 
-  it("20.05. Verify that the user can view rejected samity details including name and description.", function () {
+  it("20.05 - should display rejected samity details including name and description", function () {
     create_rejected_samity.viewRejectedSamity();
   });
 
-  it("20.06. Verify that clicking the 'Go Back' button on the rejected samity view page redirects the user to the rejected samity list page.", function () {
+  it("20.06 - should redirect to rejected samity list page when Go Back button is clicked from view page", function () {
     create_rejected_samity.viewGoBackButton();
   });
 
-  it("20.07. Verify that the reset button on the rejected samity edit page clears the modified data.", function () {
+  it("20.07 - should reset modified data on rejected samity edit page when reset button is clicked", function () {
     create_rejected_samity.editResetButton();
   });
 
-  it("20.08. Verify that the draft button on the rejected samity edit page saves the record as draft successfully.", function () {
+  it("20.08 - should save rejected samity record as draft from edit page", function () {
     create_rejected_samity.editDraftButton();
   });
 
-  it("20.09. Verify that the submit button on the rejected samity edit page updates the record successfully.", function () {
+  it("20.09 - should update rejected samity record successfully when submit button is clicked", function () {
     create_rejected_samity.editSubmitButton();
   });
 
-  it("20.10. Verify that the approve button on the rejected samity edit page updates the record successfully.", function () {
+  it("20.10 - should approve rejected samity record successfully from edit page", function () {
     create_rejected_samity.editApproveButton();
   });
 
-  it("20.11. Verify that clicking the 'Go Back' button on the rejected samity edit page redirects the user to the rejected samity list page.", function () {
+  it("20.11 - should redirect to rejected samity list page when Go Back button is clicked from edit page", function () {
     create_rejected_samity.editGoBackButton();
   });
 
-  it("20.12. Verify that the correct search results are displayed when searching by rejected samity name.", function () {
+  it("20.12 - should return correct results when searching rejected samity by name", function () {
     create_rejected_samity.searchInRejectSamityName();
   });
 
-  it("20.13. Verify that the grid list resets successfully when the reset button is clicked.", function () {
+  it("20.13 - should reset grid filters and results when reset button is clicked", function () {
     create_rejected_samity.gridResetButtonCheck();
   });
 
-  it("20.14. Verify that the grid list refreshes successfully when the refresh button is clicked.", function () {
+  it("20.14 - should refresh grid data successfully when refresh button is clicked", function () {
     create_rejected_samity.gridRefreshButtonCheck();
   });
 
-  it("20.15. Verify that when the user clicks the Search button on the Rejected Samity grid page, the system redirects to the Rejected Samity List page.", function () {
+  it("20.15 - should navigate to rejected samity list page when search button is clicked", function () {
     create_rejected_samity.gridSearchButtonCheck();
   });
 
-  it("20.16. Verify that the grid list content updates correctly when switching the language from English to Bangla.", function () {
+  it("20.16 - should update grid content correctly when language is switched from English to Bangla", function () {
     create_rejected_samity.gridLanguageSwitchCheck();
   });
 });

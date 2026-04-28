@@ -22,60 +22,59 @@ describe("43. Regular Collection Module Test Cases", function () {
     after(() => {
         cy.logout();
     });
-
-    it("43.01. Verify load the Regular Collection list page successfully.", function () {
+    it("43.01. Verify that the Regular Collection list page loads successfully.", function () {
         create_regular_collection.gridRegularCollectionListPage();
     });
 
-    it("43.02. Verify perform the correct action when the Action button is clicked.", function () {
+    it("43.02. Verify that the correct action is performed when the Action button is clicked.", function () {
         create_regular_collection.actionButtonCheck();
     });
 
-    it("43.03. Verify open the correct details when the Open button is clicked.", function () {
+    it("43.03. Verify that the correct details page opens when the Open button is clicked.", function () {
         create_regular_collection.openButtonCheck();
     });
 
-    it("43.04. Verify accept the Regular Collection amount and complete the collection process successfully.", function () {
+    it("43.04. Verify that the Regular Collection amount is accepted and the collection process is completed successfully.", function () {
         create_regular_collection.collectionProcess();
     });
 
-    it("43.05. Verify accept the Regular Collection save and complete the collection process successfully.", function () {
+    it("43.05. Verify that the Regular Collection data is saved successfully and the collection process is completed.", function () {
         create_regular_collection.collectionSave();
     });
 
-    it("43.06. Verify display Regular Collection details including name and description successfully.", function () {
+    it("43.06. Verify that the Regular Collection details, including name and description, are displayed successfully.", function () {
         create_regular_collection.viewRegularCollection();
     });
 
-    it("43.07. Verify that clicking the go back button on the regular collection view page redirects the user to the regular collection list page.", function () {
+    it("43.07. Verify that clicking the Go Back button on the Regular Collection view page redirects the user to the Regular Collection list page.", function () {
         create_regular_collection.viewGoBackButton();
     });
 
-    it("43.08. Verify allow editing of an existing Regular Collection successfully.", function () {
+    it("43.08. Verify that an existing Regular Collection can be edited successfully.", function () {
         create_regular_collection.editRegularCollection();
     });
 
-    it("43.09. Verify the Regular Collection edit form successfully when the save button is clicked.", function () {
+    it("43.09. Verify that the Regular Collection edit form is saved successfully when the Save button is clicked.", function () {
         create_regular_collection.editSaveButton();
     });
 
-    it("43.10. Verify the Regular Collection form successfully when the go back button is clicked.", function () {
+    it("43.10. Verify that clicking the Go Back button on the Regular Collection form redirects the user successfully.", function () {
         create_regular_collection.collectionGoBack();
     });
 
-    it("43.11. Verify the Regular Collection form successfully when the Submit button is clicked..", function () {
+    it("43.11. Verify that the Regular Collection form is submitted successfully when the Submit button is clicked.", function () {
         create_regular_collection.collectionSubmit();
     });
 
-    it("43.12. Verify reset the grid list successfully when the Reset button is clicked on the Regular Collection page.", function () {
+    it("43.12. Verify that the grid list is reset successfully when the Reset button is clicked on the Regular Collection page.", function () {
         create_regular_collection.gridResetButtonCheck();
     });
 
-    it("43.13. Verify create a new Regular Collection record successfully when all required fields are filled with valid data.", function () {
+    it("43.13. Verify that the grid list is refreshed successfully when the Refresh button is clicked on the Regular Collection page.", function () {
         create_regular_collection.gridRefreshButtonCheck();
     });
 
-    it("43.14. Verify check that the grid list content changes correctly from english to bangla.", function () {
+    it("43.14. Verify that the grid list content changes correctly from English to Bangla.", function () {
         create_regular_collection.gridLanguageSwitchCheck();
     });
 

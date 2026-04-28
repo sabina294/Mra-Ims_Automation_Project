@@ -23,51 +23,51 @@ describe("46. Loan Adjustment Module Test Cases", function () {
         cy.logout();
     });
 
-    it("46.01. Verify load the Loan Adjustment list page successfully.", function () {
+    it("46.01. Verify that the Loan Adjustment List page loads successfully.", function () {
         create_loan_adjustment.gridLoanAdjustmentListPage();
     });
 
-    it("46.02. Verify a new Loan Adjustment record is created successfully when all required fields are filled with valid data.", function () {
+    it("46.02. Verify that a new Loan Adjustment record is created successfully when all required fields are filled with valid data.", function () {
         create_loan_adjustment.createNewLoanAdjustment();
     });
 
-    it("46.03. Verify a new Loan Adjustment record is created successfully when all required fields are filled with valid data.", function () {
+    it("46.03. Verify that the Loan Adjustment record is saved successfully after entering all required valid information.", function () {
         create_loan_adjustment.saveNewLoanAdjustment();
     });
 
-    it("46.04. Verify perform the correct action when the Action button is clicked.", function () {
+    it("46.04. Verify that the correct action is performed when the Action button is clicked.", function () {
         create_loan_adjustment.actionButtonCheck();
     });
 
-    it("46.05. Verify display Loan Adjustment details including name and description successfully.", function () {
+    it("46.05. Verify that Loan Adjustment details, including name and description, are displayed successfully.", function () {
         create_loan_adjustment.viewLoanAdjustment();
     });
 
-    it("46.06. Verify display Loan Adjustment details go back button check.", function () {
+    it("46.06. Verify that the Go Back button from the Loan Adjustment details page works successfully.", function () {
         create_loan_adjustment.viewGoBack();
     });
 
-    it("46.07. Verify reset the grid list successfully when the Reset button is clicked on the Loan Adjustment page.", function () {
+    it("46.07. Verify that the grid list is reset successfully when the Reset button is clicked on the Loan Adjustment page.", function () {
         create_loan_adjustment.gridResetButtonCheck();
     });
 
-    it("46.08. Verify reset the grid list successfully when the Refresh button is clicked on the Loan Adjustment page.", function () {
+    it("46.08. Verify that the grid list is refreshed successfully when the Refresh button is clicked on the Loan Adjustment page.", function () {
         create_loan_adjustment.gridRefreshButtonCheck();
     });
 
-    it("46.09. Verify that when the user clicks the Search button on the Loan Adjustment grid page, the system redirects to the Loan Adjustment List page..", function () {
+    it("46.09. Verify that clicking the Search button on the Loan Adjustment grid page redirects the user to the Loan Adjustment List page successfully.", function () {
         create_loan_adjustment.gridSearchButtonCheck();
     });
 
-    it("46.10. Verify validation messages appear for required fields when the Draft button is clicked with empty inputs.", function () {
+    it("46.10. Verify that validation messages appear for required fields when the Draft button is clicked with empty inputs.", function () {
         create_loan_adjustment.createDraftButtonCheck();
     });
 
-    it("46.11. Verify validation messages appear for required fields when the Go Back button is clicked with empty inputs.", function () {
+    it("46.11. Verify that validation messages appear for required fields when the Go Back button is clicked with empty inputs.", function () {
         create_loan_adjustment.createGoBackButtonCheck();
     });
 
-    it("46.12. Verify check that the grid list content changes correctly from english to bangla.", function () {
+    it("46.12. Verify that the grid list content changes correctly from English to Bangla after language switching.", function () {
         create_loan_adjustment.gridLanguageSwitchCheck();
     });
 });

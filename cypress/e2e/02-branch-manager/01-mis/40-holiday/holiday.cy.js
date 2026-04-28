@@ -23,59 +23,59 @@ describe("40. holiday Module Test Cases", function () {
     cy.logout();
   });
 
-  it("40.01. Verify the holiday list page loads correctly.", function () {
+  it("40.01. Verify that the Holiday List page loads successfully and displays all required grid data.", function () {
     create_holiday.gridHolidayListPage();
   });
 
-  it("40.02. Verify a new holiday record is created successfully when all required fields are filled with valid data.", function () {
+  it("40.02. Verify that a new holiday record is created successfully when all required fields are filled with valid data.", function () {
     create_holiday.createHoliday();
   });
 
-  it("40.03. Verify the holiday creation reset button clears all entered input values.", function () {
+  it("40.03. Verify that clicking the Reset button on the Holiday Create page clears all entered input values.", function () {
     create_holiday.createResetButtonCheck();
   });
 
-  it("40.04. Verify validation messages appear for required fields when the submit button is clicked with empty inputs.", function () {
+  it("40.04. Verify that validation messages are displayed for all required fields when the Submit button is clicked with empty inputs.", function () {
     create_holiday.createValidationMessageCheck();
   });
 
-  it("40.05. Verify that clicking the go back button on the holiday create page redirects the user to the holiday list page.", function () {
+  it("40.05. Verify that clicking the Go Back button on the Holiday Create page redirects the user to the Holiday List page.", function () {
     create_holiday.createGoBackButtonCheck();
   });
 
-  it("40.06. Verify mfi-admin to successfully approve an holiday record after creation.", function () {
+  it("40.06. Verify that the MFI Admin can successfully approve a holiday record after creation.", function () {
     create_holiday.approveHoliday();
   });
 
-  it("40.07. Verify that the search results are displayed correctly when searching by holiday name.", function () {
+  it("40.07. Verify that the correct search results are displayed when searching by holiday name.", function () {
     create_holiday.searchHolidayTitle();
   });
 
-  it("40.08. Verify that the selected year results are displayed correctly when calendar year is selected.", function () {
+  it("40.08. Verify that the correct results are displayed when a calendar year is selected from the year filter.", function () {
     create_holiday.selectCalendarYear();
   });
 
-  it("40.09. Verify the grid list resets successfully when the reset button is clicked on the holiday page.", function () {
+  it("40.09. Verify that clicking the Reset button on the Holiday Grid page clears all applied filters and resets the grid list.", function () {
     create_holiday.gridResetButtonCheck();
   });
 
-  it("40.10. Verify that the grid list is refreshed successfully when the refresh button is clicked on the holiday page.", function () {
+  it("40.10. Verify that clicking the Refresh button on the Holiday Grid page reloads and refreshes the grid list successfully.", function () {
     create_holiday.gridRefreshButtonCheck();
   });
 
-  it("40.11. Verify that when the user clicks the Search button on the holiday grid page, the system redirects to the holiday List page.", function () {
+  it("40.11. Verify that clicking the Search button on the Holiday Grid page redirects the user to the Holiday List page.", function () {
     create_holiday.gridSearchButtonCheck();
   });
 
-  it("40.12. Verify display the grid list successfully when the Draft button on is clicked on the holiday page", function () {
+  it("40.12. Verify that the grid list displays only draft records when the Draft button is enabled on the Holiday page.", function () {
     create_holiday.gridDraftButton();
   });
 
-  it("40.13. Verify display the grid list successfully when the Draft button off is clicked on the holiday page", function () {
+  it("40.13. Verify that the grid list displays all applicable records when the Draft button is disabled on the Holiday page.", function () {
     create_holiday.gridDraftButtonOff();
   });
 
-  it("40.14. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("40.14. Verify that the grid list content is correctly translated when switching the language from English to Bangla.", function () {
     create_holiday.gridLanguageSwitchCheck();
   });
 });

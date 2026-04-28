@@ -23,63 +23,63 @@ describe("08. Fee Configuration Module Test Cases ", function () {
     cy.logout();
   });
 
-  it("08.01. Verify the fee configuration list page loads without errors.", function () {
+  it("08.01 Verify that the Fee Configuration list page loads successfully without errors.", function () {
     grid_fee_configuration.gridFeeConfigurationListPage();
   });
 
-  it("08.02. Verify successfully performs the action when the action button is clicked.", function () {
+  it("08.02 Verify that the action button performs the expected operation successfully.", function () {
     grid_fee_configuration.actionButtonCheck();
   });
 
-  it("08.03. Verify the user can view all relevant details of a fee configuration, including its associated fields.", function () {
+  it("08.03 Verify that the user can view all details of a Fee Configuration including associated fields.", function () {
     grid_fee_configuration.viewFeeConfiguration();
   });
 
-  it("08.04. Verify that clicking the go back button on the fee configuration view page redirects the user to the fee configuration list page.", function () {
+  it("08.04 Verify that clicking the Go Back button on the Fee Configuration view page redirects to the list page.", function () {
     grid_fee_configuration.viewGoBackButton();
   });
 
-  it("08.05. Verify that the fee configuration forms edit mode can be toggled on and off all fields should be disabled or return to view-only mode.", function () {
+  it("08.05 Verify that edit mode can be toggled on and off and all fields switch between editable and read-only states.", function () {
     grid_fee_configuration.turnOnEditMode();
   });
 
-  it("08.06. Verify the fee configuration edit reset button functions correctly.", function () {
+  it("08.06 Verify that the Reset button in edit mode restores the original Fee Configuration data.", function () {
     grid_fee_configuration.editResetButton();
   });
 
-  it("08.07. Verify the fee configuration edit submit button functions correctly.", function () {
+  it("08.07 Verify that the Submit button successfully updates the Fee Configuration.", function () {
     grid_fee_configuration.editSubmitButton();
   });
 
-  it("08.08. Verify that clicking the go back button on the fee configuration edit page redirects the user to the fee configuration list page.", function () {
+  it("08.08 Verify that clicking the Go Back button on the edit page redirects to the Fee Configuration list page.", function () {
     grid_fee_configuration.editGoBackButton();
   });
 
-  it("08.09. Verify the user can filter inactive fee configurations using the status dropdown on the fee configuration list page.", function () {
+  it("08.09 Verify that inactive Fee Configurations can be filtered using the status dropdown.", function () {
     grid_fee_configuration.statusInactiveDropdownCheck();
   });
 
-  it("08.10. Verify the active result is filtered correctly by the status dropdown.", function () {
+  it("08.10 Verify that active Fee Configurations are correctly filtered using the status dropdown.", function () {
     grid_fee_configuration.statusActiveDropdownCheck();
   });
 
-  it("08.11. Verify the search returns correct results when searching by fee configuration name.", function () {
+  it("08.11 Verify that searching by Fee Configuration name returns the correct results.", function () {
     grid_fee_configuration.searchInFeeConfigurationName();
   });
 
-  it("08.12. Verify the grid list resets successfully when the reset button is clicked on the fee configuration page.", function () {
+  it("08.12 Verify that clicking the Reset button clears all filters and resets the grid list.", function () {
     grid_fee_configuration.gridResetButtonCheck();
   });
 
-  it("08.13. Verify that the grid list is refreshed successfully when the refresh button is clicked on the fee configuration page.", function () {
+  it("08.13 Verify that clicking the Refresh button reloads the Fee Configuration grid list successfully.", function () {
     grid_fee_configuration.gridRefreshButtonCheck();
   });
 
-  it("08.14. Verify that when the user clicks the Search button on the fee configuration grid page, the system redirects to the fee configuration List page..", function () {
+  it("08.14 Verify that clicking the Search button navigates to and displays the Fee Configuration list page correctly.", function () {
     grid_fee_configuration.gridSearchButtonCheck();
   });
 
-  it("08.15. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("08.15 Verify that the grid content language switches correctly between English and Bangla.", function () {
     grid_fee_configuration.gridLanguageSwitchCheck();
   });
 });

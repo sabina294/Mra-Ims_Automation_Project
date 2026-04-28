@@ -23,63 +23,63 @@ describe("10. Funding-organizations Module Test Cases ", function () {
     cy.logout();
   });
 
-  it("10.01. Verify the funding organization list page loads without errors.", function () {
+  it("10.01 Verify that the Funding Organization list page loads successfully without errors.", function () {
     grid_funding_organization.gridFundingOrganizationListPage();
   });
 
-  it("10.02. Verify successfully performs the action when the action button is clicked.", function () {
+  it("10.02 Verify that the action button performs the expected action successfully.", function () {
     grid_funding_organization.actionButtonCheck();
   });
 
-  it("10.03. Verify the user can view all relevant details of a funding organization, including its associated fields.", function () {
+  it("10.03 Verify that the user can view all details of a Funding Organization, including associated fields.", function () {
     grid_funding_organization.viewFundingOrganization();
   });
 
-  it("10.04. Verify that clicking the go back button on the funding organization view page redirects the user to the funding organization list page.", function () {
+  it("10.04 Verify that clicking the Go Back button on the Funding Organization view page redirects to the list page.", function () {
     grid_funding_organization.viewGoBackButton();
   });
 
-  it("10.05. Verify that the funding organizations forms edit mode can be toggled on and off all fields should be disabled or return to view-only mode.", function () {
+  it("10.05 Verify that Edit mode toggle enables and disables all fields correctly in Funding Organization form.", function () {
     grid_funding_organization.turnOnEditMode();
   });
 
-  it("10.06. Verify the funding organizations edit reset button functions correctly.", function () {
+  it("10.06 Verify that the Reset button in the Funding Organization edit form works correctly.", function () {
     grid_funding_organization.editResetButton();
   });
 
-  it("10.07. Verify the funding organizations edit submit button functions correctly.", function () {
+  it("10.07 Verify that the Submit button in the Funding Organization edit form works successfully.", function () {
     grid_funding_organization.editSubmitButton();
   });
 
-  it("10.08. Verify that clicking the go back button on the funding organizations edit page redirects the user to the funding organizations list page.", function () {
+  it("10.08 Verify that clicking Go Back in the edit page redirects to the Funding Organization list page.", function () {
     grid_funding_organization.editGoBackButton();
   });
 
-  it("10.09. Verify the user can filter inactive funding organizations using the status dropdown on the funding organization list page.", function () {
+  it("10.09 Verify that inactive Funding Organizations can be filtered using the Status dropdown.", function () {
     grid_funding_organization.statusInactiveDropdownCheck();
   });
 
-  it("10.10. Verify the active result is filtered correctly by the status dropdown.", function () {
+  it("10.10 Verify that active Funding Organizations are correctly filtered using the Status dropdown.", function () {
     grid_funding_organization.statusActiveDropdownCheck();
   });
 
-  it("10.11. Verify the search returns correct results when searching by funding organization name.", function () {
+  it("10.11 Verify that searching by Funding Organization name returns correct results.", function () {
     grid_funding_organization.searchInFundingOrganizationName();
   });
 
-  it("10.12. Verify the grid list resets successfully when the reset button is clicked on the funding organization page.", function () {
+  it("10.12 Verify that the Reset button clears all filters and resets the grid successfully.", function () {
     grid_funding_organization.gridResetButtonCheck();
   });
 
-  it("10.13. Verify that the grid list is refreshed successfully when the refresh button is clicked on the funding organization page.", function () {
+  it("10.13 Verify that the Refresh button reloads the Funding Organization grid successfully.", function () {
     grid_funding_organization.gridRefreshButtonCheck();
   });
 
-  it("10.14. Verify that when the user clicks the Search button on the funding organization grid page, the system redirects to the funding organization List page..", function () {
+  it("10.14 Verify that clicking the Search button redirects or updates the Funding Organization list correctly.", function () {
     grid_funding_organization.gridSearchButtonCheck();
   });
 
-  it("10.15. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("10.15 Verify that switching language correctly updates the grid content from English to Bangla.", function () {
     grid_funding_organization.gridLanguageSwitchCheck();
   });
 });
