@@ -7,43 +7,45 @@ class cancelSamity {
             cy.log("Successfully Cancel Samity list page.");
         });
     }
-    
-  gridCheckboxCheck() {
-    cy.imsId("row-checkbox-2").click();
-    cy.log("Checkbox should be clickable and functional.");
-  }
 
-   cancelMultipleSamity() {
-    cy.imsId("btn-cancel-multiple").click();
-    cy.imsId("btn-yes").click();
-    cy.imsId("btn-ok").click();
-    cy.log("Cancel samity should be clickable and functional.");
-  }
+    gridCheckboxCheck() {
+        cy.imsId("check-samity-2").click();
+        cy.log("Checkbox should be clickable and functional.");
+    }
 
-   restoreSamity() {
-    cy.imsId("btn-delete-1020-109").click();
-    cy.imsId("btn-yes").click();
-    cy.imsId("btn-ok").click();
-    cy.log("Restore samity should be clickable and functional.");
-  }
+    cancelMultipleSamity() {
+        cy.imsId("btn-cancel-multiple").click();
+        cy.imsId("btn-yes").click();
+        cy.imsId("btn-ok").click();
+        cy.log("Cancel samity should be clickable and functional.");
+    }
 
-   cancelSamity() {
-    cy.fixture(this.test_data).then((data) => {
-    var csData = data.branchManager.cancelSamity;
-    cy.imsId("btn-cancel-1020-109").click();
-    cy.imsId("btn-yes").click();
-    cy.fromController("remarks").type(csData.remarksCancel);
-    cy.log("Cancel samity should be clickable and functional.");
-    });
-  }
+    restoreSamity() {
+        cy.imsId("btn-restore-2").click();
+        cy.imsId("btn-yes").click();
+        cy.imsId("btn-ok").click();
+        cy.log("Restore samity should be clickable and functional.");
+    }
 
-   submitCancelSamity() {
-    cy.fixture(this.test_data).then((data) => {
-    var csData = data.branchManager.cancelSamity;
-    cy.imsId("btn-yes").click();
-    cy.log("Cancel samity should be clickable and functional.");
-    });
-  }
+    cancelSamity() {
+        cy.fixture(this.test_data).then((data) => {
+            const csData = data.branchManager.cancelSamity;
+
+            cy.imsId("btn-cancel-2").click();
+            cy.imsId("btn-yes").click();
+
+            cy.get('[formcontrolname="remarks"]')   // 🔥 use this first
+                .should("be.visible")
+                .and("not.be.disabled")
+                .clear()
+                .type(csData.remarksCancel);
+        });
+    }
+
+    submitCancelSamity() {
+        cy.imsId("btn-submit").should("be.visible").click();
+        cy.imsId("btn-ok").click();
+    }
 
     gridLanguageSwitchCheck() {
         cy.imsId("profile-menu").click();

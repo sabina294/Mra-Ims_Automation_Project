@@ -28,25 +28,25 @@ describe("50. Cancel Samity Module Test Cases", function () {
         cancel_samity.gridCancelSamityListPage();
     });
 
-    // it("50.02. Verify that the checkbox selection functionality works correctly.", function () {
-    //     cancel_samity.gridCheckboxCheck();
-    // });
+    it("50.02. Verify that the checkbox selection functionality works correctly.", function () {
+        cancel_samity.gridCheckboxCheck();
+    });
 
-    // it("50.03. Verify that multiple Samities can be canceled successfully with valid information.", function () {
-    //     cancel_samity.cancelMultipleSamity();
-    // });
+    it("50.03. Verify that multiple Samities can be canceled successfully with valid information.", function () {
+        cancel_samity.cancelMultipleSamity();
+    });
 
-    // it("50.04. Verify that the Restore Samity functionality works correctly.", function () {
-    //     cancel_samity.restoreSamity();
-    // });
+    it("50.04. Verify that the Restore Samity functionality works correctly.", function () {
+        cancel_samity.restoreSamity();
+    });
 
-    // it("50.05. Verify that a single Samity can be canceled successfully.", function () {
-    //     cancel_samity.cancelSamity();
-    // });
+    it("50.05. Verify that a single Samity can be canceled successfully.", function () {
+        cancel_samity.cancelSamity();
+    });
 
-    // it("50.06. Verify that the Submit Cancel Samity functionality works correctly.", function () {
-    //     cancel_samity.submitCancelSamity();
-    // });
+    it("50.06. Verify that the Submit Cancel Samity functionality works correctly.", function () {
+        cancel_samity.submitCancelSamity();
+    });
 
     it("50.07. Verify that the grid list content changes correctly when switching language from English to Bangla.", function () {
         cancel_samity.gridLanguageSwitchCheck();

@@ -956,7 +956,7 @@
       "searchMember": "Israt Jahan",
       "messageLoanAccountManagement": "Loan account has been updated"
     },
-     "loanDisbursementFrom": {
+    "loanDisbursementFrom": {
       "samity": "Dipti Mohila Samity",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
@@ -1096,11 +1096,9 @@
       "inputAmount": "10",
       "search": "Chadnee"
     },
-
     "cancelSamity": {
       "remarksCancel": "No needed"
     },
-
     "chartOfAccounts": {
       "ledgergroup": "Asset",
       "ledgerSubGroup": "Liquid Assets",
