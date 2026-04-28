@@ -43,9 +43,9 @@ describe("32. Loan Disbursement Module Test Cases", function () {
     //     create_loan_disbursement.loanDisburseButtonCheck();
     // });
 
-    // it("32.06.Verify Successful loan disburse of confirmation model Using the go back Button on Loan Disbursement Page.", function () {
-    //     create_loan_disbursement.loanDisburseGoBackButtonCheck();
-    // });
+    it("32.06.Verify Successful loan disburse of confirmation model Using the go back Button on Loan Disbursement Page.", function () {
+        create_loan_disbursement.loanDisburseGoBackButtonCheck();
+    });
 
     it("32.07. Verify Successful Search Result by Loan Disbursement Name", function () {
         create_loan_disbursement.searchInLoanDisbursementName();

@@ -40,6 +40,9 @@ class LoanDisbursement {
     }
 
     loanDisburseGoBackButtonCheck() {
+        cy.imsId("btn-reset").click();
+        cy.imsId("toggle-action").first().click();
+        cy.imsId("btn-table-action-view").click();
         cy.imsId("btn-go-back").click();
         cy.log("Successfully loan disburse go back the list page");
     }
