@@ -1099,6 +1099,10 @@
     "cancelSamity": {
       "remarksCancel": "No needed"
     },
+    "authorization": {
+      "fieldOfficer": "EMP-0122 - GAIS UDDIN KHAN",
+      "samity": "1020-101 (Ashulia Mohila Samity)"
+    },
     "chartOfAccounts": {
       "ledgergroup": "Asset",
       "ledgerSubGroup": "Liquid Assets",

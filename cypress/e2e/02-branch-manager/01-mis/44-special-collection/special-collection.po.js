@@ -52,13 +52,13 @@ class specialCollection {
         cy.log("successfully on the edit go back button.");
     }
 
-    editSaveButton() {
+    saveCollection() {
         cy.imsId("toggle-action").first().click();
-        cy.imsId("btn-table-action-edit").click();
-        cy.imsId("btn-save").click();
+        cy.imsId("btn-table-action-submit").click();
+        cy.imsId("btn-submit").click();
         cy.imsId("btn-yes").click();
         cy.imsId("btn-ok").click();
-        cy.log("successfully saved the edit save button.");
+        cy.log("successfully saved the collection.");
     }
 
     gridResetButtonCheck() {

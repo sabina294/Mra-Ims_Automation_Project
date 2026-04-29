@@ -50,9 +50,9 @@ describe("44. Special Collection Module Test Cases", function () {
         create_special_collection.editGoBackButton();
     });
 
-    // it("44.08. Verify that clicking the Save button on the edit page updates the Special Collection successfully.", function () {
-    //     create_special_collection.editSaveButton();
-    // });
+    it("44.08. Verify that clicking the Save button on the page the Special Collection successfully.", function () {
+        create_special_collection.saveCollection();
+    });
 
     it("44.09. Verify that clicking the Reset button resets the grid list successfully on the Special Collection page.", function () {
         create_special_collection.gridResetButtonCheck();
