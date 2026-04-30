@@ -3,7 +3,7 @@
 // npx cypress run --spec cypress/e2e/02-branch-manager/01-mis/52-day-end-process-mis/day-end-process.cy.js --browser chrome --headed
 
 import "cypress-file-upload";
-import { create_day_end_process } from "./day-end-process.po";
+import { create_day_end_process_mis } from "./day-end-process.po";
 
 describe("52. Day End Process (MIS)  Module Test Cases", function () {
   const baseURL = Cypress.env("BASE_URL");
@@ -23,13 +23,23 @@ describe("52. Day End Process (MIS)  Module Test Cases", function () {
     cy.logout();
   });
 
-  it("52.01. Verify Day end process mis grid List page loads successfully", function () {
-    create_day_end_process.gridDayEndProcessMisListPage();
+  it("52.01. Should load the Day End Process (MIS) grid list page successfully", function () {
+    create_day_end_process_mis.gridDayEndProcessMisListPage();
   });
 
-  it("52.02. Verify check that the grid list content changes correctly from english to bangla.", function () {
-    create_day_end_process.gridLanguageSwitchCheck();
-    });
+  it("52.02. Should successfully initiate the Day End Process (MIS)", function () {
+    create_day_end_process_mis.startDayEndProcess();
+  });
 
+  it("52.03. Should refresh the Day End Process (MIS) grid list correctly", function () {
+    create_day_end_process_mis.refreshDayEndProcess();
+  });
 
+  it("52.04. Should successfully revert a Day End Process (MIS) record", function () {
+    create_day_end_process_mis.revertRecordDayEndProcess();
+  });
+
+  it("52.05. Should correctly switch grid list content language from English to Bangla", function () {
+    create_day_end_process_mis.gridLanguageSwitchCheck();
+  });
 });

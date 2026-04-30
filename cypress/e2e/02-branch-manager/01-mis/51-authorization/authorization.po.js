@@ -9,7 +9,7 @@ class Authorization {
     }
 
     gridCheckboxCheck() {
-        cy.imsId("row-checkbox-0").click();
+        cy.imsId("header-checkbox").click();
         cy.log("Checkbox should be clickable and functional.");
     }
 
@@ -28,7 +28,7 @@ class Authorization {
     }
 
     authorizeSamity() {
-        cy.imsId("row-checkbox-0").click();
+        cy.imsId("header-checkbox").click();
         cy.imsId("btn-lock").click();
         cy.imsId("btn-yes").click();
         cy.imsId("btn-ok").click();
@@ -39,7 +39,7 @@ class Authorization {
     }
 
     UnauthorizeSamity() {
-        cy.imsId("row-checkbox-0").click();
+        cy.imsId("header-checkbox").click();
         cy.imsId("btn-lock").click();
         cy.imsId("btn-yes").click();
         cy.imsId("btn-ok").click();
