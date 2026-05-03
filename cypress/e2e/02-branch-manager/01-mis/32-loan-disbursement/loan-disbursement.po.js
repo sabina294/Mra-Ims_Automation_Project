@@ -35,6 +35,7 @@ class LoanDisbursement {
             cy.imsId("btn-reset").click();
             cy.imsId("toggle-action").first().click();
             cy.imsId("btn-table-action-view").click();
+            cy.imsId("btn-reset").click();
             cy.log("Successfully loan disburse  button check the loan disbursement list page");
         });
     }

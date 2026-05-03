@@ -10,13 +10,32 @@ class DayForwardMis {
 
     gridDayForwardDayRoutine() {
         cy.imsId("btn-forward").click();
+        cy.log("Successfully switch to day forward check.");
+    }
+
+    startProccess() {
+        cy.imsId("btn-start-process").click();
         cy.imsId("btn-yes").click();
         cy.imsId("btn-ok").click();
-        cy.log("Successfully switch to day forward check.");
+        cy.log("Successfully switch to start process button check.");
+    }
+
+    dayForwardConfirm() {
+        cy.imsId("btn-confirm").click();
+        cy.imsId("btn-yes").click();
+        cy.imsId("btn-ok").click();
+        cy.log("Successfully confirm button check.");
     }
 
     gridDeleteButtonCheck() {
         cy.imsId("delete-button").click();
+        cy.imsId("btn-yes").click();
+        cy.imsId("btn-ok").click();
+        cy.imsId("btn-forward").click();
+        cy.imsId("btn-start-process").click();
+        cy.imsId("btn-yes").click();
+        cy.imsId("btn-ok").click();
+        cy.imsId("btn-confirm").click();
         cy.imsId("btn-yes").click();
         cy.imsId("btn-ok").click();
         cy.log("Successfully delete button check.");
