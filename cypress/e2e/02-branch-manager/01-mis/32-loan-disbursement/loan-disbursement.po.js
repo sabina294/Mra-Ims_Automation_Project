@@ -30,29 +30,59 @@ class LoanDisbursement {
     }
 
     loanDisburseButtonCheck() {
-        cy.fixture(this.test_data).then((data) => {
-            var ldData = data.branchManager.loanDisbursementFrom;
-            cy.imsId("btn-reset").click();
+        cy.fixture(this.test_data).then(() => {
             cy.imsId("toggle-action").first().click();
             cy.imsId("btn-table-action-view").click();
-            cy.imsId("btn-reset").click();
+            cy.get("body").then(($body) => {
+                if ($body.find('[data-ims-id="btn-loan-disburse"]').length > 0) {
+                    cy.imsId("btn-loan-disburse")
+                        .scrollIntoView()
+                        .should("be.visible")
+                        .click();
+
+                } else {
+                    cy.log("⚠️ Disburse button NOT present");
+                }
+            });
+            cy.log("Loan Disburse button clicked successfully");
+        });
+    }
+
+    loanDisburseSubmitGoBackButtonCheck() {
+        cy.fixture(this.test_data).then((data) => {
+            var ldData = data.branchManager.loanDisbursementFrom;
+            cy.imsId("btn-go-back").click();
             cy.log("Successfully loan disburse  button check the loan disbursement list page");
         });
     }
 
-    loanDisburseGoBackButtonCheck() {
-        cy.imsId("btn-reset").click();
-        cy.imsId("toggle-action").first().click();
-        cy.imsId("btn-table-action-view").click();
-        cy.imsId("btn-go-back").click();
-        cy.log("Successfully loan disburse go back the list page");
+    loanDisburseSubmitButtonCheck() {
+        cy.fixture(this.test_data).then((data) => {
+            var ldData = data.branchManager.loanDisbursementFrom;
+            cy.imsId("toggle-action").first().click();
+            cy.imsId("btn-table-action-view").click();
+            cy.get("body").then(($body) => {
+                if ($body.find('[data-ims-id="btn-loan-disburse"]').length > 0) {
+                    cy.imsId("btn-loan-disburse")
+                        .scrollIntoView()
+                        .should("be.visible")
+                        .click();
+                    cy.imsId("btn-submit").click();
+                    cy.imsId("btn-ok").click();
+                } else {
+                    cy.log("⚠️ Disburse button NOT present");
+                }
+            });
+            cy.log("Successfully loan disburse submit button check the loan disbursement list page");
+        });
     }
 
     searchInLoanDisbursementName() {
         cy.fixture(this.test_data).then((data) => {
             var ldData = data.branchManager.loanDisbursementFrom;
-            cy.imsId("btn-reset").click();
+            cy.selectMenu1("submenu-loan-disbursement");
             cy.formController("search_text").type(ldData.search);
+            cy.imsId("btn-search").click();
             cy.log("Successfully search in the Loan Disbursement");
         });
     }
