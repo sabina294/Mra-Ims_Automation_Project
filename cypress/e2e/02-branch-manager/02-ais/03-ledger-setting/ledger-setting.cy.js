@@ -25,49 +25,47 @@ describe("03. Ledger Setting Module Test Cases", function () {
         cy.logout();
     });
 
-    it("02.01. Verify the ledger setting list page loads correctly.", function () {
+    it("03.01 - Verify that the Ledger Setting list page loads successfully.", function () {
         grid_ledger_setting.gridLedgerSubGroupListPage();
     });
 
-    // it("02.03. Verify successfully performs the action when the action button is clicked.", function () {
+    // it("03.03 - Verify that clicking the Action button performs the expected operation successfully.", function () {
     //     grid_ledger_setting.actionButtonCheck();
     // });
 
-
-    // it("02.05. Verify the ledger setting edit reset button functions correctly.", function () {
+    // it("03.05 - Verify that the Reset button on the Ledger Setting edit page clears all input fields.", function () {
     //     grid_ledger_setting.editResetButton();
     // });
 
-    // it("02.06. Verify that clicking the go back button on the ledger setting edit page redirects the user to the ledger setting list page.", function () {
+    // it("03.06 - Verify that clicking the Go Back button on the edit page redirects to the Ledger Setting list page.", function () {
     //     grid_ledger_setting.editGoBackButton();
     // });
 
-    it("02.07. Verify the user can filter inactive ledger settings using the status dropdown on the ledger setting list page.", function () {
+    it("03.07 - Verify that inactive Ledger Settings can be filtered using the Status dropdown.", function () {
         grid_ledger_setting.statusInactiveDropdownCheck();
     });
 
-    it("02.08. Verify the actaive result is filtered correctly by the status dropdown.", function () {
+    it("03.08 - Verify that active Ledger Settings are correctly filtered using the Status dropdown.", function () {
         grid_ledger_setting.statusActiveDropdownCheck();
     });
 
-    it("02.09. Verify the search returns correct results when searching by ledger setting name.", function () {
+    it("03.09 - Verify that search returns correct results when searching by Ledger Setting name.", function () {
         grid_ledger_setting.searchName();
     });
 
-    it("02.10. Verify the grid list resets successfully when the reset button is clicked on the ledger setting page.", function () {
+    it("03.10 - Verify that clicking the Reset button clears filters and restores the default grid list.", function () {
         grid_ledger_setting.gridResetButtonCheck();
     });
 
-    it("02.11. Verify that the grid list is refreshed successfully when the refresh button is clicked on the ledger setting page.", function () {
+    it("03.11 - Verify that clicking the Refresh button reloads the Ledger Setting grid list successfully.", function () {
         grid_ledger_setting.gridRefreshButtonCheck();
     });
 
-    it("02.12. Verify that when the user clicks the Search button on the ledger setting grid page, the system redirects to the ledger setting List page.", function () {
+    it("03.12 - Verify that clicking the Search button reloads the Ledger Setting list with filtered results.", function () {
         grid_ledger_setting.gridSearchButtonCheck();
     });
 
-    it("02.13. Verify check that the grid list content changes correctly from english to bangla.", function () {
+    it("03.13 - Verify that grid content updates correctly when switching language from English to Bangla.", function () {
         grid_ledger_setting.gridLanguageSwitchCheck();
     });
-
 });

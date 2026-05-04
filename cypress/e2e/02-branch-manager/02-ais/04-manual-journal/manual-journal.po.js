@@ -24,13 +24,141 @@ class ManualJournalCreation {
             // Second description field
             cy.formController("description").eq(1).type(mjData.description1);
 
-            cy.formController("debited_amount").type(mjData.debitedAmount);
-            cy.formController("credited_amount").type(mjData.creditedAmount);
+            cy.formController("debited_amount").clear().type(mjData.debitedAmount);
+            cy.formController("credited_amount").clear().type(mjData.creditedAmount);
             cy.imsId("btn-submit").click();
             cy.imsId("btn-yes").click();
             cy.imsId("btn-ok").click();
 
             cy.log("Successfully created manual journal");
+        });
+    }
+
+    createWithoutReferenceNumber() {
+        cy.fixture(this.test_data).then((data) => {
+            var mjData = data.branchManager.manualJournal;
+            cy.imsId("btn-add-new").click();
+            cy.imsId("btn-delete").first().click();
+
+            cy.formController("description").eq(0).type(mjData.description);
+
+            // Ledger field
+            cy.formController("ledger_id").type(mjData.ledger).type("{enter}");
+
+            // Second description field
+            cy.formController("description").eq(1).type(mjData.description1);
+
+            cy.formController("debited_amount").clear().type(mjData.debitedAmount);
+            cy.formController("credited_amount").clear().type(mjData.creditedAmount);
+            cy.imsId("btn-submit").click();
+            cy.imsId("btn-ok").click();
+            cy.imsId("btn-reset").click();
+
+            cy.log("Unuccessfully created manual journal without reference number");
+        });
+    }
+
+    createWithoutDescription() {
+        cy.fixture(this.test_data).then((data) => {
+            var mjData = data.branchManager.manualJournal;
+            cy.formController("reference").type(mjData.reference);
+            // First description field
+            cy.formController("ledger_id").type(mjData.ledger).type("{enter}");
+
+            // Second description field
+            cy.formController("description").eq(1).type(mjData.description1);
+
+            cy.formController("debited_amount").clear().type(mjData.debitedAmount);
+            cy.formController("credited_amount").clear().type(mjData.creditedAmount);
+            cy.imsId("btn-submit").click();
+            cy.imsId("btn-ok").click();
+            cy.imsId("btn-reset").click();
+
+
+            cy.log("Unuccessfully created manual journal without description");
+        });
+    }
+
+    createWithoutJournalDetailsLedger() {
+        cy.fixture(this.test_data).then((data) => {
+            var mjData = data.branchManager.manualJournal;
+            cy.formController("reference").type(mjData.reference);
+            // First description field
+            cy.formController("description").eq(0).type(mjData.description);
+
+            // Ledger field
+            cy.formController("ledger_id").type(mjData.ledger).type("{enter}");
+
+            // Second description field
+            cy.formController("description").eq(1).type(mjData.description1);
+
+            cy.formController("debited_amount").clear().type(mjData.debitedAmount);
+            cy.formController("credited_amount").clear().type(mjData.creditedAmount);
+            cy.imsId("btn-submit").click();
+            cy.imsId("btn-ok").click();
+            cy.imsId("btn-reset").click();
+            cy.log("Unuccessfully created manual journal without journal details ledger");
+        });
+    }
+    createWithoutJournalDetailsDescription() {
+        cy.fixture(this.test_data).then((data) => {
+            var mjData = data.branchManager.manualJournal;
+
+            cy.formController("reference").type(mjData.reference);
+            // First description field
+            cy.formController("description").eq(0).type(mjData.description);
+            cy.formController("debited_amount").clear().type(mjData.debitedAmount);
+            cy.formController("credited_amount").clear().type(mjData.creditedAmount);
+            cy.imsId("btn-submit").click();
+            cy.imsId("btn-ok").click();
+            cy.imsId("btn-reset").click();
+
+            cy.log("Unuccessfully created manual journal without journal details description");
+        });
+    }
+
+    createWithoutJournalDetailsDebitedAmount() {
+        cy.fixture(this.test_data).then((data) => {
+            var mjData = data.branchManager.manualJournal;
+
+            cy.formController("reference").type(mjData.reference);
+            // First description field
+            cy.formController("description").eq(0).type(mjData.description);
+
+            // Ledger field
+            cy.formController("ledger_id").type(mjData.ledger).type("{enter}");
+
+            // Second description field
+            cy.formController("description").eq(1).type(mjData.description1);
+            cy.formController("credited_amount").clear().type(mjData.creditedAmount);
+            cy.imsId("btn-submit").click();
+            cy.imsId("btn-ok").click();
+            cy.imsId("btn-reset").click();
+
+            cy.log("Unuccessfully created manual journal without journal details credited amount");
+        });
+    }
+
+    createWithoutJournalDetailsCreditedAmount() {
+        cy.fixture(this.test_data).then((data) => {
+            var mjData = data.branchManager.manualJournal;
+
+            cy.formController("reference").type(mjData.reference);
+            // First description field
+            cy.formController("description").eq(0).type(mjData.description);
+
+            // Ledger field
+            cy.formController("ledger_id").type(mjData.ledger).type("{enter}");
+
+            // Second description field
+            cy.formController("description").eq(1).type(mjData.description1);
+
+            cy.formController("debited_amount").clear().type(mjData.debitedAmount);
+            cy.imsId("btn-submit").click();
+            cy.imsId("btn-ok").click();
+            cy.imsId("btn-go-back").click();
+
+            cy.log("Unuccessfully created manual journal without journal details debited amount");
         });
     }
 

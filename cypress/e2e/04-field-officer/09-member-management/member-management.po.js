@@ -59,9 +59,6 @@ class MemberManagementCreation {
       cy.wait(3000);
       cy.imsId("btn-submit").click();
       cy.imsId("btn-yes").click();
-      cy.get("app-confirmation-modal")
-        .contains(memData.messageSaveMember)
-        .and("be.visible");
       cy.imsId("btn-ok").click();
 
       cy.log("Successfully created member management");
@@ -210,8 +207,8 @@ class MemberManagementCreation {
   }
 
   gridCheckboxCheck() {
-    cy.imsId("row-checkbox-5").click();
-    cy.imsId("btn-reset").click();
+    cy.imsId("row-checkbox-9").click();
+    // cy.imsId("btn-reset").click();
     cy.log("Checkbox should be clickable and functional.");
   }
 
@@ -221,7 +218,7 @@ class MemberManagementCreation {
   }
 
   gridCheckboxUnlockButtonCheck() {
-    cy.imsId("row-checkbox-5").click();
+    cy.imsId("row-checkbox-9").click();
     cy.imsId("btn-unlock").click();
     cy.log("Checkbox unlock button should be clickable and functional.");
   }

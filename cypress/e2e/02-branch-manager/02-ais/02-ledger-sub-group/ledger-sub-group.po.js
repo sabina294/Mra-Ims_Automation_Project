@@ -34,7 +34,7 @@ class LedgerSubGroupCreation {
             cy.formController("ledger_subgroup_name_bn").type(lsgData.ledgerSubGroupNameBn);
             cy.imsId("btn-submit").click();
             cy.imsId("btn-ok").click();
-            cy.imsId("btn-go-back").click();
+            cy.imsId("btn-reset").click();
 
             cy.log("Unsuccessfully created ledger sub group");
         });
@@ -43,16 +43,12 @@ class LedgerSubGroupCreation {
     createwithoutNameEnglish() {
         cy.fixture(this.test_data).then((data) => {
             var lsgData = data.branchManager.ledgerSubGroup;
-            cy.imsId("btn-add-new").click();
-
             cy.formController("group_id").type(lsgData.groupId).type("{enter}");
             cy.formController("ledger_subgroup_name_bn").type(lsgData.ledgerSubGroupNameBn);
             cy.formController("balance_sheet_item").type(lsgData.balanceSheet).type("{enter}");
             cy.imsId("btn-submit").click();
             cy.imsId("btn-ok").click();
-            cy.imsId("btn-go-back").click();
-
-
+            cy.imsId("btn-reset").click();
             cy.log("Unsuccessfully created ledger sub group");
         });
     }
@@ -60,20 +56,44 @@ class LedgerSubGroupCreation {
     createwithoutNameBangla() {
         cy.fixture(this.test_data).then((data) => {
             var lsgData = data.branchManager.ledgerSubGroup;
-            cy.imsId("btn-add-new").click();
-
             cy.formController("group_id").type(lsgData.groupId).type("{enter}");
             cy.formController("ledger_subgroup_name_en").type(lsgData.ledgerSubGroupNameEn);
             cy.formController("balance_sheet_item").type(lsgData.balanceSheet).type("{enter}");
             cy.imsId("btn-submit").click();
             cy.imsId("btn-ok").click();
-            cy.imsId("btn-go-back").click();
-
-
+            cy.imsId("btn-reset").click();
             cy.log("Unsuccessfully created ledger sub group");
         });
     }
 
+    createwithoutBalanceSheetItem() {
+        cy.fixture(this.test_data).then((data) => {
+            var lsgData = data.branchManager.ledgerSubGroup;
+            cy.formController("group_id").type(lsgData.groupId).type("{enter}");
+            cy.formController("ledger_subgroup_name_en").type(lsgData.ledgerSubGroupNameEn);
+            cy.formController("ledger_subgroup_name_bn").type(lsgData.ledgerSubGroupNameBn);
+            cy.imsId("btn-submit").click();
+            cy.imsId("btn-ok").click();
+            cy.imsId("btn-reset").click();
+            cy.log("Successfully created ledger sub group");
+        });
+    }
+
+    createwithoutStatus() {
+        cy.fixture(this.test_data).then((data) => {
+            var lsgData = data.branchManager.ledgerSubGroup;
+            cy.imsId("btn-reset").click();
+            cy.formController("group_id").type(lsgData.groupId).type("{enter}");
+            cy.formController("ledger_subgroup_name_en").type(lsgData.ledgerSubGroupNameEn);
+            cy.formController("ledger_subgroup_name_bn").type(lsgData.ledgerSubGroupNameBn);
+            cy.formController("balance_sheet_item").type(lsgData.balanceSheet).type("{enter}");
+            cy.imsId("btn-submit").click();
+            cy.imsId("btn-ok").click();
+            cy.imsId("btn-go-back").click();
+
+            cy.log("Successfully created ledger sub group");
+        });
+    }
 
     actionButtonCheck() {
         cy.imsId("toggle-action").first().click();
@@ -84,23 +104,33 @@ class LedgerSubGroupCreation {
         cy.imsId("toggle-action").first().click();
         cy.imsId("btn-table-action-edit").click();
         cy.imsId("switch-button").click();
-        cy.imsId("btn-go-back").click();
-
         cy.log("ledger sub group form Edit Mode toggled successfully");
     }
 
-    editResetButton() {
+    turnOffEditModeGoBackButtonCheck() {
+        cy.imsId("btn-go-back").click();
+        cy.log("ledger sub group form Edit Mode toggled successfully");
+    }
+
+    editButton() {
         cy.imsId("toggle-action").first().click();
         cy.imsId("btn-table-action-edit").click();
-        cy.imsId("btn-reset").click();
-        cy.imsId("btn-go-back").click();
-
         cy.log("Successful clean displaying");
     }
 
+    editResetButton() {
+        cy.imsId("btn-reset").click();
+        cy.log("Successful clean displaying");
+    }
+
+    editValidationMessageCheck() {
+        cy.imsId("btn-submit").click();
+        cy.imsId("btn-ok").click();
+
+        cy.log("Successful submit validation message check");
+    }
+
     editGoBackButton() {
-        cy.imsId("toggle-action").first().click();
-        cy.imsId("btn-table-action-edit").click();
         cy.imsId("btn-go-back").click();
         cy.log("Successful edit go back button check.");
     }
@@ -162,18 +192,6 @@ class LedgerSubGroupCreation {
         );
     }
 
-    createResetButtonCheck() {
-        cy.fixture(this.test_data).then((data) => {
-            var lsgData = data.branchManager.ledgerSubGroup;
-            cy.imsId("btn-add-new").click();
-            cy.formController("ledger_subgroup_name_en").type(lsgData.ledgerSubGroupNameEn);
-            cy.imsId("btn-reset").click();
-            cy.imsId("btn-go-back").click();
-            cy.log("Successful reset button clean displaying.");
-        });
-    }
-
-
     gridLedgerSubGroupDropdown() {
         cy.fixture(this.test_data).then((data) => {
             var lsgData = data.branchManager.ledgerSubGroup;
@@ -181,16 +199,22 @@ class LedgerSubGroupCreation {
         });
     }
 
+    createResetButtonCheck() {
+        cy.fixture(this.test_data).then((data) => {
+            var lsgData = data.branchManager.ledgerSubGroup;
+            cy.imsId("btn-add-new").click();
+            cy.imsId("btn-reset").click();
+            cy.log("Successful reset button clean displaying.");
+        });
+    }
+
     createValidationMessageCheck() {
-        cy.imsId("btn-add-new").click();
         cy.imsId("btn-submit").click();
         cy.imsId("btn-ok").click();
-        cy.imsId("btn-go-back").click();
         cy.log("Successful validation message displaying.");
     }
 
     createGoBackButtonCheck() {
-        cy.imsId("btn-add-new").click();
         cy.imsId("btn-go-back").click();
         cy.log("Successful go back button check.");
     }

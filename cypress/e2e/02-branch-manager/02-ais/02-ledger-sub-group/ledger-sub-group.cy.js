@@ -24,87 +24,107 @@ describe("02. Ledger Sub Group Module Test Cases", function () {
         cy.logout();
     });
 
-    it("02.01. Verify the ledger sub group list page loads correctly.", function () {
+    it("02.01. Verify that the Ledger Sub Group list page loads successfully.", function () {
         create_ledger_sub_group.gridLedgerSubGroupListPage();
     });
 
-    it("02.02. Verify a ledger sub group record is created successfully when all required fields are filled with valid data.", function () {
+    it("02.02. Verify that a Ledger Sub Group is created successfully with valid required data.", function () {
         create_ledger_sub_group.createLedgerSubGroup();
     });
 
-    it("02.03. Verify that a ledger sub group cannot be created without a group id, even if all other fields are valid..", function () {
+    it("02.03. Verify that a Ledger Sub Group cannot be created without a Group ID.", function () {
         create_ledger_sub_group.createwithoutGroupId();
     });
 
-    it("02.04. Verify that a ledger sub group cannot be created without a name english, even if all other fields are valid..", function () {
+    it("02.04. Verify that a Ledger Sub Group cannot be created without an English name.", function () {
         create_ledger_sub_group.createwithoutNameEnglish();
     });
 
-    it("02.05. Verify that a ledger sub group cannot be created without a name bangla, even if all other fields are valid..", function () {
+    it("02.05. Verify that a Ledger Sub Group cannot be created without a Bangla name.", function () {
         create_ledger_sub_group.createwithoutNameBangla();
     });
 
-    it("02.06. Verify successfully performs the action when the action button is clicked.", function () {
+    it("02.06. Verify that a Ledger Sub Group cannot be created without selecting a Balance Sheet Item.", function () {
+        create_ledger_sub_group.createwithoutBalanceSheetItem();
+    });
+
+    it("02.07. Verify that a Ledger Sub Group cannot be created without selecting a Status.", function () {
+        create_ledger_sub_group.createwithoutStatus();
+    });
+
+    it("02.08. Verify that the Action button performs the expected operation.", function () {
         create_ledger_sub_group.actionButtonCheck();
     });
 
-    it("02.07. Verify that the ledger sub group forms edit mode can be toggled on and off all fields should be disabled or return to view-only mode.", function () {
+    it("02.09. Verify that edit mode can be toggled on/off and fields behave accordingly (enabled/disabled).", function () {
         create_ledger_sub_group.turnOffEditMode();
     });
 
-    it("02.08. Verify the ledger sub group edit reset button functions correctly.", function () {
+    it("02.10. Verify that clicking the Go Back button from edit mode redirects to the list page.", function () {
+        create_ledger_sub_group.turnOffEditModeGoBackButtonCheck();
+    });
+
+    it("02.11. Verify that the Edit button functions correctly.", function () {
+        create_ledger_sub_group.editButton();
+    });
+
+    it("02.12. Verify that the Reset button in edit mode clears updated values.", function () {
         create_ledger_sub_group.editResetButton();
     });
 
-    it("02.09. Verify that clicking the go back button on the ledger sub group edit page redirects the user to the ledger sub group list page.", function () {
+    it("02.13. Verify validation messages are displayed correctly in edit mode.", function () {
+        create_ledger_sub_group.editValidationMessageCheck();
+    });
+
+    it("02.14. Verify that clicking Go Back from the edit page redirects to the list page.", function () {
         create_ledger_sub_group.editGoBackButton();
     });
 
-    it("02.10. Verify the ledger sub group edit submit button functions correctly.", function () {
+    it("02.15. Verify that the Submit button updates the Ledger Sub Group successfully.", function () {
         create_ledger_sub_group.editSubmitButton();
     });
 
-    it("02.11. Verify the user can filter inactive ledger sub groups using the status dropdown on the ledger sub group list page.", function () {
+    it("02.16. Verify that inactive Ledger Sub Groups can be filtered using the Status dropdown.", function () {
         create_ledger_sub_group.statusInactiveDropdownCheck();
     });
 
-    it("02.12. Verify the active result is filtered correctly by the status dropdown.", function () {
+    it("02.17. Verify that active Ledger Sub Groups are filtered correctly using the Status dropdown.", function () {
         create_ledger_sub_group.statusActiveDropdownCheck();
     });
 
-    it("02.13. Verify the ledger group id returns correct results when filter by ledger sub group id.", function () {
+    it("02.18. Verify that filtering by Ledger Group ID returns correct results.", function () {
         create_ledger_sub_group.ledgerGroupId();
     });
 
-    it("02.14. Verify the search returns correct results when searching by ledger sub group name.", function () {
+    it("02.19. Verify that searching by Ledger Sub Group name returns correct results.", function () {
         create_ledger_sub_group.searchName();
     });
 
-    it("02.15. Verify the grid list resets successfully when the reset button is clicked on the ledger sub group page.", function () {
+    it("02.20. Verify that the Reset button clears all applied filters on the grid.", function () {
         create_ledger_sub_group.gridResetButtonCheck();
     });
 
-    it("02.16. Verify that the grid list is refreshed successfully when the refresh button is clicked on the ledger sub group page.", function () {
+    it("02.21. Verify that the Refresh button reloads the grid data successfully.", function () {
         create_ledger_sub_group.gridRefreshButtonCheck();
     });
 
-    it("02.17. Verify the ledger sub group creation reset button clears all entered input values.", function () {
-        create_ledger_sub_group.createResetButtonCheck();
-    });
-
-    it("02.18. Verify that the grid list is ledger sub group dropdown successfully when the refresh button is clicked on the ledger sub group page.", function () {
+    it("02.22. Verify that the Ledger Sub Group dropdown displays data correctly.", function () {
         create_ledger_sub_group.gridLedgerSubGroupDropdown();
     });
 
-    it("02.19. Verify validation messages appear for required fields when the submit button is clicked with empty inputs.", function () {
+    it("02.23. Verify that the Reset button clears all input fields on the create form.", function () {
+        create_ledger_sub_group.createResetButtonCheck();
+    });
+
+    it("02.24. Verify that validation messages are displayed when submitting empty required fields.", function () {
         create_ledger_sub_group.createValidationMessageCheck();
     });
 
-    it("02.20. Verify that clicking the go back button on the ledger sub group create page redirects the user to the ledger sub group list page.", function () {
+    it("02.25. Verify that clicking Go Back from the create page redirects to the list page.", function () {
         create_ledger_sub_group.createGoBackButtonCheck();
     });
 
-    it("02.21. Verify check that the grid list content changes correctly from english to bangla.", function () {
+    it("02.26. Verify that grid content updates correctly when switching language from English to Bangla.", function () {
         create_ledger_sub_group.gridLanguageSwitchCheck();
     });
 
