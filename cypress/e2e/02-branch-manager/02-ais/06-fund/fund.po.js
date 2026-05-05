@@ -22,6 +22,56 @@ class FundTransferCreation {
         });
     }
 
+     createwithoutTransactionAmount() {
+        cy.fixture(this.test_data).then((data) => {
+            var ftData = data.branchManager.fund;
+            cy.imsId("btn-add-new").click();
+            cy.formController("sender_pay_mode").type(ftData.paymentMode).type("{enter}");
+            cy.formController("recipient_received_mode").type(ftData.receivedMode).type("{enter}");
+            cy.imsId("btn-submit").click();
+            cy.imsId("btn-ok").click();
+            cy.imsId("btn-reset").click();
+            cy.log("Unsuccessfully created fund transfer Transaction Amount");
+        });
+    }
+
+     createwithoutSenderPaymentMode() {
+        cy.fixture(this.test_data).then((data) => {
+            var ftData = data.branchManager.fund;
+            cy.formController("transaction_amount").type(ftData.amount);
+            cy.formController("recipient_received_mode").type(ftData.receivedMode).type("{enter}");
+            cy.imsId("btn-submit").click();
+            cy.imsId("btn-ok").click();
+            cy.imsId("btn-reset").click();
+            cy.log("Unsuccessfully created fund transfer without Sender Payment Mode");
+        });
+    }
+
+     createwithoutRecipientReceivedMode() {
+        cy.fixture(this.test_data).then((data) => {
+            var ftData = data.branchManager.fund;
+            cy.formController("transaction_amount").type(ftData.amount);
+            cy.formController("sender_pay_mode").type(ftData.paymentMode).type("{enter}");
+            cy.imsId("btn-submit").click();
+            cy.imsId("btn-ok").click();
+            cy.imsId("btn-reset").click();
+            cy.log("Unsuccessfully created fund transfer without Recipient Received Mode");
+        });
+    }
+
+     createwithoutRemarks() {
+        cy.fixture(this.test_data).then((data) => {
+            var ftData = data.branchManager.fund;
+            cy.formController("transaction_amount").type(ftData.amount);
+            cy.formController("sender_pay_mode").type(ftData.paymentMode).type("{enter}");
+            cy.formController("recipient_received_mode").type(ftData.receivedMode).type("{enter}");
+            cy.imsId("btn-submit").click();
+            cy.imsId("btn-ok").click();
+            cy.imsId("btn-go-back").click();
+            cy.log("Successfully created fund transfer");
+        });
+    }
+
     actionButtonCheck() {
         cy.imsId("toggle-action").first().click();
         cy.log("Action button clicked successfully on the fund transfer list page.");
@@ -29,7 +79,6 @@ class FundTransferCreation {
 
     viewFund() {
         cy.fixture(this.test_data).then((data) => {
-            cy.imsId("toggle-action").first().click();
             cy.imsId("btn-table-action-view").click();
             cy.log("Successfully viewed the fund transfer page");
         });
@@ -40,12 +89,18 @@ class FundTransferCreation {
         cy.log("Successfully go back the fund transfer page");
     }
 
-    verifyFundTransfer() {
+verifyFundTransfer() {
         cy.fixture(this.test_data).then((data) => {
             cy.imsId("toggle-action").first().click();
             cy.imsId("btn-table-action-verify").click();
-            cy.imsId("btn-go-back").click();
             cy.log("Successfully viewed the fund  transfer page");
+        });
+    }
+
+    verifyFundTransferGoBack() {
+        cy.fixture(this.test_data).then((data) => {
+            cy.imsId("btn-go-back").click();
+            cy.log("Successfully viewed the fund verify go back page");
         });
     }
 
