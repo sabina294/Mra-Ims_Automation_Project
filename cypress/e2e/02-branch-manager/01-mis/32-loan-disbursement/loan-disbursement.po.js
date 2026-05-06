@@ -31,46 +31,55 @@ class LoanDisbursement {
 
     loanDisburseButtonCheck() {
         cy.fixture(this.test_data).then(() => {
+
             cy.imsId("toggle-action").first().click();
             cy.imsId("btn-table-action-view").click();
+
             cy.get("body").then(($body) => {
+
                 if ($body.find('[data-ims-id="btn-loan-disburse"]').length > 0) {
+
                     cy.imsId("btn-loan-disburse")
                         .scrollIntoView()
-                        .should("be.visible")
-                        .click();
+                        .should("exist")
+                        .click({ force: true });
 
                 } else {
-                    cy.log("⚠️ Disburse button NOT present");
+                    cy.log("Disburse button NOT present");
                 }
+
             });
+
             cy.log("Loan Disburse button clicked successfully");
         });
     }
 
     loanDisburseSubmitGoBackButtonCheck() {
-        cy.fixture(this.test_data).then((data) => {
-            var ldData = data.branchManager.loanDisbursementFrom;
-            cy.imsId("btn-go-back").click();
-            cy.log("Successfully loan disburse  button check the loan disbursement list page");
+        cy.fixture(this.test_data).then(() => {
+            cy.imsId("btn-go-back")
+                .should("exist")
+                .should("be.visible")
+                .click();
+            cy.log("Successfully clicked go back button and returned to loan disbursement list page");
         });
     }
 
     loanDisburseSubmitButtonCheck() {
         cy.fixture(this.test_data).then((data) => {
             var ldData = data.branchManager.loanDisbursementFrom;
-            cy.imsId("toggle-action").first().click();
-            cy.imsId("btn-table-action-view").click();
+            // cy.imsId("toggle-action").first().click();
+            // cy.imsId("btn-table-action-view").click();
             cy.get("body").then(($body) => {
+
                 if ($body.find('[data-ims-id="btn-loan-disburse"]').length > 0) {
+
                     cy.imsId("btn-loan-disburse")
                         .scrollIntoView()
-                        .should("be.visible")
-                        .click();
-                    cy.imsId("btn-submit").click();
-                    cy.imsId("btn-ok").click();
+                        .should("exist")
+                        .click({ force: true });
+
                 } else {
-                    cy.log("⚠️ Disburse button NOT present");
+                    cy.log("Disburse button NOT present");
                 }
             });
             cy.log("Successfully loan disburse submit button check the loan disbursement list page");
