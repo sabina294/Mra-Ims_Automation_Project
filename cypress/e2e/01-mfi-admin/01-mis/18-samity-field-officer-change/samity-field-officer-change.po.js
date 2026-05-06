@@ -9,25 +9,31 @@ class SamityChange {
   }
 
   samityChange() {
-    cy.fixture(this.test_data).then((data) => {
-      var smData = data.mfiAdmin.samityChangeFrom;
-      cy.imsId("btn-reset").click();
-      cy.formController("search_text").type(smData.samityNameEn);
-      cy.imsId("btn-search").click();
-      cy.imsId("toggle-action").first().click();
-      cy.imsId("btn-mis-table-action-change").click();
-      cy.formController("field_officer_id").type(smData.fieldOfficer).type("{enter}");
-      cy.wait(1000);
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-yes").click();
-      cy.get("app-confirmation-modal")
-        .contains(smData.messageSamityChange)
-        .and("be.visible");
+  cy.fixture(this.test_data).then((data) => {
+    var smData = data.mfiAdmin.samityChangeFrom;
+    cy.imsId("btn-reset").click();
+    cy.formController("search_text")
+      .clear()
+      .type(smData.samityNameEn);
+    cy.imsId("btn-search").click();
+    cy.imsId("toggle-action").first().click();
+    cy.imsId("btn-mis-table-action-change").click();
+    cy.formController("field_officer_id").click();
+    cy.get('.ant-select-item-option')
+      .should('have.length.greaterThan', 0);
+    cy.get('.ant-select-item-option')
+      .first()
+      .click();
+    cy.imsId("btn-submit").click();
+    cy.imsId("btn-yes").click();
+    cy.get("app-confirmation-modal")
+      .should("be.visible")
+      .and("contain", smData.messageSamityChange);
+    cy.imsId("btn-ok").click();
 
-      cy.imsId("btn-ok").click();
-      cy.log("Successfully field officer change samity");
-    });
-  }
+    cy.log("Successfully field officer changed for samity (MFI Admin)");
+  });
+}
 
   approveSamityChange() {
     cy.fixture(this.test_data).then((data) => {

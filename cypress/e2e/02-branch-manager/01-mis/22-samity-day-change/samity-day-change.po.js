@@ -8,25 +8,26 @@ class SamityDayChange {
     });
   }
 
-    samityDayChange() {
-    cy.fixture(this.test_data).then((data) => {
-      var sdData = data.branchManager.samityDayChangeFrom;
-      // cy.imsId("btn-reset").click();
-      // cy.formController("search_text").type(sdData.samityNameEn);
-      // cy.imsId("btn-search").first().click();
-      cy.imsId("toggle-action").first().click();
-      cy.imsId("btn-mis-table-action-change").click();
-      cy.formController("new_samity_day").type(sdData.newSamityDay).type("{enter}");
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-yes").click();
-      cy.get("app-confirmation-modal")
-        .contains(sdData.messageSamityDayChange)
-        .and("be.visible");
-      cy.imsId("btn-ok").click();
-      cy.log("Successfully field officer change samity");
-    });
-  }
-
+samityDayChange() {
+  cy.fixture(this.test_data).then((data) => {
+    const sdData = data.branchManager.samityDayChangeFrom;
+    cy.imsId("toggle-action").first().click();
+    cy.imsId("btn-mis-table-action-change").click();
+    cy.formController("new_samity_day").click();
+    cy.get('.ant-select-item-option')
+      .should('have.length.greaterThan', 0);
+    cy.get('.ant-select-item-option')
+      .first()
+      .click();
+    cy.imsId("btn-submit").click();
+    cy.imsId("btn-yes").click();
+    cy.get("app-confirmation-modal")
+      .should("be.visible")
+      .and("contain", sdData.messageSamityDayChange);
+    cy.imsId("btn-ok").click();
+    cy.log("Successfully samity day changed");
+  });
+}
   approveSamityDayChange() {
     cy.fixture(this.test_data).then((data) => {
       var sdData = data.branchManager.samityDayChangeFrom;

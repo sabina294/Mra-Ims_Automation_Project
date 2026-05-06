@@ -10,20 +10,26 @@ class SamityDayChange {
 
   samityDayChange() {
     cy.fixture(this.test_data).then((data) => {
-      var sdData = data.mfiAdmin.samityDayChangeFrom;
+      const sdData = data.mfiAdmin.samityDayChangeFrom;
       cy.imsId("btn-reset").click();
-      cy.formController("search_text").type(sdData.samityNameEn);
-      cy.imsId("btn-search").first().click();
+      cy.formController("search_text")
+        .clear()
+        .type(sdData.samityNameEn);
+      cy.imsId("btn-search").click();
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-mis-table-action-change").click();
-      cy.formController("new_samity_day").type(sdData.newSamityDay).type("{enter}");
+      cy.formController("new_samity_day").click();
+      cy.get('.ant-select-item-option')
+        .should('have.length.greaterThan', 0);
+      cy.get('.ant-select-item-option')
+        .first()
+        .click();
       cy.imsId("btn-submit").click();
       cy.imsId("btn-yes").click();
       cy.imsId("btn-ok").click();
-      cy.log("Successfully samity day change");
+      cy.log("Successfully samity day changed (MFI Admin)");
     });
   }
-
   approveSamityDayChange() {
     cy.fixture(this.test_data).then((data) => {
       var sdData = data.mfiAdmin.samityDayChangeFrom;

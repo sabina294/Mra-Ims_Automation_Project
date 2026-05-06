@@ -22,11 +22,11 @@ describe("22. Samity Day Change Module Test Cases", function () {
   after(() => {
     cy.logout();
   });
-  it("22.01. Samity Day Change list page loads successfully", function () {
+  it.only("22.01. Samity Day Change list page loads successfully", function () {
     samity_day_change.gridSamityChangeListPage();
   });
 
-  it("22.02. Create a new Samity Day Change with valid information", function () {
+  it.only("22.02. Create a new Samity Day Change with valid information", function () {
     samity_day_change.samityDayChange();
   });
 

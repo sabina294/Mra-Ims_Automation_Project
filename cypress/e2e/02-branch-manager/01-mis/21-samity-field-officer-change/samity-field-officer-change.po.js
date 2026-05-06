@@ -8,27 +8,28 @@ class SamityChange {
     });
   }
 
-  samityChange() {
-    cy.fixture(this.test_data).then((data) => {
-      var smData = data.branchManager.samityChangeFrom;
-      cy.imsId("btn-reset").click();
-      cy.formController("search_text").type(smData.search);
-      cy.imsId("btn-search").click();
-      cy.imsId("toggle-action").first().click();
-      cy.imsId("btn-mis-table-action-change").click();
-      cy.formController("field_officer_id").type(smData.fieldOfficer).type("{enter}");
-      cy.wait(1000);
-      cy.imsId("btn-submit").click();
-
-      cy.imsId("btn-yes").click();
-      cy.get("app-confirmation-modal")
-        .contains(smData.messageSamityChange)
-        .and("be.visible");
-
-      cy.imsId("btn-ok").click();
-      cy.log("Successfully field officer change samity");
-    });
-  }
+samityChange() {
+  cy.fixture(this.test_data).then((data) => {
+    const smData = data.branchManager.samityChangeFrom;
+    cy.imsId("btn-reset").click();
+    cy.formController("search_text").clear().type(smData.samityNameEn);
+    cy.imsId("btn-search").click();
+    cy.imsId("toggle-action").first().click();
+    cy.imsId("btn-mis-table-action-change").click();
+    cy.formController("field_officer_id").click();
+    cy.wait(500);
+    cy.get('.ant-select-item-option')
+      .contains(smData.fieldOfficerName)
+      .click();
+    cy.imsId("btn-submit").click();
+    cy.imsId("btn-yes").click();
+    cy.get("app-confirmation-modal")
+      .should("be.visible")
+      .and("contain", smData.messageSamityChange);
+    cy.imsId("btn-ok").click();
+    cy.log("Successfully field officer changed for samity");
+  });
+}
 
   approveSamityChange() {
     cy.fixture(this.test_data).then((data) => {
