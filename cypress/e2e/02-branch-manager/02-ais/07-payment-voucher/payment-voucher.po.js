@@ -42,6 +42,370 @@ class PaymentVoucherCreation {
         });
     }
 
+    createWithoutVoucherNameEn() {
+        cy.fixture(this.test_data).then((data) => {
+            var pvData = data.branchManager.paymentVoucher;
+            cy.imsId("btn-add-new").click();
+            cy.formController("voucher_name_bn").type(pvData.voucherNameBn);
+            cy.formController("payment_date").click();
+            cy.wait(2000);
+            cy.contains(11).click();
+            cy.wait(1000);
+            cy.formController("voucher_prepared_by").type(pvData.preparedBy).type("{enter}");
+            cy.wait(1000);
+            cy.formController("remarks").eq(0).type(pvData.remarks);
+            cy.formController("payment_mode").type(pvData.paymentMode).type("{enter}");
+            cy.wait(1000);
+            cy.formController("amount").type(pvData.amount);
+            cy.formController("remarks").eq(1).type(pvData.remarks);
+            cy.formController("transaction_date").click();
+            cy.wait(1000);
+            cy.contains(15).click();
+            cy.wait(1000);
+            cy.formController("ledger_id").type(pvData.ledger).type("{enter}");
+            cy.wait(1000);
+            cy.formController("remarks").eq(2).type(pvData.remarks1);
+            cy.formController("transaction_amount").clear().type(pvData.amount);
+            cy.imsId("btn-submit").click();
+            cy.imsId("btn-ok").click();
+            cy.imsId("btn-reset").click();
+            cy.log("Unsuccessfully created payment voucher without NameEn");
+        });
+    }
+
+    createWithoutVoucherNameBn() {
+        cy.fixture(this.test_data).then((data) => {
+            var pvData = data.branchManager.paymentVoucher;
+            cy.formController("voucher_name_en").type(pvData.voucherNameEn);
+            cy.formController("payment_date").click();
+            cy.wait(2000);
+            cy.contains(11).click();
+            cy.wait(1000);
+            cy.formController("voucher_prepared_by").type(pvData.preparedBy).type("{enter}");
+            cy.wait(1000);
+            cy.formController("remarks").eq(0).type(pvData.remarks);
+            cy.formController("payment_mode").type(pvData.paymentMode).type("{enter}");
+            cy.wait(1000);
+            cy.formController("amount").type(pvData.amount);
+            cy.formController("remarks").eq(1).type(pvData.remarks);
+            cy.formController("transaction_date").click();
+            cy.wait(1000);
+            cy.contains(15).click();
+            cy.wait(1000);
+            cy.formController("ledger_id").type(pvData.ledger).type("{enter}");
+            cy.wait(1000);
+            cy.formController("remarks").eq(2).type(pvData.remarks1);
+            cy.formController("transaction_amount").clear().type(pvData.amount);
+            cy.imsId("btn-submit").click();
+            cy.imsId("btn-ok").click();
+            cy.imsId("btn-reset").click();
+
+            cy.log("Unsuccessfully created payment voucher without NameBn");
+        });
+    }
+
+    createWithoutVoucherDate() {
+        cy.fixture(this.test_data).then((data) => {
+            var pvData = data.branchManager.paymentVoucher;
+            cy.formController("voucher_name_en").type(pvData.voucherNameEn);
+            cy.formController("voucher_name_bn").type(pvData.voucherNameBn);
+            cy.formController("voucher_prepared_by").type(pvData.preparedBy).type("{enter}");
+            cy.wait(1000);
+            cy.formController("remarks").eq(0).type(pvData.remarks);
+            cy.formController("payment_mode").type(pvData.paymentMode).type("{enter}");
+            cy.wait(1000);
+            cy.formController("amount").type(pvData.amount);
+            cy.formController("remarks").eq(1).type(pvData.remarks);
+            cy.formController("transaction_date").click();
+            cy.wait(1000);
+            cy.contains(15).click();
+            cy.wait(1000);
+            cy.formController("ledger_id").type(pvData.ledger).type("{enter}");
+            cy.wait(1000);
+            cy.formController("remarks").eq(2).type(pvData.remarks1);
+            cy.formController("transaction_amount").clear().type(pvData.amount);
+            cy.imsId("btn-submit").click();
+            cy.imsId("btn-ok").click();
+            cy.imsId("btn-reset").click();
+
+            cy.log("Unsuccessfully created payment voucher without Voucher Date");
+        });
+    }
+
+    createWithoutVoucherPreparedBy() {
+        cy.fixture(this.test_data).then((data) => {
+            var pvData = data.branchManager.paymentVoucher;
+            cy.formController("voucher_name_en").type(pvData.voucherNameEn);
+            cy.formController("voucher_name_bn").type(pvData.voucherNameBn);
+            cy.formController("payment_date").click();
+            cy.wait(2000);
+            cy.contains(11).click();
+            cy.wait(1000);
+            cy.formController("remarks").eq(0).type(pvData.remarks);
+            cy.formController("payment_mode").type(pvData.paymentMode).type("{enter}");
+            cy.wait(1000);
+            cy.formController("amount").type(pvData.amount);
+            cy.formController("remarks").eq(1).type(pvData.remarks);
+            cy.formController("transaction_date").click();
+            cy.wait(1000);
+            cy.contains(15).click();
+            cy.wait(1000);
+            cy.formController("ledger_id").type(pvData.ledger).type("{enter}");
+            cy.wait(1000);
+            cy.formController("remarks").eq(2).type(pvData.remarks1);
+            cy.formController("transaction_amount").clear().type(pvData.amount);
+            cy.imsId("btn-submit").click();
+            cy.imsId("btn-ok").click();
+            cy.imsId("btn-reset").click();
+
+            cy.log("Unsuccessfully created payment voucher without Voucher prepared By");
+        });
+    }
+
+    createWithoutVoucherRemarks() {
+        cy.fixture(this.test_data).then((data) => {
+            var pvData = data.branchManager.paymentVoucher;
+            cy.formController("voucher_name_en").type(pvData.voucherNameEn);
+            cy.formController("voucher_name_bn").type(pvData.voucherNameBn);
+            cy.formController("payment_date").click();
+            cy.wait(2000);
+            cy.contains(11).click();
+            cy.wait(1000);
+            cy.formController("voucher_prepared_by").type(pvData.preparedBy).type("{enter}");
+            cy.wait(1000);
+            cy.formController("payment_mode").type(pvData.paymentMode).type("{enter}");
+            cy.wait(1000);
+            cy.formController("amount").type(pvData.amount);
+            cy.formController("remarks").eq(1).type(pvData.remarks);
+            cy.formController("transaction_date").click();
+            cy.wait(1000);
+            cy.contains(15).click();
+            cy.wait(1000);
+            cy.formController("ledger_id").type(pvData.ledger).type("{enter}");
+            cy.wait(1000);
+            cy.formController("remarks").eq(2).type(pvData.remarks1);
+            cy.formController("transaction_amount").clear().type(pvData.amount);
+            cy.imsId("btn-submit").click();
+            cy.imsId("btn-ok").click();
+            cy.imsId("btn-reset").click();
+
+            cy.log("Unsuccessfully created payment voucher without Voucher Remarks");
+        });
+    }
+
+    createWithoutVoucherPaymentMode() {
+        cy.fixture(this.test_data).then((data) => {
+            var pvData = data.branchManager.paymentVoucher;
+            cy.formController("voucher_name_en").type(pvData.voucherNameEn);
+            cy.formController("voucher_name_bn").type(pvData.voucherNameBn);
+            cy.formController("payment_date").click();
+            cy.wait(2000);
+            cy.contains(11).click();
+            cy.wait(1000);
+            cy.formController("voucher_prepared_by").type(pvData.preparedBy).type("{enter}");
+            cy.wait(1000);
+            cy.formController("remarks").eq(0).type(pvData.remarks);
+            cy.formController("amount").type(pvData.amount);
+            cy.formController("remarks").eq(1).type(pvData.remarks);
+            cy.formController("transaction_date").click();
+            cy.wait(1000);
+            cy.contains(15).click();
+            cy.wait(1000);
+            cy.formController("ledger_id").type(pvData.ledger).type("{enter}");
+            cy.wait(1000);
+            cy.formController("remarks").eq(2).type(pvData.remarks1);
+            cy.formController("transaction_amount").clear().type(pvData.amount);
+            cy.imsId("btn-submit").click();
+            cy.imsId("btn-ok").click();
+            cy.imsId("btn-reset").click();
+
+            cy.log("Unsuccessfully created payment voucher without Voucher Payment Mode");
+        });
+    }
+
+    createWithoutVoucherAmount() {
+        cy.fixture(this.test_data).then((data) => {
+            var pvData = data.branchManager.paymentVoucher;
+            cy.formController("voucher_name_en").type(pvData.voucherNameEn);
+            cy.formController("voucher_name_bn").type(pvData.voucherNameBn);
+            cy.formController("payment_date").click();
+            cy.wait(2000);
+            cy.contains(11).click();
+            cy.wait(1000);
+            cy.formController("voucher_prepared_by").type(pvData.preparedBy).type("{enter}");
+            cy.wait(1000);
+            cy.formController("remarks").eq(0).type(pvData.remarks);
+            cy.formController("payment_mode").type(pvData.paymentMode).type("{enter}");
+            cy.wait(1000);
+            cy.formController("remarks").eq(1).type(pvData.remarks);
+            cy.formController("transaction_date").click();
+            cy.wait(1000);
+            cy.contains(15).click();
+            cy.wait(1000);
+            cy.formController("ledger_id").type(pvData.ledger).type("{enter}");
+            cy.wait(1000);
+            cy.formController("remarks").eq(2).type(pvData.remarks1);
+            cy.formController("transaction_amount").clear().type(pvData.amount);
+            cy.imsId("btn-submit").click();
+            cy.imsId("btn-ok").click();
+            cy.imsId("btn-go-back").click();
+            cy.log("Unsuccessfully created payment voucher without Voucher Payment amount");
+        });
+    }
+
+    createWithoutVoucherPaymentMethodRemarks() {
+        cy.fixture(this.test_data).then((data) => {
+            var pvData = data.branchManager.paymentVoucher;
+            cy.imsId("btn-add-new").click();
+            cy.formController("voucher_name_en").type(pvData.voucherNameEn);
+            cy.formController("voucher_name_bn").type(pvData.voucherNameBn);
+            cy.formController("payment_date").click();
+            cy.wait(2000);
+            cy.contains(11).click();
+            cy.wait(1000);
+            cy.formController("voucher_prepared_by").type(pvData.preparedBy).type("{enter}");
+            cy.wait(1000);
+            cy.formController("remarks").eq(0).type(pvData.remarks);
+            cy.formController("payment_mode").type(pvData.paymentMode).type("{enter}");
+            cy.wait(1000);
+            cy.formController("amount").type(pvData.amount);
+            cy.formController("transaction_date").click();
+            cy.wait(1000);
+            cy.contains(15).click();
+            cy.wait(1000);
+            cy.formController("ledger_id").type(pvData.ledger).type("{enter}");
+            cy.wait(1000);
+            cy.formController("remarks").eq(2).type(pvData.remarks1);
+            cy.formController("transaction_amount").clear().type(pvData.amount);
+            cy.imsId("btn-submit").click();
+            cy.imsId("btn-ok").click();
+            cy.imsId("btn-reset").click();
+
+            cy.log("Unsuccessfully created payment voucher without Voucher Payment Method Remarks");
+        });
+    }
+
+    createWithoutVoucherDetailDate() {
+        cy.fixture(this.test_data).then((data) => {
+            var pvData = data.branchManager.paymentVoucher;
+            cy.formController("voucher_name_en").type(pvData.voucherNameEn);
+            cy.formController("voucher_name_bn").type(pvData.voucherNameBn);
+            cy.formController("payment_date").click();
+            cy.wait(2000);
+            cy.contains(11).click();
+            cy.wait(1000);
+            cy.formController("voucher_prepared_by").type(pvData.preparedBy).type("{enter}");
+            cy.wait(1000);
+            cy.formController("remarks").eq(0).type(pvData.remarks);
+            cy.formController("payment_mode").type(pvData.paymentMode).type("{enter}");
+            cy.wait(1000);
+            cy.formController("amount").type(pvData.amount);
+            cy.formController("remarks").eq(1).type(pvData.remarks);
+            cy.formController("ledger_id").type(pvData.ledger).type("{enter}");
+            cy.wait(1000);
+            cy.formController("remarks").eq(2).type(pvData.remarks1);
+            cy.formController("transaction_amount").clear().type(pvData.amount);
+            cy.imsId("btn-submit").click();
+            cy.imsId("btn-ok").click();
+            cy.imsId("btn-reset").click();
+
+            cy.log("Unsuccessfully created payment voucher without Voucher Detail Date");
+        });
+    }
+
+    createWithoutVoucherLedger() {
+        cy.fixture(this.test_data).then((data) => {
+            var pvData = data.branchManager.paymentVoucher;
+            cy.formController("voucher_name_en").type(pvData.voucherNameEn);
+            cy.formController("voucher_name_bn").type(pvData.voucherNameBn);
+            cy.formController("payment_date").click();
+            cy.wait(2000);
+            cy.contains(11).click();
+            cy.wait(1000);
+            cy.formController("voucher_prepared_by").type(pvData.preparedBy).type("{enter}");
+            cy.wait(1000);
+            cy.formController("remarks").eq(0).type(pvData.remarks);
+            cy.formController("payment_mode").type(pvData.paymentMode).type("{enter}");
+            cy.wait(1000);
+            cy.formController("amount").type(pvData.amount);
+            cy.formController("remarks").eq(1).type(pvData.remarks);
+            cy.formController("transaction_date").click();
+            cy.wait(1000);
+            cy.contains(15).click();
+            cy.wait(1000);
+            cy.formController("remarks").eq(2).type(pvData.remarks1);
+            cy.formController("transaction_amount").clear().type(pvData.amount);
+            cy.imsId("btn-submit").click();
+            cy.imsId("btn-ok").click();
+            cy.imsId("btn-reset").click();
+
+            cy.log("Unsuccessfully created payment voucher without Voucher Detail Ledger");
+        });
+    }
+
+    createWithoutVoucherRemarks() {
+        cy.fixture(this.test_data).then((data) => {
+            var pvData = data.branchManager.paymentVoucher;
+            cy.formController("voucher_name_en").type(pvData.voucherNameEn);
+            cy.formController("voucher_name_bn").type(pvData.voucherNameBn);
+            cy.formController("payment_date").click();
+            cy.wait(2000);
+            cy.contains(11).click();
+            cy.wait(1000);
+            cy.formController("voucher_prepared_by").type(pvData.preparedBy).type("{enter}");
+            cy.wait(1000);
+            cy.formController("remarks").eq(0).type(pvData.remarks);
+            cy.formController("payment_mode").type(pvData.paymentMode).type("{enter}");
+            cy.wait(1000);
+            cy.formController("amount").type(pvData.amount);
+            cy.formController("remarks").eq(1).type(pvData.remarks);
+            cy.formController("transaction_date").click();
+            cy.wait(1000);
+            cy.contains(15).click();
+            cy.wait(1000);
+            cy.formController("ledger_id").type(pvData.ledger).type("{enter}");
+            cy.wait(1000);
+            cy.formController("transaction_amount").clear().type(pvData.amount);
+            cy.imsId("btn-submit").click();
+            cy.imsId("btn-ok").click();
+            cy.imsId("btn-reset").click();
+
+            cy.log("Unsuccessfully created payment voucher without Voucher Remarks");
+        });
+    }
+
+    createWithoutVoucherAmount() {
+        cy.fixture(this.test_data).then((data) => {
+            var pvData = data.branchManager.paymentVoucher;
+            cy.formController("voucher_name_en").type(pvData.voucherNameEn);
+            cy.formController("voucher_name_bn").type(pvData.voucherNameBn);
+            cy.formController("payment_date").click();
+            cy.wait(2000);
+            cy.contains(11).click();
+            cy.wait(1000);
+            cy.formController("voucher_prepared_by").type(pvData.preparedBy).type("{enter}");
+            cy.wait(1000);
+            cy.formController("remarks").eq(0).type(pvData.remarks);
+            cy.formController("payment_mode").type(pvData.paymentMode).type("{enter}");
+            cy.wait(1000);
+            cy.formController("amount").type(pvData.amount);
+            cy.formController("remarks").eq(1).type(pvData.remarks);
+            cy.formController("transaction_date").click();
+            cy.wait(1000);
+            cy.contains(15).click();
+            cy.wait(1000);
+            cy.formController("ledger_id").type(pvData.ledger).type("{enter}");
+            cy.wait(1000);
+            cy.formController("remarks").eq(2).type(pvData.remarks1);
+            cy.imsId("btn-submit").click();
+            cy.imsId("btn-ok").click();
+            cy.imsId("btn-reset").click();
+            cy.imsId("btn-go-back").click();
+
+            cy.log("Unsuccessfully created payment voucher without Voucher Amount");
+        });
+    }
+
     approvePaymentVoucher() {
         cy.fixture(this.test_data).then((data) => {
             var pvData = data.branchManager.paymentVoucher;

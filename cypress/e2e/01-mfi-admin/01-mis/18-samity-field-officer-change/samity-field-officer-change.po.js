@@ -17,8 +17,8 @@ class SamityChange {
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-mis-table-action-change").click();
       cy.formController("field_officer_id").type(smData.fieldOfficer).type("{enter}");
+      cy.wait(1000);
       cy.imsId("btn-submit").click();
-
       cy.imsId("btn-yes").click();
       cy.get("app-confirmation-modal")
         .contains(smData.messageSamityChange)

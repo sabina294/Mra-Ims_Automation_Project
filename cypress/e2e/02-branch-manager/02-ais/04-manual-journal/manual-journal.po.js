@@ -54,7 +54,7 @@ class ManualJournalCreation {
             cy.imsId("btn-ok").click();
             cy.imsId("btn-reset").click();
 
-            cy.log("Unuccessfully created manual journal without reference number");
+            cy.log("Unsuccessfully created manual journal without reference number");
         });
     }
 
@@ -75,7 +75,7 @@ class ManualJournalCreation {
             cy.imsId("btn-reset").click();
 
 
-            cy.log("Unuccessfully created manual journal without description");
+            cy.log("Unsuccessfully created manual journal without description");
         });
     }
 
@@ -97,7 +97,7 @@ class ManualJournalCreation {
             cy.imsId("btn-submit").click();
             cy.imsId("btn-ok").click();
             cy.imsId("btn-reset").click();
-            cy.log("Unuccessfully created manual journal without journal details ledger");
+            cy.log("Unsuccessfully created manual journal without journal details ledger");
         });
     }
     createWithoutJournalDetailsDescription() {
@@ -113,7 +113,7 @@ class ManualJournalCreation {
             cy.imsId("btn-ok").click();
             cy.imsId("btn-reset").click();
 
-            cy.log("Unuccessfully created manual journal without journal details description");
+            cy.log("Unsuccessfully created manual journal without journal details description");
         });
     }
 
@@ -135,7 +135,7 @@ class ManualJournalCreation {
             cy.imsId("btn-ok").click();
             cy.imsId("btn-reset").click();
 
-            cy.log("Unuccessfully created manual journal without journal details credited amount");
+            cy.log("Unsuccessfully created manual journal without journal details credited amount");
         });
     }
 
@@ -158,7 +158,7 @@ class ManualJournalCreation {
             cy.imsId("btn-ok").click();
             cy.imsId("btn-go-back").click();
 
-            cy.log("Unuccessfully created manual journal without journal details debited amount");
+            cy.log("Unsuccessfully created manual journal without journal details debited amount");
         });
     }
 
