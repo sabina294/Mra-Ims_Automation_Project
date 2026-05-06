@@ -12,7 +12,7 @@ class SamityChange {
     cy.fixture(this.test_data).then((data) => {
       var smData = data.branchManager.samityChangeFrom;
       cy.imsId("btn-reset").click();
-      cy.formController("search_text").type(smData.samityNameEn);
+      cy.formController("search_text").type(smData.search);
       cy.imsId("btn-search").click();
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-mis-table-action-change").click();

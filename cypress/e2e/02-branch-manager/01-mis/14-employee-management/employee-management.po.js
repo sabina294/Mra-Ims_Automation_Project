@@ -131,12 +131,10 @@ class EmployeeManagementCreation {
     cy.fixture(this.test_data).then((data) => {
       var emData = data.branchManager.createEmpMangFrom;
       cy.imsId("btn-reset").click();
-      cy.formController("search_text").type(emData.search);
+      // cy.formController("search_text").type(emData.search);
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-edit").click();
       cy.imsId("btn-reset").click();
-      cy.imsId("btn-go-back").click();
-
       cy.log("Successful clean displaying");
     });
   }
@@ -144,10 +142,6 @@ class EmployeeManagementCreation {
   editGoBackButton() {
     cy.fixture(this.test_data).then((data) => {
       var emData = data.branchManager.createEmpMangFrom;
-      cy.imsId("btn-reset").click();
-      cy.formController("search_text").type(emData.search);
-      cy.imsId("toggle-action").first().click();
-      cy.imsId("btn-table-action-edit").click();
       cy.imsId("btn-go-back").click();
       cy.log("Successful edit go back button check.");
     });
