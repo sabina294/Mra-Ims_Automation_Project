@@ -24,8 +24,11 @@ class MemberManagementCreation {
       cy.get(".ant-picker-header-super-prev-btn").click();
       cy.contains("2005").click();
       cy.wait(3000);
-      cy.contains("11").click({ force: true });
-      cy.wait(2000);
+      cy.get('.ant-picker-dropdown')
+        .should('be.visible');
+      cy.get('.ant-picker-cell-in-view')
+        .contains('15')
+        .click();
       cy.formController("mfi_program_id")
         .type(memData.mfiProgram)
         .type("{enter}");
