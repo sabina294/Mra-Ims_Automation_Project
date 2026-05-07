@@ -604,23 +604,73 @@ class SamityCreation {
     cy.log("Draft button should be clickable and functional.");
   }
 
-
   gridCheckboxCheck() {
-    cy.imsId("row-checkbox-4").click();
-    cy.imsId("btn-reset").click();
+
+    cy.get("[data-ims-id^='row-checkbox-']",
+      { timeout: 30000 })
+      .should('have.length.greaterThan', 0)
+      .first()
+      .scrollIntoView()
+      .should('be.visible')
+      .click({ force: true });
+
+    cy.imsId("btn-reset")
+      .scrollIntoView()
+      .should('be.visible')
+      .click({ force: true });
+
     cy.log("Checkbox should be clickable and functional.");
   }
 
   gridCheckboxLockButtonCheck() {
-    cy.imsId("btn-lock").click();
-    cy.log("Checkbox lock button should be clickable and functional.");
-  }
 
-  gridCheckboxUnlockButtonCheck() {
-    cy.imsId("row-checkbox-4").click();
-    cy.imsId("btn-unlock").click();
-    cy.log("Checkbox unlock button should be clickable and functional.");
-  }
+  cy.wait(3000);
+
+  // click actual checkbox
+  cy.get(".ant-checkbox-input", { timeout: 30000 })
+    .first()
+    .check({ force: true });
+
+  cy.wait(1000);
+
+  // verify checked
+  cy.get(".ant-checkbox-wrapper")
+    .first()
+    .should('have.class', 'ant-checkbox-wrapper-checked');
+
+  // click lock button
+  cy.imsId("btn-lock")
+    .should('be.visible')
+    .and('not.be.disabled')
+    .click({ force: true });
+
+  cy.log("Checkbox lock button should be clickable and functional.");
+}
+
+gridCheckboxUnlockButtonCheck() {
+
+  cy.wait(3000);
+
+  // click actual checkbox
+  cy.get(".ant-checkbox-input", { timeout: 30000 })
+    .first()
+    .check({ force: true });
+
+  cy.wait(1000);
+
+  // verify checked
+  cy.get(".ant-checkbox-wrapper")
+    .first()
+    .should('have.class', 'ant-checkbox-wrapper-checked');
+
+  // click unlock button
+  cy.imsId("btn-unlock")
+    .should('be.visible')
+    .and('not.be.disabled')
+    .click({ force: true });
+
+  cy.log("Checkbox unlock button should be clickable and functional.");
+}
 
   selectofficeDropdown() {
     cy.fixture(this.test_data).then((data) => {

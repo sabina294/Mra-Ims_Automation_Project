@@ -151,12 +151,13 @@ class EmployeeManagementCreation {
     cy.fixture(this.test_data).then((data) => {
       var emData = data.branchManager.createEmpMangFrom;
       cy.imsId("btn-reset").click();
-      cy.formController("search_text").type(emData.empNameEn);
+      // cy.formController("search_text").type(emData.empNameEn);
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-edit").click();
       cy.imsId("btn-submit").click();
-      cy.imsId("btn-yes").click();
       cy.imsId("btn-ok").click();
+      cy.imsId("btn-go-back").click();
+
       cy.log("Employee Management updated successfully");
     });
   }

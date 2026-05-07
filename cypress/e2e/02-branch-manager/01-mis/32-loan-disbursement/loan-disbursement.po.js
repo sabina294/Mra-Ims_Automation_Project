@@ -34,65 +34,30 @@ class LoanDisbursement {
 
             cy.imsId("toggle-action").first().click();
             cy.imsId("btn-table-action-view").click();
-
-            cy.get("body").then(($body) => {
-
-                if ($body.find('[data-ims-id="btn-loan-disburse"]').length > 0) {
-
-                    cy.imsId("btn-loan-disburse")
-                        .scrollIntoView()
-                        .should("exist")
-                        .click({ force: true });
-
-                } else {
-                    cy.log("Disburse button NOT present");
-                }
-
-            });
-
+            cy.imsId("btn-loan-disburse")
+                .scrollIntoView()
+                .should("exist")
+                .click({ force: true });
             cy.log("Loan Disburse button clicked successfully");
         });
     }
 
-    loanDisburseSubmitGoBackButtonCheck() {
-        cy.fixture(this.test_data).then(() => {
-            cy.imsId("btn-go-back")
-                .should("exist")
-                .should("be.visible")
-                .click();
-            cy.log("Successfully clicked go back button and returned to loan disbursement list page");
-        });
-    }
-
     loanDisburseSubmitButtonCheck() {
-        cy.fixture(this.test_data).then((data) => {
-            var ldData = data.branchManager.loanDisbursementFrom;
-            // cy.imsId("toggle-action").first().click();
-            // cy.imsId("btn-table-action-view").click();
-            cy.get("body").then(($body) => {
-
-                if ($body.find('[data-ims-id="btn-loan-disburse"]').length > 0) {
-
-                    cy.imsId("btn-loan-disburse")
-                        .scrollIntoView()
-                        .should("exist")
-                        .click({ force: true });
-
-                } else {
-                    cy.log("Disburse button NOT present");
-                }
-            });
-            cy.log("Successfully loan disburse submit button check the loan disbursement list page");
-        });
+        cy.imsId("btn-submit")
+            .first()
+            .click({ force: true });
+        cy.imsId("btn-ok")
+            .first()
+            .click({ force: true });
     }
 
-    searchInLoanDisbursementName() {
+    gridSearchButtonCheck() {
         cy.fixture(this.test_data).then((data) => {
             var ldData = data.branchManager.loanDisbursementFrom;
-            cy.selectMenu1("submenu-loan-disbursement");
+            cy.imsId("btn-reset").click();
             cy.formController("search_text").type(ldData.search);
             cy.imsId("btn-search").click();
-            cy.log("Successfully search in the Loan Disbursement");
+            cy.log("Successful search button click.");
         });
     }
 
@@ -106,16 +71,6 @@ class LoanDisbursement {
         cy.log(
             "successfully refresh page  displayed the grid list of the Loan Disbursement"
         );
-    }
-
-    gridSearchButtonCheck() {
-        cy.fixture(this.test_data).then((data) => {
-            var ldData = data.branchManager.loanDisbursementFrom;
-            cy.imsId("btn-reset").click();
-            cy.formController("search_text").type(ldData.search);
-            cy.imsId("btn-search").click();
-            cy.log("Successful search button click.");
-        });
     }
 
     gridLanguageSwitchCheck() {

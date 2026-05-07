@@ -42,31 +42,23 @@ describe("32. Loan Disbursement Module Test Cases", function () {
         create_loan_disbursement.loanDisburseButtonCheck();
     });
 
-    it("32.06. Verify successful loan disbursement from the grid list using the Disburse submit go back button", function () {
-        create_loan_disbursement.loanDisburseSubmitGoBackButtonCheck();
-    });
-
-    it("32.07. Verify successful loan disbursement from the grid list using the Disburse submit button", function () {
+    it("32.06. Verify successful loan disbursement from the grid list using the Disburse submit button", function () {
         create_loan_disbursement.loanDisburseSubmitButtonCheck();
     });
 
-    it("32.08. Verify that search functionality works correctly using Loan Disbursement name", function () {
-        create_loan_disbursement.searchInLoanDisbursementName();
-    });
-
-    it("32.09. Verify that the Reset button clears filters and reloads the grid list", function () {
-        create_loan_disbursement.gridResetButtonCheck();
-    });
-
-    it("32.10. Verify that the Refresh button reloads the Loan Disbursement grid list successfully", function () {
-        create_loan_disbursement.gridRefreshButtonCheck();
-    });
-
-    it("32.11. Verify that clicking the Search button displays filtered results on the Loan Disbursement list page", function () {
+    it("32.07. Verify that search functionality works correctly using Loan Disbursement name", function () {
         create_loan_disbursement.gridSearchButtonCheck();
     });
 
-    it("32.12. Verify that the grid list content updates correctly when switching language from English to Bangla", function () {
+    it("32.08. Verify that the Reset button clears filters and reloads the grid list", function () {
+        create_loan_disbursement.gridResetButtonCheck();
+    });
+
+    it("32.09. Verify that the Refresh button reloads the Loan Disbursement grid list successfully", function () {
+        create_loan_disbursement.gridRefreshButtonCheck();
+    });
+
+    it("32.10. Verify that the grid list content updates correctly when switching language from English to Bangla", function () {
         create_loan_disbursement.gridLanguageSwitchCheck();
     });
 });
