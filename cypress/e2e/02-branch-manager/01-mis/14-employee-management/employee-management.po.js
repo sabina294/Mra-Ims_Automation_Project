@@ -152,6 +152,7 @@ class EmployeeManagementCreation {
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-edit").click();
       cy.imsId("btn-submit").click();
+      cy.imsId("btn-yes").click();
       cy.imsId("btn-ok").click();
 
       cy.log("Employee Management updated successfully");
