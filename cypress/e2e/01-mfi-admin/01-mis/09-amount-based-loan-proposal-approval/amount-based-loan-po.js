@@ -36,7 +36,7 @@ class AmountBasedLoanProposalApprovalCreation {
     });
   }
 
-  createWitoutOfficeTypeId() {
+  createWithoutOfficeTypeId() {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId("btn-add-new").click();
       cy.imsId("btn-submit").and("be.visible");
@@ -122,7 +122,7 @@ class AmountBasedLoanProposalApprovalCreation {
     });
   }
 
-  createWithoutremarks() {
+  createWithoutRemarks() {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId("btn-add-new").click();
       cy.imsId("btn-submit").and("be.visible");

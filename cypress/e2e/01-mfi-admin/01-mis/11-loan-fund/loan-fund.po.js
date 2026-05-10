@@ -32,6 +32,74 @@ class LoanFundCreation {
     });
   }
 
+  createWithoutBankAccount() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("btn-add-new").click();
+      cy.imsId("btn-submit").and("be.visible");
+
+      var lfData = data.mfiAdmin.createLoanFundFrom;
+      cy.formController("loan_funding_organization_id")
+        .type(lfData.fundingOrgId)
+        .type("{enter}");
+      cy.formController("amount").type(lfData.amount);
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-ok").click();
+      cy.imsId("btn-reset").click();
+      cy.log("Successfully created loan fund");
+    });
+  }
+
+  createWithoutFundingOrganizationId() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("btn-submit").and("be.visible");
+      var lfData = data.mfiAdmin.createLoanFundFrom;
+      cy.formController("bank_account_id")
+        .type(lfData.bankAccount)
+        .type("{enter}");
+      cy.formController("amount").type(lfData.amount);
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-ok").click();
+      cy.imsId("btn-reset").click();
+      cy.log("Successfully created loan fund");
+    });
+  }
+
+  createWithoutAmount() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("btn-submit").and("be.visible");
+
+      var lfData = data.mfiAdmin.createLoanFundFrom;
+      cy.formController("bank_account_id")
+        .type(lfData.bankAccount)
+        .type("{enter}");
+      cy.formController("loan_funding_organization_id")
+        .type(lfData.fundingOrgId)
+        .type("{enter}");
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-ok").click();
+      cy.imsId("btn-reset").click();
+      cy.log("Successfully created loan fund");
+    });
+  }
+
+  createWithoutStatus() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("btn-submit").and("be.visible");
+      var lfData = data.mfiAdmin.createLoanFundFrom;
+      cy.formController("bank_account_id")
+        .type(lfData.bankAccount)
+        .type("{enter}");
+      cy.formController("loan_funding_organization_id")
+        .type(lfData.fundingOrgId)
+        .type("{enter}");
+      cy.formController("amount").type(lfData.amount);
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-ok").click();
+      cy.imsId("btn-go-back").click();
+      cy.log("Successfully created loan fund");
+    });
+  }
+
   actionButtonCheck() {
     cy.imsId("toggle-action").first().click();
     cy.log("Action button clicked successfully on the loan fund list page.");
@@ -55,7 +123,7 @@ class LoanFundCreation {
 
   turnOffEditMode() {
     cy.imsId("toggle-action").first().click();
-      cy.imsId("btn-table-action-view").click();
+    cy.imsId("btn-table-action-view").click();
     cy.imsId("switch-button").click();
 
     cy.log("Loan fund form Edit Mode toggled successfully");
