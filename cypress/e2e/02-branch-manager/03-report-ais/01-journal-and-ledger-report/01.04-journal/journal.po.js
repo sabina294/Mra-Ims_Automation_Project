@@ -4,20 +4,17 @@ class JournalReport {
     gridJournalReportListPage() {
         cy.fixture(this.test_data).then((data) => {
             cy.selectMenu("menu-report", "journal");
-            // cy.wait(3000);
             cy.log("Successfully Journal Report list page.");
         });
     }
 
     viewReportButtonCheck() {
-        cy.selectMenu("menu-report", "journal");
-        // cy.imsId("btn-view-report").click();
-        cy.imsId("btn-go-back").click();
+        cy.imsId("btn-view-report").click();
+        cy.wait(3000);
         cy.log("Successful view report button check.");
     }
 
     gridGoBackButtonCheck() {
-        cy.selectMenu("menu-report", "journal");
         cy.imsId("btn-go-back").click();
         cy.log("Successful go back button check.");
     }

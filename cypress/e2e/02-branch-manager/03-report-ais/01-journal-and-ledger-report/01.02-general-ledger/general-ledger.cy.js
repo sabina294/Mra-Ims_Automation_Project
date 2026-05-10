@@ -33,11 +33,15 @@ describe("01.02 General Ledger Report Module Test Cases", function () {
         general_ledger_report.viewReportButtonCheck();
     });
 
-    it("01.03. Verify that clicking the go back button on the general ledger report page redirects the user to the general ledger list page.", function () {
+    it("01.03. Verify confirm that the General Ledger report is generated correctly based on the selected Ledger.", function () {
+        general_ledger_report.viewReportLedgerCheck();
+    });
+
+    it("01.04. Verify that clicking the go back button on the general ledger report page redirects the user to the general ledger list page.", function () {
         general_ledger_report.gridGoBackButtonCheck();
     });
 
-    it("01.04. Verify check that the grid list content changes correctly from english to bangla.", function () {
+    it("01.05. Verify check that the grid list content changes correctly from english to bangla.", function () {
         general_ledger_report.gridLanguageSwitchCheck();
     });
 });

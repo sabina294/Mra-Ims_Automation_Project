@@ -4,22 +4,17 @@ class ChartOfAccountsReport {
     gridChartOfAccountsListPage() {
         cy.fixture(this.test_data).then((data) => {
             cy.selectMenu("menu-report", "chart-of-accounts");
-            // cy.wait(3000);
             cy.log("Successfully Chart of accounts list page.");
         });
     }
 
     viewReportButtonCheck() {
-        cy.selectMenu("menu-report", "chart-of-accounts");
         cy.imsId("btn-view-report").click();
-        // cy.wait(5000);
-        cy.imsId("btn-go-back").click();
+        cy.wait(3000);
         cy.log("Successful view report button check.");
     }
 
     gridGoBackButtonCheck() {
-        cy.selectMenu("menu-report", "chart-of-accounts");
-
         cy.imsId("btn-go-back").click();
         cy.log("Successful go back button check.");
     }
@@ -27,7 +22,7 @@ class ChartOfAccountsReport {
     gridLanguageSwitchCheck() {
         cy.imsId("profile-menu").click();
         cy.imsId("btn-lang-bangla").click();
-        cy.log("Unsccessful switch bangla language check.");
+        cy.log("Successful switch bangla language check.");
     }
 }
 

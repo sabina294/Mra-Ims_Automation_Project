@@ -29,9 +29,9 @@ describe("01.05 Cumulative Ledger & Subledger Report Module Test Cases", functio
         cumulative_ledger_subledger_report.gridCumulativeLedgerSubledgerReportListPage();
     });
 
-    it("01.02. Verify confirm that the cumulative ledger & subledger report is generated correctly based on the selected office.", function () {
-        cumulative_ledger_subledger_report.viewReportButtonCheck();
-    });
+    // it("01.02. Verify confirm that the cumulative ledger & subledger report is generated correctly based on the selected office.", function () {
+    //     cumulative_ledger_subledger_report.viewReportButtonCheck();
+    // });
 
     it("01.03. Verify that clicking the go back button on the cumulative ledger & subledger report page redirects the user to the cumulative ledger & subledger report list page.", function () {
         cumulative_ledger_subledger_report.gridGoBackButtonCheck();

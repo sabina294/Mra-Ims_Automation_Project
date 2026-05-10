@@ -1184,6 +1184,9 @@
       "selectStatus": "Inactive",
       "statusSelect": "Active",
       "search": "Payment Voucher"
+    },
+    "gridGeneralLedgerFrom": {
+      "selectLedger": "101002-1020 (Cash at Bank)"
     }
   },
   "mraAdmin": {

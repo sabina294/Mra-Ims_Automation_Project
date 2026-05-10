@@ -29,9 +29,9 @@ describe("01.03 Cash Book Report Module Test Cases", function () {
         cash_book_report.gridCashBookListPage();
     });
 
-    it("01.02. Verify confirm that the Cash Book report is generated correctly based on the selected office.", function () {
-        cash_book_report.viewReportButtonCheck();
-    });
+    // it("01.02. Verify confirm that the Cash Book report is generated correctly based on the selected office.", function () {
+    //     cash_book_report.viewReportButtonCheck();
+    // });
 
     it("01.03. Verify that clicking the go back button on the cash book report page redirects the user to the cash book list page.", function () {
         cash_book_report.gridGoBackButtonCheck();

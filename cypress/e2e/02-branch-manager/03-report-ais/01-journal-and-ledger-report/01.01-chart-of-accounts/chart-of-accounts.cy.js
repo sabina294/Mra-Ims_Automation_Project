@@ -25,19 +25,20 @@ describe("01.01 Chart Of Accounts Report Module Test Cases", function () {
         cy.logout();
     });
 
-    it("01.01. Verify the chart of accounts list page loads correctly.", function () {
+
+    it("01.01 Verify that the Chart of Accounts list page loads successfully.", function () {
         chart_of_accounts_report.gridChartOfAccountsListPage();
     });
-
-    it("01.02. Verify confirm that the Chart of Accounts report is generated correctly based on the selected office.", function () {
+    
+    it("01.02 Verify that the Chart of Accounts report is generated successfully based on the selected office.", function () {
         chart_of_accounts_report.viewReportButtonCheck();
     });
 
-    it("01.03. Verify that clicking the go back button on the chart of accounts report page redirects the user to the chart of accounts list page.", function () {
+    it("01.03 Verify that clicking the Go Back button redirects the user to the Chart of Accounts list page.", function () {
         chart_of_accounts_report.gridGoBackButtonCheck();
     });
 
-    it("01.04. Verify check that the grid list content changes correctly from english to bangla.", function () {
+    it("01.04 Verify that the grid list content changes correctly when switching the language from English to Bangla.", function () {
         chart_of_accounts_report.gridLanguageSwitchCheck();
     });
 });

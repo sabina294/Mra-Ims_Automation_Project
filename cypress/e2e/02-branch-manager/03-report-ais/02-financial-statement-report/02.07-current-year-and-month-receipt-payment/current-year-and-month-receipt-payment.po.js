@@ -4,22 +4,33 @@ class CurrentYearAndMonthReceiptPaymentReport {
     gridCurrentYearAndMonthReceiptPaymentListPage() {
         cy.fixture(this.test_data).then((data) => {
             cy.selectMenu("menu-report", "current-year-and-month-receipt-payment");
-            // cy.wait(3000);
             cy.log("Successfully Current Year and Month Receipt and Payment list page.");
         });
     }
 
+    selectMonth() {
+        cy.get('[formcontrolname="month"]')
+            .should('be.visible')
+            .click();
+        cy.get('.ant-picker-header-view')
+            .should('be.visible')
+            .click();
+        cy.contains('.ant-picker-cell-inner', '2025')
+            .should('be.visible')
+            .click({ force: true });
+        cy.contains('.ant-picker-cell-inner', 'Feb')
+            .should('be.visible')
+            .click({ force: true });
+        cy.log("Successful view report button check.");
+    }
+
     viewReportButtonCheck() {
-        cy.selectMenu("menu-report", "current-year-and-month-receipt-payment");
-        // cy.imsId("btn-view-report").click();
-        // cy.wait(5000);
-        cy.imsId("btn-go-back").click();
+        cy.imsId("btn-view-report").click();
+        cy.wait(3000);
         cy.log("Successful view report button check.");
     }
 
     gridGoBackButtonCheck() {
-        cy.selectMenu("menu-report", "current-year-and-month-receipt-payment");
-
         cy.imsId("btn-go-back").click();
         cy.log("Successful go back button check.");
     }

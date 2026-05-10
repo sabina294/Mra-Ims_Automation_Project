@@ -4,22 +4,17 @@ class IncomeStatementReport {
     gridIncomeStatementListPage() {
         cy.fixture(this.test_data).then((data) => {
             cy.selectMenu("menu-report", "income-statement");
-            // cy.wait(3000);
             cy.log("Successfully Income Statement list page.");
         });
     }
 
     viewReportButtonCheck() {
-        cy.selectMenu("menu-report", "income-statement");
         cy.imsId("btn-view-report").click();
-        // cy.wait(5000);
-        cy.imsId("btn-go-back").click();
+        cy.wait(3000);
         cy.log("Successful view report button check.");
     }
 
     gridGoBackButtonCheck() {
-        cy.selectMenu("menu-report", "income-statement");
-
         cy.imsId("btn-go-back").click();
         cy.log("Successful go back button check.");
     }

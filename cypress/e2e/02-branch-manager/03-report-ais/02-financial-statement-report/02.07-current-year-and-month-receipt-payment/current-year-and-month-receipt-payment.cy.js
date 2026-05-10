@@ -29,15 +29,20 @@ describe("02.07 Current Year and Month Receipt and Payment Report Module Test Ca
         current_year_and_month_receipt_payment_report.gridCurrentYearAndMonthReceiptPaymentListPage();
     });
 
-    it("02.02. Verify confirm that the current year and month receipt and payment report is generated correctly based on the selected office.", function () {
+
+    it("02.02. Verify confirm that the current year and month receipt and payment report is generated correctly based on the selected month.", function () {
+        current_year_and_month_receipt_payment_report.selectMonth();
+    });
+
+    it("02.03. Verify confirm that the current year and month receipt and payment report is generated correctly based on the selected office.", function () {
         current_year_and_month_receipt_payment_report.viewReportButtonCheck();
     });
 
-    it("02.03. Verify that clicking the go back button on the current year and month receipt and payment report page redirects the user to the current year and month receipt and payment list page.", function () {
+    it("02.04. Verify that clicking the go back button on the current year and month receipt and payment report page redirects the user to the current year and month receipt and payment list page.", function () {
         current_year_and_month_receipt_payment_report.gridGoBackButtonCheck();
     });
 
-    it("02.04. Verify check that the grid list content changes correctly from english to bangla.", function () {
+    it("02.05. Verify check that the grid list content changes correctly from english to bangla.", function () {
         current_year_and_month_receipt_payment_report.gridLanguageSwitchCheck();
     });
 });

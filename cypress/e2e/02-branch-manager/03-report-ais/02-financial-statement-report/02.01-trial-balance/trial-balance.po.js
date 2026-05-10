@@ -4,22 +4,17 @@ class TrialBalanceReport {
     gridTrialBalanceListPage() {
         cy.fixture(this.test_data).then((data) => {
             cy.selectMenu("menu-report", "trial-balance");
-            // cy.wait(3000);
             cy.log("Successfully Trial Balance list page.");
         });
     }
 
     viewReportButtonCheck() {
-        cy.selectMenu("menu-report", "trial-balance");
         cy.imsId("btn-view-report").click();
-        // cy.wait(5000);
-        cy.imsId("btn-go-back").click();
+        cy.wait(3000);
         cy.log("Successful view report button check.");
     }
 
     gridGoBackButtonCheck() {
-        cy.selectMenu("menu-report", "trial-balance");
-
         cy.imsId("btn-go-back").click();
         cy.log("Successful go back button check.");
     }

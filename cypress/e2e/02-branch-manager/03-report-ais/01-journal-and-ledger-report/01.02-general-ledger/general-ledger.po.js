@@ -4,17 +4,24 @@ class GeneralLedgerReport {
     gridGeneralLedgerListPage() {
         cy.fixture(this.test_data).then((data) => {
             cy.selectMenu("menu-report", "general-ledger");
-            // cy.wait(3000);
             cy.log("Successfully General Ledger list page.");
         });
     }
 
     viewReportButtonCheck() {
-        cy.selectMenu("menu-report", "general-ledger");
         cy.imsId("btn-view-report").click();
-        // cy.wait(5000);
-        cy.imsId("btn-go-back").click();
+        cy.wait(3000);
         cy.log("Successful view report button check.");
+    }
+
+    viewReportLedgerCheck() {
+        cy.fixture(this.test_data).then((data) => {
+            var glData = data.branchManager.gridGeneralLedgerFrom;
+            cy.formController("ledger_id").type(glData.selectLedger).type("{enter}");
+            cy.imsId("btn-view-report").click();
+            cy.wait(3000);
+            cy.log("Successful view report select ledger.");
+        });
     }
 
     gridGoBackButtonCheck() {
