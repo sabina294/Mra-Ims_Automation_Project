@@ -29,7 +29,6 @@ describe("02.07 Current Year and Month Receipt and Payment Report Module Test Ca
         current_year_and_month_receipt_payment_report.gridCurrentYearAndMonthReceiptPaymentListPage();
     });
 
-
     it("02.02. Verify confirm that the current year and month receipt and payment report is generated correctly based on the selected month.", function () {
         current_year_and_month_receipt_payment_report.selectMonth();
     });
