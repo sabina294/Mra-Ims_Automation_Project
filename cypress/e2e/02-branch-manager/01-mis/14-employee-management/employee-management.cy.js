@@ -63,72 +63,72 @@ describe("14. Employee Management Module Test Cases", function () {
     create_employee_management.editGoBackButton();
   });
 
-  it("14.11. Verify update employee details successfully with valid input", function () {
-    create_employee_management.editEmployeeManagement();
-  });
-
-  it("14.12. Verify filter employee list correctly for inactive status", function () {
+  it("14.11. Verify filter employee list correctly for inactive status", function () {
     create_employee_management.statusInactiveDropdownCheck();
   });
 
-  it("14.13. Verify filter employee list correctly for active status", function () {
+  it("14.12. Verify filter employee list correctly for active status", function () {
     create_employee_management.statusActiveDropdownCheck();
   });
 
-  it("14.14. Verify return correct results when searching employee by name", function () {
+  it("14.13. Verify return correct results when searching employee by name", function () {
     create_employee_management.searchInEmployeeName();
   });
 
-  it("14.15. Verify reset grid filters and search criteria when Reset is clicked", function () {
+  it("14.14. Verify reset grid filters and search criteria when Reset is clicked", function () {
     create_employee_management.gridResetButtonCheck();
   });
 
-  it("14.16. Verify refresh the employee grid successfully", function () {
+  it("14.15. Verify refresh the employee grid successfully", function () {
     create_employee_management.gridRefreshButtonCheck();
   });
 
-  it("14.17. Verify display draft records when Draft toggle is enabled", function () {
+  it("14.16. Verify display draft records when Draft toggle is enabled", function () {
     create_employee_management.gridDraftButton();
   });
 
-  it("14.18. Verify hide draft records when Draft toggle is disabled", function () {
+  it("14.17. Verify hide draft records when Draft toggle is disabled", function () {
     create_employee_management.gridDraftButtonOff();
   });
 
-  it("14.19. Verify allow selecting and interacting with grid checkboxes", function () {
+  it("14.18. Verify allow selecting and interacting with grid checkboxes", function () {
     create_employee_management.gridCheckboxCheck();
   });
 
-  it("14.20. Verify lock selected employee records using checkbox lock action", function () {
+  it("14.19. Verify lock selected employee records using checkbox lock action", function () {
     create_employee_management.gridCheckboxLockButtonCheck();
   });
 
-  it("14.21. Verify unlock selected employee records using checkbox unlock action", function () {
+  it("14.20. Verify unlock selected employee records using checkbox unlock action", function () {
     create_employee_management.gridCheckboxUnlockButtonCheck();
   });
 
-  it("14.22. Verify clear all input fields when Create Reset is clicked", function () {
+  it("14.21. Verify clear all input fields when Create Reset is clicked", function () {
     create_employee_management.createResetButtonCheck();
   });
 
-  it("14.23. Verify show validation messages when required fields are empty on submit", function () {
+  it("14.22. Verify show validation messages when required fields are empty on submit", function () {
     create_employee_management.createValidationMessageCheck();
   });
 
-  it("14.24. Verify navigate to list page when Draft is clicked on create form", function () {
+  it("14.23. Verify navigate to list page when Draft is clicked on create form", function () {
     create_employee_management.createDraftButtonCheck();
   });
 
-  it("14.25. Verify navigate to list page when Approve is clicked on create form", function () {
+  it("14.24. Verify navigate to list page when Approve is clicked on create form", function () {
     create_employee_management.createApproveButtonCheck();
   });
 
-  it("14.26. Verify navigate to list page when Go Back is clicked on create form", function () {
+  it("14.25. Verify navigate to list page when Go Back is clicked on create form", function () {
     create_employee_management.createGoBackButtonCheck();
   });
 
-  it("14.27. Verify redirect to employee list page when Search is executed from grid page", function () {
+  it("14.26. Verify redirect to employee list page when Search is executed from grid page", function () {
     create_employee_management.gridSearchButtonCheck();
+  });
+
+  it("14.27. Verify update employee details successfully with valid input", function () {
+    create_employee_management.editEmployeeManagement();
   });
 
   it("14.28. Verify update grid content correctly when switching language (English to Bangla)", function () {

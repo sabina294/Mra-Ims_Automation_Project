@@ -29,28 +29,6 @@ class LoanDisbursement {
         cy.log("Successfully view go back the  loan disbursement list page");
     }
 
-    loanDisburseButtonCheck() {
-        cy.fixture(this.test_data).then(() => {
-
-            cy.imsId("toggle-action").first().click();
-            cy.imsId("btn-table-action-view").click();
-            cy.imsId("btn-loan-disburse")
-                .scrollIntoView()
-                .should("exist")
-                .click({ force: true });
-            cy.log("Loan Disburse button clicked successfully");
-        });
-    }
-
-    loanDisburseSubmitButtonCheck() {
-        cy.imsId("btn-submit")
-            .first()
-            .click({ force: true });
-        cy.imsId("btn-ok")
-            .first()
-            .click({ force: true });
-    }
-
     gridSearchButtonCheck() {
         cy.fixture(this.test_data).then((data) => {
             var ldData = data.branchManager.loanDisbursementFrom;
@@ -73,13 +51,42 @@ class LoanDisbursement {
         );
     }
 
-    gridLanguageSwitchCheck() {
+    loanDisburseButtonCheck() {
+        cy.fixture(this.test_data).then(() => {
+
+            cy.imsId("toggle-action").first().click();
+            cy.imsId("btn-table-action-view").click();
+            cy.imsId("btn-loan-disburse")
+                .scrollIntoView()
+                .should("exist")
+                .click({ force: true });
+            cy.log("Loan Disburse button clicked successfully");
+        });
+    }
+
+    loanDisburseSubmitButtonCheck() {
+
+        cy.get('.primary-button')
+            .first()
+            .should("be.visible")
+            .click({ force: true });
+
+        cy.wait(3000);
+
+        cy.get('[data-ims-id="btn-ok"]', { timeout: 10000 })
+            .should('be.visible')
+            .click({ force: true });
+
+        cy.log("Loan Disburse submit button checked");
+    }
+
+     gridLanguageSwitchCheck() {
         cy.imsId("profile-menu").click();
         cy.imsId("btn-lang-bangla").click();
         cy.log("Unsuccessful switch bangla language check.");
     }
+    
 }
-
 export const create_loan_disbursement = new LoanDisbursement();
 
 

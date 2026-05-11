@@ -27,40 +27,40 @@ describe("21. Samity Field Officer Change Module Test Cases", function () {
     samity_field_officer_change.gridSamityChangeListPage();
   });
 
-  it("21.02. should create a new Samity Field Officer Change record with valid information", function () {
-    samity_field_officer_change.samityChange();
-  });
-
-  it("21.03. should allow the branch manager to approve a Samity Field Officer Change record after creation", function () {
-    samity_field_officer_change.approveSamityChange();
-  });
-
-  it("21.04. should perform the correct action when the action button is clicked", function () {
-    samity_field_officer_change.actionButtonCheck();
-  });
-
-  it("21.05. should display Samity Field Officer Change details correctly including name and description", function () {
-    samity_field_officer_change.viewSamityChange();
-  });
-
-  it("21.06. should redirect to the list page when clicking the Go Back button from view page", function () {
-    samity_field_officer_change.viewGoBackButton();
-  });
-
-  it("21.07. should reset the Samity Field Officer Change form successfully when Reset button is clicked", function () {
+  it("21.02. should reset the Samity Field Officer Change form successfully when Reset button is clicked", function () {
     samity_field_officer_change.changeResetButtonCheck();
   });
 
-  it("21.08. should submit the Samity Field Officer Change form successfully when Submit button is clicked", function () {
+  it("21.03. should submit the Samity Field Officer Change form successfully when Submit button is clicked", function () {
     samity_field_officer_change.changeSubmitButtonCheck();
   });
 
-  it("21.09. should approve the Samity Field Officer Change request successfully from the approval page", function () {
+  it("21.04. should approve the Samity Field Officer Change request successfully from the approval page", function () {
     samity_field_officer_change.changeApproveButtonCheck();
   });
 
-  it("21.10. should navigate back successfully when Go Back button is clicked on the Samity Field Officer Change page", function () {
+  it("21.05. should navigate back successfully when Go Back button is clicked on the Samity Field Officer Change page", function () {
     samity_field_officer_change.changeGoBackButtonCheck();
+  });
+
+  it("21.06. should create a new Samity Field Officer Change record with valid information", function () {
+    samity_field_officer_change.samityChange();
+  });
+
+  it("21.07. should allow the branch manager to approve a Samity Field Officer Change record after creation", function () {
+    samity_field_officer_change.approveSamityChange();
+  });
+
+  it("21.08. should perform the correct action when the action button is clicked", function () {
+    samity_field_officer_change.actionButtonCheck();
+  });
+
+  it("21.09. should display Samity Field Officer Change details correctly including name and description", function () {
+    samity_field_officer_change.viewSamityChange();
+  });
+
+  it("21.10. should redirect to the list page when clicking the Go Back button from view page", function () {
+    samity_field_officer_change.viewGoBackButton();
   });
 
   it("21.11. should filter inactive records correctly using the Status dropdown on the list page", function () {

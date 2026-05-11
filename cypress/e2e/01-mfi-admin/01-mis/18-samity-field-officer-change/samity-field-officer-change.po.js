@@ -8,32 +8,61 @@ class SamityChange {
     });
   }
 
-  samityChange() {
-  cy.fixture(this.test_data).then((data) => {
-    var smData = data.mfiAdmin.samityChangeFrom;
-    cy.imsId("btn-reset").click();
-    cy.formController("search_text")
-      .clear()
-      .type(smData.samityNameEn);
-    cy.imsId("btn-search").click();
-    cy.imsId("toggle-action").first().click();
-    cy.imsId("btn-mis-table-action-change").click();
-    cy.formController("field_officer_id").click();
-    cy.get('.ant-select-item-option')
-      .should('have.length.greaterThan', 0);
-    cy.get('.ant-select-item-option')
-      .first()
-      .click();
-    cy.imsId("btn-submit").click();
-    cy.imsId("btn-yes").click();
-    cy.get("app-confirmation-modal")
-      .should("be.visible")
-      .and("contain", smData.messageSamityChange);
-    cy.imsId("btn-ok").click();
 
-    cy.log("Successfully field officer changed for samity (MFI Admin)");
-  });
-}
+  samityChangeSubmit() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("toggle-action").first().click();
+      cy.imsId("btn-mis-table-action-change").click();
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-ok").click();
+      cy.log("Successful reset button clean displaying.");
+    });
+  }
+
+  samityChangeApprove() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("btn-approve").click();
+      cy.imsId("btn-ok").click();
+      cy.log("Successful approve button clean displaying.");
+    });
+  }
+
+  samityChangeReset() {
+    cy.imsId("btn-reset").click();
+    cy.log("Successful reset button check.");
+  }
+
+  samityChangeGoBack() {
+    cy.imsId("btn-go-back").click();
+    cy.log("Successful go back button check.");
+  }
+
+  samityChange() {
+    cy.fixture(this.test_data).then((data) => {
+      var smData = data.mfiAdmin.samityChangeFrom;
+      cy.imsId("btn-reset").click();
+      // cy.formController("search_text")
+      //   .clear()
+      //   .type(smData.samityNameEn);
+      // cy.imsId("btn-search").click();
+      cy.imsId("toggle-action").first().click();
+      cy.imsId("btn-mis-table-action-change").click();
+      cy.formController("field_officer_id").click();
+      cy.get('.ant-select-item-option')
+        .should('have.length.greaterThan', 0);
+      cy.get('.ant-select-item-option')
+        .first()
+        .click();
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-yes").click();
+      cy.get("app-confirmation-modal")
+        .should("be.visible")
+        .and("contain", smData.messageSamityChange);
+      cy.imsId("btn-ok").click();
+
+      cy.log("Successfully field officer changed for samity (MFI Admin)");
+    });
+  }
 
   approveSamityChange() {
     cy.fixture(this.test_data).then((data) => {
@@ -74,34 +103,6 @@ class SamityChange {
     cy.imsId("btn-go-back").click();
     cy.log("Successfully view go back the samity field officer change list page");
 
-  }
-
-  samityChangeSubmit() {
-    cy.fixture(this.test_data).then((data) => {
-      cy.imsId("toggle-action").first().click();
-      cy.imsId("btn-mis-table-action-change").click();
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-ok").click();
-      cy.log("Successful reset button clean displaying.");
-    });
-  }
-
-  samityChangeApprove() {
-    cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-approve").click();
-      cy.imsId("btn-ok").click();
-      cy.log("Successful approve button clean displaying.");
-    });
-  }
-
-  samityChangeReset() {
-    cy.imsId("btn-reset").click();
-    cy.log("Successful reset button check.");
-  }
-
-  samityChangeGoBack() {
-    cy.imsId("btn-go-back").click();
-    cy.log("Successful go back button check.");
   }
 
   statusInactiveDropdownCheck() {

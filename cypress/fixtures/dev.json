@@ -839,11 +839,11 @@
       "rejectRemarks": "Reject"
     },
     "samityChangeFrom": {
-      "samityNameEn": "Kuturia Mohila Samity",
+      "samityNameEn": "Rustampur Mohila Samity",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
-      "fieldOfficerName": "EMP-0122 - GAIS UDDIN KHAN",
-      "search": "Kuturia Mohila Samity",
+      "fieldOfficerName": "EMP-0120 - ROSTOM ALI",
+      "search": "Sadarpur Mohila Samity",
       "messageSamityChange": "Samity has been updated"
     },
     "samityDayChangeFrom": {
@@ -905,7 +905,7 @@
     },
     "memberSamityTransferFrom": {
       "memberNameEn": "Misti Akter",
-      "newSamityTransfer": "1020-101 (Ashulia Mohila Samity)",
+      "newSamityTransfer": "1020-102 (Dholpur Mohila Samity)",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
       "SelectOffice": "1020 (Ashulia)",
