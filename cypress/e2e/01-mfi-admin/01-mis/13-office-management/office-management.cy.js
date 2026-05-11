@@ -23,99 +23,99 @@ describe("13. Office Management Module Test Cases", function () {
     cy.logout();
   });
 
-  it("13.01. Verify that the Office Management list page loads successfully without errors.", function () {
+  it("13.01. Verify that the Office Management list page loads successfully without any errors.", function () {
     create_office_management.gridOfficeManagementListPage();
   });
 
-  it("13.02. Verify that an Office Management cannot be created without Office Name (English), even if all other fields are valid.", function () {
+  it("13.02. Verify that an Office Management record cannot be created without an Office Name (English), even when all other fields contain valid data.", function () {
     create_office_management.createWithoutOfficeNameEn();
   });
 
-  it("13.03. Verify that an Office Management cannot be created without Office Name (Bangla), even if all other fields are valid.", function () {
+  it("13.03. Verify that an Office Management record cannot be created without an Office Name (Bangla), even when all other fields contain valid data.", function () {
     create_office_management.createWithoutOfficeNameBn();
   });
 
-  it("13.04. Verify that an Office Management cannot be created without Office Type, even if all other fields are valid.", function () {
+  it("13.04. Verify that an Office Management record cannot be created without selecting an Office Type, even when all other fields contain valid data.", function () {
     create_office_management.createWithoutOfficeType();
   });
 
-  it("13.05. Verify that an Office Management cannot be created without Company Office ID (8 digits), even if all other fields are valid.", function () {
+  it("13.05. Verify that an Office Management record cannot be created without a valid 8-digit Company Office ID, even when all other fields contain valid data.", function () {
     create_office_management.createWithoutCompanyOfficeId();
   });
 
-  it("13.06. Verify that an Office Management cannot be created without Mobile Number, even if all other fields are valid.", function () {
+  it("13.06. Verify that an Office Management record cannot be created without a Mobile Number, even when all other fields contain valid data.", function () {
     create_office_management.createWithoutMobileNumber();
   });
 
-  it("13.07. Verify that an Office Management cannot be created without Division, even if all other fields are valid.", function () {
+  it("13.07. Verify that an Office Management record cannot be created without selecting a Division, even when all other fields contain valid data.", function () {
     create_office_management.createWithoutDivision();
   });
 
-  it("13.08. Verify that an Office Management cannot be created without District, even if all other fields are valid.", function () {
+  it("13.08. Verify that an Office Management record cannot be created without selecting a District, even when all other fields contain valid data.", function () {
     create_office_management.createWithoutDistrict();
   });
 
-  it("13.09. Verify that an Office Management cannot be created without Upazila, even if all other fields are valid.", function () {
+  it("13.09. Verify that an Office Management record cannot be created without selecting an Upazila, even when all other fields contain valid data.", function () {
     create_office_management.createWithoutUpazila();
   });
 
-  it("13.10. Verify that an Office Management cannot be created without Address, even if all other fields are valid.", function () {
+  it("13.10. Verify that an Office Management record cannot be created without an Address, even when all other fields contain valid data.", function () {
     create_office_management.createWithoutAddress();
   });
 
-  it("13.11. Verify that an Office Management cannot be created without Working Area Name, even if all other fields are valid.", function () {
+  it("13.11. Verify that an Office Management record cannot be created without a Working Area Name, even when all other fields contain valid data.", function () {
     create_office_management.createWithoutAreaName();
   });
 
-  it("13.12. Verify that an Office Management cannot be created without Working Area Division , even if all other fields are valid.", function () {
+  it("13.12. Verify that an Office Management record cannot be created without selecting a Working Area Division, even when all other fields contain valid data.", function () {
     create_office_management.createWithoutWorkingAreaDivision();
   });
 
-  it("13.13. Verify that an Office Management cannot be created without Working Area District , even if all other fields are valid.", function () {
+  it("13.13. Verify that an Office Management record cannot be created without selecting a Working Area District, even when all other fields contain valid data.", function () {
     create_office_management.createWithoutWorkingAreaDistrict();
   });
 
-  it("13.14. Verify that an Office Management cannot be created without Working Area Upazila , even if all other fields are valid.", function () {
+  it("13.14. Verify that an Office Management record cannot be created without selecting a Working Area Upazila, even when all other fields contain valid data.", function () {
     create_office_management.createWithoutWorkingAreaUpazila();
   });
 
-  it("13.15. Verify that the action button performs the expected action correctly.", function () {
+  it("13.15. Verify that the Action button performs the expected operation successfully.", function () {
     create_office_management.actionButtonCheck();
   });
 
-  it("13.16. Verify that the user can view all relevant details of an Office Management, including associated fields.", function () {
+  it("13.16. Verify that the user can view all relevant details of an Office Management record, including all associated information.", function () {
     create_office_management.viewOffice();
   });
 
-  it("13.17. Verify that clicking the Go Back button on the Office Management view page redirects to the list page.", function () {
+  it("13.17. Verify that clicking the Go Back button on the Office Management view page redirects the user to the Office Management list page.", function () {
     create_office_management.viewGoBackButton();
   });
 
-  it("13.18. Verify that Office Management edit mode can be toggled on and off, and all fields behave correctly in view-only mode.", function () {
+  it("13.18. Verify that Office Management edit mode can be enabled and disabled successfully, and all fields behave correctly in view-only mode.", function () {
     create_office_management.turnOffEditMode();
   });
 
-  it("13.19. Verify that inactive Office Management records can be filtered using the status dropdown.", function () {
+  it("13.19. Verify that inactive Office Management records can be filtered successfully using the Status dropdown.", function () {
     create_office_management.statusInactiveDropdownCheck();
   });
 
-  it("13.20. Verify that active Office Management records are filtered correctly using the status dropdown.", function () {
+  it("13.20. Verify that active Office Management records can be filtered successfully using the Status dropdown.", function () {
     create_office_management.statusActiveDropdownCheck();
   });
 
-  it("13.21. Verify that search returns correct results when searching by Office Management name.", function () {
+  it("13.21. Verify that the search functionality returns the correct results when searching by Office Management name.", function () {
     create_office_management.searchInOfficeManagementName();
   });
 
-  it("13.22. Verify that the grid list resets successfully when the Reset button is clicked.", function () {
+  it("13.22. Verify that the grid list resets successfully after clicking the Reset button.", function () {
     create_office_management.gridResetButtonCheck();
   });
 
-  it("13.23. Verify that the grid list refreshes successfully when the Refresh button is clicked.", function () {
+  it("13.23. Verify that the grid list refreshes successfully after clicking the Refresh button.", function () {
     create_office_management.gridRefreshButtonCheck();
   });
 
-  it("13.24. Verify that the grid list displays correctly when the Draft filter is enabled.", function () {
+  it("13.24. Verify that the grid list displays draft records correctly when the Draft filter is enabled.", function () {
     create_office_management.gridDraftButton();
   });
 
@@ -123,39 +123,39 @@ describe("13. Office Management Module Test Cases", function () {
     create_office_management.gridDraftButtonOff();
   });
 
-  it("13.26. Verify that the checkbox functionality works correctly.", function () {
+  it("13.26. Verify that the checkbox functionality operates correctly.", function () {
     create_office_management.gridCheckboxCheck();
   });
 
-  it("13.27. Verify that the checkbox lock button works correctly when selected.", function () {
+  it("13.27. Verify that the Lock button functions correctly for selected checkbox records.", function () {
     create_office_management.gridCheckboxLockButtonCheck();
   });
 
-  it("13.28. Verify that the checkbox unlock button works correctly when selected.", function () {
+  it("13.28. Verify that the Unlock button functions correctly for selected checkbox records.", function () {
     create_office_management.gridCheckboxUnlockButtonCheck();
   });
 
-  it("13.29. Verify that the reset button clears all input fields in the Office Management creation form.", function () {
+  it("13.29. Verify that the Reset button clears all input fields successfully in the Office Management creation form.", function () {
     create_office_management.createResetButtonCheck();
   });
 
-  it("13.30. Verify that validation messages are displayed for required fields when submitting an empty form.", function () {
+  it("13.30. Verify that validation messages are displayed for all required fields when submitting an empty Office Management form.", function () {
     create_office_management.createValidationMessageCheck();
   });
 
-  it("13.31. Verify that clicking the Go Back button on the Office Management create page redirects to the list page.", function () {
+  it("13.31. Verify that clicking the Go Back button on the Office Management creation page redirects the user to the Office Management list page.", function () {
     create_office_management.createGoBackButtonCheck();
   });
 
-  it("13.32. Verify that clicking the Search button redirects or loads the Office Management list correctly.", function () {
+  it("13.32. Verify that clicking the Search button loads the Office Management list according to the search criteria.", function () {
     create_office_management.gridSearchButtonCheck();
   });
 
-  it("13.33. Verify that a new Office Management is created successfully when all required fields are filled with valid data.", function () {
+  it("13.33. Verify that a new Office Management record is created successfully when all required fields are filled with valid data.", function () {
     create_office_management.createOffice();
   });
 
-  it("13.34. Verify that MRA Admin successfully approves an Office Management record after creation.", function () {
+  it("13.34. Verify that the MRA Admin can successfully approve an Office Management record after creation.", function () {
     cy.fixture(test_data).then((d) => {
       cy.loginAsMraAdmin(baseURL, d);
       create_office_management.approveOffice();
@@ -164,7 +164,7 @@ describe("13. Office Management Module Test Cases", function () {
     });
   });
 
-  it("13.35. Verify that the grid list content switches correctly between English and Bangla.", function () {
+  it("13.35. Verify that the grid list content switches correctly between English and Bangla languages.", function () {
     create_office_management.gridLanguageSwitchCheck();
   });
 });
