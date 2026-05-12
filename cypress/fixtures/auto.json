@@ -191,6 +191,13 @@
       "messageUpdateEmp": "Mfi employee has been updated"
     },
     "approveEmployeeFrom": {},
+    "gridEmpPromotionFrom": {
+     "newDepartment": "Board of Directors",
+      "newDesignation": "Assistant Manager",
+      "search": "MAHBUB",
+      "selectStatus": "Inactive",
+      "statusSelect": "Active"
+    },
     "rejectedEmployeeFrom": {
       "empNameEn": "Sabina Yeasmin",
       "empNameBn": "সাবিনা ইয়াসমিন",

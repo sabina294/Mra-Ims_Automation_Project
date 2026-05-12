@@ -1,0 +1,101 @@
+// npm run auto
+// npm run dev
+// npx cypress run --spec cypress/e2e/01-mfi-admin/01-mis/39-savings-product/savings-product.cy.js --browser chrome --headed
+
+import "cypress-file-upload";
+import { create_savings_product } from "./savings-product.po";
+
+describe("39. Savings Product Module Test Cases", function () {
+  const baseURL = Cypress.env("BASE_URL");
+  const test_data = Cypress.env("TEST_DATA");
+  before(() => {
+    cy.fixture(test_data).then((d) => {
+      cy.login(
+        baseURL,
+        d.credential.mfiAdminUserId,
+        d.credential.mfiAdminPassword
+      );
+      cy.changeLanguage("english");
+    });
+  });
+
+  after(() => {
+    cy.logout();
+  });
+
+  it("39.01. Verify the savings product list page loads without errors.", function () {
+    create_savings_product.gridSavingsProductListPage();
+  });
+
+  it("39.02. Verify a new savings product is created successfully when all required fields are filled with valid data.", function () {
+    create_savings_product.createSavingsProduct();
+  });
+
+  it("39.03. Verify successfully performs the action when the action button is clicked.", function () {
+    create_savings_product.actionButtonCheck();
+  });
+
+  it("39.04. Verify the user can view all relevant details of a savings product, including its associated fields.", function () {
+    create_savings_product.viewSavingsProduct();
+  });
+
+  it("39.05. Verify that clicking the go back button on the savings product view page redirects the user to the savings product list page.", function () {
+    create_savings_product.viewGoBackButton();
+  });
+
+  it("39.06. Verify that the savings product forms edit mode can be toggled on and off all fields should be disabled or return to view-only mode.", function () {
+    create_savings_product.turnOffEditMode();
+  });
+
+  it("39.07. Verify the savings product  edit reset button functions correctly.", function () {
+    create_savings_product.editResetButton();
+  });
+
+  it("39.08. Verify that clicking the go back button on the savings product  edit page redirects the user to the savings product  list page.", function () {
+    create_savings_product.editGoBackButton();
+  });
+
+  // it("39.09. Verify editing functionality for savings product record by MFI-Admin role", function () {
+  //   create_savings_product.editSavingsProduct();
+  // });
+
+  it("39.10. Verify the user can filter inactive savings products using the status dropdown on the savings product list page.", function () {
+    create_savings_product.statusInactiveDropdownCheck();
+  });
+
+  it("39.11. Verify the active result is filtered correctly by the status dropdown.", function () {
+    create_savings_product.statusActiveDropdownCheck();
+  });
+
+  it("39.12. Verify the search returns correct results when searching by savings product name.", function () {
+    create_savings_product.searchInSavingsProductName();
+  });
+
+  it("39.13. Verify the grid list resets successfully when the reset button is clicked on the savings product page.", function () {
+    create_savings_product.gridResetButtonCheck();
+  });
+
+  it("39.14. Verify that the grid list is refreshed successfully when the refresh button is clicked on the savings product page.", function () {
+    create_savings_product.gridRefreshButtonCheck();
+  });
+
+  it("39.15. Verify the savings product creation reset button clears all entered input values.", function () {
+    create_savings_product.createResetButtonCheck();
+  });
+
+  it("39.16. Verify validation messages appear for required fields when the submit button is clicked with empty inputs.", function () {
+    create_savings_product.createValidationMessageCheck();
+  });
+
+  it("39.17. Verify that clicking the go back button on the savings product create page redirects the user to the savings product list page.", function () {
+    create_savings_product.createGoBackButtonCheck();
+  });
+
+  it("39.18. Verify that when the user clicks the Search button on the savings product grid page, the system redirects to the savings product List page..", function () {
+    create_savings_product.gridSearchButtonCheck();
+  });
+
+  it("39.19. Verify check that the grid list content changes correctly from english to bangla.", function () {
+    create_savings_product.gridLanguageSwitchCheck();
+  });
+});
