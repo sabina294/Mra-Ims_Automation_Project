@@ -17,7 +17,7 @@ class PaymentVoucherCreation {
             cy.formController("voucher_name_bn").type(pvData.voucherNameBn);
             cy.formController("payment_date").click();
             cy.wait(2000);
-            cy.contains(22).click();
+            cy.contains(11).click();
             cy.wait(1000);
             cy.formController("voucher_prepared_by").type(pvData.preparedBy).type("{enter}");
             cy.wait(1000);

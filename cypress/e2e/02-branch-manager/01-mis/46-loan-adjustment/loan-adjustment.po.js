@@ -27,7 +27,7 @@ class loanAdjustment {
     saveNewLoanAdjustment() {
         cy.fixture(this.test_data).then((data) => {
             var laData = data.branchManager.loanAdjustment;
-            cy.imsId("btn-save").click();
+            cy.imsId("btn-submit").click();
             cy.imsId("btn-yes").click();
             cy.imsId("btn-ok").click();
             cy.log("Successfully created new Loan Adjustment");
@@ -76,6 +76,7 @@ class loanAdjustment {
             var laData = data.branchManager.loanAdjustment;
             cy.imsId("btn-add-new").click();
             cy.imsId("btn-draft").click();
+            cy.imsId("btn-yes").click();
             cy.imsId("btn-ok").click();
             cy.log("Successful draft button check.");
         });

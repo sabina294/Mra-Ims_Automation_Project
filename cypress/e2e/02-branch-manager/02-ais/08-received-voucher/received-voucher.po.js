@@ -322,7 +322,7 @@ class ReceivedVoucherCreation {
             cy.formController("voucher_name_bn").type(rvData.voucherNameBn);
             cy.formController("received_date").click();
             cy.wait(1000);
-            cy.contains(14).click();
+            cy.contains(10).click();
             cy.formController("voucher_prepared_by").type(rvData.preparedBy).type("{enter}");
             cy.wait(1000);
             cy.formController("remarks").eq(0).type(rvData.remarks);
@@ -331,7 +331,7 @@ class ReceivedVoucherCreation {
             cy.formController("remarks").eq(1).type(rvData.remarks);
             cy.formController("transaction_date").click();
             cy.wait(1000);
-            cy.contains(14).click();
+            cy.contains(10).click();
             cy.wait(1000);
             cy.formController("ledger_id").type(rvData.ledger).type("{enter}");
             cy.wait(1000);
