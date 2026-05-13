@@ -24,23 +24,23 @@ describe("27. Member Attendance Module Test Cases", function () {
     cy.logout();
   });
 
-  it("27.01 Verify that the Member Attendance Grid List page loads successfully.", function () {
+  it("27.01. Verify that the Member Attendance Grid List page loads successfully.", function () {
     member_attendance.gridMemberAttendanceListPage();
   });
 
-  it("27.02 Verify that the Reset button successfully clears the Member Attendance grid filters.", function () {
+  it("27.02. Verify that the Reset button successfully clears the Member Attendance grid filters.", function () {
     member_attendance.gridResetButtonCheck();
   });
 
-  it("27.03 Verify that the Refresh button successfully reloads the Member Attendance grid data.", function () {
+  it("27.03. Verify that the Refresh button successfully reloads the Member Attendance grid data.", function () {
     member_attendance.gridRefreshButtonCheck();
   });
 
-  it("27.04 Verify that clicking the Search button redirects to the Member Attendance List page.", function () {
+  it("27.04. Verify that clicking the Search button redirects to the Member Attendance List page.", function () {
     member_attendance.gridSearchButtonCheck();
   });
 
-  it("27.05 Verify that the grid content correctly switches between English and Bangla languages.", function () {
+  it("27.05. Verify that the grid content correctly switches between English and Bangla languages.", function () {
     member_attendance.gridLanguageSwitchCheck();
   });
 });

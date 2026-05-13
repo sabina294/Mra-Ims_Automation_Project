@@ -22,7 +22,7 @@ describe("28. Memebr Passbook Module Test Cases", function () {
   after(() => {
     cy.logout();
   });
-  it("28.01. Verify Manage Member Pass Book List Page loads successfully.", function () {
+  it("28.01. Verify Manage  Member Pass Book List Page loads successfully.", function () {
     manage_member_passbook.gridMemberPassbookListPage();
   });
 

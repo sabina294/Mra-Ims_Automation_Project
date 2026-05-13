@@ -31,7 +31,7 @@ describe("17. Employee Transfer Module Test Cases", function () {
         grid_employee_transfer.transferResetButton();
     });
 
-    it("17.03 Verify that the Submit button functions correctly on the Employee Transfer form.", function () {
+    it("17.03. Verify that the Submit button functions correctly on the Employee Transfer form.", function () {
         grid_employee_transfer.transferSubmitButton();
     });
 

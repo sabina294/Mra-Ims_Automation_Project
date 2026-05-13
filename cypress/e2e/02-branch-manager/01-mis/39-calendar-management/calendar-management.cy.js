@@ -23,11 +23,11 @@ describe("39. Calendar Management Module Test Cases", function () {
     cy.logout();
   });
 
-  it("39.01 - Verify that the Calendar Management list page loads successfully", function () {
+  it("39.01. Verify that the Calendar Management list page loads successfully", function () {
     grid_calendar_management.gridCalendarManagListPage();
   });
 
-  it("39.02 - Verify that the grid list content switches correctly from English to Bangla language", function () {
+  it("39.02. Verify that the grid list content switches correctly from English to Bangla language", function () {
     grid_calendar_management.gridLanguageSwitchCheck();
   });
 });
