@@ -43,43 +43,43 @@ describe("19. Samity management Module Test Cases", function () {
     create_samity_management.createWithoutNameBn();
   });
 
-  it("19.06 Verify that a Samity Management record cannot be created without selecting a Samity Type.", function () {
+  it("19.06. Verify that a Samity Management record cannot be created without selecting a Samity Type.", function () {
     create_samity_management.createWithoutSamityType();
   });
 
-  it("19.07 Verify that a Samity Management record cannot be created without selecting an Office.", function () {
+  it("19.07. Verify that a Samity Management record cannot be created without selecting an Office.", function () {
     create_samity_management.createWithoutOffice();
   });
 
-  it("19.08 Verify that a Samity Management record cannot be created without selecting a Field Officer.", function () {
+  it("19.08. Verify that a Samity Management record cannot be created without selecting a Field Officer.", function () {
     create_samity_management.createWithoutFieldOfficer();
   });
 
-  it("19.09 Verify that a Samity Management record cannot be created without selecting an MFI Program.", function () {
+  it("19.09. Verify that a Samity Management record cannot be created without selecting an MFI Program.", function () {
     create_samity_management.createWithoutMfiProgram();
   });
 
-  it("19.10 Verify that a Samity Management record cannot be created without selecting a Samity Day.", function () {
+  it("19.10. Verify that a Samity Management record cannot be created without selecting a Samity Day.", function () {
     create_samity_management.createWithoutSamityDay();
   });
 
-  it("19.11 Verify that a Samity Management record cannot be created without selecting a Samity Frequency.", function () {
+  it("19.11. Verify that a Samity Management record cannot be created without selecting a Samity Frequency.", function () {
     create_samity_management.createWithoutSamityFrequency();
   });
 
-  it("19.12 Verify that a Samity Management record cannot be created without specifying the Maximum Member.", function () {
+  it("19.12. Verify that a Samity Management record cannot be created without specifying the Maximum Member.", function () {
     create_samity_management.createWithoutSamityMaximumMember();
   });
 
-  it("19.13 Verify that a Samity Management record cannot be created without specifying the Working Area.", function () {
+  it("19.13. Verify that a Samity Management record cannot be created without specifying the Working Area.", function () {
     create_samity_management.createWithoutSamityWorkingArea();
   });
 
-  it("19.14 Verify that a Samity Management record cannot be created without entering Address Line 1.", function () {
+  it("19.14. Verify that a Samity Management record cannot be created without entering Address Line 1.", function () {
     create_samity_management.createWithoutSamityAdressLine1();
   });
 
-  it("19.15 Verify that a Samity Management record cannot be created without selecting a Geo Area Type.", function () {
+  it("19.15. Verify that a Samity Management record cannot be created without selecting a Geo Area Type.", function () {
     create_samity_management.createWithoutSamityGeoAreaType();
   });
 
