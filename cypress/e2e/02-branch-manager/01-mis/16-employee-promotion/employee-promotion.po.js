@@ -42,8 +42,12 @@ class EmployeePromotion {
         cy.fixture(this.test_data).then((data) => {
             var empata = data.branchManager.gridEmpPromotionFrom;
             cy.formController("effective_date").click();
-            cy.wait(2000);
-            cy.contains(15).click({ force: true });
+            cy.get('.ant-picker-dropdown')
+                .should('be.visible');
+            cy.get('.ant-picker-cell-in-view')
+                .not('.ant-picker-cell-disabled')
+                .first()
+                .click({ force: true });
             cy.formController("new_designation_id").type(empata.newDesignation).type("{enter}");
             cy.imsId("btn-submit").click();
             cy.imsId("btn-ok").click();
@@ -56,8 +60,12 @@ class EmployeePromotion {
         cy.fixture(this.test_data).then((data) => {
             var empata = data.branchManager.gridEmpPromotionFrom;
             cy.formController("effective_date").click();
-            cy.wait(2000);
-            cy.contains(15).click({ force: true });
+            cy.get('.ant-picker-dropdown')
+                .should('be.visible');
+            cy.get('.ant-picker-cell-in-view')
+                .not('.ant-picker-cell-disabled')
+                .first()
+                .click({ force: true });
             cy.formController("new_department_id").type(empata.newDepartment).type("{enter}");
             cy.imsId("btn-submit").click();
             cy.imsId("btn-ok").click();
@@ -78,8 +86,12 @@ class EmployeePromotion {
                 .first()
                 .click();
             cy.formController("effective_date").click();
-            cy.wait(2000);
-            cy.contains(15).click({ force: true });
+            cy.get('.ant-picker-dropdown')
+                .should('be.visible');
+            cy.get('.ant-picker-cell-in-view')
+                .not('.ant-picker-cell-disabled')
+                .first()
+                .click({ force: true });
             cy.formController("new_department_id").type(empata.newDepartment).type("{enter}");
             cy.formController("new_designation_id").type(empata.newDesignation).type("{enter}");
             cy.imsId("btn-submit").click();

@@ -26,7 +26,7 @@ class EmployeeTransfer {
         cy.log("Successfully validation check transfer");
     }
 
-      createEmployeeTransferWithoutEffectiveDate() {
+    createEmployeeTransferWithoutEffectiveDate() {
         cy.fixture(this.test_data).then((data) => {
             var emtData = data.branchManager.gridEmpTransferFrom;
             cy.imsId("btn-table-action-transfer")
@@ -40,13 +40,17 @@ class EmployeeTransfer {
         });
     }
 
-      createEmployeeTransferWithoutOffice() {
+    createEmployeeTransferWithoutOffice() {
         cy.fixture(this.test_data).then((data) => {
             var emtData = data.branchManager.gridEmpTransferFrom;
             cy.imsId("btn-reset").click();
             cy.formController("effective_date").click();
-            cy.wait(2000);
-            cy.contains(15).click({ force: true });
+            cy.get('.ant-picker-dropdown')
+                .should('be.visible');
+            cy.get('.ant-picker-cell-in-view')
+                .not('.ant-picker-cell-disabled')
+                .first()
+                .click({ force: true });
             cy.imsId("btn-submit").click();
             cy.imsId("btn-ok").click();
             cy.log("Successfully created employee transfer office field check.");
@@ -58,7 +62,7 @@ class EmployeeTransfer {
         cy.log("Successful transfer go back button check.");
     }
 
-      createEmployeeTransferWithoutReportingManager() {
+    createEmployeeTransferWithoutReportingManager() {
         cy.fixture(this.test_data).then((data) => {
             var emtData = data.branchManager.gridEmpTransferFrom;
             cy.imsId("btn-table-action-transfer")
@@ -66,8 +70,12 @@ class EmployeeTransfer {
                 .first()
                 .click();
             cy.formController("effective_date").click();
-            cy.wait(2000);
-            cy.contains(15).click({ force: true });
+            cy.get('.ant-picker-dropdown')
+                .should('be.visible');
+            cy.get('.ant-picker-cell-in-view')
+                .not('.ant-picker-cell-disabled')
+                .first()
+                .click({ force: true });
             cy.formController("new_office_id").type(emtData.newOffice).type("{enter}");
             cy.imsId("btn-submit").click();
             cy.imsId("btn-yes").click();
@@ -90,8 +98,12 @@ class EmployeeTransfer {
                 .first()
                 .click();
             cy.formController("effective_date").click();
-            cy.wait(2000);
-            cy.contains(15).click({ force: true });
+            cy.get('.ant-picker-dropdown')
+                .should('be.visible');
+            cy.get('.ant-picker-cell-in-view')
+                .not('.ant-picker-cell-disabled')
+                .first()
+                .click({ force: true });
             cy.formController("new_office_id").type(emtData.newOffice).type("{enter}");
             cy.imsId("btn-submit").click();
             cy.imsId("btn-yes").click();
@@ -100,7 +112,7 @@ class EmployeeTransfer {
         });
     }
 
-      approveNewEmployeeTransfer() {
+    approveNewEmployeeTransfer() {
         cy.imsId("menu-my-task").click();
         cy.imsId("submenu-awaiting-employee-transfer").click();
         cy.imsId("toggle-action").first().click();
@@ -154,7 +166,7 @@ class EmployeeTransfer {
         );
     }
 
-     gridSearchButtonCheck() {
+    gridSearchButtonCheck() {
         cy.fixture(this.test_data).then((data) => {
             var emtData = data.branchManager.gridEmpTransferFrom;
             cy.imsId("btn-reset").click();

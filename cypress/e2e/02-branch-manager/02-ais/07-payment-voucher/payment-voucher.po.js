@@ -16,9 +16,12 @@ class PaymentVoucherCreation {
             cy.formController("voucher_name_en").type(pvData.voucherNameEn);
             cy.formController("voucher_name_bn").type(pvData.voucherNameBn);
             cy.formController("payment_date").click();
-            cy.wait(2000);
-            cy.contains(11).click();
-            cy.wait(1000);
+            cy.get('.ant-picker-dropdown')
+                .should('be.visible');
+            cy.get('.ant-picker-cell-in-view')
+                .not('.ant-picker-cell-disabled')
+                .first()
+                .click({ force: true });
             cy.formController("voucher_prepared_by").type(pvData.preparedBy).type("{enter}");
             cy.wait(1000);
             cy.formController("remarks").eq(0).type(pvData.remarks);
@@ -27,9 +30,12 @@ class PaymentVoucherCreation {
             cy.formController("amount").type(pvData.amount);
             cy.formController("remarks").eq(1).type(pvData.remarks);
             cy.formController("transaction_date").click();
-            cy.wait(1000);
-            cy.contains(15).click();
-            cy.wait(1000);
+            cy.get('.ant-picker-dropdown')
+                .should('be.visible');
+            cy.get('.ant-picker-cell-in-view')
+                .not('.ant-picker-cell-disabled')
+                .first()
+                .click({ force: true });
             cy.formController("ledger_id").type(pvData.ledger).type("{enter}");
             cy.wait(1000);
             cy.formController("remarks").eq(2).type(pvData.remarks1);
@@ -48,8 +54,12 @@ class PaymentVoucherCreation {
             cy.imsId("btn-add-new").click();
             cy.formController("voucher_name_bn").type(pvData.voucherNameBn);
             cy.formController("payment_date").click();
-            cy.wait(2000);
-            cy.contains(11).click();
+            cy.get('.ant-picker-dropdown')
+                .should('be.visible');
+            cy.get('.ant-picker-cell-in-view')
+                .not('.ant-picker-cell-disabled')
+                .first()
+                .click({ force: true });
             cy.wait(1000);
             cy.formController("voucher_prepared_by").type(pvData.preparedBy).type("{enter}");
             cy.wait(1000);
@@ -59,9 +69,12 @@ class PaymentVoucherCreation {
             cy.formController("amount").type(pvData.amount);
             cy.formController("remarks").eq(1).type(pvData.remarks);
             cy.formController("transaction_date").click();
-            cy.wait(1000);
-            cy.contains(15).click();
-            cy.wait(1000);
+            cy.get('.ant-picker-dropdown')
+                .should('be.visible');
+            cy.get('.ant-picker-cell-in-view')
+                .not('.ant-picker-cell-disabled')
+                .first()
+                .click({ force: true });
             cy.formController("ledger_id").type(pvData.ledger).type("{enter}");
             cy.wait(1000);
             cy.formController("remarks").eq(2).type(pvData.remarks1);
@@ -78,8 +91,12 @@ class PaymentVoucherCreation {
             var pvData = data.branchManager.paymentVoucher;
             cy.formController("voucher_name_en").type(pvData.voucherNameEn);
             cy.formController("payment_date").click();
-            cy.wait(2000);
-            cy.contains(11).click();
+            cy.get('.ant-picker-dropdown')
+                .should('be.visible');
+            cy.get('.ant-picker-cell-in-view')
+                .not('.ant-picker-cell-disabled')
+                .first()
+                .click({ force: true });
             cy.wait(1000);
             cy.formController("voucher_prepared_by").type(pvData.preparedBy).type("{enter}");
             cy.wait(1000);
@@ -89,9 +106,12 @@ class PaymentVoucherCreation {
             cy.formController("amount").type(pvData.amount);
             cy.formController("remarks").eq(1).type(pvData.remarks);
             cy.formController("transaction_date").click();
-            cy.wait(1000);
-            cy.contains(15).click();
-            cy.wait(1000);
+            cy.get('.ant-picker-dropdown')
+                .should('be.visible');
+            cy.get('.ant-picker-cell-in-view')
+                .not('.ant-picker-cell-disabled')
+                .first()
+                .click({ force: true });
             cy.formController("ledger_id").type(pvData.ledger).type("{enter}");
             cy.wait(1000);
             cy.formController("remarks").eq(2).type(pvData.remarks1);
@@ -117,8 +137,12 @@ class PaymentVoucherCreation {
             cy.formController("amount").type(pvData.amount);
             cy.formController("remarks").eq(1).type(pvData.remarks);
             cy.formController("transaction_date").click();
-            cy.wait(1000);
-            cy.contains(15).click();
+            cy.get('.ant-picker-dropdown')
+                .should('be.visible');
+            cy.get('.ant-picker-cell-in-view')
+                .not('.ant-picker-cell-disabled')
+                .first()
+                .click({ force: true });
             cy.wait(1000);
             cy.formController("ledger_id").type(pvData.ledger).type("{enter}");
             cy.wait(1000);
@@ -138,8 +162,12 @@ class PaymentVoucherCreation {
             cy.formController("voucher_name_en").type(pvData.voucherNameEn);
             cy.formController("voucher_name_bn").type(pvData.voucherNameBn);
             cy.formController("payment_date").click();
-            cy.wait(2000);
-            cy.contains(11).click();
+            cy.get('.ant-picker-dropdown')
+                .should('be.visible');
+            cy.get('.ant-picker-cell-in-view')
+                .not('.ant-picker-cell-disabled')
+                .first()
+                .click({ force: true });
             cy.wait(1000);
             cy.formController("remarks").eq(0).type(pvData.remarks);
             cy.formController("payment_mode").type(pvData.paymentMode).type("{enter}");
@@ -147,8 +175,12 @@ class PaymentVoucherCreation {
             cy.formController("amount").type(pvData.amount);
             cy.formController("remarks").eq(1).type(pvData.remarks);
             cy.formController("transaction_date").click();
-            cy.wait(1000);
-            cy.contains(15).click();
+            cy.get('.ant-picker-dropdown')
+                .should('be.visible');
+            cy.get('.ant-picker-cell-in-view')
+                .not('.ant-picker-cell-disabled')
+                .first()
+                .click({ force: true });
             cy.wait(1000);
             cy.formController("ledger_id").type(pvData.ledger).type("{enter}");
             cy.wait(1000);
@@ -168,8 +200,12 @@ class PaymentVoucherCreation {
             cy.formController("voucher_name_en").type(pvData.voucherNameEn);
             cy.formController("voucher_name_bn").type(pvData.voucherNameBn);
             cy.formController("payment_date").click();
-            cy.wait(2000);
-            cy.contains(11).click();
+            cy.get('.ant-picker-dropdown')
+                .should('be.visible');
+            cy.get('.ant-picker-cell-in-view')
+                .not('.ant-picker-cell-disabled')
+                .first()
+                .click({ force: true });
             cy.wait(1000);
             cy.formController("voucher_prepared_by").type(pvData.preparedBy).type("{enter}");
             cy.wait(1000);
@@ -178,8 +214,12 @@ class PaymentVoucherCreation {
             cy.formController("amount").type(pvData.amount);
             cy.formController("remarks").eq(1).type(pvData.remarks);
             cy.formController("transaction_date").click();
-            cy.wait(1000);
-            cy.contains(15).click();
+            cy.get('.ant-picker-dropdown')
+                .should('be.visible');
+            cy.get('.ant-picker-cell-in-view')
+                .not('.ant-picker-cell-disabled')
+                .first()
+                .click({ force: true });
             cy.wait(1000);
             cy.formController("ledger_id").type(pvData.ledger).type("{enter}");
             cy.wait(1000);
@@ -199,8 +239,12 @@ class PaymentVoucherCreation {
             cy.formController("voucher_name_en").type(pvData.voucherNameEn);
             cy.formController("voucher_name_bn").type(pvData.voucherNameBn);
             cy.formController("payment_date").click();
-            cy.wait(2000);
-            cy.contains(11).click();
+            cy.get('.ant-picker-dropdown')
+                .should('be.visible');
+            cy.get('.ant-picker-cell-in-view')
+                .not('.ant-picker-cell-disabled')
+                .first()
+                .click({ force: true });
             cy.wait(1000);
             cy.formController("voucher_prepared_by").type(pvData.preparedBy).type("{enter}");
             cy.wait(1000);
@@ -208,8 +252,12 @@ class PaymentVoucherCreation {
             cy.formController("amount").type(pvData.amount);
             cy.formController("remarks").eq(1).type(pvData.remarks);
             cy.formController("transaction_date").click();
-            cy.wait(1000);
-            cy.contains(15).click();
+            cy.get('.ant-picker-dropdown')
+                .should('be.visible');
+            cy.get('.ant-picker-cell-in-view')
+                .not('.ant-picker-cell-disabled')
+                .first()
+                .click({ force: true });
             cy.wait(1000);
             cy.formController("ledger_id").type(pvData.ledger).type("{enter}");
             cy.wait(1000);
@@ -229,8 +277,12 @@ class PaymentVoucherCreation {
             cy.formController("voucher_name_en").type(pvData.voucherNameEn);
             cy.formController("voucher_name_bn").type(pvData.voucherNameBn);
             cy.formController("payment_date").click();
-            cy.wait(2000);
-            cy.contains(11).click();
+            cy.get('.ant-picker-dropdown')
+                .should('be.visible');
+            cy.get('.ant-picker-cell-in-view')
+                .not('.ant-picker-cell-disabled')
+                .first()
+                .click({ force: true });
             cy.wait(1000);
             cy.formController("voucher_prepared_by").type(pvData.preparedBy).type("{enter}");
             cy.wait(1000);
@@ -239,9 +291,12 @@ class PaymentVoucherCreation {
             cy.wait(1000);
             cy.formController("remarks").eq(1).type(pvData.remarks);
             cy.formController("transaction_date").click();
-            cy.wait(1000);
-            cy.contains(15).click();
-            cy.wait(1000);
+            cy.get('.ant-picker-dropdown')
+                .should('be.visible');
+            cy.get('.ant-picker-cell-in-view')
+                .not('.ant-picker-cell-disabled')
+                .first()
+                .click({ force: true });
             cy.formController("ledger_id").type(pvData.ledger).type("{enter}");
             cy.wait(1000);
             cy.formController("remarks").eq(2).type(pvData.remarks1);
@@ -260,8 +315,12 @@ class PaymentVoucherCreation {
             cy.formController("voucher_name_en").type(pvData.voucherNameEn);
             cy.formController("voucher_name_bn").type(pvData.voucherNameBn);
             cy.formController("payment_date").click();
-            cy.wait(2000);
-            cy.contains(11).click();
+            cy.get('.ant-picker-dropdown')
+                .should('be.visible');
+            cy.get('.ant-picker-cell-in-view')
+                .not('.ant-picker-cell-disabled')
+                .first()
+                .click({ force: true });
             cy.wait(1000);
             cy.formController("voucher_prepared_by").type(pvData.preparedBy).type("{enter}");
             cy.wait(1000);
@@ -270,9 +329,12 @@ class PaymentVoucherCreation {
             cy.wait(1000);
             cy.formController("amount").type(pvData.amount);
             cy.formController("transaction_date").click();
-            cy.wait(1000);
-            cy.contains(15).click();
-            cy.wait(1000);
+            cy.get('.ant-picker-dropdown')
+                .should('be.visible');
+            cy.get('.ant-picker-cell-in-view')
+                .not('.ant-picker-cell-disabled')
+                .first()
+                .click({ force: true });
             cy.formController("ledger_id").type(pvData.ledger).type("{enter}");
             cy.wait(1000);
             cy.formController("remarks").eq(2).type(pvData.remarks1);
@@ -291,8 +353,12 @@ class PaymentVoucherCreation {
             cy.formController("voucher_name_en").type(pvData.voucherNameEn);
             cy.formController("voucher_name_bn").type(pvData.voucherNameBn);
             cy.formController("payment_date").click();
-            cy.wait(2000);
-            cy.contains(11).click();
+            cy.get('.ant-picker-dropdown')
+                .should('be.visible');
+            cy.get('.ant-picker-cell-in-view')
+                .not('.ant-picker-cell-disabled')
+                .first()
+                .click({ force: true });
             cy.wait(1000);
             cy.formController("voucher_prepared_by").type(pvData.preparedBy).type("{enter}");
             cy.wait(1000);
@@ -319,8 +385,12 @@ class PaymentVoucherCreation {
             cy.formController("voucher_name_en").type(pvData.voucherNameEn);
             cy.formController("voucher_name_bn").type(pvData.voucherNameBn);
             cy.formController("payment_date").click();
-            cy.wait(2000);
-            cy.contains(11).click();
+            cy.get('.ant-picker-dropdown')
+                .should('be.visible');
+            cy.get('.ant-picker-cell-in-view')
+                .not('.ant-picker-cell-disabled')
+                .first()
+                .click({ force: true });
             cy.wait(1000);
             cy.formController("voucher_prepared_by").type(pvData.preparedBy).type("{enter}");
             cy.wait(1000);
@@ -330,9 +400,12 @@ class PaymentVoucherCreation {
             cy.formController("amount").type(pvData.amount);
             cy.formController("remarks").eq(1).type(pvData.remarks);
             cy.formController("transaction_date").click();
-            cy.wait(1000);
-            cy.contains(15).click();
-            cy.wait(1000);
+            cy.get('.ant-picker-dropdown')
+                .should('be.visible');
+            cy.get('.ant-picker-cell-in-view')
+                .not('.ant-picker-cell-disabled')
+                .first()
+                .click({ force: true });
             cy.formController("remarks").eq(2).type(pvData.remarks1);
             cy.formController("transaction_amount").clear().type(pvData.amount);
             cy.imsId("btn-submit").click();
@@ -349,9 +422,12 @@ class PaymentVoucherCreation {
             cy.formController("voucher_name_en").type(pvData.voucherNameEn);
             cy.formController("voucher_name_bn").type(pvData.voucherNameBn);
             cy.formController("payment_date").click();
-            cy.wait(2000);
-            cy.contains(11).click();
-            cy.wait(1000);
+            cy.get('.ant-picker-dropdown')
+                .should('be.visible');
+            cy.get('.ant-picker-cell-in-view')
+                .not('.ant-picker-cell-disabled')
+                .first()
+                .click({ force: true });
             cy.formController("voucher_prepared_by").type(pvData.preparedBy).type("{enter}");
             cy.wait(1000);
             cy.formController("remarks").eq(0).type(pvData.remarks);
@@ -360,9 +436,12 @@ class PaymentVoucherCreation {
             cy.formController("amount").type(pvData.amount);
             cy.formController("remarks").eq(1).type(pvData.remarks);
             cy.formController("transaction_date").click();
-            cy.wait(1000);
-            cy.contains(15).click();
-            cy.wait(1000);
+            cy.get('.ant-picker-dropdown')
+                .should('be.visible');
+            cy.get('.ant-picker-cell-in-view')
+                .not('.ant-picker-cell-disabled')
+                .first()
+                .click({ force: true });
             cy.formController("ledger_id").type(pvData.ledger).type("{enter}");
             cy.wait(1000);
             cy.formController("transaction_amount").clear().type(pvData.amount);
@@ -380,9 +459,12 @@ class PaymentVoucherCreation {
             cy.formController("voucher_name_en").type(pvData.voucherNameEn);
             cy.formController("voucher_name_bn").type(pvData.voucherNameBn);
             cy.formController("payment_date").click();
-            cy.wait(2000);
-            cy.contains(11).click();
-            cy.wait(1000);
+            cy.get('.ant-picker-dropdown')
+                .should('be.visible');
+            cy.get('.ant-picker-cell-in-view')
+                .not('.ant-picker-cell-disabled')
+                .first()
+                .click({ force: true });
             cy.formController("voucher_prepared_by").type(pvData.preparedBy).type("{enter}");
             cy.wait(1000);
             cy.formController("remarks").eq(0).type(pvData.remarks);
@@ -391,9 +473,12 @@ class PaymentVoucherCreation {
             cy.formController("amount").type(pvData.amount);
             cy.formController("remarks").eq(1).type(pvData.remarks);
             cy.formController("transaction_date").click();
-            cy.wait(1000);
-            cy.contains(15).click();
-            cy.wait(1000);
+            cy.get('.ant-picker-dropdown')
+                .should('be.visible');
+            cy.get('.ant-picker-cell-in-view')
+                .not('.ant-picker-cell-disabled')
+                .first()
+                .click({ force: true });
             cy.formController("ledger_id").type(pvData.ledger).type("{enter}");
             cy.wait(1000);
             cy.formController("remarks").eq(2).type(pvData.remarks1);

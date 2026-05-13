@@ -26,9 +26,12 @@ class PaymentVoucherCreation {
             cy.formController("amount").type(pvData.amount);
             cy.formController("remarks").eq(1).type(pvData.remarks);
             cy.formController("transaction_date").click();
-            cy.wait(1000);
-            cy.contains(10).click();
-            cy.wait(1000);
+            cy.get('.ant-picker-dropdown')
+            .should('be.visible');
+            cy.get('.ant-picker-cell-in-view')
+            .not('.ant-picker-cell-disabled')
+            .first()
+            .click({ force: true });
             cy.formController("ledger_id").type(pvData.ledger).type("{enter}");
             cy.wait(1000);
             cy.formController("remarks").eq(2).type(pvData.remarks1);

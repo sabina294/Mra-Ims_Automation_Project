@@ -191,13 +191,6 @@
       "messageUpdateEmp": "Mfi employee has been updated"
     },
     "approveEmployeeFrom": {},
-    "gridEmpPromotionFrom": {
-      "newDepartment": "Board of Directors",
-      "newDesignation": "Assistant Manager",
-      "search": "MAHBUB",
-      "selectStatus": "Inactive",
-      "statusSelect": "Active"
-    },
     "rejectedEmployeeFrom": {
       "empNameEn": "Sabina Yeasmin",
       "empNameBn": "সাবিনা ইয়াসমিন",
@@ -219,6 +212,19 @@
       "rejectRemarks": "Reject",
       "messageSaveEmp": "Mfi employee has been saved",
       "messageUpdateEmp": "Mfi employee has been updated"
+    },
+    "gridEmpPromotionFrom": {
+      "newDepartment": "Board of Directors",
+      "newDesignation": "Assistant Manager",
+      "search": "MAHBUB",
+      "selectStatus": "Inactive",
+      "statusSelect": "Active"
+    },
+    "gridEmpTransferFrom": {
+      "search": "ABDUL RASHID",
+      "selectStatus": "Inactive",
+      "statusSelect": "Active",
+      "newOffice": "1004 (Dhaka Zonal Office)"
     },
     "createSamityFrom": {
       "samityNameEn": "Test Samity",

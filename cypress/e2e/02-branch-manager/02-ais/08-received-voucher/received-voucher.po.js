@@ -16,8 +16,12 @@ class ReceivedVoucherCreation {
             cy.formController("voucher_name_en").type(rvData.voucherNameEn);
             cy.formController("voucher_name_bn").type(rvData.voucherNameBn);
             cy.formController("received_date").click();
-            cy.wait(1000);
-            cy.contains(14).click();
+            cy.get('.ant-picker-dropdown')
+                .should('be.visible');
+            cy.get('.ant-picker-cell-in-view')
+                .not('.ant-picker-cell-disabled')
+                .first()
+                .click({ force: true });
             cy.formController("voucher_prepared_by").type(rvData.preparedBy).type("{enter}");
             cy.wait(1000);
             cy.formController("remarks").eq(0).type(rvData.remarks);
@@ -25,9 +29,12 @@ class ReceivedVoucherCreation {
             cy.formController("amount").type(rvData.amount);
             cy.formController("remarks").eq(1).type(rvData.remarks);
             cy.formController("transaction_date").click();
-            cy.wait(1000);
-            cy.contains(14).click();
-            cy.wait(1000);
+            cy.get('.ant-picker-dropdown')
+                .should('be.visible');
+            cy.get('.ant-picker-cell-in-view')
+                .not('.ant-picker-cell-disabled')
+                .first()
+                .click({ force: true });
             cy.formController("ledger_id").type(rvData.ledger).type("{enter}");
             cy.wait(1000);
             cy.formController("remarks").eq(2).type(rvData.remarks1);
@@ -45,8 +52,12 @@ class ReceivedVoucherCreation {
             cy.imsId("btn-add-new").click();
             cy.formController("voucher_name_bn").type(rvData.voucherNameBn);
             cy.formController("received_date").click();
-            cy.wait(1000);
-            cy.contains(14).click();
+            cy.get('.ant-picker-dropdown')
+                .should('be.visible');
+            cy.get('.ant-picker-cell-in-view')
+                .not('.ant-picker-cell-disabled')
+                .first()
+                .click({ force: true });
             cy.formController("voucher_prepared_by").type(rvData.preparedBy).type("{enter}");
             cy.wait(1000);
             cy.formController("remarks").eq(0).type(rvData.remarks);
@@ -54,9 +65,12 @@ class ReceivedVoucherCreation {
             cy.formController("amount").type(rvData.amount);
             cy.formController("remarks").eq(1).type(rvData.remarks);
             cy.formController("transaction_date").click();
-            cy.wait(1000);
-            cy.contains(14).click();
-            cy.wait(1000);
+            cy.get('.ant-picker-dropdown')
+                .should('be.visible');
+            cy.get('.ant-picker-cell-in-view')
+                .not('.ant-picker-cell-disabled')
+                .first()
+                .click({ force: true });
             cy.formController("ledger_id").type(rvData.ledger).type("{enter}");
             cy.wait(1000);
             cy.formController("remarks").eq(2).type(rvData.remarks1);
@@ -74,8 +88,12 @@ class ReceivedVoucherCreation {
             var rvData = data.branchManager.receivedVoucher;
             cy.formController("voucher_name_en").type(rvData.voucherNameEn);
             cy.formController("received_date").click();
-            cy.wait(1000);
-            cy.contains(14).click();
+            cy.get('.ant-picker-dropdown')
+                .should('be.visible');
+            cy.get('.ant-picker-cell-in-view')
+                .not('.ant-picker-cell-disabled')
+                .first()
+                .click({ force: true });
             cy.formController("voucher_prepared_by").type(rvData.preparedBy).type("{enter}");
             cy.wait(1000);
             cy.formController("remarks").eq(0).type(rvData.remarks);
@@ -83,9 +101,12 @@ class ReceivedVoucherCreation {
             cy.formController("amount").type(rvData.amount);
             cy.formController("remarks").eq(1).type(rvData.remarks);
             cy.formController("transaction_date").click();
-            cy.wait(1000);
-            cy.contains(14).click();
-            cy.wait(1000);
+            cy.get('.ant-picker-dropdown')
+                .should('be.visible');
+            cy.get('.ant-picker-cell-in-view')
+                .not('.ant-picker-cell-disabled')
+                .first()
+                .click({ force: true });
             cy.formController("ledger_id").type(rvData.ledger).type("{enter}");
             cy.wait(1000);
             cy.formController("remarks").eq(2).type(rvData.remarks1);
@@ -109,9 +130,12 @@ class ReceivedVoucherCreation {
             cy.formController("amount").type(rvData.amount);
             cy.formController("remarks").eq(1).type(rvData.remarks);
             cy.formController("transaction_date").click();
-            cy.wait(1000);
-            cy.contains(14).click();
-            cy.wait(1000);
+            cy.get('.ant-picker-dropdown')
+                .should('be.visible');
+            cy.get('.ant-picker-cell-in-view')
+                .not('.ant-picker-cell-disabled')
+                .first()
+                .click({ force: true });
             cy.formController("ledger_id").type(rvData.ledger).type("{enter}");
             cy.wait(1000);
             cy.formController("remarks").eq(2).type(rvData.remarks1);
@@ -130,16 +154,23 @@ class ReceivedVoucherCreation {
             cy.formController("voucher_name_en").type(rvData.voucherNameEn);
             cy.formController("voucher_name_bn").type(rvData.voucherNameBn);
             cy.formController("received_date").click();
-            cy.wait(1000);
-            cy.contains(14).click();
+            cy.get('.ant-picker-dropdown')
+                .should('be.visible');
+            cy.get('.ant-picker-cell-in-view')
+                .not('.ant-picker-cell-disabled')
+                .first()
+                .click({ force: true });
             cy.formController("remarks").eq(0).type(rvData.remarks);
             cy.formController("received_mode").type(rvData.paymentMode).type("{enter}");
             cy.formController("amount").type(rvData.amount);
             cy.formController("remarks").eq(1).type(rvData.remarks);
             cy.formController("transaction_date").click();
-            cy.wait(1000);
-            cy.contains(14).click();
-            cy.wait(1000);
+            cy.get('.ant-picker-dropdown')
+                .should('be.visible');
+            cy.get('.ant-picker-cell-in-view')
+                .not('.ant-picker-cell-disabled')
+                .first()
+                .click({ force: true });
             cy.formController("ledger_id").type(rvData.ledger).type("{enter}");
             cy.wait(1000);
             cy.formController("remarks").eq(2).type(rvData.remarks1);
@@ -158,17 +189,24 @@ class ReceivedVoucherCreation {
             cy.formController("voucher_name_en").type(rvData.voucherNameEn);
             cy.formController("voucher_name_bn").type(rvData.voucherNameBn);
             cy.formController("received_date").click();
-            cy.wait(1000);
-            cy.contains(14).click();
+            cy.get('.ant-picker-dropdown')
+                .should('be.visible');
+            cy.get('.ant-picker-cell-in-view')
+                .not('.ant-picker-cell-disabled')
+                .first()
+                .click({ force: true });
             cy.formController("voucher_prepared_by").type(rvData.preparedBy).type("{enter}");
             cy.wait(1000);
             cy.formController("received_mode").type(rvData.paymentMode).type("{enter}");
             cy.formController("amount").type(rvData.amount);
             cy.formController("remarks").eq(1).type(rvData.remarks);
             cy.formController("transaction_date").click();
-            cy.wait(1000);
-            cy.contains(14).click();
-            cy.wait(1000);
+            cy.get('.ant-picker-dropdown')
+                .should('be.visible');
+            cy.get('.ant-picker-cell-in-view')
+                .not('.ant-picker-cell-disabled')
+                .first()
+                .click({ force: true });
             cy.formController("ledger_id").type(rvData.ledger).type("{enter}");
             cy.wait(1000);
             cy.formController("remarks").eq(2).type(rvData.remarks1);
@@ -187,16 +225,23 @@ class ReceivedVoucherCreation {
             cy.formController("voucher_name_en").type(rvData.voucherNameEn);
             cy.formController("voucher_name_bn").type(rvData.voucherNameBn);
             cy.formController("received_date").click();
-            cy.wait(1000);
-            cy.contains(14).click();
+            cy.get('.ant-picker-dropdown')
+                .should('be.visible');
+            cy.get('.ant-picker-cell-in-view')
+                .not('.ant-picker-cell-disabled')
+                .first()
+                .click({ force: true });
             cy.formController("voucher_prepared_by").type(rvData.preparedBy).type("{enter}");
             cy.wait(1000);
             cy.formController("amount").type(rvData.amount);
             cy.formController("remarks").eq(1).type(rvData.remarks);
             cy.formController("transaction_date").click();
-            cy.wait(1000);
-            cy.contains(14).click();
-            cy.wait(1000);
+            cy.get('.ant-picker-dropdown')
+                .should('be.visible');
+            cy.get('.ant-picker-cell-in-view')
+                .not('.ant-picker-cell-disabled')
+                .first()
+                .click({ force: true });
             cy.formController("ledger_id").type(rvData.ledger).type("{enter}");
             cy.wait(1000);
             cy.formController("remarks").eq(2).type(rvData.remarks1);
@@ -214,16 +259,23 @@ class ReceivedVoucherCreation {
             cy.formController("voucher_name_en").type(rvData.voucherNameEn);
             cy.formController("voucher_name_bn").type(rvData.voucherNameBn);
             cy.formController("received_date").click();
-            cy.wait(1000);
-            cy.contains(14).click();
+            cy.get('.ant-picker-dropdown')
+                .should('be.visible');
+            cy.get('.ant-picker-cell-in-view')
+                .not('.ant-picker-cell-disabled')
+                .first()
+                .click({ force: true });
             cy.formController("voucher_prepared_by").type(rvData.preparedBy).type("{enter}");
             cy.wait(1000);
             cy.formController("received_mode").type(rvData.paymentMode).type("{enter}");
             cy.formController("remarks").eq(1).type(rvData.remarks);
             cy.formController("transaction_date").click();
-            cy.wait(1000);
-            cy.contains(14).click();
-            cy.wait(1000);
+            cy.get('.ant-picker-dropdown')
+                .should('be.visible');
+            cy.get('.ant-picker-cell-in-view')
+                .not('.ant-picker-cell-disabled')
+                .first()
+                .click({ force: true });
             cy.formController("ledger_id").type(rvData.ledger).type("{enter}");
             cy.wait(1000);
             cy.formController("remarks").eq(2).type(rvData.remarks1);
@@ -242,16 +294,23 @@ class ReceivedVoucherCreation {
             cy.formController("voucher_name_en").type(rvData.voucherNameEn);
             cy.formController("voucher_name_bn").type(rvData.voucherNameBn);
             cy.formController("received_date").click();
-            cy.wait(1000);
-            cy.contains(14).click();
+            cy.get('.ant-picker-dropdown')
+                .should('be.visible');
+            cy.get('.ant-picker-cell-in-view')
+                .not('.ant-picker-cell-disabled')
+                .first()
+                .click({ force: true });
             cy.formController("voucher_prepared_by").type(rvData.preparedBy).type("{enter}");
             cy.wait(1000);
             cy.formController("received_mode").type(rvData.paymentMode).type("{enter}");
             cy.formController("amount").type(rvData.amount);
             cy.formController("transaction_date").click();
-            cy.wait(1000);
-            cy.contains(14).click();
-            cy.wait(1000);
+            cy.get('.ant-picker-dropdown')
+                .should('be.visible');
+            cy.get('.ant-picker-cell-in-view')
+                .not('.ant-picker-cell-disabled')
+                .first()
+                .click({ force: true });
             cy.formController("ledger_id").type(rvData.ledger).type("{enter}");
             cy.wait(1000);
             cy.formController("remarks").eq(2).type(rvData.remarks1);
@@ -270,8 +329,12 @@ class ReceivedVoucherCreation {
             cy.formController("voucher_name_en").type(rvData.voucherNameEn);
             cy.formController("voucher_name_bn").type(rvData.voucherNameBn);
             cy.formController("received_date").click();
-            cy.wait(1000);
-            cy.contains(14).click();
+            cy.get('.ant-picker-dropdown')
+                .should('be.visible');
+            cy.get('.ant-picker-cell-in-view')
+                .not('.ant-picker-cell-disabled')
+                .first()
+                .click({ force: true });
             cy.formController("voucher_prepared_by").type(rvData.preparedBy).type("{enter}");
             cy.wait(1000);
             cy.formController("received_mode").type(rvData.paymentMode).type("{enter}");
@@ -294,17 +357,24 @@ class ReceivedVoucherCreation {
             cy.formController("voucher_name_en").type(rvData.voucherNameEn);
             cy.formController("voucher_name_bn").type(rvData.voucherNameBn);
             cy.formController("received_date").click();
-            cy.wait(1000);
-            cy.contains(14).click();
+            cy.get('.ant-picker-dropdown')
+                .should('be.visible');
+            cy.get('.ant-picker-cell-in-view')
+                .not('.ant-picker-cell-disabled')
+                .first()
+                .click({ force: true });
             cy.formController("voucher_prepared_by").type(rvData.preparedBy).type("{enter}");
             cy.wait(1000);
             cy.formController("received_mode").type(rvData.paymentMode).type("{enter}");
             cy.formController("amount").type(rvData.amount);
             cy.formController("remarks").eq(1).type(rvData.remarks);
             cy.formController("transaction_date").click();
-            cy.wait(1000);
-            cy.contains(14).click();
-            cy.wait(1000);
+            cy.get('.ant-picker-dropdown')
+                .should('be.visible');
+            cy.get('.ant-picker-cell-in-view')
+                .not('.ant-picker-cell-disabled')
+                .first()
+                .click({ force: true });
             cy.formController("remarks").eq(2).type(rvData.remarks1);
             cy.formController("transaction_amount").clear().type(rvData.amount);
             cy.imsId("btn-submit").click();
@@ -321,8 +391,12 @@ class ReceivedVoucherCreation {
             cy.formController("voucher_name_en").type(rvData.voucherNameEn);
             cy.formController("voucher_name_bn").type(rvData.voucherNameBn);
             cy.formController("received_date").click();
-            cy.wait(1000);
-            cy.contains(10).click();
+            cy.get('.ant-picker-dropdown')
+                .should('be.visible');
+            cy.get('.ant-picker-cell-in-view')
+                .not('.ant-picker-cell-disabled')
+                .first()
+                .click({ force: true });
             cy.formController("voucher_prepared_by").type(rvData.preparedBy).type("{enter}");
             cy.wait(1000);
             cy.formController("remarks").eq(0).type(rvData.remarks);
@@ -330,9 +404,12 @@ class ReceivedVoucherCreation {
             cy.formController("amount").type(rvData.amount);
             cy.formController("remarks").eq(1).type(rvData.remarks);
             cy.formController("transaction_date").click();
-            cy.wait(1000);
-            cy.contains(10).click();
-            cy.wait(1000);
+            cy.get('.ant-picker-dropdown')
+                .should('be.visible');
+            cy.get('.ant-picker-cell-in-view')
+                .not('.ant-picker-cell-disabled')
+                .first()
+                .click({ force: true });
             cy.formController("ledger_id").type(rvData.ledger).type("{enter}");
             cy.wait(1000);
             cy.formController("transaction_amount").clear().type(rvData.amount);
@@ -350,8 +427,12 @@ class ReceivedVoucherCreation {
             cy.formController("voucher_name_en").type(rvData.voucherNameEn);
             cy.formController("voucher_name_bn").type(rvData.voucherNameBn);
             cy.formController("received_date").click();
-            cy.wait(1000);
-            cy.contains(14).click();
+            cy.get('.ant-picker-dropdown')
+                .should('be.visible');
+            cy.get('.ant-picker-cell-in-view')
+                .not('.ant-picker-cell-disabled')
+                .first()
+                .click({ force: true });
             cy.formController("voucher_prepared_by").type(rvData.preparedBy).type("{enter}");
             cy.wait(1000);
             cy.formController("remarks").eq(0).type(rvData.remarks);
@@ -359,9 +440,12 @@ class ReceivedVoucherCreation {
             cy.formController("amount").type(rvData.amount);
             cy.formController("remarks").eq(1).type(rvData.remarks);
             cy.formController("transaction_date").click();
-            cy.wait(1000);
-            cy.contains(14).click();
-            cy.wait(1000);
+            cy.get('.ant-picker-dropdown')
+                .should('be.visible');
+            cy.get('.ant-picker-cell-in-view')
+                .not('.ant-picker-cell-disabled')
+                .first()
+                .click({ force: true });
             cy.formController("ledger_id").type(rvData.ledger).type("{enter}");
             cy.wait(1000);
             cy.formController("remarks").eq(2).type(rvData.remarks1);
