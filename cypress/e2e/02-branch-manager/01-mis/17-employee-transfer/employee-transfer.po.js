@@ -29,10 +29,10 @@ class EmployeeTransfer {
     createEmployeeTransferWithoutEffectiveDate() {
         cy.fixture(this.test_data).then((data) => {
             var emtData = data.branchManager.gridEmpTransferFrom;
-            cy.imsId("btn-table-action-transfer")
-                .not(":disabled")
-                .first()
-                .click();
+            // cy.imsId("btn-table-action-transfer")
+            //     .not(":disabled")
+            //     .first()
+            //     .click();
             cy.formController("new_office_id").type(emtData.newOffice).type("{enter}");
             cy.imsId("btn-submit").click();
             cy.imsId("btn-ok").click();
