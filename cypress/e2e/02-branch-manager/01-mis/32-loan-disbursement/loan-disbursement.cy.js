@@ -56,7 +56,6 @@ describe("32. Loan Disbursement Module Test Cases", function () {
 
     it("32.09. Verify successful loan disbursement from the grid list using the Disburse submit button", function () {
         create_loan_disbursement.loanDisburseSubmitButtonCheck();
-
     });
 
     it("32.10. Verify that the grid list content updates correctly when switching language from English to Bangla", function () {

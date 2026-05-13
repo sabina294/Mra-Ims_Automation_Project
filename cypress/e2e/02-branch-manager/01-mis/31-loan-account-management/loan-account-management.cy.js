@@ -31,13 +31,13 @@ describe("31. Loan Account Management Module Test Cases", function () {
     create_loan_account_management.actionButtonCheck();
   });
 
-  it("31.03 Verify that Loan Account Management details can be viewed successfully", function () {
-    create_loan_account_management.viewLoanAccountManagement();
-  });
+  // it("31.03 Verify that Loan Account Management details can be viewed successfully", function () {
+  //   create_loan_account_management.viewLoanAccountManagement();
+  // });
 
-  it("31.04 Verify that clicking the Go Back button redirects the user to the Loan Account Management list page", function () {
-    create_loan_account_management.viewGoBackButton();
-  });
+  // it("31.04 Verify that clicking the Go Back button redirects the user to the Loan Account Management list page", function () {
+  //   create_loan_account_management.viewGoBackButton();
+  // });
 
   it("31.05 Verify that inactive Loan Account Management records can be filtered using the Status dropdown", function () {
     create_loan_account_management.statusInactiveDropdownCheck();

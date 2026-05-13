@@ -29,13 +29,10 @@ class EmployeeTransfer {
     createEmployeeTransferWithoutEffectiveDate() {
         cy.fixture(this.test_data).then((data) => {
             var emtData = data.branchManager.gridEmpTransferFrom;
-            // cy.imsId("btn-table-action-transfer")
-            //     .not(":disabled")
-            //     .first()
-            //     .click();
             cy.formController("new_office_id").type(emtData.newOffice).type("{enter}");
             cy.imsId("btn-submit").click();
             cy.imsId("btn-ok").click();
+            cy.imsId("btn-reset").click();
             cy.log("Successfully created employee transfer effective date field check.");
         });
     }

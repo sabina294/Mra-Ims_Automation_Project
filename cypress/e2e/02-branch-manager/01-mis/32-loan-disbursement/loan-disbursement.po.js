@@ -55,7 +55,7 @@ class LoanDisbursement {
         cy.fixture(this.test_data).then(() => {
 
             cy.imsId("toggle-action").first().click();
-            cy.imsId("btn-table-action-view").click();
+            cy.imsId("btn-table-action-disburse").click();
             cy.imsId("btn-loan-disburse")
                 .scrollIntoView()
                 .should("exist")
