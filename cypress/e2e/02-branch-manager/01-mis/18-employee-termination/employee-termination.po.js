@@ -47,7 +47,7 @@ class EmployeeTermination {
         cy.imsId("btn-approve").click();
         cy.imsId("btn-submit").click();
         cy.imsId("btn-ok").click();
-        cy.log("Successfully approved employee promotion");
+        cy.log("Successfully approved employee termination");
     }
 
 

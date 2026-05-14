@@ -38,7 +38,12 @@ class SavingsProductCreation {
         .type(spData.intersetPostin)
         .type("{enter}");
       cy.formController("start_date").click();
-      cy.contains("14").click();
+      cy.get('.ant-picker-dropdown')
+        .should('be.visible');
+      cy.get('.ant-picker-cell-in-view')
+        .not('.ant-picker-cell-disabled')
+        .first()
+        .click({ force: true });
       cy.imsId("btn-submit").click();
       cy.imsId("btn-yes").click();
       cy.get("app-confirmation-modal")

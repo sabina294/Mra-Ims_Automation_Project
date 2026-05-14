@@ -226,6 +226,11 @@
       "statusSelect": "Active",
       "newOffice": "1004 (Dhaka Zonal Office)"
     },
+    "gridEmpTerminationFrom": {
+      "search": "AMER ALI",
+      "selectStatus": "Inactive",
+      "statusSelect": "Active"
+    },
     "createSamityFrom": {
       "samityNameEn": "Test Samity",
       "samityNameBn": "পরীক্ষা সমিতি",
@@ -282,7 +287,7 @@
       "messageSamityChange": "Samity has been updated"
     },
     "samityDayChangeFrom": {
-      "samityNameEn": "Majhail Mohila Samity",
+      "samityNameEn": "Katigram Mohila Samity",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
       "SelectOffice": "1020 (Ashulia)",
@@ -347,7 +352,7 @@
     },
     "memberSamityTransferFrom": {
       "memberNameEn": "Fariya",
-      "newSamityTransfer": "1028-101 (Barachala Mohila Samity)",
+      "newSamityTransfer": "1028-102 (Dalinagar Mohila Samity)",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
       "SelectOffice": "1019 (Amin Bazar)",
@@ -1657,11 +1662,12 @@
       "statusSelect": "Active"
     },
     "createSavingsAccApplicationMang": {
-      "office": "1019 (Amin Bazar)",
+      "office": "1020 (Ashulia)",
       "savingsProduct": "General Savings",
-      "samity": "1019-101 (Salepur Mohila Samity)",
-      "member": "4-1004 (Suraya Akter Karima)",
+      "samity": "1020-102 (Dholpur Mohila Samity)",
+      "member": "1-1001 (Jannat Islam)",
       "recoDepositAmount": "2000",
+      "openingBalance": "2000",
       "search": "Samia",
       "selectStatus": "Inactive",
       "statusSelect": "Active"
@@ -1690,7 +1696,7 @@
     },
     "gridStagingData": {
       "selectSamity": "1020-101 (Ashulia Mohila Samity)",
-      "selectEmployee": "GAIS UDDIN KHAN"
+      "selectFieldOfficer": "GAIS UDDIN KHAN"
     }
   }
 }

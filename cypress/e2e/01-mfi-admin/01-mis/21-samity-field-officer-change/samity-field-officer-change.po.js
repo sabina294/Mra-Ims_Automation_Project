@@ -32,6 +32,13 @@ class SamityChange {
     cy.log("Successful reset button check.");
   }
 
+   samityFieldOfficerChangeName() {
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-ok").click();
+      cy.log("Unsuccessful new field officer change field check.");
+  }
+
+
   samityChangeGoBack() {
     cy.imsId("btn-go-back").click();
     cy.log("Successful go back button check.");

@@ -27,23 +27,19 @@ describe("23. Staging Data Module Test Cases", function () {
     grid_staging_data.gridStagingDataListPage();
   });
 
-  // it("23.02. Verify Staging data generate List page loads successfully", function () {
-  //   grid_staging_data.startProcessStagingData();
-  // });
+  it("23.02. Verify Staging data dropdown select field officer List page loads successfully", function () {
+    grid_staging_data.selectFieldOfficer();
+  });
 
-  // it("23.03. Verify that the Refresh button works successfully", function () {
-  //   grid_staging_data.refreshButtonCheck();
-  // });
+  it("23.03. Verify Staging data dropdown select samity List page loads successfully", function () {
+    grid_staging_data.selectSamity();
+  });
 
-  // it("23.04. Verify that the Delete button works successfully", function () {
-  //   grid_staging_data.deleteButtonCheck();
-  // });
+  it("23.04. Verify that the Refresh button works successfully", function () {
+    grid_staging_data.refreshButtonCheck();
+  });
 
-  // it("23.05. Verify successful staging data Detail Page.", function () {
-  //   grid_staging_data.detailsListStagingData();
-  // });
-
-  it("23.06. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("23.05. Verify check that the grid list content changes correctly from english to bangla.", function () {
     grid_staging_data.gridLanguageSwitchCheck();
   });
 });

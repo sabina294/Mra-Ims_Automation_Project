@@ -11,14 +11,15 @@ class HolidayCreation {
   createHoliday() {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId("btn-add-new").click();
-      // cy.imsId("btn-submit").and("be.visible");
-
       var hData = data.fieldOfficer.createHoliday;
       cy.imsId("btn-add-new").click();
-      cy.formController("type").type(hData.holidayType).type("{enter}");
       cy.formController("end_date").click();
-      cy.contains("30").click({ force: true });
-      cy.wait(3000);
+      cy.get('.ant-picker-dropdown')
+        .should('be.visible');
+      cy.get('.ant-picker-cell-in-view')
+        .not('.ant-picker-cell-disabled')
+        .first()
+        .click({ force: true });
       cy.formController("holiday_title_bn").type(hData.holidayTitleBn);
       cy.formController("holiday_title_en").type(hData.holidayTitleEn);
       cy.imsId("btn-submit").click();

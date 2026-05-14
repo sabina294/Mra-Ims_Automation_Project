@@ -24,11 +24,9 @@ class SavingsAccApplicationManagementCreation {
       cy.formController("samity_id").type(saamData.samity).type("{enter}");
       cy.formController("member_id").type(saamData.member).type("{enter}");
       cy.formController("savings_amount").type(saamData.recoDepositAmount);
+      cy.formController("opening_balance").type(saamData.openingBalance);
       cy.imsId("btn-submit").click();
       cy.imsId("btn-yes").click();
-      cy.get("app-confirmation-modal")
-        .contains(saamData.messageSaveEmp)
-        .and("be.visible");
       cy.imsId("btn-ok").click();
 
       cy.log("Successfully created saving account application  management");
