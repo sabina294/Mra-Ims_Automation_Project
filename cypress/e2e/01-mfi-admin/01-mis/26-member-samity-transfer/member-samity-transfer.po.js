@@ -86,6 +86,13 @@ class MemberSamityTransfer {
 
   }
 
+  newSamityChangeName() {
+    cy.imsId("btn-submit").click();
+    cy.imsId("btn-ok").click();
+    cy.log("Successfully member samity transfer approve button check");
+
+  }
+
   transferGoBackButtonCheck() {
     cy.imsId("btn-go-back").click();
     cy.log("Successfully member samity transfer go back button check");
@@ -133,7 +140,7 @@ class MemberSamityTransfer {
     cy.log("Successful clean displaying.");
   }
 
-   gridSearchButtonCheck() {
+  gridSearchButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
       var mstData = data.mfiAdmin.memberSamityTransferFrom;
       cy.imsId("btn-reset").click();

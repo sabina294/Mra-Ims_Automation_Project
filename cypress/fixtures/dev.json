@@ -359,6 +359,13 @@
       "search": "Fariya",
       "messagesamityTransfer": "Member samity transfer has been updated"
     },
+    "memberAttendanceFrom": {
+      "SelectOffice": "1002 (Dhaka Regional Office)",
+      "search": "Abdullapur Mohila Samity",
+      "office":"1019 (Amin Bazar)",
+      "samity":"1019-101 (Salepur Mohila Samity)",
+      "member":"2-1002 (Samia)"
+    },
     "memberPassbookFrom": {
       "office": "1019 (Amin Bazar)",
       "samity": "1019-101 (Salepur Mohila Samity)",

@@ -22,15 +22,15 @@ describe("25. Rejected Member Module Test Cases", function () {
     cy.logout();
   });
 
-  it("25.01.  Verify a new rejected member record is created successfully when all required fields are filled with valid data", function () {
+  it("25.01. Verify that a new rejected member record is created successfully when all required fields are filled with valid data.", function () {
     create_rejected_member.createRejectedMember();
   });
 
-  it("25.02. Verify mfi-admin to successfully approve an rejected member record after creation. ", function () {
+  it("25.02. Verify that the MFI Admin can successfully approve a rejected member record after creation.", function () {
     create_rejected_member.myTaskRejectedMember();
   });
 
-  it("25.03. Verify successfully performs the action when the action button is clicked.", function () {
+  it("25.03. Verify that the appropriate action is performed successfully when the action button is clicked.", function () {
     create_rejected_member.actionButtonCheck();
   });
 
@@ -38,51 +38,51 @@ describe("25. Rejected Member Module Test Cases", function () {
     create_rejected_member.searchInRejectMemberName();
   });
 
-  it("25.05. Verify the user can successfully view the rejected member information, including the name and description.", function () {
-    create_rejected_member.viewRrejectedMember();
+  it("25.05. Verify that the user can successfully view rejected member information, including the member name and description.", function () {
+    create_rejected_member.viewRejectedMember();
   });
 
-  it("25.06. Verify that clicking the go back button on the rejected member view page redirects the user to the rejected member list page.", function () {
+  it("25.06. Verify that clicking the Go Back button on the rejected member view page redirects the user to the rejected member list page.", function () {
     create_rejected_member.viewGoBackButton();
   });
 
-  it("25.07. Verify the user can filter rejected member records using the status dropdown on the rejected member List page.", function () {
+  it("25.07. Verify that the user can filter rejected member records using the status dropdown on the rejected member list page.", function () {
     create_rejected_member.statusOfficeDropdownCheck();
   });
 
-  it("25.08. Verify the rejected member edit reset button functions correctly.", function () {
+  it("25.08. Verify that the rejected member edit reset button functions correctly.", function () {
     create_rejected_member.editResetButton();
   });
 
-  it("25.09. Verify that clicking the go back button on the rejected member edit page redirects the user to the rejected member list page.", function () {
+  it("25.09. Verify that clicking the Go Back button on the rejected member edit page redirects the user to the rejected member list page.", function () {
     create_rejected_member.editGoBackButton();
   });
 
-  it("25.10. Verify editing functionality for rejected member record by MFI-Admin role", function () {
-    create_rejected_member.editRrejectedMember();
+  it("25.10. Verify the editing functionality of a rejected member record by the MFI Admin role.", function () {
+    create_rejected_member.editRejectedMember();
   });
 
-  it("25.11. Verify that the search results are displayed correctly when searching by rejected member name.", function () {
+  it("25.11. Verify that the search results are displayed correctly when searching by rejected member name after editing.", function () {
     create_rejected_member.searchInRejectMemberName();
   });
 
-  it("25.12. Verify the grid list resets successfully when the reset button is clicked on the rejected member page", function () {
+  it("25.12. Verify that the grid list resets successfully when the Reset button is clicked on the rejected member page.", function () {
     create_rejected_member.gridResetButtonCheck();
   });
 
-  it("25.13. Verify that when the user clicks the Search button on the rejected member grid page, the system redirects to the rejected member List page..", function () {
+  it("25.13. Verify that clicking the Search button on the rejected member grid page redirects the user to the rejected member list page.", function () {
     create_rejected_member.gridSearchButtonCheck();
   });
 
-  it("25.14. Verify a new rejected member record is created successfully when all required fields are filled with valid data", function () {
+  it("25.14. Verify that the rejected member grid page refresh button functions correctly.", function () {
     create_rejected_member.gridRefreshButtonCheck();
   });
 
-  it("25.15. Verify check that the rejected member  office selection works correctly from the dropdown on the samity list page.", function () {
-    create_rejected_member.selectofficeDropdown();
+  it("25.15. Verify that the office selection works correctly from the office dropdown on the rejected member list page.", function () {
+    create_rejected_member.selectOfficeDropdown();
   });
 
-  it("25.16. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("25.16. Verify that the grid list content changes correctly from English to Bangla.", function () {
     create_rejected_member.gridLanguageSwitchCheck();
   });
 });

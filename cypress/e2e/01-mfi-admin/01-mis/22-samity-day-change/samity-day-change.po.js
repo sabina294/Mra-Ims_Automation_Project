@@ -86,6 +86,12 @@ class SamityDayChange {
     cy.log("Successful reset button check.");
   }
 
+  newSamityDayChangeName() {
+    cy.imsId("btn-submit").click();
+    cy.imsId("btn-ok").click();
+    cy.log("Unsuccessful new samity day change button check.");
+  }
+
   samityChangeGoBack() {
     cy.imsId("btn-go-back").click();
     cy.log("Successful go back button check.");
