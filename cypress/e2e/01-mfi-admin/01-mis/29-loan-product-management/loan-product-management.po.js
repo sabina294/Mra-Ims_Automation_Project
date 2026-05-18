@@ -86,8 +86,430 @@ class LoanProductManagementCreation {
       cy.formController("service_charge_rate").type(lpData.serviceCharge);
       cy.imsId("btn-submit").click();
       cy.imsId("btn-ok").click();
-      cy.imsId("btn-go-back").click();
+      cy.imsId("btn-reset").click();
 
+      cy.log("Successfully created loan product management");
+    });
+  }
+
+  createWithoutMFIProgramID() {
+    cy.fixture(this.test_data).then((data) => {
+      var lpData = data.mfiAdmin.loanProductFrom;
+      cy.formController("office_id_list").click();
+      cy.get(".cdk-overlay-pane nz-option-item")
+        .should("have.length.greaterThan", 0)
+        .each(($el) => {
+          if ($el.text().includes(lpData.office)) {
+            cy.wrap($el).click();
+            return false; // stop loop
+          }
+        });
+      cy.wait(2000);
+      cy.formController("loan_product_name_en").type(lpData.loanProductNameEn);
+      cy.formController("loan_product_name_bn").type(lpData.loanProductNameBn);
+      cy.formController("product_nature")
+        .type(lpData.productNature)
+        .type("{enter}");
+      cy.formController("loan_type_id").type(lpData.loanType).type("{enter}");
+      cy.formController("repayment_frequency")
+        .type(lpData.repaymentFrequency)
+        .type("{enter}");
+      cy.formController("min_loan_amount").type(lpData.minimumLoanAmount);
+      cy.formController("max_loan_amount").type(lpData.maximumLoanAmount);
+      cy.formController("min_installment_no").type(lpData.minimuminstallment);
+      cy.formController("default_installment_no").type(
+        lpData.defaultInstallment
+      );
+      cy.formController("max_installment_no").type(lpData.maximumInstallment);
+      cy.formController("interest_calc_method")
+        .type(lpData.interestCalculationRate)
+        .type("{enter}");
+      cy.formController("service_charge_rate").type(lpData.serviceCharge);
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-ok").click();
+      cy.imsId("btn-reset").click();
+
+      cy.log("Successfully created loan product management");
+    });
+  }
+
+  createWithoutLoanProductNameEnglish() {
+    cy.fixture(this.test_data).then((data) => {
+      var lpData = data.mfiAdmin.loanProductFrom;
+      cy.formController("office_id_list").click();
+      cy.get(".cdk-overlay-pane nz-option-item")
+        .should("have.length.greaterThan", 0)
+        .each(($el) => {
+          if ($el.text().includes(lpData.office)) {
+            cy.wrap($el).click();
+            return false; // stop loop
+          }
+        });
+      cy.wait(2000);
+      cy.formController("mfi_program_id")
+        .type(lpData.mfiProgram)
+        .type("{enter}");
+      cy.formController("loan_product_name_bn").type(lpData.loanProductNameBn);
+      cy.formController("product_nature")
+        .type(lpData.productNature)
+        .type("{enter}");
+      cy.formController("loan_type_id").type(lpData.loanType).type("{enter}");
+      cy.formController("repayment_frequency")
+        .type(lpData.repaymentFrequency)
+        .type("{enter}");
+      cy.formController("min_loan_amount").type(lpData.minimumLoanAmount);
+      cy.formController("max_loan_amount").type(lpData.maximumLoanAmount);
+      cy.formController("min_installment_no").type(lpData.minimuminstallment);
+      cy.formController("default_installment_no").type(
+        lpData.defaultInstallment
+      );
+      cy.formController("max_installment_no").type(lpData.maximumInstallment);
+      cy.formController("interest_calc_method")
+        .type(lpData.interestCalculationRate)
+        .type("{enter}");
+      cy.formController("service_charge_rate").type(lpData.serviceCharge);
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-ok").click();
+      cy.imsId("btn-reset").click();
+
+      cy.log("Successfully created loan product management");
+    });
+  }
+
+  createWithoutLoanProductNameBangla() {
+    cy.fixture(this.test_data).then((data) => {
+      var lpData = data.mfiAdmin.loanProductFrom;
+      cy.formController("office_id_list").click();
+      cy.get(".cdk-overlay-pane nz-option-item")
+        .should("have.length.greaterThan", 0)
+        .each(($el) => {
+          if ($el.text().includes(lpData.office)) {
+            cy.wrap($el).click();
+            return false; // stop loop
+          }
+        });
+      cy.wait(2000);
+      cy.formController("mfi_program_id")
+        .type(lpData.mfiProgram)
+        .type("{enter}");
+      cy.formController("loan_product_name_en").type(lpData.loanProductNameEn);
+      cy.formController("product_nature")
+        .type(lpData.productNature)
+        .type("{enter}");
+      cy.formController("loan_type_id").type(lpData.loanType).type("{enter}");
+      cy.formController("repayment_frequency")
+        .type(lpData.repaymentFrequency)
+        .type("{enter}");
+      cy.formController("min_loan_amount").type(lpData.minimumLoanAmount);
+      cy.formController("max_loan_amount").type(lpData.maximumLoanAmount);
+      cy.formController("min_installment_no").type(lpData.minimuminstallment);
+      cy.formController("default_installment_no").type(
+        lpData.defaultInstallment
+      );
+      cy.formController("max_installment_no").type(lpData.maximumInstallment);
+      cy.formController("interest_calc_method")
+        .type(lpData.interestCalculationRate)
+        .type("{enter}");
+      cy.formController("service_charge_rate").type(lpData.serviceCharge);
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-ok").click();
+      cy.imsId("btn-reset").click();
+
+      cy.log("Successfully created loan product management");
+    });
+  }
+
+  createWithoutProductNature() {
+    cy.fixture(this.test_data).then((data) => {
+      var lpData = data.mfiAdmin.loanProductFrom;
+      cy.formController("office_id_list").click();
+      cy.get(".cdk-overlay-pane nz-option-item")
+        .should("have.length.greaterThan", 0)
+        .each(($el) => {
+          if ($el.text().includes(lpData.office)) {
+            cy.wrap($el).click();
+            return false; // stop loop
+          }
+        });
+      cy.wait(2000);
+      cy.formController("mfi_program_id")
+        .type(lpData.mfiProgram)
+        .type("{enter}");
+      cy.formController("loan_product_name_en").type(lpData.loanProductNameEn);
+      cy.formController("loan_product_name_bn").type(lpData.loanProductNameBn);
+      cy.formController("loan_type_id").type(lpData.loanType).type("{enter}");
+      cy.formController("repayment_frequency")
+        .type(lpData.repaymentFrequency)
+        .type("{enter}");
+      cy.formController("min_loan_amount").type(lpData.minimumLoanAmount);
+      cy.formController("max_loan_amount").type(lpData.maximumLoanAmount);
+      cy.formController("min_installment_no").type(lpData.minimuminstallment);
+      cy.formController("default_installment_no").type(
+        lpData.defaultInstallment
+      );
+      cy.formController("max_installment_no").type(lpData.maximumInstallment);
+      cy.formController("interest_calc_method")
+        .type(lpData.interestCalculationRate)
+        .type("{enter}");
+      cy.formController("service_charge_rate").type(lpData.serviceCharge);
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-ok").click();
+      cy.imsId("btn-reset").click();
+
+      cy.log("Successfully created loan product management");
+    });
+  }
+
+  createWithoutLoanTypeID() {
+    cy.fixture(this.test_data).then((data) => {
+      var lpData = data.mfiAdmin.loanProductFrom;
+      cy.formController("office_id_list").click();
+      cy.get(".cdk-overlay-pane nz-option-item")
+        .should("have.length.greaterThan", 0)
+        .each(($el) => {
+          if ($el.text().includes(lpData.office)) {
+            cy.wrap($el).click();
+            return false; // stop loop
+          }
+        });
+      cy.wait(2000);
+      cy.formController("mfi_program_id")
+        .type(lpData.mfiProgram)
+        .type("{enter}");
+      cy.formController("loan_product_name_en").type(lpData.loanProductNameEn);
+      cy.formController("loan_product_name_bn").type(lpData.loanProductNameBn);
+      cy.formController("product_nature")
+        .type(lpData.productNature)
+        .type("{enter}");
+      cy.formController("repayment_frequency")
+        .type(lpData.repaymentFrequency)
+        .type("{enter}");
+      cy.formController("min_loan_amount").type(lpData.minimumLoanAmount);
+      cy.formController("max_loan_amount").type(lpData.maximumLoanAmount);
+      cy.formController("min_installment_no").type(lpData.minimuminstallment);
+      cy.formController("default_installment_no").type(
+        lpData.defaultInstallment
+      );
+      cy.formController("max_installment_no").type(lpData.maximumInstallment);
+      cy.formController("interest_calc_method")
+        .type(lpData.interestCalculationRate)
+        .type("{enter}");
+      cy.formController("service_charge_rate").type(lpData.serviceCharge);
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-ok").click();
+      cy.imsId("btn-reset").click();
+
+      cy.log("Successfully created loan product management");
+    });
+  }
+
+  createWithoutRepaymentFrequency() {
+    cy.fixture(this.test_data).then((data) => {
+      var lpData = data.mfiAdmin.loanProductFrom;
+      cy.formController("office_id_list").click();
+      cy.get(".cdk-overlay-pane nz-option-item")
+        .should("have.length.greaterThan", 0)
+        .each(($el) => {
+          if ($el.text().includes(lpData.office)) {
+            cy.wrap($el).click();
+            return false; // stop loop
+          }
+        });
+      cy.wait(2000);
+      cy.formController("mfi_program_id")
+        .type(lpData.mfiProgram)
+        .type("{enter}");
+      cy.formController("loan_product_name_en").type(lpData.loanProductNameEn);
+      cy.formController("loan_product_name_bn").type(lpData.loanProductNameBn);
+      cy.formController("product_nature")
+        .type(lpData.productNature)
+        .type("{enter}");
+      cy.formController("loan_type_id").type(lpData.loanType).type("{enter}");
+      cy.formController("min_loan_amount").type(lpData.minimumLoanAmount);
+      cy.formController("max_loan_amount").type(lpData.maximumLoanAmount);
+      cy.formController("min_installment_no").type(lpData.minimuminstallment);
+      cy.formController("default_installment_no").type(
+        lpData.defaultInstallment
+      );
+      cy.formController("max_installment_no").type(lpData.maximumInstallment);
+      cy.formController("interest_calc_method")
+        .type(lpData.interestCalculationRate)
+        .type("{enter}");
+      cy.formController("service_charge_rate").type(lpData.serviceCharge);
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-ok").click();
+      cy.imsId("btn-reset").click();
+
+      cy.log("Successfully created loan product management");
+    });
+  }
+
+  createWithoutMinimumLoanAmount() {
+    cy.fixture(this.test_data).then((data) => {
+      var lpData = data.mfiAdmin.loanProductFrom;
+      cy.formController("office_id_list").click();
+      cy.get(".cdk-overlay-pane nz-option-item")
+        .should("have.length.greaterThan", 0)
+        .each(($el) => {
+          if ($el.text().includes(lpData.office)) {
+            cy.wrap($el).click();
+            return false; // stop loop
+          }
+        });
+      cy.wait(2000);
+      cy.formController("mfi_program_id")
+        .type(lpData.mfiProgram)
+        .type("{enter}");
+      cy.formController("loan_product_name_en").type(lpData.loanProductNameEn);
+      cy.formController("loan_product_name_bn").type(lpData.loanProductNameBn);
+      cy.formController("product_nature")
+        .type(lpData.productNature)
+        .type("{enter}");
+      cy.formController("loan_type_id").type(lpData.loanType).type("{enter}");
+      cy.formController("repayment_frequency")
+        .type(lpData.repaymentFrequency)
+        .type("{enter}");
+      cy.formController("max_loan_amount").type(lpData.maximumLoanAmount);
+      cy.formController("min_installment_no").type(lpData.minimuminstallment);
+      cy.formController("default_installment_no").type(
+        lpData.defaultInstallment
+      );
+      cy.formController("max_installment_no").type(lpData.maximumInstallment);
+      cy.formController("interest_calc_method")
+        .type(lpData.interestCalculationRate)
+        .type("{enter}");
+      cy.formController("service_charge_rate").type(lpData.serviceCharge);
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-ok").click();
+      cy.imsId("btn-reset").click();
+      cy.log("Successfully created loan product management");
+    });
+  }
+
+  createWithoutMaximumLoanAmount() {
+    cy.fixture(this.test_data).then((data) => {
+      var lpData = data.mfiAdmin.loanProductFrom;
+      cy.formController("office_id_list").click();
+      cy.get(".cdk-overlay-pane nz-option-item")
+        .should("have.length.greaterThan", 0)
+        .each(($el) => {
+          if ($el.text().includes(lpData.office)) {
+            cy.wrap($el).click();
+            return false; // stop loop
+          }
+        });
+      cy.wait(2000);
+      cy.formController("mfi_program_id")
+        .type(lpData.mfiProgram)
+        .type("{enter}");
+      cy.formController("loan_product_name_en").type(lpData.loanProductNameEn);
+      cy.formController("loan_product_name_bn").type(lpData.loanProductNameBn);
+      cy.formController("product_nature")
+        .type(lpData.productNature)
+        .type("{enter}");
+      cy.formController("loan_type_id").type(lpData.loanType).type("{enter}");
+      cy.formController("repayment_frequency")
+        .type(lpData.repaymentFrequency)
+        .type("{enter}");
+      cy.formController("min_loan_amount").type(lpData.minimumLoanAmount);
+      cy.formController("min_installment_no").type(lpData.minimuminstallment);
+      cy.formController("default_installment_no").type(
+        lpData.defaultInstallment
+      );
+      cy.formController("max_installment_no").type(lpData.maximumInstallment);
+      cy.formController("interest_calc_method")
+        .type(lpData.interestCalculationRate)
+        .type("{enter}");
+      cy.formController("service_charge_rate").type(lpData.serviceCharge);
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-ok").click();
+      cy.imsId("btn-reset").click();
+
+      cy.log("Successfully created loan product management");
+    });
+  }
+
+  createWithoutInterestCalculationMethod() {
+    cy.fixture(this.test_data).then((data) => {
+      var lpData = data.mfiAdmin.loanProductFrom;
+      cy.formController("office_id_list").click();
+      cy.get(".cdk-overlay-pane nz-option-item")
+        .should("have.length.greaterThan", 0)
+        .each(($el) => {
+          if ($el.text().includes(lpData.office)) {
+            cy.wrap($el).click();
+            return false; // stop loop
+          }
+        });
+      cy.wait(2000);
+      cy.formController("mfi_program_id")
+        .type(lpData.mfiProgram)
+        .type("{enter}");
+      cy.formController("loan_product_name_en").type(lpData.loanProductNameEn);
+      cy.formController("loan_product_name_bn").type(lpData.loanProductNameBn);
+      cy.formController("product_nature")
+        .type(lpData.productNature)
+        .type("{enter}");
+      cy.formController("loan_type_id").type(lpData.loanType).type("{enter}");
+      cy.formController("repayment_frequency")
+        .type(lpData.repaymentFrequency)
+        .type("{enter}");
+      cy.formController("min_loan_amount").type(lpData.minimumLoanAmount);
+      cy.formController("max_loan_amount").type(lpData.maximumLoanAmount);
+      cy.formController("default_installment_no").type(
+        lpData.defaultInstallment
+      );
+      cy.formController("max_installment_no").type(lpData.maximumInstallment);
+      cy.formController("interest_calc_method")
+        .type(lpData.interestCalculationRate)
+        .type("{enter}");
+      cy.formController("service_charge_rate").type(lpData.serviceCharge);
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-ok").click();
+      cy.imsId("btn-reset").click();
+
+      cy.log("Successfully created loan product management");
+    });
+  }
+
+  createWithoutServiceChargeRate() {
+    cy.fixture(this.test_data).then((data) => {
+      var lpData = data.mfiAdmin.loanProductFrom;
+      cy.formController("office_id_list").click();
+      cy.get(".cdk-overlay-pane nz-option-item")
+        .should("have.length.greaterThan", 0)
+        .each(($el) => {
+          if ($el.text().includes(lpData.office)) {
+            cy.wrap($el).click();
+            return false; // stop loop
+          }
+        });
+      cy.wait(2000);
+      cy.formController("mfi_program_id")
+        .type(lpData.mfiProgram)
+        .type("{enter}");
+      cy.formController("loan_product_name_en").type(lpData.loanProductNameEn);
+      cy.formController("loan_product_name_bn").type(lpData.loanProductNameBn);
+      cy.formController("product_nature")
+        .type(lpData.productNature)
+        .type("{enter}");
+      cy.formController("loan_type_id").type(lpData.loanType).type("{enter}");
+      cy.formController("repayment_frequency")
+        .type(lpData.repaymentFrequency)
+        .type("{enter}");
+      cy.formController("min_loan_amount").type(lpData.minimumLoanAmount);
+      cy.formController("max_loan_amount").type(lpData.maximumLoanAmount);
+      cy.formController("min_installment_no").type(lpData.minimuminstallment);
+      cy.formController("default_installment_no").type(
+        lpData.defaultInstallment
+      );
+      cy.formController("max_installment_no").type(lpData.maximumInstallment);
+      cy.formController("interest_calc_method")
+        .type(lpData.interestCalculationRate)
+        .type("{enter}");
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-ok").click();
+      cy.imsId("btn-go-back").click();
       cy.log("Successfully created loan product management");
     });
   }
@@ -131,7 +553,6 @@ class LoanProductManagementCreation {
     cy.imsId("btn-go-back").click();
     cy.log("Successful go back button working");
   }
-
 
   editResetButton() {
     cy.imsId("toggle-action").first().click();
@@ -238,8 +659,9 @@ class LoanProductManagementCreation {
   gridLanguageSwitchCheck() {
     cy.imsId("profile-menu").click();
     cy.imsId("btn-lang-bangla").click();
-    cy.log("Unsccessful switch bangla language check.");
+    cy.log("Successful switch to bangla language check.");
   }
+
 }
 
 export const create_loan_product_management =
