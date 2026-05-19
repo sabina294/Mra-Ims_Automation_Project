@@ -35,13 +35,13 @@ describe("12. Loan Account Proposal Management Module Test Cases", function () {
     create_loan_account_proposal_management.actionButtonCheck();
   });
 
-  // it("12.04. Verify successful Loan Account Proposal Management  information View.", function () {
-  //   create_loan_account_proposal_management.viewLoanAccountProposalManagement();
-  // });
+  it("12.04. Verify successful Loan Account Proposal Management  information View.", function () {
+    create_loan_account_proposal_management.viewLoanAccountProposalManagement();
+  });
 
-  // it("12.05. Verify that clicking the go back button on the loan account proposal management view page redirects the user to the loan account proposal management list page.", function () {
-  //   create_loan_account_proposal_management.viewGoBackButton();
-  // });
+  it("12.05. Verify that clicking the go back button on the loan account proposal management view page redirects the user to the loan account proposal management list page.", function () {
+    create_loan_account_proposal_management.viewGoBackButton();
+  });
 
   it("12.06. Verify that the user can filter the inactive Loan Account Proposal Management s using the Status Dropdown on the Loan Account Proposal Management  List page.", function () {
     create_loan_account_proposal_management.statusInactiveDropdownCheck();
