@@ -1,3 +1,7 @@
+import messages from "../../../../support/constants/messages";
+import { GRID } from "../../../../support/constants/selectors";
+// import * as SELECTORS from "../../../../support/constants/selectors";
+
 class EmployeeManagementCreation {
   test_data = Cypress.env("TEST_DATA");
 
@@ -122,7 +126,9 @@ class EmployeeManagementCreation {
       cy.imsId("btn-table-action-edit").click();
       cy.imsId("btn-reset").click();
 
-      cy.log("Successful clean displaying");
+      // cy.log("Successful clean displaying");
+      cy.log(messages.ui.resetSuccess);
+
     });
   }
 
@@ -207,11 +213,16 @@ class EmployeeManagementCreation {
   }
 
   gridDraftButton() {
-    cy.imsId("btn-draft-on").click();
+    cy.imsId(GRID.BUTTONS.DRAFT_ON).click();
     cy.log("Draft button should be clickable and functional.");
   }
 
-  gridDraftButtonOff() {
+  // gridDraftButton() {
+  //   cy.imsId("btn-draft-on").click();
+  //   cy.log("Draft button should be clickable and functional.");
+  // }
+
+  gridDraftButtonOff() {s
     cy.imsId("btn-draft-on").click();
     cy.log("Draft button should be clickable and functional.");
   }
