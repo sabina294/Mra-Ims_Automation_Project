@@ -1,3 +1,5 @@
+import messages from "../../../../support/constants/messages";
+import { GRID } from "../../../../support/constants/selectors";
 class SamityClose {
   test_data = Cypress.env("TEST_DATA");
 
@@ -8,7 +10,7 @@ class SamityClose {
     });
   }
 
-   samityClose() {
+  samityClose() {
     cy.fixture(this.test_data).then((data) => {
       var scData = data.branchManager.samityCloseFrom;
       cy.formController("search_text").type(scData.samityNameEn);
@@ -53,7 +55,7 @@ class SamityClose {
     });
   }
 
-   viewGoBackButton() {
+  viewGoBackButton() {
     cy.imsId("btn-go-back").click();
 
     cy.log("Successfully view go back the Samity close list page");
@@ -101,7 +103,7 @@ class SamityClose {
     );
   }
 
-   gridSearchButtonCheck() {
+  gridSearchButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
       var scData = data.branchManager.samityCloseFrom;
       cy.imsId("btn-reset").click();
@@ -112,13 +114,15 @@ class SamityClose {
   }
 
   gridDraftButton() {
-    cy.imsId("btn-draft-on").click();
-    cy.log("Draft button should be clickable and functional.");
+    cy.imsId(GRID.BUTTONS.DRAFT_ON)
+      .check({ force: true });
+    cy.log(messages.ui.draftOnMessage);
   }
 
   gridDraftButtonOff() {
-    cy.imsId("btn-draft-on").click();
-    cy.log("Draft button should be clickable and functional.");
+    cy.imsId(GRID.BUTTONS.DRAFT_OFF)
+      .uncheck({ force: true });
+    cy.log(messages.ui.draftOffMessage);
   }
 
   gridLanguageSwitchCheck() {

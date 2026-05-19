@@ -1,3 +1,5 @@
+import messages from "../../../../support/constants/messages";
+import { GRID } from "../../../../support/constants/selectors";
 class SamityChange {
   test_data = Cypress.env("TEST_DATA");
 
@@ -8,7 +10,7 @@ class SamityChange {
     });
   }
 
-   changeResetButtonCheck() {
+  changeResetButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
       var smData = data.branchManager.samityChangeFrom;
       cy.imsId("toggle-action").first().click();
@@ -36,28 +38,28 @@ class SamityChange {
     cy.log("Successfully samity day change go back button check");
   }
 
-samityChange() {
-  cy.fixture(this.test_data).then((data) => {
-    const smData = data.branchManager.samityChangeFrom;
-    cy.imsId("btn-reset").click();
-    cy.formController("search_text").clear().type(smData.samityNameEn);
-    cy.imsId("btn-search").click();
-    cy.imsId("toggle-action").first().click();
-    cy.imsId("btn-mis-table-action-change").click();
-    cy.formController("field_officer_id").click();
-    cy.wait(500);
-    cy.get('.ant-select-item-option')
-      .contains(smData.fieldOfficerName)
-      .click();
-    cy.imsId("btn-submit").click();
-    cy.imsId("btn-yes").click();
-    cy.get("app-confirmation-modal")
-      .should("be.visible")
-      .and("contain", smData.messageSamityChange);
-    cy.imsId("btn-ok").click();
-    cy.log("Successfully field officer changed for samity");
-  });
-}
+  samityChange() {
+    cy.fixture(this.test_data).then((data) => {
+      const smData = data.branchManager.samityChangeFrom;
+      cy.imsId("btn-reset").click();
+      cy.formController("search_text").clear().type(smData.samityNameEn);
+      cy.imsId("btn-search").click();
+      cy.imsId("toggle-action").first().click();
+      cy.imsId("btn-mis-table-action-change").click();
+      cy.formController("field_officer_id").click();
+      cy.wait(500);
+      cy.get('.ant-select-item-option')
+        .contains(smData.fieldOfficerName)
+        .click();
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-yes").click();
+      cy.get("app-confirmation-modal")
+        .should("be.visible")
+        .and("contain", smData.messageSamityChange);
+      cy.imsId("btn-ok").click();
+      cy.log("Successfully field officer changed for samity");
+    });
+  }
 
   approveSamityChange() {
     cy.fixture(this.test_data).then((data) => {
@@ -161,13 +163,15 @@ samityChange() {
   }
 
   gridDraftButton() {
-    cy.imsId("btn-draft-on").click();
-    cy.log("Draft button should be clickable and functional.");
+    cy.imsId(GRID.BUTTONS.DRAFT_ON)
+      .check({ force: true });
+    cy.log(messages.ui.draftOnMessage);
   }
 
   gridDraftButtonOff() {
-    cy.imsId("btn-draft-on").click();
-    cy.log("Draft button should be clickable and functional.");
+    cy.imsId(GRID.BUTTONS.DRAFT_OFF)
+      .uncheck({ force: true });
+    cy.log(messages.ui.draftOffMessage);
   }
 
   gridLanguageSwitchCheck() {

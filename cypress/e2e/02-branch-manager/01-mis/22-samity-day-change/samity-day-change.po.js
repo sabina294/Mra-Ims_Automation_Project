@@ -1,3 +1,5 @@
+import messages from "../../../../support/constants/messages";
+import { GRID } from "../../../../support/constants/selectors";
 class SamityDayChange {
   test_data = Cypress.env("TEST_DATA");
 
@@ -8,26 +10,26 @@ class SamityDayChange {
     });
   }
 
-samityDayChange() {
-  cy.fixture(this.test_data).then((data) => {
-    const sdData = data.branchManager.samityDayChangeFrom;
-    cy.imsId("toggle-action").first().click();
-    cy.imsId("btn-mis-table-action-change").click();
-    cy.formController("new_samity_day").click();
-    cy.get('.ant-select-item-option')
-      .should('have.length.greaterThan', 0);
-    cy.get('.ant-select-item-option')
-      .first()
-      .click();
-    cy.imsId("btn-submit").click();
-    cy.imsId("btn-yes").click();
-    cy.get("app-confirmation-modal")
-      .should("be.visible")
-      .and("contain", sdData.messageSamityDayChange);
-    cy.imsId("btn-ok").click();
-    cy.log("Successfully samity day changed");
-  });
-}
+  samityDayChange() {
+    cy.fixture(this.test_data).then((data) => {
+      const sdData = data.branchManager.samityDayChangeFrom;
+      cy.imsId("toggle-action").first().click();
+      cy.imsId("btn-mis-table-action-change").click();
+      cy.formController("new_samity_day").click();
+      cy.get('.ant-select-item-option')
+        .should('have.length.greaterThan', 0);
+      cy.get('.ant-select-item-option')
+        .first()
+        .click();
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-yes").click();
+      cy.get("app-confirmation-modal")
+        .should("be.visible")
+        .and("contain", sdData.messageSamityDayChange);
+      cy.imsId("btn-ok").click();
+      cy.log("Successfully samity day changed");
+    });
+  }
   approveSamityDayChange() {
     cy.fixture(this.test_data).then((data) => {
       var sdData = data.branchManager.samityDayChangeFrom;
@@ -61,13 +63,13 @@ samityDayChange() {
     });
   }
 
-   viewGoBackButton() {
+  viewGoBackButton() {
     cy.imsId("btn-go-back").click();
 
     cy.log("Successfully view go back the samity change list page");
   }
 
-    dayChangeResetButtonCheck() {
+  dayChangeResetButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
       var sdData = data.branchManager.samityDayChangeFrom;
       cy.imsId("toggle-action").first().click();
@@ -143,7 +145,7 @@ samityDayChange() {
     );
   }
 
-    gridSearchButtonCheck() {
+  gridSearchButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
       var sdData = data.branchManager.samityDayChangeFrom;
       cy.imsId("btn-reset").click();
@@ -154,13 +156,15 @@ samityDayChange() {
   }
 
   gridDraftButton() {
-    cy.imsId("btn-draft-on").click();
-    cy.log("Draft button should be clickable and functional.");
+    cy.imsId(GRID.BUTTONS.DRAFT_ON)
+      .check({ force: true });
+    cy.log(messages.ui.draftOnMessage);
   }
 
   gridDraftButtonOff() {
-    cy.imsId("btn-draft-on").click();
-    cy.log("Draft button should be clickable and functional.");
+    cy.imsId(GRID.BUTTONS.DRAFT_OFF)
+      .uncheck({ force: true });
+    cy.log(messages.ui.draftOffMessage);
   }
 
   gridLanguageSwitchCheck() {

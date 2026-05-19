@@ -1,3 +1,5 @@
+import messages from "../../../../support/constants/messages";
+import { GRID } from "../../../../support/constants/selectors";
 class SamityChange {
   test_data = Cypress.env("TEST_DATA");
 
@@ -32,10 +34,10 @@ class SamityChange {
     cy.log("Successful reset button check.");
   }
 
-   samityFieldOfficerChangeName() {
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-ok").click();
-      cy.log("Unsuccessful new field officer change field check.");
+  samityFieldOfficerChangeName() {
+    cy.imsId("btn-submit").click();
+    cy.imsId("btn-ok").click();
+    cy.log("Unsuccessful new field officer change field check.");
   }
 
 
@@ -172,13 +174,15 @@ class SamityChange {
   }
 
   gridDraftButton() {
-    cy.imsId("btn-draft-on").click();
-    cy.log("Draft button should be clickable and functional.");
+    cy.imsId(GRID.BUTTONS.DRAFT_ON)
+      .check({ force: true });
+    cy.log(messages.ui.draftOnMessage);
   }
 
   gridDraftButtonOff() {
-    cy.imsId("btn-draft-on").click();
-    cy.log("Draft button should be clickable and functional.");
+    cy.imsId(GRID.BUTTONS.DRAFT_OFF)
+      .uncheck({ force: true });
+    cy.log(messages.ui.draftOffMessage);
   }
 
   selectofficeDropdown() {

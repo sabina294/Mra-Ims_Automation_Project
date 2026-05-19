@@ -125,8 +125,6 @@ class EmployeeManagementCreation {
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-edit").click();
       cy.imsId("btn-reset").click();
-
-      // cy.log("Successful clean displaying");
       cy.log(messages.ui.resetSuccess);
 
     });
@@ -213,18 +211,15 @@ class EmployeeManagementCreation {
   }
 
   gridDraftButton() {
-    cy.imsId(GRID.BUTTONS.DRAFT_ON).click();
-    cy.log("Draft button should be clickable and functional.");
-  }
+    cy.imsId(GRID.BUTTONS.DRAFT_ON)
+      .check({ force: true });
+      cy.log(messages.ui.draftOnMessage);
+    }
 
-  // gridDraftButton() {
-  //   cy.imsId("btn-draft-on").click();
-  //   cy.log("Draft button should be clickable and functional.");
-  // }
-
-  gridDraftButtonOff() {s
-    cy.imsId("btn-draft-on").click();
-    cy.log("Draft button should be clickable and functional.");
+  gridDraftButtonOff() {
+    cy.imsId(GRID.BUTTONS.DRAFT_OFF)
+      .uncheck({ force: true });
+      cy.log(messages.ui.draftOffMessage);
   }
 
   gridCheckboxCheck() {

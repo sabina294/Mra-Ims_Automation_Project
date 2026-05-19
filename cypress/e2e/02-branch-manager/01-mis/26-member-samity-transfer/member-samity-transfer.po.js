@@ -1,3 +1,5 @@
+import messages from "../../../../support/constants/messages";
+import { GRID } from "../../../../support/constants/selectors";
 class MemberSamityTransfer {
   test_data = Cypress.env("TEST_DATA");
 
@@ -7,15 +9,16 @@ class MemberSamityTransfer {
       cy.log("Successfully member samity transfer list page.");
     });
   }
-
   gridDraftButton() {
-    cy.imsId("btn-draft-on").click();
-    cy.log("Draft button should be clickable and functional.");
+    cy.imsId(GRID.BUTTONS.DRAFT_ON)
+      .check({ force: true });
+    cy.log(messages.ui.draftOnMessage);
   }
 
   gridDraftButtonOff() {
-    cy.imsId("btn-draft-on").click();
-    cy.log("Draft button should be clickable and functional.");
+    cy.imsId(GRID.BUTTONS.DRAFT_OFF)
+      .uncheck({ force: true });
+    cy.log(messages.ui.draftOffMessage);
   }
 
   viewMemberSamityTransfer() {

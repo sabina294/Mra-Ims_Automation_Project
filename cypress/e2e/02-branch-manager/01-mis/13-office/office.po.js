@@ -1,3 +1,5 @@
+import messages from "../../../../support/constants/messages";
+import { GRID } from "../../../../support/constants/selectors";
 class OfficeGrid {
   test_data = Cypress.env("TEST_DATA");
 
@@ -64,7 +66,7 @@ class OfficeGrid {
     });
   }
 
-   gridSearchButtonCheck() {
+  gridSearchButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
       var omData = data.branchManager.gridOfficeFrom;
       cy.imsId("btn-reset").click();
@@ -73,7 +75,7 @@ class OfficeGrid {
       cy.log("Successful search button click.");
     });
   }
-  
+
   gridResetButtonCheck() {
     cy.imsId("btn-reset").click();
     cy.log("Successful clean displaying.");
@@ -91,17 +93,17 @@ class OfficeGrid {
     cy.log("Draft button should be clickable and functional.");
   }
 
+  gridDraftButton() {
+    cy.imsId(GRID.BUTTONS.DRAFT_ON)
+      .check({ force: true });
+    cy.log(messages.ui.draftOnMessage);
+  }
+
   gridDraftButtonOff() {
-    cy.imsId("btn-draft-on").click();
-    cy.log("Draft button should be clickable and functional.");
+    cy.imsId(GRID.BUTTONS.DRAFT_OFF)
+      .uncheck({ force: true });
+    cy.log(messages.ui.draftOffMessage);
   }
-
-  gridCheckboxCheck() {
-    cy.imsId("row-checkbox-2").click();
-    cy.imsId("btn-reset").click();
-    cy.log("Checkbox should be clickable and functional.");
-  }
-
   gridCheckboxLockButtonCheck() {
     cy.imsId("btn-lock").click();
     cy.log("Checkbox lock button should be clickable and functional.");

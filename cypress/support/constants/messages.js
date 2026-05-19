@@ -8,7 +8,9 @@ const messages = {
     sessionExpired: "Your session has expired. Please log in again.",
   },  
   ui: {
-    resetSuccess: "All form fields have been cleared successfully",
+   draftOnMessage: "The draft mode has been activated successfully.",
+   draftOffMessage: "The draft mode has been deactivated successfully.",
+   resetSuccess: "All form fields have been reset successfully.",
   },
 
   validation: {

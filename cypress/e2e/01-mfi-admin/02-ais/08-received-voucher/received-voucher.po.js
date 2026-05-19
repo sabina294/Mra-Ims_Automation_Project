@@ -1,3 +1,5 @@
+import messages from "../../../../support/constants/messages";
+import { GRID } from "../../../../support/constants/selectors";
 class ReceivedVoucherCreation {
     test_data = Cypress.env("TEST_DATA");
 
@@ -16,8 +18,12 @@ class ReceivedVoucherCreation {
             cy.formController("voucher_name_en").type(rvData.voucherNameEn);
             cy.formController("voucher_name_bn").type(rvData.voucherNameBn);
             cy.formController("received_date").click();
-            cy.wait(1000);
-            cy.contains(10).click();
+            cy.get('.ant-picker-dropdown')
+                .should('be.visible');
+            cy.get('.ant-picker-cell-in-view')
+                .not('.ant-picker-cell-disabled')
+                .first()
+                .click({ force: true });
             cy.formController("voucher_prepared_by").type(rvData.preparedBy).type("{enter}");
             cy.wait(1000);
             cy.formController("remarks").eq(0).type(rvData.remarks);
@@ -26,11 +32,11 @@ class ReceivedVoucherCreation {
             cy.formController("remarks").eq(1).type(rvData.remarks);
             cy.formController("transaction_date").click();
             cy.get('.ant-picker-dropdown')
-            .should('be.visible');
+                .should('be.visible');
             cy.get('.ant-picker-cell-in-view')
-            .not('.ant-picker-cell-disabled')
-            .first()
-            .click({ force: true });
+                .not('.ant-picker-cell-disabled')
+                .first()
+                .click({ force: true });
             cy.formController("ledger_id").type(rvData.ledger).type("{enter}");
             cy.wait(1000);
             cy.formController("remarks").eq(2).type(rvData.remarks1);
@@ -105,7 +111,7 @@ class ReceivedVoucherCreation {
         cy.log("Grid reset button clicked successfully");
     }
 
-      gridSearchButtonCheck() {
+    gridSearchButtonCheck() {
         cy.fixture(this.test_data).then((data) => {
             const rvData = data.mfiAdmin.receivedVoucher;
             cy.imsId("btn-reset").click();
@@ -121,13 +127,15 @@ class ReceivedVoucherCreation {
     }
 
     gridDraftButton() {
-        cy.imsId("btn-draft-on").click();
-        cy.log("Draft button should be clickable and functional.");
+        cy.imsId(GRID.BUTTONS.DRAFT_ON)
+            .check({ force: true });
+        cy.log(messages.ui.draftOnMessage);
     }
 
     gridDraftButtonOff() {
-        cy.imsId("btn-draft-on").click();
-        cy.log("Draft button should be clickable and functional.");
+        cy.imsId(GRID.BUTTONS.DRAFT_OFF)
+            .uncheck({ force: true });
+        cy.log(messages.ui.draftOffMessage);
     }
 
     createResetButtonCheck() {

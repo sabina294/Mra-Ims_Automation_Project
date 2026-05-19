@@ -1,13 +1,18 @@
 export const GRID = {
   BUTTONS: {
-    DRAFT_ON: "btn-draft-on",
-    DRAFT_OFF: "btn-draft-off",
+    DRAFT_ON: "btn-draft-table",
+    DRAFT_OFF: "btn-draft-table",
     RESET: "btn-reset",
+    REFRESH: "btn-refresh",
     SAVE: "btn-save",
+    SUBMIT: "btn-submit",
+    GOBACK: "btn-go-back",
+    SEARCH: "btn-search",
     CANCEL: "btn-cancel",
     EDIT: "btn-edit",
     DELETE: "btn-delete",
-    SEARCH: "btn-search",
+    HISTORY: "btn-history-table",
+
   },
 
   INPUTS: {

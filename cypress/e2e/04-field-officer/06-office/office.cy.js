@@ -39,71 +39,55 @@ describe("06. Office Module Test Cases", function () {
     grid_office.viewGoBackButton();
   });
 
-  // it("06.05. Verify that the office forms turn on edit mode can be toggled on and off all fields should be disabled or return to view-only mode.", function () {
-  //   grid_office.turnOnEditMode();
-  // });
-
-  // it("06.06. Verify the office form submit button functions correctly.", function () {
-  //   grid_office.editSubmitButton();
-  // });
-
-  // it("06.07. Verify that clicking the go back button on the office edit page redirects the user to the office list page.", function () {
-  //   grid_office.editGoBackButton();
-  // });
-
-  // it("06.08. Verify the office draft button functions correctly.", function () {
-  //   grid_office.editDraftButton();
-  // });
-
-  it("06.09. Verify the user can filter inactive offices using the status dropdown on the office list page.", function () {
+  it("06.05. Verify the user can filter inactive offices using the status dropdown on the office list page.", function () {
     grid_office.statusInactiveDropdownCheck();
   });
 
-  it("06.10. Verify the active result is filtered correctly by the status dropdown.", function () {
+  it("06.06. Verify the active result is filtered correctly by the status dropdown.", function () {
     grid_office.statusActiveDropdownCheck();
   });
 
-  it("06.11 . Verify the search returns correct results when searching by office name.", function () {
+  it("06.07. Verify the search returns correct results when searching by office name.", function () {
     grid_office.searchInOfficeManagementName();
   });
 
-  it("06.12. Verify the grid list resets successfully when the reset button is clicked on the office page.", function () {
+  it("06.08. Verify the grid list resets successfully when the reset button is clicked on the office page.", function () {
     grid_office.gridResetButtonCheck();
   });
 
-  it("06.13. Verify that the grid list is refreshed successfully when the refresh button is clicked on the office page.", function () {
+  it("06.09. Verify that the grid list is refreshed successfully when the refresh button is clicked on the office page.", function () {
     grid_office.gridRefreshButtonCheck();
   });
 
-  it("06.14. Verify that the checkbox functions correctly.", function () {
+  it("06.10. Verify that the checkbox functions correctly.", function () {
     grid_office.gridCheckboxCheck();
   });
 
-  it("06.15. Verify that the checkbox lock button operates correctly when selected.", function () {
+  it("06.11. Verify that the checkbox lock button operates correctly when selected.", function () {
     grid_office.gridCheckboxLockButtonCheck();
   });
 
-  it("06.16. Verify that the checkbox unlock button operates correctly when selected.", function () {
+  it("06.12. Verify that the checkbox unlock button operates correctly when selected.", function () {
     grid_office.gridCheckboxUnlockButtonCheck();
   });
 
-  it("06.17. Verify display the grid list successfully when the Draft button on is clicked on the office page", function () {
+  it("06.13. Verify display the grid list successfully when the Draft button on is clicked on the office page", function () {
     grid_office.gridDraftButton();
   });
 
-  it("06.18. Verify display the grid list successfully when the Draft button off is clicked on the office page", function () {
+  it("06.14. Verify display the grid list successfully when the Draft button off is clicked on the office page", function () {
     grid_office.gridDraftButtonOff();
   });
 
-  it("06.19. Verify that the checkbox functions correctly.", function () {
+  it("06.15. Verify that the checkbox functions correctly.", function () {
     grid_office.gridCheckboxCheck();
   });
 
-  it("06.20. Verify that when the user clicks the Search button on the office grid page, the system redirects to the office List page..", function () {
+  it("06.16. Verify that when the user clicks the Search button on the office grid page, the system redirects to the office List page..", function () {
     grid_office.gridSearchButtonCheck();
   });
 
-  it("06.21. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("06.17. Verify check that the grid list content changes correctly from english to bangla.", function () {
     grid_office.gridLanguageSwitchCheck();
   });
 });

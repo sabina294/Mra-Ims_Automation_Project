@@ -1,3 +1,5 @@
+import messages from "../../../support/constants/messages";
+import { GRID } from "../../../support/constants/selectors";
 class SavingsAccApplicationManagementCreation {
   test_data = Cypress.env("TEST_DATA");
 
@@ -124,15 +126,18 @@ class SavingsAccApplicationManagementCreation {
     );
   }
 
-  gridDraftButton() {
-    cy.imsId("btn-draft-on").click();
-    cy.log("Draft button should be clickable and functional.");
+   gridDraftButton() {
+    cy.imsId(GRID.BUTTONS.DRAFT_ON)
+      .check({ force: true });
+    cy.log(messages.ui.draftOnMessage);
   }
 
   gridDraftButtonOff() {
-    cy.imsId("btn-draft-on").click();
-    cy.log("Draft button should be clickable and functional.");
+    cy.imsId(GRID.BUTTONS.DRAFT_OFF)
+      .uncheck({ force: true });
+    cy.log(messages.ui.draftOffMessage);
   }
+
 
   createResetButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
