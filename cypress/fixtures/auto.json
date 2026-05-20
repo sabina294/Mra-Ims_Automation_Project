@@ -395,7 +395,7 @@
     "createLoanAccountFrom": {
       "office": "1020 (Ashulia)",
       "samity": "1020-101 (Ashulia Mohila Samity)",
-      "member": "4-1004 (Chadnee)",
+      "member": "1-1001 (Fariya)",
       "lendingCategory": "Industry",
       "economicSector": "Industry",
       "economicActivity": "Term Loan ( Other than Working Capital Financing)",
@@ -406,7 +406,7 @@
       "statusSelect": "Rejected",
       "SelectOffice": "1020 (Ashulia)",
       "memberNameEn": "Zahra Ahmed",
-      "search": "Chadnee",
+      "search": "Fariya",
       "messageSaveLoanAccount": "Loan account proposal has been saved",
       "messageUpdateLoanAccount": "Do you want to update this loan account?"
     },
