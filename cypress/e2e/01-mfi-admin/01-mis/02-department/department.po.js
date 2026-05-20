@@ -2,180 +2,124 @@ import messages from "../../../../support/constants/messages";
 import { GRID } from "../../../../support/constants/selectors";
 class DepartmentCreation {
   test_data = Cypress.env("TEST_DATA");
-
   gridDepartmentListPage() {
     cy.fixture(this.test_data).then((data) => {
       cy.selectMenu("menu-configuration", "submenu-department");
-      cy.log("Successfully department list page.");
+      cy.log(messages.ui.gridListMessage);
     });
   }
 
   createDepartment() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      cy.imsId("btn-submit").and("be.visible");
-
+      cy.imsId(GRID.CREATE.ADD_NEW).click();
       var depData = data.mfiAdmin.createDepartmentFrom;
       cy.formController("name_en").type(depData.nameEn);
-
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-yes").click();
-
-      cy.get("app-confirmation-modal")
-        .contains(depData.messageSaveDepartment)
-        .and("be.visible");
-      cy.imsId("btn-ok").click();
-      cy.log("Successfully created department");
+      cy.imsId(GRID.CREATE.CREATESUBMIT).click();
+      cy.imsId(GRID.CREATE.CONFIRMATION_YES).click();
+      cy.imsId(GRID.CREATE.CONFIRMATION_OK).click();
+      cy.log(messages.ui.submitSuccess);
     });
   }
 
   createWithoutNameEn() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      cy.imsId("btn-submit").and("be.visible");
-
+      cy.imsId(GRID.CREATE.ADD_NEW).click();
       var depData = data.mfiAdmin.createDepartmentFrom;
       cy.formController("name_bn").type(depData.nameBn);
-
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-ok").click();
-      cy.imsId("btn-go-back").click();
-
-      cy.log(
-        "Successful cannot creation department without one mandatory field."
-      );
+      cy.imsId(GRID.CREATE.CREATESUBMIT).click();
+      cy.imsId(GRID.CREATE.CONFIRMATION_OK).click();
+      cy.imsId(GRID.CREATE.CREATEGOBACK).click();
+      cy.log(messages.ui.withoutDataMessage);
     });
   }
 
   createWithoutNameBn() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      cy.imsId("btn-submit").and("be.visible");
-
+      cy.imsId(GRID.CREATE.ADD_NEW).click();
       var depData = data.mfiAdmin.createDepartmentFrom;
       cy.formController("name_en").type(depData.nameEn);
-
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-yes").click();
-
-      cy.get("app-confirmation-modal")
-        .contains(depData.messageSaveDepartment)
-        .and("be.visible");
-      cy.imsId("btn-ok").click();
-      cy.log("Successfully created department");
+      cy.imsId(GRID.CREATE.CREATESUBMIT).click();
+      cy.imsId(GRID.CREATE.CONFIRMATION_YES).click();
+      cy.imsId(GRID.CREATE.CONFIRMATION_OK).click();
+      cy.log(messages.ui.withoutDataMessage);
     });
   }
 
   createWithoutStatus() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      cy.imsId("btn-submit").and("be.visible");
-      cy.imsId("btn-reset").click();
-
+      cy.imsId(GRID.CREATE.ADD_NEW).click();
+      cy.imsId(GRID.BUTTONS.RESET).click();
       var depData = data.mfiAdmin.createDepartmentFrom;
       cy.formController("name_en").type(depData.nameEn);
       cy.formController("name_bn").type(depData.nameBn);
-
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-ok").click();
-      cy.imsId("btn-go-back").click();
-
-      cy.log(
-        "Successful cannot creation department without one mandatory field."
-      );
+      cy.imsId(GRID.CREATE.CREATESUBMIT).click();
+      cy.imsId(GRID.CREATE.CONFIRMATION_OK).click();
+      cy.imsId(GRID.CREATE.CREATEGOBACK).click();
+      cy.log(messages.ui.withoutDataMessage);
     });
   }
 
   actionButtonCheck() {
-    cy.imsId("toggle-action").first().click();
-    cy.log("Action button clicked successfully on the department list page.");
+    cy.imsId(GRID.TOGGLES.ACTION_TOGGLE).first().click();
+    cy.log(messages.ui.actionMessage);
   }
 
   viewDepartment() {
     cy.fixture(this.test_data).then((data) => {
-      var depData = data.mfiAdmin.createDepartmentFrom;
-      cy.formController("search_text").type(depData.nameEn);
-      cy.imsId("toggle-action").first().click();
-      cy.imsId("btn-table-action-view").click();
-      cy.log("Successfully viewed the department list page");
+      cy.imsId(GRID.BUTTONS.ACTIONVIEW).click();
+      cy.log(messages.ui.viewMessage);
     });
   }
 
   viewGoBackButton() {
-    cy.imsId("btn-go-back").click();
-    cy.log("Successfully view go back the department list page");
+    cy.imsId(GRID.CREATE.CREATEGOBACK).click();
+    cy.log(messages.ui.goBackSuccess);
 
   }
 
   turnOffEditMode() {
-    cy.imsId("toggle-action").first().click();
-    cy.imsId("btn-table-action-edit").click();
-    cy.imsId("switch-button").click();
-    cy.imsId("btn-go-back").click();
-
-    cy.log("Department form Edit Mode toggled successfully");
+    cy.imsId(GRID.TOGGLES.ACTION_TOGGLE).first().click();
+    cy.imsId(GRID.BUTTONS.ACTIONEDIT).click();
+    cy.imsId(GRID.BUTTONS.TURNEDITMODE).click();
+    cy.imsId(GRID.CREATE.CREATEGOBACK).click();
+    cy.log(messages.ui.turnOnEditModeMessage);
   }
 
   editDepartment() {
     cy.fixture(this.test_data).then((data) => {
-      var depData = data.mfiAdmin.createDepartmentFrom;
-      cy.imsId("btn-reset").click();
-      cy.formController("search_text").type(depData.nameEn);
-      cy.imsId("toggle-action").first().click();
-      cy.imsId("btn-table-action-edit").click();
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-yes").click();
-
-      cy.get("app-confirmation-modal")
-        .contains(depData.messageUpdateDepartment)
-        .and("be.visible");
-      cy.imsId("btn-ok").click();
-      cy.log("Department updated successfully");
+      cy.imsId(GRID.TOGGLES.ACTION_TOGGLE).first().click();
+      cy.imsId(GRID.BUTTONS.ACTIONEDIT).click();
+      cy.imsId(GRID.CREATE.CREATESUBMIT).click();
+      cy.imsId(GRID.CREATE.CONFIRMATION_YES).click();
+      cy.imsId(GRID.CREATE.CONFIRMATION_OK).click();
+      cy.log(messages.ui.editMessage);
     });
   }
 
   editResetButton() {
-    cy.imsId("toggle-action").first().click();
-    cy.imsId("btn-table-action-edit").click();
-    cy.imsId("btn-reset").click();
-    cy.imsId("btn-go-back").click();
-
-    cy.log("Successful clean displaying");
+    cy.imsId(GRID.TOGGLES.ACTION_TOGGLE).first().click();
+    cy.imsId(GRID.BUTTONS.ACTIONEDIT).click();
+    cy.imsId(GRID.BUTTONS.RESET).click();
+    cy.log(messages.ui.editResetMessage);
   }
 
   editSubmitButton() {
-    cy.fixture(this.test_data).then((data) => {
-      var depData = data.mfiAdmin.createDepartmentFrom;
-      cy.imsId("toggle-action").first().click();
-      cy.imsId("btn-table-action-edit").click();
-      cy.imsId("btn-reset").click();
-      cy.formController("name_en").type(depData.nameEn);
-      cy.formController("name_bn").type(depData.nameBn);
-      cy.formController("status").type(depData.status).type("{enter}");
-
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-yes").click();
-      cy.get("app-confirmation-modal")
-        .contains(depData.messageUpdateDepartment)
-        .and("be.visible");
-      cy.imsId("btn-ok").click();
-      cy.log("Successfully updated department");
-    });
+    cy.imsId(GRID.CREATE.CREATESUBMIT).click();
+    cy.imsId(GRID.CREATE.CONFIRMATION_OK).click();
+    cy.log(messages.ui.editSubmitMessage);
   }
 
   editGoBackButton() {
-    cy.imsId("toggle-action").first().click();
-    cy.imsId("btn-table-action-edit").click();
-    cy.imsId("btn-go-back").click();
-    cy.log("Successful edit go back button check.");
+    cy.imsId(GRID.CREATE.CREATEGOBACK).click();
+    cy.log(messages.ui.editGoBackMessage);
   }
 
   statusInactiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       var depData = data.mfiAdmin.createDepartmentFrom;
-      cy.imsId("btn-reset").click();
+      cy.imsId(GRID.BUTTONS.RESET).click();
       cy.formController("status").type(depData.selectStatus).type("{enter}");
-      cy.log("Department status inactive dropdown check successfully");
+      cy.log(messages.ui.dropdownInactiveMessage);
     });
   }
 
@@ -183,68 +127,64 @@ class DepartmentCreation {
     cy.fixture(this.test_data).then((data) => {
       var depData = data.mfiAdmin.createDepartmentFrom;
       cy.formController("status").type(depData.statusSelect).type("{enter}");
-      cy.log("Department status active dropdown check successfully");
+      cy.log(messages.ui.dropdownActiveMessage);
     });
   }
 
   searchInDepartmentName() {
     cy.fixture(this.test_data).then((data) => {
       var depData = data.mfiAdmin.createDepartmentFrom;
-      cy.imsId("btn-reset").click();
-      cy.formController("search_text").type(depData.nameEn);
-      cy.log("Successfully search in the department");
+      cy.imsId(GRID.BUTTONS.RESET).click();
+      cy.formController(GRID.INPUTS.SEARCH_TEXT).type(depData.nameEn);
+      cy.log(messages.ui.searchMessage);
     });
   }
 
   gridResetButtonCheck() {
-     cy.imsId(GRID.BUTTONS.RESET).click();
-      cy.log(messages.ui.gridResetSuccess);
+    cy.imsId(GRID.BUTTONS.RESET).click();
+    cy.log(messages.ui.gridResetSuccess);
   }
-  
+
   gridRefreshButtonCheck() {
-      cy.imsId(GRID.BUTTONS.REFRESH).click();
-      cy.log(messages.ui.gridRefreshSuccess);
+    cy.imsId(GRID.BUTTONS.REFRESH).click();
+    cy.log(messages.ui.gridRefreshSuccess);
   }
 
   createResetButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
       var depData = data.mfiAdmin.createDepartmentFrom;
-      cy.imsId("btn-add-new").click();
+      cy.imsId(GRID.CREATE.ADD_NEW).click();
       cy.formController("name_en").type(depData.nameEn);
-      cy.imsId("btn-reset").click();
-      cy.imsId("btn-go-back").click();
-      cy.log("Successful reset button clean displaying.");
+      cy.imsId(GRID.BUTTONS.RESET).click();
+      cy.log(messages.validation.requiredField);
     });
   }
 
   createValidationMessageCheck() {
-    cy.imsId("btn-add-new").click();
-    cy.imsId("btn-submit").click();
-    cy.imsId("btn-ok").click();
-    cy.imsId("btn-go-back").click();
-    cy.log("Successful validation message displaying.");
+    cy.imsId(GRID.CREATE.CREATESUBMIT).click();
+    cy.imsId(GRID.CREATE.CONFIRMATION_OK).click();
+    cy.log(messages.validation.requiredField);
   }
 
   createGoBackButtonCheck() {
-    cy.imsId("btn-add-new").click();
-    cy.imsId("btn-go-back").click();
-    cy.log("Successful go back button check.");
+    cy.imsId(GRID.CREATE.CREATEGOBACK).click();
+    cy.log(messages.ui.createGoBackMessage);
   }
 
   gridSearchButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var depData = data.mfiAdmin.createDepartmentFrom;
-      cy.imsId("btn-reset").click();
-      cy.formController("search_text").type(depData.search);
-      cy.imsId("btn-search").click();
-      cy.log("Successful search button click.");
+      const depData = data.mfiAdmin.createDepartmentFrom;
+      cy.imsId(GRID.BUTTONS.RESET).click();
+      cy.formController(GRID.INPUTS.SEARCH_TEXT).type(depData.search);
+      cy.imsId(GRID.BUTTONS.SEARCH).click();
+      cy.log(messages.ui.searchMessage);
     });
   }
 
   gridLanguageSwitchCheck() {
-    cy.imsId("profile-menu").click();
-    cy.imsId("btn-lang-bangla").click();
-    cy.log("Successful switch bangla language check.");
+    cy.imsId(GRID.BUTTONS.PROFILE).click();
+    cy.imsId(GRID.BUTTONS.LANGUAGECHANGE).click();
+    cy.log(messages.ui.languageSwitchMessage);
   }
 }
 

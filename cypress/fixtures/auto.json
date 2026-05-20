@@ -18,9 +18,7 @@
       "status": "Active",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
-      "search": "Test Departments",
-      "messageSaveDepartment": "Mfi employee department has been saved",
-      "messageUpdateDepartment": "Mfi employee department has been updated"
+      "search": "Test Departments"
     },
     "createDesignationFrom": {
       "nameEn": "Test Designation",

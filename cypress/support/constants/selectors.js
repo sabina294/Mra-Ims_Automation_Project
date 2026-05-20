@@ -9,27 +9,35 @@ export const GRID = {
     EDIT: "btn-edit",
     DELETE: "btn-delete",
     HISTORY: "btn-history-table",
+    ACTIONVIEW: "btn-table-action-view",
+    ACTIONEDIT: "btn-table-action-edit",
+    TURNEDITMODE: "switch-button",
+    PROFILE: "profile-menu",
+    LANGUAGECHANGE: "btn-lang-bangla",
 
   },
   CREATE: {
+    ADD_NEW: "btn-add-new",
     CREATERESET: "btn-reset",
     CREATESUBMIT: "btn-submit",
     CREATEGOBACK: "btn-go-back",
-    SAVE: "btn-save",
-    SUBMIT: "btn-submit",
     GOBACK: "btn-go-back",
+    CONFIRMATION_YES: "btn-yes",
+    CONFIRMATION_NO: "btn-no",
+    CONFIRMATION_OK: "btn-ok",
   },
 
   INPUTS: {
     SEARCH_TEXT: "search_text",
-    USERNAME: "input-username",
-    PASSWORD: "input-password",
-    EMAIL: "input-email",
   },
 
   TOGGLES: {
     ACTION_TOGGLE: "toggle-action",
-    STATUS_TOGGLE: "toggle-status",
+  },
+
+   DROPDOWN: {
+    STATUS: "dropdown-status",
+    ROLE: "dropdown-role",
   },
 
   TABLE: {
@@ -39,14 +47,5 @@ export const GRID = {
     ACTION_DELETE: "btn-table-action-delete",
   },
 
-  DROPDOWN: {
-    STATUS: "dropdown-status",
-    ROLE: "dropdown-role",
-  },
-
-  MESSAGES: {
-    SUCCESS: "toast-success",
-    ERROR: "toast-error",
-    WARNING: "toast-warning",
-  },
+ 
 };
