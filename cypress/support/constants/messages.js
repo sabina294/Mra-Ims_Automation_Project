@@ -10,7 +10,18 @@ const messages = {
   ui: {
    draftOnMessage: "The draft mode has been activated successfully.",
    draftOffMessage: "The draft mode has been deactivated successfully.",
-   resetSuccess: "All form fields have been reset successfully.",
+   gridResetSuccess: "All form fields have been reset successfully.",
+   gridRefreshSuccess: "The grid has been refreshed successfully.",
+   saveSuccess: "Your changes have been saved successfully.",
+   submitSuccess: "Your form has been submitted successfully.",
+   goBackSuccess: "You have navigated back successfully.",
+   searchSuccess: "Search completed successfully.",
+   cancelSuccess: "The operation has been cancelled successfully.",
+   editSuccess: "The item has been edited successfully.",
+   deleteSuccess: "The item has been deleted successfully.",
+   historyLoaded: "The history has been loaded successfully.",
+   viewSuccess: "The item details have been displayed successfully.",
+   yesConfirm: "You have confirmed the action successfully.",
   },
 
   validation: {

@@ -4,15 +4,20 @@ export const GRID = {
     DRAFT_OFF: "btn-draft-table",
     RESET: "btn-reset",
     REFRESH: "btn-refresh",
-    SAVE: "btn-save",
-    SUBMIT: "btn-submit",
-    GOBACK: "btn-go-back",
     SEARCH: "btn-search",
     CANCEL: "btn-cancel",
     EDIT: "btn-edit",
     DELETE: "btn-delete",
     HISTORY: "btn-history-table",
 
+  },
+  CREATE: {
+    CREATERESET: "btn-reset",
+    CREATESUBMIT: "btn-submit",
+    CREATEGOBACK: "btn-go-back",
+    SAVE: "btn-save",
+    SUBMIT: "btn-submit",
+    GOBACK: "btn-go-back",
   },
 
   INPUTS: {

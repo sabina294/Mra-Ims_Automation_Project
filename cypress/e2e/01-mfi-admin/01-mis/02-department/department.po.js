@@ -1,3 +1,5 @@
+import messages from "../../../../support/constants/messages";
+import { GRID } from "../../../../support/constants/selectors";
 class DepartmentCreation {
   test_data = Cypress.env("TEST_DATA");
 
@@ -195,14 +197,13 @@ class DepartmentCreation {
   }
 
   gridResetButtonCheck() {
-    cy.imsId("btn-reset").click();
-    cy.log("Successful clean displaying.");
+     cy.imsId(GRID.BUTTONS.RESET).click();
+      cy.log(messages.ui.gridResetSuccess);
   }
+  
   gridRefreshButtonCheck() {
-    cy.imsId("btn-refresh").click();
-    cy.log(
-      "successfully refresh page  displayed the grid list of the department "
-    );
+      cy.imsId(GRID.BUTTONS.REFRESH).click();
+      cy.log(messages.ui.gridRefreshSuccess);
   }
 
   createResetButtonCheck() {
