@@ -1,3 +1,5 @@
+import { GRID } from "../../../../support/constants/selectors";
+import messages from "../../../../support/constants/messages";
 class SavingsWithdraw {
     test_data = Cypress.env("TEST_DATA");
 
@@ -70,13 +72,15 @@ class SavingsWithdraw {
     }
 
     gridHistoryOnButton() {
-        cy.imsId("btn-history-on").click();
-        cy.log("History button should be clickable and functional.");
+        cy.imsId(GRID.BUTTONS.HISTORY_ON)
+            .check({ force: true });
+        cy.log(messages.ui.historyOnMessage);
     }
 
     gridHistoryButtonOff() {
-    cy.imsId("btn-history-on").click();
-        cy.log("History button should be clickable and functional.");
+        cy.imsId(GRID.BUTTONS.HISTORY_OFF)
+            .uncheck({ force: true });
+        cy.log(messages.ui.historyOffMessage);
     }
 
     gridResetButtonCheck() {

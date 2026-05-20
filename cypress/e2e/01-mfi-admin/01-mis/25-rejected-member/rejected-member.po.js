@@ -136,14 +136,11 @@ class RrejectedMember {
     cy.imsId("toggle-action").first().click();
     cy.imsId("btn-mis-table-action-edit").click();
     cy.imsId("btn-reset").click();
-    cy.imsId("btn-go-back").click();
 
     cy.log("Successful clean displaying");
   }
 
   editGoBackButton() {
-    cy.imsId("toggle-action").first().click();
-    cy.imsId("btn-mis-table-action-edit").click();
     cy.imsId("btn-go-back").click();
     cy.log("Successful edit go back button check.");
   }
@@ -152,17 +149,9 @@ class RrejectedMember {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-mis-table-action-edit").click();
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-ok").click();
       cy.imsId("btn-go-back").click();
-      // cy.imsId("btn-submit").click();
-
-      // var rejmData = data.mfiAdmin.createRejectedMemberFrom;
-
-      // cy.imsId("btn-yes").click();
-
-      // cy.get("app-confirmation-modal")
-      //   .contains(rejmData.messageUpdateRejectedMember)
-      //   .and("be.visible");
-      // cy.imsId("btn-ok").click();
 
       cy.log("Reject member updated successfully");
     });

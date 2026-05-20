@@ -273,8 +273,9 @@ class LoanAccountProposalManagementCreation {
   }
 
   gridDraftActionButton() {
-    cy.imsId("btn-draft-on").click();
-    cy.imsId("toggle-action").eq(0).click();
+     cy.imsId(GRID.BUTTONS.DRAFT_ON)
+      .check({ force: true });
+      cy.imsId("toggle-action").eq(0).click(); 
     cy.log("Draft button should be clickable action button and functional.");
   }
 

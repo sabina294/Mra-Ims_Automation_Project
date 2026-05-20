@@ -39,7 +39,7 @@ describe("25. Rejected Member Module Test Cases", function () {
   });
 
   it("25.05. Verify that the user can successfully view rejected member information, including the member name and description.", function () {
-    create_rejected_member.viewRejectedMember();
+    create_rejected_member.viewRrejectedMember();
   });
 
   it("25.06. Verify that clicking the Go Back button on the rejected member view page redirects the user to the rejected member list page.", function () {
@@ -59,7 +59,7 @@ describe("25. Rejected Member Module Test Cases", function () {
   });
 
   it("25.10. Verify the editing functionality of a rejected member record by the MFI Admin role.", function () {
-    create_rejected_member.editRejectedMember();
+    create_rejected_member.editRrejectedMember();
   });
 
   it("25.11. Verify that the search results are displayed correctly when searching by rejected member name after editing.", function () {
@@ -79,7 +79,7 @@ describe("25. Rejected Member Module Test Cases", function () {
   });
 
   it("25.15. Verify that the office selection works correctly from the office dropdown on the rejected member list page.", function () {
-    create_rejected_member.selectOfficeDropdown();
+    create_rejected_member.selectofficeDropdown();
   });
 
   it("25.16. Verify that the grid list content changes correctly from English to Bangla.", function () {

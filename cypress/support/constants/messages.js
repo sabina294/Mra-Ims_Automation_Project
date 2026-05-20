@@ -28,6 +28,8 @@ const messages = {
    languageSwitchMessage: "Language has been switched successfully.",
    dropdownActiveMessage: "Dropdown status set to Active successfully.",
    dropdownInactiveMessage: "Dropdown status set to Inactive successfully.",
+   historyOnMessage: "History mode has been activated successfully.",
+   historyOffMessage: "History mode has been deactivated successfully.",
   },
 
   validation: {

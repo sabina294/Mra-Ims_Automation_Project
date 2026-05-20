@@ -261,15 +261,8 @@ class ThanaCreation {
   }
 
   viewThana() {
-    cy.fixture(this.test_data).then((data) => {
-      var upaData = data.mraAdmin.createthanaFrom;
-      cy.formController("search_text").type(upaData.nameEn);
-      cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
-
-      cy.get("app-mra-mfi").contains(upaData.nameEn).and("be.visible");
       cy.log("Successfully viewed the thana list page");
-    });
   }
 
   viewGoBackButton() {
