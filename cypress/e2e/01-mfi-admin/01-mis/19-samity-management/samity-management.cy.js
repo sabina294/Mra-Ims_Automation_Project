@@ -99,15 +99,15 @@ describe("19. Samity management Module Test Cases", function () {
     create_samity_management.editResetButton();
   });
 
-  it("19.20. Verify the samity management edit reset button functions correctly.", function () {
+  it("19.20. Verify the samity management edit draft button functions correctly.", function () {
     create_samity_management.editDraftButton();
   });
 
-  it("19.21. Verify the samity management edit reset button functions correctly.", function () {
+  it("19.21. Verify the samity management edit submit button functions correctly.", function () {
     create_samity_management.editSubmitButton();
   });
 
-  it("19.22. Verify the samity management edit reset button functions correctly.", function () {
+  it("19.22. Verify the samity management edit approve button functions correctly.", function () {
     create_samity_management.editApproveButton();
   });
 

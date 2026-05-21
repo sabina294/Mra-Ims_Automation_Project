@@ -69,11 +69,19 @@ class savingsWithdraw {
     }
 
     gridHistoryButtonOnCheck() {
-        cy.imsId("btn-history-on").click();
+        cy.imsId("btn-history-table").click();
         cy.log(
             "successfully history page  displayed the grid list of the special collection "
         );
     }
+
+      gridHistoryButtonOffCheck() {
+        cy.imsId("btn-history-table").click();
+        cy.log(
+            "successfully history page  displayed the grid list of the special collection "
+        );
+    }
+
 
     samityDropdownCheck() {
         cy.fixture(this.test_data).then((data) => {
@@ -83,13 +91,6 @@ class savingsWithdraw {
                 "successfully samity dropdown displayed the grid list of the savings withdraw "
             );
         })
-    }
-
-    gridHistoryButtonOffCheck() {
-        cy.imsId("btn-history-on").click();
-        cy.log(
-            "successfully history page  displayed the grid list of the special collection "
-        );
     }
 
     gridLanguageSwitchCheck() {

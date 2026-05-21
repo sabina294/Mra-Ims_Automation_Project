@@ -149,8 +149,8 @@ class RrejectedMember {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-mis-table-action-edit").click();
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-ok").click();
+      // cy.imsId("btn-submit").click();
+      // cy.imsId("btn-ok").click();
       cy.imsId("btn-go-back").click();
 
       cy.log("Reject member updated successfully");

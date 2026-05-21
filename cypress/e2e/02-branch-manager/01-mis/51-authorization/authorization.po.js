@@ -62,7 +62,7 @@ class Authorization {
     }
 
     gridPendingOnAuthorizationListCheck() {
-        cy.imsId("btn-draft-on").click();
+        cy.imsId("btn-draft-table").click();
         cy.log("authorization pending on list should be clickable and functional.");
     }
 
@@ -75,12 +75,12 @@ class Authorization {
     }
 
     gridPendingOffAuthorizationListCheck() {
-        cy.imsId("btn-draft-on").click();
+        cy.imsId("btn-draft-table").click();
         cy.log("authorization pending off list should be clickable and functional.");
     }
 
     gridHistoryOnAuthorizationListCheck() {
-        cy.imsId("btn-history-on").click();
+        cy.imsId("btn-history-table").click();
         cy.log("authorization history list should be clickable and functional.");
     }
 
@@ -93,7 +93,7 @@ class Authorization {
     }
 
     gridHistoryOffAuthorizationListCheck() {
-        cy.imsId("btn-history-on").click();
+        cy.imsId("btn-history-table").click();
         cy.log("authorization history list should be clickable and functional.");
     }
 

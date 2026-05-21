@@ -74,14 +74,7 @@ class specialCollection {
     }
 
     gridHistoryButtonOnCheck() {
-        cy.imsId("btn-history-on").click();
-        cy.log(
-            "successfully history page  displayed the grid list of the special collection "
-        );
-    }
-
-    gridHistoryButtonOffCheck() {
-        cy.imsId("btn-history-on").click();
+        cy.imsId("btn-history-table").click();
         cy.log(
             "successfully history page  displayed the grid list of the special collection "
         );
@@ -97,6 +90,13 @@ class specialCollection {
         })
     }
 
+    gridHistoryButtonOffCheck() {
+        cy.imsId("btn-history-table").click();
+        cy.log(
+            "successfully history page  displayed the grid list of the special collection "
+        );
+    }
+    
     gridLanguageSwitchCheck() {
         cy.imsId("profile-menu").click();
         cy.imsId("btn-lang-bangla").click();
