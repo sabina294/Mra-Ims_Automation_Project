@@ -360,9 +360,9 @@
     "memberAttendanceFrom": {
       "SelectOffice": "1002 (Dhaka Regional Office)",
       "search": "Abdullapur Mohila Samity",
-      "office":"1019 (Amin Bazar)",
-      "samity":"1019-101 (Salepur Mohila Samity)",
-      "member":"2-1002 (Samia)"
+      "office": "1019 (Amin Bazar)",
+      "samity": "1019-101 (Salepur Mohila Samity)",
+      "member": "2-1002 (Samia)"
     },
     "memberPassbookFrom": {
       "office": "1019 (Amin Bazar)",
@@ -474,7 +474,12 @@
       "messageSaveLoanRebate": "Loan Rebate Collection for this Loan Account is successful",
       "messageUpdateLoanRebate": "Do you want to update this loan rebate?"
     },
-    "loanProvisionFrom": {},
+    "loanProvisionFrom": {
+      "selectOffice": "1020 (Ashulia)",
+      "search": "Fariya",
+      "selectStatus": "Submitted",
+      "statusSelect": "Approved"
+    },
     "createSavingsProduct": {
       "office": "1020 (Ashulia)",
       "savingsType": "General Savings",

@@ -8,6 +8,27 @@ class LoanProvision {
     });
   }
 
+  provisionSubmitButton() {
+    cy.imsId("btn-submit").click();
+    cy.log("Successful submit button working.");
+  }
+
+  provisionNoButton() {
+    cy.imsId("btn-no").click();
+    cy.log("Successful no button working.");
+  }
+
+  provisionYesButton() {
+    cy.imsId("btn-submit").click();
+    cy.imsId("btn-yes").click();
+    cy.log("Successful yes button working.");
+  }
+
+  provisionOkButton() {
+    cy.imsId("btn-ok").click();
+    cy.log("Successful ok button working.");
+  }
+
   gridLanguageSwitchCheck() {
     cy.imsId("profile-menu").click();
     cy.imsId("btn-lang-bangla").click();
