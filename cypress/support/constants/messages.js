@@ -30,6 +30,8 @@ const messages = {
    dropdownInactiveMessage: "Dropdown status set to Inactive successfully.",
    historyOnMessage: "History mode has been activated successfully.",
    historyOffMessage: "History mode has been deactivated successfully.",
+   disbursedOnMessage: "The disbursed mode has been activated successfully.",
+   disbursedOffMessage: "The disbursed mode has been deactivated successfully.",
   },
 
   validation: {

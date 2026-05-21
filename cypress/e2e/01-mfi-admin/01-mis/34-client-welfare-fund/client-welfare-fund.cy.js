@@ -67,15 +67,19 @@ describe("34. Client Welfare Fund Module Test Cases", function () {
     create_client_welfare_fund.createValidationMessageCheck();
   });
 
-  it("34.12. Verify that clicking the go back button on the Loan welfare fund create page redirects the user to the Loan welfare fund list page.", function () {
+  it("34.12. Verify validation messages appear for required fields when the approve button is clicked with empty inputs.", function () {
+    create_client_welfare_fund.createApproveButtonCheck();
+  });
+
+  it("34.13. Verify that clicking the go back button on the Loan welfare fund create page redirects the user to the Loan welfare fund list page.", function () {
     create_client_welfare_fund.createGoBackButtonCheck();
   });
 
-  it("34.13. Verify that when the user clicks the Search button on the Loan welfare fund grid page, the system redirects to the Loan welfare fund List page..", function () {
+  it("34.14. Verify that when the user clicks the Search button on the Loan welfare fund grid page, the system redirects to the Loan welfare fund List page..", function () {
     create_client_welfare_fund.gridSearchButtonCheck();
   });
 
-  it("34.14. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("34.15. Verify check that the grid list content changes correctly from english to bangla.", function () {
     create_client_welfare_fund.gridLanguageSwitchCheck();
   });
 });

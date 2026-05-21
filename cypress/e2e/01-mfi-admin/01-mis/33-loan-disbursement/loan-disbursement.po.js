@@ -1,3 +1,5 @@
+import messages from "../../../../support/constants/messages";
+import { GRID } from "../../../../support/constants/selectors";
 class LoanDisbursement {
     test_data = Cypress.env("TEST_DATA");
 
@@ -58,6 +60,19 @@ class LoanDisbursement {
         cy.log(
             "successfully refresh page  displayed the grid list of the Loan Disbursement"
         );
+    }
+
+
+    gridDisbursedOnButtonCheck() {
+        cy.imsId(GRID.BUTTONS.DISBURSED_ON)
+            .check({ force: true });
+        cy.log(messages.ui.disbursedOnMessage);
+    }
+
+    gridDisbursedOffButtonCheck() {
+        cy.imsId(GRID.BUTTONS.DISBURSED_OFF)
+            .uncheck({ force: true });
+        cy.log(messages.ui.disbursedOffMessage);
     }
 
     gridSearchButtonCheck() {

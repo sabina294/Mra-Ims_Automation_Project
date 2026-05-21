@@ -51,8 +51,8 @@ describe("31. Loan Account Management Module Test Cases", function () {
     create_loan_account_management.searchInLoanAccountName();
   });
 
-  it('31.08. Verify the functionality and expected behavior of the "Successful Office Status" dropdown.', function () {
-    create_loan_account_management.statusOfficeDropdownCheck();
+  it('31.08. Verify the functionality and expected behavior of the "Successful samity Status" dropdown.', function () {
+    create_loan_account_management.statusSamityDropdownCheck();
   });
 
   it("31.09. Verify Successful Reset of Grid List Using the Reset Button on Loan Account Management  Page.", function () {

@@ -1589,7 +1589,7 @@
       "statusSelect": "Active"
     },
     "createLoanAccountFrom": {
-      "memberNameEn": "Zahra Ahmed",
+      "memberNameEn": "Fariya",
       "office": "1020 (Ashulia)",
       "samity": "1020-101 (Ashulia Mohila Samity)",
       "member": "1-1001 (Fariya)",
@@ -1609,7 +1609,7 @@
       "selectStatus": "Inactive",
       "statusSelect": "Active",
       "SelectOffice": "1020 (Ashulia)",
-      "memberNameEn": "Zahra Ahmed",
+      "memberNameEn": "Fariya",
       "messageLoanAccountManagement": "Loan account has been updated"
     },
     "createLoanPenaltyForm": {

@@ -118,6 +118,12 @@ class ClientWelfareFund {
     cy.log("Successful validation message displaying.");
   }
 
+   createApproveButtonCheck() {
+    cy.imsId("btn-approve").click();
+    cy.imsId("btn-ok").click();
+    cy.log("Successful validation message displaying.");
+  }
+
   createGoBackButtonCheck() {
     cy.imsId("btn-go-back").click();
     cy.log("Successful go back button check.");

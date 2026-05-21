@@ -58,12 +58,12 @@ class LoanAccountManagement {
       cy.log("Successfully search in the Loan account proposal Management");
     });
   }
-  statusOfficeDropdownCheck() {
+  statusSamityDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       var laData = data.mfiAdmin.loanAccountManagementFrom;
-      cy.formController("office_id").type(laData.SelectOffice).type("{enter}");
+      cy.formController("samity_id").type(laData.search).type("{enter}");
       cy.log(
-        "Loan account proposal Management status office dropdown check successfully"
+        "Loan account proposal Management status samity dropdown check successfully"
       );
     });
   }

@@ -58,6 +58,9 @@ class LoanAccountProposalManagementCreation {
   viewLoanAccountProposalManagement() {
     cy.fixture(this.test_data).then((data) => {
       var lapData = data.fieldOfficer.createLoanAccountFrom;
+      cy.formController("search_text").type(lapData.memberNameEn);
+      cy.imsId("btn-search").click();
+      cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
       cy.log(
         "Successfully viewed the Loan account proposal Management list page"

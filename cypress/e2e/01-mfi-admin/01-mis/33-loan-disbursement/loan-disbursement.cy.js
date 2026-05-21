@@ -55,11 +55,19 @@ describe("33. Loan Disbursement Module Test Cases", function () {
         create_loan_disbursement.gridRefreshButtonCheck();
     });
 
-    it("33.09. Verify that when the user clicks the Search button on the loan disbursement grid page, the system redirects to the loan disbursement List page..", function () {
+    it("33.09. Verify display the grid list successfully when the disbursed button on is clicked on the Loan Disbursement  page", function () {
+        create_loan_disbursement.gridDisbursedOnButtonCheck();
+    });
+
+    it("33.10. Verify display the grid list successfully when the disbursed button off is clicked on the Loan Disbursement page", function () {
+        create_loan_disbursement.gridDisbursedOffButtonCheck();
+    });
+
+    it("33.11. Verify that when the user clicks the Search button on the loan disbursement grid page, the system redirects to the loan disbursement List page..", function () {
         create_loan_disbursement.gridSearchButtonCheck();
     });
 
-    it("33.10. Verify check that the grid list content changes correctly from english to bangla.", function () {
+    it("33.12. Verify check that the grid list content changes correctly from english to bangla.", function () {
         create_loan_disbursement.gridLanguageSwitchCheck();
     });
 });

@@ -2,6 +2,8 @@ export const GRID = {
   BUTTONS: {
     DRAFT_ON: "btn-draft-table",
     DRAFT_OFF: "btn-draft-table",
+    DISBURSED_ON: "btn-draft-table",
+    DISBURSED_OFF: "btn-draft-table",
     RESET: "btn-reset",
     REFRESH: "btn-refresh",
     SEARCH: "btn-search",
