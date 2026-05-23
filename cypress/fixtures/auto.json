@@ -18,7 +18,7 @@
       "status": "Active",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
-      "search": "Test Departments"
+      "search": "Test Department"
     },
     "createDesignationFrom": {
       "nameEn": "Test Designation",
@@ -27,9 +27,7 @@
       "status": "Active",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
-      "search": "Test Designations",
-      "messageSaveDesignation": "Mfi employee designation has been saved",
-      "messageUpdateDesignation": "Mfi employee designation has been updated"
+      "search": "Test Designation"
     },
     "createRegionFrom": {
       "nameEn": "Test Region",
@@ -38,9 +36,7 @@
       "status": "Active",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
-      "search": "Test Region",
-      "messageSaveRegion": "Region has been saved",
-      "messageUpdateRegion": "Region has been updated"
+      "search": "Test Region"
     },
     "createZoneFrom": {
       "nameEn": "Test Zone ",
@@ -50,9 +46,7 @@
       "status": "Active",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
-      "search": "Test Zone",
-      "messageSaveZone": "Zone has been saved",
-      "messageUpdateZone": "Zone has been updated"
+      "search": "Test Zone"
     },
     "createAreaFrom": {
       "nameEn": "Test Area ",
@@ -62,9 +56,7 @@
       "status": "Active",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
-      "search": "Test Area",
-      "messageSaveArea": "Area has been saved",
-      "messageUpdateArea": "Area has been updated"
+      "search": "Test Area"
     },
     "createBankAccountFrom": {
       "bankName": "AGRANI BANK LTD.",
