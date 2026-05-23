@@ -1,3 +1,5 @@
+import messages from "../../../../support/constants/messages";
+import { GRID } from "../../../../support/constants/selectors";
 class savingsWithdraw {
     test_data = Cypress.env("TEST_DATA");
 
@@ -69,19 +71,10 @@ class savingsWithdraw {
     }
 
     gridHistoryButtonOnCheck() {
-        cy.imsId("btn-history-table").click();
-        cy.log(
-            "successfully history page  displayed the grid list of the special collection "
-        );
+        cy.imsId(GRID.BUTTONS.HISTORY_ON)
+            .check({ force: true });
+        cy.log(messages.ui.historyOnMessage);
     }
-
-      gridHistoryButtonOffCheck() {
-        cy.imsId("btn-history-table").click();
-        cy.log(
-            "successfully history page  displayed the grid list of the special collection "
-        );
-    }
-
 
     samityDropdownCheck() {
         cy.fixture(this.test_data).then((data) => {
@@ -91,6 +84,12 @@ class savingsWithdraw {
                 "successfully samity dropdown displayed the grid list of the savings withdraw "
             );
         })
+    }
+
+    gridHistoryButtonOffCheck() {
+        cy.imsId(GRID.BUTTONS.HISTORY_OFF)
+            .uncheck({ force: true });
+        cy.log(messages.ui.historyOffMessage);
     }
 
     gridLanguageSwitchCheck() {

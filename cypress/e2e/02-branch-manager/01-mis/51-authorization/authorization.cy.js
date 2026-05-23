@@ -53,7 +53,7 @@ describe("51. Authorization Module Test Cases", function () {
     });
 
     it("51.08. Verify that the Pending On list is displayed correctly in the Authorization grid.", function () {
-        authorization.gridPendingOnAuthorizationListCheck();
+        authorization.gridDraftButton();
     });
 
     it("51.09. Verify that the Pending Field Officer dropdown list is displayed correctly in the Authorization grid.", function () {
@@ -61,11 +61,11 @@ describe("51. Authorization Module Test Cases", function () {
     });
 
     it("51.10. Verify that the Pending Off list is displayed correctly in the Authorization grid.", function () {
-        authorization.gridPendingOffAuthorizationListCheck();
+        authorization.gridDraftButtonOff();
     });
 
     it("51.11. Verify that the History On list is displayed correctly in the Authorization grid.", function () {
-        authorization.gridHistoryOnAuthorizationListCheck();
+        authorization.gridHistoryButtonOnCheck();
     });
 
     it("51.12. Verify that the History Field Officer dropdown list is displayed correctly in the Authorization grid.", function () {
@@ -73,7 +73,7 @@ describe("51. Authorization Module Test Cases", function () {
     });
 
     it("51.13. Verify that the History Off list is displayed correctly in the Authorization grid.", function () {
-        authorization.gridHistoryOffAuthorizationListCheck();
+        authorization.gridHistoryButtonOffCheck();
     });
 
     it("51.14. Verify that the Field Officer dropdown list is displayed correctly in the Authorization grid.", function () {

@@ -54,6 +54,473 @@ class SavingsProductCreation {
     });
   }
 
+  createWithoutOffice() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("btn-add-new").click();
+      var spData = data.mfiAdmin.createSavingsProduct;
+      cy.formController("savings_type_id")
+        .type(spData.savingsType)
+        .type("{enter}");
+      cy.formController("short_name_dep").type(spData.depositId);
+      cy.formController("savings_prod_name_en").type(spData.savingsProNameEn);
+      cy.formController("savings_prod_name_bn").type(spData.savingsProNameBn);
+      cy.formController("display_name").type(spData.displayNmae);
+      cy.formController("interest_rate_terms")
+        .type(spData.intersetTerms)
+        .type("{enter}");
+      cy.formController("interest_rate_frequency")
+        .type(spData.intersetFrequency)
+        .type("{enter}");
+      cy.formController("interest_rate").type(spData.intersetRate);
+      cy.formController("provision_interest_rate").type(
+        spData.provisionIntRate
+      );
+      cy.formController("interest_calculated_using")
+        .type(spData.intersetCalculate)
+        .type("{enter}");
+      cy.formController("interest_posting_period")
+        .type(spData.intersetPostin)
+        .type("{enter}");
+      cy.formController("start_date").click();
+      cy.get('.ant-picker-dropdown')
+        .should('be.visible');
+      cy.get('.ant-picker-cell-in-view')
+        .not('.ant-picker-cell-disabled')
+        .first()
+        .click({ force: true });
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-ok").click();
+      cy.imsId("btn-reset").click();
+      cy.log("Successfully created savings product");
+    });
+  }
+  createWithoutSavingsType() {
+    cy.fixture(this.test_data).then((data) => {
+      var spData = data.mfiAdmin.createSavingsProduct;
+
+      cy.formController("office_id_list").type(spData.office).type("{enter}");
+      cy.formController("short_name_dep").type(spData.depositId);
+      cy.formController("savings_prod_name_en").type(spData.savingsProNameEn);
+      cy.formController("savings_prod_name_bn").type(spData.savingsProNameBn);
+      cy.formController("display_name").type(spData.displayNmae);
+      cy.formController("interest_rate_terms")
+        .type(spData.intersetTerms)
+        .type("{enter}");
+      cy.formController("interest_rate_frequency")
+        .type(spData.intersetFrequency)
+        .type("{enter}");
+      cy.formController("interest_rate").type(spData.intersetRate);
+      cy.formController("provision_interest_rate").type(
+        spData.provisionIntRate
+      );
+      cy.formController("interest_calculated_using")
+        .type(spData.intersetCalculate)
+        .type("{enter}");
+      cy.formController("interest_posting_period")
+        .type(spData.intersetPostin)
+        .type("{enter}");
+      cy.formController("start_date").click();
+      cy.get('.ant-picker-dropdown')
+        .should('be.visible');
+      cy.get('.ant-picker-cell-in-view')
+        .not('.ant-picker-cell-disabled')
+        .first()
+        .click({ force: true });
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-ok").click();
+      cy.imsId("btn-reset").click();
+      cy.log("Successfully created savings product");
+    });
+  }
+  createWithoutDepositAccountIdPrefix() {
+    cy.fixture(this.test_data).then((data) => {
+      var spData = data.mfiAdmin.createSavingsProduct;
+
+      cy.formController("office_id_list").type(spData.office).type("{enter}");
+      cy.formController("savings_type_id")
+        .type(spData.savingsType)
+        .type("{enter}");
+      cy.formController("savings_prod_name_en").type(spData.savingsProNameEn);
+      cy.formController("savings_prod_name_bn").type(spData.savingsProNameBn);
+      cy.formController("display_name").type(spData.displayNmae);
+      cy.formController("interest_rate_terms")
+        .type(spData.intersetTerms)
+        .type("{enter}");
+      cy.formController("interest_rate_frequency")
+        .type(spData.intersetFrequency)
+        .type("{enter}");
+      cy.formController("interest_rate").type(spData.intersetRate);
+      cy.formController("provision_interest_rate").type(
+        spData.provisionIntRate
+      );
+      cy.formController("interest_calculated_using")
+        .type(spData.intersetCalculate)
+        .type("{enter}");
+      cy.formController("interest_posting_period")
+        .type(spData.intersetPostin)
+        .type("{enter}");
+      cy.formController("start_date").click();
+      cy.get('.ant-picker-dropdown')
+        .should('be.visible');
+      cy.get('.ant-picker-cell-in-view')
+        .not('.ant-picker-cell-disabled')
+        .first()
+        .click({ force: true });
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-ok").click();
+      cy.imsId("btn-reset").click();
+      cy.log("Successfully created savings product");
+    });
+  }
+  createWithoutSavingsProductNameEn() {
+    cy.fixture(this.test_data).then((data) => {
+      var spData = data.mfiAdmin.createSavingsProduct;
+
+      cy.formController("office_id_list").type(spData.office).type("{enter}");
+      cy.formController("savings_type_id")
+        .type(spData.savingsType)
+        .type("{enter}");
+      cy.formController("short_name_dep").type(spData.depositId);
+      cy.formController("savings_prod_name_bn").type(spData.savingsProNameBn);
+      cy.formController("display_name").type(spData.displayNmae);
+      cy.formController("interest_rate_terms")
+        .type(spData.intersetTerms)
+        .type("{enter}");
+      cy.formController("interest_rate_frequency")
+        .type(spData.intersetFrequency)
+        .type("{enter}");
+      cy.formController("interest_rate").type(spData.intersetRate);
+      cy.formController("provision_interest_rate").type(
+        spData.provisionIntRate
+      );
+      cy.formController("interest_calculated_using")
+        .type(spData.intersetCalculate)
+        .type("{enter}");
+      cy.formController("interest_posting_period")
+        .type(spData.intersetPostin)
+        .type("{enter}");
+      cy.formController("start_date").click();
+      cy.get('.ant-picker-dropdown')
+        .should('be.visible');
+      cy.get('.ant-picker-cell-in-view')
+        .not('.ant-picker-cell-disabled')
+        .first()
+        .click({ force: true });
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-ok").click();
+      cy.imsId("btn-reset").click();
+      cy.log("Successfully created savings product");
+    });
+  }
+  createWithoutSavingsProductNameBn() {
+    cy.fixture(this.test_data).then((data) => {
+      var spData = data.mfiAdmin.createSavingsProduct;
+
+      cy.formController("office_id_list").type(spData.office).type("{enter}");
+      cy.formController("savings_type_id")
+        .type(spData.savingsType)
+        .type("{enter}");
+      cy.formController("short_name_dep").type(spData.depositId);
+      cy.formController("savings_prod_name_en").type(spData.savingsProNameEn);
+      cy.formController("display_name").type(spData.displayNmae);
+      cy.formController("interest_rate_terms")
+        .type(spData.intersetTerms)
+        .type("{enter}");
+      cy.formController("interest_rate_frequency")
+        .type(spData.intersetFrequency)
+        .type("{enter}");
+      cy.formController("interest_rate").type(spData.intersetRate);
+      cy.formController("provision_interest_rate").type(
+        spData.provisionIntRate
+      );
+      cy.formController("interest_calculated_using")
+        .type(spData.intersetCalculate)
+        .type("{enter}");
+      cy.formController("interest_posting_period")
+        .type(spData.intersetPostin)
+        .type("{enter}");
+      cy.formController("start_date").click();
+      cy.get('.ant-picker-dropdown')
+        .should('be.visible');
+      cy.get('.ant-picker-cell-in-view')
+        .not('.ant-picker-cell-disabled')
+        .first()
+        .click({ force: true });
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-ok").click();
+      cy.imsId("btn-reset").click();
+      cy.log("Successfully created savings product");
+    });
+  }
+  createWithoutDisplayName() {
+    cy.fixture(this.test_data).then((data) => {
+      var spData = data.mfiAdmin.createSavingsProduct;
+
+      cy.formController("office_id_list").type(spData.office).type("{enter}");
+      cy.formController("savings_type_id")
+        .type(spData.savingsType)
+        .type("{enter}");
+      cy.formController("short_name_dep").type(spData.depositId);
+      cy.formController("savings_prod_name_en").type(spData.savingsProNameEn);
+      cy.formController("savings_prod_name_bn").type(spData.savingsProNameBn);
+      cy.formController("interest_rate_terms")
+        .type(spData.intersetTerms)
+        .type("{enter}");
+      cy.formController("interest_rate_frequency")
+        .type(spData.intersetFrequency)
+        .type("{enter}");
+      cy.formController("interest_rate").type(spData.intersetRate);
+      cy.formController("provision_interest_rate").type(
+        spData.provisionIntRate
+      );
+      cy.formController("interest_calculated_using")
+        .type(spData.intersetCalculate)
+        .type("{enter}");
+      cy.formController("interest_posting_period")
+        .type(spData.intersetPostin)
+        .type("{enter}");
+      cy.formController("start_date").click();
+      cy.get('.ant-picker-dropdown')
+        .should('be.visible');
+      cy.get('.ant-picker-cell-in-view')
+        .not('.ant-picker-cell-disabled')
+        .first()
+        .click({ force: true });
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-ok").click();
+      cy.imsId("btn-reset").click();
+      cy.log("Successfully created savings product");
+    });
+  }
+  createWithoutStatus() {
+    cy.fixture(this.test_data).then((data) => {
+      var spData = data.mfiAdmin.createSavingsProduct;
+
+      cy.formController("office_id_list").type(spData.office).type("{enter}");
+      cy.formController("savings_type_id")
+        .type(spData.savingsType)
+        .type("{enter}");
+      cy.formController("short_name_dep").type(spData.depositId);
+      cy.formController("savings_prod_name_en").type(spData.savingsProNameEn);
+      cy.formController("savings_prod_name_bn").type(spData.savingsProNameBn);
+      cy.formController("display_name").type(spData.displayNmae);
+      cy.formController("interest_rate_terms")
+        .type(spData.intersetTerms)
+        .type("{enter}");
+      cy.formController("interest_rate_frequency")
+        .type(spData.intersetFrequency)
+        .type("{enter}");
+      cy.formController("interest_rate").type(spData.intersetRate);
+      cy.formController("provision_interest_rate").type(
+        spData.provisionIntRate
+      );
+      cy.formController("interest_calculated_using")
+        .type(spData.intersetCalculate)
+        .type("{enter}");
+      cy.formController("interest_posting_period")
+        .type(spData.intersetPostin)
+        .type("{enter}");
+      cy.formController("start_date").click();
+      cy.get('.ant-picker-dropdown')
+        .should('be.visible');
+      cy.get('.ant-picker-cell-in-view')
+        .not('.ant-picker-cell-disabled')
+        .first()
+        .click({ force: true });
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-ok").click();
+      cy.imsId("btn-reset").click();
+      cy.log("Successfully created savings product");
+    });
+  }
+  createWithoutInterestRateTerms() {
+    cy.fixture(this.test_data).then((data) => {
+      var spData = data.mfiAdmin.createSavingsProduct;
+
+      cy.formController("office_id_list").type(spData.office).type("{enter}");
+      cy.formController("savings_type_id")
+        .type(spData.savingsType)
+        .type("{enter}");
+      cy.formController("short_name_dep").type(spData.depositId);
+      cy.formController("savings_prod_name_en").type(spData.savingsProNameEn);
+      cy.formController("savings_prod_name_bn").type(spData.savingsProNameBn);
+      cy.formController("display_name").type(spData.displayNmae);
+      cy.formController("interest_rate_frequency")
+        .type(spData.intersetFrequency)
+        .type("{enter}");
+      cy.formController("interest_calculated_using")
+        .type(spData.intersetCalculate)
+        .type("{enter}");
+      cy.formController("interest_posting_period")
+        .type(spData.intersetPostin)
+        .type("{enter}");
+      cy.formController("start_date").click();
+      cy.get('.ant-picker-dropdown')
+        .should('be.visible');
+      cy.get('.ant-picker-cell-in-view')
+        .not('.ant-picker-cell-disabled')
+        .first()
+        .click({ force: true });
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-ok").click();
+      cy.imsId("btn-reset").click();
+      cy.log("Successfully created savings product");
+    });
+  }
+  createWithoutInterestRateFrequency() {
+    cy.fixture(this.test_data).then((data) => {
+      var spData = data.mfiAdmin.createSavingsProduct;
+
+      cy.formController("office_id_list").type(spData.office).type("{enter}");
+      cy.formController("savings_type_id")
+        .type(spData.savingsType)
+        .type("{enter}");
+      cy.formController("short_name_dep").type(spData.depositId);
+      cy.formController("savings_prod_name_en").type(spData.savingsProNameEn);
+      cy.formController("savings_prod_name_bn").type(spData.savingsProNameBn);
+      cy.formController("display_name").type(spData.displayNmae);
+      cy.formController("interest_rate_terms")
+        .type(spData.intersetTerms)
+        .type("{enter}");
+      cy.formController("interest_rate").type(spData.intersetRate);
+      cy.formController("provision_interest_rate").type(
+        spData.provisionIntRate
+      );
+      cy.formController("interest_calculated_using")
+        .type(spData.intersetCalculate)
+        .type("{enter}");
+      cy.formController("interest_posting_period")
+        .type(spData.intersetPostin)
+        .type("{enter}");
+      cy.formController("start_date").click();
+      cy.get('.ant-picker-dropdown')
+        .should('be.visible');
+      cy.get('.ant-picker-cell-in-view')
+        .not('.ant-picker-cell-disabled')
+        .first()
+        .click({ force: true });
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-ok").click();
+      cy.imsId("btn-reset").click();
+      cy.log("Successfully created savings product");
+    });
+  }
+  createWithoutCalculatedUsing() {
+    cy.fixture(this.test_data).then((data) => {
+      var spData = data.mfiAdmin.createSavingsProduct;
+
+      cy.formController("office_id_list").type(spData.office).type("{enter}");
+      cy.formController("savings_type_id")
+        .type(spData.savingsType)
+        .type("{enter}");
+      cy.formController("short_name_dep").type(spData.depositId);
+      cy.formController("savings_prod_name_en").type(spData.savingsProNameEn);
+      cy.formController("savings_prod_name_bn").type(spData.savingsProNameBn);
+      cy.formController("display_name").type(spData.displayNmae);
+      cy.formController("interest_rate_terms")
+        .type(spData.intersetTerms)
+        .type("{enter}");
+      cy.formController("interest_rate_frequency")
+        .type(spData.intersetFrequency)
+        .type("{enter}");
+      cy.formController("interest_rate").type(spData.intersetRate);
+      cy.formController("provision_interest_rate").type(
+        spData.provisionIntRate
+      );
+      cy.formController("interest_calculated_using")
+        .type(spData.intersetCalculate)
+        .type("{enter}");
+      cy.formController("interest_posting_period")
+        .type(spData.intersetPostin)
+        .type("{enter}");
+      cy.formController("start_date").click();
+      cy.get('.ant-picker-dropdown')
+        .should('be.visible');
+      cy.get('.ant-picker-cell-in-view')
+        .not('.ant-picker-cell-disabled')
+        .first()
+        .click({ force: true });
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-ok").click();
+      cy.imsId("btn-reset").click();
+      cy.log("Successfully created savings product");
+    });
+  }
+  createWithoutInterestPostingPeriod() {
+    cy.fixture(this.test_data).then((data) => {
+      var spData = data.mfiAdmin.createSavingsProduct;
+
+      cy.formController("office_id_list").type(spData.office).type("{enter}");
+      cy.formController("savings_type_id")
+        .type(spData.savingsType)
+        .type("{enter}");
+      cy.formController("short_name_dep").type(spData.depositId);
+      cy.formController("savings_prod_name_en").type(spData.savingsProNameEn);
+      cy.formController("savings_prod_name_bn").type(spData.savingsProNameBn);
+      cy.formController("display_name").type(spData.displayNmae);
+      cy.formController("interest_rate_terms")
+        .type(spData.intersetTerms)
+        .type("{enter}");
+      cy.formController("interest_rate_frequency")
+        .type(spData.intersetFrequency)
+        .type("{enter}");
+      cy.formController("interest_rate").type(spData.intersetRate);
+      cy.formController("provision_interest_rate").type(
+        spData.provisionIntRate
+      );
+      cy.formController("interest_calculated_using")
+        .type(spData.intersetCalculate)
+        .type("{enter}");
+      cy.formController("start_date").click();
+      cy.get('.ant-picker-dropdown')
+        .should('be.visible');
+      cy.get('.ant-picker-cell-in-view')
+        .not('.ant-picker-cell-disabled')
+        .first()
+        .click({ force: true });
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-ok").click();
+      cy.imsId("btn-reset").click();
+      cy.log("Successfully created savings product");
+    });
+  }
+  createWithoutStartDate() {
+    cy.fixture(this.test_data).then((data) => {
+      var spData = data.mfiAdmin.createSavingsProduct;
+
+      cy.formController("office_id_list").type(spData.office).type("{enter}");
+      cy.formController("savings_type_id")
+        .type(spData.savingsType)
+        .type("{enter}");
+      cy.formController("short_name_dep").type(spData.depositId);
+      cy.formController("savings_prod_name_en").type(spData.savingsProNameEn);
+      cy.formController("savings_prod_name_bn").type(spData.savingsProNameBn);
+      cy.formController("display_name").type(spData.displayNmae);
+      cy.formController("interest_rate_terms")
+        .type(spData.intersetTerms)
+        .type("{enter}");
+      cy.formController("interest_rate_frequency")
+        .type(spData.intersetFrequency)
+        .type("{enter}");
+      cy.formController("interest_rate").type(spData.intersetRate);
+      cy.formController("provision_interest_rate").type(
+        spData.provisionIntRate
+      );
+      cy.formController("interest_calculated_using")
+        .type(spData.intersetCalculate)
+        .type("{enter}");
+      cy.formController("interest_posting_period")
+        .type(spData.intersetPostin)
+        .type("{enter}");
+
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-ok").click();
+      cy.imsId("btn-go-back").click();
+      cy.log("Successfully created savings product");
+    });
+  }
+
+
   actionButtonCheck() {
     cy.imsId("toggle-action").first().click();
     cy.log(
@@ -112,14 +579,16 @@ class SavingsProductCreation {
     cy.imsId("toggle-action").first().click();
     cy.imsId("btn-table-action-edit").click();
     cy.imsId("btn-reset").click();
-    cy.imsId("btn-go-back").click();
-
     cy.log("Successful clean displaying");
   }
 
+  editSubmitButton() {
+    cy.imsId("btn-submit").click();
+    cy.imsId("btn-ok").click();
+    cy.log("Successful edit submit button check");
+  }
+
   editGoBackButton() {
-    cy.imsId("toggle-action").first().click();
-    cy.imsId("btn-table-action-edit").click();
     cy.imsId("btn-go-back").click();
     cy.log("Successful edit go back button check.");
   }

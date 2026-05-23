@@ -104,13 +104,19 @@ class OfficeGrid {
       .uncheck({ force: true });
     cy.log(messages.ui.draftOffMessage);
   }
+
+  gridCheckboxCheck() {
+    cy.imsId("header-checkbox").click();
+    cy.log("Checkbox lock button should be clickable and functional.");
+  }
+
   gridCheckboxLockButtonCheck() {
     cy.imsId("btn-lock").click();
     cy.log("Checkbox lock button should be clickable and functional.");
   }
 
   gridCheckboxUnlockButtonCheck() {
-    cy.imsId("row-checkbox-2").click();
+    cy.imsId("header-checkbox").click();
     cy.imsId("btn-unlock").click();
     cy.log("Checkbox unlock button should be clickable and functional.");
   }

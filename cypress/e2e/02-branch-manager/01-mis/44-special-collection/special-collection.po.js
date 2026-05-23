@@ -1,3 +1,5 @@
+import messages from "../../../../support/constants/messages";
+import { GRID } from "../../../../support/constants/selectors";
 class specialCollection {
     test_data = Cypress.env("TEST_DATA");
 
@@ -74,10 +76,9 @@ class specialCollection {
     }
 
     gridHistoryButtonOnCheck() {
-        cy.imsId("btn-history-table").click();
-        cy.log(
-            "successfully history page  displayed the grid list of the special collection "
-        );
+        cy.imsId(GRID.BUTTONS.HISTORY_ON)
+            .check({ force: true });
+        cy.log(messages.ui.historyOnMessage);
     }
 
     fieldOfficerDropdownCheck() {
@@ -91,12 +92,11 @@ class specialCollection {
     }
 
     gridHistoryButtonOffCheck() {
-        cy.imsId("btn-history-table").click();
-        cy.log(
-            "successfully history page  displayed the grid list of the special collection "
-        );
+        cy.imsId(GRID.BUTTONS.HISTORY_OFF)
+            .uncheck({ force: true });
+        cy.log(messages.ui.historyOffMessage);
     }
-    
+
     gridLanguageSwitchCheck() {
         cy.imsId("profile-menu").click();
         cy.imsId("btn-lang-bangla").click();

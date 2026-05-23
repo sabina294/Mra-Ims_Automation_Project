@@ -1,3 +1,5 @@
+import messages from "../../../../support/constants/messages";
+import { GRID } from "../../../../support/constants/selectors";
 class Authorization {
     test_data = Cypress.env("TEST_DATA");
 
@@ -61,9 +63,11 @@ class Authorization {
         );
     }
 
-    gridPendingOnAuthorizationListCheck() {
-        cy.imsId("btn-draft-table").click();
-        cy.log("authorization pending on list should be clickable and functional.");
+
+    gridDraftButton() {
+        cy.imsId(GRID.BUTTONS.DRAFT_ON)
+            .check({ force: true });
+        cy.log(messages.ui.draftOnMessage);
     }
 
     gridPendingFieldOfficerDropdownCheck() {
@@ -74,14 +78,16 @@ class Authorization {
         })
     }
 
-    gridPendingOffAuthorizationListCheck() {
-        cy.imsId("btn-draft-table").click();
-        cy.log("authorization pending off list should be clickable and functional.");
+    gridDraftButtonOff() {
+        cy.imsId(GRID.BUTTONS.DRAFT_OFF)
+            .uncheck({ force: true });
+        cy.log(messages.ui.draftOffMessage);
     }
 
-    gridHistoryOnAuthorizationListCheck() {
-        cy.imsId("btn-history-table").click();
-        cy.log("authorization history list should be clickable and functional.");
+    gridHistoryButtonOnCheck() {
+        cy.imsId(GRID.BUTTONS.HISTORY_ON)
+            .check({ force: true });
+        cy.log(messages.ui.historyOnMessage);
     }
 
     gridHistoryFieldOfficerDropdownCheck() {
@@ -92,9 +98,10 @@ class Authorization {
         })
     }
 
-    gridHistoryOffAuthorizationListCheck() {
-        cy.imsId("btn-history-table").click();
-        cy.log("authorization history list should be clickable and functional.");
+    gridHistoryButtonOffCheck() {
+        cy.imsId(GRID.BUTTONS.HISTORY_OFF)
+            .uncheck({ force: true });
+        cy.log(messages.ui.historyOffMessage);
     }
 
     gridHistoryFieldOfficerDropdownCheck() {

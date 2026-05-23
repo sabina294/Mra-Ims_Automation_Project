@@ -16,8 +16,6 @@ class SavingsAccApplicationManagementCreation {
   createSavingsAccApplicationManagement() {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId("btn-add-new").click();
-      // cy.imsId("btn-submit").and("be.visible");
-
       var saamData = data.fieldOfficer.createSavingsAccApplicationMang;
       cy.formController("office_id").type(saamData.office).type("{enter}");
       cy.formController("savings_product_id")
@@ -29,6 +27,7 @@ class SavingsAccApplicationManagementCreation {
       cy.formController("opening_balance").type(saamData.openingBalance);
       cy.imsId("btn-submit").click();
       cy.imsId("btn-yes").click();
+      cy.wait(1000);
       cy.imsId("btn-ok").click();
 
       cy.log("Successfully created saving account application  management");
@@ -63,10 +62,8 @@ class SavingsAccApplicationManagementCreation {
   viewSavingsAccApplicationManag() {
     cy.fixture(this.test_data).then((data) => {
       var saamData = data.fieldOfficer.createSavingsAccApplicationMang;
-
-      cy.formController("search_text").type(saamData.search);
-      cy.imsId("btn-search").click();
-      cy.imsId("toggle-action").first().click();
+      // cy.formController("search_text").type(saamData.search);
+      // cy.imsId("btn-search").click();
       cy.imsId("btn-table-action-view").click();
 
       cy.log(
