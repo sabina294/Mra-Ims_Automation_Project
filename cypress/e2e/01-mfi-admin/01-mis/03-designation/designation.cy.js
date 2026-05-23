@@ -8,6 +8,7 @@ import { create_designation } from "./designation.po";
 describe("03. Designation Module Test Cases", function () {
   const baseURL = Cypress.env("BASE_URL");
   const test_data = Cypress.env("TEST_DATA");
+
   before(() => {
     cy.fixture(test_data).then((d) => {
       cy.login(
@@ -47,7 +48,7 @@ describe("03. Designation Module Test Cases", function () {
     create_designation.createWithoutStatus();
   });
 
-  it("03.07. Verify that the action button performs the expected action successfully when clicked.", function () {
+  it("03.07. Verify that each action button (view, edit) performs its intended function correctly when clicked.", function () {
     create_designation.actionButtonCheck();
   });
 
@@ -59,7 +60,7 @@ describe("03. Designation Module Test Cases", function () {
     create_designation.viewGoBackButton();
   });
 
-  it("03.10. Verify that the designation form edit mode can be toggled on and off successfully, and all fields return to view-only mode when disabled.", function () {
+  it("03.10. Verify that the designation form edit mode can be toggled on and off successfully, and that all fields revert to view-only mode when edit mode is disabled.", function () {
     create_designation.turnOffEditMode();
   });
 
@@ -79,7 +80,7 @@ describe("03. Designation Module Test Cases", function () {
     create_designation.editGoBackButton();
   });
 
-  it("03.15. Verify that the user can filter inactive designations using the Status dropdown on the Designation List page.", function () {
+  it("03.15. Verify that inactive designations are filtered correctly using the Status dropdown on the Designation List page.", function () {
     create_designation.statusInactiveDropdownCheck();
   });
 
@@ -91,11 +92,11 @@ describe("03. Designation Module Test Cases", function () {
     create_designation.searchInDesignationName();
   });
 
-  it("03.18. Verify that the grid list resets successfully when the Reset button is clicked on the Designation page.", function () {
+  it("03.18. Verify that the designation list resets successfully when the Reset button is clicked on the Designation List page.", function () {
     create_designation.gridResetButtonCheck();
   });
 
-  it("03.19. Verify that the grid list refreshes successfully when the Refresh button is clicked on the Designation page.", function () {
+  it("03.19. Verify that the designation list refreshes successfully when the Refresh button is clicked on the Designation List page.", function () {
     create_designation.gridRefreshButtonCheck();
   });
 
@@ -111,11 +112,11 @@ describe("03. Designation Module Test Cases", function () {
     create_designation.createGoBackButtonCheck();
   });
 
-  it("03.23. Verify that clicking the Search button on the designation grid page redirects the user to the Designation List page.", function () {
+  it("03.23. Verify that clicking the Search button on the Designation List page returns the filtered results correctly.", function () {
     create_designation.gridSearchButtonCheck();
   });
 
-  it("03.24. Verify that the grid list content changes correctly from English to Bangla after switching the language.", function () {
+  it("03.24. Verify that the designation list content changes correctly from English to Bangla after switching the language.", function () {
     create_designation.gridLanguageSwitchCheck();
   });
 });

@@ -48,7 +48,7 @@ describe("02. Department Module Test Cases", function () {
     create_department.actionButtonCheck();
   });
 
-  it("02.07. Verify that the user can view all relevant department details, including associated fields.", function () {
+  it("02.07. Verify that the user can view all relevant department details, including all associated fields.", function () {
     create_department.viewDepartment();
   });
 
@@ -56,19 +56,19 @@ describe("02. Department Module Test Cases", function () {
     create_department.viewGoBackButton();
   });
 
-  it("02.09. Verify that edit mode can be enabled/disabled and all fields return to view-only mode when disabled.", function () {
+  it("02.09. Verify that edit mode can be toggled on and off, and that all fields return to view-only mode when edit mode is disabled.", function () {
     create_department.turnOffEditMode();
   });
 
-  it("02.10. Verify that department name and description can be updated successfully.", function () {
+  it("02.10. Verify that the department name and description can be updated successfully.", function () {
     create_department.editDepartment();
   });
 
-  it("02.11. Verify that the Department Edit Reset button works correctly.", function () {
+  it("02.11. Verify that the Reset button on the Department Edit page functions correctly.", function () {
     create_department.editResetButton();
   });
 
-  it("02.12. Verify that the Department Edit Submit button works correctly.", function () {
+  it("02.12. Verify that the Submit button on the Department Edit page functions correctly.", function () {
     create_department.editSubmitButton();
   });
 
@@ -96,11 +96,11 @@ describe("02. Department Module Test Cases", function () {
     create_department.gridRefreshButtonCheck();
   });
 
-  it("02.19. Verify that the Department creation Reset button clears all entered input fields.", function () {
+  it("02.19. Verify that the Reset button on the Department Creation page clears all entered input fields.", function () {
     create_department.createResetButtonCheck();
   });
 
-  it("02.20. Verify that validation messages appear when required fields are submitted empty.", function () {
+  it("02.20. Verify that validation messages are displayed when required fields are submitted empty.", function () {
     create_department.createValidationMessageCheck();
   });
 
@@ -108,11 +108,11 @@ describe("02. Department Module Test Cases", function () {
     create_department.createGoBackButtonCheck();
   });
 
-  it("02.22. Verify that clicking the Search button on the Department grid page correctly filters results.", function () {
+  it("02.22. Verify that clicking the Search button on the Department List page correctly filters the results.", function () {
     create_department.gridSearchButtonCheck();
   });
 
-  it("02.23. Verify that the grid content updates correctly when switching language from English to Bangla.", function () {
+  it("02.23. Verify that the grid content updates correctly when the language is switched from English to Bangla.", function () {
     create_department.gridLanguageSwitchCheck();
   });
 });

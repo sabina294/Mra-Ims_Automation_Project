@@ -8,6 +8,7 @@ import { create_region } from "./region.po";
 describe("04. Region Module Test Cases", function () {
   const baseURL = Cypress.env("BASE_URL");
   const test_data = Cypress.env("TEST_DATA");
+
   before(() => {
     cy.fixture(test_data).then((d) => {
       cy.login(
@@ -59,15 +60,15 @@ describe("04. Region Module Test Cases", function () {
     create_region.viewGoBackButton();
   });
 
-  it("04.10. Verify that the edit mode on the region form can be toggled on and off, and all fields return to view-only mode when disabled.", function () {
+  it("04.10. Verify that edit mode on the region form can be toggled on and off, and all fields return to view-only mode when disabled.", function () {
     create_region.turnOffEditMode();
   });
 
-  it("04.11. Verify that the reset button on the region edit page functions correctly.", function () {
+  it("04.11. Verify that the Reset button on the region edit page functions correctly.", function () {
     create_region.editResetButton();
   });
 
-  it("04.12. Verify that the submit button on the region edit page functions correctly.", function () {
+  it("04.12. Verify that the Submit button on the region edit page functions correctly.", function () {
     create_region.editSubmitButton();
   });
 
@@ -99,11 +100,11 @@ describe("04. Region Module Test Cases", function () {
     create_region.gridRefreshButtonCheck();
   });
 
-  it("04.20. Verify that the reset button on the region creation page clears all entered input values.", function () {
+  it("04.20. Verify that the Reset button on the region creation page clears all entered input values.", function () {
     create_region.createResetButtonCheck();
   });
 
-  it("04.21. Verify that validation messages are displayed for all required fields when the submit button is clicked with empty inputs.", function () {
+  it("04.21. Verify that validation messages are displayed for all required fields when the Submit button is clicked with empty inputs.", function () {
     create_region.createValidationMessageCheck();
   });
 
@@ -111,11 +112,11 @@ describe("04. Region Module Test Cases", function () {
     create_region.createGoBackButtonCheck();
   });
 
-  it("04.23. Verify that clicking the Search button on the region grid page redirects the user to the region list page.", function () {
+  it("04.23. Verify that clicking the Search button on the region grid page displays the correct filtered results.", function () {
     create_region.gridSearchButtonCheck();
   });
 
-  it("04.24. Verify that the grid list content changes correctly when switching the language from English to Bangla.", function () {
+  it("04.24. Verify that the grid list content updates correctly when switching the language from English to Bangla.", function () {
     create_region.gridLanguageSwitchCheck();
   });
 });

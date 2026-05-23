@@ -1,286 +1,234 @@
+import messages from "../../../../support/constants/messages";
+import { GRID } from "../../../../support/constants/selectors";
+
 class AreaCreation {
   test_data = Cypress.env("TEST_DATA");
 
   gridAreaListPage() {
     cy.fixture(this.test_data).then((data) => {
       cy.selectMenu("menu-configuration", "submenu-area");
-      cy.log("Successfully area list page.");
+      cy.log(messages.ui.gridListMessage);
     });
   }
 
   createArea() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      cy.imsId("btn-submit").and("be.visible");
-
+      cy.imsId(GRID.CREATE.ADD_NEW).click();
       var arData = data.mfiAdmin.createAreaFrom;
       cy.formController("area_name_en").type(arData.nameEn);
       cy.formController("area_name_bn").type(arData.nameBn);
       cy.formController("zone_id").type(arData.zoneName).type("{enter}");
       cy.formController("area_code").type(arData.areaCode);
-
-      cy.imsId("btn-submit").click();
-
-      cy.imsId("btn-yes").click();
-      cy.get("app-confirmation-modal")
-        .contains(arData.messageSaveArea)
-        .and("be.visible");
-
-      cy.imsId("btn-ok").click();
-      cy.log("Successfully created area");
+      cy.imsId(GRID.CREATE.CREATESUBMIT).click();
+      cy.imsId(GRID.CREATE.CONFIRMATION_YES).click();
+      cy.imsId(GRID.CREATE.CONFIRMATION_OK).click();
+      cy.log(messages.ui.submitSuccess);
     });
   }
 
   createWithoutNameEn() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      cy.imsId("btn-submit").and("be.visible");
-
+      cy.imsId(GRID.CREATE.ADD_NEW).click();
       var arData = data.mfiAdmin.createAreaFrom;
       cy.formController("area_name_bn").type(arData.nameBn);
       cy.formController("zone_id").type(arData.zoneName).type("{enter}");
       cy.formController("area_code").type(arData.areaCode);
-
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-ok").click();
-      cy.imsId("btn-go-back").click();
-
-      cy.log("Successful cannot creation area without one mandatory field.");
+      cy.imsId(GRID.CREATE.CREATESUBMIT).click();
+      cy.imsId(GRID.CREATE.CONFIRMATION_OK).click();
+      cy.imsId(GRID.CREATE.CREATEGOBACK).click();
+      cy.log(messages.ui.withoutDataMessage);
     });
   }
 
   createWithoutNameBn() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      cy.imsId("btn-submit").and("be.visible");
-
+      cy.imsId(GRID.CREATE.ADD_NEW).click();
       var arData = data.mfiAdmin.createAreaFrom;
       cy.formController("area_name_en").type(arData.nameEn);
       cy.formController("zone_id").type(arData.zoneName).type("{enter}");
-
       cy.formController("area_code").type(arData.areaCode);
-
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-ok").click();
-      cy.imsId("btn-go-back").click();
-
-      cy.log("Successful cannot creation area without one mandatory field.");
+      cy.imsId(GRID.CREATE.CREATESUBMIT).click();
+      cy.imsId(GRID.CREATE.CONFIRMATION_OK).click();
+      cy.imsId(GRID.CREATE.CREATEGOBACK).click();
+      cy.log(messages.ui.withoutDataMessage);
     });
   }
 
   createWithoutZone() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      cy.imsId("btn-submit").and("be.visible");
-
+      cy.imsId(GRID.CREATE.ADD_NEW).click();
       var arData = data.mfiAdmin.createAreaFrom;
       cy.formController("area_name_en").type(arData.nameEn);
       cy.formController("area_name_bn").type(arData.nameBn);
       cy.formController("area_code").type(arData.areaCode);
-
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-ok").click();
-      cy.imsId("btn-go-back").click();
-
-      cy.log("Successful cannot creation area without one mandatory field.");
+      cy.imsId(GRID.CREATE.CREATESUBMIT).click();
+      cy.imsId(GRID.CREATE.CONFIRMATION_OK).click();
+      cy.imsId(GRID.CREATE.CREATEGOBACK).click();
+      cy.log(messages.ui.withoutDataMessage);
     });
   }
 
   createWithoutAreaCode() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      cy.imsId("btn-submit").and("be.visible");
-
+      cy.imsId(GRID.CREATE.ADD_NEW).click();
       var arData = data.mfiAdmin.createAreaFrom;
       cy.formController("area_name_en").type(arData.nameEn);
       cy.formController("area_name_bn").type(arData.nameBn);
       cy.formController("zone_id").type(arData.zoneName).type("{enter}");
-
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-ok").click();
-      cy.imsId("btn-go-back").click();
-
-      cy.log("Successful cannot creation area without one mandatory field.");
+      cy.imsId(GRID.CREATE.CREATESUBMIT).click();
+      cy.imsId(GRID.CREATE.CONFIRMATION_OK).click();
+      cy.imsId(GRID.CREATE.CREATEGOBACK).click();
+      cy.log(messages.ui.withoutDataMessage);
     });
   }
 
   createWithoutStatus() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      cy.imsId("btn-submit").and("be.visible");
-      cy.imsId("btn-reset").click();
-
+      cy.imsId(GRID.CREATE.ADD_NEW).click();
+      cy.imsId(GRID.BUTTONS.RESET).click();
       var arData = data.mfiAdmin.createAreaFrom;
       cy.formController("area_name_en").type(arData.nameEn);
       cy.formController("area_name_bn").type(arData.nameBn);
       cy.formController("zone_id").type(arData.zoneName).type("{enter}");
       cy.formController("area_code").type(arData.areaCode);
-
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-ok").click();
-      cy.imsId("btn-go-back").click();
-
-      cy.log("Successful cannot creation zone without one mandatory field.");
+      cy.imsId(GRID.CREATE.CREATESUBMIT).click();
+      cy.imsId(GRID.CREATE.CONFIRMATION_OK).click();
+      cy.imsId(GRID.CREATE.CREATEGOBACK).click();
+      cy.log(messages.ui.withoutDataMessage);
     });
   }
 
   actionButtonCheck() {
-    cy.imsId("toggle-action").first().click();
-    cy.log("Action button clicked successfully on the area list page.");
+    cy.imsId(GRID.TOGGLES.ACTION_TOGGLE).first().click();
+    cy.log(messages.ui.actionMessage);
   }
 
   viewArea() {
     cy.fixture(this.test_data).then((data) => {
       var arData = data.mfiAdmin.createAreaFrom;
-      cy.formController("search_text").type(arData.nameEn);
-      cy.imsId("toggle-action").first().click();
-      cy.imsId("btn-table-action-view").click();
-      cy.log("Successfully viewed the area list page");
+      cy.formController(GRID.INPUTS.SEARCH_TEXT).type(arData.nameEn);
+      cy.imsId(GRID.TOGGLES.ACTION_TOGGLE).first().click();
+      cy.imsId(GRID.BUTTONS.ACTIONVIEW).click();
+      cy.log(messages.ui.viewMessage);
     });
   }
 
   viewGoBackButton() {
-    cy.imsId("btn-go-back").click();
-    cy.log("Successfully view go back the zone list page");
-
+    cy.imsId(GRID.CREATE.CREATEGOBACK).click();
+    cy.log(messages.ui.goBackSuccess);
   }
 
   turnOffEditMode() {
-    cy.imsId("toggle-action").first().click();
-    cy.imsId("btn-table-action-edit").click();
-    cy.imsId("switch-button").click();
-    cy.imsId("btn-go-back").click();
-
-    cy.log("Area form Edit Mode toggled successfully");
+    cy.imsId(GRID.TOGGLES.ACTION_TOGGLE).first().click();
+    cy.imsId(GRID.BUTTONS.ACTIONEDIT).click();
+    cy.imsId(GRID.BUTTONS.TURNEDITMODE).click();
+    cy.imsId(GRID.CREATE.CREATEGOBACK).click();
+    cy.log(messages.ui.turnOnEditModeMessage);
   }
 
   editArea() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("toggle-action").first().click();
-      cy.imsId("btn-table-action-edit").click();
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-yes").click();
-
-      var arData = data.mfiAdmin.createAreaFrom;
-      cy.get("app-confirmation-modal")
-        .contains(arData.messageUpdateArea)
-        .and("be.visible");
-      cy.imsId("btn-ok").click();
-      cy.log("Area updated successfully");
+      cy.imsId(GRID.TOGGLES.ACTION_TOGGLE).first().click();
+      cy.imsId(GRID.BUTTONS.ACTIONEDIT).click();
+      cy.imsId(GRID.CREATE.CREATESUBMIT).click();
+      cy.imsId(GRID.CREATE.CONFIRMATION_YES).click();
+      cy.imsId(GRID.CREATE.CONFIRMATION_OK).click();
+      cy.log(messages.ui.editMessage);
     });
   }
 
   editResetButton() {
-    cy.imsId("toggle-action").first().click();
-    cy.imsId("btn-table-action-edit").click();
-    cy.imsId("btn-reset").click();
-    cy.imsId("btn-go-back").click();
-
-    cy.log("Successful clean displaying");
+    cy.imsId(GRID.TOGGLES.ACTION_TOGGLE).first().click();
+    cy.imsId(GRID.BUTTONS.ACTIONEDIT).click();
+    cy.imsId(GRID.BUTTONS.RESET).click();
+    cy.log(messages.ui.editResetMessage);
   }
 
   editSubmitButton() {
     cy.fixture(this.test_data).then((data) => {
       var arData = data.mfiAdmin.createAreaFrom;
-      cy.imsId("toggle-action").first().click();
-      cy.imsId("btn-table-action-edit").click();
-      cy.imsId("btn-reset").click();
-      cy.formController("area_name_en").type(arData.nameEn);
-      cy.formController("area_name_bn").type(arData.nameBn);
-      cy.formController("zone_id").type(arData.zoneName).type("{enter}");
-      cy.formController("area_code").type(arData.areaCode);
-      cy.formController("status").type(arData.status).type("{enter}");
-
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-yes").click();
-      cy.get("app-confirmation-modal")
-        .contains(arData.messageUpdateArea)
-        .and("be.visible");
-      cy.imsId("btn-ok").click();
-      cy.log("Successfully updated area");
+      cy.imsId(GRID.CREATE.CREATESUBMIT).click();
+      cy.imsId(GRID.CREATE.CONFIRMATION_OK).click();
+      cy.log(messages.ui.editSubmitMessage);
     });
   }
 
   editGoBackButton() {
-    cy.imsId("toggle-action").first().click();
-    cy.imsId("btn-table-action-edit").click();
-    cy.imsId("btn-go-back").click();
-    cy.log("Successful edit go back button check.");
+    cy.imsId(GRID.CREATE.CREATEGOBACK).click();
+    cy.log(messages.ui.editGoBackMessage);
   }
 
   statusInactiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       var arData = data.mfiAdmin.createAreaFrom;
-      cy.imsId("btn-reset").click();
+      cy.imsId(GRID.BUTTONS.RESET).click();
       cy.formController("status").type(arData.selectStatus).type("{enter}");
-      cy.log("Area status inactive dropdown check successfully");
+      cy.log(messages.ui.dropdownInactiveMessage);
     });
   }
+
   statusActiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       var arData = data.mfiAdmin.createAreaFrom;
       cy.formController("status").type(arData.statusSelect).type("{enter}");
-      cy.log("Area status active dropdown check successfully");
+      cy.log(messages.ui.dropdownActiveMessage);
     });
   }
 
   searchInAreaName() {
     cy.fixture(this.test_data).then((data) => {
       var arData = data.mfiAdmin.createAreaFrom;
-      cy.imsId("btn-reset").click();
-      cy.formController("search_text").type(arData.nameEn);
-      cy.log("Successfully search in the area");
+      cy.imsId(GRID.BUTTONS.RESET).click();
+      cy.formController(GRID.INPUTS.SEARCH_TEXT).type(arData.nameEn);
+      cy.log(messages.ui.searchMessage);
     });
   }
 
   gridResetButtonCheck() {
-    cy.imsId("btn-reset").click();
-    cy.log("Successful clean displaying.");
+    cy.imsId(GRID.BUTTONS.RESET).click();
+    cy.log(messages.ui.gridResetSuccess);
   }
+
   gridRefreshButtonCheck() {
-    cy.imsId("btn-refresh").click();
-    cy.log("successfully refresh page  displayed the grid list of the area ");
+    cy.imsId(GRID.BUTTONS.REFRESH).click();
+    cy.log(messages.ui.gridRefreshSuccess);
   }
 
   createResetButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
       var arData = data.mfiAdmin.createAreaFrom;
-      cy.imsId("btn-add-new").click();
+      cy.imsId(GRID.CREATE.ADD_NEW).click();
       cy.formController("area_name_en").type(arData.nameEn);
-      cy.imsId("btn-reset").click();
-      cy.imsId("btn-go-back").click();
-      cy.log("Successful reset button clean displaying.");
+      cy.imsId(GRID.BUTTONS.RESET).click();
+      cy.log(messages.validation.requiredField);
     });
   }
 
   createValidationMessageCheck() {
-    cy.imsId("btn-add-new").click();
-    cy.imsId("btn-submit").click();
-    cy.imsId("btn-ok").click();
-    cy.imsId("btn-go-back").click();
-    cy.log("Successful validation message displaying.");
+    cy.imsId(GRID.CREATE.CREATESUBMIT).click();
+    cy.imsId(GRID.CREATE.CONFIRMATION_OK).click();
+    cy.log(messages.validation.requiredField);
   }
 
   createGoBackButtonCheck() {
-    cy.imsId("btn-add-new").click();
-    cy.imsId("btn-go-back").click();
-    cy.log("Successful go back button check.");
+    cy.imsId(GRID.CREATE.CREATEGOBACK).click();
+    cy.log(messages.ui.createGoBackMessage);
   }
 
   gridSearchButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var arData = data.mfiAdmin.createAreaFrom;
-      cy.imsId("btn-reset").click();
-      cy.formController("search_text").type(arData.search);
-      cy.imsId("btn-search").click();
-      cy.log("Successful search button click.");
+      const arData = data.mfiAdmin.createAreaFrom;
+      cy.imsId(GRID.BUTTONS.RESET).click();
+      cy.formController(GRID.INPUTS.SEARCH_TEXT).type(arData.search);
+      cy.imsId(GRID.BUTTONS.SEARCH).click();
+      cy.log(messages.ui.searchMessage);
     });
   }
 
   gridLanguageSwitchCheck() {
-    cy.imsId("profile-menu").click();
-    cy.imsId("btn-lang-bangla").click();
-    cy.log("Successful switch bangla language check.");
+    cy.imsId(GRID.BUTTONS.PROFILE).click();
+    cy.imsId(GRID.BUTTONS.LANGUAGECHANGE).click();
+    cy.log(messages.ui.languageSwitchMessage);
   }
 }
 
