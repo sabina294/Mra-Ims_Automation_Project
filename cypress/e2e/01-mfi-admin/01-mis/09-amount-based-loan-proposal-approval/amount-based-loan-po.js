@@ -1,3 +1,6 @@
+import messages from "../../../../support/constants/messages";
+import { GRID } from "../../../../support/constants/selectors";
+
 class AmountBasedLoanProposalApprovalCreation {
   test_data = Cypress.env("TEST_DATA");
 
@@ -7,336 +10,258 @@ class AmountBasedLoanProposalApprovalCreation {
         "menu-configuration",
         "submenu-amount-based-loan-proposal-approval"
       );
-      cy.log("Successfully amount based loan list page.");
+      cy.log(messages.ui.gridListMessage);
     });
   }
 
   createAmountBasedLoanProposal() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      cy.imsId("btn-submit").and("be.visible");
-
+      cy.imsId(GRID.CREATE.ADD_NEW).click();
       var ablpaData = data.mfiAdmin.createAmountBasedLoanFrom;
-
-      cy.formController("office_type_id")
-        .type(ablpaData.officeTypeId)
-        .type("{enter}");
+      cy.formController("office_type_id").type(ablpaData.officeTypeId).type("{enter}");
       cy.formController("role_id").type(ablpaData.roleName).type("{enter}");
       cy.formController("min_loan_amount").type(ablpaData.minLoanAmount);
       cy.formController("max_loan_amount").type(ablpaData.maxLoanAmount);
-      cy.imsId("btn-submit").click();
-
-      cy.imsId("btn-yes").click();
-      cy.get("app-confirmation-modal")
-        .contains(ablpaData.messageSaveAmountBasedLoan)
-        .and("be.visible");
-
-      cy.imsId("btn-ok").click();
-      cy.log("Successfully created amount based loan");
+      cy.imsId(GRID.CREATE.CREATESUBMIT).click();
+      cy.imsId(GRID.CREATE.CONFIRMATION_YES).click();
+      cy.imsId(GRID.CREATE.CONFIRMATION_OK).click();
+      cy.log(messages.ui.submitSuccess);
     });
   }
 
   createWithoutOfficeTypeId() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      cy.imsId("btn-submit").and("be.visible");
-
+      cy.imsId(GRID.CREATE.ADD_NEW).click();
       var ablpaData = data.mfiAdmin.createAmountBasedLoanFrom;
-
       cy.formController("role_id").type(ablpaData.roleName).type("{enter}");
       cy.formController("min_loan_amount").type(ablpaData.minLoanAmount);
       cy.formController("max_loan_amount").type(ablpaData.maxLoanAmount);
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-ok").click();
-      cy.imsId("btn-go-back").click();
-
-      cy.log(
-        "Successful cannot creation amount based loan without one mandatory field."
-      );
+      cy.imsId(GRID.CREATE.CREATESUBMIT).click();
+      cy.imsId(GRID.CREATE.CONFIRMATION_OK).click();
+      cy.imsId(GRID.CREATE.CREATEGOBACK).click();
+      cy.log(messages.ui.withoutDataMessage);
     });
   }
 
   createWithoutRole() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      cy.imsId("btn-submit").and("be.visible");
-
+      cy.imsId(GRID.CREATE.ADD_NEW).click();
       var ablpaData = data.mfiAdmin.createAmountBasedLoanFrom;
-
-      cy.formController("office_type_id")
-        .type(ablpaData.officeTypeId)
-        .type("{enter}");
+      cy.formController("office_type_id").type(ablpaData.officeTypeId).type("{enter}");
       cy.formController("min_loan_amount").type(ablpaData.minLoanAmount);
       cy.formController("max_loan_amount").type(ablpaData.maxLoanAmount);
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-ok").click();
-      cy.imsId("btn-go-back").click();
-
-      cy.log(
-        "Successful cannot creation amount based loan without one mandatory field."
-      );
+      cy.imsId(GRID.CREATE.CREATESUBMIT).click();
+      cy.imsId(GRID.CREATE.CONFIRMATION_OK).click();
+      cy.imsId(GRID.CREATE.CREATEGOBACK).click();
+      cy.log(messages.ui.withoutDataMessage);
     });
   }
 
   createWithoutMiniLoanAmount() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      cy.imsId("btn-submit").and("be.visible");
-
+      cy.imsId(GRID.CREATE.ADD_NEW).click();
       var ablpaData = data.mfiAdmin.createAmountBasedLoanFrom;
-
-      cy.formController("office_type_id")
-        .type(ablpaData.officeTypeId)
-        .type("{enter}");
+      cy.formController("office_type_id").type(ablpaData.officeTypeId).type("{enter}");
       cy.formController("role_id").type(ablpaData.roleName).type("{enter}");
       cy.formController("max_loan_amount").type(ablpaData.maxLoanAmount);
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-ok").click();
-      cy.imsId("btn-go-back").click();
-
-      cy.log(
-        "Successful cannot creation amount based loan without one mandatory field."
-      );
+      cy.imsId(GRID.CREATE.CREATESUBMIT).click();
+      cy.imsId(GRID.CREATE.CONFIRMATION_OK).click();
+      cy.imsId(GRID.CREATE.CREATEGOBACK).click();
+      cy.log(messages.ui.withoutDataMessage);
     });
   }
 
   createWithoutMaxiLoanAmount() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      cy.imsId("btn-submit").and("be.visible");
-
+      cy.imsId(GRID.CREATE.ADD_NEW).click();
       var ablpaData = data.mfiAdmin.createAmountBasedLoanFrom;
-
-      cy.formController("office_type_id")
-        .type(ablpaData.officeTypeId)
-        .type("{enter}");
+      cy.formController("office_type_id").type(ablpaData.officeTypeId).type("{enter}");
       cy.formController("role_id").type(ablpaData.roleName).type("{enter}");
       cy.formController("min_loan_amount").type(ablpaData.minLoanAmount);
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-ok").click();
-      cy.imsId("btn-go-back").click();
-
-      cy.log(
-        "Successful cannot creation amount based loan without one mandatory field."
-      );
+      cy.imsId(GRID.CREATE.CREATESUBMIT).click();
+      cy.imsId(GRID.CREATE.CONFIRMATION_OK).click();
+      cy.imsId(GRID.CREATE.CREATEGOBACK).click();
+      cy.log(messages.ui.withoutDataMessage);
     });
   }
 
   createWithoutRemarks() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      cy.imsId("btn-submit").and("be.visible");
-
+      cy.imsId(GRID.CREATE.ADD_NEW).click();
       var ablpaData = data.mfiAdmin.createAmountBasedLoanFrom;
-
-      cy.formController("office_type_id")
-        .type(ablpaData.officeTypeId)
-        .type("{enter}");
+      cy.formController("office_type_id").type(ablpaData.officeTypeId).type("{enter}");
       cy.formController("role_id").type(ablpaData.roleName).type("{enter}");
       cy.formController("min_loan_amount").type(ablpaData.minLoanAmount);
       cy.formController("max_loan_amount").type(ablpaData.maxLoanAmount);
-      cy.imsId("btn-submit").click();
-
-      cy.imsId("btn-yes").click();
-      cy.get("app-confirmation-modal")
-        .contains(ablpaData.messageSaveAmountBasedLoan)
-        .and("be.visible");
-
-      cy.imsId("btn-ok").click();
-      cy.log("Successfully created amount based loan");
+      cy.imsId(GRID.CREATE.CREATESUBMIT).click();
+      cy.imsId(GRID.CREATE.CONFIRMATION_YES).click();
+      cy.imsId(GRID.CREATE.CONFIRMATION_OK).click();
+      cy.log(messages.ui.withoutDataMessage);
     });
   }
 
   createWithoutStatus() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      cy.imsId("btn-submit").and("be.visible");
-      cy.imsId("btn-reset").click();
-
+      cy.imsId(GRID.CREATE.ADD_NEW).click();
+      cy.imsId(GRID.BUTTONS.RESET).click();
       var ablpaData = data.mfiAdmin.createAmountBasedLoanFrom;
-
-      cy.formController("office_type_id")
-        .type(ablpaData.officeTypeId)
-        .type("{enter}");
+      cy.formController("office_type_id").type(ablpaData.officeTypeId).type("{enter}");
       cy.formController("role_id").type(ablpaData.roleName).type("{enter}");
       cy.formController("min_loan_amount").type(ablpaData.minLoanAmount);
       cy.formController("max_loan_amount").type(ablpaData.maxLoanAmount);
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-ok").click();
-      cy.imsId("btn-go-back").click();
-
-      cy.log(
-        "Successful cannot creation amount based loan without one mandatory field."
-      );
+      cy.imsId(GRID.CREATE.CREATESUBMIT).click();
+      cy.imsId(GRID.CREATE.CONFIRMATION_OK).click();
+      cy.imsId(GRID.CREATE.CREATEGOBACK).click();
+      cy.log(messages.ui.withoutDataMessage);
     });
   }
 
   actionButtonCheck() {
-    cy.imsId("toggle-action").first().click();
-    cy.log("Action button clicked successfully on the area list page.");
+    cy.imsId(GRID.TOGGLES.ACTION_TOGGLE).first().click();
+    cy.log(messages.ui.actionMessage);
   }
 
   viewAmountBasedLoanProposal() {
     cy.fixture(this.test_data).then((data) => {
       var ablpaData = data.mfiAdmin.createAmountBasedLoanFrom;
-      cy.formController("search_text").type(ablpaData.roleName);
-      cy.imsId("toggle-action").first().click();
-      cy.imsId("btn-table-action-view").click();
-      cy.log("Successfully viewed the amount based loan list page");
+      cy.formController(GRID.INPUTS.SEARCH_TEXT).type(ablpaData.roleName);
+      cy.imsId(GRID.TOGGLES.ACTION_TOGGLE).first().click();
+      cy.imsId(GRID.BUTTONS.ACTIONVIEW).click();
+      cy.log(messages.ui.viewMessage);
     });
   }
 
   viewGoBackButton() {
-    cy.imsId("btn-go-back").click();
-    cy.log("Successfully view go back the amount based loan list page");
-
+    cy.imsId(GRID.CREATE.CREATEGOBACK).click();
+    cy.log(messages.ui.goBackSuccess);
   }
 
   turnOffEditMode() {
-    cy.imsId("toggle-action").first().click();
-    cy.imsId("btn-table-action-edit").click();
-    cy.imsId("switch-button").click();
-    cy.imsId("btn-go-back").click();
-
-    cy.log("Amount Based Loan form Edit Mode toggled successfully");
+    cy.imsId(GRID.TOGGLES.ACTION_TOGGLE).first().click();
+    cy.imsId(GRID.BUTTONS.ACTIONEDIT).click();
+    cy.imsId(GRID.BUTTONS.TURNEDITMODE).click();
+    cy.imsId(GRID.CREATE.CREATEGOBACK).click();
+    cy.log(messages.ui.turnOnEditModeMessage);
   }
 
   editAmountBasedLoanProposal() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("toggle-action").first().click();
-      cy.imsId("btn-table-action-edit").click();
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-yes").click();
-
-      // var ablpaData = data.mfiAdmin.createAmountBasedLoanFrom;
-      // cy.get("app-confirmation-modal")
-      //   .contains(ablpaData.messageUpdateAmountBasedLoan)
-      //   .and("be.visible");
-      cy.imsId("btn-ok").click();
-      cy.log("Amount based loan updated successfully");
-    });
-  }
-
-  editSubmitButton() {
-    cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      cy.imsId("btn-submit").and("be.visible");
-      cy.imsId("btn-reset").click();
-
-      var ablpaData = data.mfiAdmin.createAmountBasedLoanFrom;
-
-      cy.formController("office_type_id")
-        .type(ablpaData.officeTypeId)
-        .type("{enter}");
-      cy.formController("role_id").type(ablpaData.roleName).type("{enter}");
-      cy.formController("min_loan_amount").type(ablpaData.minLoanAmount);
-      cy.formController("max_loan_amount").type(ablpaData.maxLoanAmount);
-      cy.formController("status").type(ablpaData.status).type("{enter}");
-
-      cy.imsId("btn-submit").click();
-
-      cy.imsId("btn-yes").click();
-      cy.get("app-confirmation-modal")
-        .contains(ablpaData.messageSaveAmountBasedLoan)
-        .and("be.visible");
-
-      cy.imsId("btn-ok").click();
-      cy.log("Successfully created amount based loan");
+      cy.imsId(GRID.TOGGLES.ACTION_TOGGLE).first().click();
+      cy.imsId(GRID.BUTTONS.ACTIONEDIT).click();
+      cy.imsId(GRID.CREATE.CREATESUBMIT).click();
+      cy.imsId(GRID.CREATE.CONFIRMATION_YES).click();
+      cy.imsId(GRID.CREATE.CONFIRMATION_OK).click();
+      cy.log(messages.ui.editMessage);
     });
   }
 
   editResetButton() {
-    cy.imsId("toggle-action").first().click();
-    cy.imsId("btn-table-action-edit").click();
-    cy.imsId("btn-reset").click();
-    cy.imsId("btn-go-back").click();
+    cy.imsId(GRID.TOGGLES.ACTION_TOGGLE).first().click();
+    cy.imsId(GRID.BUTTONS.ACTIONEDIT).click();
+    cy.imsId(GRID.BUTTONS.RESET).click();
+    cy.imsId(GRID.CREATE.CREATEGOBACK).click();
+    cy.log(messages.ui.editResetMessage);
+  }
 
-    cy.log("Successful clean displaying");
+  editSubmitButton() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId(GRID.CREATE.ADD_NEW).click();
+      cy.imsId(GRID.BUTTONS.RESET).click();
+      var ablpaData = data.mfiAdmin.createAmountBasedLoanFrom;
+      cy.formController("office_type_id").type(ablpaData.officeTypeId).type("{enter}");
+      cy.formController("role_id").type(ablpaData.roleName).type("{enter}");
+      cy.formController("min_loan_amount").type(ablpaData.minLoanAmount);
+      cy.formController("max_loan_amount").type(ablpaData.maxLoanAmount);
+      cy.formController("status").type(ablpaData.status).type("{enter}");
+      cy.imsId(GRID.CREATE.CREATESUBMIT).click();
+      cy.imsId(GRID.CREATE.CONFIRMATION_YES).click();
+      cy.imsId(GRID.CREATE.CONFIRMATION_OK).click();
+      cy.log(messages.ui.editSubmitMessage);
+    });
   }
 
   editGoBackButton() {
-    cy.imsId("toggle-action").first().click();
-    cy.imsId("btn-table-action-edit").click();
-    cy.imsId("btn-go-back").click();
-    cy.log("Successful edit go back button check.");
+    cy.imsId(GRID.TOGGLES.ACTION_TOGGLE).first().click();
+    cy.imsId(GRID.BUTTONS.ACTIONEDIT).click();
+    cy.imsId(GRID.CREATE.CREATEGOBACK).click();
+    cy.log(messages.ui.editGoBackMessage);
   }
 
   statusInactiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       var ablpaData = data.mfiAdmin.createAmountBasedLoanFrom;
-      cy.imsId("btn-reset").click();
+      cy.imsId(GRID.BUTTONS.RESET).click();
       cy.formController("status").type(ablpaData.selectStatus).type("{enter}");
-      cy.log("Amount based loan status inactive dropdown check successfully");
+      cy.log(messages.ui.dropdownInactiveMessage);
     });
   }
+
   statusActiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       var ablpaData = data.mfiAdmin.createAmountBasedLoanFrom;
       cy.formController("status").type(ablpaData.statusSelect).type("{enter}");
-      cy.log("Amount based loan status active dropdown check successfully");
+      cy.log(messages.ui.dropdownActiveMessage);
     });
   }
 
   searchInRoleName() {
     cy.fixture(this.test_data).then((data) => {
       var ablpaData = data.mfiAdmin.createAmountBasedLoanFrom;
-      cy.imsId("btn-reset").click();
-      cy.formController("search_text").type(ablpaData.roleName);
-      cy.log("Successfully search in the amount based loan");
+      cy.imsId(GRID.BUTTONS.RESET).click();
+      cy.formController(GRID.INPUTS.SEARCH_TEXT).type(ablpaData.roleName);
+      cy.log(messages.ui.searchMessage);
     });
   }
 
   gridResetButtonCheck() {
-    cy.imsId("btn-reset").click();
-    cy.log("Successful clean displaying.");
+    cy.imsId(GRID.BUTTONS.RESET).click();
+    cy.log(messages.ui.gridResetSuccess);
   }
 
   gridRefreshButtonCheck() {
-    cy.imsId("btn-refresh").click();
-    cy.log(
-      "successfully refresh page  displayed the grid list of the amount based loan "
-    );
+    cy.imsId(GRID.BUTTONS.REFRESH).click();
+    cy.log(messages.ui.gridRefreshSuccess);
   }
 
   createResetButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
       var ablpaData = data.mfiAdmin.createAmountBasedLoanFrom;
-      cy.imsId("btn-add-new").click();
+      cy.imsId(GRID.CREATE.ADD_NEW).click();
       cy.formController("office_type_id").type(ablpaData.officeTypeId);
-      cy.imsId("btn-reset").click();
-      cy.imsId("btn-go-back").click();
-      cy.log("Successful reset button clean displaying.");
+      cy.imsId(GRID.BUTTONS.RESET).click();
+      cy.imsId(GRID.CREATE.CREATEGOBACK).click();
+      cy.log(messages.validation.requiredField);
     });
   }
 
   createValidationMessageCheck() {
-    cy.imsId("btn-add-new").click();
-    cy.imsId("btn-submit").click();
-    cy.imsId("btn-ok").click();
-    cy.imsId("btn-go-back").click();
-    cy.log("Successful validation message displaying.");
+    cy.imsId(GRID.CREATE.ADD_NEW).click();
+    cy.imsId(GRID.CREATE.CREATESUBMIT).click();
+    cy.imsId(GRID.CREATE.CONFIRMATION_OK).click();
+    cy.imsId(GRID.CREATE.CREATEGOBACK).click();
+    cy.log(messages.validation.requiredField);
   }
 
   createGoBackButtonCheck() {
-    cy.imsId("btn-add-new").click();
-    cy.imsId("btn-go-back").click();
-    cy.log("Successful go back button check.");
+    cy.imsId(GRID.CREATE.ADD_NEW).click();
+    cy.imsId(GRID.CREATE.CREATEGOBACK).click();
+    cy.log(messages.ui.createGoBackMessage);
   }
 
-     gridSearchButtonCheck() {
+  gridSearchButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var ablpaData = data.mfiAdmin.createAmountBasedLoanFrom;
-      cy.imsId("btn-reset").click();
-      cy.formController("search_text").type(ablpaData.search);
-      cy.imsId("btn-search").click();
-      cy.log("Successful search button click.");
+      const ablpaData = data.mfiAdmin.createAmountBasedLoanFrom;
+      cy.imsId(GRID.BUTTONS.RESET).click();
+      cy.formController(GRID.INPUTS.SEARCH_TEXT).type(ablpaData.search);
+      cy.imsId(GRID.BUTTONS.SEARCH).click();
+      cy.log(messages.ui.searchMessage);
     });
   }
 
   gridLanguageSwitchCheck() {
-    cy.imsId("profile-menu").click();
-    cy.imsId("btn-lang-bangla").click();
-    cy.log("Successful switch bangla language check.");
+    cy.imsId(GRID.BUTTONS.PROFILE).click();
+    cy.imsId(GRID.BUTTONS.LANGUAGECHANGE).click();
+    cy.log(messages.ui.languageSwitchMessage);
   }
 }
 

@@ -8,6 +8,7 @@ import { create_savings_account_application_management } from "./savings-account
 describe("40. Savings Account Application Management Module Test Cases", function () {
   const baseURL = Cypress.env("BASE_URL");
   const test_data = Cypress.env("TEST_DATA");
+
   before(() => {
     cy.fixture(test_data).then((d) => {
       cy.login(
@@ -23,79 +24,103 @@ describe("40. Savings Account Application Management Module Test Cases", functio
     cy.logout();
   });
 
-  it("40.01. Verify the savings account application management list page loads correctly.", function () {
+  it("40.01. Verify that the savings account application management list page loads successfully without any errors.", function () {
     create_savings_account_application_management.gridSavingsAccApplicationListPage();
   });
 
-  it("40.02. Verify a new savings account application management record is created successfully when all required fields are filled with valid data.", function () {
+  it("40.02. Verify that a new savings account application management record is created successfully when all required fields are filled with valid data.", function () {
     create_savings_account_application_management.createSavingsAccApplicationManagement();
   });
 
-  it("40.03. Verify mfi-admin to successfully approve an savings account application management record after creation.", function () {
+  it("40.03. Verify that a savings account application management record cannot be created without selecting an office, even when all other required fields contain valid data.", function () {
+    create_savings_account_application_management.createWithoutOffice();
+  });
+
+  it("40.04. Verify that a savings account application management record cannot be created without selecting a savings product, even when all other required fields contain valid data.", function () {
+    create_savings_account_application_management.createWithoutSavingsProduct();
+  });
+
+  it("40.05. Verify that a savings account application management record cannot be created without selecting a samity, even when all other required fields contain valid data.", function () {
+    create_savings_account_application_management.createWithoutSamity();
+  });
+
+  it("40.06. Verify that a savings account application management record cannot be created without selecting a member, even when all other required fields contain valid data.", function () {
+    create_savings_account_application_management.createWithoutMember();
+  });
+
+  it("40.07. Verify that a savings account application management record cannot be created without entering a recommended deposit amount, even when all other required fields contain valid data.", function () {
+    create_savings_account_application_management.createWithoutRecommendedDepositAmount();
+  });
+
+  it("40.08. Verify that a savings account application management record cannot be created without entering an opening balance, even when all other required fields contain valid data.", function () {
+    create_savings_account_application_management.createWithoutOpeningBalance();
+  });
+
+  it("40.09. Verify that the MFI admin can successfully approve a savings account application management record after creation.", function () {
     create_savings_account_application_management.approvesavingsAccount();
   });
 
-  it("40.04. Verify successfully performs the action when the action button is clicked.", function () {
+  it("40.10. Verify that the action button performs the expected action successfully when clicked.", function () {
     create_savings_account_application_management.actionButtonCheck();
   });
 
-  it("40.05. Verify the user can successfully view the savings account application management information, including the name and description.", function () {
+  it("40.11. Verify that the user can view all relevant details of a savings account application management record, including its associated information.", function () {
     create_savings_account_application_management.viewSavingsAccApplicationManag();
   });
 
-  it("40.06. Verify that clicking the go back button on the savings account application management view page redirects the user to the savings account application management list page.", function () {
+  it("40.12. Verify that clicking the Go Back button on the savings account application management view page redirects the user to the savings account application management list page.", function () {
     create_savings_account_application_management.viewGoBackButton();
   });
 
-  it("40.07. Verify the user can filter inactive employee records using the status dropdown on the savings account application management List page.", function () {
+  it("40.13. Verify that approved savings account application management records can be filtered correctly using the status dropdown on the list page.", function () {
     create_savings_account_application_management.statusApprovedDropdownCheck();
   });
 
-  it("40.08. Verify check if the filter for active results works correctly with the status dropdown.", function () {
+  it("40.14. Verify that rejected savings account application management records are filtered correctly using the status dropdown on the list page.", function () {
     create_savings_account_application_management.statusRejectedDropdownCheck();
   });
 
-  it("40.09. Verify that the search results are displayed correctly when searching by savings account application management name.", function () {
+  it("40.15. Verify that the search functionality returns correct results when searching by savings account application management name.", function () {
     create_savings_account_application_management.searchSavingsAccAppManag();
   });
 
-  it("40.10. Verify the grid list resets successfully when the reset button is clicked on the savings account application management page.", function () {
+  it("40.16. Verify that the grid list is reset successfully when the Reset button is clicked on the savings account application management page.", function () {
     create_savings_account_application_management.gridResetButtonCheck();
   });
 
-  it("40.11. Verify that the grid list is refreshed successfully when the refresh button is clicked on the savings account application management page.", function () {
+  it("40.17. Verify that the grid list is refreshed successfully when the Refresh button is clicked on the savings account application management page.", function () {
     create_savings_account_application_management.gridRefreshButtonCheck();
   });
 
-  it("40.12. Verify display the grid list successfully when the Draft button on is clicked on the savings account application management page", function () {
+  it("40.18. Verify that the grid list displays draft records successfully when the Draft button is toggled on.", function () {
     create_savings_account_application_management.gridDraftButton();
   });
 
-  it("40.13. Verify display the grid list successfully when the Draft button off is clicked on the savings account application management page", function () {
+  it("40.19. Verify that the grid list updates correctly when the Draft button is toggled off.", function () {
     create_savings_account_application_management.gridDraftButtonOff();
   });
 
-  it("40.14. Verify the savings account application management creation reset button clears all entered input values.", function () {
+  it("40.20. Verify that the Reset button on the savings account application management creation page clears all entered input values.", function () {
     create_savings_account_application_management.createResetButtonCheck();
   });
 
-  it("40.15. Verify validation messages appear for required fields when the submit button is clicked with empty inputs.", function () {
+  it("40.21. Verify that validation messages are displayed for all required fields when the Submit button is clicked with empty inputs.", function () {
     create_savings_account_application_management.createValidationMessageCheck();
   });
 
-  it("40.16. Verify validation messages appear for required fields when the draft button is clicked with empty inputs.", function () {
+  it("40.22. Verify that validation messages are displayed for all required fields when the Draft button is clicked with empty inputs.", function () {
     create_savings_account_application_management.createDraftButtonCheck();
   });
 
-  it("40.17. Verify that clicking the go back button on the savings account application management create page redirects the user to the savings account application management list page.", function () {
+  it("40.23. Verify that clicking the Go Back button on the savings account application management creation page redirects the user to the savings account application management list page.", function () {
     create_savings_account_application_management.createGoBackButtonCheck();
   });
 
-  it("40.18. Verify that when the user clicks the Search button on the savings account application management grid page, the system redirects to the savings account application management List page..", function () {
+  it("40.24. Verify that clicking the Search button on the savings account application management grid page displays the correct filtered results.", function () {
     create_savings_account_application_management.gridSearchButtonCheck();
   });
 
-  it("40.19. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("40.25. Verify that the grid list content updates correctly when switching the language from English to Bangla.", function () {
     create_savings_account_application_management.gridLanguageSwitchCheck();
   });
 });

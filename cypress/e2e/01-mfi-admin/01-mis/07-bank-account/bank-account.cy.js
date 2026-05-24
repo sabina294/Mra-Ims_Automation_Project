@@ -8,6 +8,7 @@ import { create_bank_account } from "./bank-account.po";
 describe("07. Bank Account Module Test Cases", function () {
   const baseURL = Cypress.env("BASE_URL");
   const test_data = Cypress.env("TEST_DATA");
+
   before(() => {
     cy.fixture(test_data).then((d) => {
       cy.login(
@@ -23,7 +24,7 @@ describe("07. Bank Account Module Test Cases", function () {
     cy.logout();
   });
 
-  it("07.01. Verify that the bank account list page loads without errors.", function () {
+  it("07.01. Verify that the bank account list page loads successfully without any errors.", function () {
     create_bank_account.gridBankAccountListPage();
   });
 
@@ -31,39 +32,39 @@ describe("07. Bank Account Module Test Cases", function () {
     create_bank_account.createBankAccount();
   });
 
-  it("07.03. Verify that a bank account cannot be created without selecting a bank, even if all other fields are valid.", function () {
+  it("07.03. Verify that a bank account cannot be created without selecting a bank, even when all other fields contain valid data.", function () {
     create_bank_account.createWithoutBank();
   });
 
-  it("07.04. Verify that a bank account cannot be created without selecting a bank branch, even if all other fields are valid.", function () {
+  it("07.04. Verify that a bank account cannot be created without selecting a bank branch, even when all other fields contain valid data.", function () {
     create_bank_account.createWithoutBankBranch();
   });
 
-  it("07.05. Verify that a bank account cannot be created without entering the account name in English, even if all other fields are valid.", function () {
+  it("07.05. Verify that a bank account cannot be created without entering the account name in English, even when all other fields contain valid data.", function () {
     create_bank_account.createWithoutNameEn();
   });
 
-  it("07.06. Verify that a bank account cannot be created without entering the account name in Bangla, even if all other fields are valid.", function () {
+  it("07.06. Verify that a bank account cannot be created without entering the account name in Bangla, even when all other fields contain valid data.", function () {
     create_bank_account.createWithoutNameBn();
   });
 
-  it("07.07. Verify that a bank account cannot be created without selecting an account type, even if all other fields are valid.", function () {
+  it("07.07. Verify that a bank account cannot be created without selecting an account type, even when all other fields contain valid data.", function () {
     create_bank_account.createWithoutAccType();
   });
 
-  it("07.08. Verify that a bank account cannot be created without entering an account number, even if all other fields are valid.", function () {
+  it("07.08. Verify that a bank account cannot be created without entering an account number, even when all other fields contain valid data.", function () {
     create_bank_account.createWithoutAccNumber();
   });
 
-  it("07.09. Verify that a bank account cannot be created without selecting a status, even if all other fields are valid.", function () {
+  it("07.09. Verify that a bank account cannot be created without selecting a status, even when all other fields contain valid data.", function () {
     create_bank_account.createWithoutStatus();
   });
 
-  it("07.10. Verify that the action button functions correctly when clicked.", function () {
+  it("07.10. Verify that the action button performs the expected action successfully when clicked.", function () {
     create_bank_account.actionButtonCheck();
   });
 
-  it("07.11. Verify that the user can view all relevant details of a bank account, including associated fields.", function () {
+  it("07.11. Verify that the user can view all relevant details of a bank account, including its associated information.", function () {
     create_bank_account.viewBankAccount();
   });
 
@@ -71,7 +72,7 @@ describe("07. Bank Account Module Test Cases", function () {
     create_bank_account.viewGoBackButton();
   });
 
-  it("07.13. Verify that the bank account form edit mode can be toggled on and off, and all fields switch between editable and read-only states correctly.", function () {
+  it("07.13. Verify that edit mode on the bank account form can be toggled on and off, and all fields return to view-only mode when disabled.", function () {
     create_bank_account.turnOffEditMode();
   });
 
@@ -79,11 +80,11 @@ describe("07. Bank Account Module Test Cases", function () {
     create_bank_account.editBankAccount();
   });
 
-  it("07.15. Verify that the bank account edit reset button functions correctly.", function () {
+  it("07.15. Verify that the Reset button on the bank account edit page clears all modified values correctly.", function () {
     create_bank_account.editResetButton();
   });
 
-  it("07.16. Verify that the bank account edit submit button functions correctly.", function () {
+  it("07.16. Verify that the Submit button on the bank account edit page updates the data successfully.", function () {
     create_bank_account.editSubmitButton();
   });
 
@@ -91,23 +92,23 @@ describe("07. Bank Account Module Test Cases", function () {
     create_bank_account.editGoBackButton();
   });
 
-  it("07.18. Verify that inactive bank accounts can be filtered using the status dropdown on the bank account list page.", function () {
+  it("07.18. Verify that inactive bank accounts can be filtered correctly using the status dropdown on the bank account list page.", function () {
     create_bank_account.statusInactiveDropdownCheck();
   });
 
-  it("07.19. Verify that active bank accounts are filtered correctly using the status dropdown.", function () {
+  it("07.19. Verify that active bank accounts are filtered correctly using the status dropdown on the bank account list page.", function () {
     create_bank_account.statusActiveDropdownCheck();
   });
 
-  it("07.20. Verify that searching by bank account name returns correct results.", function () {
+  it("07.20. Verify that the search functionality returns correct results when searching by bank account name.", function () {
     create_bank_account.searchInBankAccountName();
   });
 
-  it("07.21. Verify that the grid list resets successfully when the reset button is clicked on the bank account page.", function () {
+  it("07.21. Verify that the grid list is reset successfully when the Reset button is clicked on the bank account page.", function () {
     create_bank_account.gridResetButtonCheck();
   });
 
-  it("07.22. Verify that the grid list refreshes successfully when the refresh button is clicked on the bank account page.", function () {
+  it("07.22. Verify that the grid list is refreshed successfully when the Refresh button is clicked on the bank account page.", function () {
     create_bank_account.gridRefreshButtonCheck();
   });
 
@@ -115,23 +116,23 @@ describe("07. Bank Account Module Test Cases", function () {
     create_bank_account.paginationCheck();
   });
 
-  it("07.24. Verify that the create form reset button clears all entered input values.", function () {
+  it("07.24. Verify that the Reset button on the bank account creation page clears all entered input values.", function () {
     create_bank_account.createResetButtonCheck();
   });
 
-  it("07.25. Verify that validation messages appear for required fields when the submit button is clicked with empty inputs.", function () {
+  it("07.25. Verify that validation messages are displayed for all required fields when the Submit button is clicked with empty inputs.", function () {
     create_bank_account.createValidationMessageCheck();
   });
 
-  it("07.26. Verify that clicking the Go Back button on the bank account create page redirects the user to the bank account list page.", function () {
+  it("07.26. Verify that clicking the Go Back button on the bank account creation page redirects the user to the bank account list page.", function () {
     create_bank_account.createGoBackButtonCheck();
   });
 
-  it("07.27. Verify that clicking the Search button on the bank account grid page correctly redirects or updates the bank account list view.", function () {
+  it("07.27. Verify that clicking the Search button on the bank account grid page displays the correct filtered results.", function () {
     create_bank_account.gridSearchButtonCheck();
   });
 
-  it("07.28. Verify that the grid list content correctly switches between English and Bangla languages.", function () {
+  it("07.28. Verify that the grid list content updates correctly when switching the language from English to Bangla.", function () {
     create_bank_account.gridLanguageSwitchCheck();
   });
 });

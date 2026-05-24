@@ -36,12 +36,126 @@ class SavingsAccApplicationManagementCreation {
     });
   }
 
+  createWithoutOffice() {
+    cy.fixture(this.test_data).then((data) => {
+      var saamData = data.mfiAdmin.createSavingsAccApplicationMang;
+      cy.imsId("btn-add-new").click();
+      cy.wait(3000);
+      cy.formController("savings_amount").type(saamData.recoDepositAmount);
+      cy.formController("opening_balance").type(saamData.openingBalance);
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-ok").click();
+      cy.imsId("btn-reset").click();
+
+      cy.log("Unsuccessfully created without office");
+    });
+  }
+
+  createWithoutSavingsProduct() {
+    cy.fixture(this.test_data).then((data) => {
+      var saamData = data.mfiAdmin.createSavingsAccApplicationMang;
+      cy.wait(3000);
+      cy.formController("office_id").type(saamData.office).type("{enter}");
+      cy.wait(2000);
+      cy.formController("samity_id").type(saamData.samity).type("{enter}");
+      cy.formController("member_id").type(saamData.member).type("{enter}");
+      cy.formController("savings_amount").type(saamData.recoDepositAmount);
+      cy.formController("opening_balance").type(saamData.openingBalance);
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-ok").click();
+      cy.imsId("btn-reset").click();
+
+      cy.log("Unsuccessfully created without savings product");
+    });
+  }
+
+
+  createWithoutSamity() {
+    cy.fixture(this.test_data).then((data) => {
+      var saamData = data.mfiAdmin.createSavingsAccApplicationMang;
+      cy.wait(3000);
+      cy.formController("office_id").type(saamData.office).type("{enter}");
+      cy.wait(2000);
+      cy.formController("savings_product_id")
+        .type(saamData.savingsProduct)
+        .type("{enter}");
+      cy.formController("savings_amount").type(saamData.recoDepositAmount);
+      cy.formController("opening_balance").type(saamData.openingBalance);
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-ok").click();
+      cy.imsId("btn-reset").click();
+
+      cy.log("Unsuccessfully created without samity");
+    });
+  }
+
+  createWithoutMember() {
+    cy.fixture(this.test_data).then((data) => {
+      var saamData = data.mfiAdmin.createSavingsAccApplicationMang;
+      cy.wait(3000);
+      cy.formController("office_id").type(saamData.office).type("{enter}");
+      cy.wait(2000);
+      cy.formController("savings_product_id")
+        .type(saamData.savingsProduct)
+        .type("{enter}");
+      cy.formController("samity_id").type(saamData.samity).type("{enter}");
+      cy.formController("savings_amount").type(saamData.recoDepositAmount);
+      cy.formController("opening_balance").type(saamData.openingBalance);
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-ok").click();
+      cy.imsId("btn-reset").click();
+
+      cy.log("Unsuccessfully created without member");
+    });
+  }
+
+
+  createWithoutRecommendedDepositAmount() {
+    cy.fixture(this.test_data).then((data) => {
+      var saamData = data.mfiAdmin.createSavingsAccApplicationMang;
+      cy.wait(3000);
+      cy.formController("office_id").type(saamData.office).type("{enter}");
+      cy.wait(2000);
+      cy.formController("savings_product_id")
+        .type(saamData.savingsProduct)
+        .type("{enter}");
+      cy.formController("samity_id").type(saamData.samity).type("{enter}");
+      cy.formController("member_id").type(saamData.member).type("{enter}");
+      cy.formController("opening_balance").type(saamData.openingBalance);
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-ok").click();
+      cy.imsId("btn-reset").click();
+
+      cy.log("Unsuccessfully created without deposit amount");
+    });
+  }
+
+
+  createWithoutOpeningBalance() {
+    cy.fixture(this.test_data).then((data) => {
+      var saamData = data.mfiAdmin.createSavingsAccApplicationMang;
+      cy.wait(3000);
+      cy.formController("office_id").type(saamData.office).type("{enter}");
+      cy.wait(2000);
+      cy.formController("savings_product_id")
+        .type(saamData.savingsProduct)
+        .type("{enter}");
+      cy.formController("samity_id").type(saamData.samity).type("{enter}");
+      cy.formController("member_id").type(saamData.member).type("{enter}");
+      cy.formController("savings_amount").type(saamData.recoDepositAmount);
+      // cy.imsId("btn-submit").click();
+      // cy.imsId("btn-ok").click();
+      cy.imsId("btn-go-back").click();
+      cy.log("Unsuccessfully created without opening balance");
+    });
+  }
+
   approvesavingsAccount() {
     cy.fixture(this.test_data).then((data) => {
       var saamData = data.mfiAdmin.createSavingsAccApplicationMang;
-      cy.formController("search_text").type(saamData.search);
       cy.imsId("menu-my-task").click();
       cy.imsId("submenu-awaiting-savings-account-proposal").click();
+      cy.formController("search_text").type(saamData.search);
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
       cy.imsId("btn-lock").click();
@@ -68,8 +182,6 @@ class SavingsAccApplicationManagementCreation {
   viewSavingsAccApplicationManag() {
     cy.fixture(this.test_data).then((data) => {
       var saamData = data.mfiAdmin.createSavingsAccApplicationMang;
-      // cy.formController("search_text").type(saamData.search);
-      cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
       cy.log(
         "Successfully viewed the savings account application management list page"

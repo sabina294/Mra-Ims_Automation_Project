@@ -68,9 +68,7 @@
       "status": "Active",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
-      "search": "Arpara Office",
-      "messageSaveBankAccount": "Mfi bank account has been saved",
-      "messageUpdateBankAccount": "Mfi bank account has been updated"
+      "search": "Sabina Yeasmin"
     },
     "createFeeConfigurationFrom": {
       "FeeCollCode": "87",
@@ -80,9 +78,7 @@
       "status": "Active",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
-      "search": "Test Fee",
-      "messageSaveFeeConfig": "Mfi fee configuration has been saved",
-      "messageUpdateFeeConfig": "Mfi fee configuration has been updated"
+      "search": "Test Fee"
     },
     "createAmountBasedLoanFrom": {
       "officeTypeId": "Branch Office",
@@ -92,9 +88,7 @@
       "status": "Active",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
-      "search": "Branch Manager",
-      "messageSaveAmountBasedLoan": "MFI role wise loan amount approval has been saved",
-      "messageUpdateAmountBasedLoan": "MFI role wise loan amount approval has been saved"
+      "search": "Branch Manager"
     },
     "createFundingOrganizationFrom": {
       "FundingNameEn": "Test",
@@ -103,9 +97,7 @@
       "status": "Active",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
-      "search": "Test",
-      "messageSaveFundingOrganization": "Mfi funding organization has been saved",
-      "messageUpdateFundingOrganization": "Mfi funding organization has been updated"
+      "search": "Test"
     },
     "createLoanFundFrom": {
       "bankAccount": "Dhaka Zonal Office",
