@@ -522,6 +522,12 @@
       "calendarYear": "2025",
       "messageSaveHoliday": "Mfi holiday has been saved"
     },
+     "cancelHoliday": {
+      "holidayTitleBn": "পরীক্ষার ছুটি",
+      "holidayTitleEn": "Test Holiday",
+      "search": "Weekly Holiday"
+    },
+
     "gridProcessDashboard": {},
     "gridStagingData": {
       "selectOffice": "1020 (Ashulia)",
