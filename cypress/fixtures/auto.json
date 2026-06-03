@@ -522,12 +522,11 @@
       "calendarYear": "2025",
       "messageSaveHoliday": "Mfi holiday has been saved"
     },
-     "cancelHoliday": {
+    "cancelHoliday": {
       "holidayTitleBn": "পরীক্ষার ছুটি",
       "holidayTitleEn": "Test Holiday",
       "search": "Weekly Holiday"
     },
-
     "gridProcessDashboard": {},
     "gridStagingData": {
       "selectOffice": "1020 (Ashulia)",
@@ -550,6 +549,11 @@
       "selectOffice": "1020 (Ashulia)",
       "Status": "Draft",
       "statusSelect": "Submitted"
+    },
+    "authorizationFrom": {
+      "office": "1020 (Ashulia)",
+      "samity": "1020-101 (Ashulia Mohila Samity)",
+      "search": "Chadnee"
     },
     "loanAdjustmentFrom": {
       "office": "1020 (Ashulia)",

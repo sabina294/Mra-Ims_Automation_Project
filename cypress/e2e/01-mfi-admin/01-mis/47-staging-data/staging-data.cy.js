@@ -8,6 +8,7 @@ import { grid_staging_data } from "./staging-data.po";
 describe("47. Staging Data Module Test Cases", function () {
     const baseURL = Cypress.env("BASE_URL");
     const test_data = Cypress.env("TEST_DATA");
+
     before(() => {
         cy.fixture(test_data).then((d) => {
             cy.login(
@@ -23,19 +24,23 @@ describe("47. Staging Data Module Test Cases", function () {
         cy.logout();
     });
 
-    it("47.01. Verify staging data List Page loads successfully.", function () {
+    it("47.01. Verify that the Staging Data list page loads successfully.", function () {
         grid_staging_data.gridStagingDataListPage();
     });
 
-    it("47.02. Verify that the Refresh button works successfully by MFI-Admin role", function () {
+    it("47.02. Verify that the Refresh button works successfully for MFI Admin role.", function () {
         grid_staging_data.refreshButtonCheck();
     });
 
-    it("47.03. Verify that the select office dropdown functions correctly by MFI-Admin role", function () {
+    it("47.03. Verify that the Office selection dropdown functions correctly for MFI Admin role.", function () {
         grid_staging_data.selectOfficeDropdownCheck();
     });
 
-    it("47.04. Verify check that the grid list content changes correctly from english to bangla.", function () {
+    it("47.04. Verify that the Samity selection dropdown functions correctly for MFI Admin role.", function () {
+        grid_staging_data.selectSamityDropdownCheck();
+    });
+
+    it("47.05. Verify that the grid list content switches correctly between English and Bangla languages.", function () {
         grid_staging_data.gridLanguageSwitchCheck();
     });
 });

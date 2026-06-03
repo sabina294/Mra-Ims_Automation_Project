@@ -35,15 +35,23 @@ describe("53. Special Collection Module Test Cases", function () {
         grid_special_collection.statusOfficeDropdownCheck();
     });
 
-    it("53.04. Verify Successful Reset of Grid List Using the Reset Button on special Collection  Page.", function () {
+    it("53.04. Verify that the Grid History button displays the data information successfully when enabled.", function () {
+        grid_special_collection.gridHistoryButtonOnCheck();
+    });
+
+    it("53.05. Verify that the Grid History button displays the data information successfully when disabled.", function () {
+        grid_special_collection.gridHistoryButtonOffCheck();
+    });
+
+    it("53.06. Verify Successful Reset of Grid List Using the Reset Button on special Collection  Page.", function () {
         grid_special_collection.gridResetButtonCheck();
     });
 
-    it("53.05. Verify Successful Refresh of Grid List Using the Refresh Button on special Collection  Page.", function () {
+    it("53.07. Verify Successful Refresh of Grid List Using the Refresh Button on special Collection  Page.", function () {
         grid_special_collection.gridRefreshButtonCheck();
     });
 
-    it("53.06. Verify check that the grid list content changes correctly from english to bangla.", function () {
+    it("53.08. Verify check that the grid list content changes correctly from english to bangla.", function () {
         grid_special_collection.gridLanguageSwitchCheck();
     });
 });

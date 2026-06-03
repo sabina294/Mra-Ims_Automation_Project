@@ -25,6 +25,15 @@ class StagingData {
     });
   }
 
+   selectSamityDropdownCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      var sData = data.mfiAdmin.gridStagingData;
+      cy.formController("samity_id").type(sData.selectSamity).type("{enter}");
+      cy.wait(2000);
+      cy.log("Successfully select samity dropdown check");
+    });
+  }
+
   gridLanguageSwitchCheck() {
     cy.imsId("profile-menu").click();
     cy.imsId("btn-lang-bangla").click();

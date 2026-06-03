@@ -1,3 +1,5 @@
+import messages from "../../../../support/constants/messages";
+import { GRID } from "../../../../support/constants/selectors";
 class SpecialCollection {
     test_data = Cypress.env("TEST_DATA");
 
@@ -26,6 +28,19 @@ class SpecialCollection {
             );
         });
     }
+     gridHistoryButtonOnCheck() {
+        cy.imsId(GRID.BUTTONS.HISTORY_ON)
+            .check({ force: true });
+        cy.log(messages.ui.historyOnMessage);
+    }
+
+    gridHistoryButtonOffCheck() {
+        cy.imsId(GRID.BUTTONS.HISTORY_OFF)
+            .uncheck({ force: true });
+        cy.log(messages.ui.historyOffMessage);
+    }
+
+
     gridResetButtonCheck() {
         cy.imsId("btn-reset").click();
         cy.log("Successful clean displaying.");

@@ -1,3 +1,5 @@
+import messages from "../../../../support/constants/messages";
+import { GRID } from "../../../../support/constants/selectors";
 class ReguralCollection {
     test_data = Cypress.env("TEST_DATA");
 
@@ -26,6 +28,29 @@ class ReguralCollection {
             );
         });
     }
+
+    gridHistoryButtonOnCheck() {
+        cy.imsId(GRID.BUTTONS.HISTORY_ON)
+            .check({ force: true });
+        cy.log(messages.ui.historyOnMessage);
+    }
+
+    historyOfficeDropdownCheck() {
+        cy.fixture(this.test_data).then((data) => {
+            var rcData = data.mfiAdmin.regularCollectionFrom;
+            cy.formController("office_id").type(rcData.office).type("{enter}");
+            cy.log(
+                "successfully office dropdown displayed the grid list of the regular collection "
+            );
+        })
+    }
+
+    gridHistoryButtonOffCheck() {
+        cy.imsId(GRID.BUTTONS.HISTORY_OFF)
+            .uncheck({ force: true });
+        cy.log(messages.ui.historyOffMessage);
+    }
+
     gridResetButtonCheck() {
         cy.imsId("btn-reset").click();
         cy.log("Successful clean displaying.");

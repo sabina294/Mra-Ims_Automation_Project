@@ -66,7 +66,8 @@ class HolidayCreation {
   searchHolidayTitle() {
     cy.fixture(this.test_data).then((data) => {
       var hData = data.branchManager.createHoliday;
-      cy.selectMenu("menu-calendar", "submenu-holiday");
+      // cy.selectMenu("menu-calendar", "submenu-holiday");
+      cy.selectMenu1("submenu-holiday");
       cy.imsId("btn-reset").click();
       cy.formController("search_text").type(hData.search);
       cy.log("Successfully search in the Holiday form");

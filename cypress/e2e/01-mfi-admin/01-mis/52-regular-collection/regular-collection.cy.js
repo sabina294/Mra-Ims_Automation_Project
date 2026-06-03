@@ -35,15 +35,27 @@ describe("52. Regular Collection Module Test Cases", function () {
         grid_regural_collection.statusOfficeDropdownCheck();
     });
 
-    it("52.04. Verify Successful Reset of Grid List Using the Reset Button on Regular Collection  Page.", function () {
+    it("52.04. Verify that the Grid History button displays the data information successfully when enabled.", function () {
+        grid_regural_collection.gridHistoryButtonOnCheck();
+    });
+
+    it("52.05. Verify that the Field Officer dropdown filters the grid list successfully on the Regular Collection page.", function () {
+        grid_regural_collection.historyOfficeDropdownCheck();
+    });
+
+    it("52.06. Verify that the Grid History button displays the data information successfully when disabled.", function () {
+        grid_regural_collection.gridHistoryButtonOffCheck();
+    });
+
+    it("52.07. Verify Successful Reset of Grid List Using the Reset Button on Regular Collection  Page.", function () {
         grid_regural_collection.gridResetButtonCheck();
     });
 
-    it("52.05. Verify Successful Refresh of Grid List Using the Refresh Button on Regular Collection  Page.", function () {
+    it("52.08. Verify Successful Refresh of Grid List Using the Refresh Button on Regular Collection  Page.", function () {
         grid_regural_collection.gridRefreshButtonCheck();
     });
 
-    it("52.06. Verify check that the grid list content changes correctly from english to bangla.", function () {
+    it("52.09. Verify check that the grid list content changes correctly from english to bangla.", function () {
         grid_regural_collection.gridLanguageSwitchCheck();
     });
 });

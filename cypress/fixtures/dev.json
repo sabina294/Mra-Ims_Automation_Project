@@ -550,6 +550,11 @@
       "Status": "Draft",
       "statusSelect": "Submitted"
     },
+    "authorizationFrom": {
+      "office": "1020 (Ashulia)",
+      "samity": "1020-101 (Ashulia Mohila Samity)",
+      "search": "Chadnee"
+    },
     "loanAdjustmentFrom": {
       "office": "1020 (Ashulia)",
       "samity": "1020-101 (Ashulia Mohila Samity)",
