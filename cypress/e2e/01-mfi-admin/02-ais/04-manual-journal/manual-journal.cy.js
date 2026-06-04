@@ -25,72 +25,95 @@ describe("04. Manual Journal Module Test Cases", function () {
         cy.logout();
     });
 
-    it("04.01. Verify the manual journal list page loads correctly.", function () {
+    it("04.01. Verify that the Manual Journal list page loads successfully with all required grid elements.", function () {
         create_manual_journal.gridManualJournalListPage();
     });
 
-    it("04.02. Verify a manual journal record is created successfully when all required fields are filled with valid data.", function () {
+    it("04.02. Verify that a manual journal is created successfully when all mandatory fields are populated with valid data.", function () {
         create_manual_journal.createManualJournal();
     });
 
-    it("04.03. Verify successfully performs the action when the action button is clicked.", function () {
+    it("04.03. Verify that the system prevents manual journal creation without a reference number, even when all other required fields are valid.", function () {
+        create_manual_journal.createWithoutReferenceNumber();
+    });
+
+    it("04.04. Verify that the system prevents manual journal creation without a description, even when all other required fields are valid.", function () {
+        create_manual_journal.createWithoutDescription();
+    });
+
+    it("04.05. Verify that the system prevents manual journal creation without selecting a ledger in the Journal Details section.", function () {
+        create_manual_journal.createWithoutJournalDetailsLedger();
+    });
+
+    it("04.06. Verify that the system prevents manual journal creation without entering a description in the Journal Details section.", function () {
+        create_manual_journal.createWithoutJournalDetailsDescription();
+    });
+
+    it("04.07. Verify that the system prevents manual journal creation without entering a debit amount in the Journal Details section.", function () {
+        create_manual_journal.createWithoutJournalDetailsDebitedAmount();
+    });
+
+    it("04.08. Verify that the system prevents manual journal creation without entering a credit amount in the Journal Details section.", function () {
+        create_manual_journal.createWithoutJournalDetailsCreditedAmount();
+    });
+
+    it("04.09. Verify that the Action button performs the expected operation when clicked.", function () {
         create_manual_journal.actionButtonCheck();
     });
 
-    it("04.04. Verify the user can view all relevant details of a manual journal, including its associated fields.", function () {
+    it("04.10. Verify that the user can view the complete details of a manual journal record.", function () {
         create_manual_journal.viewManualJournal();
     });
 
-    it("04.05. Verify the user can go back of a manual journal, including its associated fields.", function () {
+    it("04.11. Verify that the Go Back button navigates the user to the Manual Journal list page.", function () {
         create_manual_journal.goBackManualJournal();
     });
 
-    it("04.06. Verify the user can filter inactive manual journals using the status dropdown on the manual journal list page.", function () {
+    it("04.12. Verify that approved manual journals are filtered correctly using the Status dropdown.", function () {
         create_manual_journal.statusApproveDropdownCheck();
     });
 
-    it("04.07. Verify the active result is filtered correctly by the status dropdown.", function () {
+    it("04.13. Verify that rejected manual journals are filtered correctly using the Status dropdown.", function () {
         create_manual_journal.statusRejectedDropdownCheck();
     });
 
-    it("04.08. Verify the search returns correct results when searching by manual journal name.", function () {
+    it("04.14. Verify that the search functionality returns the correct results when searching for a manual journal.", function () {
         create_manual_journal.searchName();
     });
 
-    it("04.09. Verify the grid list resets successfully when the reset button is clicked on the manual journal page.", function () {
+    it("04.15. Verify that the grid is reset successfully when the Reset button is clicked.", function () {
         create_manual_journal.gridResetButtonCheck();
     });
 
-    it("04.10. Verify that the grid list is refreshed successfully when the refresh button is clicked on the manual journal page.", function () {
+    it("04.16. Verify that the grid is refreshed successfully when the Refresh button is clicked.", function () {
         create_manual_journal.gridRefreshButtonCheck();
     });
 
-    it("04.11. Verify that when the user clicks the Search button on the manual journal grid page, the system redirects to the manual journal List page..", function () {
+    it("04.17. Verify that clicking the Search button reloads and displays the filtered results on the Manual Journal list page.", function () {
         create_manual_journal.gridSearchButtonCheck();
     });
 
-    it("04.12. Verify the manual journal creation reset button clears all entered input values.", function () {
+    it("04.18. Verify that the Reset button on the create page clears all input fields successfully.", function () {
         create_manual_journal.createResetButtonCheck();
     });
 
-    it("04.13. Verify validation messages appear for required fields when the submit button is clicked with empty inputs.", function () {
+    it("04.19. Verify that validation messages are displayed when submitting the form without completing the required fields.", function () {
         create_manual_journal.createValidationMessageCheck();
     });
 
-    it("04.14. Verify that clicking the go back button on the manual journal create page redirects the user to the manual journal list page.", function () {
+    it("04.20. Verify that clicking the Go Back button on the create page redirects the user to the Manual Journal list page.", function () {
         create_manual_journal.createGoBackButtonCheck();
     });
 
-    it("04.15. Verify that clicking the delete button on the manual journal create page redirects the user to the manual journal list page.", function () {
+    it("04.21. Verify that clicking the Delete button removes the manual journal record successfully.", function () {
         create_manual_journal.createDeleteButtonCheck();
     });
 
-    it("04.16. Verify that clicking the Add New Journal Details button on the Manual Journal Create page redirects the user to the Manual Journal List page.", function () {
+    it("04.22. Verify that clicking the 'Add New Journal Details' button allows the user to add multiple journal detail entries successfully.", function () {
         create_manual_journal.createNewJournalDetailsButtonCheck();
     });
 
-    it("04.17. Verify check that the grid list content changes correctly from english to bangla.", function () {
+    it("04.23. Verify that the grid content is updated correctly when switching the language from English to Bangla.", function () {
         create_manual_journal.gridLanguageSwitchCheck();
     });
-
 });

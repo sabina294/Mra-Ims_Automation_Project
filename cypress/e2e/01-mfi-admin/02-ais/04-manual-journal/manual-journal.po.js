@@ -14,6 +14,134 @@ class ManualJournalCreation {
             cy.imsId("btn-add-new").click();
             cy.imsId("btn-delete").first().click();
 
+            cy.formController("reference").type(mjData.reference);
+            // First description field
+            cy.formController("description").eq(0).type(mjData.description);
+
+            // Ledger field
+            cy.formController("ledger_id").type(mjData.ledger).type("{enter}");
+
+            // Second description field
+            cy.formController("description").eq(1).type(mjData.description1);
+
+            cy.formController("debited_amount").clear().type(mjData.debitedAmount);
+            cy.formController("credited_amount").clear().type(mjData.creditedAmount);
+            cy.imsId("btn-submit").click();
+            cy.imsId("btn-yes").click();
+            cy.imsId("btn-ok").click();
+
+            cy.log("Successfully created manual journal");
+        });
+    }
+
+    createWithoutReferenceNumber() {
+        cy.fixture(this.test_data).then((data) => {
+            var mjData = data.mfiAdmin.manualJournal;
+            cy.imsId("btn-add-new").click();
+            cy.imsId("btn-delete").first().click();
+
+            cy.formController("description").eq(0).type(mjData.description);
+
+            // Ledger field
+            cy.formController("ledger_id").type(mjData.ledger).type("{enter}");
+
+            // Second description field
+            cy.formController("description").eq(1).type(mjData.description1);
+
+            cy.formController("debited_amount").clear().type(mjData.debitedAmount);
+            cy.formController("credited_amount").clear().type(mjData.creditedAmount);
+            cy.imsId("btn-submit").click();
+            cy.imsId("btn-ok").click();
+            cy.imsId("btn-reset").click();
+
+            cy.log("Unsuccessfully created manual journal without reference number");
+        });
+    }
+
+    createWithoutDescription() {
+        cy.fixture(this.test_data).then((data) => {
+            var mjData = data.mfiAdmin.manualJournal;
+            cy.formController("reference").type(mjData.reference);
+            // First description field
+            cy.formController("ledger_id").type(mjData.ledger).type("{enter}");
+
+            // Second description field
+            cy.formController("description").eq(1).type(mjData.description1);
+
+            cy.formController("debited_amount").clear().type(mjData.debitedAmount);
+            cy.formController("credited_amount").clear().type(mjData.creditedAmount);
+            cy.imsId("btn-submit").click();
+            cy.imsId("btn-ok").click();
+            cy.imsId("btn-reset").click();
+
+
+            cy.log("Unsuccessfully created manual journal without description");
+        });
+    }
+
+    createWithoutJournalDetailsLedger() {
+        cy.fixture(this.test_data).then((data) => {
+            var mjData = data.mfiAdmin.manualJournal;
+            cy.formController("reference").type(mjData.reference);
+            // First description field
+            cy.formController("description").eq(0).type(mjData.description);
+
+            // Ledger field
+            cy.formController("ledger_id").type(mjData.ledger).type("{enter}");
+
+            // Second description field
+            cy.formController("description").eq(1).type(mjData.description1);
+
+            cy.formController("debited_amount").clear().type(mjData.debitedAmount);
+            cy.formController("credited_amount").clear().type(mjData.creditedAmount);
+            cy.imsId("btn-submit").click();
+            cy.imsId("btn-ok").click();
+            cy.imsId("btn-reset").click();
+            cy.log("Unsuccessfully created manual journal without journal details ledger");
+        });
+    }
+    createWithoutJournalDetailsDescription() {
+        cy.fixture(this.test_data).then((data) => {
+            var mjData = data.mfiAdmin.manualJournal;
+
+            cy.formController("reference").type(mjData.reference);
+            // First description field
+            cy.formController("description").eq(0).type(mjData.description);
+            cy.formController("debited_amount").clear().type(mjData.debitedAmount);
+            cy.formController("credited_amount").clear().type(mjData.creditedAmount);
+            cy.imsId("btn-submit").click();
+            cy.imsId("btn-ok").click();
+            cy.imsId("btn-reset").click();
+
+            cy.log("Unsuccessfully created manual journal without journal details description");
+        });
+    }
+
+    createWithoutJournalDetailsDebitedAmount() {
+        cy.fixture(this.test_data).then((data) => {
+            var mjData = data.mfiAdmin.manualJournal;
+
+            cy.formController("reference").type(mjData.reference);
+            // First description field
+            cy.formController("description").eq(0).type(mjData.description);
+
+            // Ledger field
+            cy.formController("ledger_id").type(mjData.ledger).type("{enter}");
+
+            // Second description field
+            cy.formController("description").eq(1).type(mjData.description1);
+            cy.formController("credited_amount").clear().type(mjData.creditedAmount);
+            cy.imsId("btn-submit").click();
+            cy.imsId("btn-ok").click();
+            cy.imsId("btn-reset").click();
+
+            cy.log("Unsuccessfully created manual journal without journal details credited amount");
+        });
+    }
+
+    createWithoutJournalDetailsCreditedAmount() {
+        cy.fixture(this.test_data).then((data) => {
+            var mjData = data.mfiAdmin.manualJournal;
 
             cy.formController("reference").type(mjData.reference);
             // First description field
@@ -25,13 +153,12 @@ class ManualJournalCreation {
             // Second description field
             cy.formController("description").eq(1).type(mjData.description1);
 
-            cy.formController("debited_amount").type(mjData.debitedAmount);
-            cy.formController("credited_amount").type(mjData.creditedAmount);
+            cy.formController("debited_amount").clear().type(mjData.debitedAmount);
             cy.imsId("btn-submit").click();
-            cy.imsId("btn-yes").click();
             cy.imsId("btn-ok").click();
+            cy.imsId("btn-go-back").click();
 
-            cy.log("Successfully created manual journal");
+            cy.log("Unsuccessfully created manual journal without journal details debited amount");
         });
     }
 
@@ -47,14 +174,11 @@ class ManualJournalCreation {
             cy.formController("search_text").type(mjData.nameEn);
             cy.imsId("toggle-action").first().click();
             cy.imsId("btn-table-action-view").click();
-            cy.imsId("btn-go-back").click();
             cy.log("Successfully viewed the manual journal page");
         });
     }
 
     goBackManualJournal() {
-        cy.imsId("toggle-action").first().click();
-        cy.imsId("btn-table-action-view").click();
         cy.imsId("btn-go-back").click();
         cy.log("Successfully go back the manual journal page");
     }
@@ -64,7 +188,7 @@ class ManualJournalCreation {
             var mjData = data.mfiAdmin.manualJournal;
             cy.imsId("btn-reset").click();
             cy.formController("status").type(mjData.selectStatus).type("{enter}");
-            cy.log("ledger sub group status approve dropdown check successfully");
+            cy.log("ledger sub group status inactive dropdown check successfully");
         });
     }
 
@@ -72,7 +196,7 @@ class ManualJournalCreation {
         cy.fixture(this.test_data).then((data) => {
             var mjData = data.mfiAdmin.manualJournal;
             cy.formController("status").type(mjData.statusSelect).type("{enter}");
-            cy.log("ledger sub group status rejected dropdown check successfully");
+            cy.log("ledger sub group status active dropdown check successfully");
         });
     }
 
@@ -96,21 +220,22 @@ class ManualJournalCreation {
         );
     }
 
+    gridSearchButtonCheck() {
+        cy.fixture(this.test_data).then((data) => {
+            var mjData = data.mfiAdmin.manualJournal;
+            cy.imsId("btn-reset").click();
+            cy.formController("search_text").type(mjData.nameEn);
+            cy.imsId("btn-search").click();
+
+            cy.log("Successfully search button click.");
+        });
+    }
+
     createResetButtonCheck() {
         cy.imsId("btn-add-new").click();
         cy.imsId("btn-reset").click();
         cy.imsId("btn-go-back").click();
         cy.log("Successful reset button clean displaying.");
-    }
-
-    gridSearchButtonCheck() {
-        cy.fixture(this.test_data).then((data) => {
-            var mjData = data.mfiAdmin.manualJournal;
-            cy.imsId("btn-reset").click();
-            cy.formController("search_text").type(mjData.search);
-            cy.imsId("btn-search").click();
-            cy.log("Successful search button click.");
-        });
     }
 
     createValidationMessageCheck() {
@@ -127,11 +252,6 @@ class ManualJournalCreation {
         cy.log("Successful go back button check.");
     }
 
-    createGoBackButtonCheck() {
-        cy.imsId("btn-add-new").click();
-        cy.imsId("btn-go-back").click();
-        cy.log("Successful go back button check.");
-    }
 
     createDeleteButtonCheck() {
         cy.imsId("btn-add-new").click();
@@ -150,7 +270,7 @@ class ManualJournalCreation {
     gridLanguageSwitchCheck() {
         cy.imsId("profile-menu").click();
         cy.imsId("btn-lang-bangla").click();
-        cy.log("Unsuccessful switch bangla language check.");
+        cy.log("Successful switch bangla language check.");
     }
 }
 

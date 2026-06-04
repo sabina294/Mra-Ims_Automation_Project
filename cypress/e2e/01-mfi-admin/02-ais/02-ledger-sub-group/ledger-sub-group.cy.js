@@ -65,12 +65,12 @@ describe("02. Ledger Sub Group Module Test Cases", function () {
         create_ledger_sub_group.editResetButton();
     });
 
-    it("02.11. Verify that clicking the Go Back button on the Edit page redirects the user to the Ledger Sub Group list page.", function () {
-        create_ledger_sub_group.editGoBackButton();
+    it("02.11. Verify that the Edit Submit button updates the Ledger Sub Group successfully.", function () {
+        create_ledger_sub_group.editSubmitButton();
     });
 
-    it("02.12. Verify that the Edit Submit button updates the Ledger Sub Group successfully.", function () {
-        create_ledger_sub_group.editSubmitButton();
+    it("02.12. Verify that clicking the Go Back button on the Edit page redirects the user to the Ledger Sub Group list page.", function () {
+        create_ledger_sub_group.editGoBackButton();
     });
 
     it("02.13. Verify that inactive Ledger Sub Groups can be filtered successfully using the Status dropdown.", function () {

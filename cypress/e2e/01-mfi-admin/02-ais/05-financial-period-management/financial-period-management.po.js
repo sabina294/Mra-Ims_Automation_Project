@@ -30,6 +30,57 @@ class FinancialPeriodManagementCreation {
     }
 
 
+    createwithoutNameEnglish() {
+        cy.fixture(this.test_data).then((data) => {
+            var fpmData = data.mfiAdmin.financialPeriodManagement;
+            cy.imsId("btn-add-new").click();
+            cy.formController("name_bn").type(fpmData.nameBn);
+            cy.formController("period_type").type(fpmData.periodType).type("{enter}");
+            cy.formController("start_date").click();
+            cy.wait(1000);
+            cy.contains(15).click();
+            cy.wait(1000);
+            cy.imsId("btn-submit").click();
+            cy.imsId("btn-ok").click();
+            cy.imsId("btn-reset").click();
+
+            cy.log("Unsuccessfully created financial period management without name in English");
+        });
+    }
+
+    createwithoutNameBangla() {
+        cy.fixture(this.test_data).then((data) => {
+            var fpmData = data.mfiAdmin.financialPeriodManagement;
+            cy.formController("name_en").type(fpmData.nameEn);
+            cy.formController("period_type").type(fpmData.periodType).type("{enter}");
+            cy.formController("start_date").click();
+            cy.wait(1000);
+            cy.contains(15).click();
+            cy.wait(1000);
+            cy.imsId("btn-submit").click();
+            cy.imsId("btn-ok").click();
+            cy.imsId("btn-reset").click();
+
+            cy.log("Unsuccessfully created financial period management without name in Bangla");
+        });
+    }
+
+    createwithoutPeriodType() {
+        cy.fixture(this.test_data).then((data) => {
+            var fpmData = data.mfiAdmin.financialPeriodManagement;
+            cy.formController("name_en").type(fpmData.nameEn);
+            cy.formController("name_bn").type(fpmData.nameBn);
+            cy.formController("start_date").click();
+            cy.wait(1000);
+            cy.contains(15).click();
+            cy.wait(1000);
+            cy.imsId("btn-submit").click();
+            cy.imsId("btn-ok").click();
+            cy.imsId("btn-go-back").click();
+            cy.log("Unsuccessfully created financial period management without period type");
+        });
+    }
+
     actionButtonCheck() {
         cy.imsId("toggle-action").first().click();
         cy.log("Action button clicked successfully on the financial period management list page.");
