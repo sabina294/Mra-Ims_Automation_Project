@@ -29,52 +29,70 @@ class LedgerSubGroupCreation {
         cy.fixture(this.test_data).then((data) => {
             var lsgData = data.mfiAdmin.ledgerSubGroup;
             cy.imsId("btn-add-new").click();
-
             cy.formController("ledger_subgroup_name_en").type(lsgData.ledgerSubGroupNameEn);
             cy.formController("ledger_subgroup_name_bn").type(lsgData.ledgerSubGroupNameBn);
             cy.imsId("btn-submit").click();
             cy.imsId("btn-ok").click();
-            cy.imsId("btn-go-back").click();
+            cy.imsId("btn-reset").click();
 
-            cy.log("Unsuccessfully created ledger sub group");
+            cy.log("Unsuccessfully created ledger sub group without group id");
         });
     }
 
     createwithoutNameEnglish() {
         cy.fixture(this.test_data).then((data) => {
             var lsgData = data.mfiAdmin.ledgerSubGroup;
-            cy.imsId("btn-add-new").click();
-
             cy.formController("group_id").type(lsgData.groupId).type("{enter}");
             cy.formController("ledger_subgroup_name_bn").type(lsgData.ledgerSubGroupNameBn);
             cy.formController("balance_sheet_item").type(lsgData.balanceSheet).type("{enter}");
             cy.imsId("btn-submit").click();
             cy.imsId("btn-ok").click();
-            cy.imsId("btn-go-back").click();
-
-
-            cy.log("Unsuccessfully created ledger sub group");
+            cy.imsId("btn-reset").click();
+            cy.log("Unsuccessfully created ledger sub group without name english");
         });
     }
 
     createwithoutNameBangla() {
         cy.fixture(this.test_data).then((data) => {
             var lsgData = data.mfiAdmin.ledgerSubGroup;
-            cy.imsId("btn-add-new").click();
-
             cy.formController("group_id").type(lsgData.groupId).type("{enter}");
             cy.formController("ledger_subgroup_name_en").type(lsgData.ledgerSubGroupNameEn);
             cy.formController("balance_sheet_item").type(lsgData.balanceSheet).type("{enter}");
             cy.imsId("btn-submit").click();
             cy.imsId("btn-ok").click();
-            cy.imsId("btn-go-back").click();
-
-
-            cy.log("Unsuccessfully created ledger sub group");
+            cy.imsId("btn-reset").click();
+            cy.log("Unsuccessfully created ledger sub group without name bangla");
         });
     }
 
+     createwithoutBalanceSheetItem() {
+        cy.fixture(this.test_data).then((data) => {
+            var lsgData = data.mfiAdmin.ledgerSubGroup;
+            cy.formController("group_id").type(lsgData.groupId).type("{enter}");
+            cy.formController("ledger_subgroup_name_en").type(lsgData.ledgerSubGroupNameEn);
+            cy.formController("ledger_subgroup_name_bn").type(lsgData.ledgerSubGroupNameBn);
+            cy.imsId("btn-submit").click();
+            cy.imsId("btn-ok").click();
+            cy.imsId("btn-reset").click();
 
+            cy.log("Successfully created ledger sub group without balance sheet item");
+        });
+    }
+
+     createwithoutStatus() {
+        cy.fixture(this.test_data).then((data) => {
+            var lsgData = data.mfiAdmin.ledgerSubGroup;
+            cy.formController("group_id").type(lsgData.groupId).type("{enter}");
+            cy.formController("ledger_subgroup_name_en").type(lsgData.ledgerSubGroupNameEn);
+            cy.formController("ledger_subgroup_name_bn").type(lsgData.ledgerSubGroupNameBn);
+            cy.formController("balance_sheet_item").type(lsgData.balanceSheet).type("{enter}");
+            cy.imsId("btn-submit").click();
+            cy.imsId("btn-ok").click();
+            cy.imsId("btn-go-back").click();
+
+            cy.log("Successfully created ledger sub group without status");
+        });
+    }
 
     actionButtonCheck() {
         cy.imsId("toggle-action").first().click();

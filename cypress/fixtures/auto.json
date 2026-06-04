@@ -565,7 +565,9 @@
       "ledgerSubGroup": "Liquid Assets",
       "nameEn": "Furniture",
       "nameBn": "আসবাবপত্র",
-      "mnemonicEn": "5"
+      "mnemonicEn": "5",
+      "status":"Active"
+
     },
     "ledgerSubGroup": {
       "groupId": "Asset",
@@ -575,7 +577,9 @@
       "nameEn": "Current Assets",
       "ledgerGroupId": "Asset",
       "selectStatus": "Inactive",
-      "statusSelect": "Active"
+      "statusSelect": "Active",
+      "status":"Active"
+
     },
     "ledgerSetting": {
       "nameEn": "CashAtBank",

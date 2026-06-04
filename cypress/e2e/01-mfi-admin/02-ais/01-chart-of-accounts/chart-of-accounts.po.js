@@ -12,7 +12,6 @@ class ChartOfAccountsCreation {
         cy.fixture(this.test_data).then((data) => {
             var coaData = data.mfiAdmin.chartOfAccounts;
             cy.imsId("btn-add").click();
-
             cy.formController("ledger_group_id").type(coaData.ledgergroup).type("{enter}");
             cy.formController("ledger_subgroup_oid").type(coaData.ledgerSubGroup).type("{enter}");
             cy.formController("name_en").type(coaData.nameEn);
@@ -30,72 +29,90 @@ class ChartOfAccountsCreation {
         cy.fixture(this.test_data).then((data) => {
             var coaData = data.mfiAdmin.chartOfAccounts;
             cy.imsId("btn-add").click();
-
             cy.formController("name_en").type(coaData.nameEn);
             cy.formController("name_bn").type(coaData.nameBn);
             cy.formController("mnemonic").type(coaData.mnemonicEn);
             cy.imsId("btn-submit").click();
             cy.imsId("btn-ok").click();
-            cy.imsId("btn-go-back").click();
-
-            cy.log("Unsuccessfully created chart of accounts");
+            cy.imsId("btn-reset").click();
+            cy.log("Unsuccessfully created chart of accounts without ledger id");
         });
     }
 
     createwithoutNameEnglish() {
         cy.fixture(this.test_data).then((data) => {
             var coaData = data.mfiAdmin.chartOfAccounts;
-            cy.imsId("btn-add").click();
-
             cy.formController("ledger_group_id").type(coaData.ledgergroup).type("{enter}");
             cy.formController("ledger_subgroup_oid").type(coaData.ledgerSubGroup).type("{enter}");
             cy.formController("name_bn").type(coaData.nameBn);
             cy.formController("mnemonic").type(coaData.mnemonicEn);
             cy.imsId("btn-submit").click();
-
             cy.imsId("btn-ok").click();
-            cy.imsId("btn-go-back").click();
+            cy.imsId("btn-reset").click();
 
-            cy.log("Unsuccessfully created chart of accounts");
+            cy.log("Unsuccessfully created chart of accounts without name in English");
         });
     }
 
     createwithoutNameBangla() {
         cy.fixture(this.test_data).then((data) => {
             var coaData = data.mfiAdmin.chartOfAccounts;
-            cy.imsId("btn-add").click();
-
             cy.formController("ledger_group_id").type(coaData.ledgergroup).type("{enter}");
             cy.formController("ledger_subgroup_oid").type(coaData.ledgerSubGroup).type("{enter}");
             cy.formController("name_en").type(coaData.nameEn);
             cy.formController("mnemonic").type(coaData.mnemonicEn);
             cy.imsId("btn-submit").click();
-
             cy.imsId("btn-ok").click();
-            cy.imsId("btn-go-back").click();
+            cy.imsId("btn-reset").click();
 
-            cy.log("Unsuccessfully created chart of accounts");
+            cy.log("Unsuccessfully created chart of accounts without name in Bangla");
         });
     }
 
     createwithoutMnemonics() {
         cy.fixture(this.test_data).then((data) => {
             var coaData = data.mfiAdmin.chartOfAccounts;
-            cy.imsId("btn-add").click();
-
             cy.formController("ledger_group_id").type(coaData.ledgergroup).type("{enter}");
             cy.formController("ledger_subgroup_oid").type(coaData.ledgerSubGroup).type("{enter}");
             cy.formController("name_en").type(coaData.nameEn);
             cy.formController("name_bn").type(coaData.nameBn);
             cy.imsId("btn-submit").click();
-
             cy.imsId("btn-ok").click();
-            cy.imsId("btn-go-back").click();
-
-            cy.log("Unsuccessfully created chart of accounts");
+            cy.imsId("btn-reset").click();
+            cy.log("Unsuccessfully created chart of accounts without mnemonics");
         });
     }
 
+    createwithoutBalanceSheetItem() {
+        cy.fixture(this.test_data).then((data) => {
+            var coaData = data.mfiAdmin.chartOfAccounts;
+            cy.formController("ledger_group_id").type(coaData.ledgergroup).type("{enter}");
+            cy.formController("ledger_subgroup_oid").type(coaData.ledgerSubGroup).type("{enter}");
+            cy.formController("name_en").type(coaData.nameEn);
+            cy.formController("name_bn").type(coaData.nameBn);
+            cy.formController("mnemonic").type(coaData.mnemonicEn);
+            cy.formController("status").type(coaData.status);
+            cy.imsId("btn-submit").click();
+            cy.imsId("btn-ok").click();
+            cy.imsId("btn-reset").click();
+            cy.log("Successfully created chart of accounts without balance sheet item");
+        });
+    }
+
+    createwithoutStatus() {
+        cy.fixture(this.test_data).then((data) => {
+            var coaData = data.mfiAdmin.chartOfAccounts;
+            cy.formController("ledger_group_id").type(coaData.ledgergroup).type("{enter}");
+            cy.formController("ledger_subgroup_oid").type(coaData.ledgerSubGroup).type("{enter}");
+            cy.formController("name_en").type(coaData.nameEn);
+            cy.formController("name_bn").type(coaData.nameBn);
+            cy.formController("mnemonic").type(coaData.mnemonicEn);
+            cy.imsId("btn-submit").click();
+            cy.imsId("btn-ok").click();
+            cy.imsId("btn-go-back").click();
+            cy.log("Successfully created chart of accounts without status");
+        });
+    }
 
     createResetButtonCheck() {
         cy.fixture(this.test_data).then((data) => {
