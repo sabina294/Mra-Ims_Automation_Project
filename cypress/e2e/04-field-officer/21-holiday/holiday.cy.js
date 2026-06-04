@@ -27,9 +27,9 @@ describe("21. Holiday Module Test Cases", function () {
     create_holiday.gridHolidayListPage();
   });
 
-  // it("21.02. Verify that a new holiday record is created successfully with valid required data.", function () {
-  //   create_holiday.createHoliday();
-  // });
+  it("21.02. Verify that a new holiday record is created successfully with valid required data.", function () {
+    create_holiday.createHoliday();
+  });
 
   // it("21.03. Verify that the MFI Admin can successfully approve a holiday record after creation.", function () {
   //   create_holiday.approveHoliday();

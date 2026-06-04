@@ -27,9 +27,9 @@ describe("40. holiday Module Test Cases", function () {
     create_holiday.gridHolidayListPage();
   });
 
-  // it("40.02. Verify that a new holiday record is created successfully when all required fields are filled with valid data.", function () {
-  //   create_holiday.createHoliday();
-  // });
+  it("40.02. Verify that a new holiday record is created successfully when all required fields are filled with valid data.", function () {
+    create_holiday.createHoliday();
+  });
 
   it("40.03. Verify that clicking the Reset button on the Holiday Create page clears all entered input values.", function () {
     create_holiday.createResetButtonCheck();
@@ -43,9 +43,9 @@ describe("40. holiday Module Test Cases", function () {
     create_holiday.createGoBackButtonCheck();
   });
 
-  // it("40.06. Verify that the MFI Admin can successfully approve a holiday record after creation.", function () {
-  //   create_holiday.approveHoliday();
-  // });
+  it("40.06. Verify that the MFI Admin can successfully approve a holiday record after creation.", function () {
+    create_holiday.approveHoliday();
+  });
 
   it("40.07. Verify that the correct search results are displayed when searching by holiday name.", function () {
     create_holiday.searchHolidayTitle();
