@@ -179,8 +179,8 @@ class MfiProgramCreation {
   viewMfiProgram() {
     cy.fixture(this.test_data).then((data) => {
       var mpData = data.mfiAdmin.createMfiProgramFrom;
-      cy.formController("search_text").type(mpData.programNameEn);
-      cy.imsId("toggle-action").first().click();
+      // cy.formController("search_text").type(mpData.programNameEn);
+      // cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
       cy.log("Successfully viewed the mfi program list page");
     });

@@ -16,8 +16,12 @@ class HolidayCreation {
       var hData = data.branchManager.createHoliday;
       cy.imsId("btn-add-new").click();
       cy.formController("end_date").click();
-      cy.contains("12").click({ force: true });
-      cy.wait(2000);
+      cy.get('.ant-picker-dropdown')
+        .should('be.visible');
+      cy.get('.ant-picker-cell-in-view')
+        .not('.ant-picker-cell-disabled')
+        .first()
+        .click({ force: true });
       cy.formController("holiday_title_bn").type(hData.holidayTitleBn);
       cy.formController("holiday_title_en").type(hData.holidayTitleEn);
       cy.imsId("btn-submit").click();
@@ -66,7 +70,7 @@ class HolidayCreation {
   searchHolidayTitle() {
     cy.fixture(this.test_data).then((data) => {
       var hData = data.branchManager.createHoliday;
-      // cy.selectMenu("menu-calendar", "submenu-holiday");
+      cy.selectMenu("menu-calendar", "submenu-holiday");
       cy.selectMenu1("submenu-holiday");
       cy.imsId("btn-reset").click();
       cy.formController("search_text").type(hData.search);
