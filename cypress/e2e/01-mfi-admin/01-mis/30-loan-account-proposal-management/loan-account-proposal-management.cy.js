@@ -36,7 +36,7 @@ describe("30. Loan Account Proposal Management Module Test Cases", function () {
   });
 
   it("30.04. Verify successful creation of a Loan Account Proposal Management view schedules close button check", function () {
-    create_loan_account_proposal_management.loanAccountProposalManagementViewSchedulesCloseButtonCheck();
+    create_loan_account_proposal_management.loanAccountProposalManagementViewSchedulesCancelButtonCheck();
   });
 
   it("30.05. Verify successfully approve a loan account proposal management record after creation.", function () {

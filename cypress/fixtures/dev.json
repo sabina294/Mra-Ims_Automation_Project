@@ -376,15 +376,15 @@
       "messageSaveLoanProduct": "Loan product has been saved",
       "messageUpdateLoanProduct": "Do you want to update this loan product?"
     },
-    "createLoanAccountFrom": {
+   "createLoanAccountFrom": {
       "office": "1020 (Ashulia)",
       "samity": "1020-101 (Ashulia Mohila Samity)",
       "member": "1-1001 (Fariya)",
-      "lendingCategory": "Industry",
-      "economicSector": "Industry",
-      "economicActivity": "Term Loan ( Other than Working Capital Financing)",
-      "economicPurpose": "Service Industries",
-      "loanProduct": "Micro Enterprise",
+      "lendingCategory": "Agriculture, Fisheries, Livestock and Forestry",
+      "economicSector": "Agriculture",
+      "economicActivity": "Cultivation",
+      "economicPurpose": "Major Crops",
+      "loanProduct": "Rural Micro Credit Monthly",
       "appliedLoanAmount": "50000",
       "selectStatus": "Approve",
       "statusSelect": "Rejected",
