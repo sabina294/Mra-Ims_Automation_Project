@@ -35,47 +35,51 @@ describe("05. Amount based loan proposal approval Module Test Cases ", function 
     grid_amount_based_loan.viewAmountBasedLoanProposal();
   });
 
-  it("05.04. Verify that the amount based loan forms edit mode can be toggled on and off all fields should be disabled or return to view-only mode.", function () {
+  it("05.04. Verify that clicking the Go Back button on the amount based loan View page redirects the user to the amount based loan List page.", function () {
+    grid_amount_based_loan.viewGoBackButton();
+  });
+
+  it("05.05. Verify that the amount based loan forms edit mode can be toggled on and off all fields should be disabled or return to view-only mode.", function () {
     grid_amount_based_loan.turnOnEditMode();
   });
 
-  it("05.05. Verify the amount based loan edit reset button functions correctly.", function () {
+  it("05.06. Verify the amount based loan edit reset button functions correctly.", function () {
     grid_amount_based_loan.editResetButton();
   });
 
-  it("05.06. Verify the amount based loan submit button functions correctly.", function () {
+  it("05.07. Verify the amount based loan submit button functions correctly.", function () {
     grid_amount_based_loan.editSubmitButton();
   });
 
-  it("05.07. Verify that clicking the go back button on the amount based loan edit page redirects the user to the amount based loan list page.", function () {
+  it("05.08. Verify that clicking the go back button on the amount based loan edit page redirects the user to the amount based loan list page.", function () {
     grid_amount_based_loan.editGoBackButton();
   });
 
-  it("05.08. Verify the user can filter inactive amount based loans using the status dropdown on the amount based loan list page.", function () {
+  it("05.09. Verify the user can filter inactive amount based loans using the status dropdown on the amount based loan list page.", function () {
     grid_amount_based_loan.statusInactiveDropdownCheck();
   });
 
-  it("05.09. Verify the active result is filtered correctly by the status dropdown.", function () {
+  it("05.10. Verify the active result is filtered correctly by the status dropdown.", function () {
     grid_amount_based_loan.statusActiveDropdownCheck();
   });
 
-  it("05.10. Verify the search returns correct results when searching by amount based loan name.", function () {
+  it("05.11. Verify the search returns correct results when searching by amount based loan name.", function () {
     grid_amount_based_loan.searchInRoleName();
   });
 
-  it("05.11. Verify the grid list resets successfully when the reset button is clicked on the amount based loan page.", function () {
+  it("05.12. Verify the grid list resets successfully when the reset button is clicked on the amount based loan page.", function () {
     grid_amount_based_loan.gridResetButtonCheck();
   });
 
-  it("05.12. Verify that the grid list is refreshed successfully when the refresh button is clicked on the amount based loan page.", function () {
+  it("05.13. Verify that the grid list is refreshed successfully when the refresh button is clicked on the amount based loan page.", function () {
     grid_amount_based_loan.gridRefreshButtonCheck();
   });
 
-  it("05.13. Verify that when the user clicks the Search button on the amount based loan grid page, the system redirects to the amount based loan List page..", function () {
+  it("05.14. Verify that when the user clicks the Search button on the amount based loan grid page, the system redirects to the amount based loan List page..", function () {
     grid_amount_based_loan.gridSearchButtonCheck();
   });
 
-  it("05.14. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("05.15. Verify check that the grid list content changes correctly from english to bangla.", function () {
     grid_amount_based_loan.gridLanguageSwitchCheck();
   });
 });

@@ -566,8 +566,7 @@
       "nameEn": "Furniture",
       "nameBn": "আসবাবপত্র",
       "mnemonicEn": "5",
-      "status":"Active"
-
+      "status": "Active"
     },
     "ledgerSubGroup": {
       "groupId": "Asset",
@@ -578,8 +577,7 @@
       "ledgerGroupId": "Asset",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
-      "status":"Active"
-
+      "status": "Active"
     },
     "ledgerSetting": {
       "nameEn": "CashAtBank",
@@ -1512,18 +1510,18 @@
   },
   "fieldOfficer": {
     "gridDepartmentFrom": {
-      "nameEn": "Board of Directors",
-      "nameBn": "পরিচালনা বোর্ড",
+      "nameEn": "Test Department",
+      "nameBn": "পরীক্ষা বিভাগ",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
-      "search": "Board of Directors"
+      "search": "Test Department"
     },
     "gridDesignationFrom": {
-      "nameEn": "Assistant Director",
-      "nameBn": "সহকারী পরিচালক",
+      "nameEn": "Test Designation",
+      "nameBn": "পরীক্ষার পদবী",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
-      "search": "Assistant Director"
+      "search": "Test Designation"
     },
     "gridFeeConfigurationFrom": {
       "feeTypeNameEn": "Member Admission Fee",
@@ -1579,6 +1577,9 @@
       "messageSaveMember": "Member has been saved",
       "messageApproveMember": "Member has been approved successfully",
       "messageUpdateMember": "Member has been updated"
+    },
+    "memberAttendanceFrom": {
+      "samity": "Binodpur Mohila Samity"
     },
     "memberPassbookFrom": {
       "samity": "1020-102 (Dholpur Mohila Samity)",

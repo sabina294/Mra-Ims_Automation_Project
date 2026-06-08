@@ -16,33 +16,31 @@ class Designation {
   viewDesignation() {
     cy.fixture(this.test_data).then((data) => {
       var desData = data.fieldOfficer.gridDesignationFrom;
-
       cy.formController("search_text").type(desData.nameEn);
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
+      cy.log("Successfully viewed the designation list page");
+    });
+  }
 
-      // cy.get("app-mfi-mis").contains(desData.nameEn).and("be.visible");
-
+   viewGoBackButton() {
+    cy.fixture(this.test_data).then((data) => {
       cy.imsId("btn-go-back").click();
       cy.log("Successfully viewed the designation list page");
     });
   }
 
+
   turnOnEditMode() {
     cy.imsId("toggle-action").first().click();
     cy.imsId("btn-table-action-view").click();
     cy.imsId("switch-button").click();
-    cy.imsId("btn-go-back").click();
 
     cy.log("Designation form Edit Mode toggled successfully");
   }
 
   editResetButton() {
-    cy.imsId("toggle-action").first().click();
-    cy.imsId("btn-table-action-view").click();
-    cy.imsId("switch-button").click();
     cy.imsId("btn-reset").click();
-
     cy.log("Successful clean displaying");
   }
 

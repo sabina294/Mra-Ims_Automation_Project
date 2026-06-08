@@ -17,6 +17,12 @@ class Department {
     cy.fixture(this.test_data).then((data) => {
       var depData = data.fieldOfficer.gridDepartmentFrom;
       cy.imsId("btn-table-action-view").click();
+      cy.log("Successfully viewed the department list page");
+    });
+  }
+
+  viewGoBackButton() {
+    cy.fixture(this.test_data).then((data) => {
       cy.imsId("btn-go-back").click();
       cy.log("Successfully viewed the department list page");
     });
@@ -26,15 +32,11 @@ class Department {
     cy.imsId("toggle-action").first().click();
     cy.imsId("btn-table-action-view").click();
     cy.imsId("switch-button").click();
-    cy.imsId("btn-go-back").click();
 
     cy.log("Department form Edit Mode toggled successfully");
   }
 
   editResetButton() {
-    cy.imsId("toggle-action").first().click();
-    cy.imsId("btn-table-action-view").click();
-    cy.imsId("switch-button").click();
     cy.imsId("btn-reset").click();
     cy.log("Successful clean displaying");
   }
@@ -88,7 +90,7 @@ class Department {
     );
   }
 
-   gridSearchButtonCheck() {
+  gridSearchButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
       var depData = data.fieldOfficer.gridDepartmentFrom;
       cy.imsId("btn-reset").click();

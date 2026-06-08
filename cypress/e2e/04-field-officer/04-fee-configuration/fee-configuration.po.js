@@ -21,9 +21,12 @@ class FeeConfiguration {
       cy.formController("search_text").type(fcData.feeTypeNameEn);
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
+      cy.log("Successfully viewed the fee configuration list page");
+    });
+  }
 
-      cy.get("app-mfi-mis").contains(fcData.feeTypeNameEn).and("be.visible");
-
+  viewGoBackButton() {
+    cy.fixture(this.test_data).then((data) => {
       cy.imsId("btn-go-back").click();
       cy.log("Successfully viewed the fee configuration list page");
     });
@@ -33,17 +36,11 @@ class FeeConfiguration {
     cy.imsId("toggle-action").first().click();
     cy.imsId("btn-table-action-view").click();
     cy.imsId("switch-button").click();
-    cy.imsId("btn-go-back").click();
-
     cy.log("Fee configuration form Edit Mode toggled successfully");
   }
 
   editResetButton() {
-    cy.imsId("toggle-action").first().click();
-    cy.imsId("btn-table-action-view").click();
-    cy.imsId("switch-button").click();
     cy.imsId("btn-reset").click();
-
     cy.log("Successful clean displaying");
   }
 

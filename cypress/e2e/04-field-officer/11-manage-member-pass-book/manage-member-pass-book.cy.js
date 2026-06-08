@@ -1,11 +1,11 @@
 // npm run auto
 // npm run dev
-// npx cypress run --spec cypress/e2e/04-field-officer/10-manage-member-pass-book/manage-member-pass-book.cy.js --browser chrome --headed
+// npx cypress run --spec cypress/e2e/04-field-officer/11-manage-member-pass-book/manage-member-pass-book.cy.js --browser chrome --headed
 
 import "cypress-file-upload";
 import { manage_member_passbook } from "./manage-member-pass-book.po";
 
-describe("10. Memebr Passbook Module Test Cases", function () {
+describe("11. Memebr Passbook Module Test Cases", function () {
   const baseURL = Cypress.env("BASE_URL");
   const test_data = Cypress.env("TEST_DATA");
   before(() => {
@@ -22,15 +22,15 @@ describe("10. Memebr Passbook Module Test Cases", function () {
   after(() => {
     cy.logout();
   });
-  it("10.01. Verify Manage Member Pass Book List Page loads successfully.", function () {
+  it("11.01. Verify Manage Member Pass Book List Page loads successfully.", function () {
     manage_member_passbook.gridMemberPassbookListPage();
   });
 
-  it("10.02.Verify successful Manage Member Pass Book Passbook Detail Page by MFI-Admin role", function () {
+  it("11.02.Verify successful Manage Member Pass Book Passbook Detail Page by MFI-Admin role", function () {
     manage_member_passbook.detailsListMemberPassbook();
   });
 
-  it("10.03. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("11.03. Verify check that the grid list content changes correctly from english to bangla.", function () {
     manage_member_passbook.gridLanguageSwitchCheck();
   });
 });
