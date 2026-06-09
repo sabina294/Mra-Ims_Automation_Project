@@ -45,23 +45,15 @@ class LoanAccountProposalManagementCreation {
     });
   }
 
-  loanAccountProposalManagementViewSchedulesCheck() {
+  viewSchedulesCheck() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
       var lapData = data.mfiAdmin.createLoanAccountFrom;
+      cy.imsId("btn-add-new").click();
+      cy.wait(3000);
       cy.formController("office_id").type(lapData.office).type("{enter}");
       cy.wait(2000);
       cy.formController("samity_id").type(lapData.samity).type("{enter}");
       cy.formController("member_id").type(lapData.member).type("{enter}");
-      cy.formController("lending_category_id")
-        .type(lapData.lendingCategory)
-        .type("{enter}");
-      cy.formController("econ_sector")
-        .type(lapData.economicSector)
-        .type("{enter}");
-      cy.formController("econ_activity")
-        .type(lapData.economicActivity)
-        .type("{enter}");
       cy.formController("econ_purpose_mra_code")
         .type(lapData.economicPurpose)
         .type("{enter}");
@@ -69,55 +61,24 @@ class LoanAccountProposalManagementCreation {
         .type(lapData.loanProduct)
         .type("{enter}");
       cy.formController("applied_loan_amount").type(lapData.appliedLoanAmount);
-      cy.wait(5000);
-      // cy.imsId("btn-preview-repay-schedule").click();
-      // cy.imsId("btn-go-back").click();
-      cy.formController("expected_disburse_dt").click();
-      cy.contains("13").click({ force: true });
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-yes").click();
-      cy.imsId("btn-ok").click();
-      cy.imsId("btn-go-back").click();
-
-      cy.log("Successfully created loan account proposal management");
+      cy.wait(1000);
+      cy.imsId("btn-preview-repay-schedule").click();
+      cy.get("nz-modal-container")
+        .should("be.visible");
+      cy.log("Successfully viewed loan account proposal management schedules");
     });
   }
 
-  loanAccountProposalManagementViewSchedulesCancelButtonCheck() {
-    cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      var lapData = data.mfiAdmin.createLoanAccountFrom;
-      cy.formController("office_id").type(lapData.office).type("{enter}");
-      cy.wait(2000);
-      cy.formController("samity_id").type(lapData.samity).type("{enter}");
-      cy.formController("member_id").type(lapData.member).type("{enter}");
-      cy.formController("lending_category_id")
-        .type(lapData.lendingCategory)
-        .type("{enter}");
-      cy.formController("econ_sector")
-        .type(lapData.economicSector)
-        .type("{enter}");
-      cy.formController("econ_activity")
-        .type(lapData.economicActivity)
-        .type("{enter}");
-      cy.formController("econ_purpose_mra_code")
-        .type(lapData.economicPurpose)
-        .type("{enter}");
-      cy.formController("loan_product_id")
-        .type(lapData.loanProduct)
-        .type("{enter}");
-      cy.formController("applied_loan_amount").type(lapData.appliedLoanAmount);
-      cy.wait(5000);
-      // cy.imsId("btn-preview-repay-schedule").click();
-      // cy.imsId("btn-go-back").click();
-      cy.formController("expected_disburse_dt").click();
-      cy.contains("13").click({ force: true });
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-yes").click();
-      cy.imsId("btn-ok").click();
-
-      cy.log("Successfully created loan account proposal management");
-    });
+  viewSchedulesCancelButtonCheck() {
+    cy.get("nz-modal-container")
+      .should("be.visible");
+    cy.contains("button", "Cancel")
+      .should("be.visible")
+      .click();
+    cy.get("nz-modal-container")
+      .should("not.exist");
+    cy.imsId("btn-go-back").click();
+    cy.log("Successfully canceled repayment schedule preview");
   }
 
   approveLoanAccountProposal() {
@@ -379,11 +340,73 @@ class LoanAccountProposalManagementCreation {
       cy.contains("13").click({ force: true });
       cy.imsId("btn-submit").click();
       cy.imsId("btn-ok").click();
+
+      cy.log("Successfully created loan account proposal management");
+    });
+  }
+
+  createWithoutLoanProduct() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("btn-reset").click();
+      var lapData = data.branchManager.createLoanAccountFrom;
+      cy.formController("samity_id").type(lapData.samity).type("{enter}");
+      cy.formController("member_id").type(lapData.member).type("{enter}");
+      cy.formController("lending_category_id")
+        .type(lapData.lendingCategory)
+        .type("{enter}");
+      cy.formController("econ_sector")
+        .type(lapData.economicSector)
+        .type("{enter}");
+      cy.formController("econ_activity")
+        .type(lapData.economicActivity)
+        .type("{enter}");
+      cy.formController("econ_purpose_mra_code")
+        .type(lapData.economicPurpose)
+        .type("{enter}");
+      cy.formController("applied_loan_amount").type(lapData.appliedLoanAmount);
+      cy.wait(1000);
+      cy.formController("expected_disburse_dt").click();
+      cy.contains("13").click({ force: true });
+
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-ok").click();
+
+      cy.log("Successfully created loan account proposal management");
+    });
+  }
+
+  createWithoutAppliedLoanAmount() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("btn-reset").click();
+      var lapData = data.branchManager.createLoanAccountFrom;
+      cy.formController("samity_id").type(lapData.samity).type("{enter}");
+      cy.formController("member_id").type(lapData.member).type("{enter}");
+      cy.formController("lending_category_id")
+        .type(lapData.lendingCategory)
+        .type("{enter}");
+      cy.formController("econ_sector")
+        .type(lapData.economicSector)
+        .type("{enter}");
+      cy.formController("econ_activity")
+        .type(lapData.economicActivity)
+        .type("{enter}");
+      cy.formController("econ_purpose_mra_code")
+        .type(lapData.economicPurpose)
+        .type("{enter}");
+      cy.formController("loan_product_id")
+        .type(lapData.loanProduct)
+        .type("{enter}");
+      cy.formController("expected_disburse_dt").click();
+      cy.contains("13").click({ force: true });
+
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-ok").click();
       cy.imsId("btn-go-back").click();
 
       cy.log("Successfully created loan account proposal management");
     });
   }
+
 
   editResetButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
@@ -490,7 +513,7 @@ class LoanAccountProposalManagementCreation {
     cy.log(messages.ui.draftOffMessage);
   }
 
-   draftLoanAccountProposalManagement() {
+  draftLoanAccountProposalManagement() {
     cy.fixture(this.test_data).then((data) => {
       var lapData = data.mfiAdmin.createLoanAccountFrom;
       cy.imsId("btn-add-new").click();
