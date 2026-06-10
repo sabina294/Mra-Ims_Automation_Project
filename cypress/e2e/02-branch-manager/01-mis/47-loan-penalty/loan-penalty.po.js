@@ -38,6 +38,33 @@ class LoanPenalty {
 
   }
 
+  createAddIconPenalty() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("btn-add-new").click();
+      var lpData = data.branchManager.createLoanPenaltyFrom;
+      cy.formController("samity_id").type(lpData.selectSamity).type("{enter}");
+      cy.wait(2000);
+      cy.formController("member_id").type(lpData.selectMember).type("{enter}");
+      cy.wait(2000);
+      cy.formController("loan_account_id")
+        .type(lpData.selectLoanAccount)
+        .type("{enter}");
+      cy.wait(2000);
+      cy.imsId("loan-input-0").clear().type(lpData.inputLoanAccount);
+      cy.wait(2000);
+      cy.get('body').click(0, 0);
+      cy.imsId("add-icon-button").click();
+      cy.log("Successfully created Loan penalty");
+    });
+  }
+
+  createRemoveIconPenalty() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("remove-icon-button").first().click();
+      cy.imsId("btn-go-back").click();
+    });
+  }
+
   createLoanPenalty() {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId("btn-add-new").click();
@@ -198,32 +225,6 @@ class LoanPenalty {
     cy.log(
       "successfully refresh page  displayed the grid list of the Loan rebate "
     );
-  }
-
-     createAddIconPenalty() {
-    cy.fixture(this.test_data).then((data) => {
-       cy.imsId("btn-add-new").click();
-      var lpData = data.branchManager.createLoanPenaltyFrom;
-      cy.formController("samity_id").type(lpData.selectSamity).type("{enter}");
-      cy.wait(2000);
-      cy.formController("member_id").type(lpData.selectMember).type("{enter}");
-      cy.wait(2000);
-      cy.formController("loan_account_id")
-        .type(lpData.selectLoanAccount)
-        .type("{enter}");
-      cy.wait(2000);
-      cy.imsId("loan-input-0").clear().type(lpData.penaltyAmount);
-      cy.wait(2000);
-      cy.imsId("add-icon-button").click();
-      cy.log("Successfully created Loan penalty");
-    });
-  }
-
-  createRemoveIconPenalty() {
-    cy.fixture(this.test_data).then((data) => {
-      cy.imsId("remove-icon-button").first().click();
-      cy.imsId("btn-go-back").click();
-    });
   }
 
   gridSearchButtonCheck() {
