@@ -7,32 +7,53 @@ class LoanPenalty {
       cy.log("Successfully Loan penalty list page.");
     });
   }
-  createLoanPenalty() {
+
+  createResetButton() {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId("btn-add-new").click();
-      // cy.imsId('btn-submit').and('be.visible');
-
       var lpData = data.fieldOfficer.createLoanPenaltyForm;
-      cy.formController("office_id").type(lpData.selectOffice).type("{enter}");
       cy.formController("samity_id").type(lpData.selectSamity).type("{enter}");
       cy.formController("member_id").type(lpData.selectMember).type("{enter}");
       cy.formController("loan_account_id")
         .type(lpData.selectLoanAccount)
         .type("{enter}");
       cy.wait(2000);
-      cy.formController("rebate_type")
-        .type(lpData.selectRebate)
+      cy.imsId("btn-reset").click();
+      cy.log("Successfully reset button check Loan penalty");
+    });
+  }
+
+  createGoBackButton() {
+    cy.fixture(this.test_data).then((data) => {
+      var lpData = data.fieldOfficer.createLoanPenaltyForm;
+      cy.formController("samity_id").type(lpData.selectSamity).type("{enter}");
+      cy.formController("member_id").type(lpData.selectMember).type("{enter}");
+      cy.formController("loan_account_id")
+        .type(lpData.selectLoanAccount)
         .type("{enter}");
-      cy.formController("rebate_amount").type(lpData.amount).type("{enter}");
-      cy.formController("amount").type(lpData.inputAmount);
+      cy.wait(2000);
       cy.imsId("btn-go-back").click();
+      cy.log("Successfully go back button check Loan penalty");
+    });
 
-      cy.imsId("btn-submit").click();
+  }
+
+  createLoanPenalty() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("btn-add-new").click();
+      var lpData = data.fieldOfficer.createLoanPenaltyForm;
+      cy.formController("samity_id").type(lpData.selectSamity).type("{enter}");
+      cy.formController("member_id").type(lpData.selectMember).type("{enter}");
+      cy.formController("loan_account_id")
+        .type(lpData.selectLoanAccount)
+        .type("{enter}");
+      cy.wait(2000);
+      cy.imsId("loan-input-0").clear().type(lpData.inputLoanAccount).type("{enter}");
+      cy.wait(2000);
+      cy.get('body').click(0, 0);
+      cy.formController("amount").type(lpData.inputAmount);
+      cy.imsId("btn-save").click();
       cy.imsId("btn-yes").click();
-
-      cy.get("app-confirmation-modal")
-        .contains(lpData.messageSaveLoanPenalty)
-        .and("be.visible");
       cy.imsId("btn-ok").click();
 
       cy.log("Successfully created Loan penalty");
@@ -47,14 +68,98 @@ class LoanPenalty {
   viewLoanPenalty() {
     cy.fixture(this.test_data).then((data) => {
       var lpData = data.fieldOfficer.createLoanPenaltyForm;
-      // cy.formController("search_text").type(lpData.search);
-      cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
-
-      cy.imsId("btn-go-back").click();
-      cy.log("Successfully viewed the Loan rebate list page");
+      cy.log("Successfully viewed the Loan penalty list page");
     });
   }
+
+  viewGoBackButton() {
+    cy.imsId("btn-go-back").click();
+    cy.log("Successfully go back the Loan penalty list page");
+
+  }
+
+  gridActionUnsubmittedButtonCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      var lpData = data.fieldOfficer.createLoanPenaltyForm;
+      cy.imsId("toggle-action").first().click();
+      cy.imsId("btn-table-action-unsubmit").click();
+      cy.log("Successfully grid unsubmitted the Loan penalty list page");
+    });
+  }
+
+  gridActionUnsubmittedGoBackButton() {
+    cy.fixture(this.test_data).then((data) => {
+      var lpData = data.fieldOfficer.createLoanPenaltyForm;
+      cy.imsId("btn-go-back").click();
+      cy.log("Successfully viewed go back the Loan penalty list page");
+    });
+  }
+
+  UnsubmittedButtonCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      var lpData = data.fieldOfficer.createLoanPenaltyForm;
+      cy.imsId("toggle-action").first().click();
+      cy.imsId("btn-table-action-unsubmit").click();
+      cy.imsId("btn-unsubmit").click();
+      cy.imsId("btn-yes").click();
+      cy.imsId("btn-ok").click();
+      cy.log("Successfully unsubmitted the Loan penalty list page");
+    });
+  }
+
+  editDraftButtonCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      var lpData = data.fieldOfficer.createLoanPenaltyForm;
+      cy.imsId("toggle-action").first().click();
+      cy.imsId("btn-table-action-edit").click();
+      cy.imsId("btn-draft").click();
+      cy.imsId("btn-ok").click();
+      cy.log("Successfully edited as draft the Loan penalty list page");
+    });
+  }
+
+  editGoBackButtonCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      var lpData = data.fieldOfficer.createLoanPenaltyForm;
+      cy.imsId("toggle-action").first().click();
+      cy.imsId("btn-table-action-edit").click();
+      cy.imsId("btn-go-back").click();
+      cy.log("Successfully edited as go back the Loan penalty list page");
+    });
+  }
+
+  editSaveButtonCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      var lpData = data.fieldOfficer.createLoanPenaltyForm;
+      cy.imsId("toggle-action").first().click();
+      cy.imsId("btn-table-action-edit").click();
+      cy.imsId("btn-save").click();
+      cy.imsId("btn-yes").click();
+      cy.imsId("btn-ok").click();
+      cy.log("Successfully edited as saave the Loan penalty list page");
+    });
+  }
+
+  gridActionSubmitButtonCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      var lpData = data.fieldOfficer.createLoanPenaltyForm;
+      cy.imsId("toggle-action").first().click();
+      cy.imsId("btn-table-action-submit").click();
+      cy.log("Successfully submitted the Loan penalty list page");
+    });
+  }
+
+  submittedButtonCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      var lpData = data.fieldOfficer.createLoanPenaltyForm;
+      cy.imsId("btn-save").click();
+      cy.imsId("btn-yes").click();
+      cy.imsId("btn-ok").click();
+      cy.log("Successfully submitted the Loan penalty list page");
+    });
+  }
+
 
   statusSubmittedDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {

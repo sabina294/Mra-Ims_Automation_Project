@@ -325,15 +325,10 @@ viewSchedulesCancelButtonCheck() {
       cy.imsId("btn-search").click();
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
-      cy.imsId("btn-approve").click();
-      cy.get('nz-modal-container', { timeout: 15000 })
-        .should('be.visible');
-      cy.imsId("approved_loan_amount").should('be.visible')
-        .clear().type(lapData.approvedLoanAmount);
-      cy.imsId('btn-ok').click();
+      cy.imsId("btn-approve").eq(0).click();
+      cy.imsId("btn-approve").eq(1).click();
       cy.imsId("btn-yes").click();
-      cy.imsId('btn-ok').eq(0).click();
-
+      cy.imsId('btn-ok').click();
       cy.log("Successfully approve loan account proposal management");
     });
   }

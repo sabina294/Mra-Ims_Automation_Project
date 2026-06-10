@@ -23,47 +23,91 @@ describe("15. Loan Penalty Module Test Cases", function () {
     cy.logout();
   });
 
-  it("15.01. Verify loan penalty Grid List Page loads successfully", function () {
+  it("15.01. Verify that the Loan Penalty Grid List page loads successfully.", function () {
     create_loan_penalty.gridLoanPenaltyListPage();
   });
 
-  // it("15.02. Verify successful creation of a loan penalty", function () {
-  //   create_loan_penalty.createLoanPenalty();
-  // });
+  it("15.02. Verify that the Reset button functions correctly on the Loan Penalty Create page.", function () {
+    create_loan_penalty.createResetButton();
+  });
 
-  // it("15.03. Verify successfully performs the action when the action button is clicked.", function () {
-  //   create_loan_penalty.actionButtonCheck();
-  // });
+  it("15.03. Verify that clicking the Go Back button on the Loan Penalty Create page redirects the user to the Loan Penalty List page.", function () {
+    create_loan_penalty.createGoBackButton();
+  });
 
-  // it("15.04. Verify successful loan penalty information View.", function () {
-  //   create_loan_penalty.viewLoanPenalty();
-  // });
+  it("15.04. Verify successful creation of a Loan Penalty record.", function () {
+    create_loan_penalty.createLoanPenalty();
+  });
 
-  it("15.05. Verify the user can filter submitted penalty records using the status dropdown on the loan penalty List page.", function () {
+  it("15.05. Verify that the Action button functions correctly on the Loan Penalty List page.", function () {
+    create_loan_penalty.actionButtonCheck();
+  });
+
+  it("15.06. Verify successful viewing of Loan Penalty information.", function () {
+    create_loan_penalty.viewLoanPenalty();
+  });
+
+  it("15.07. Verify that clicking the Go Back button on the Loan Penalty View page redirects the user to the Loan Penalty List page.", function () {
+    create_loan_penalty.viewGoBackButton();
+  });
+
+  it("15.08. Verify that clicking the Unsubmitted button from the Action menu redirects the user to the Unsubmitted Loan Penalty List page.", function () {
+    create_loan_penalty.gridActionUnsubmittedButtonCheck();
+  });
+
+  it("15.09. Verify that clicking the Go Back button on the Unsubmitted Loan Penalty page redirects the user to the Loan Penalty List page.", function () {
+    create_loan_penalty.gridActionUnsubmittedGoBackButton();
+  });
+
+  it("15.10. Verify that the Unsubmitted Loan Penalty List page is displayed successfully.", function () {
+    create_loan_penalty.UnsubmittedButtonCheck();
+  });
+
+  it("15.11. Verify that clicking the Edit Draft action opens the Loan Penalty Edit page successfully.", function () {
+    create_loan_penalty.editDraftButtonCheck();
+  });
+
+  it("15.12. Verify that clicking the Go Back button on the Loan Penalty Edit page redirects the user to the Loan Penalty List page.", function () {
+    create_loan_penalty.editGoBackButtonCheck();
+  });
+
+  it("15.13. Verify that the Save button functions correctly on the Loan Penalty Edit page.", function () {
+    create_loan_penalty.editSaveButtonCheck();
+  });
+
+  it("15.14. Verify that the Submit action functions correctly for a Loan Penalty record.", function () {
+    create_loan_penalty.gridActionSubmitButtonCheck();
+  });
+
+  it("15.15. Verify that the Submitted Loan Penalty List page is displayed successfully.", function () {
+    create_loan_penalty.submittedButtonCheck();
+  });
+
+  it("15.16. Verify that the Status dropdown successfully filters Submitted Loan Penalty records.", function () {
     create_loan_penalty.statusSubmittedDropdownCheck();
   });
 
-  it("15.06. Verify check if the filter for approved results works correctly with the status dropdown ", function () {
+  it("15.17. Verify that the Status dropdown successfully filters Approved Loan Penalty records.", function () {
     create_loan_penalty.statusApprovedDropdownCheck();
   });
 
-  it("15.07. Verify Successful Search Result by loan penalty Name", function () {
+  it("15.18. Verify successful search results using the Loan Penalty name.", function () {
     create_loan_penalty.searchInLoanPenaltyName();
   });
 
-  it("15.08. Verify Successful Reset of Grid List Using the Reset Button on loan penalty Page.", function () {
+  it("15.19. Verify successful reset of the Loan Penalty Grid List using the Reset button.", function () {
     create_loan_penalty.gridResetButtonCheck();
   });
 
-  it("15.09.Verify Successful Refresh of Grid List Using the Refresh Button on loan penalty Page.", function () {
+  it("15.20. Verify successful refresh of the Loan Penalty Grid List using the Refresh button.", function () {
     create_loan_penalty.gridRefreshButtonCheck();
   });
 
-  it("15.10. Verify that when the user clicks the Search button on the loan penalty grid page, the system redirects to the loan penalty List page..", function () {
+  it("15.21. Verify that clicking the Search button displays filtered Loan Penalty records successfully.", function () {
     create_loan_penalty.gridSearchButtonCheck();
   });
 
-  it("15.11. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("15.22. Verify that the Grid List content changes correctly when switching the language from English to Bangla.", function () {
     create_loan_penalty.gridLanguageSwitchCheck();
   });
 });

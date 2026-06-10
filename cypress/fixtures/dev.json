@@ -1003,9 +1003,10 @@
       "selectSamity": "Sadarpur Mohila Samity",
       "selectMember": "Srabonti",
       "selectLoanAccount": "AGRO-1020-105-1001-1 (Loan Account)",
-      "penaltyAmount": "50",
-      "amount": "500",
+      "inputLoanAccount": "40",
+      "inputAmount": "40",
       "search": "Srabonti",
+      "samity": "Sadarpur Mohila Samity",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
       "approveMessage": "Loan Penalty Authorization for Loan Account Is Successful",
@@ -1621,13 +1622,13 @@
       "selectSamity": "1020-101 (Ashulia Mohila Samity)",
       "selectMember": "1-1001 (Fariya)",
       "selectLoanAccount": "AGRO-1020-101-1001-1 (Loan Account) ",
-      "selectRebate": "Full",
-      "inputAmount": "5000",
+      "inputLoanAccount":"20",
+      "inputAmount": "50",
       "search": "Amira Rahman",
       "selectStatus": "Submitted",
       "statusSelect": "Approved",
       "samityNameEn": "Salepur Mohila Samity",
-      "messageSaveLoanRebate": "Loan rebate has been saved"
+      "messageSaveLoanRebate": "Loan penalty has been saved"
     },
     "createLoanRebateFrom": {
       "selectOffice": "1019 (Amin Bazar)",
@@ -1652,7 +1653,7 @@
       "selectStatus": "Submitted",
       "statusSelect": "Approved",
       "samityNameEn": "Belma Mohila Samity",
-      "messageSaveLoanRebate": "Loan rebate has been saved"
+      "messageSaveLoanRebate": "Loan waiver has been saved"
     },
     "gridSavingsProduct": {
       "office": "1025 (Madhukhali)",
