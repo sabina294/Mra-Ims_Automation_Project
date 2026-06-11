@@ -21,19 +21,13 @@ class SavingsAccountManagementCreation {
   viewSavingsAccountManag() {
     cy.fixture(this.test_data).then((data) => {
       var samData = data.branchManager.createSavingsAccountManagement;
-
-      cy.formController("search_text").type(samData.search);
-      cy.imsId("btn-search").click();
-      cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
-
       cy.log("Successfully viewed the savings account management list page");
     });
   }
 
   viewGoBackButton() {
     cy.imsId("btn-go-back").click();
-
     cy.log("Successfully view go back the savings account management list page");
   }
 
