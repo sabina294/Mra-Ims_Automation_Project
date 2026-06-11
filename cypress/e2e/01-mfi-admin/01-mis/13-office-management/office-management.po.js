@@ -456,7 +456,7 @@ class OfficeCreation {
     });
   }
 
-   createWithoutAreaName() {
+  createWithoutAreaName() {
     cy.fixture(this.test_data).then((data) => {
       var omData = data.mfiAdmin.createOfficeFrom;
       const generate8DigitIdFrom = () => {
@@ -488,7 +488,7 @@ class OfficeCreation {
       cy.formController("address_line_1").type(omData.adressEn);
       cy.formController("latitude").type(omData.latitude);
       cy.formController("longitude").type(omData.longitude);
-       cy.formArrayController("working_area", 0, "division_id")
+      cy.formArrayController("working_area", 0, "division_id")
         .first()
         .type(omData.divisionName)
         .type("{enter}");
@@ -509,7 +509,7 @@ class OfficeCreation {
     });
   }
 
-   createWithoutWorkingAreaDivision() {
+  createWithoutWorkingAreaDivision() {
     cy.fixture(this.test_data).then((data) => {
       var omData = data.mfiAdmin.createOfficeFrom;
       const generate8DigitIdFrom = () => {
@@ -552,14 +552,14 @@ class OfficeCreation {
         .type("{enter}");
 
 
-     cy.imsId("btn-submit").click();
+      cy.imsId("btn-submit").click();
       cy.imsId("btn-ok").click();
       cy.imsId("btn-reset").click();
       cy.log("Successfully created office management");
     });
   }
 
-   createWithoutWorkingAreaDistrict() {
+  createWithoutWorkingAreaDistrict() {
     cy.fixture(this.test_data).then((data) => {
 
       var omData = data.mfiAdmin.createOfficeFrom;
@@ -608,7 +608,7 @@ class OfficeCreation {
     });
   }
 
-   createWithoutWorkingAreaUpazila() {
+  createWithoutWorkingAreaUpazila() {
     cy.fixture(this.test_data).then((data) => {
 
       var omData = data.mfiAdmin.createOfficeFrom;
@@ -768,16 +768,16 @@ class OfficeCreation {
     );
   }
 
-   gridDraftButton() {
+  gridDraftButton() {
     cy.imsId(GRID.BUTTONS.DRAFT_ON)
       .check({ force: true });
-      cy.log(messages.ui.draftOnMessage);
-    }
+    cy.log(messages.ui.draftOnMessage);
+  }
 
   gridDraftButtonOff() {
     cy.imsId(GRID.BUTTONS.DRAFT_OFF)
       .uncheck({ force: true });
-      cy.log(messages.ui.draftOffMessage);
+    cy.log(messages.ui.draftOffMessage);
   }
 
   gridCheckboxCheck() {
@@ -883,22 +883,23 @@ class OfficeCreation {
     });
   }
 
-  approveOffice() {
-    cy.fixture(this.test_data).then((data) => {
-      var omData = data.mfiAdmin.approveOfficeFrom;
-      cy.switchModule("MFI");
-      cy.imsId("menu-my-task").click();
-      cy.imsId("submenu-pending-office-approval").click();
-      cy.imsId("toggle-action").first().click();
-      cy.imsId("btn-table-action-view").click();
-      cy.imsId("btn-lock").click();
-      cy.imsId("btn-approve").click();
-      cy.imsId("btn-Approve").click();
-      cy.imsId("btn-yes").click();
-      cy.imsId("btn-ok").click();
-
-      cy.log("Successfully approve office management");
-    });
+  approveOffice(d) {
+    cy.switchModule("MFI");
+    cy.wait(1000);
+    cy.imsId("menu-my-task")
+      .should("be.visible")
+      .click();
+    cy.imsId("submenu-pending-office-approval")
+      .should("be.visible")
+      .click();
+    cy.imsId("toggle-action").first().click();
+    cy.imsId("btn-table-action-view").click();
+    cy.imsId("btn-lock").click();
+    cy.imsId("btn-approve").click();
+    cy.imsId("btn-Approve").click();
+    cy.imsId("btn-yes").click();
+    cy.imsId("btn-ok").click();
+    cy.log("Successfully approve office management");
   }
 
   gridLanguageSwitchCheck() {

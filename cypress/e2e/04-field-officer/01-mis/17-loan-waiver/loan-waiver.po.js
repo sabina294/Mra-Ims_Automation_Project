@@ -7,11 +7,10 @@ class LoanWaiver {
       cy.log("Successfully Loan waiver list page.");
     });
   }
-  createLoanWaiver() {
+
+  createDraftButton() {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId("btn-add-new").click();
-      // cy.imsId('btn-submit').and('be.visible');
-
       var lwData = data.fieldOfficer.createLoanWaiverFrom;
       cy.formController("samity_id").type(lwData.selectSamity).type("{enter}");
       cy.formController("member_id").type(lwData.selectMember).type("{enter}");
@@ -19,38 +18,64 @@ class LoanWaiver {
         .type(lwData.selectLoanAccount)
         .type("{enter}");
       cy.wait(2000);
-      cy.formController("rebate_type")
-        .type(lwData.selectRebate)
-        .type("{enter}");
-      cy.formController("rebate_amount").type(lwData.amount).type("{enter}");
-      cy.formController("amount").type(lwData.inputAmount);
-
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-yes").click();
-
-      cy.get("app-confirmation-modal")
-        .contains(lwData.messageSaveLoanRebate)
-        .and("be.visible");
+      cy.imsId("btn-draft").click();
       cy.imsId("btn-ok").click();
 
-      cy.log("Successfully created Loan rebate");
+      cy.log("Successfully created page information draft loan waiver");
+    });
+  }
+
+  createSubmitButton() {
+    cy.imsId("btn-submit").click();
+    cy.imsId("btn-ok").click();
+    cy.log("Successfully created page information submit loan waiver");
+
+  }
+
+  createGoBackButton() {
+    cy.imsId("btn-go-back").click();
+    cy.log("Successfully created  page information go back loan waiver");
+
+  }
+
+  createLoanWaiver() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("btn-add-new").click();
+      var lwData = data.fieldOfficer.createLoanWaiverFrom;
+      cy.formController("samity_id").type(lwData.selectSamity).type("{enter}");
+      cy.formController("member_id").type(lwData.selectMember).type("{enter}");
+      cy.formController("loan_account_id")
+        .type(lwData.selectLoanAccount)
+        .type("{enter}");
+      cy.wait(2000);
+      cy.formController("waiver_type")
+        .type(lwData.selectRebate)
+        .type("{enter}");
+      cy.imsId("btn-submit").click();
+      cy.imsId("btn-yes").click();
+      cy.imsId("btn-ok").click();
+
+      cy.log("Successfully created Loan waiver");
     });
   }
 
   actionButtonCheck() {
     cy.imsId("toggle-action").first().click();
-    cy.log("Action button clicked successfully on the loan welfare list page.");
+    cy.log("Action button clicked successfully on the loan waiver list page.");
   }
 
   viewLoanWaiver() {
     cy.fixture(this.test_data).then((data) => {
       var lwData = data.fieldOfficer.createLoanWaiverFrom;
-      cy.formController("search_text").type(lwData.search);
-      cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
+      cy.log("Successfully viewed the Loan waiver list page");
+    });
+  }
 
+  viewGoBackButton() {
+    cy.fixture(this.test_data).then((data) => {
       cy.imsId("btn-go-back").click();
-      cy.log("Successfully viewed the Loan rebate list page");
+      cy.log("Successfully viewed go back the Loan waiver list page");
     });
   }
 
@@ -59,7 +84,7 @@ class LoanWaiver {
       var lwData = data.fieldOfficer.createLoanWaiverFrom;
       cy.imsId("btn-reset").click();
       cy.formController("status").type(lwData.selectStatus).type("{enter}");
-      cy.log("Loan rebate status submitted dropdown check successfully");
+      cy.log("Loan waiver status submitted dropdown check successfully");
     });
   }
 
@@ -68,7 +93,7 @@ class LoanWaiver {
       var lwData = data.fieldOfficer.createLoanWaiverFrom;
       cy.imsId("btn-reset").click();
       cy.formController("status").type(lwData.statusSelect).type("{enter}");
-      cy.log("Loan rebate  status approved dropdown check successfully");
+      cy.log("Loan waiver  status approved dropdown check successfully");
     });
   }
 
@@ -89,7 +114,7 @@ class LoanWaiver {
   gridRefreshButtonCheck() {
     cy.imsId("btn-refresh").click();
     cy.log(
-      "successfully refresh page  displayed the grid list of the Loan rebate "
+      "successfully refresh page  displayed the grid list of the Loan waiver "
     );
   }
 
@@ -100,6 +125,21 @@ class LoanWaiver {
       cy.formController("search_text").type(lwData.samityNameEn);
       cy.imsId("btn-search").click();
       cy.log("Successful search button click.");
+    });
+  }
+
+  createResetButton() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("btn-add-new").click();
+      var lwData = data.fieldOfficer.createLoanWaiverFrom;
+      cy.formController("samity_id").type(lwData.selectSamity).type("{enter}");
+      cy.formController("member_id").type(lwData.selectMember).type("{enter}");
+      cy.formController("loan_account_id")
+        .type(lwData.selectLoanAccount)
+        .type("{enter}");
+      cy.wait(2000);
+      cy.imsId("btn-reset").click();
+      cy.log("Successfully created page information reset Loan waiver");
     });
   }
 
