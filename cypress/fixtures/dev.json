@@ -1622,7 +1622,7 @@
       "selectSamity": "1020-101 (Ashulia Mohila Samity)",
       "selectMember": "1-1001 (Fariya)",
       "selectLoanAccount": "AGRO-1020-101-1001-1 (Loan Account) ",
-      "inputLoanAccount":"20",
+      "inputLoanAccount": "20",
       "inputAmount": "50",
       "search": "Amira Rahman",
       "selectStatus": "Submitted",
@@ -1630,7 +1630,7 @@
       "samityNameEn": "Salepur Mohila Samity",
       "messageSaveLoanRebate": "Loan penalty has been saved"
     },
-      "createLoanRebateFrom": {
+    "createLoanRebateFrom": {
       "selectOffice": "1020 (Ashulia)",
       "selectSamity": "1020-102 (Dholpur Mohila Samity)",
       "selectMember": "1-1001 (Jannat Islam)",
@@ -1677,8 +1677,8 @@
       "savingsProduct": "General Savings",
       "samity": "1020-102 (Dholpur Mohila Samity)",
       "member": "1-1001 (Jannat Islam)",
-      "recoDepositAmount": "2000",
-      "openingBalance": "2000",
+      "recoDepositAmount": "100",
+      "openingBalance": "100",
       "search": "Samia",
       "selectStatus": "Inactive",
       "statusSelect": "Active"
@@ -1704,6 +1704,11 @@
       "office": "1002 (Dhaka Regional Office)",
       "calendarYear": "2025",
       "messageSaveHoliday": "Mfi holiday has been saved"
+    },
+    "cancelHoliday": {
+      "holidayTitleBn": "পরীক্ষার ছুটি",
+      "holidayTitleEn": "Test Holiday",
+      "search": "Weekly Holiday"
     },
     "gridStagingData": {
       "selectSamity": "1020-101 (Ashulia Mohila Samity)",
