@@ -1,3 +1,5 @@
+import messages from "../../../../support/constants/messages";
+import { GRID } from "../../../../support/constants/selectors";
 class RegularCollection {
     test_data = Cypress.env("TEST_DATA");
 
@@ -98,13 +100,33 @@ class RegularCollection {
         );
     }
 
+        gridHistoryButtonOnCheck() {
+        cy.imsId(GRID.BUTTONS.HISTORY_ON)
+            .check({ force: true });
+        cy.log(messages.ui.historyOnMessage);
+    }
+
+    fieldOfficerDropdownCheck() {
+        cy.fixture(this.test_data).then((data) => {
+            var spcData = data.branchManager.regularCollection;
+            cy.formController("field_officer_id").type(spcData.fieldOfficer).type("{enter}");
+            cy.log(
+                "successfully field officer dropdown displayed the grid list of the regular collection "
+            );
+        })
+    }
+
+    gridHistoryButtonOffCheck() {
+        cy.imsId(GRID.BUTTONS.HISTORY_OFF)
+            .uncheck({ force: true });
+        cy.log(messages.ui.historyOffMessage);
+    }
+
     gridLanguageSwitchCheck() {
         cy.imsId("profile-menu").click();
         cy.imsId("btn-lang-bangla").click();
         cy.log("Unsuccessful switch bangla language check.");
     }
-
-
 
 }
 

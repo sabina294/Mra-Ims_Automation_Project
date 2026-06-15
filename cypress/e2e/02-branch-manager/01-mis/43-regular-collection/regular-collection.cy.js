@@ -74,7 +74,19 @@ describe("43. Regular Collection Module Test Cases", function () {
         create_regular_collection.gridRefreshButtonCheck();
     });
 
-    it("43.14. Verify that the grid list content changes correctly from English to Bangla.", function () {
+    it("43.14. Verify that the Grid History button displays the data information successfully when enabled.", function () {
+        create_regular_collection.gridHistoryButtonOnCheck();
+    });
+
+    it("43.15. Verify that the Field Officer dropdown filters the grid list successfully on the Regular Collection page.", function () {
+        create_regular_collection.fieldOfficerDropdownCheck();
+    });
+
+    it("43.16. Verify that the Grid History button displays the data information successfully when disabled.", function () {
+        create_regular_collection.gridHistoryButtonOffCheck();
+    });
+
+    it("43.17. Verify that the grid list content changes correctly from English to Bangla.", function () {
         create_regular_collection.gridLanguageSwitchCheck();
     });
 

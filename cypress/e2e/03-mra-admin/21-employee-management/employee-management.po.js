@@ -17,7 +17,12 @@ class EmployeeManagementCreation {
       cy.formController("name_en").type(emData.employeeNameEn);
       cy.formController("name_bn").type(emData.employeeNameBn);
       cy.formController("date_of_birth").click();
-      cy.contains("24").click({ force: true });
+      cy.get('.ant-picker-dropdown')
+        .should('be.visible');
+      cy.get('.ant-picker-cell-in-view')
+        .not('.ant-picker-cell-disabled')
+        .first()
+        .click({ force: true });
       cy.formController("gender").click();
       cy.get(
         ".ant-form-item-control-input-content > .ant-radio-group > :nth-child(1) > .ant-radio > .ant-radio-input"
