@@ -12,8 +12,8 @@ describe("26. Regular Collection Module Test Cases", function () {
         cy.fixture(test_data).then((d) => {
             cy.login(
                 baseURL,
-                d.credential.branchManagerUserId,
-                d.credential.branchManagerPassword
+                d.credential.fieldOfficerUserId,
+                d.credential.fieldOfficerPassword
             );
             cy.changeLanguage("english");
         });

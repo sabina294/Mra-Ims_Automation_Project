@@ -22,15 +22,15 @@ class RegularCollection {
 
     collectionProcess() {
         cy.fixture(this.test_data).then((data) => {
-            const rcData = data.branchManager.regularCollection;
+            const rcData = data.fieldOfficer.regularCollection;
             cy.get('tbody tr')
-                .eq(0)
+                .eq(1)
                 .find('input')
-                .eq(0)
+                .eq(1)
                 .clear()
                 .type(rcData.loanAmount);
             cy.get('tbody tr')
-                .eq(1)
+                .eq(2)
                 .find('input')
                 .eq(0)
                 .clear()
@@ -132,7 +132,7 @@ class RegularCollection {
 
     fieldOfficerDropdownCheck() {
         cy.fixture(this.test_data).then((data) => {
-            var spcData = data.branchManager.regularCollection;
+            var spcData = data.fieldOfficer.regularCollection;
             cy.formController("field_officer_id").type(spcData.fieldOfficer).type("{enter}");
             cy.log(
                 "successfully field officer dropdown displayed the grid list of the regular collection "

@@ -1713,6 +1713,13 @@
     "gridStagingData": {
       "selectSamity": "1020-101 (Ashulia Mohila Samity)",
       "selectFieldOfficer": "GAIS UDDIN KHAN"
+    },
+    "regularCollection": {
+      "loanAmount": "50",
+      "loanAmount2": "50",
+      "fieldOfficer": "EMP-0122 - GAIS UDDIN KHAN"
     }
+
+
   }
 }
