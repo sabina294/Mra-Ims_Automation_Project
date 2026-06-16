@@ -378,13 +378,13 @@
     },
     "createLoanAccountFrom": {
       "office": "1020 (Ashulia)",
-      "samity": "1020-101 (Ashulia Mohila Samity)",
-      "member": "1-1001 (Fariya)",
+      "samity": "1020-103 (Kuturia Mohila Samity)",
+      "member": "3-1003 (Sinthiya)",
       "lendingCategory": "Agriculture, Fisheries, Livestock and Forestry",
       "economicSector": "Agriculture",
       "economicActivity": "Cultivation",
       "economicPurpose": "Major Crops",
-      "loanProduct": "Rural Micro Credit Monthly",
+      "loanProduct": "Livestock Development Loan",
       "appliedLoanAmount": "50000",
       "selectStatus": "Approve",
       "statusSelect": "Rejected",
@@ -1596,8 +1596,8 @@
     "createLoanAccountFrom": {
       "memberNameEn": "Fariya",
       "office": "1020 (Ashulia)",
-      "samity": "1020-101 (Ashulia Mohila Samity)",
-      "member": "1-1001 (Fariya)",
+      "samity": "1020-106 (Belma Mohila Samity)",
+      "member": "2-1002 (Marjana Akter)",
       "lendingCategory": "Transport",
       "economicSector": "Transport",
       "economicActivity": "Transport",
@@ -1714,9 +1714,16 @@
       "selectSamity": "1020-101 (Ashulia Mohila Samity)",
       "selectFieldOfficer": "GAIS UDDIN KHAN"
     },
-     "regularCollection": {
+    "regularCollection": {
       "loanAmount": "50",
       "loanAmount2": "50",
+      "fieldOfficer": "EMP-0122 - GAIS UDDIN KHAN"
+    },
+    "specialCollection": {
+      "selectSamity": "1020-105 (Sadarpur Mohila Samity)",
+      "selectMember": "1-1001 (Srabonti)",
+      "selectAccount": "AGRO-1020-105-1001-1 (Loan Account)",
+      "inputAmount": "100",
       "fieldOfficer": "EMP-0122 - GAIS UDDIN KHAN"
     }
   }

@@ -31,15 +31,16 @@ class LoanAccountProposalManagementCreation {
         .type("{enter}");
       cy.formController("applied_loan_amount").type(lapData.appliedLoanAmount);
       cy.wait(1000);
-      cy.formController("expected_disburse_dt").click();
-      cy.wait(3000);
-      cy.contains("22").click({ force: true });
-      cy.wait(2000);
+       cy.formController("expected_disburse_dt").click();
+     cy.get('.ant-picker-dropdown')
+        .should('be.visible');
+      cy.get('.ant-picker-cell-in-view')
+        .not('.ant-picker-cell-disabled')
+        .first()
+        .click({ force: true });
       cy.imsId("btn-submit").click();
       cy.imsId("btn-yes").click();
       cy.imsId("btn-ok").click();
-      cy.imsId("btn-go-back").click();
-
 
       cy.log("Successfully created loan account proposal management");
     });
@@ -143,10 +144,6 @@ class LoanAccountProposalManagementCreation {
         .type("{enter}");
       cy.formController("applied_loan_amount").type(lapData.appliedLoanAmount);
       cy.wait(1000);
-      cy.formController("expected_disburse_dt").click();
-      cy.wait(3000);
-      cy.contains("22").click({ force: true });
-      cy.wait(2000);
       cy.imsId("btn-submit").click();
       cy.imsId("btn-ok").click();
       cy.imsId("btn-reset").click();
@@ -179,9 +176,6 @@ class LoanAccountProposalManagementCreation {
         .type("{enter}");
       cy.formController("applied_loan_amount").type(lapData.appliedLoanAmount);
       cy.wait(5000);
-
-      cy.formController("expected_disburse_dt").click();
-      cy.contains("13").click({ force: true });
       cy.imsId("btn-submit").click();
       cy.imsId("btn-ok").click();
       cy.imsId("btn-reset").click();
@@ -214,9 +208,6 @@ class LoanAccountProposalManagementCreation {
         .type("{enter}");
       cy.formController("applied_loan_amount").type(lapData.appliedLoanAmount);
       cy.wait(5000);
-
-      cy.formController("expected_disburse_dt").click();
-      cy.contains("13").click({ force: true });
       cy.imsId("btn-submit").click();
       cy.imsId("btn-ok").click();
       cy.imsId("btn-reset").click();
@@ -241,9 +232,6 @@ class LoanAccountProposalManagementCreation {
         .type("{enter}");
       cy.formController("applied_loan_amount").type(lapData.appliedLoanAmount);
       cy.wait(5000);
-
-      cy.formController("expected_disburse_dt").click();
-      cy.contains("13").click({ force: true });
       cy.imsId("btn-submit").click();
       cy.imsId("btn-ok").click();
       cy.imsId("btn-reset").click();
@@ -271,9 +259,6 @@ class LoanAccountProposalManagementCreation {
         .type("{enter}");
       cy.formController("applied_loan_amount").type(lapData.appliedLoanAmount);
       cy.wait(5000);
-
-      cy.formController("expected_disburse_dt").click();
-      cy.contains("13").click({ force: true });
       cy.imsId("btn-submit").click();
       cy.imsId("btn-ok").click();
       cy.imsId("btn-reset").click();
@@ -304,9 +289,6 @@ class LoanAccountProposalManagementCreation {
         .type("{enter}");
       cy.formController("applied_loan_amount").type(lapData.appliedLoanAmount);
       cy.wait(5000);
-
-      cy.formController("expected_disburse_dt").click();
-      cy.contains("13").click({ force: true });
       cy.imsId("btn-submit").click();
       cy.imsId("btn-ok").click();
       cy.imsId("btn-reset").click();
@@ -336,9 +318,6 @@ class LoanAccountProposalManagementCreation {
         .type("{enter}");
       cy.formController("applied_loan_amount").type(lapData.appliedLoanAmount);
       cy.wait(5000);
-
-      cy.formController("expected_disburse_dt").click();
-      cy.contains("13").click({ force: true });
       cy.imsId("btn-submit").click();
       cy.imsId("btn-ok").click();
 
@@ -366,8 +345,6 @@ class LoanAccountProposalManagementCreation {
         .type("{enter}");
       cy.formController("applied_loan_amount").type(lapData.appliedLoanAmount);
       cy.wait(1000);
-      cy.formController("expected_disburse_dt").click();
-      cy.contains("13").click({ force: true });
 
       cy.imsId("btn-submit").click();
       cy.imsId("btn-ok").click();
@@ -397,9 +374,6 @@ class LoanAccountProposalManagementCreation {
       cy.formController("loan_product_id")
         .type(lapData.loanProduct)
         .type("{enter}");
-      cy.formController("expected_disburse_dt").click();
-      cy.contains("13").click({ force: true });
-
       cy.imsId("btn-submit").click();
       cy.imsId("btn-ok").click();
       cy.imsId("btn-go-back").click();
@@ -532,10 +506,13 @@ class LoanAccountProposalManagementCreation {
         .type("{enter}");
       cy.formController("applied_loan_amount").type(lapData.appliedLoanAmount);
       cy.wait(1000);
-      cy.formController("expected_disburse_dt").click();
-      cy.wait(3000);
-      cy.contains("22").click({ force: true });
-      cy.wait(2000);
+       cy.formController("expected_disburse_dt").click();
+     cy.get('.ant-picker-dropdown')
+        .should('be.visible');
+      cy.get('.ant-picker-cell-in-view')
+        .not('.ant-picker-cell-disabled')
+        .first()
+        .click({ force: true });
       cy.imsId("btn-draft").click();
       cy.imsId("btn-yes").click();
       cy.imsId("btn-ok").click();
