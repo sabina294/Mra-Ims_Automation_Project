@@ -19,8 +19,12 @@ class RrejectedMember {
       cy.get(".ant-picker-header-super-prev-btn").click();
       cy.contains("2005").click();
       cy.wait(3000);
-      cy.contains("15").click({ force: true });
-      cy.wait(2000);
+      cy.get('.ant-picker-dropdown')
+        .should('be.visible');
+      cy.get('.ant-picker-cell-in-view')
+        .not('.ant-picker-cell-disabled')
+        .first()
+        .click({ force: true });
       cy.formController("mfi_program_id")
         .type(rejmData.mfiProgram)
         .type("{enter}");
@@ -161,7 +165,7 @@ class RrejectedMember {
     cy.log("Successful clean displaying.");
   }
 
-   gridSearchButtonCheck() {
+  gridSearchButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
       var rejmData = data.mfiAdmin.createRejectedMemberFrom;
       cy.imsId("btn-reset").click();

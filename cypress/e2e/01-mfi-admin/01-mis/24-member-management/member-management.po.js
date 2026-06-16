@@ -28,8 +28,12 @@ class MemberManagementCreation {
       cy.get(".ant-picker-header-super-prev-btn").click();
       cy.contains("2005").click();
       cy.wait(3000);
-      cy.contains("11").click({ force: true });
-      cy.wait(2000);
+      cy.get('.ant-picker-dropdown')
+        .should('be.visible');
+      cy.get('.ant-picker-cell-in-view')
+        .not('.ant-picker-cell-disabled')
+        .first()
+        .click({ force: true });
       cy.formController("mfi_program_id")
         .type(memData.mfiProgram)
         .type("{enter}");
@@ -211,7 +215,7 @@ class MemberManagementCreation {
     cy.log("Checkbox unlock button should be clickable and functional.");
   }
 
-  
+
   gridDraftButton() {
     cy.imsId(GRID.BUTTONS.DRAFT_ON)
       .check({ force: true });

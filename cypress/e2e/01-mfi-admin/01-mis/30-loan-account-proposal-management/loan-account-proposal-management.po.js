@@ -90,6 +90,7 @@ class LoanAccountProposalManagementCreation {
       cy.imsId("btn-search").click();
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
+      cy.imsId("btn-lock").click();
       cy.imsId("btn-approve").eq(0).click();
       cy.imsId("btn-approve").eq(1).click();
       cy.imsId("btn-yes").first().click();
