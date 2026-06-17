@@ -23,20 +23,22 @@ class RegularCollection {
     collectionProcess() {
         cy.fixture(this.test_data).then((data) => {
             const rcData = data.fieldOfficer.regularCollection;
-            cy.get('tbody tr')
-                .eq(1)
-                .find('input')
-                .eq(1)
-                .clear()
-                .type(rcData.loanAmount);
-            cy.get('tbody tr')
-                .eq(2)
-                .find('input')
-                .eq(0)
-                .clear()
-                .type(rcData.loanAmount2);
-
+            const amounts = [
+                rcData.loanAmount,
+                rcData.loanAmount2
+            ];
+            cy.get("tbody tr")
+                .each(($row, index) => {
+                    if (index < amounts.length) {
+                        cy.wrap($row)
+                            .find("input:not(:disabled)")
+                            .first()
+                            .clear()
+                            .type(amounts[index]);
+                    }
+                });
             cy.log("Regular collection amount entered successfully");
+
         });
     }
 

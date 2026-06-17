@@ -66,6 +66,7 @@ class LoanAccountProposalManagementCreation {
       cy.imsId("btn-preview-repay-schedule").click();
       cy.get("nz-modal-container")
         .should("be.visible");
+      cy.wait(1000);
       cy.log("Successfully viewed loan account proposal management schedules");
     });
   }

@@ -7,7 +7,7 @@
     "mfiAdminUserId": "tem-mfi-admin-automation",
     "mfiAdminPassword": "123456",
     "branchManagerUserId": "tem-1020-bm",
-    "branchManagerPassword": "123456",
+    "branchManagerPassword": "Sabina1234",
     "fieldOfficerUserId": "tem-1020-fo",
     "fieldOfficerPassword": "123456"
   },
@@ -220,7 +220,7 @@
       "draftNameBn": "পরীক্ষা",
       "samityType": "Female",
       "office": "1020 (Ashulia)",
-      "fieldOfficer": "JOYMOT ALI",
+      "fieldOfficer": "EMP-0119 - JOYMOT ALI",
       "mfiProgram": "Jagoron",
       "samityDay": "Sunday",
       "samityFrequency": "Monthly",
@@ -1725,6 +1725,14 @@
       "selectAccount": "AGRO-1020-105-1001-1 (Loan Account)",
       "inputAmount": "100",
       "fieldOfficer": "EMP-0122 - GAIS UDDIN KHAN"
+    },
+    "savingsWithdraw": {
+      "selectSamity": "1020-101 (Ashulia Mohila Samity)",
+      "selectMember": "1-1001 (Fariya)",
+      "selectAccount": "GS-1020-101-1001-1",
+      "inputAmount": "10",
+      "samity": "1020-101 (Ashulia Mohila Samity)",
+      "samityDropdown": "1020-101 (Ashulia Mohila Samity)"
     }
   }
 }
