@@ -1733,6 +1733,13 @@
       "inputAmount": "10",
       "samity": "1020-101 (Ashulia Mohila Samity)",
       "samityDropdown": "1020-101 (Ashulia Mohila Samity)"
+    },
+    "loanAdjustment": {
+      "selectSamity": "1020-101 (Ashulia Mohila Samity)",
+      "selectMember": "4-1004 (Chadnee)",
+      "selectAccount": "AGRO-1020-101-1004-1 (Loan Account) ",
+      "inputAmount": "10",
+      "search": "Chadnee"
     }
   }
 }
