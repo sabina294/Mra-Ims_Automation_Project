@@ -22,6 +22,7 @@ describe("44. Special Collection Module Test Cases", function () {
     after(() => {
         cy.logout();
     });
+    
     it("44.01. Verify that the Special Collection list page loads successfully.", function () {
         create_special_collection.gridSpecialCollectionListPage();
     });
