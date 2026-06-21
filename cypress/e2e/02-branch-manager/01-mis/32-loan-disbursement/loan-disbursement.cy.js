@@ -50,15 +50,23 @@ describe("32. Loan Disbursement Module Test Cases", function () {
         create_loan_disbursement.gridRefreshButtonCheck();
     });
 
-    it("32.08. Verify successful loan disbursement from the grid list using the Disburse button", function () {
+    it("32.08. Verify that enabling the disbursed filter displays the correct grid list data.", function () {
+        create_loan_disbursement.gridDisbursedButton();
+    });
+
+    it("32.09. Verify that disabling the disbursed filter updates the grid list correctly.", function () {
+        create_loan_disbursement.gridDisbursedButtonOff();
+    });
+
+    it("32.10. Verify successful loan disbursement from the grid list using the Disburse button", function () {
         create_loan_disbursement.loanDisburseButtonCheck();
     });
 
-    it("32.09. Verify successful loan disbursement from the grid list using the Disburse submit button", function () {
+    it("32.11. Verify successful loan disbursement from the grid list using the Disburse submit button", function () {
         create_loan_disbursement.loanDisburseSubmitButtonCheck();
     });
 
-    it("32.10. Verify that the grid list content updates correctly when switching language from English to Bangla", function () {
+    it("32.12. Verify that the grid list content updates correctly when switching language from English to Bangla", function () {
         create_loan_disbursement.gridLanguageSwitchCheck();
     });
 

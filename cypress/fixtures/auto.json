@@ -1740,6 +1740,12 @@
       "selectAccount": "AGRO-1020-101-1004-1 (Loan Account) ",
       "inputAmount": "10",
       "search": "Chadnee"
+    },
+    "feeCollection": {
+      "selectSamity": "1020-101 (Ashulia Mohila Samity)",
+      "selectMember": "4-1004 (Chadnee)",
+      "feeType": "Member Admission Fee",
+      "search": "Chadnee"
     }
   }
 }

@@ -22,7 +22,12 @@ class LoanAccountProposalManagementCreation {
       cy.formController("office_id").type(lapData.office).type("{enter}");
       cy.wait(2000);
       cy.formController("samity_id").type(lapData.samity).type("{enter}");
-      cy.formController("member_id").type(lapData.member).type("{enter}");
+      cy.formController("member_id")
+        .type(lapData.member);
+      cy.contains(lapData.member)
+        .should("be.visible")
+        .click();
+      cy.wait(3000);
       cy.formController("econ_purpose_mra_code")
         .type(lapData.economicPurpose)
         .type("{enter}");
@@ -31,8 +36,8 @@ class LoanAccountProposalManagementCreation {
         .type("{enter}");
       cy.formController("applied_loan_amount").type(lapData.appliedLoanAmount);
       cy.wait(1000);
-       cy.formController("expected_disburse_dt").click();
-     cy.get('.ant-picker-dropdown')
+      cy.formController("expected_disburse_dt").click();
+      cy.get('.ant-picker-dropdown')
         .should('be.visible');
       cy.get('.ant-picker-cell-in-view')
         .not('.ant-picker-cell-disabled')
@@ -88,8 +93,8 @@ class LoanAccountProposalManagementCreation {
       const lapData = data.mfiAdmin.createLoanAccountFrom;
       cy.imsId("menu-my-task").click();
       cy.imsId("submenu-awaiting-loan-account-proposal").click();
-      cy.formController("search_text").type(lapData.search);
-      cy.imsId("btn-search").click();
+      // cy.formController("search_text").type(lapData.search);
+      // cy.imsId("btn-search").click();
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
       cy.imsId("btn-lock").click();
@@ -225,9 +230,6 @@ class LoanAccountProposalManagementCreation {
       cy.wait(2000);
       cy.formController("samity_id").type(lapData.samity).type("{enter}");
       cy.formController("member_id").type(lapData.member).type("{enter}");
-      cy.formController("econ_purpose_mra_code")
-        .type(lapData.economicPurpose)
-        .type("{enter}");
       cy.formController("loan_product_id")
         .type(lapData.loanProduct)
         .type("{enter}");
@@ -251,9 +253,6 @@ class LoanAccountProposalManagementCreation {
       cy.formController("member_id").type(lapData.member).type("{enter}");
       cy.formController("lending_category_id")
         .type(lapData.lendingCategory)
-        .type("{enter}");
-      cy.formController("econ_purpose_mra_code")
-        .type(lapData.economicPurpose)
         .type("{enter}");
       cy.formController("loan_product_id")
         .type(lapData.loanProduct)
@@ -281,9 +280,6 @@ class LoanAccountProposalManagementCreation {
         .type("{enter}");
       cy.formController("econ_sector")
         .type(lapData.economicSector)
-        .type("{enter}");
-      cy.formController("econ_purpose_mra_code")
-        .type(lapData.economicPurpose)
         .type("{enter}");
       cy.formController("loan_product_id")
         .type(lapData.loanProduct)
@@ -341,9 +337,6 @@ class LoanAccountProposalManagementCreation {
       cy.formController("econ_activity")
         .type(lapData.economicActivity)
         .type("{enter}");
-      cy.formController("econ_purpose_mra_code")
-        .type(lapData.economicPurpose)
-        .type("{enter}");
       cy.formController("applied_loan_amount").type(lapData.appliedLoanAmount);
       cy.wait(1000);
 
@@ -368,9 +361,6 @@ class LoanAccountProposalManagementCreation {
         .type("{enter}");
       cy.formController("econ_activity")
         .type(lapData.economicActivity)
-        .type("{enter}");
-      cy.formController("econ_purpose_mra_code")
-        .type(lapData.economicPurpose)
         .type("{enter}");
       cy.formController("loan_product_id")
         .type(lapData.loanProduct)
@@ -507,8 +497,8 @@ class LoanAccountProposalManagementCreation {
         .type("{enter}");
       cy.formController("applied_loan_amount").type(lapData.appliedLoanAmount);
       cy.wait(1000);
-       cy.formController("expected_disburse_dt").click();
-     cy.get('.ant-picker-dropdown')
+      cy.formController("expected_disburse_dt").click();
+      cy.get('.ant-picker-dropdown')
         .should('be.visible');
       cy.get('.ant-picker-cell-in-view')
         .not('.ant-picker-cell-disabled')

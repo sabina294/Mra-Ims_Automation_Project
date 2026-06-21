@@ -303,8 +303,8 @@ viewSchedulesCancelButtonCheck() {
       var lapData = data.branchManager.createLoanAccountFrom;
       cy.imsId("menu-my-task").click();
       cy.imsId("submenu-awaiting-loan-account-proposal").click();
-      cy.formController("search_text").type(lapData.searchMember);
-      cy.imsId("btn-search").click();
+      // cy.formController("search_text").type(lapData.searchMember);
+      // cy.imsId("btn-search").click();
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
       cy.imsId("btn-lock").click();

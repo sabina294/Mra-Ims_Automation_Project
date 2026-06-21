@@ -378,19 +378,19 @@
     },
     "createLoanAccountFrom": {
       "office": "1020 (Ashulia)",
-      "samity": "1020-103 (Kuturia Mohila Samity)",
-      "member": "3-1003 (Sinthiya)",
+      "samity": "1020-101 (Ashulia Mohila Samity)",
+      "member": "1-1001 (Fariya)",
       "lendingCategory": "Agriculture, Fisheries, Livestock and Forestry",
       "economicSector": "Agriculture",
       "economicActivity": "Cultivation",
       "economicPurpose": "Major Crops",
-      "loanProduct": "Livestock Development Loan",
+      "loanProduct": "Micro Enterprise",
       "appliedLoanAmount": "50000",
       "selectStatus": "Approve",
       "statusSelect": "Rejected",
       "SelectOffice": "1020 (Ashulia)",
       "memberNameEn": "Zahra Ahmed",
-      "search": "Sinthiya",
+      "search": "Fariya",
       "messageSaveLoanAccount": "Loan account proposal has been saved",
       "messageUpdateLoanAccount": "Do you want to update this loan account?"
     },
@@ -1739,6 +1739,12 @@
       "selectMember": "4-1004 (Chadnee)",
       "selectAccount": "AGRO-1020-101-1004-1 (Loan Account) ",
       "inputAmount": "10",
+      "search": "Chadnee"
+    },
+    "feeCollection": {
+      "selectSamity": "1020-101 (Ashulia Mohila Samity)",
+      "selectMember": "4-1004 (Chadnee)",
+      "feeType": "Member Admission Fee",
       "search": "Chadnee"
     }
   }

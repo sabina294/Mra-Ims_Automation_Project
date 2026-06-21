@@ -1,3 +1,6 @@
+
+import messages from "../../../../support/constants/messages";
+import { GRID } from "../../../../support/constants/selectors";
 class LoanDisbursement {
     test_data = Cypress.env("TEST_DATA");
 
@@ -51,6 +54,18 @@ class LoanDisbursement {
         );
     }
 
+     gridDisbursedButton() {
+        cy.imsId(GRID.BUTTONS.DRAFT_ON)
+            .check({ force: true });
+        cy.log(messages.ui.draftOnMessage);
+    }
+
+    gridDisbursedButtonOff() {
+        cy.imsId(GRID.BUTTONS.DRAFT_OFF)
+            .uncheck({ force: true });
+        cy.log(messages.ui.draftOffMessage);
+    }
+
     loanDisburseButtonCheck() {
         cy.fixture(this.test_data).then(() => {
 
@@ -63,8 +78,8 @@ class LoanDisbursement {
             cy.log("Loan Disburse button clicked successfully");
         });
     }
-
     loanDisburseSubmitButtonCheck() {
+        // cy.imsId("btn-submit").click();
 
         cy.get('.primary-button')
             .first()

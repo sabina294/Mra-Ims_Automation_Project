@@ -27,7 +27,7 @@ describe("13. Loan Account Proposal Management Module Test Cases", function () {
     create_loan_account_proposal_management.gridLoanAccountProposalManagementListPage();
   });
 
-  it("13.02. Verify successful creation of a Loan Account Proposal Management record by MFI-Admin role", function () {
+  it("13.02. Verify successful creation of a Loan Account Proposal Management", function () {
     create_loan_account_proposal_management.createLoanAccountProposalManagement();
   });
 
