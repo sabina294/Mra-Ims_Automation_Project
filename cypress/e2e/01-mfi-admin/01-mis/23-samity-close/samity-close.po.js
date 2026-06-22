@@ -39,7 +39,7 @@ class SamityClose {
   }
 
   actionButtonCheck() {
-    cy.selectMenu("menu-samity", "submenu-samity-close");
+    // cy.selectMenu("menu-samity", "submenu-samity-close");
     cy.imsId("toggle-action").first().click();
     cy.log(
       "Action button clicked successfully on the Samity close list page."

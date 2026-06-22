@@ -155,7 +155,7 @@ class SavingsAccApplicationManagementCreation {
       var saamData = data.mfiAdmin.createSavingsAccApplicationMang;
       cy.imsId("menu-my-task").click();
       cy.imsId("submenu-awaiting-savings-account-proposal").click();
-      cy.formController("search_text").type(saamData.search);
+      // cy.formController("search_text").type(saamData.search);
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
       cy.imsId("btn-lock").click();

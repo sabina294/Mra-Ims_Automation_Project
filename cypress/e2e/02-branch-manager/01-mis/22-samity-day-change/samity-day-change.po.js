@@ -47,7 +47,7 @@ class SamityDayChange {
   }
 
   actionButtonCheck() {
-    cy.selectMenu("menu-samity", "submenu-samity-day-change");
+    // cy.selectMenu("menu-samity", "submenu-samity-day-change");
     cy.imsId("toggle-action").first().click();
     cy.log(
       "Action button clicked successfully on the samity day change list page."

@@ -106,7 +106,7 @@ class OfficeGrid {
   }
 
   gridCheckboxCheck() {
-    cy.imsId("header-checkbox").click();
+    cy.imsId("row-checkbox-4").click();
     cy.log("Checkbox lock button should be clickable and functional.");
   }
 
@@ -116,7 +116,7 @@ class OfficeGrid {
   }
 
   gridCheckboxUnlockButtonCheck() {
-    cy.imsId("header-checkbox").click();
+    cy.imsId("row-checkbox-4").click();
     cy.imsId("btn-unlock").click();
     cy.log("Checkbox unlock button should be clickable and functional.");
   }

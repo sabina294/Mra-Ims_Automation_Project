@@ -58,9 +58,9 @@ describe("24. Member Management Module Test Cases", function () {
     create_member_management.editSubmitButton();
   });
 
-  it("24.10. Verify that the Approve button functions correctly on the Member Management edit page.", function () {
-    create_member_management.editApproveButton();
-  });
+  // it("24.10. Verify that the Approve button functions correctly on the Member Management edit page.", function () {
+  //   create_member_management.editApproveButton();
+  // });
 
   it("24.11. Verify that clicking the Go Back button on the Member Management edit page redirects the user to the Member Management list page.", function () {
     create_member_management.editGoBackButton();

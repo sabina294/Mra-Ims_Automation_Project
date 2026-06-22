@@ -378,8 +378,8 @@
     },
     "createLoanAccountFrom": {
       "office": "1020 (Ashulia)",
-      "samity": "1020-101 (Ashulia Mohila Samity)",
-      "member": "1-1001 (Fariya)",
+      "samity": "1020-111 (Rustampur Mohila Samity)",
+      "member": "1-1001 (Surovi Akter)",
       "lendingCategory": "Agriculture, Fisheries, Livestock and Forestry",
       "economicSector": "Agriculture",
       "economicActivity": "Cultivation",
@@ -390,7 +390,7 @@
       "statusSelect": "Rejected",
       "SelectOffice": "1020 (Ashulia)",
       "memberNameEn": "Zahra Ahmed",
-      "search": "Fariya",
+      "search": "Surovi Akter",
       "messageSaveLoanAccount": "Loan account proposal has been saved",
       "messageUpdateLoanAccount": "Do you want to update this loan account?"
     },
@@ -1097,7 +1097,8 @@
     },
     "regularCollection": {
       "loanAmount": "500",
-      "loanAmount2": "500"
+      "loanAmount2": "500",
+      "fieldOfficer": "EMP-0122 - GAIS UDDIN KHAN"
     },
     "specialCollection": {
       "selectSamity": "1020-103 (Kuturia Mohila Samity)",
@@ -1746,6 +1747,18 @@
       "selectMember": "4-1004 (Chadnee)",
       "feeType": "Member Admission Fee",
       "search": "Chadnee"
+    },
+    "paymentVoucher": {
+      "voucherNameEn": "Test Voucher",
+      "voucherNameBn": "টেস্ট ভাউচার",
+      "paymentMode": "Cash",
+      "preparedBy": "EMP-0119 - JOYMOT ALI",
+      "remarks": "Done",
+      "ledger": "501018-1020 (Office Rent)",
+      "remarks1": "Done",
+      "amount": "5000",
+      "selectStatus": "Inactive",
+      "statusSelect": "Active"
     }
   }
 }

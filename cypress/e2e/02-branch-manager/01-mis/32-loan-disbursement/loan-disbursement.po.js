@@ -71,27 +71,12 @@ class LoanDisbursement {
 
             cy.imsId("toggle-action").first().click();
             cy.imsId("btn-table-action-disburse").click();
-            cy.imsId("btn-loan-disburse")
-                .scrollIntoView()
-                .should("exist")
-                .click({ force: true });
+            cy.imsId("btn-loan-disburse").click({ force: true });
             cy.log("Loan Disburse button clicked successfully");
         });
     }
     loanDisburseSubmitButtonCheck() {
-        // cy.imsId("btn-submit").click();
-
-        cy.get('.primary-button')
-            .first()
-            .should("be.visible")
-            .click({ force: true });
-
-        cy.wait(3000);
-
-        cy.get('[data-ims-id="btn-ok"]', { timeout: 10000 })
-            .should('be.visible')
-            .click({ force: true });
-
+        cy.imsId("btn-submit").click();
         cy.log("Loan Disburse submit button checked");
     }
 

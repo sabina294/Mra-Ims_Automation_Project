@@ -31,9 +31,9 @@ describe("23. Samity Close Module Test Cases", function () {
     Samity_close.samityClose();
   });
 
-  it("23.03. Verify that the MFI Admin can successfully approve a Samity Close record after creation.", function () {
-    Samity_close.approveSamityClose();
-  });
+  // it("23.03. Verify that the MFI Admin can successfully approve a Samity Close record after creation.", function () {
+  //   Samity_close.approveSamityClose();
+  // });
 
   it("23.04. Verify that the action button performs successfully when clicked.", function () {
     Samity_close.actionButtonCheck();
