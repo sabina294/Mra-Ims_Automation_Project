@@ -26,40 +26,40 @@ describe("22. Samity Day Change Module Test Cases", function () {
     samity_day_change.gridSamityChangeListPage();
   });
 
-  it("22.02. Verify Create a new Samity Day Change with valid information", function () {
-    samity_day_change.samityDayChange();
-  });
-
-  // it("22.03. Verify Approve Samity Day Change successfully after creation", function () {
-  //   samity_day_change.approveSamityDayChange();
-  // });
-
-  it("22.04. Verify Action button performs expected operation successfully", function () {
-    samity_day_change.actionButtonCheck();
-  });
-
-  it("22.05. Verify View Samity Day Change details including name and description", function () {
-    samity_day_change.viewSamityDayChange();
-  });
-
-  it("22.06. Verify Go Back button redirects to Samity Day Change list page from view page", function () {
-    samity_day_change.viewGoBackButton();
-  });
-
-  it("22.07. Verify Reset button clears filters and form data successfully", function () {
+  it("22.02. Verify Reset button clears filters and form data successfully", function () {
     samity_day_change.dayChangeResetButtonCheck();
   });
 
-  it("22.08. Verify Submit button works correctly on Samity Day Change page", function () {
+  it("22.03. Verify Submit button works correctly on Samity Day Change page", function () {
     samity_day_change.dayChangeSubmitButtonCheck();
   });
 
-  it("22.09. Verify Approve button works correctly on Samity Day Change page", function () {
+  it("22.04. Verify Approve button works correctly on Samity Day Change page", function () {
     samity_day_change.dayChangeApproveButtonCheck();
   });
 
-  it("22.10. Verify Go Back button navigates correctly on Samity Day Change page", function () {
+  it("22.05. Verify Go Back button navigates correctly on Samity Day Change page", function () {
     samity_day_change.dayChangeGoBackButtonCheck();
+  });
+
+  it("22.06. Verify Create a new Samity Day Change with valid information", function () {
+    samity_day_change.samityDayChange();
+  });
+
+  // it("22.07. Verify Approve Samity Day Change successfully after creation", function () {
+  //   samity_day_change.approveSamityDayChange();
+  // });
+
+  it("22.08. Verify Action button performs expected operation successfully", function () {
+    samity_day_change.actionButtonCheck();
+  });
+
+  it("22.09. Verify View Samity Day Change details including name and description", function () {
+    samity_day_change.viewSamityDayChange();
+  });
+
+  it("22.10. Verify Go Back button redirects to Samity Day Change list page from view page", function () {
+    samity_day_change.viewGoBackButton();
   });
 
   it("22.11. Verify Filter inactive records using Status dropdown on list page", function () {
