@@ -44,11 +44,11 @@ describe("15. Loan Penalty Module Test Cases", function () {
     create_loan_penalty.createGoBackButton();
   });
 
-  it("15.05. Verify that the Branch Manager can successfully add a new Loan Penalty row using the Add Icon button.", function () {
+  it("15.05. Verify that the can successfully add a new Loan Penalty row using the Add Icon button.", function () {
     create_loan_penalty.createAddIconPenalty();
   });
 
-  it("15.06. Verify that the Branch Manager can successfully remove a Loan Penalty row using the Remove Icon button.", function () {
+  it("15.06. Verify that the can successfully remove a Loan Penalty row using the Remove Icon button.", function () {
     create_loan_penalty.createRemoveIconPenalty();
   });
 

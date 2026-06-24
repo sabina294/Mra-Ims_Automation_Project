@@ -38,6 +38,44 @@ class LoanWaiver {
 
   }
 
+  createResetButton() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("btn-add-new").click();
+      var lwData = data.fieldOfficer.createLoanWaiverFrom;
+      cy.formController("samity_id").type(lwData.selectSamity).type("{enter}");
+      cy.formController("member_id").type(lwData.selectMember).type("{enter}");
+      cy.formController("loan_account_id")
+        .type(lwData.selectLoanAccount)
+        .type("{enter}");
+      cy.wait(2000);
+      cy.imsId("btn-reset").click();
+      cy.imsId("btn-go-back").click();
+      cy.log("Successfully created page information reset Loan waiver");
+    });
+  }
+
+  createAddIconWaiver() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("btn-add-new").click();
+      var lwData = data.fieldOfficer.createLoanWaiverFrom;
+      cy.formController("samity_id").type(lwData.selectSamity).type("{enter}");
+      cy.formController("member_id").type(lwData.selectMember).type("{enter}");
+      cy.formController("loan_account_id")
+        .type(lwData.selectLoanAccount)
+        .type("{enter}");
+      cy.wait(2000);
+      cy.imsId("btn-add-method-0").click();
+      cy.log("Successfully created page information add icon Loan waiver");
+    });
+  }
+
+  createRemoveIconWaiver() {
+    cy.imsId("btn-remove-method-0").click();
+    cy.imsId("btn-go-back").click();
+    cy.log("Successfully created page information remove icon Loan waiver");
+
+  }
+
   createLoanWaiver() {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId("btn-add-new").click();
@@ -128,20 +166,6 @@ class LoanWaiver {
     });
   }
 
-  createResetButton() {
-    cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      var lwData = data.fieldOfficer.createLoanWaiverFrom;
-      cy.formController("samity_id").type(lwData.selectSamity).type("{enter}");
-      cy.formController("member_id").type(lwData.selectMember).type("{enter}");
-      cy.formController("loan_account_id")
-        .type(lwData.selectLoanAccount)
-        .type("{enter}");
-      cy.wait(2000);
-      cy.imsId("btn-reset").click();
-      cy.log("Successfully created page information reset Loan waiver");
-    });
-  }
 
   gridLanguageSwitchCheck() {
     cy.imsId("profile-menu").click();

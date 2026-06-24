@@ -31,10 +31,50 @@ class LoanRebate {
     cy.log("Successfully created page information submit Loan rebate");
 
   }
-
   createGoBackButton() {
     cy.imsId("btn-go-back").click();
     cy.log("Successfully created  page information go back Loan rebate");
+
+  }
+
+  createResetButton() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("btn-add-new").click();
+      var lrData = data.fieldOfficer.createLoanRebateFrom;
+      cy.formController("samity_id").type(lrData.selectSamity).type("{enter}");
+      cy.formController("member_id").type(lrData.selectMember).type("{enter}");
+      cy.formController("loan_account_id")
+        .type(lrData.selectLoanAccount)
+        .type("{enter}");
+      cy.wait(2000);
+      cy.imsId("btn-reset").click();
+      cy.imsId("btn-go-back").click();
+
+      cy.log("Successfully created page information reset Loan rebate");
+    });
+  }
+
+  createAddIconRebate() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId("btn-add-new").click();
+      var lrData = data.fieldOfficer.createLoanRebateFrom;
+      cy.formController("samity_id").type(lrData.selectSamity).type("{enter}");
+      cy.formController("member_id").type(lrData.selectMember).type("{enter}");
+      cy.formController("loan_account_id")
+        .type(lrData.selectLoanAccount)
+        .type("{enter}");
+      cy.wait(2000);
+      cy.imsId("addIconButton").click();
+      cy.log("Successfully created page information add icon Loan rebate");
+    });
+  }
+
+  createRemoveIconRebate() {
+    cy.imsId("removeIconButton")
+      .first()
+      .click();
+    cy.imsId("btn-go-back").click();
+    cy.log("Successfully removed Loan rebate row");
 
   }
 
@@ -151,21 +191,6 @@ class LoanRebate {
       cy.formController("search_text").type(lrData.samityNameEn);
       cy.imsId("btn-search").click();
       cy.log("Successful search button click.");
-    });
-  }
-
-  createResetButton() {
-    cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      var lrData = data.fieldOfficer.createLoanRebateFrom;
-      cy.formController("samity_id").type(lrData.selectSamity).type("{enter}");
-      cy.formController("member_id").type(lrData.selectMember).type("{enter}");
-      cy.formController("loan_account_id")
-        .type(lrData.selectLoanAccount)
-        .type("{enter}");
-      cy.wait(2000);
-      cy.imsId("btn-reset").click();
-      cy.log("Successfully created page information reset Loan rebate");
     });
   }
 

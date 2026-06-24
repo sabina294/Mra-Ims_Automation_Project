@@ -31,6 +31,7 @@ class LoanAccountProposalManagementCreation {
       cy.formController("econ_purpose_mra_code")
         .type(lapData.economicPurpose)
         .type("{enter}");
+        cy.wait(3000);
       cy.formController("loan_product_id")
         .type(lapData.loanProduct)
         .type("{enter}");
@@ -63,6 +64,7 @@ class LoanAccountProposalManagementCreation {
       cy.formController("econ_purpose_mra_code")
         .type(lapData.economicPurpose)
         .type("{enter}");
+        cy.wait(3000);
       cy.formController("loan_product_id")
         .type(lapData.loanProduct)
         .type("{enter}");
