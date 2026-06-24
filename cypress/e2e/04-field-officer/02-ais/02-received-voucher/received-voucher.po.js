@@ -462,9 +462,9 @@ class ReceivedVoucherCreation {
 
     approveReceivedVoucher() {
         cy.fixture(this.test_data).then(() => {
+            cy.switchModule("AIS");
             cy.imsId("menu-my-task").click();
             cy.imsId("submenu-awaiting-received-voucher").click();
-
             cy.imsId("toggle-action").first().click();
             cy.imsId("btn-table-action-view").click();
             cy.imsId("btn-lock").click();

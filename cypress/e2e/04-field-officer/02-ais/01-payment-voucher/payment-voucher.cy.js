@@ -81,8 +81,14 @@ describe("01 Payment Voucher Module Test Cases", function () {
         create_payment_voucher.createWithoutVoucherAmount();
     });
 
-    // it("01.15. Verify that the Branch Manager can successfully approve a payment voucher after creation.", function () {
-    //     create_payment_voucher.approvePaymentVoucher();
+    // it("01.15. Verify that the can successfully approve a payment voucher after creation.", function () {
+    //     cy.fixture(test_data).then((d) => {
+    //         cy.loginAsBranchManager(baseURL, d);
+    //         create_payment_voucher.approvePaymentVoucher();
+    //         cy.logout();
+    //         cy.loginAsFieldOfficer(baseURL, d); 
+    //     });
+
     // });
 
     // it("01.16. Verify that the Action button performs the expected operation when clicked.", function () {

@@ -82,8 +82,13 @@ describe("08 Received Voucher Module Test Cases", function () {
         create_received_voucher.createWithoutVoucherDetailsAmount();
     });
 
-    // it("02.15. Verify that an MFI Admin can approve a Received Voucher successfully after creation.", function () {
-    //     create_received_voucher.approveReceivedVoucher();
+    // it("02.15. Verify that an can approve a Received Voucher successfully after creation.", function () {
+    //     cy.fixture(test_data).then((d) => {
+    //         cy.loginAsBranchManager(baseURL, d);
+    //         create_received_voucher.approveReceivedVoucher();
+    //         cy.logout();
+    //         cy.loginAsFieldOfficer(baseURL, d);
+    //     });
     // });
 
     // it("02.16. Verify that the action button functionality works successfully.", function () {

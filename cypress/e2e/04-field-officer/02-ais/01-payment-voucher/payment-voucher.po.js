@@ -496,7 +496,9 @@ class PaymentVoucherCreation {
     approvePaymentVoucher() {
         cy.fixture(this.test_data).then((data) => {
             var pvData = data.fieldOfficer.paymentVoucher;
+            cy.switchModule("AIS");
             cy.imsId("menu-my-task").click();
+            cy.wait(3000);
             cy.imsId("submenu-awaiting-payment-voucher").click();
             // cy.formController("search_text").type(pvData.voucherNameEn);
             cy.imsId("toggle-action").first().click();
