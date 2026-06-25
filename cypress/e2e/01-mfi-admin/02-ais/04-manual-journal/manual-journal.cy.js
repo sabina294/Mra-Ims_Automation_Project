@@ -57,17 +57,17 @@ describe("04. Manual Journal Module Test Cases", function () {
         create_manual_journal.createWithoutJournalDetailsCreditedAmount();
     });
 
-    // it("04.09. Verify that the Action button performs the expected operation when clicked.", function () {
-    //     create_manual_journal.actionButtonCheck();
-    // });
+    it("04.09. Verify that the Action button performs the expected operation when clicked.", function () {
+        create_manual_journal.actionButtonCheck();
+    });
 
-    // it("04.10. Verify that the user can view the complete details of a manual journal record.", function () {
-    //     create_manual_journal.viewManualJournal();
-    // });
+    it("04.10. Verify that the user can view the complete details of a manual journal record.", function () {
+        create_manual_journal.viewManualJournal();
+    });
 
-    // it("04.11. Verify that the Go Back button navigates the user to the Manual Journal list page.", function () {
-    //     create_manual_journal.goBackManualJournal();
-    // });
+    it("04.11. Verify that the Go Back button navigates the user to the Manual Journal list page.", function () {
+        create_manual_journal.goBackManualJournal();
+    });
 
     it("04.12. Verify that approved manual journals are filtered correctly using the Status dropdown.", function () {
         create_manual_journal.statusApproveDropdownCheck();
