@@ -23,7 +23,7 @@ describe("16. Loan Rebate Module Test Cases", function () {
     cy.logout();
   });
 
-  ity("16.01. Verify Loan rebate Grid List Page loads successfully", function () {
+  it("16.01. Verify Loan rebate Grid List Page loads successfully", function () {
     create_loan_rebate.gridLoanRebateListPage();
   });
 
