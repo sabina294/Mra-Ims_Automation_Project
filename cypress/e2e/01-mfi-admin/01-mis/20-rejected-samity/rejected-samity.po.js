@@ -11,9 +11,11 @@ class RejectedSamity {
       cy.formController("samity_name_bn").type(rsData.samityNameBn);
       cy.formController("samity_type").type(rsData.samityType).type("{enter}");
       cy.formController("office_id").type(rsData.office).type("{enter}");
+      cy.wait(2000);
       cy.formController("field_officer_id")
         .type(rsData.fieldOfficer)
         .type("{enter}");
+      cy.wait(2000);
       cy.formController("mfi_program_id")
         .type(rsData.mfiProgram)
         .type("{enter}");
@@ -22,9 +24,11 @@ class RejectedSamity {
         .type(rsData.samityFrequency)
         .type("{enter}");
       cy.formController("maximum_member").type(rsData.maxMember);
+      cy.wait(2000);
       cy.formController("working_area_id")
         .type(rsData.workingArea)
         .type("{enter}");
+      cy.wait(2000);
       cy.formController("address_line_1").type(rsData.adressEn);
       cy.formController("geo_area_type")
         .type(rsData.geoAreaType)
@@ -109,7 +113,7 @@ class RejectedSamity {
     cy.imsId("btn-ok").click();
     cy.log("Successful submit button working");
   }
-  
+
   editGoBackButton() {
     cy.imsId("btn-go-back").click();
     cy.log("Successful edit go back button check.");
@@ -129,7 +133,7 @@ class RejectedSamity {
     cy.log("Successful clean displaying.");
   }
 
-   gridSearchButtonCheck() {
+  gridSearchButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
       var rsData = data.mfiAdmin.rejectedSamityFrom;
       cy.imsId("btn-reset").click();

@@ -10,9 +10,11 @@ class RejectedSamity {
       cy.formController("samity_name_bn").type(rsData.samityNameBn);
       cy.formController("samity_type").type(rsData.samityType).type("{enter}");
       cy.formController("office_id").type(rsData.office).type("{enter}");
+      cy.wait(2000);
       cy.formController("field_officer_id")
         .type(rsData.fieldOfficer)
         .type("{enter}");
+      cy.wait(2000);
       cy.formController("mfi_program_id")
         .type(rsData.mfiProgram)
         .type("{enter}");

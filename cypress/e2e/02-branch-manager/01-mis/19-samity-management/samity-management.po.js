@@ -18,9 +18,11 @@ class SamityCreation {
       cy.formController("samity_name_bn").type(smData.samityNameBn);
       cy.formController("samity_type").type(smData.samityType).type("{enter}");
       cy.formController("office_id").type(smData.office).type("{enter}");
+      cy.wait(2000);
       cy.formController("field_officer_id")
         .type(smData.fieldOfficer)
         .type("{enter}");
+      cy.wait(2000);
       cy.formController("mfi_program_id")
         .type(smData.mfiProgram)
         .type("{enter}");
@@ -522,9 +524,11 @@ class SamityCreation {
       cy.formController("samity_name_bn").type(smData.draftNameBn);
       cy.formController("samity_type").type(smData.samityType).type("{enter}");
       cy.formController("office_id").type(smData.office).type("{enter}");
+      cy.wait(2000);
       cy.formController("field_officer_id")
         .type(smData.fieldOfficer)
         .type("{enter}");
+      cy.wait(2000);
       cy.formController("mfi_program_id")
         .type(smData.mfiProgram)
         .type("{enter}");
@@ -533,9 +537,11 @@ class SamityCreation {
         .type(smData.samityFrequency)
         .type("{enter}");
       cy.formController("maximum_member").type(smData.maxMember);
+      cy.wait(2000);
       cy.formController("working_area_id")
         .type(smData.workingArea)
         .type("{enter}");
+      cy.wait(2000);
       cy.formController("address_line_1").type(smData.adressEn);
       cy.formController("geo_area_type")
         .type(smData.geoAreaType)

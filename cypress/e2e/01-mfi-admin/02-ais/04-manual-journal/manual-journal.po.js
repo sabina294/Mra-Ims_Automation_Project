@@ -16,6 +16,7 @@ class ManualJournalCreation {
 
             cy.formController("reference").type(mjData.reference);
             // First description field
+            cy.wait(2000);
             cy.formController("description").eq(0).type(mjData.description);
 
             // Ledger field

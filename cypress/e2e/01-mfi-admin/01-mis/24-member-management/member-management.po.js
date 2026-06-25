@@ -53,10 +53,13 @@ class MemberManagementCreation {
       cy.formController("res_division_id")
         .type(memData.division)
         .type("{enter}");
+        cy.wait(2000);
       cy.formController("res_district_id")
         .type(memData.district)
         .type("{enter}");
+        cy.wait(2000);
       cy.formController("res_upazila_id").type(memData.thana).type("{enter}");
+      cy.wait(2000);
       cy.formController("res_address_line_1").type(memData.adressEn);
       cy.imsId("ck-box").click();
       cy.get("#nz-tabs-1-tab-4").click();
