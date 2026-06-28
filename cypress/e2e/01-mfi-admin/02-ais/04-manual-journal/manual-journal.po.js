@@ -1,3 +1,5 @@
+import messages from "../../../../support/constants/messages";
+import { GRID } from "../../../../support/constants/selectors";
 class ManualJournalCreation {
     test_data = Cypress.env("TEST_DATA");
 
@@ -220,6 +222,18 @@ class ManualJournalCreation {
             "successfully refresh page  displayed the grid list of the manual journal "
         );
     }
+
+     gridDraftButton() {
+    cy.imsId(GRID.BUTTONS.DRAFT_ON)
+      .check({ force: true });
+    cy.log(messages.ui.draftOnMessage);
+  }
+
+  gridDraftButtonOff() {
+    cy.imsId(GRID.BUTTONS.DRAFT_OFF)
+      .uncheck({ force: true });
+    cy.log(messages.ui.draftOffMessage);
+  }
 
     gridSearchButtonCheck() {
         cy.fixture(this.test_data).then((data) => {

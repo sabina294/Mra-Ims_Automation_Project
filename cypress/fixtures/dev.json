@@ -429,15 +429,17 @@
       "messageSaveLoanWelfareFund": "Welfare Fund Collection for this Loan Account is successful",
       "messageUpdateLoanWelfareFund": "Do you want to update this loan welfare fund?"
     },
-    "createLoanPenaltyFrom": {
-      "selectOffice": "1020 (Ashulia)",
-      "selectSamity": "1020-101 (Ashulia Mohila Samity)",
-      "selectMember": "1-1001 (Fariya)",
-      "selectLoanAccount": "AGRO-1020-101-1001-1",
-      "inputAmount": "5000",
-      "search": "Fariya",
-      "selectStatus": "Submitted",
-      "statusSelect": "Approved",
+     "createLoanPenaltyFrom": {
+      "selectOffice":"1020 (Ashulia)",
+      "selectSamity": "1020-106 (Belma Mohila Samity)",
+      "selectMember": "1-1001 (Sima akter)",
+      "selectLoanAccount": "AGRO-1020-106-1001-1 (Loan Account)",
+      "inputLoanAccount": "40",
+      "inputAmount": "40",
+      "search": "Srabonti",
+      "samity": "Sadarpur Mohila Samity",
+      "selectStatus": "Inactive",
+      "statusSelect": "Active",
       "approveMessage": "Loan Penalty Authorization for Loan Account Is Successful",
       "messageSaveLoanPenalty": "Loan Penalty Collection for this Loan Account is successful",
       "messageUpdateLoanPenalty": "Do you want to update this loan penalty?"

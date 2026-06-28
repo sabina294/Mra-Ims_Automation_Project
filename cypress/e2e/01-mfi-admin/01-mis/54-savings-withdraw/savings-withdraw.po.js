@@ -10,40 +10,6 @@ class SavingsWithdraw {
         });
     }
 
-    actionButtonCheck() {
-        cy.imsId("toggle-action").first().click();
-        cy.log(
-            "Action button clicked successfully on the Savings Withdraw list page."
-        );
-    }
-
-    viewSavingsWithdraw() {
-        cy.fixture(this.test_data).then((data) => {
-            var swData = data.mfiAdmin.gridSavingsWithdraw;
-            cy.formController("search_text").type(swData.samity);
-            cy.imsId("toggle-action").first().click();
-            cy.imsId("btn-table-action-view").click();
-            cy.imsId("btn-go-back").click();
-            cy.log("Successfully viewed the Savings Withdraw list page");
-        });
-    }
-
-    viewGoBackButtonCheck() {
-        cy.imsId("toggle-action").first().click();
-        cy.imsId("btn-table-action-view").click();
-        cy.imsId("btn-go-back").click();
-        cy.log("Successful go back button check.");
-    }
-
-    searchInSavingsWithdrawName() {
-        cy.fixture(this.test_data).then((data) => {
-            var swData = data.mfiAdmin.gridSavingsWithdraw;
-            cy.imsId("btn-reset").click();
-            cy.formController("search_text").type(swData.samity);
-            cy.imsId("btn-search").click();
-            cy.log("Successfully search in the Savings Withdraw");
-        });
-    }
     statusOfficeDropdownCheck() {
         cy.fixture(this.test_data).then((data) => {
             var swData = data.mfiAdmin.gridSavingsWithdraw;
@@ -51,23 +17,6 @@ class SavingsWithdraw {
             cy.log(
                 "Savings Withdraw status office dropdown check successfully"
             );
-        });
-    }
-
-    statusDraftDropdownCheck() {
-        cy.fixture(this.test_data).then((data) => {
-            var swData = data.mfiAdmin.gridSavingsWithdraw;
-            cy.imsId("btn-reset").click();
-            cy.formController("status").type(swData.Status).type("{enter}");
-            cy.log("Savings Withdraw status inactive dropdown check successfully");
-        });
-    }
-
-    statusSubmittedDropdownCheck() {
-        cy.fixture(this.test_data).then((data) => {
-            var swData = data.mfiAdmin.gridSavingsWithdraw;
-            cy.formController("status").type(swData.statusSelect).type("{enter}");
-            cy.log("Savings Withdraw status active dropdown check successfully");
         });
     }
 

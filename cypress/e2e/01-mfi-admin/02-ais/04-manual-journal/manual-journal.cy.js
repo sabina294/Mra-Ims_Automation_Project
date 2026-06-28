@@ -89,31 +89,39 @@ describe("04. Manual Journal Module Test Cases", function () {
         create_manual_journal.gridRefreshButtonCheck();
     });
 
-    it("04.17. Verify that clicking the Search button reloads and displays the filtered results on the Manual Journal list page.", function () {
+    it("04.17. Verify that the grid list is displayed successfully when the Draft button is enabled on the Member Management page.", function () {
+        create_manual_journal.gridDraftButton();
+    });
+
+    it("04.18. Verify that the grid list is displayed successfully when the Draft button is disabled on the Member Management page.", function () {
+        create_manual_journal.gridDraftButtonOff();
+    });
+
+    it("04.19. Verify that clicking the Search button reloads and displays the filtered results on the Manual Journal list page.", function () {
         create_manual_journal.gridSearchButtonCheck();
     });
 
-    it("04.18. Verify that the Reset button on the create page clears all input fields successfully.", function () {
+    it("04.20. Verify that the Reset button on the create page clears all input fields successfully.", function () {
         create_manual_journal.createResetButtonCheck();
     });
 
-    it("04.19. Verify that validation messages are displayed when submitting the form without completing the required fields.", function () {
+    it("04.21. Verify that validation messages are displayed when submitting the form without completing the required fields.", function () {
         create_manual_journal.createValidationMessageCheck();
     });
 
-    it("04.20. Verify that clicking the Go Back button on the create page redirects the user to the Manual Journal list page.", function () {
+    it("04.22. Verify that clicking the Go Back button on the create page redirects the user to the Manual Journal list page.", function () {
         create_manual_journal.createGoBackButtonCheck();
     });
 
-    it("04.21. Verify that clicking the Delete button removes the manual journal record successfully.", function () {
+    it("04.23. Verify that clicking the Delete button removes the manual journal record successfully.", function () {
         create_manual_journal.createDeleteButtonCheck();
     });
 
-    it("04.22. Verify that clicking the 'Add New Journal Details' button allows the user to add multiple journal detail entries successfully.", function () {
+    it("04.24. Verify that clicking the 'Add New Journal Details' button allows the user to add multiple journal detail entries successfully.", function () {
         create_manual_journal.createNewJournalDetailsButtonCheck();
     });
 
-    it("04.23. Verify that the grid content is updated correctly when switching the language from English to Bangla.", function () {
+    it("04.25. Verify that the grid content is updated correctly when switching the language from English to Bangla.", function () {
         create_manual_journal.gridLanguageSwitchCheck();
     });
 });

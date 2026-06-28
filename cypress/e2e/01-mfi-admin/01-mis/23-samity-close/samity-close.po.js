@@ -13,7 +13,7 @@ class SamityClose {
   samityClose() {
     cy.fixture(this.test_data).then((data) => {
       var scData = data.mfiAdmin.samityCloseFrom;
-      cy.imsId("btn-reset").click();
+      // cy.imsId("btn-reset").click();
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-mis-table-action-close").click();
       cy.imsId("btn-yes").click();
@@ -39,7 +39,7 @@ class SamityClose {
   }
 
   actionButtonCheck() {
-    // cy.selectMenu("menu-samity", "submenu-samity-close");
+    cy.selectMenu("menu-samity", "submenu-samity-close");
     cy.imsId("toggle-action").first().click();
     cy.log(
       "Action button clicked successfully on the Samity close list page."
