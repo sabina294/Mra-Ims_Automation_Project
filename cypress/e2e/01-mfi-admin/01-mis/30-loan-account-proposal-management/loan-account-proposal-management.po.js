@@ -36,7 +36,7 @@ class LoanAccountProposalManagementCreation {
         .type(lapData.loanProduct)
         .type("{enter}");
       cy.formController("applied_loan_amount").type(lapData.appliedLoanAmount);
-      cy.wait(1000);
+      cy.wait(3000);
       cy.formController("expected_disburse_dt").click();
       cy.get('.ant-picker-dropdown')
         .should('be.visible');
@@ -69,7 +69,7 @@ class LoanAccountProposalManagementCreation {
         .type(lapData.loanProduct)
         .type("{enter}");
       cy.formController("applied_loan_amount").type(lapData.appliedLoanAmount);
-      cy.wait(1000);
+      cy.wait(3000);
       cy.imsId("btn-preview-repay-schedule").click();
       cy.get("nz-modal-container")
         .should("be.visible");
@@ -151,7 +151,7 @@ class LoanAccountProposalManagementCreation {
         .type(lapData.loanProduct)
         .type("{enter}");
       cy.formController("applied_loan_amount").type(lapData.appliedLoanAmount);
-      cy.wait(1000);
+      cy.wait(3000);
       cy.imsId("btn-submit").click();
       cy.imsId("btn-ok").click();
       cy.imsId("btn-reset").click();
@@ -515,8 +515,9 @@ class LoanAccountProposalManagementCreation {
   }
 
   createAddGuarantorButtonCheck() {
-    cy.imsId("btn-add-new").should("be.visible").click();
-    cy.imsId("btn-add-guarantor")
+     cy.imsId("btn-add-new").click();
+      cy.wait(3000);
+      cy.imsId("btn-add-guarantor")
       .should("be.visible")
       .first()
       .click();

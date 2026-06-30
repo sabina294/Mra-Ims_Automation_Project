@@ -11,31 +11,53 @@ class ManualJournalCreation {
     }
 
     createManualJournal() {
-        cy.fixture(this.test_data).then((data) => {
-            var mjData = data.mfiAdmin.manualJournal;
-            cy.imsId("btn-add-new").click();
-            cy.imsId("btn-delete").first().click();
+    cy.fixture(this.test_data).then((data) => {
+    var mjData = data.mfiAdmin.manualJournal;
+    cy.imsId("btn-add-new")
+      .click();
+    // Delete default journal row
+    cy.imsId("btn-delete")
+      .first()
+      .click();
+    // Reference No
+    cy.formController("reference_no")
+      .type(mjData.reference);
+    // Main Description
+    cy.formController("description")
+      .eq(0)
+      .type(mjData.description);
+    // Ledger Dropdown
+    cy.formController("ledger_id")
+      .click();
 
-            cy.formController("reference").type(mjData.reference);
-            // First description field
-            cy.wait(2000);
-            cy.formController("description").eq(0).type(mjData.description);
+    cy.get(".ant-select-dropdown")
+      .should("be.visible")
+      .contains(".ant-select-item-option", mjData.ledger)
+      .click();
+    // Journal Details Description
+    cy.formController("description")
+      .eq(1)
+      .type(mjData.description1);
+    // Debited Amount
+    cy.formController("debited_amount")
+      .clear()
+      .type(mjData.debitedAmount);
+    // Credited Amount
+    cy.formController("credited_amount")
+      .clear()
+      .type(mjData.creditedAmount);
+    // Submit
+    cy.imsId("btn-submit")
+      .click();
+    // Confirmation
+    cy.imsId("btn-yes")
+      .click();
+    cy.imsId("btn-ok")
+      .click();
+    cy.log("Successfully created manual journal");
 
-            // Ledger field
-            cy.formController("ledger_id").type(mjData.ledger).type("{enter}");
-
-            // Second description field
-            cy.formController("description").eq(1).type(mjData.description1);
-
-            cy.formController("debited_amount").clear().type(mjData.debitedAmount);
-            cy.formController("credited_amount").clear().type(mjData.creditedAmount);
-            cy.imsId("btn-submit").click();
-            cy.imsId("btn-yes").click();
-            cy.imsId("btn-ok").click();
-
-            cy.log("Successfully created manual journal");
-        });
-    }
+  });
+}
 
     createWithoutReferenceNumber() {
         cy.fixture(this.test_data).then((data) => {
