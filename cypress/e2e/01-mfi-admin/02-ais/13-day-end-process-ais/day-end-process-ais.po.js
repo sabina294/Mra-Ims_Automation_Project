@@ -38,6 +38,20 @@ class DayEndProcessAis {
         cy.log("Successful preview button check.");
     }
 
+     previousPreviewGoBackButton() {
+        cy.fixture(this.test_data).then((data) => {
+            cy.imsId("btn-go-back").click();
+            cy.log("Successfully day end process previous preview go back button clicked.");
+        });
+    }
+
+    previousOff() {
+        cy.fixture(this.test_data).then((data) => {
+            cy.imsId("btn-draft-on").click();
+            cy.log("Successfully day end process previous off.");
+        });
+    }
+
     gridLanguageSwitchCheck() {
         cy.imsId("profile-menu").click();
         cy.imsId("btn-lang-bangla").click();

@@ -49,7 +49,15 @@ describe("13. Day End Process Module Test Cases", function () {
         grid_day_end_process_ais.PreviousPreviewButtonCheck();
     });
 
-    it("13.07. Verify check that the grid list content changes correctly from english to bangla.", function () {
+    it("13.07. Verify that the 'Previous Preview Go Back' functionality works correctly.", function () {
+        grid_day_end_process_ais.previousPreviewGoBackButton();
+    });
+
+    it("13.08. Verify that the 'Previous Off' functionality works correctly.", function () {
+        grid_day_end_process_ais.previousOff();
+    });
+
+    it("13.09. Verify check that the grid list content changes correctly from english to bangla.", function () {
         grid_day_end_process_ais.gridLanguageSwitchCheck();
     });
 });

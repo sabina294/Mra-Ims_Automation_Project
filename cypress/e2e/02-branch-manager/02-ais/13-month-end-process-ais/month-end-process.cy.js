@@ -49,13 +49,13 @@ describe("13. Month End Process Module Test Cases", function () {
         grid_month_end_process_ais.previousPreviewButton();
     });
 
-    // it("13.07. Verify that the 'Previous Preview Go Back' functionality works correctly.", function () {
-    //     grid_month_end_process_ais.previousPreviewGoBackButton();
-    // });
+    it("13.07. Verify that the 'Previous Preview Go Back' functionality works correctly.", function () {
+        grid_month_end_process_ais.previousPreviewGoBackButton();
+    });
 
-    // it("13.08. Verify that the 'Previous Off' functionality works correctly.", function () {
-    //     grid_month_end_process_ais.previousOff();
-    // });
+    it("13.08. Verify that the 'Previous Off' functionality works correctly.", function () {
+        grid_month_end_process_ais.previousOff();
+    });
 
     it("13.09. Verify that the grid list content changes correctly from English to Bangla.", function () {
         grid_month_end_process_ais.gridLanguageSwitchCheck();

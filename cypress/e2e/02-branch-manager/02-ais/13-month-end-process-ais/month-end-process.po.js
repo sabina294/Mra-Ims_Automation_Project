@@ -35,14 +35,13 @@ class MonthEndProcessAis {
     previousPreviewButton() {
         cy.fixture(this.test_data).then((data) => {
             cy.imsId("btn-preview").click();
-            cy.selectMenu1("submenu-month-end-process-ais");
             cy.log("Successfully month end process previous preview button clicked.");
         });
     }
 
     previousPreviewGoBackButton() {
         cy.fixture(this.test_data).then((data) => {
-            cy.imsId("btn-go-back").click();
+            cy.imsId("go-back-button").click();
             cy.log("Successfully month end process previous preview go back button clicked.");
         });
     }
