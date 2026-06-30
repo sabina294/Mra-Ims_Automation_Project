@@ -75,20 +75,36 @@ class FeeConfigurationCreation {
   }
 
   createWithoutNameBn() {
-    cy.fixture(this.test_data).then((data) => {
-      cy.imsId(GRID.CREATE.ADD_NEW).click();
-      var fcData = data.mfiAdmin.createFeeConfigurationFrom;
-      var randomNumber = Math.floor(1000 + Math.random() * 9000);
-      var FeeCollectionCode = fcData.FeeCollCode + "-" + randomNumber;
-      cy.formController("fee_collection_code").type(FeeCollectionCode);
-      cy.formController("fee_type_name_en").type(fcData.feeTypeNameEn);
-      cy.formController("amount").type(fcData.amount);
-      cy.formController("ledger_id").type(fcData.ledger).type("{enter}");
-      cy.imsId(GRID.CREATE.CREATESUBMIT).click();
-      cy.imsId(GRID.CREATE.CONFIRMATION_YES).click();
-      cy.imsId(GRID.CREATE.CONFIRMATION_OK).click();
-      cy.log(messages.ui.withoutDataMessage);
-    });
+     cy.fixture(this.test_data).then((data) => {
+    cy.imsId(GRID.CREATE.ADD_NEW).click();
+    var fcData = data.mfiAdmin.createFeeConfigurationFrom;
+    var randomNumber = Math.floor(1000 + Math.random() * 9000);
+    var FeeCollectionCode = fcData.FeeCollCode + "-" + randomNumber;
+    cy.formController("fee_collection_code")
+      .type(FeeCollectionCode);
+    cy.formController("fee_type_name_en")
+      .type(fcData.feeTypeNameEn);
+    cy.formController("amount")
+      .type(fcData.amount);
+    // Ledger Select
+    cy.formController("ledger_id")
+      .click();
+    cy.get(".ant-select-dropdown")
+      .should("be.visible")
+      .within(() => {
+        cy.get(".ant-select-item-option-content")
+          .contains(fcData.ledger)
+          .click();
+      });
+    cy.wait(2000);
+    cy.imsId(GRID.CREATE.CREATESUBMIT)
+      .click();
+    cy.imsId(GRID.CREATE.CONFIRMATION_YES)
+      .click();
+    cy.imsId(GRID.CREATE.CONFIRMATION_OK)
+      .click();
+    cy.log(messages.ui.submitSuccess);
+  });
   }
 
   createWithoutAmount() {
