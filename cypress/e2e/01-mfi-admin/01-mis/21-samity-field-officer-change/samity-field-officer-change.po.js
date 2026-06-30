@@ -101,8 +101,6 @@ class SamityChange {
   viewSamityChange() {
     cy.fixture(this.test_data).then((data) => {
       var smData = data.mfiAdmin.samityChangeFrom;
-      cy.formController("search_text").type(smData.samityNameEn);
-      cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
       cy.log("Successfully viewed the samity change list page");
     });

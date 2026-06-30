@@ -334,19 +334,19 @@
     },
     "memberSamityTransferFrom": {
       "memberNameEn": "Fariya",
-      "newSamityTransfer": "1028-102 (Dalinagar Mohila Samity)",
+      "newSamityTransfer": "1028-105 (Phulbaria Mohila Samity)",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
-      "SelectOffice": "1019 (Amin Bazar)",
+      "SelectOffice": "1020 (Ashulia)",
       "search": "Fariya",
       "messagesamityTransfer": "Member samity transfer has been updated"
     },
-    "memberAttendanceFrom": {
+   "memberAttendanceFrom": {
       "SelectOffice": "1002 (Dhaka Regional Office)",
       "search": "Abdullapur Mohila Samity",
-      "office": "1019 (Amin Bazar)",
-      "samity": "1019-101 (Salepur Mohila Samity)",
-      "member": "2-1002 (Samia)"
+      "office": "1020 (Ashulia)",
+      "samity": "1020-111 (Rustampur Mohila Samity)",
+      "member": "1-1001 (Surovi Akter)"
     },
     "memberPassbookFrom": {
       "office": "1019 (Amin Bazar)",

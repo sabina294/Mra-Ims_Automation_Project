@@ -14,40 +14,38 @@ class AmountBasedLoanProposalApprovalCreation {
     });
   }
 
-createAmountBasedLoanProposal() {
-  cy.fixture(this.test_data).then((data) => {
-    cy.imsId(GRID.CREATE.ADD_NEW).click();
-    var ablpaData = data.mfiAdmin.createAmountBasedLoanFrom;
-    // Office Type Select
-    cy.formController("office_type_id")
-      .click();
-    cy.get(".ant-select-dropdown")
-      .should("be.visible")
-      .within(() => {
-        cy.get(".ant-select-item-option-content")
-          .contains(ablpaData.officeTypeId)
-          .click();
-      });
-    // Role Select
-    cy.formController("role_id")
-      .click();
-    cy.get(".ant-select-dropdown")
-      .should("be.visible")
-      .within(() => {
-        cy.get(".ant-select-item-option-content")
-          .contains(ablpaData.roleName)
-          .click();
-      });
-    cy.formController("min_loan_amount")
-      .type(ablpaData.minLoanAmount);
-    cy.formController("max_loan_amount")
-      .type(ablpaData.maxLoanAmount);
-    cy.imsId(GRID.CREATE.CREATESUBMIT).click();
-    cy.imsId(GRID.CREATE.CONFIRMATION_YES).click();
-    cy.imsId(GRID.CREATE.CONFIRMATION_OK).click();
-    cy.log(messages.ui.submitSuccess);
-  });
-}
+  createAmountBasedLoanProposal() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId(GRID.CREATE.ADD_NEW).click();
+      var ablpaData = data.mfiAdmin.createAmountBasedLoanFrom;
+      // Office Type Select
+      cy.formController("office_type_id")
+        .click();
+      cy.get(".ant-select-dropdown")
+        .should("be.visible")
+        .contains(".ant-select-item-option", ablpaData.officeTypeId)
+        .click();
+      // Role Select
+      cy.formController("role_id")
+        .click();
+      cy.get(".ant-select-dropdown")
+        .should("be.visible")
+        .contains(".ant-select-item-option", ablpaData.roleName)
+        .click();
+      cy.formController("min_loan_amount")
+        .type(ablpaData.minLoanAmount);
+      cy.formController("max_loan_amount")
+        .type(ablpaData.maxLoanAmount);
+      cy.imsId(GRID.CREATE.CREATESUBMIT)
+        .click();
+      cy.imsId(GRID.CREATE.CONFIRMATION_YES)
+        .click();
+      cy.imsId(GRID.CREATE.CONFIRMATION_OK)
+        .click();
+      cy.log(messages.ui.submitSuccess);
+
+    });
+  }
 
   createWithoutOfficeTypeId() {
     cy.fixture(this.test_data).then((data) => {
@@ -106,38 +104,36 @@ createAmountBasedLoanProposal() {
   }
 
   createWithoutRemarks() {
-   cy.fixture(this.test_data).then((data) => {
-    cy.imsId(GRID.CREATE.ADD_NEW).click();
-    var ablpaData = data.mfiAdmin.createAmountBasedLoanFrom;
-    // Office Type Select
-    cy.formController("office_type_id")
-      .click();
-    cy.get(".ant-select-dropdown")
-      .should("be.visible")
-      .within(() => {
-        cy.get(".ant-select-item-option-content")
-          .contains(ablpaData.officeTypeId)
-          .click();
-      });
-    // Role Select
-    cy.formController("role_id")
-      .click();
-    cy.get(".ant-select-dropdown")
-      .should("be.visible")
-      .within(() => {
-        cy.get(".ant-select-item-option-content")
-          .contains(ablpaData.roleName)
-          .click();
-      });
-    cy.formController("min_loan_amount")
-      .type(ablpaData.minLoanAmount);
-    cy.formController("max_loan_amount")
-      .type(ablpaData.maxLoanAmount);
-    cy.imsId(GRID.CREATE.CREATESUBMIT).click();
-    cy.imsId(GRID.CREATE.CONFIRMATION_YES).click();
-    cy.imsId(GRID.CREATE.CONFIRMATION_OK).click();
-    cy.log(messages.ui.submitSuccess);
-  });
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId(GRID.CREATE.ADD_NEW).click();
+      var ablpaData = data.mfiAdmin.createAmountBasedLoanFrom;
+      // Office Type Select
+      cy.formController("office_type_id")
+        .click();
+      cy.get(".ant-select-dropdown")
+        .should("be.visible")
+        .contains(".ant-select-item-option", ablpaData.officeTypeId)
+        .click();
+      // Role Select
+      cy.formController("role_id")
+        .click();
+      cy.get(".ant-select-dropdown")
+        .should("be.visible")
+        .contains(".ant-select-item-option", ablpaData.roleName)
+        .click();
+      cy.formController("min_loan_amount")
+        .type(ablpaData.minLoanAmount);
+      cy.formController("max_loan_amount")
+        .type(ablpaData.maxLoanAmount);
+      cy.imsId(GRID.CREATE.CREATESUBMIT)
+        .click();
+      cy.imsId(GRID.CREATE.CONFIRMATION_YES)
+        .click();
+      cy.imsId(GRID.CREATE.CONFIRMATION_OK)
+        .click();
+      cy.log(messages.ui.submitSuccess);
+
+    });
   }
 
   createWithoutStatus() {
