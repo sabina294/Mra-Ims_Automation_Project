@@ -9,17 +9,21 @@ class LoanAccountManagement {
   }
 
   actionButtonCheck() {
+    cy.fixture(this.test_data).then((data) => {
+    var laData = data.fieldOfficer.loanAccountManagementFrom;
+    // cy.imsId("input-search").type(laData.member);
+    // cy.imsId("btn-search").click();
     cy.imsId("toggle-action").first().click();
     cy.log(
       "Action button clicked successfully on the loan account management list page."
     );
+     });
   }
 
   viewLoanAccountManagement() {
     cy.fixture(this.test_data).then((data) => {
       var laData = data.fieldOfficer.loanAccountManagementFrom;
       cy.imsId("btn-table-action-view").click();
-
       cy.log("Successfully viewed the Loan account Management list page");
     });
   }
