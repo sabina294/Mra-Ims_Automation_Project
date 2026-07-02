@@ -7,27 +7,132 @@ Cypress.Commands.add("formController", (name) => {
 });
 
 
-// Login by Role
+// MRA Admin Login
 Cypress.Commands.add("loginAsMraAdmin", (url, data) => {
-  cy.login(url, data.credential.mraAdminUserId, data.credential.mraAdminPassword);
+  cy.then(() => {
+    Cypress.automation("remote:debugger:protocol", {
+      command: "Browser.grantPermissions",
+      params: {
+        origin: url,
+        permissions: ["geolocation"],
+      },
+    });
+    Cypress.automation("remote:debugger:protocol", {
+      command: "Emulation.setGeolocationOverride",
+      params: {
+        latitude: 23.8103,
+        longitude: 90.4125,
+        accuracy: 100,
+      },
+    });
+  });
+  cy.visit(url);
+  cy.formController("user_id")
+    .clear()
+    .type(data.credential.mraAdminUserId);
+  cy.formController("password")
+    .clear()
+    .type(data.credential.mraAdminPassword);
+  cy.get("#submit-button").click();
   cy.changeLanguage("english");
+  cy.log("Successfully logged in as MRA Admin");
 });
 
+
+// MFI Admin Login
 Cypress.Commands.add("loginAsMfiAdmin", (url, data) => {
-  cy.login(url, data.credential.mfiAdminUserId, data.credential.mfiAdminPassword);
+  cy.then(() => {
+    Cypress.automation("remote:debugger:protocol", {
+      command: "Browser.grantPermissions",
+      params: {
+        origin: url,
+        permissions: ["geolocation"],
+      },
+    });
+    Cypress.automation("remote:debugger:protocol", {
+      command: "Emulation.setGeolocationOverride",
+      params: {
+        latitude: 23.8103,
+        longitude: 90.4125,
+        accuracy: 100,
+      },
+    });
+  });
+  cy.visit(url);
+  cy.formController("user_id")
+    .clear()
+    .type(data.credential.mfiAdminUserId);
+  cy.formController("password")
+    .clear()
+    .type(data.credential.mfiAdminPassword);
+  cy.get("#submit-button").click();
   cy.changeLanguage("english");
+  cy.log("Successfully logged in as MFI Admin");
 });
 
+
+// Branch Manager Login
 Cypress.Commands.add("loginAsBranchManager", (url, data) => {
-  cy.login(url, data.credential.branchManagerUserId, data.credential.branchManagerPassword);
+  cy.then(() => {
+    Cypress.automation("remote:debugger:protocol", {
+      command: "Browser.grantPermissions",
+      params: {
+        origin: url,
+        permissions: ["geolocation"],
+      },
+    });
+    Cypress.automation("remote:debugger:protocol", {
+      command: "Emulation.setGeolocationOverride",
+      params: {
+        latitude: 23.8103,
+        longitude: 90.4125,
+        accuracy: 100,
+      },
+    });
+  });
+  cy.visit(url);
+  cy.formController("user_id")
+    .clear()
+    .type(data.credential.branchManagerUserId)
+  cy.formController("password")
+    .clear()
+    .type(data.credential.branchManagerPassword);
+  cy.get("#submit-button").click();
   cy.changeLanguage("english");
+  cy.log("Successfully logged in as Branch Manager");
 });
 
+
+// Field Officer Login
 Cypress.Commands.add("loginAsFieldOfficer", (url, data) => {
-  cy.login(url, data.credential.fieldOfficerUserId, data.credential.fieldOfficerPassword);
+  cy.then(() => {
+    Cypress.automation("remote:debugger:protocol", {
+      command: "Browser.grantPermissions",
+      params: {
+        origin: url,
+        permissions: ["geolocation"],
+      },
+    });
+    Cypress.automation("remote:debugger:protocol", {
+      command: "Emulation.setGeolocationOverride",
+      params: {
+        latitude: 23.8103,
+        longitude: 90.4125,
+        accuracy: 100,
+      },
+    });
+  });
+  cy.visit(url);
+  cy.formController("user_id")
+    .clear()
+    .type(data.credential.fieldOfficerUserId);
+  cy.formController("password")
+    .clear()
+    .type(data.credential.fieldOfficerPassword);
+  cy.get("#submit-button").click();
   cy.changeLanguage("english");
+  cy.log("Successfully logged in as Field Officer");
 });
-
 
 // Form Array
 Cypress.Commands.add("formArrayController", (array, index, control) => {
