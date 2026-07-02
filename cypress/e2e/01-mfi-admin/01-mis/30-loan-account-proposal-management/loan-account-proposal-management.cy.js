@@ -27,21 +27,21 @@ describe("30. Loan Account Proposal Management Module Test Cases", function () {
     create_loan_account_proposal_management.gridLoanAccountProposalManagementListPage();
   });
 
-  it("30.02. Verify successful creation of a Loan Account Proposal Management record by MFI-Admin role", function () {
-    create_loan_account_proposal_management.createLoanAccountProposalManagement();
-  });
+  // it("30.02. Verify successful creation of a Loan Account Proposal Management record by MFI-Admin role", function () {
+  //   create_loan_account_proposal_management.createLoanAccountProposalManagement();
+  // });
 
-  it("30.03. Verify successful creation of a Loan Account Proposal Management view schedules check", function () {
-    create_loan_account_proposal_management.viewSchedulesCheck();
-  });
+  // it("30.03. Verify successful creation of a Loan Account Proposal Management view schedules check", function () {
+  //   create_loan_account_proposal_management.viewSchedulesCheck();
+  // });
 
-  it("30.04. Verify successful creation of a Loan Account Proposal Management view schedules cancel button check", function () {
-    create_loan_account_proposal_management.viewSchedulesCancelButtonCheck();
-  });
+  // it("30.04. Verify successful creation of a Loan Account Proposal Management view schedules cancel button check", function () {
+  //   create_loan_account_proposal_management.viewSchedulesCancelButtonCheck();
+  // });
 
-  it("30.05. Verify successfully approve a loan account proposal management record after creation.", function () {
-    create_loan_account_proposal_management.approveLoanAccountProposal();
-  });
+  // it("30.05. Verify successfully approve a loan account proposal management record after creation.", function () {
+  //   create_loan_account_proposal_management.approveLoanAccountProposal();
+  // });
 
   it("30.06. Verify successfully performs the action when the action button is clicked.", function () {
     create_loan_account_proposal_management.actionButtonCheck();

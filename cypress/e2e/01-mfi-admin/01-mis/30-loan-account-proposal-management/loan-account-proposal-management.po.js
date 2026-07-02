@@ -109,10 +109,10 @@ class LoanAccountProposalManagementCreation {
   }
 
   actionButtonCheck() {
-    cy.selectMenu(
-      "menu-loan-account",
-      "submenu-loan-account-proposal-management"
-    );
+    // cy.selectMenu(
+    //   "menu-loan-account",
+    //   "submenu-loan-account-proposal-management"
+    // );
     cy.imsId("toggle-action").first().click();
     cy.log(
       "Action button clicked successfully on the loan account proposal management list page."

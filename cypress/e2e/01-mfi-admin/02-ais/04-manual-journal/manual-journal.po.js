@@ -86,8 +86,7 @@ class ManualJournalCreation {
     createWithoutDescription() {
         cy.fixture(this.test_data).then((data) => {
             var mjData = data.mfiAdmin.manualJournal;
-            cy.formController("reference").type(mjData.reference);
-            // First description field
+            cy.formController("reference_no").type(mjData.reference);           
             cy.formController("ledger_id").type(mjData.ledger).type("{enter}");
 
             // Second description field
@@ -107,7 +106,7 @@ class ManualJournalCreation {
     createWithoutJournalDetailsLedger() {
         cy.fixture(this.test_data).then((data) => {
             var mjData = data.mfiAdmin.manualJournal;
-            cy.formController("reference").type(mjData.reference);
+            cy.formController("reference_no").type(mjData.reference);
             // First description field
             cy.formController("description").eq(0).type(mjData.description);
 
@@ -129,7 +128,7 @@ class ManualJournalCreation {
         cy.fixture(this.test_data).then((data) => {
             var mjData = data.mfiAdmin.manualJournal;
 
-            cy.formController("reference").type(mjData.reference);
+            cy.formController("reference_no").type(mjData.reference);
             // First description field
             cy.formController("description").eq(0).type(mjData.description);
             cy.formController("debited_amount").clear().type(mjData.debitedAmount);
@@ -146,7 +145,7 @@ class ManualJournalCreation {
         cy.fixture(this.test_data).then((data) => {
             var mjData = data.mfiAdmin.manualJournal;
 
-            cy.formController("reference").type(mjData.reference);
+            cy.formController("reference_no").type(mjData.reference);
             // First description field
             cy.formController("description").eq(0).type(mjData.description);
 
@@ -168,7 +167,7 @@ class ManualJournalCreation {
         cy.fixture(this.test_data).then((data) => {
             var mjData = data.mfiAdmin.manualJournal;
 
-            cy.formController("reference").type(mjData.reference);
+            cy.formController("reference_no").type(mjData.reference);
             // First description field
             cy.formController("description").eq(0).type(mjData.description);
 
