@@ -29,7 +29,8 @@ class FeeCollection {
     submitFeeCollection() {
         cy.fixture(this.test_data).then((data) => {
             cy.imsId("btn-submit").click();
-            cy.imsId("btn-yes").click();
+            cy.imsId("btn-yes").eq(0).click();
+            cy.imsId("btn-yes").eq(1).click();
             cy.imsId("btn-ok").click();
             cy.log("Successfully created new fee collection.");
         });
@@ -84,7 +85,7 @@ class FeeCollection {
         cy.fixture(this.test_data).then((data) => {
             var fcData = data.fieldOfficer.feeCollection;
             cy.imsId("btn-reset").click();
-            cy.formController("search_text").type(fcData.feeTypeNameEn);
+            cy.formController("search_text").type(fcData.search);
             cy.imsId("btn-search").click();
             cy.log("Successfully search in the fee collection");
         });

@@ -79,7 +79,7 @@ class LoanPenalty {
       cy.wait(2000);
       cy.get('body').click(0, 0);
       cy.formController("amount").type(lpData.inputAmount);
-      cy.imsId("btn-save").click();
+      cy.imsId("btn-submit").click();
       cy.imsId("btn-yes").click();
       cy.imsId("btn-ok").click();
 
