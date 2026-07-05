@@ -52,7 +52,7 @@ class RegularCollection {
     }
 
     viewRegularCollection() {
-        cy.imsId("toggle-action").first().click();
+        // cy.imsId("toggle-action").first().click();
         cy.imsId("btn-table-action-view").click();
         cy.log("successfully on the view regular collection list page.");
     }

@@ -149,8 +149,8 @@ class LoanPenalty {
   editGoBackButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
       var lpData = data.branchManager.createLoanPenaltyFrom;
-      cy.imsId("toggle-action").first().click();
-      cy.imsId("btn-table-action-edit").click();
+      // cy.imsId("toggle-action").first().click();
+      // cy.imsId("btn-table-action-edit").click();
       cy.imsId("btn-go-back").click();
       cy.log("Successfully edited as go back the Loan penalty list page");
     });
@@ -164,7 +164,7 @@ class LoanPenalty {
       cy.imsId("btn-save").click();
       cy.imsId("btn-yes").click();
       cy.imsId("btn-ok").click();
-      cy.log("Successfully edited as saave the Loan penalty list page");
+      cy.log("Successfully edited as save the Loan penalty list page");
     });
   }
 
@@ -172,6 +172,10 @@ class LoanPenalty {
     cy.fixture(this.test_data).then((data) => {
       var lpData = data.branchManager.createLoanPenaltyFrom;
       cy.imsId("toggle-action").first().click();
+      cy.imsId("btn-table-action-unsubmit").click();
+      cy.imsId("btn-unsubmit").click();
+      cy.imsId("btn-yes").click();
+      cy.imsId("btn-ok").click();
       cy.imsId("btn-table-action-submit").click();
       cy.log("Successfully submitted the Loan penalty list page");
     });

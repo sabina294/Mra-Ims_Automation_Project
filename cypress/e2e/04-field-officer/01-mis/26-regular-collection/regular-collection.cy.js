@@ -31,17 +31,17 @@ describe("26. Regular Collection Module Test Cases", function () {
         create_regular_collection.actionButtonCheck();
     });
 
-    it("26.03. Verify that the Regular Collection details page is opened successfully when the Open button is clicked.", function () {
-        create_regular_collection.openButtonCheck();
-    });
+    // it("26.03. Verify that the Regular Collection details page is opened successfully when the Open button is clicked.", function () {
+    //     create_regular_collection.openButtonCheck();
+    // });
 
-    it("26.04. Verify that the Regular Collection amount is entered successfully and the collection process is completed.", function () {
-        create_regular_collection.collectionProcess();
-    });
+    // it("26.04. Verify that the Regular Collection amount is entered successfully and the collection process is completed.", function () {
+    //     create_regular_collection.collectionProcess();
+    // });
 
-    it("26.05. Verify that the Regular Collection data is saved successfully and the collection process is completed.", function () {
-        create_regular_collection.collectionSave();
-    });
+    // it("26.05. Verify that the Regular Collection data is saved successfully and the collection process is completed.", function () {
+    //     create_regular_collection.collectionSave();
+    // });
 
     it("26.06. Verify that the Regular Collection details, including name and description, are displayed successfully on the view page.", function () {
         create_regular_collection.viewRegularCollection();

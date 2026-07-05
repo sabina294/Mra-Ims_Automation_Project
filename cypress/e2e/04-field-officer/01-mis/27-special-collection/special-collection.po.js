@@ -25,6 +25,7 @@ class specialCollection {
             cy.imsId("btn-ok").click();
             cy.imsId("toggle-action").first().click();
             cy.imsId("btn-table-action-delete").click();
+            cy.imsId("btn-delete").click();
             cy.imsId("btn-yes").click();
             cy.imsId("btn-ok").click();
 

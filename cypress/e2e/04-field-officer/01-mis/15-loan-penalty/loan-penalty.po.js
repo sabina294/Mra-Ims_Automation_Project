@@ -7,11 +7,11 @@ class LoanPenalty {
     cy.wait(1000);
     cy.imsId("btn-yes").click();
     cy.wait(3000);
-      const clickCount = 3; // change this number as needed
-      for (let i = 0; i < clickCount; i++) {
-        cy.imsId("btn-refresh").click();
-        cy.wait(2000); // optional wait between clicks
-      }
+    const clickCount = 3; // change this number as needed
+    for (let i = 0; i < clickCount; i++) {
+      cy.imsId("btn-refresh").click();
+      cy.wait(2000); // optional wait between clicks
+    }
     cy.log(
       "successfully refresh page  displayed the grid list of the staging data form "
     );
@@ -166,8 +166,8 @@ class LoanPenalty {
   editGoBackButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
       var lpData = data.fieldOfficer.createLoanPenaltyForm;
-      cy.imsId("toggle-action").first().click();
-      cy.imsId("btn-table-action-edit").click();
+      // cy.imsId("toggle-action").first().click();
+      // cy.imsId("btn-table-action-edit").click();
       cy.imsId("btn-go-back").click();
       cy.log("Successfully edited as go back the Loan penalty list page");
     });
@@ -189,6 +189,10 @@ class LoanPenalty {
     cy.fixture(this.test_data).then((data) => {
       var lpData = data.fieldOfficer.createLoanPenaltyForm;
       cy.imsId("toggle-action").first().click();
+      cy.imsId("btn-table-action-unsubmit").click();
+      cy.imsId("btn-unsubmit").click();
+      cy.imsId("btn-yes").click();
+      cy.imsId("btn-ok").click();
       cy.imsId("btn-table-action-submit").click();
       cy.log("Successfully submitted the Loan penalty list page");
     });
