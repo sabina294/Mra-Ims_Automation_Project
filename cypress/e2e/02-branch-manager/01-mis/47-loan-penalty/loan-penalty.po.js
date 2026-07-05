@@ -176,6 +176,7 @@ class LoanPenalty {
       cy.imsId("btn-unsubmit").click();
       cy.imsId("btn-yes").click();
       cy.imsId("btn-ok").click();
+      cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-submit").click();
       cy.log("Successfully submitted the Loan penalty list page");
     });
