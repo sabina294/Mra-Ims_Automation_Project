@@ -23,7 +23,7 @@ describe("15. Loan Penalty Module Test Cases", function () {
     cy.logout();
   });
 
-  it("15.01. Verify that the Staging Data Generate List page loads successfully", function () {
+  it("15.01. Verify complete BM staging and FO collection workflow", function () {
     cy.fixture(test_data).then((d) => {
       cy.logout();
       cy.loginAsBranchManager(baseURL, d);
