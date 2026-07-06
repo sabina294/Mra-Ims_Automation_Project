@@ -10,7 +10,7 @@ class specialCollection {
         });
     }
 
-     deleteNewCollection() {
+    deleteNewCollection() {
         cy.fixture(this.test_data).then((data) => {
             cy.imsId("btn-add-new").click();
             var scData = data.fieldOfficer.specialCollection;
@@ -56,7 +56,7 @@ class specialCollection {
     }
 
     viewSpecialCollection() {
-        cy.imsId("toggle-action").first().click();
+        // cy.imsId("toggle-action").first().click();
         cy.imsId("btn-table-action-view").click();
         cy.log("successfully on the view special collection list page.");
     }
@@ -84,6 +84,52 @@ class specialCollection {
         cy.imsId("btn-yes").click();
         cy.imsId("btn-ok").click();
         cy.log("successfully submitted the collection.");
+    }
+
+    viewUnsubmitted() {
+        cy.imsId("toggle-action").first().click();
+        cy.imsId("btn-table-action-view").click();
+        cy.log("Action button clicked successfully on the special collection list page.");
+    }
+
+    viewGoBackButtonUnsubmitted() {
+        // cy.imsId("toggle-action").first().click();
+        cy.imsId("btn-go-back").click();
+        cy.log("successfully on the view special collection list page.");
+    }
+
+    gridActionUnsubmittedButtonCheck() {
+        cy.fixture(this.test_data).then((data) => {
+            var scData = data.fieldOfficer.createSpecialCollectionForm;
+            cy.imsId("toggle-action").first().click();
+            cy.imsId("btn-table-action-unsubmit").click();
+            cy.log("Successfully grid unsubmitted the Special Collection list page");
+        });
+    }
+
+    gridActionUnsubmittedGoBackButton() {
+        cy.fixture(this.test_data).then((data) => {
+            var scData = data.fieldOfficer.createSpecialCollectionForm;
+            cy.imsId("btn-go-back").click();
+            cy.log("Successfully viewed go back the Special Collection list page");
+        });
+    }
+
+    UnsubmittedButtonCheck() {
+        cy.fixture(this.test_data).then((data) => {
+            var scData = data.fieldOfficer.createSpecialCollectionForm;
+            cy.imsId("toggle-action").first().click();
+            cy.imsId("btn-table-action-unsubmit").click();
+            cy.imsId("btn-unsubmit").click();
+            cy.imsId("btn-yes").click();
+            cy.imsId("btn-ok").click();
+            cy.imsId("toggle-action").first().click();
+            cy.imsId("btn-table-action-submit").click();
+            cy.imsId("btn-submit").click();
+            cy.imsId("btn-yes").click();
+            cy.imsId("btn-ok").click();
+            cy.log("Successfully unsubmitted the Special Collection list page");
+        });
     }
 
     gridResetButtonCheck() {

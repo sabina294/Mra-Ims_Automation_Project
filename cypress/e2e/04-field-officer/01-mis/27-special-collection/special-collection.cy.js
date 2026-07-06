@@ -58,27 +58,47 @@ describe("27. Special Collection Module Test Cases", function () {
         create_special_collection.submitCollection();
     });
 
-    it("27.10. Verify that clicking the Reset button resets the grid list successfully on the Special Collection page.", function () {
+    it("27.10. Verify that clicking unsubmitted the view button on the Special Collection view page redirects the user to the Special Collection list page.", function () {
+        create_special_collection.viewUnsubmitted();
+    });
+
+    it("27.11. Verify that clicking the unsubmitted Go Back button on the Special Collection view page redirects the user to the Special Collection list page.", function () {
+        create_special_collection.viewGoBackButtonUnsubmitted();
+    });
+
+    it("27.12. Verify that clicking the Unsubmitted button from the Action menu redirects the user to the Unsubmitted Special Collection List page.", function () {
+        create_special_collection.gridActionUnsubmittedButtonCheck();
+    });
+
+    it("27.13. Verify that clicking the Go Back button on the Unsubmitted Special Collection page redirects the user to the Special Collection List page.", function () {
+        create_special_collection.gridActionUnsubmittedGoBackButton();
+    });
+
+    it("27.14. Verify that the Unsubmitted Special Collection List page is displayed successfully.", function () {
+        create_special_collection.UnsubmittedButtonCheck();
+    });
+
+    it("27.15. Verify that clicking the Reset button resets the grid list successfully on the Special Collection page.", function () {
         create_special_collection.gridResetButtonCheck();
     });
 
-    it("27.11. Verify that clicking the Refresh button reloads the grid list successfully on the Special Collection page.", function () {
+    it("27.16. Verify that clicking the Refresh button reloads the grid list successfully on the Special Collection page.", function () {
         create_special_collection.gridRefreshButtonCheck();
     });
 
-    it("27.12. Verify that the Grid History button displays the data information successfully when enabled.", function () {
+    it("27.17. Verify that the Grid History button displays the data information successfully when enabled.", function () {
         create_special_collection.gridHistoryButtonOnCheck();
     });
 
-    it("27.13. Verify that the Field Officer dropdown filters the grid list successfully on the Special Collection page.", function () {
+    it("27.18. Verify that the Field Officer dropdown filters the grid list successfully on the Special Collection page.", function () {
         create_special_collection.fieldOfficerDropdownCheck();
     });
 
-    it("27.14. Verify that the Grid History button displays the data information successfully when disabled.", function () {
+    it("27.19. Verify that the Grid History button displays the data information successfully when disabled.", function () {
         create_special_collection.gridHistoryButtonOffCheck();
     });
 
-    it("27.15. Verify that the grid list content changes correctly from English to Bangla.", function () {
+    it("27.20. Verify that the grid list content changes correctly from English to Bangla.", function () {
         create_special_collection.gridLanguageSwitchCheck();
     });
 
