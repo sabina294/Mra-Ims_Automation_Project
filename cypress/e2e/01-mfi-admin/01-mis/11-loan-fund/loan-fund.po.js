@@ -1,18 +1,18 @@
+import messages from "../../../../support/constants/messages";
+import { GRID } from "../../../../support/constants/selectors";
 class LoanFundCreation {
   test_data = Cypress.env("TEST_DATA");
 
   gridLoanFundListPage() {
     cy.fixture(this.test_data).then((data) => {
       cy.selectMenu("menu-configuration", "submenu-loan-fund");
-      cy.log("Successfully loan fund list page.");
+      cy.log(messages.ui.gridListMessage);
     });
   }
 
   createLoanFund() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      cy.imsId("btn-submit").and("be.visible");
-
+      cy.imsId(GRID.CREATE.ADD_NEW).click();
       var lfData = data.mfiAdmin.createLoanFundFrom;
       cy.formController("bank_account_id")
         .type(lfData.bankAccount)
@@ -21,53 +21,44 @@ class LoanFundCreation {
         .type(lfData.fundingOrgId)
         .type("{enter}");
       cy.formController("amount").type(lfData.amount);
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-yes").click();
-
-      cy.get("app-confirmation-modal")
-        .contains(lfData.messageSaveLoanFund)
-        .and("be.visible");
-      cy.imsId("btn-ok").click();
-      cy.log("Successfully created loan fund");
+      cy.imsId(GRID.CREATE.CREATESUBMIT).click();
+      cy.imsId(GRID.CREATE.CONFIRMATION_YES).click();
+      cy.imsId(GRID.CREATE.CONFIRMATION_OK).click();
+      cy.log(messages.ui.submitSuccess);
     });
   }
 
   createWithoutBankAccount() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      cy.imsId("btn-submit").and("be.visible");
-
+      cy.imsId(GRID.CREATE.ADD_NEW).click();
       var lfData = data.mfiAdmin.createLoanFundFrom;
       cy.formController("loan_funding_organization_id")
         .type(lfData.fundingOrgId)
         .type("{enter}");
       cy.formController("amount").type(lfData.amount);
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-ok").click();
-      cy.imsId("btn-reset").click();
-      cy.log("Successfully created loan fund");
+      cy.imsId(GRID.CREATE.CREATESUBMIT).click();
+      cy.imsId(GRID.CREATE.CONFIRMATION_OK).click();
+      cy.imsId(GRID.CREATE.CREATERESET).click();
+      cy.log(messages.ui.withoutDataMessage);
     });
   }
 
   createWithoutFundingOrganizationId() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-submit").and("be.visible");
       var lfData = data.mfiAdmin.createLoanFundFrom;
       cy.formController("bank_account_id")
         .type(lfData.bankAccount)
         .type("{enter}");
       cy.formController("amount").type(lfData.amount);
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-ok").click();
-      cy.imsId("btn-reset").click();
-      cy.log("Successfully created loan fund");
+      cy.imsId(GRID.CREATE.CREATESUBMIT).click();
+      cy.imsId(GRID.CREATE.CONFIRMATION_OK).click();
+      cy.imsId(GRID.CREATE.CREATERESET).click();
+      cy.log(messages.ui.withoutDataMessage);
     });
   }
 
   createWithoutAmount() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-submit").and("be.visible");
-
       var lfData = data.mfiAdmin.createLoanFundFrom;
       cy.formController("bank_account_id")
         .type(lfData.bankAccount)
@@ -75,16 +66,15 @@ class LoanFundCreation {
       cy.formController("loan_funding_organization_id")
         .type(lfData.fundingOrgId)
         .type("{enter}");
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-ok").click();
-      cy.imsId("btn-reset").click();
-      cy.log("Successfully created loan fund");
+      cy.imsId(GRID.CREATE.CREATESUBMIT).click();
+      cy.imsId(GRID.CREATE.CONFIRMATION_OK).click();
+      cy.imsId(GRID.CREATE.CREATERESET).click();
+      cy.log(messages.ui.withoutDataMessage);
     });
   }
 
   createWithoutStatus() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-submit").and("be.visible");
       var lfData = data.mfiAdmin.createLoanFundFrom;
       cy.formController("bank_account_id")
         .type(lfData.bankAccount)
@@ -93,153 +83,152 @@ class LoanFundCreation {
         .type(lfData.fundingOrgId)
         .type("{enter}");
       cy.formController("amount").type(lfData.amount);
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-ok").click();
-      cy.imsId("btn-go-back").click();
-      cy.log("Successfully created loan fund");
+      cy.imsId(GRID.CREATE.CREATESUBMIT).click();
+      cy.imsId(GRID.CREATE.CONFIRMATION_OK).click();
+      cy.imsId(GRID.CREATE.CREATEGOBACK).click();
+      cy.log(messages.ui.withoutDataMessage);
     });
   }
 
   actionButtonCheck() {
-    cy.imsId("toggle-action").first().click();
-    cy.log("Action button clicked successfully on the loan fund list page.");
+    cy.imsId(GRID.TOGGLES.ACTION_TOGGLE).first().click();
+    cy.log(messages.ui.actionMessage);
   }
 
   viewLoanFund() {
     cy.fixture(this.test_data).then((data) => {
       var lfData = data.mfiAdmin.createLoanFundFrom;
-      cy.formController("search_text").type(lfData.amount);
-      cy.imsId("toggle-action").first().click();
-      cy.imsId("btn-table-action-view").click();
-      cy.log("Successfully viewed the loan fund list page");
+      cy.formController(GRID.INPUTS.SEARCH_TEXT).type(lfData.amount);
+      cy.imsId(GRID.BUTTONS.SEARCH).click();
+      cy.imsId(GRID.TOGGLES.ACTION_TOGGLE).first().click();
+      cy.imsId(GRID.BUTTONS.ACTIONVIEW).click();
+      cy.log(messages.ui.viewMessage);
     });
   }
 
   viewGoBackButton() {
-    cy.imsId("btn-go-back").click();
-    cy.log("Successfully view go back the loan fund list page");
-
+    cy.imsId(GRID.CREATE.CREATEGOBACK).click();
+    cy.log(messages.ui.goBackSuccess);
   }
 
   turnOffEditMode() {
-    cy.imsId("toggle-action").first().click();
-    cy.imsId("btn-table-action-view").click();
-    cy.imsId("switch-button").click();
-
-    cy.log("Loan fund form Edit Mode toggled successfully");
+    cy.imsId(GRID.TOGGLES.ACTION_TOGGLE).first().click();
+    cy.imsId(GRID.BUTTONS.ACTIONEDIT).click();
+    cy.imsId(GRID.BUTTONS.TURNEDITMODE).click();
+    cy.imsId(GRID.CREATE.CREATEGOBACK).click();
+    cy.log(messages.ui.turnOnEditModeMessage);
   }
 
   editResetButton() {
-    cy.imsId("btn-reset").click();
-
-    cy.log("Successful clean displaying");
+    cy.imsId(GRID.TOGGLES.ACTION_TOGGLE).first().click();
+    cy.imsId(GRID.BUTTONS.ACTIONEDIT).click();
+    cy.imsId(GRID.BUTTONS.RESET).click();
   }
 
   editSubmitButton() {
-    cy.imsId("btn-submit").click();
-    cy.imsId("btn-ok").click();
-    cy.log("Successfully updated region");
+    cy.imsId(GRID.CREATE.CREATESUBMIT).click();
+    cy.imsId(GRID.CREATE.CONFIRMATION_OK).click();
+    cy.log(messages.ui.editSubmitMessage);
 
   }
 
   editGoBackButton() {
-    cy.imsId("btn-go-back").click();
-    cy.log("Successful edit go back button check.");
+    cy.imsId(GRID.CREATE.CREATEGOBACK).click();
+    cy.log(messages.ui.editGoBackMessage);
   }
 
   editLoanFund() {
     cy.fixture(this.test_data).then((data) => {
       var lfData = data.mfiAdmin.createLoanFundFrom;
-      cy.imsId("btn-reset").click();
-      cy.formController("search_text").type(lfData.search);
-      cy.imsId("btn-search").click();
-      cy.imsId("toggle-action").first().click();
-      cy.imsId("btn-table-action-edit").click();
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-yes").click();
-      cy.imsId("btn-ok").click();
-      cy.log("Loan fund updated successfully");
+      cy.imsId(GRID.BUTTONS.RESET).click();
+      cy.formController(GRID.INPUTS.SEARCH_TEXT).type(lfData.search);
+      cy.imsId(GRID.BUTTONS.SEARCH).click();
+      cy.imsId(GRID.TOGGLES.ACTION_TOGGLE).first().click();
+      cy.imsId(GRID.BUTTONS.ACTIONEDIT).click();
+      cy.imsId(GRID.CREATE.CREATESUBMIT).click();
+      cy.imsId(GRID.CREATE.CONFIRMATION_YES).click();
+      cy.imsId(GRID.CREATE.CONFIRMATION_OK).click();
+      cy.log(messages.ui.editSubmitMessage);
     });
   }
 
   statusInactiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       var lfData = data.mfiAdmin.createLoanFundFrom;
-      cy.imsId("btn-reset").click();
-      cy.formController("status").type(lfData.selectStatus).type("{enter}");
-      cy.log("Loan fund status inactive dropdown check successfully");
+      cy.imsId(GRID.BUTTONS.RESET).click();
+      cy.formController("status").type(lfData.statusSelect).type("{enter}");
+      cy.log(messages.ui.statusInactiveDropdownMessage);
     });
   }
   statusActiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       var lfData = data.mfiAdmin.createLoanFundFrom;
       cy.formController("status").type(lfData.statusSelect).type("{enter}");
-      cy.log("Loan fund status active dropdown check successfully");
+      cy.log(messages.ui.statusActiveDropdownMessage);
     });
   }
 
   searchInLoanFundName() {
     cy.fixture(this.test_data).then((data) => {
       var lfData = data.mfiAdmin.createLoanFundFrom;
-      cy.imsId("btn-reset").click();
-      cy.formController("search_text").type(lfData.fundingOrgId);
-      cy.log("Successfully search in the loan fund");
+      cy.imsId(GRID.BUTTONS.RESET).click();
+      cy.formController(GRID.INPUTS.SEARCH_TEXT).type(lfData.fundingOrgId);
+      cy.log(messages.ui.searchMessage);
     });
   }
 
   gridResetButtonCheck() {
-    cy.imsId("btn-reset").click();
-    cy.log("Successful clean displaying.");
+    cy.imsId(GRID.BUTTONS.RESET).click();
+    cy.log(messages.ui.gridResetMessage);
   }
 
   gridRefreshButtonCheck() {
-    cy.imsId("btn-refresh").click();
-    cy.log(
-      "successfully refresh page  displayed the grid list of the loan fund "
-    );
+    cy.imsId(GRID.BUTTONS.REFRESH).click();
+    cy.log(messages.ui.gridRefreshSuccess);
+
   }
 
   createResetButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
       var lfData = data.mfiAdmin.createLoanFundFrom;
-      cy.imsId("btn-add-new").click();
+      cy.imsId(GRID.CREATE.ADD_NEW).click();
       cy.formController("loan_funding_organization_id").type(
         lfData.fundingOrgId
       );
-      cy.imsId("btn-reset").click();
-      cy.imsId("btn-go-back").click();
-      cy.log("Successful reset button clean displaying.");
+      cy.imsId(GRID.CREATE.CREATERESET).click();
+      cy.imsId(GRID.CREATE.CREATEGOBACK).click();
+      cy.log(messages.ui.createResetMessage);
     });
   }
 
   createValidationMessageCheck() {
-    cy.imsId("btn-add-new").click();
-    cy.imsId("btn-submit").click();
-    cy.imsId("btn-ok").click();
-    cy.imsId("btn-go-back").click();
-    cy.log("Successful validation message displaying.");
+    cy.imsId(GRID.CREATE.ADD_NEW).click();
+    cy.imsId(GRID.CREATE.CREATESUBMIT).click();
+    cy.imsId(GRID.CREATE.CONFIRMATION_OK).click();
+    cy.imsId(GRID.CREATE.CREATEGOBACK).click();
+    cy.log(messages.ui.createValidationMessage);
   }
 
   createGoBackButtonCheck() {
-    cy.imsId("btn-add-new").click();
-    cy.imsId("btn-go-back").click();
-    cy.log("Successful go back button check.");
+    cy.imsId(GRID.CREATE.ADD_NEW).click();
+    cy.imsId(GRID.CREATE.CREATEGOBACK).click();
+    cy.log(messages.ui.createGoBackMessage);
   }
 
   gridSearchButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
       var lfData = data.mfiAdmin.createLoanFundFrom;
-      cy.imsId("btn-reset").click();
-      cy.formController("search_text").type(lfData.search);
-      cy.imsId("btn-search").click();
-      cy.log("Successful search button click.");
+      cy.imsId(GRID.BUTTONS.RESET).click();
+      cy.formController(GRID.INPUTS.SEARCH_TEXT).type(lfData.search);
+      cy.imsId(GRID.BUTTONS.SEARCH).click();
+      cy.log(messages.ui.gridSearchSuccess);
     });
   }
 
   gridLanguageSwitchCheck() {
-    cy.imsId("profile-menu").click();
-    cy.imsId("btn-lang-bangla").click();
-    cy.log("Successful switch bangla language check.");
+    cy.imsId(GRID.BUTTONS.PROFILE).click();
+    cy.imsId(GRID.BUTTONS.LANGUAGECHANGE).click();
+    cy.log(messages.ui.languageSwitchSuccess);
   }
 }
 
