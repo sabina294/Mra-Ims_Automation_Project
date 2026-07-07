@@ -157,6 +157,7 @@ describe("13. Office Management Module Test Cases", function () {
 
   it("13.34. Verify that the MRA Admin can successfully approve an Office Management record after creation.", function () {
     cy.fixture(test_data).then((d) => {
+      cy.logout();
       cy.loginAsMraAdmin(baseURL, d);
       create_office_management.approveOffice(d);
       cy.logout();
