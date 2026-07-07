@@ -94,26 +94,11 @@ class loanAdjustment {
         cy.log("Successfully opened loan adjustment edit page.");
     }
 
-
-    editDraftButton() {
-        cy.imsId("btn-draft").first().click();
-
-        // cy.imsId("btn-yes").click();
-        cy.imsId("btn-ok").click();
-
-        cy.log("Successfully saved loan adjustment draft.");
-    }
-
-
     editGoBack() {
-        // cy.imsId("toggle-action").first().click();
-        // cy.imsId("btn-table-action-edit").click();
-
         cy.imsId("btn-go-back").click();
 
         cy.log("Successfully back from loan adjustment edit page.");
     }
-
 
     actionLoanAdjustmentSubmit() {
         cy.imsId("toggle-action").first().click();
@@ -141,7 +126,6 @@ class loanAdjustment {
         cy.log("Successfully submitted loan adjustment.");
     }
 
-
     loanAdjustmentDeleteProcess() {
 
         cy.imsId("toggle-action").first().click();
@@ -159,21 +143,23 @@ class loanAdjustment {
 
         cy.imsId("toggle-action").first().click();
         cy.imsId("btn-table-action-delete").click();
-
         cy.log("Successfully opened loan adjustment delete action.");
     }
 
+    loanAdjustmentActionDeleteGoBack() {
+        cy.imsId("btn-go-back").click();
+        cy.log("Successfully delete go back loan adjustment delete action.");
+    }
 
     loanAdjustmentDelete() {
-
+        cy.imsId("toggle-action").first().click();
+        cy.imsId("btn-table-action-delete").click();
         cy.imsId("btn-delete").click();
-
         cy.imsId("btn-yes").click();
         cy.imsId("btn-ok").click();
 
         cy.log("Successfully deleted loan adjustment.");
     }
-
 
     loanAdjustmentAgain() {
 
@@ -183,7 +169,7 @@ class loanAdjustment {
 
             var laData = data.fieldOfficer.loanAdjustment;
 
-             cy.formController("samity_id").click();
+            cy.formController("samity_id").click();
             cy.contains(laData.selectSamity).click()
             cy.formController("member_id").click();
             cy.contains(laData.selectMember).click()
@@ -205,6 +191,30 @@ class loanAdjustment {
         cy.imsId("btn-ok").click();
 
         cy.log("Successfully saved loan adjustment again.");
+    }
+
+    editDraftButton() {
+        cy.imsId("toggle-action").first().click();
+        cy.imsId("btn-table-action-unsubmit").click();
+        cy.imsId("btn-unsubmit").click();
+        cy.imsId("btn-yes").click();
+        cy.imsId("btn-ok").click();
+        cy.imsId("toggle-action").first().click();
+        cy.imsId("btn-table-action-edit").click();
+        cy.imsId("btn-draft").first().click();
+        cy.imsId("btn-ok").click();
+
+        cy.log("Successfully saved loan adjustment draft.");
+    }
+
+    editSubmitButton() {
+        cy.imsId("toggle-action").first().click();
+        cy.imsId("btn-table-action-view").click();
+        cy.get('.ant-switch-inner').click();
+        cy.imsId("btn-submit").click();
+        cy.imsId("btn-yes").click();
+        cy.imsId("btn-ok").click();
+        cy.log("Successfully Edit submit loan adjustment draft.");
     }
 
 

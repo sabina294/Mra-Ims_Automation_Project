@@ -64,32 +64,32 @@ describe("29. Loan Adjustment Module Test Cases", function () {
         create_loan_adjustment.actionEditLoanAdjustment();
     });
 
-    // it("29.11. Verify that the Loan Adjustment edit form is saved successfully when the Draft button is clicked.", function () {
-    //     create_loan_adjustment.editDraftButton();
-    // });
-
-    it("29.12. Verify that clicking the Go Back button from the Loan Adjustment edit form redirects the user successfully.", function () {
+    it("29.11. Verify that clicking the Go Back button from the Loan Adjustment edit form redirects the user successfully.", function () {
         create_loan_adjustment.editGoBack();
     });
 
-    it("29.13. Verify that the Loan Adjustment record can be submitted successfully from the Action menu.", function () {
+    it("29.12. Verify that the Loan Adjustment record can be submitted successfully from the Action menu.", function () {
         create_loan_adjustment.actionLoanAdjustmentSubmit();
     });
 
-    it("29.14. Verify that the Go Back button works correctly from the Loan Adjustment Action page.", function () {
+    it("29.13. Verify that the Go Back button works correctly from the Loan Adjustment Action page.", function () {
         create_loan_adjustment.actionLoanAdjustmentGoBack();
     });
 
-    it("29.15. Verify that the Loan Adjustment record can be submitted successfully.", function () {
+    it("29.14. Verify that the Loan Adjustment record can be submitted successfully.", function () {
         create_loan_adjustment.loanAdjustmentSubmit();
     });
 
-    it("29.16. Verify that the Loan Adjustment record can be deleted successfully from the Action menu.", function () {
+    it("29.15. Verify that the Loan Adjustment record can be deleted successfully from the Action menu.", function () {
         create_loan_adjustment.loanAdjustmentDeleteProcess();
     });
 
-    it("29.17. Verify that the delete option is displayed correctly from the Loan Adjustment Action menu.", function () {
+    it("29.16. Verify that the delete option is displayed correctly from the Loan Adjustment Action menu.", function () {
         create_loan_adjustment.loanAdjustmentActionDelete();
+    });
+
+    it("29.17. Verify that the delete go back option is displayed correctly from the Loan Adjustment Action menu.", function () {
+        create_loan_adjustment.loanAdjustmentActionDeleteGoBack();
     });
 
     it("29.18. Verify that the Loan Adjustment record is deleted successfully.", function () {
@@ -104,15 +104,23 @@ describe("29. Loan Adjustment Module Test Cases", function () {
         create_loan_adjustment.againSaveNewLoanAdjustment();
     });
 
-    it("29.21. Verify that the grid list is reset successfully when the Reset button is clicked on the Loan Adjustment page.", function () {
+    it("29.21. Verify that the Loan Adjustment edit form is saved successfully when the Draft button is clicked.", function () {
+        create_loan_adjustment.editDraftButton();
+    });
+
+    it("29.22. Verify that the Loan Adjustment edit form is saved successfully when the submit button is clicked.", function () {
+        create_loan_adjustment.editSubmitButton();
+    });
+
+    it("29.23. Verify that the grid list is reset successfully when the Reset button is clicked on the Loan Adjustment page.", function () {
         create_loan_adjustment.gridResetButtonCheck();
     });
 
-    it("29.22. Verify that the grid list is refreshed successfully when the Refresh button is clicked on the Loan Adjustment page.", function () {
+    it("29.24. Verify that the grid list is refreshed successfully when the Refresh button is clicked on the Loan Adjustment page.", function () {
         create_loan_adjustment.gridRefreshButtonCheck();
     });
 
-    it("29.23. Verify that the grid list content changes correctly when switching the language from English to Bangla.", function () {
+    it("29.25. Verify that the grid list content changes correctly when switching the language from English to Bangla.", function () {
         create_loan_adjustment.gridLanguageSwitchCheck();
     });
 });

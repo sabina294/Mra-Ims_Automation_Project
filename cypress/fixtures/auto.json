@@ -429,8 +429,8 @@
       "messageSaveLoanWelfareFund": "Welfare Fund Collection for this Loan Account is successful",
       "messageUpdateLoanWelfareFund": "Do you want to update this loan welfare fund?"
     },
-     "createLoanPenaltyFrom": {
-      "selectOffice":"1020 (Ashulia)",
+    "createLoanPenaltyFrom": {
+      "selectOffice": "1020 (Ashulia)",
       "selectSamity": "1020-106 (Belma Mohila Samity)",
       "selectMember": "1-1001 (Sima akter)",
       "selectLoanAccount": "AGRO-1020-106-1001-1 (Loan Account)",
@@ -1744,11 +1744,11 @@
       "samityDropdown": "1020-101 (Ashulia Mohila Samity)"
     },
     "loanAdjustment": {
-      "selectSamity": "1020-101 (Ashulia Mohila Samity)",
-      "selectMember": "4-1004 (Chadnee)",
-      "selectAccount": "AGRO-1020-101-1004-1 (Loan Account) ",
+      "selectSamity": "1020-102 (Dholpur Mohila Samity)",
+      "selectMember": "1-1001 (Jannat Islam)",
+      "selectAccount": "AGRO-1020-102-1001-1 (Loan Account)",
       "inputAmount": "10",
-      "search": "Chadnee"
+      "search": "Jannat Islam"
     },
     "feeCollection": {
       "selectSamity": "1020-101 (Ashulia Mohila Samity)",
