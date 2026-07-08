@@ -1103,11 +1103,12 @@
       "fieldOfficer": "EMP-0122 - GAIS UDDIN KHAN"
     },
     "specialCollection": {
-      "selectSamity": "1020-103 (Kuturia Mohila Samity)",
-      "selectMember": "1-1001 (Jule Akter )",
-      "selectAccount": "AGRO-1020-103-1001-1 (Loan Account)",
-      "inputAmount": "1000",
-      "fieldOfficer": "EMP-0122 - GAIS UDDIN KHAN"
+      "selectSamity": "1020-106 (Belma Mohila Samity)",
+      "selectMember": "1-1001 (Sima akter)",
+      "selectAccount": "AGRO-1020-106-1001-1 (Loan Account) ",
+      "inputAmount": "10",
+      "fieldOfficer": "EMP-0122 - GAIS UDDIN KHAN",
+      "Samity": "1020-106 (Belma Mohila Samity)"
     },
     "savingsWithdraw": {
       "selectSamity": "1020-101 (Ashulia Mohila Samity)",
