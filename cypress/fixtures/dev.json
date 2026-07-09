@@ -1093,6 +1093,11 @@
       "office": "1002 (Dhaka Regional Office)",
       "messageSaveHoliday": "Mfi holiday has been saved"
     },
+    "cancelHoliday": {
+      "holidayTitleBn": "পরীক্ষার ছুটি",
+      "holidayTitleEn": "Test Holiday",
+      "search": "Weekly Holiday"
+    },
     "createStagingDataFrom": {
       "fieldOfficer": "EMP-0122 - GAIS UDDIN KHAN",
       "samity": "1020-101 (Ashulia Mohila Samity)"

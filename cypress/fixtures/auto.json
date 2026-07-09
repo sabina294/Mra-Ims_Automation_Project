@@ -1093,6 +1093,11 @@
       "office": "1002 (Dhaka Regional Office)",
       "messageSaveHoliday": "Mfi holiday has been saved"
     },
+    "cancelHoliday": {
+      "holidayTitleBn": "পরীক্ষার ছুটি",
+      "holidayTitleEn": "Test Holiday",
+      "search": "Weekly Holiday"
+    },
     "createStagingDataFrom": {
       "fieldOfficer": "EMP-0122 - GAIS UDDIN KHAN",
       "samity": "1020-101 (Ashulia Mohila Samity)"
@@ -1102,7 +1107,7 @@
       "loanAmount2": "500",
       "fieldOfficer": "EMP-0122 - GAIS UDDIN KHAN"
     },
-     "specialCollection": {
+    "specialCollection": {
       "selectSamity": "1020-106 (Belma Mohila Samity)",
       "selectMember": "1-1001 (Sima akter)",
       "selectAccount": "AGRO-1020-106-1001-1 (Loan Account) ",
