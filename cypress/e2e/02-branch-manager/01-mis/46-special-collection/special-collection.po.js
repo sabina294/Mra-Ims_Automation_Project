@@ -20,7 +20,11 @@ class specialCollection {
             cy.contains(scData.selectMember).click()
             cy.formController("accountId").click();
             cy.contains(scData.selectAccount).click();
-            cy.get('#loanInput').clear().type(scData.inputAmount);
+            cy.get('input:visible:not(:disabled)')
+                .last()
+                .should('be.visible')
+                .clear()
+                .type(scData.inputAmount);
             cy.imsId("btn-save").click();
             cy.imsId("btn-yes").click();
             cy.imsId("btn-ok").click();
@@ -37,17 +41,22 @@ class specialCollection {
     createNewCollection() {
         cy.fixture(this.test_data).then((data) => {
             cy.imsId("btn-add-new").click();
-            var scData = data.branchManager.specialCollection;
+            const scData = data.branchManager.specialCollection;
             cy.formController("samityId").click();
-            cy.contains(scData.selectSamity).click()
+            cy.contains(scData.selectSamity).click();
             cy.formController("employeeId").click();
-            cy.contains(scData.selectMember).click()
+            cy.contains(scData.selectMember).click();
             cy.formController("accountId").click();
             cy.contains(scData.selectAccount).click();
-            cy.get('#loanInput').clear().type(scData.inputAmount);
+            cy.get('input:visible:not(:disabled)')
+                .last()
+                .should('be.visible')
+                .clear()
+                .type(scData.inputAmount);
             cy.imsId("btn-save").click();
             cy.imsId("btn-yes").click();
             cy.imsId("btn-ok").click();
+
             cy.log("Successfully created new special collection");
         });
     }
@@ -81,16 +90,20 @@ class specialCollection {
 
     EditSaveCollection() {
         cy.fixture(this.test_data).then((data) => {
-        var scData = data.branchManager.specialCollection;
-        cy.imsId("toggle-action").first().click();
-        cy.imsId("btn-table-action-edit").click();
-        cy.get('#loanInput').clear().type(scData.inputAmount);
-        cy.imsId("btn-save").click();
-        cy.imsId("btn-yes").click();
-        cy.imsId("btn-ok").click();
-        cy.log("successfully saved the collection.");
+            var scData = data.branchManager.specialCollection;
+            cy.imsId("toggle-action").first().click();
+            cy.imsId("btn-table-action-edit").click();
+            cy.get('input:visible:not(:disabled)')
+                .last()
+                .should('be.visible')
+                .clear()
+                .type(scData.inputAmount);            
+            cy.imsId("btn-save").click();
+            cy.imsId("btn-yes").click();
+            cy.imsId("btn-ok").click();
+            cy.log("successfully saved the collection.");
 
-          })
+        })
     }
 
     viewUnsubmitted() {
@@ -134,7 +147,7 @@ class specialCollection {
         });
     }
 
-     actionSpecialSubmit() {
+    actionSpecialSubmit() {
         cy.imsId("toggle-action").first().click();
         cy.imsId("btn-table-action-submit").click();
         cy.log("successfully on the action submit button check.");
@@ -188,7 +201,7 @@ class specialCollection {
         cy.log(messages.ui.historyOffMessage);
     }
 
-     fieldOfficerDropdownCheck() {
+    fieldOfficerDropdownCheck() {
         cy.fixture(this.test_data).then((data) => {
             var scData = data.branchManager.specialCollection;
             cy.formController("field_officer_id").type(scData.fieldOfficer).type("{enter}");
@@ -198,7 +211,7 @@ class specialCollection {
         })
     }
 
-     gridSamityDropdownCheck() {
+    gridSamityDropdownCheck() {
         cy.fixture(this.test_data).then((data) => {
             var scData = data.branchManager.specialCollection;
             cy.formController("staging_samity_id").type(scData.Samity).type("{enter}");
