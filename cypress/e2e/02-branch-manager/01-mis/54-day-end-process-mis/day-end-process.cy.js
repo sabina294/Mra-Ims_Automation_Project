@@ -1,6 +1,6 @@
 // npm run auto
 // npm run dev
-// npx cypress run --spec cypress/e2e/02-branch-manager/01-mis/52-day-end-process-mis/day-end-process.cy.js --browser chrome --headed
+// npx cypress run --spec cypress/e2e/02-branch-manager/01-mis/54-day-end-process-mis/day-end-process.cy.js --browser chrome --headed
 
 import "cypress-file-upload";
 import { create_day_end_process_mis } from "./day-end-process.po";
