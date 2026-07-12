@@ -13,7 +13,7 @@ class loanAdjustment {
         cy.fixture(this.test_data).then((data) => {
             cy.imsId("btn-add-new").click();
 
-            var laData = data.fieldOfficer.loanAdjustment;
+            var laData = data.branchManager.loanAdjustment;
 
             cy.formController("samity_id").click();
             cy.contains(laData.selectSamity).click()
@@ -183,7 +183,7 @@ class loanAdjustment {
 
             cy.imsId("btn-add-new").click();
 
-            var laData = data.fieldOfficer.loanAdjustment;
+            var laData = data.branchManager.loanAdjustment;
 
             cy.formController("samity_id").click();
             cy.contains(laData.selectSamity).click()
