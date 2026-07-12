@@ -78,12 +78,61 @@ class EmployeeManagementCreation {
     });
   }
 
+  myTaskMenuEmployee() {
+    cy.fixture(this.test_data).then((data) => {
+      var emData = data.mfiAdmin.createEmpMangFrom;
+      cy.imsId("menu-my-task").click();
+      cy.imsId("submenu-awaiting-employee-management").click();
+      cy.log("Successfully navigate to my task menu employee management");
+    });
+  }
+
+  myTaskResetButtonCheck() {
+    cy.imsId("btn-reset").click();
+    cy.log("Successful clean my task displaying.");
+  }
+
+  myTaskRefreshButtonCheck() {
+    cy.imsId("btn-refresh").click();
+    cy.log(
+      "successfully refresh page  displayed the my task list of the Employee Management form "
+    );
+  }
+
+  statusMyTaskDraftDropdownCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      var emData = data.mfiAdmin.approveEmployeeFrom;
+      cy.formController("status").type(emData.taskStatus).type("{enter}");
+      cy.log(
+        "Employee Management form status draft dropdown check successfully"
+      );
+    });
+  }
+
+  statusMyTaskPendingApprovalDropdownCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      var emData = data.mfiAdmin.approveEmployeeFrom;
+      cy.imsId("btn-reset").click();
+      cy.formController("status").type(emData.myTaskStatus).type("{enter}");
+      cy.log(
+        "Employee Management form status pending approval dropdown check successfully"
+      );
+    });
+  }
+
+  myTaskSearchButtonCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      var emData = data.mfiAdmin.createEmpMangFrom;
+      cy.imsId("btn-reset").click();
+      cy.formController("search_text").type(emData.search);
+      cy.imsId("btn-search").click();
+      cy.log("Successful my task search button click.");
+    });
+  }
+
   approveEmployee() {
     cy.fixture(this.test_data).then((data) => {
       var emData = data.mfiAdmin.createEmpMangFrom;
-      cy.formController("search_text").type(emData.empNameEn);
-      cy.imsId("menu-my-task").click();
-      cy.imsId("submenu-awaiting-employee-management").click();
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
       cy.imsId("btn-lock").click();

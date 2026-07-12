@@ -172,7 +172,10 @@
       "messageSaveEmp": "Mfi employee has been saved",
       "messageUpdateEmp": "Mfi employee has been updated"
     },
-    "approveEmployeeFrom": {},
+    "approveEmployeeFrom": {
+      "myTaskStatus": "Pending-Approval",
+      "taskStatus": "Draft"
+    },
     "rejectedEmployeeFrom": {
       "empNameEn": "Sabina Yeasmin",
       "empNameBn": "সাবিনা ইয়াসমিন",

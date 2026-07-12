@@ -168,11 +168,16 @@
       "adressEn": "Dhaka",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
+      "myTaskStatus": "Pending-Approval",
+      "taskStatus": "Draft",
       "search": "Sabina Yeasmin",
       "messageSaveEmp": "Mfi employee has been saved",
       "messageUpdateEmp": "Mfi employee has been updated"
     },
-    "approveEmployeeFrom": {},
+    "approveEmployeeFrom": {
+      "myTaskStatus": "Pending-Approval",
+      "taskStatus": "Draft"
+    },
     "rejectedEmployeeFrom": {
       "empNameEn": "Sabina Yeasmin",
       "empNameBn": "সাবিনা ইয়াসমিন",
@@ -1124,7 +1129,7 @@
       "samity": "1020-101 (Ashulia Mohila Samity)",
       "samityDropdown": "1020-101 (Ashulia Mohila Samity)"
     },
-     "loanAdjustment": {
+    "loanAdjustment": {
       "selectSamity": "1020-103 (Kuturia Mohila Samity)",
       "selectMember": "3-1003 (Sinthiya)",
       "selectAccount": "AGRO-1020-103-1003-1 (Loan Account)",
