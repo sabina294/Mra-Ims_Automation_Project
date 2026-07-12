@@ -100,18 +100,19 @@ class LoanRebate {
         .type(lrData.selectLoanAccount)
         .type("{enter}");
       cy.wait(2000);
-      cy.formController("rebate_type")
-        .type(lrData.selectRebate)
+      // cy.formController("rebate_type")
+      //   .type(lrData.selectRebate)
+      //   .type("{enter}");
+        cy.formController("rebate_type")
+        .type(lrData.rebateType)
         .type("{enter}");
-      // cy.formController("amount").type(lrData.Amount);
+      cy.formController("rebate_amount").type(lrData.Amount);
       cy.imsId("btn-submit").click();
       cy.imsId("btn-yes").click();
-
       cy.get("app-confirmation-modal")
         .contains(lrData.messageSaveLoanRebate)
         .and("be.visible");
       cy.imsId("btn-ok").click();
-
       cy.log("Successfully created Loan rebate");
     });
   }

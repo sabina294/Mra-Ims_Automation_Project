@@ -87,34 +87,14 @@ class LoanRebate {
       cy.formController("loan_account_id")
         .type(lrData.selectLoanAccount)
         .type("{enter}");
-      cy.wait(2000);
+       cy.wait(2000);
+      // cy.formController("rebate_type")
+      //   .type(lrData.selectRebate)
+      //   .type("{enter}");
       cy.formController("rebate_type")
-        .type(lrData.selectRebate)
+        .type(lrData.rebateType)
         .type("{enter}");
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-yes").click();
-      cy.get("app-confirmation-modal")
-        .contains(lrData.messageSaveLoanRebate)
-        .and("be.visible");
-      cy.imsId("btn-ok").click();
-
-      cy.log("Successfully created Loan rebate");
-    });
-  }
-
-  createLoanRebate() {
-    cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      var lrData = data.fieldOfficer.createLoanRebateFrom;
-      cy.formController("samity_id").type(lrData.selectSamity).type("{enter}");
-      cy.formController("member_id").type(lrData.selectMember).type("{enter}");
-      cy.formController("loan_account_id")
-        .type(lrData.selectLoanAccount)
-        .type("{enter}");
-      cy.wait(2000);
-      cy.formController("rebate_type")
-        .type(lrData.selectRebate)
-        .type("{enter}");
+      cy.formController("rebate_amount").type(lrData.Amount);
       cy.imsId("btn-submit").click();
       cy.imsId("btn-yes").click();
       cy.get("app-confirmation-modal")
