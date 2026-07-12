@@ -23,23 +23,23 @@ describe("54. Day End Process (MIS)  Module Test Cases", function () {
     cy.logout();
   });
 
-  it("54.01. Should load the Day End Process (MIS) grid list page successfully", function () {
+  it("54.01. Verify load the Day End Process (MIS) grid list page successfully", function () {
     create_day_end_process_mis.gridDayEndProcessMisListPage();
   });
 
-  it("54.02. Should successfully initiate the Day End Process (MIS)", function () {
+  it("54.02. Verify successfully initiate the Day End Process (MIS)", function () {
     create_day_end_process_mis.startDayEndProcess();
   });
 
-  it("54.03. Should refresh the Day End Process (MIS) grid list correctly", function () {
+  it("54.03. Verify refresh the Day End Process (MIS) grid list correctly", function () {
     create_day_end_process_mis.refreshDayEndProcess();
   });
 
-  it("54.04. Should successfully revert a Day End Process (MIS) record", function () {
+  it("54.04. Verify successfully revert a Day End Process (MIS) record", function () {
     create_day_end_process_mis.revertRecordDayEndProcess();
   });
 
-  it("54.05. Should correctly switch grid list content language from English to Bangla", function () {
+  it("54.05. Verify correctly switch grid list content language from English to Bangla", function () {
     create_day_end_process_mis.gridLanguageSwitchCheck();
   });
 });

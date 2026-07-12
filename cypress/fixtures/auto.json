@@ -1752,11 +1752,11 @@
       "samityDropdown": "1020-101 (Ashulia Mohila Samity)"
     },
     "loanAdjustment": {
-      "selectSamity": "1020-102 (Dholpur Mohila Samity)",
-      "selectMember": "1-1001 (Jannat Islam)",
-      "selectAccount": "AGRO-1020-102-1001-1 (Loan Account)",
+      "selectSamity": "1020-107 (Kumkumari Mohila Samity)",
+      "selectMember": "1-1001 (Lamiya Akter)",
+      "selectAccount": "AGRO-1020-107-1001-1 (Loan Account)",
       "inputAmount": "10",
-      "search": "Jannat Islam"
+      "search": "Lamiya Akter"
     },
     "feeCollection": {
       "selectSamity": "1020-101 (Ashulia Mohila Samity)",
