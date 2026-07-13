@@ -103,9 +103,28 @@ class EmployeePromotion {
         });
     }
 
+    myTaskMenuEmployeePromotion() {
+        cy.fixture(this.test_data).then((data) => {
+            var empData = data.mfiAdmin.gridEmpPromotionFrom;
+            cy.imsId("menu-my-task").click();
+            cy.imsId("submenu-awaiting-employee-promotion").click();
+            cy.log("Successfully navigate to my task menu employee promotion");
+        });
+    }
+
+    myTaskResetButtonCheck() {
+        cy.imsId("btn-reset").click();
+        cy.log("Successful clean my task displaying.");
+    }
+
+    myTaskRefreshButtonCheck() {
+        cy.imsId("btn-refresh").click();
+        cy.log(
+            "successfully refresh page  displayed the my task list of the Employee promotion form "
+        );
+    }
+
     approveNewEmployeePromotion() {
-        cy.imsId("menu-my-task").click();
-        cy.imsId("submenu-awaiting-employee-promotion").click();
         cy.imsId("toggle-action").first().click();
         cy.imsId("btn-table-action-view").first().click();
         cy.imsId("btn-approve").click();

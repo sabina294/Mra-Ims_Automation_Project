@@ -97,13 +97,33 @@ class specialCollection {
                 .last()
                 .should('be.visible')
                 .clear()
-                .type(scData.inputAmount);            
+                .type(scData.inputAmount);
             cy.imsId("btn-save").click();
             cy.imsId("btn-yes").click();
             cy.imsId("btn-ok").click();
             cy.log("successfully saved the collection.");
 
         })
+    }
+
+    actionSpecialSubmit() {
+        cy.imsId("toggle-action").first().click();
+        cy.imsId("btn-table-action-submit").click();
+        cy.log("successfully on the action submit button check.");
+    }
+
+    actionSpecialGoBack() {
+        cy.imsId("btn-go-back").click();
+        cy.log("successfully on the action submit button check.");
+    }
+
+    specialSubmit() {
+        cy.imsId("toggle-action").first().click();
+        cy.imsId("btn-table-action-submit").click();
+        cy.imsId("btn-submit").click();
+        cy.imsId("btn-yes").click();
+        cy.imsId("btn-ok").click();
+        cy.log("successfully on the action submit button check.");
     }
 
     viewUnsubmitted() {
@@ -143,28 +163,13 @@ class specialCollection {
             cy.imsId("btn-unsubmit").click();
             cy.imsId("btn-yes").click();
             cy.imsId("btn-ok").click();
+            cy.imsId("toggle-action").first().click();
+            cy.imsId("btn-table-action-submit").click();
+            cy.imsId("btn-submit").click();
+            cy.imsId("btn-yes").click();
+            cy.imsId("btn-ok").click();
             cy.log("Successfully unsubmitted the Special Collection list page");
         });
-    }
-
-    actionSpecialSubmit() {
-        cy.imsId("toggle-action").first().click();
-        cy.imsId("btn-table-action-submit").click();
-        cy.log("successfully on the action submit button check.");
-    }
-
-    actionSpecialGoBack() {
-        cy.imsId("btn-go-back").click();
-        cy.log("successfully on the action submit button check.");
-    }
-
-    specialSubmit() {
-        cy.imsId("toggle-action").first().click();
-        cy.imsId("btn-table-action-submit").click();
-        cy.imsId("btn-submit").click();
-        cy.imsId("btn-yes").click();
-        cy.imsId("btn-ok").click();
-        cy.log("successfully on the action submit button check.");
     }
 
     gridResetButtonCheck() {

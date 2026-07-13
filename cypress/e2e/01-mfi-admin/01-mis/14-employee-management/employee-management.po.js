@@ -122,7 +122,7 @@ class EmployeeManagementCreation {
 
   myTaskSearchButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var emData = data.mfiAdmin.createEmpMangFrom;
+      var emData = data.mfiAdmin.approveEmployeeFrom;
       cy.imsId("btn-reset").click();
       cy.formController("search_text").type(emData.search);
       cy.imsId("btn-search").click();
