@@ -241,7 +241,12 @@
       "messageSaveSamity": "Unauth samity has been saved",
       "messageUpdateSamity": "Samity has been updated"
     },
-    "approveSamityFrom": {},
+    "approveSamityFrom": {
+      "myTaskStatus": "Pending-Approval",
+      "taskStatus": "Draft",
+      "office": "1020 (Ashulia)",
+      "search": "Test Samity"
+    },
     "rejectedSamityFrom": {
       "samityNameEn": "Feni Samity",
       "samityNameBn": "ফেনী সমিতি",
