@@ -134,8 +134,8 @@ class RegularCollection {
 
     fieldOfficerDropdownCheck() {
         cy.fixture(this.test_data).then((data) => {
-            var spcData = data.fieldOfficer.regularCollection;
-            cy.formController("field_officer_id").type(spcData.fieldOfficer).type("{enter}");
+            var rcData = data.fieldOfficer.regularCollection;
+            cy.formController("field_officer_id").type(rcData.fieldOfficer).type("{enter}");
             cy.log(
                 "successfully field officer dropdown displayed the grid list of the regular collection "
             );
@@ -146,6 +146,26 @@ class RegularCollection {
         cy.imsId(GRID.BUTTONS.HISTORY_OFF)
             .uncheck({ force: true });
         cy.log(messages.ui.historyOffMessage);
+    }
+
+    fieldOfficerDropdownCheck() {
+        cy.fixture(this.test_data).then((data) => {
+            var rcData = data.fieldOfficer.regularCollection;
+            cy.formController("field_officer_id").type(rcData.fieldOfficer).type("{enter}");
+            cy.log(
+                "successfully field officer dropdown displayed the grid list of the regular collection "
+            );
+        })
+    }
+
+    gridSamityDropdownCheck() {
+        cy.fixture(this.test_data).then((data) => {
+            var rcData = data.fieldOfficer.regularCollection;
+            cy.formController("staging_samity_id").type(rcData.Samity).type("{enter}");
+            cy.log(
+                "successfully samity dropdown displayed the grid list of the regular collection "
+            );
+        })
     }
 
     gridLanguageSwitchCheck() {

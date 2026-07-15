@@ -98,7 +98,15 @@ describe("27. Special Collection Module Test Cases", function () {
         create_special_collection.gridHistoryButtonOffCheck();
     });
 
-    it("27.20. Verify that the grid list content changes correctly from English to Bangla.", function () {
+    it("27.20. Verify that the Grid  Field Officer dropdown filters displays the data information successfully when disabled.", function () {
+        create_special_collection.fieldOfficerDropdownCheck();
+    });
+
+    it("27.21. Verify that the Samity dropdown filters displays the data information successfully when disabled.", function () {
+        create_special_collection.gridSamityDropdownCheck();
+    });
+
+    it("27.22. Verify that the grid list content changes correctly from English to Bangla.", function () {
         create_special_collection.gridLanguageSwitchCheck();
     });
 

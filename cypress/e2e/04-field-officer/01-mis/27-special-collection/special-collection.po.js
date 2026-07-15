@@ -166,6 +166,26 @@ class specialCollection {
         cy.log(messages.ui.historyOffMessage);
     }
 
+    fieldOfficerDropdownCheck() {
+        cy.fixture(this.test_data).then((data) => {
+            var scData = data.fieldOfficer.specialCollection;
+            cy.formController("field_officer_id").type(scData.fieldOfficer).type("{enter}");
+            cy.log(
+                "successfully field officer dropdown displayed the grid list of the special collection "
+            );
+        })
+    }
+
+    gridSamityDropdownCheck() {
+        cy.fixture(this.test_data).then((data) => {
+            var scData = data.fieldOfficer.specialCollection;
+            cy.formController("staging_samity_id").type(scData.Samity).type("{enter}");
+            cy.log(
+                "successfully samity dropdown displayed the grid list of the special collection "
+            );
+        })
+    }
+
     gridLanguageSwitchCheck() {
         cy.imsId("profile-menu").click();
         cy.imsId("btn-lang-bangla").click();

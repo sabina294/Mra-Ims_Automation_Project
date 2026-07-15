@@ -32,7 +32,7 @@ describe("19. Samity management Module Test Cases", function () {
   });
 
   it("19.03. Verify that the created Samity Management record appears in My Tasks.", function () {
-    create_samity_management.myTaskMenuEmployee();
+    create_samity_management.myTaskMenuSamity();
   });
 
   it("19.04. Verify that the Office dropdown filter works correctly on the My Tasks page.", function () {

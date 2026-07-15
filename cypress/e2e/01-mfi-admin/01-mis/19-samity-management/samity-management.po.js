@@ -51,7 +51,7 @@ class SamityCreation {
     });
   }
 
-   myTaskMenuEmployee() {
+   myTaskMenuSamity() {
     cy.fixture(this.test_data).then((data) => {
       var smData = data.mfiAdmin.createSamityFrom;
       cy.imsId("menu-my-task").click();
@@ -85,7 +85,7 @@ class SamityCreation {
       var smData = data.mfiAdmin.approveSamityFrom;
       cy.formController("status").type(smData.taskStatus).type("{enter}");
       cy.log(
-        "Employee Management form status draft dropdown check successfully"
+        "Samity Management form status draft dropdown check successfully"
       );
     });
   }

@@ -279,6 +279,11 @@
       "search": "Bamonkhali Mohila Samity",
       "messageSamityChange": "Samity has been updated"
     },
+    "approveSamityChangeFrom": {
+      "myTaskStatus": "Pending-Approval",
+      "taskStatus": "Draft",
+      "office": "1020 (Ashulia)"
+    },
     "samityDayChangeFrom": {
       "samityNameEn": "Katigram Mohila Samity",
       "selectStatus": "Inactive",
@@ -1117,7 +1122,8 @@
     "regularCollection": {
       "loanAmount": "500",
       "loanAmount2": "500",
-      "fieldOfficer": "EMP-0122 - GAIS UDDIN KHAN"
+      "fieldOfficer": "EMP-0122 - GAIS UDDIN KHAN",
+      "Samity": "1020-106 (Belma Mohila Samity)"
     },
     "specialCollection": {
       "selectSamity": "1020-106 (Belma Mohila Samity)",
@@ -1745,14 +1751,16 @@
     "regularCollection": {
       "loanAmount": "50",
       "loanAmount2": "50",
-      "fieldOfficer": "EMP-0122 - GAIS UDDIN KHAN"
+      "fieldOfficer": "EMP-0122 - GAIS UDDIN KHAN",
+      "Samity": "1020-106 (Belma Mohila Samity)"
     },
     "specialCollection": {
       "selectSamity": "1020-105 (Sadarpur Mohila Samity)",
       "selectMember": "1-1001 (Srabonti)",
       "selectAccount": "AGRO-1020-105-1001-1 (Loan Account)",
       "inputAmount": "100",
-      "fieldOfficer": "EMP-0122 - GAIS UDDIN KHAN"
+      "fieldOfficer": "EMP-0122 - GAIS UDDIN KHAN",
+      "Samity": "1020-106 (Belma Mohila Samity)"
     },
     "savingsWithdraw": {
       "selectSamity": "1020-101 (Ashulia Mohila Samity)",

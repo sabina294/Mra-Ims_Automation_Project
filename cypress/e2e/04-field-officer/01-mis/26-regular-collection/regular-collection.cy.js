@@ -99,7 +99,15 @@ describe("26. Regular Collection Module Test Cases", function () {
         create_regular_collection.gridHistoryButtonOffCheck();
     });
 
-    it("26.20. Verify that the Regular Collection grid list content switches correctly between English and Bangla languages.", function () {
+    it("26.20. Verify that the Grid  Field Officer dropdown filters displays the data information successfully when disabled.", function () {
+        create_regular_collection.fieldOfficerDropdownCheck();
+    });
+
+    it("26.21. Verify that the Samity dropdown filters displays the data information successfully when disabled.", function () {
+        create_regular_collection.gridSamityDropdownCheck();
+    });
+
+    it("26.22. Verify that the Regular Collection grid list content switches correctly between English and Bangla languages.", function () {
         create_regular_collection.gridLanguageSwitchCheck();
     });
 });
