@@ -130,4 +130,5 @@ describe("22. Samity Day Change Module Test Cases", function () {
   it("22.27. Verify that the grid list content changes correctly from English to Bangla.", function () {
     samity_day_change.gridLanguageSwitchCheck();
   });
+  
 });
