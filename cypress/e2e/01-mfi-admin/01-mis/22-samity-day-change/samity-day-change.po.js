@@ -32,11 +32,61 @@ class SamityDayChange {
       cy.log("Successfully samity day changed (MFI Admin)");
     });
   }
+
+  myTaskMenuSamityDayChange() {
+    cy.fixture(this.test_data).then((data) => {
+      var smData = data.mfiAdmin.samityDayChangeFrom;
+      cy.imsId("menu-my-task").click();
+      cy.imsId("submenu-awaiting-samity-day-change").click();
+      cy.log("Successfully navigate to my task menu samity day change");
+    });
+  }
+
+  myTaskSamityOfficeDropdownCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      var smData = data.mfiAdmin.approveSamityDayChangeFrom;
+      cy.formController("office_id").type(smData.office).type("{enter}");
+      cy.log("Successfully navigate to my task menu samity day change office dropdown");
+    });
+  }
+
+  myTaskResetButtonCheck() {
+    cy.imsId("btn-reset").click();
+    cy.log("Successful clean my task displaying.");
+  }
+
+  myTaskRefreshButtonCheck() {
+    cy.imsId("btn-refresh").click();
+    cy.log(
+      "successfully refresh page  displayed the my task list of the Samity day change form "
+    );
+  }
+
+  statusMyTaskDraftDropdownCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      var smData = data.mfiAdmin.approveSamityDayChangeFrom;
+      cy.formController("status").type(smData.taskStatus).type("{enter}");
+      cy.log(
+        "Samity day change  form status draft dropdown check successfully"
+      );
+    });
+  }
+
+  statusMyTaskPendingApprovalDropdownCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      var smData = data.mfiAdmin.approveSamityDayChangeFrom;
+      cy.imsId("btn-reset").click();
+      cy.formController("status").type(smData.myTaskStatus).type("{enter}");
+      cy.imsId("btn-reset").click();
+      cy.log(
+        "Samity day change form status pending approval dropdown check successfully"
+      );
+    });
+  }
+
   approveSamityDayChange() {
     cy.fixture(this.test_data).then((data) => {
       var sdData = data.mfiAdmin.samityDayChangeFrom;
-      cy.imsId("menu-my-task").click();
-      cy.imsId("submenu-awaiting-samity-day-change").click();
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
       cy.imsId("btn-lock").click();

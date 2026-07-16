@@ -20,6 +20,11 @@ class specialCollection {
             cy.contains(scData.selectMember).click()
             cy.formController("accountId").click();
             cy.contains(scData.selectAccount).click();
+             cy.get('input:visible:not(:disabled)')
+                .last()
+                .should('be.visible')
+                .clear()
+                .type(scData.inputAmount);
             cy.imsId("btn-save").click();
             cy.imsId("btn-yes").click();
             cy.imsId("btn-ok").click();
@@ -43,6 +48,11 @@ class specialCollection {
             cy.contains(scData.selectMember).click()
             cy.formController("accountId").click();
             cy.contains(scData.selectAccount).click();
+             cy.get('input:visible:not(:disabled)')
+                .last()
+                .should('be.visible')
+                .clear()
+                .type(scData.inputAmount);
             cy.imsId("btn-save").click();
             cy.imsId("btn-yes").click();
             cy.imsId("btn-ok").click();

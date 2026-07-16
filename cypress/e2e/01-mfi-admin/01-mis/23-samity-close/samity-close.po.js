@@ -15,7 +15,7 @@ class SamityClose {
       var scData = data.mfiAdmin.samityCloseFrom;
       cy.formController("search_text").type(scData.samityNameEn);
       cy.imsId("btn-search").click();
-      cy.imsId("toggle-action").first().click();      
+      cy.imsId("toggle-action").first().click();
       cy.imsId("btn-mis-table-action-close").click();
       cy.imsId("btn-yes").click();
       cy.imsId("btn-ok").click();
@@ -23,11 +23,61 @@ class SamityClose {
     });
   }
 
-  approveSamityClose() {
+  myTaskMenuSamityClose() {
     cy.fixture(this.test_data).then((data) => {
       var scData = data.mfiAdmin.samityCloseFrom;
       cy.imsId("menu-my-task").click();
       cy.imsId("submenu-awaiting-samity-close").click();
+      cy.log("Successfully navigate to my task menu samity close");
+    });
+  }
+
+  myTaskSamityOfficeDropdownCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      var scData = data.mfiAdmin.approveSamityCloseFrom;
+      cy.formController("office_id").type(scData.office).type("{enter}");
+      cy.log("Successfully navigate to my task menu samity close office dropdown");
+    });
+  }
+
+  myTaskResetButtonCheck() {
+    cy.imsId("btn-reset").click();
+    cy.log("Successful clean my task displaying.");
+  }
+
+  myTaskRefreshButtonCheck() {
+    cy.imsId("btn-refresh").click();
+    cy.log(
+      "successfully refresh page  displayed the my task list of the Samity close form "
+    );
+  }
+
+  statusMyTaskDraftDropdownCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      var scData = data.mfiAdmin.approveSamityCloseFrom;
+      cy.formController("status").type(scData.taskStatus).type("{enter}");
+      cy.log(
+        "Samity close form status draft dropdown check successfully"
+      );
+    });
+  }
+
+  statusMyTaskPendingApprovalDropdownCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      var scData = data.mfiAdmin.approveSamityCloseFrom;
+      cy.imsId("btn-reset").click();
+      cy.formController("status").type(scData.myTaskStatus).type("{enter}");
+      cy.imsId("btn-reset").click();
+      cy.log(
+        "Samity close form status pending approval dropdown check successfully"
+      );
+    });
+  }
+
+
+  approveSamityClose() {
+    cy.fixture(this.test_data).then((data) => {
+      var scData = data.mfiAdmin.samityCloseFrom;
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
       cy.imsId("btn-lock").click();

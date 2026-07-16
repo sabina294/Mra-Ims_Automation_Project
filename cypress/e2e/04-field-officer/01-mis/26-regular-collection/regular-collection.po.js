@@ -23,20 +23,18 @@ class RegularCollection {
     collectionProcess() {
         cy.fixture(this.test_data).then((data) => {
             const rcData = data.fieldOfficer.regularCollection;
-            const amounts = [
-                rcData.loanAmount,
-                rcData.loanAmount2
-            ];
-            cy.get("tbody tr")
-                .each(($row, index) => {
-                    if (index < amounts.length) {
-                        cy.wrap($row)
-                            .find("input:not(:disabled)")
-                            .first()
-                            .clear()
-                            .type(amounts[index]);
-                    }
-                });
+              cy.get('tbody tr')
+                .eq(0)
+                .find('input')
+                .eq(0)
+                .clear()
+                .type(rcData.loanAmount);
+            cy.get('tbody tr')
+                .eq(1)
+                .find('input')
+                .eq(0)
+                .clear()
+                .type(rcData.loanAmount2);
             cy.log("Regular collection amount entered successfully");
 
         });
@@ -52,7 +50,7 @@ class RegularCollection {
     }
 
     viewRegularCollection() {
-        // cy.imsId("toggle-action").first().click();
+        cy.imsId("toggle-action").first().click();
         cy.imsId("btn-table-action-view").click();
         cy.log("successfully on the view regular collection list page.");
     }

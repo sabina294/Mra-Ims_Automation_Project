@@ -293,6 +293,11 @@
       "search": "Majhail Mohila Samity",
       "messageSamityDayChange": "Samity day has been updated"
     },
+    "approveSamityDayChangeFrom": {
+      "myTaskStatus": "Pending-Approval",
+      "taskStatus": "Draft",
+      "office": "1020 (Ashulia)"
+    },
     "samityCloseFrom": {
       "samityNameEn": "Rustampur Mohila Samity",
       "selectStatus": "Inactive",
@@ -300,6 +305,11 @@
       "SelectOffice": "1019 (Amin Bazar)",
       "search": "Rustampur Mohila Samity",
       "messageSamityClose": "Samity has been closed successfully."
+    },
+    "approveSamityCloseFrom": {
+      "myTaskStatus": "Pending-Approval",
+      "taskStatus": "Draft",
+      "office": "1020 (Ashulia)"
     },
     "createMemberFrom": {
       "office": "1020 (Ashulia)",
@@ -1771,11 +1781,11 @@
       "samityDropdown": "1020-101 (Ashulia Mohila Samity)"
     },
     "loanAdjustment": {
-      "selectSamity": "1020-107 (Kumkumari Mohila Samity)",
-      "selectMember": "1-1001 (Lamiya Akter)",
-      "selectAccount": "AGRO-1020-107-1001-1 (Loan Account)",
+      "selectSamity": "1020-105 (Sadarpur Mohila Samity)",
+      "selectMember": "1-1001 (Srabonti)",
+      "selectAccount": "AGRO-1020-105-1001-1 (Loan Account) ",
       "inputAmount": "10",
-      "search": "Lamiya Akter"
+      "search": "Srabonti"
     },
     "feeCollection": {
       "selectSamity": "1020-101 (Ashulia Mohila Samity)",
