@@ -109,6 +109,5 @@ describe("23. Samity Close Module Test Cases", function () {
 
   it("23.22. Verify that the grid list content changes successfully from English to Bangla.", function () {
     Samity_close.gridLanguageSwitchCheck();
-  });
-  
+  });  
 });
