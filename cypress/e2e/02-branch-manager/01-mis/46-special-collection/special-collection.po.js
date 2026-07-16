@@ -163,15 +163,20 @@ class specialCollection {
             cy.imsId("btn-unsubmit").click();
             cy.imsId("btn-yes").click();
             cy.imsId("btn-ok").click();
-            cy.imsId("toggle-action").first().click();
-            cy.imsId("btn-table-action-submit").click();
-            cy.imsId("btn-submit").click();
-            cy.imsId("btn-yes").click();
-            cy.imsId("btn-ok").click();
             cy.log("Successfully unsubmitted the Special Collection list page");
         });
     }
 
+    againSpecialSubmit() {
+        cy.imsId("toggle-action").first().click();
+        cy.imsId("btn-table-action-submit").click();
+        cy.imsId("btn-submit").click();
+        cy.imsId("btn-yes").click();
+        cy.imsId("btn-ok").click();
+        cy.log("successfully on the again submit special collection.");
+    }
+
+    
     gridResetButtonCheck() {
         cy.imsId("btn-reset").click();
         cy.log("Successful clean displaying.");
