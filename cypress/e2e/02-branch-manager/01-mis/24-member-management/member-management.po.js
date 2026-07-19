@@ -241,6 +241,7 @@ class MemberManagementCreation {
       cy.imsId("btn-reset").click();
       cy.formController("search_text").type(memData.memberNameEn);
       cy.imsId("btn-search").click();
+      cy.imsId("btn-reset").click();
       cy.log("Successful search button click.");
     });
   }

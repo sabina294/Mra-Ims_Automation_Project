@@ -79,12 +79,69 @@ class MemberManagementCreation {
     });
   }
 
+  myTaskMenuMember() {
+    cy.fixture(this.test_data).then((data) => {
+      var memData = data.mfiAdmin.createMemberFrom;
+         cy.imsId("menu-my-task").click();
+      cy.imsId("submenu-awaiting-member-management").click();
+      cy.log("Successfully navigate to my task menu member management");
+    });
+  }
+
+  myTaskMemberOfficeDropdownCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      var memData = data.mfiAdmin.createMemberFrom;
+      cy.formController("office_id").type(memData.office).type("{enter}");
+      cy.log("Successfully navigate to my task menu member management office dropdown");
+    });
+  }
+
+  myTaskResetButtonCheck() {
+    cy.imsId("btn-reset").click();
+    cy.log("Successful clean my task displaying.");
+  }
+
+  myTaskRefreshButtonCheck() {
+    cy.imsId("btn-refresh").click();
+    cy.log(
+      "successfully refresh page  displayed the my task list of the Member Management form "
+    );
+  }
+
+  statusMyTaskDraftDropdownCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      var memData = data.mfiAdmin.approveMemberFrom;
+      cy.formController("status").type(memData.taskStatus).type("{enter}");
+      cy.log(
+        "Member Management form status draft dropdown check successfully"
+      );
+    });
+  }
+
+  statusMyTaskPendingApprovalDropdownCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      var memData = data.mfiAdmin.approveMemberFrom;
+      cy.imsId("btn-reset").click();
+      cy.formController("status").type(memData.myTaskStatus).type("{enter}");
+      cy.log(
+        "Member Management form status pending approval dropdown check successfully"
+      );
+    });
+  }
+
+  myTaskSearchButtonCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      var memData = data.mfiAdmin.createMemberFrom;
+      cy.imsId("btn-reset").click();
+      cy.formController("search_text").type(memData.memberNameEn);
+      cy.imsId("btn-search").click();
+      cy.log("Successful my task search button click.");
+    });
+  }
+
   approveMemberManagement() {
     cy.fixture(this.test_data).then((data) => {
       var memData = data.mfiAdmin.createMemberFrom;
-      cy.imsId("menu-my-task").click();
-      cy.imsId("submenu-awaiting-member-management").click();
-      cy.formController("search_text").type(memData.memberNameEn);
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
       cy.imsId("btn-lock").click();

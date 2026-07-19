@@ -43,7 +43,7 @@ class CalendarYearCreation {
     cy.imsId("btn-table-action-view").click();
     cy.imsId("btn-add").click();
     cy.imsId("btn-yes").click();
-    cy.wait(5000);
+    cy.wait(10000);
     cy.imsId("btn-ok").click();
     cy.log("Successfully approve Calendar Year ");
   }

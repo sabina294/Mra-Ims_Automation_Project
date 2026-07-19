@@ -33,11 +33,60 @@ class MemberSamityTransfer {
     });
   }
 
-  transferApprove() {
+  myTaskMenuMemberSamityTransfer() {
     cy.fixture(this.test_data).then((data) => {
       var mstData = data.mfiAdmin.memberSamityTransferFrom;
       cy.imsId("menu-my-task").click();
       cy.imsId("submenu-awaiting-member-samity-transfer").click();
+      cy.log("Successfully navigate to my task menu member samity transfer");
+    });
+  }
+
+  myTaskMemberOfficeDropdownCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      var mstData = data.mfiAdmin.approveMemberSamityTransferFrom;
+      cy.formController("office_id").type(mstData.office).type("{enter}");
+      cy.log("Successfully navigate to my task menu member samity transfer office dropdown");
+    });
+  }
+
+  myTaskResetButtonCheck() {
+    cy.imsId("btn-reset").click();
+    cy.log("Successful clean my task displaying.");
+  }
+
+  myTaskRefreshButtonCheck() {
+    cy.imsId("btn-refresh").click();
+    cy.log(
+      "successfully refresh page  displayed the my task list of the member samity transfer form "
+    );
+  }
+
+  statusMyTaskDraftDropdownCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      var mstData = data.mfiAdmin.approveMemberSamityTransferFrom;
+      cy.formController("status").type(mstData.taskStatus).type("{enter}");
+      cy.log(
+        "Member samity transfer form status draft dropdown check successfully"
+      );
+    });
+  }
+
+  statusMyTaskPendingApprovalDropdownCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      var mstData = data.mfiAdmin.approveMemberSamityTransferFrom;
+      cy.imsId("btn-reset").click();
+      cy.formController("status").type(mstData.myTaskStatus).type("{enter}");
+      cy.imsId("btn-reset").click();
+      cy.log(
+        "Member samity transfer form status pending approval dropdown check successfully"
+      );
+    });
+  }
+
+  transferApprove() {
+    cy.fixture(this.test_data).then((data) => {
+      var mstData = data.mfiAdmin.memberSamityTransferFrom;
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
       cy.imsId("btn-lock").click();
