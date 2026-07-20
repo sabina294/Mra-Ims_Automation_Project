@@ -415,13 +415,17 @@
     "createLoanAccountFrom": {
       "office": "1020 (Ashulia)",
       "samity": "1020-111 (Rustampur Mohila Samity)",
+      "samity1": "1020-108 (Changao Mohila Samity)",
       "member": "1-1001 (Surovi Akter)",
+      "member1": "1-1001 (Mariyom)",
       "lendingCategory": "Agriculture, Fisheries, Livestock and Forestry",
       "economicSector": "Agriculture",
       "economicActivity": "Cultivation",
       "economicPurpose": "Major Crops",
       "loanProduct": "Micro Enterprise",
+      "loanProduct1": "Micro Credit",
       "appliedLoanAmount": "50000",
+      "Amount": "30000",
       "selectStatus": "Approve",
       "statusSelect": "Rejected",
       "SelectOffice": "1020 (Ashulia)",
@@ -430,7 +434,9 @@
       "messageSaveLoanAccount": "Loan account proposal has been saved",
       "messageUpdateLoanAccount": "Do you want to update this loan account?"
     },
-    "approveLLoanAccountFrom": {},
+    "approveLoanAccountFrom": {
+      "office": "1020 (Ashulia)"
+    },
     "loanAccountManagementFrom": {
       "samity": "Chhaya Mohila Samity",
       "SelectOffice": "1020 (Ashulia)",
@@ -532,6 +538,9 @@
       "selectStatus": "Approved",
       "statusSelect": "Rejected"
     },
+    "approveSavingsAccountFrom": {
+      "office": "1020 (Ashulia)"
+    },
     "createSavingsAccountManagement": {
       "search": "Samia",
       "selectStatus": "Approved",
@@ -549,15 +558,16 @@
     },
     "gridCalendarManagement": {
       "office": "1020 (Ashulia)",
-      "year": "2025"
+      "year": "2026"
     },
     "createHoliday": {
       "holidayType": "All",
       "holidayTitleBn": "পরীক্ষার ছুটি",
       "holidayTitleEn": "Test Holiday",
+      "endDate": "30",
       "search": "Weekly Holiday",
       "office": "1002 (Dhaka Regional Office)",
-      "calendarYear": "2025",
+      "calendarYear": "2026",
       "messageSaveHoliday": "Mfi holiday has been saved"
     },
     "cancelHoliday": {

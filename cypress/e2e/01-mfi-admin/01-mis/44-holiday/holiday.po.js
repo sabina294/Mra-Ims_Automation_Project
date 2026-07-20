@@ -34,13 +34,13 @@ class HolidayCreation {
 
   createHoliday() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
+      // cy.imsId("btn-add-new").click();
       var hData = data.mfiAdmin.createHoliday;
       cy.imsId("btn-add-new").click();
       cy.formController("type").type(hData.holidayType).type("{enter}");
       cy.formController("end_date").click();
       cy.wait(3000);
-      cy.contains("30").click({ force: true });
+      cy.contains("22").click({ force: true });
       cy.wait(3000);
       cy.formController("holiday_title_bn").type(hData.holidayTitleBn);
       cy.formController("holiday_title_en").type(hData.holidayTitleEn);
@@ -72,7 +72,7 @@ class HolidayCreation {
   searchHolidayTitle() {
     cy.fixture(this.test_data).then((data) => {
       var hData = data.mfiAdmin.createHoliday;
-      cy.selectMenu1("submenu-holiday");
+      cy.selectMenu("menu-calendar", "submenu-holiday");    
       cy.imsId("btn-reset").click();
       cy.formController("search_text").type(hData.search);
       cy.log("Successfully search in the Holiday form");

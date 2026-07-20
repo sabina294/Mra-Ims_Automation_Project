@@ -34,11 +34,30 @@ class ClientWelfareFund {
     });
   }
 
-  approveClientWelfareFund() {
+  myTaskMenuClientWelfareFund() {
     cy.fixture(this.test_data).then((data) => {
       var wfData = data.mfiAdmin.createClientWelfareFrom;
       cy.imsId("menu-my-task").click();
       cy.imsId("submenu-awaiting-client-welfare-fund").click();
+      cy.log("Successfully navigate to my task menu client welfare fund");
+    });
+  }
+
+  myTaskResetButtonCheck() {
+    cy.imsId("btn-reset").click();
+    cy.log("Successful clean my task displaying.");
+  }
+
+  myTaskRefreshButtonCheck() {
+    cy.imsId("btn-refresh").click();
+    cy.log(
+      "successfully refresh page  displayed the my task list of the client welfare fund "
+    );
+  }
+
+  approveClientWelfareFund() {
+    cy.fixture(this.test_data).then((data) => {
+      var wfData = data.mfiAdmin.createClientWelfareFrom;
       cy.formController("search_text").type(wfData.search);
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
@@ -112,13 +131,22 @@ class ClientWelfareFund {
     });
   }
 
+  createAddIconButtonCheck() {
+    cy.imsId("btn-add-icon").click();
+    cy.log("Successful add icon button click.");
+  }
+  createRemoveIconButtonCheck() {
+    cy.imsId("btn-remove-icon").eq(0).click();
+    cy.log("Successful remove icon button click.");
+  }
+
   createValidationMessageCheck() {
     cy.imsId("btn-submit").click();
     cy.imsId("btn-ok").click();
     cy.log("Successful validation message displaying.");
   }
 
-   createApproveButtonCheck() {
+  createApproveButtonCheck() {
     cy.imsId("btn-approve").click();
     cy.imsId("btn-ok").click();
     cy.log("Successful validation message displaying.");

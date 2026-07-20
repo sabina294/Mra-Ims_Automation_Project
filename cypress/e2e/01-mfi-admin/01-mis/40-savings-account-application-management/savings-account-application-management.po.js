@@ -150,11 +150,38 @@ class SavingsAccApplicationManagementCreation {
     });
   }
 
+   myTaskMenuSavingsAccountApplicationManagement() {
+    cy.fixture(this.test_data).then((data) => {
+      var saamData = data.mfiAdmin.createSavingsAccApplicationMang;
+         cy.imsId("menu-my-task").click();
+      cy.imsId("submenu-awaiting-savings-account-proposal").click();
+      cy.log("Successfully navigate to my task menu savings account application management");
+    });
+  }
+
+   myTaskOfficeDropdownCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      var saamData = data.mfiAdmin.approveSavingsAccountFrom;
+      cy.formController("office_id").type(saamData.office).type("{enter}");
+      cy.log("Successfully navigate to my task menu savings account application management office dropdown");
+    });
+  }
+
+  myTaskResetButtonCheck() {
+    cy.imsId("btn-reset").click();
+    cy.log("Successful clean my task displaying.");
+  }
+
+  myTaskRefreshButtonCheck() {
+    cy.imsId("btn-refresh").click();
+    cy.log(
+      "successfully refresh page  displayed the my task list of the savings account application management "
+    );
+  }
+
   approvesavingsAccount() {
     cy.fixture(this.test_data).then((data) => {
       var saamData = data.mfiAdmin.createSavingsAccApplicationMang;
-      cy.imsId("menu-my-task").click();
-      cy.imsId("submenu-awaiting-savings-account-proposal").click();
       // cy.formController("search_text").type(saamData.search);
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
@@ -169,10 +196,10 @@ class SavingsAccApplicationManagementCreation {
   }
 
   actionButtonCheck() {
-    // cy.selectMenu(
-    //   "menu-savings-account",
-    //   "submenu-savings-account-application-management"
-    // );
+    cy.selectMenu(
+      "menu-savings-account",
+      "submenu-savings-account-application-management"
+    );
     cy.imsId("toggle-action").first().click();
     cy.log(
       "Action button clicked successfully on the savings account application management list page."
