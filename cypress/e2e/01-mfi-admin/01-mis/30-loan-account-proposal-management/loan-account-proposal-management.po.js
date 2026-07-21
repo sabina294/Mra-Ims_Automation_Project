@@ -37,13 +37,7 @@ class LoanAccountProposalManagementCreation {
         .type("{enter}");
       cy.formController("applied_loan_amount").type(lapData.appliedLoanAmount);
       cy.wait(5000);
-      cy.formController("expected_disburse_dt").click();
-      cy.get('.ant-picker-dropdown')
-        .should('be.visible');
-      cy.get('.ant-picker-cell-in-view')
-        .not('.ant-picker-cell-disabled')
-        .first()
-        .click({ force: true });
+      cy.get('body').click(0, 0);
       cy.imsId("btn-submit").click();
       cy.imsId("btn-yes").click();
       cy.imsId("btn-ok").click();
@@ -70,6 +64,7 @@ class LoanAccountProposalManagementCreation {
         .type("{enter}");
       cy.formController("applied_loan_amount").type(lapData.appliedLoanAmount);
       cy.wait(5000);
+      cy.get('body').click(0, 0);
       cy.imsId("btn-preview-repay-schedule").click();
       cy.get("nz-modal-container")
         .should("be.visible");

@@ -43,43 +43,55 @@ describe("44. Holiday Module Test Cases", function () {
     create_holiday.createHoliday();
   });
 
-  it("44.06. Verify mfi-admin to successfully approve an holiday record after creation.", function () {
+  it("44.06. Verify that the created holiday record appears in My Tasks.", function () {
+    create_holiday.myTaskMenuHoliday();
+  });
+
+  it("44.07. Verify that the Reset button clears all applied filters on the My Tasks page.", function () {
+    create_holiday.myTaskResetButtonCheck();
+  });
+
+  it("44.08. Verify that the Refresh button reloads the My Tasks list successfully.", function () {
+    create_holiday.myTaskRefreshButtonCheck();
+  });
+
+  it("44.09. Verify mfi-admin to successfully approve an holiday record after creation.", function () {
     create_holiday.approveHoliday();
   });
 
-  it("44.07. Verify that the search results are displayed correctly when searching by holiday name.", function () {
+  it("44.10. Verify that the search results are displayed correctly when searching by holiday name.", function () {
     create_holiday.searchHolidayTitle();
   });
 
-  it("44.08. Verify the grid list resets successfully when the reset button is clicked on the holiday page.", function () {
+  it("44.11. Verify the grid list resets successfully when the reset button is clicked on the holiday page.", function () {
     create_holiday.gridResetButtonCheck();
   });
 
-  it("44.09. Verify that when the user clicks the Search button on the holiday grid page, the system redirects to the holiday List page..", function () {
+  it("44.12. Verify that when the user clicks the Search button on the holiday grid page, the system redirects to the holiday List page..", function () {
     create_holiday.gridSearchButtonCheck();
   });
 
-  it("44.10. Verify that the grid list is refreshed successfully when the refresh button is clicked on the holiday page.", function () {
+  it("44.13. Verify that the grid list is refreshed successfully when the refresh button is clicked on the holiday page.", function () {
     create_holiday.gridRefreshButtonCheck();
   });
 
-  it("44.11. Verify display the grid list successfully when the Draft button on is clicked on the holiday page", function () {
+  it("44.14. Verify display the grid list successfully when the Draft button on is clicked on the holiday page", function () {
     create_holiday.gridDraftButton();
   });
 
-  it("44.12. Verify display the grid list successfully when the Draft button off is clicked on the holiday page", function () {
+  it("44.15. Verify display the grid list successfully when the Draft button off is clicked on the holiday page", function () {
     create_holiday.gridDraftButtonOff();
   });
 
-  it("44.13. Verify check that the holiday  office selection works correctly from the dropdown on the holiday list page.", function () {
+  it("44.16. Verify check that the holiday  office selection works correctly from the dropdown on the holiday list page.", function () {
     create_holiday.selectofficeDropdown();
   });
 
-  it("44.14. Verify check that the holiday  calendar year selection works correctly from the dropdown on the holiday list page.", function () {
+  it("44.17. Verify check that the holiday  calendar year selection works correctly from the dropdown on the holiday list page.", function () {
     create_holiday.selectCalendarYearDropdown();
   });
 
-  it("44.15. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("44.18. Verify check that the grid list content changes correctly from english to bangla.", function () {
     create_holiday.gridLanguageSwitchCheck();
   });
 });

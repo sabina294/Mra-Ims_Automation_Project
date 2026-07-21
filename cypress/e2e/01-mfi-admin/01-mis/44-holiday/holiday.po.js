@@ -39,11 +39,13 @@ class HolidayCreation {
       cy.imsId("btn-add-new").click();
       cy.formController("type").type(hData.holidayType).type("{enter}");
       cy.formController("end_date").click();
-      cy.wait(3000);
-      cy.contains("22").click({ force: true });
-      cy.wait(3000);
-      cy.formController("holiday_title_bn").type(hData.holidayTitleBn);
+      cy.get(".ant-picker-dropdown:visible")
+        .find(".ant-picker-cell:not(.ant-picker-cell-disabled)")
+        .first()
+        .find(".ant-picker-cell-inner")
+        .click({ force: true });
       cy.formController("holiday_title_en").type(hData.holidayTitleEn);
+      cy.formController("holiday_title_bn").type(hData.holidayTitleBn);
       cy.imsId("btn-submit").click();
       cy.imsId("btn-yes").click();
       cy.get("app-confirmation-modal")
@@ -55,10 +57,29 @@ class HolidayCreation {
     });
   }
 
-  approveHoliday() {
+  myTaskMenuHoliday() {
     cy.fixture(this.test_data).then((data) => {
+      var hData = data.mfiAdmin.createHoliday;
       cy.imsId("menu-my-task").click();
       cy.imsId("submenu-awaiting-holiday-approval").click();
+      cy.log("Successfully navigate to my task menu Holiday");
+    });
+  }
+
+  myTaskResetButtonCheck() {
+    cy.imsId("btn-reset").click();
+    cy.log("Successful clean my task displaying.");
+  }
+
+  myTaskRefreshButtonCheck() {
+    cy.imsId("btn-refresh").click();
+    cy.log(
+      "successfully refresh page  displayed the my task list of the holiday "
+    );
+  }
+
+  approveHoliday() {
+    cy.fixture(this.test_data).then((data) => {
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
       cy.imsId("btn-approve").click();
@@ -72,7 +93,7 @@ class HolidayCreation {
   searchHolidayTitle() {
     cy.fixture(this.test_data).then((data) => {
       var hData = data.mfiAdmin.createHoliday;
-      cy.selectMenu("menu-calendar", "submenu-holiday");    
+      cy.selectMenu("menu-calendar", "submenu-holiday");
       cy.imsId("btn-reset").click();
       cy.formController("search_text").type(hData.search);
       cy.log("Successfully search in the Holiday form");

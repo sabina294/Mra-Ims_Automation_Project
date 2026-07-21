@@ -36,9 +36,28 @@ class CalendarYearCreation {
     });
   }
 
+    myTaskMenuCalendarYear() {
+    cy.fixture(this.test_data).then((data) => {
+      var cyData = data.mfiAdmin.createCalendarYear;
+      cy.imsId("menu-my-task").click();
+      cy.imsId("submenu-awaiting-calendar-year").click();
+      cy.log("Successfully navigate to my task menu Calendar Year");
+    });
+  }
+
+  myTaskResetButtonCheck() {
+    cy.imsId("btn-reset").click();
+    cy.log("Successful clean my task displaying.");
+  }
+
+  myTaskRefreshButtonCheck() {
+    cy.imsId("btn-refresh").click();
+    cy.log(
+      "successfully refresh page  displayed the my task list of the calendar year "
+    );
+  }
+
   approveCalendare() {
-    cy.imsId("menu-my-task").click();
-    cy.imsId("submenu-awaiting-calendar-year").click();
     cy.imsId("toggle-action").first().click();
     cy.imsId("btn-table-action-view").click();
     cy.imsId("btn-add").click();
