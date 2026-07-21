@@ -55,10 +55,10 @@ class SavingsAccApplicationManagementCreation {
   }
 
   actionButtonCheck() {
-    // cy.selectMenu(
-    //   "menu-savings-account",
-    //   "submenu-savings-account-application-management"
-    // );
+    cy.selectMenu(
+      "menu-savings-account",
+      "submenu-savings-account-application-management"
+    );
     cy.imsId("toggle-action").first().click();
     cy.log(
       "Action button clicked successfully on the savings account application management list page."

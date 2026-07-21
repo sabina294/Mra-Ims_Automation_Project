@@ -19,7 +19,6 @@ describe("40. Savings Account Application Management Module Test Cases", functio
       cy.changeLanguage("english");
     });
   });
-holiday 
   after(() => {
     cy.logout();
   });
@@ -28,9 +27,9 @@ holiday
     create_savings_account_application_management.gridSavingsAccApplicationListPage();
   });
 
-  // it("40.02. Verify that a new savings account application management record is created successfully when all required fields are filled with valid data.", function () {
-  //   create_savings_account_application_management.createSavingsAccApplicationManagement();
-  // });
+  it("40.02. Verify that a new savings account application management record is created successfully when all required fields are filled with valid data.", function () {
+    create_savings_account_application_management.createSavingsAccApplicationManagement();
+  });
 
   it("40.03. Verify that a savings account application management record cannot be created without selecting an office, even when all other required fields contain valid data.", function () {
     create_savings_account_application_management.createWithoutOffice();
@@ -72,9 +71,9 @@ holiday
     create_savings_account_application_management.myTaskRefreshButtonCheck();
   });
 
-  // it("40.13. Verify that the MFI admin can successfully approve a savings account application management record after creation.", function () {
-  //   create_savings_account_application_management.approvesavingsAccount();
-  // });
+  it("40.13. Verify that the MFI admin can successfully approve a savings account application management record after creation.", function () {
+    create_savings_account_application_management.approvesavingsAccount();
+  });
 
   it("40.14. Verify that the action button performs the expected action successfully when clicked.", function () {
     create_savings_account_application_management.actionButtonCheck();
