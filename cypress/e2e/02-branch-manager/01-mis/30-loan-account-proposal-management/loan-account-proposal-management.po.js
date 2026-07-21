@@ -210,6 +210,7 @@ viewSchedulesCancelButtonCheck() {
 
   createWithoutEconomicPurpose() {
     cy.fixture(this.test_data).then((data) => {
+      cy.imsId("btn-reset").click();
       var lapData = data.branchManager.createLoanAccountFrom;
       cy.formController("samity_id").type(lapData.samity).type("{enter}");
       cy.formController("member_id").type(lapData.member).type("{enter}");
