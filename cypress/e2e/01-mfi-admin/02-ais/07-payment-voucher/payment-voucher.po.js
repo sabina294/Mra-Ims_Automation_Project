@@ -493,11 +493,52 @@ class PaymentVoucherCreation {
         });
     }
 
-    approvePaymentVoucher() {
+     myTaskMenuPaymentVoucher() {
         cy.fixture(this.test_data).then((data) => {
             var pvData = data.mfiAdmin.paymentVoucher;
             cy.imsId("menu-my-task").click();
             cy.imsId("submenu-awaiting-payment-voucher").click();
+            cy.log("Successfully navigate to my task menu payment voucher");
+        });
+    }
+
+    myTaskResetButtonCheck() {
+        cy.imsId("btn-reset").click();
+        cy.log("Successful clean my task displaying.");
+    }
+
+    myTaskRefreshButtonCheck() {
+        cy.imsId("btn-refresh").click();
+        cy.log(
+            "successfully refresh page  displayed the my task list of the payment voucher "
+        );
+    }
+
+    statusMyTaskDraftDropdownCheck() {
+        cy.fixture(this.test_data).then((data) => {
+            var pvData = data.mfiAdmin.approvePaymentVoucher;
+            cy.formController("status").type(pvData.taskStatus).type("{enter}");
+            cy.log(
+                "Payment voucher form status draft dropdown check successfully"
+            );
+        });
+    }
+
+    statusMyTaskPendingApprovalDropdownCheck() {
+        cy.fixture(this.test_data).then((data) => {
+            var pvData = data.mfiAdmin.approvePaymentVoucher;
+            cy.imsId("btn-reset").click();
+            cy.formController("status").type(pvData.myTaskStatus).type("{enter}");
+            cy.log(
+                "Payment voucher form status pending approval dropdown check successfully"
+            );
+        });
+    }
+
+
+    approvePaymentVoucher() {
+        cy.fixture(this.test_data).then((data) => {
+            var pvData = data.mfiAdmin.paymentVoucher;
             // cy.formController("search_text").type(pvData.voucherNameEn);
             cy.imsId("toggle-action").first().click();
             cy.imsId("btn-table-action-view").click();

@@ -81,91 +81,111 @@ describe("08 Received Voucher Module Test Cases", function () {
         create_received_voucher.createWithoutVoucherDetailsAmount();
     });
 
-    it("08.15. Verify that the MFI Admin can successfully approve a received voucher after creation.", function () {
+    it("08.15. Verify that the created Preceived voucher record appears in My Tasks.", function () {
+        create_received_voucher.myTaskMenuReceivedVoucher();
+    });
+
+    it("08.16. Verify that the Reset button clears all applied filters on the My Tasks page.", function () {
+        create_received_voucher.myTaskResetButtonCheck();
+    });
+
+    it("08.17. Verify that the Refresh button reloads the My Tasks list successfully.", function () {
+        create_received_voucher.myTaskRefreshButtonCheck();
+    });
+
+    // it("08.18. Verify that the Status filter displays Draft received voucher records correctly in My Tasks.", function () {
+    //     create_received_voucher.statusMyTaskDraftDropdownCheck();
+    // });
+
+    // it("08.19. Verify that the Status filter displays Pending Approval received voucher records correctly in My Tasks.", function () {
+    //     create_received_voucher.statusMyTaskPendingApprovalDropdownCheck();
+    // });
+
+    it("08.20. Verify that the MFI Admin can successfully approve a received voucher after creation.", function () {
         create_received_voucher.approveReceivedVoucher();
     });
 
-    it("08.16. Verify that the action button performs successfully when clicked.", function () {
+    it("08.21. Verify that the action button performs successfully when clicked.", function () {
         create_received_voucher.actionButtonCheck();
     });
 
-    it("08.17. Verify that the view details functionality works successfully when the view button is clicked.", function () {
+    it("08.22. Verify that the view details functionality works successfully when the view button is clicked.", function () {
         create_received_voucher.detailsViewCheck();
     });
 
-    it("08.18. Verify that the user can navigate back from the received voucher details page successfully.", function () {
+    it("08.23. Verify that the user can navigate back from the received voucher details page successfully.", function () {
         create_received_voucher.viewGoBackReceivedVoucher();
     });
 
-    it("08.19. Verify that inactive received vouchers can be filtered using the status dropdown.", function () {
+    it("08.24. Verify that inactive received vouchers can be filtered using the status dropdown.", function () {
         create_received_voucher.statusInactiveDropdownCheck();
     });
 
-    it("08.20. Verify that active received vouchers are filtered correctly using the status dropdown.", function () {
+    it("08.25. Verify that active received vouchers are filtered correctly using the status dropdown.", function () {
         create_received_voucher.statusActiveDropdownCheck();
     });
 
-    it("08.21. Verify that the search functionality returns correct results when searching by received voucher name.", function () {
+    it("08.26. Verify that the search functionality returns correct results when searching by received voucher name.", function () {
         create_received_voucher.searchName();
     });
 
-    it("08.22. Verify that the grid list resets successfully when the reset button is clicked.", function () {
+    it("08.27. Verify that the grid list resets successfully when the reset button is clicked.", function () {
         create_received_voucher.gridResetButtonCheck();
     });
 
-    it("08.23. Verify that the grid list refreshes successfully when the refresh button is clicked.", function () {
+    it("08.28. Verify that the grid list refreshes successfully when the refresh button is clicked.", function () {
         create_received_voucher.gridRefreshButtonCheck();
     });
 
-    it("08.24. Verify that clicking the search button redirects the user to the Received Voucher list page.", function () {
+    it("08.29. Verify that clicking the search button redirects the user to the Received Voucher list page.", function () {
         create_received_voucher.gridSearchButtonCheck();
     });
 
-    it("08.25. Verify the functionality of the Draft button on the received voucher page.", function () {
+    it("08.30. Verify the functionality of the Draft button on the received voucher page.", function () {
         create_received_voucher.gridDraftButton();
     });
 
-    it("08.26. Verify the functionality of turning off the Draft button on the received voucher page.", function () {
+    it("08.31. Verify the functionality of turning off the Draft button on the received voucher page.", function () {
         create_received_voucher.gridDraftButtonOff();
     });
 
-    it("08.27. Verify that the reset button clears all entered input values on the received voucher creation page.", function () {
+    it("08.32. Verify that the reset button clears all entered input values on the received voucher creation page.", function () {
         create_received_voucher.createResetButtonCheck();
     });
 
-    it("08.28. Verify that validation messages appear for required fields when submitting empty inputs.", function () {
+    it("08.33. Verify that validation messages appear for required fields when submitting empty inputs.", function () {
         create_received_voucher.createValidationMessageCheck();
     });
 
-    it("08.29. Verify that validation messages appear for required fields when clicking the draft button with empty inputs.", function () {
+    it("08.34. Verify that validation messages appear for required fields when clicking the draft button with empty inputs.", function () {
         create_received_voucher.createDraftButtonCheck();
     });
 
-    it("08.30. Verify that validation messages appear for required fields when clicking the approve button with empty inputs.", function () {
+    it("08.35. Verify that validation messages appear for required fields when clicking the approve button with empty inputs.", function () {
         create_received_voucher.createApproveButtonCheck();
     });
 
-    it("08.31. Verify that clicking the add icon button redirects the user to the Received Voucher list page.", function () {
+    it("08.36. Verify that clicking the add icon button redirects the user to the Received Voucher list page.", function () {
         create_received_voucher.createPaymentAddIconButtonCheck();
     });
 
-    it("08.32. Verify that clicking the remove icon button redirects the user to the Received Voucher list page.", function () {
+    it("08.37. Verify that clicking the remove icon button redirects the user to the Received Voucher list page.", function () {
         create_received_voucher.createPaymentRemoveIconButtonCheck();
     });
 
-    it("08.33. Verify that clicking the go back button redirects the user to the Received Voucher list page.", function () {
+    it("08.38. Verify that clicking the go back button redirects the user to the Received Voucher list page.", function () {
         create_received_voucher.createGoBackButtonCheck();
     });
 
-    it("08.34. Verify that clicking the 'Add New Journal Details' button works successfully on the received voucher creation page.", function () {
+    it("08.39. Verify that clicking the 'Add New Journal Details' button works successfully on the received voucher creation page.", function () {
         create_received_voucher.createNewJournalDetailsButtonCheck();
     });
 
-    it("08.35. Verify that clicking the delete button works successfully on the received voucher creation page.", function () {
+    it("08.40. Verify that clicking the delete button works successfully on the received voucher creation page.", function () {
         create_received_voucher.createDeleteButtonCheck();
     });
 
-    it("08.36. Verify that the grid list content changes correctly from English to Bangla.", function () {
+    it("08.41. Verify that the grid list content changes correctly from English to Bangla.", function () {
         create_received_voucher.gridLanguageSwitchCheck();
     });
 });

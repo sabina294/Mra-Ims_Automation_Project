@@ -460,10 +460,50 @@ class ReceivedVoucherCreation {
         });
     }
 
+    myTaskMenuReceivedVoucher() {
+        cy.fixture(this.test_data).then((data) => {
+            const rvData = data.mfiAdmin.receivedVoucher;
+             cy.imsId("menu-my-task").click();
+            cy.imsId("submenu-awaiting-received-voucher").click();
+            cy.log("Successfully navigate to my task menu Received voucher");
+        });
+    }
+
+    myTaskResetButtonCheck() {
+        cy.imsId("btn-reset").click();
+        cy.log("Successful clean my task displaying.");
+    }
+
+    myTaskRefreshButtonCheck() {
+        cy.imsId("btn-refresh").click();
+        cy.log(
+            "successfully refresh page  displayed the my task list of the Received voucher "
+        );
+    }
+
+    statusMyTaskDraftDropdownCheck() {
+        cy.fixture(this.test_data).then((data) => {
+            const rvData = data.mfiAdmin.approveReceivedVoucher;
+            cy.formController("status").type(rvData.taskStatus).type("{enter}");
+            cy.log(
+                "Received voucher form status draft dropdown check successfully"
+            );
+        });
+    }
+
+    statusMyTaskPendingApprovalDropdownCheck() {
+        cy.fixture(this.test_data).then((data) => {
+            const rvData = data.mfiAdmin.approveReceivedVoucher;
+            cy.imsId("btn-reset").click();
+            cy.formController("status").type(rvData.myTaskStatus).type("{enter}");
+            cy.log(
+                "Received voucher form status pending approval dropdown check successfully"
+            );
+        });
+    }
+
     approveReceivedVoucher() {
         cy.fixture(this.test_data).then(() => {
-            cy.imsId("menu-my-task").click();
-            cy.imsId("submenu-awaiting-received-voucher").click();
 
             cy.imsId("toggle-action").first().click();
             cy.imsId("btn-table-action-view").click();

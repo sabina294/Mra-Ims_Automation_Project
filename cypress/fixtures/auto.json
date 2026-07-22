@@ -646,6 +646,11 @@
       "statusSelect": "Rejected",
       "search": "Initial Balance"
     },
+    "approveManualJournal": {
+      "myTaskStatus": "Pending-Approval",
+      "taskStatus": "Draft",
+      "office": "1020 (Ashulia)"
+    },
     "financialPeriodManagement": {
       "nameEn": "Test period",
       "nameBn": "পরীক্ষার সময়কাল",
@@ -677,6 +682,11 @@
       "statusSelect": "Active",
       "search": "Test Payment Voucher"
     },
+    "approvePaymentVoucher": {
+      "myTaskStatus": "Pending-Approval",
+      "taskStatus": "Draft",
+      "office": "1020 (Ashulia)"
+    },
     "receivedVoucher": {
       "voucherNameEn": "Test received Voucher",
       "voucherNameBn": "পরীক্ষার প্রাপ্তির ভাউচার",
@@ -689,6 +699,11 @@
       "selectStatus": "Inactive",
       "statusSelect": "Active",
       "search": "Test received Voucher"
+    },
+    "approveReceivedVoucher": {
+      "myTaskStatus": "Pending-Approval",
+      "taskStatus": "Draft",
+      "office": "1020 (Ashulia)"
     },
     "autoVoucherFrom": {
       "preparedBy": "tem-1020-bm",
