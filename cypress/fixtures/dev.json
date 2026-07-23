@@ -155,6 +155,7 @@
       "empNameEn": "Sabina Yeasmin",
       "empNameBn": "সাবিনা ইয়াসমিন",
       "empMobileNo": "01887949170",
+      "email": "sabina.yeasmin.9701@gmail.com",
       "nidNumber": "0003463473656",
       "office": "1002 (Dhaka Regional Office)",
       "department": "Board of Directors",
@@ -168,21 +169,19 @@
       "adressEn": "Dhaka",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
-      "myTaskStatus": "Pending-Approval",
-      "taskStatus": "Draft",
       "search": "Sabina Yeasmin",
       "messageSaveEmp": "Mfi employee has been saved",
       "messageUpdateEmp": "Mfi employee has been updated"
     },
     "approveEmployeeFrom": {
-      "myTaskStatus": "Pending-Approval",
-      "taskStatus": "Draft",
+      "OfficeDropdown": "1020 (Ashulia)",
       "search": "Sabina Yeasmin"
     },
     "rejectedEmployeeFrom": {
       "empNameEn": "Sabina Yeasmin",
       "empNameBn": "সাবিনা ইয়াসমিন",
       "empMobileNo": "01887949170",
+      "email": "sabina.yeasmin.9701@gmail.com",
       "nidNumber": "0003463473656",
       "office": "1020 (Ashulia)",
       "department": "Board of Directors",
@@ -365,7 +364,7 @@
     },
     "memberSamityTransferFrom": {
       "memberNameEn": "Fariya",
-      "newSamityTransfer": "1028-105 (Phulbaria Mohila Samity)",
+      "newSamityTransfer": "1028-101 (Barachala Mohila Samity)",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
       "SelectOffice": "1020 (Ashulia)",
@@ -564,7 +563,6 @@
       "holidayType": "All",
       "holidayTitleBn": "পরীক্ষার ছুটি",
       "holidayTitleEn": "Test Holiday",
-      "endDate": "30",
       "search": "Weekly Holiday",
       "office": "1002 (Dhaka Regional Office)",
       "calendarYear": "2026",
@@ -823,6 +821,7 @@
       "empNameEn": "Sabina Yeasmin",
       "empNameBn": "সাবিনা ইয়াসমিন",
       "empMobileNo": "01887949170",
+      "email": "sabina.yeasmin.9701@gmail.com",
       "nidNumber": "0003463473656",
       "office": "1020 (Ashulia)",
       "department": "Board of Directors",
@@ -844,6 +843,7 @@
       "empNameEn": "Sabina Yeasmin",
       "empNameBn": "সাবিনা ইয়াসমিন",
       "empMobileNo": "01887949170",
+      "email": "sabina.yeasmin.9701@gmail.com",
       "nidNumber": "0003463473656",
       "office": "1020 (Ashulia)",
       "department": "Board of Directors",
@@ -1034,6 +1034,9 @@
       "approvedLoanAmount": "50000",
       "messageSaveLoanAccount": "Loan account proposal has been saved",
       "messageUpdateLoanAccount": "Do you want to update this loan account?"
+    },
+    "approveLoanAccountFrom": {
+      "office": "1020 (Ashulia)"
     },
     "loanAccountManagementFrom": {
       "samity": "Chhaya Mohila Samity",
@@ -1549,6 +1552,7 @@
       "employeeNameEn": "Test Employee",
       "employeeNameBn": "পরীক্ষা কর্মচারী",
       "employeeMobileNo": "01887949170",
+      "email": "sabina.yeasmin.9701@gmail.com",
       "tinNo": "3456",
       "nidNumber": "0003463473656",
       "department": "Board of Directors",
@@ -1569,6 +1573,7 @@
       "employeeNameEn": "Test Employee",
       "employeeNameBn": "পরীক্ষা কর্মচারী",
       "employeeMobileNo": "01887949170",
+      "email": "sabina.yeasmin.9701@gmail.com",
       "tinNo": "3456",
       "nidNumber": "0003463473656",
       "department": "Board of Directors",
@@ -1713,8 +1718,8 @@
       "selectSamity": "1020-102 (Dholpur Mohila Samity)",
       "selectMember": "1-1001 (Jannat Islam)",
       "selectLoanAccount": "AGRO-1020-102-1001-1",
-      "selectRebate": "Full",
       "rebateType": "Partial",
+      "selectRebate": "Full",
       "Amount": "1000",
       "search": "Amira Rahman",
       "selectStatus": "Submitted",
@@ -1794,8 +1799,8 @@
       "selectFieldOfficer": "GAIS UDDIN KHAN"
     },
     "regularCollection": {
-      "loanAmount": "50",
-      "loanAmount2": "50",
+      "loanAmount": "500",
+      "loanAmount2": "500",
       "fieldOfficer": "EMP-0122 - GAIS UDDIN KHAN",
       "Samity": "1020-106 (Belma Mohila Samity)"
     },

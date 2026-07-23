@@ -19,6 +19,7 @@ class RejectedEmployee {
       cy.formController("tin_no").type(emData.tinNo);
 
       cy.formController("contactNo").type(emData.employeeMobileNo);
+      cy.formController("emailAddress").first().clear().type(emData.email);
       cy.get("#nz-tabs-0-tab-1").click();
       cy.formController("nid_number").type(emData.nidNumber);
       cy.get("#nz-tabs-0-tab-2").click();

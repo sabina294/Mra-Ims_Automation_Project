@@ -155,6 +155,7 @@
       "empNameEn": "Sabina Yeasmin",
       "empNameBn": "সাবিনা ইয়াসমিন",
       "empMobileNo": "01887949170",
+      "email": "sabina.yeasmin.9701@gmail.com",
       "nidNumber": "0003463473656",
       "office": "1002 (Dhaka Regional Office)",
       "department": "Board of Directors",
@@ -173,14 +174,14 @@
       "messageUpdateEmp": "Mfi employee has been updated"
     },
     "approveEmployeeFrom": {
-      "myTaskStatus": "Pending-Approval",
-      "taskStatus": "Draft",
+      "OfficeDropdown": "1020 (Ashulia)",
       "search": "Sabina Yeasmin"
     },
     "rejectedEmployeeFrom": {
       "empNameEn": "Sabina Yeasmin",
       "empNameBn": "সাবিনা ইয়াসমিন",
       "empMobileNo": "01887949170",
+      "email": "sabina.yeasmin.9701@gmail.com",
       "nidNumber": "0003463473656",
       "office": "1020 (Ashulia)",
       "department": "Board of Directors",
@@ -432,7 +433,7 @@
       "messageSaveLoanAccount": "Loan account proposal has been saved",
       "messageUpdateLoanAccount": "Do you want to update this loan account?"
     },
-    "approveLLoanAccountFrom": {
+    "approveLoanAccountFrom": {
       "office": "1020 (Ashulia)"
     },
     "loanAccountManagementFrom": {
@@ -820,6 +821,7 @@
       "empNameEn": "Sabina Yeasmin",
       "empNameBn": "সাবিনা ইয়াসমিন",
       "empMobileNo": "01887949170",
+      "email": "sabina.yeasmin.9701@gmail.com",
       "nidNumber": "0003463473656",
       "office": "1020 (Ashulia)",
       "department": "Board of Directors",
@@ -841,6 +843,7 @@
       "empNameEn": "Sabina Yeasmin",
       "empNameBn": "সাবিনা ইয়াসমিন",
       "empMobileNo": "01887949170",
+      "email": "sabina.yeasmin.9701@gmail.com",
       "nidNumber": "0003463473656",
       "office": "1020 (Ashulia)",
       "department": "Board of Directors",
@@ -1549,6 +1552,7 @@
       "employeeNameEn": "Test Employee",
       "employeeNameBn": "পরীক্ষা কর্মচারী",
       "employeeMobileNo": "01887949170",
+      "email": "sabina.yeasmin.9701@gmail.com",
       "tinNo": "3456",
       "nidNumber": "0003463473656",
       "department": "Board of Directors",
@@ -1569,6 +1573,7 @@
       "employeeNameEn": "Test Employee",
       "employeeNameBn": "পরীক্ষা কর্মচারী",
       "employeeMobileNo": "01887949170",
+      "email": "sabina.yeasmin.9701@gmail.com",
       "tinNo": "3456",
       "nidNumber": "0003463473656",
       "department": "Board of Directors",

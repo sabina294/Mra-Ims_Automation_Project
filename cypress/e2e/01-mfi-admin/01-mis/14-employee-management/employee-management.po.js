@@ -1,6 +1,5 @@
 import messages from "../../../../support/constants/messages";
 import { GRID } from "../../../../support/constants/selectors";
-// import * as SELECTORS from "../../../../support/constants/selectors";
 
 class EmployeeManagementCreation {
   test_data = Cypress.env("TEST_DATA");
@@ -32,6 +31,7 @@ class EmployeeManagementCreation {
         ".ant-form-item-control-input-content > .ant-radio-group > :nth-child(1) > .ant-radio > .ant-radio-input"
       ).click();
       cy.formController("contactNo").type(emData.empMobileNo);
+      cy.formController("emailAddress").first().clear().type(emData.email);
       cy.get('#nz-tabs-1-tab-1').click();
       cy.formController("nid_number").type(emData.nidNumber);
       cy.get('#nz-tabs-1-tab-2').click();
@@ -99,23 +99,13 @@ class EmployeeManagementCreation {
     );
   }
 
-  statusMyTaskDraftDropdownCheck() {
+  statusMyTaskOfficeDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       var emData = data.mfiAdmin.approveEmployeeFrom;
-      cy.formController("status").type(emData.taskStatus).type("{enter}");
-      cy.log(
-        "Employee Management form status draft dropdown check successfully"
-      );
-    });
-  }
-
-  statusMyTaskPendingApprovalDropdownCheck() {
-    cy.fixture(this.test_data).then((data) => {
-      var emData = data.mfiAdmin.approveEmployeeFrom;
+      cy.formController("office_id").type(emData.OfficeDropdown).type("{enter}");
       cy.imsId("btn-reset").click();
-      cy.formController("status").type(emData.myTaskStatus).type("{enter}");
       cy.log(
-        "Employee Management form status pending approval dropdown check successfully"
+        "Employee Management form office dropdown check successfully"
       );
     });
   }

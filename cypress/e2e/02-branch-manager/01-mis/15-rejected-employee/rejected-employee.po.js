@@ -25,6 +25,7 @@ class RejectedEmployee {
         ".ant-form-item-control-input-content > .ant-radio-group > :nth-child(1) > .ant-radio > .ant-radio-input"
       ).click();
       cy.formController("contactNo").type(emData.empMobileNo);
+      cy.formController("emailAddress").first().clear().type(emData.email);
       cy.get('#nz-tabs-1-tab-1').click();
       cy.formController("nid_number").type(emData.nidNumber);
       cy.get('#nz-tabs-1-tab-2').click();
