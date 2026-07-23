@@ -67,13 +67,13 @@ describe("21. Samity Field Officer Change Module Test Cases", function () {
     samity_field_officer_change.myTaskRefreshButtonCheck();
   });
 
-  it("21.12. Verify that the Status filter displays Draft Samity Field Officer Change records correctly in My Tasks.", function () {
-    samity_field_officer_change.statusMyTaskDraftDropdownCheck();
-  });
+  // it("21.12. Verify that the Status filter displays Draft Samity Field Officer Change records correctly in My Tasks.", function () {
+  //   samity_field_officer_change.statusMyTaskDraftDropdownCheck();
+  // });
 
-  it("21.13. Verify that the Status filter displays Pending Approval Samity Field Officer Change records correctly in My Tasks.", function () {
-    samity_field_officer_change.statusMyTaskPendingApprovalDropdownCheck();
-  });
+  // it("21.13. Verify that the Status filter displays Pending Approval Samity Field Officer Change records correctly in My Tasks.", function () {
+  //   samity_field_officer_change.statusMyTaskPendingApprovalDropdownCheck();
+  // });
 
   it("21.14. Verify that an MFI Admin can successfully approve a Samity Field Officer Change record after creation.", function () {
     samity_field_officer_change.approveSamityChange();

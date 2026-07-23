@@ -55,43 +55,55 @@ describe("16. Employee Promotion Module Test Cases", function () {
         grid_employee_promotion.createEmployeePromotion();
     });
 
-    it("16.09. Verify that a new employee promotion is created and successfully approved with valid data.", function () {
+    it("16.09. Verify that the newly created Employee Promotion record appears in the My Tasks list.", function () {
+        grid_employee_promotion.myTaskMenuEmployeePromotion();
+    });
+
+    it("16.10. Verify that the Reset button clears all applied filters on the My Tasks page.", function () {
+        grid_employee_promotion.myTaskResetButtonCheck();
+    });
+
+    it("16.11. Verify that the Refresh button reloads the My Tasks list successfully.", function () {
+        grid_employee_promotion.myTaskRefreshButtonCheck();
+    });
+
+    it("16.12. Verify that a new employee promotion is created and successfully approved with valid data.", function () {
         grid_employee_promotion.approveNewEmployeePromotion();
     });
 
-    it("16.10. Verify that inactive employee promotion records can be filtered using the Status dropdown.", function () {
+    it("16.13. Verify that inactive employee promotion records can be filtered using the Status dropdown.", function () {
         grid_employee_promotion.statusInactiveDropdownCheck();
     });
 
-    it("16.11. Verify that active employee promotion records can be filtered using the Status dropdown.", function () {
+    it("16.14. Verify that active employee promotion records can be filtered using the Status dropdown.", function () {
         grid_employee_promotion.statusActiveDropdownCheck();
     });
 
-    it("16.12. Verify that search results are correctly displayed when searching by employee name.", function () {
+    it("16.15. Verify that search results are correctly displayed when searching by employee name.", function () {
         grid_employee_promotion.searchInEmployeeName();
     });
 
-    it("16.13. Verify that the grid list resets successfully when the Reset button is clicked.", function () {
+    it("16.16. Verify that the grid list resets successfully when the Reset button is clicked.", function () {
         grid_employee_promotion.gridResetButtonCheck();
     });
 
-    it("16.14. Verify that the grid list refreshes successfully when the Refresh button is clicked.", function () {
+    it("16.17. Verify that the grid list refreshes successfully when the Refresh button is clicked.", function () {
         grid_employee_promotion.gridRefreshButtonCheck();
     });
 
-    it("16.15. Verify that clicking the Search button on the rejected employee grid redirects to the Rejected Employee List page.", function () {
+    it("16.18. Verify that clicking the Search button on the rejected employee grid redirects to the Rejected Employee List page.", function () {
         grid_employee_promotion.gridSearchButtonCheck();
     });
 
-    it("16.16. Verify that draft employee promotion records are displayed when the Draft filter is enabled.", function () {
+    it("16.19. Verify that draft employee promotion records are displayed when the Draft filter is enabled.", function () {
         grid_employee_promotion.gridDraftButton();
     });
 
-    it("16.17. Verify that draft employee promotion records are hidden when the Draft filter is disabled.", function () {
+    it("16.20. Verify that draft employee promotion records are hidden when the Draft filter is disabled.", function () {
         grid_employee_promotion.gridDraftButtonOff();
     });
 
-    it("16.18. Verify that the grid content updates correctly when switching language from English to Bangla.", function () {
+    it("16.21. Verify that the grid content updates correctly when switching language from English to Bangla.", function () {
         grid_employee_promotion.gridLanguageSwitchCheck();
     });
 });

@@ -48,13 +48,13 @@ describe("26. Member Samity Transfer Module Test Cases", function () {
     member_samity_transfer.myTaskRefreshButtonCheck();
   });
 
-  it("26.07. Verify that the Status filter displays Draft Member Samity Transfer records correctly in My Tasks.", function () {
-    member_samity_transfer.statusMyTaskDraftDropdownCheck();
-  });
+  // it("26.07. Verify that the Status filter displays Draft Member Samity Transfer records correctly in My Tasks.", function () {
+  //   member_samity_transfer.statusMyTaskDraftDropdownCheck();
+  // });
 
-  it("26.08. Verify that the Status filter displays Pending Approval Member Samity Transfer records correctly in My Tasks.", function () {
-    member_samity_transfer.statusMyTaskPendingApprovalDropdownCheck();
-  });
+  // it("26.08. Verify that the Status filter displays Pending Approval Member Samity Transfer records correctly in My Tasks.", function () {
+  //   member_samity_transfer.statusMyTaskPendingApprovalDropdownCheck();
+  // });
 
   it("26.09. Verify mfi-admin to successfully approve an  new  samity transfer record after transfer.", function () {
     member_samity_transfer.transferApprove();

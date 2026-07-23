@@ -76,6 +76,7 @@ class EmployeeTransfer {
                 .first()
                 .click({ force: true });
             cy.formController("new_office_id").type(emtData.newOffice).type("{enter}");
+            cy.wait(1000);
             cy.imsId("btn-submit").click();
             cy.imsId("btn-yes").click();
             cy.imsId("btn-ok").click();
@@ -111,9 +112,28 @@ class EmployeeTransfer {
         });
     }
 
+    myTaskMenuEmployeeTransfer() {
+        cy.fixture(this.test_data).then((data) => {
+            var emtData = data.branchManager.gridEmpTransferFrom;
+            cy.imsId("menu-my-task").click();
+            cy.imsId("submenu-awaiting-employee-transfer").click();
+            cy.log("Successfully navigate to my task menu employee transfer");
+        });
+    }
+
+    myTaskResetButtonCheck() {
+        cy.imsId("btn-reset").click();
+        cy.log("Successful clean my task displaying.");
+    }
+
+    myTaskRefreshButtonCheck() {
+        cy.imsId("btn-refresh").click();
+        cy.log(
+            "successfully refresh page  displayed the my task list of the Employee transfer form "
+        );
+    }
+
     approveNewEmployeeTransfer() {
-        cy.imsId("menu-my-task").click();
-        cy.imsId("submenu-awaiting-employee-transfer").click();
         cy.imsId("toggle-action").first().click();
         cy.imsId("btn-table-action-view").first().click();
         cy.imsId("btn-approve").click();

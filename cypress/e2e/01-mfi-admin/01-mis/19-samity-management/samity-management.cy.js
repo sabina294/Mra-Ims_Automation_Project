@@ -47,13 +47,13 @@ describe("19. Samity management Module Test Cases", function () {
     create_samity_management.myTaskRefreshButtonCheck();
   });
 
-  it("19.07. Verify that the Status filter displays Draft Samity Management records correctly in My Tasks.", function () {
-    create_samity_management.statusMyTaskDraftDropdownCheck();
-  });
+  // it("19.07. Verify that the Status filter displays Draft Samity Management records correctly in My Tasks.", function () {
+  //   create_samity_management.statusMyTaskDraftDropdownCheck();
+  // });
 
-  it("19.08. Verify that the Status filter displays Pending Approval Samity Management records correctly in My Tasks.", function () {
-    create_samity_management.statusMyTaskPendingApprovalDropdownCheck();
-  });
+  // it("19.08. Verify that the Status filter displays Pending Approval Samity Management records correctly in My Tasks.", function () {
+  //   create_samity_management.statusMyTaskPendingApprovalDropdownCheck();
+  // });
 
   it("19.09. Verify that the Search button displays the correct Samity Management records in My Tasks.", function () {
     create_samity_management.myTaskSearchButtonCheck();

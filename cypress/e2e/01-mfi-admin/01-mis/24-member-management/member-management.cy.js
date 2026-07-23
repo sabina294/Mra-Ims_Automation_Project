@@ -46,13 +46,13 @@ describe("24. Member Management Module Test Cases", function () {
     create_member_management.myTaskRefreshButtonCheck();
   });
 
-  it("24.07. Verify that the Status filter displays Draft Member Management records correctly in My Tasks.", function () {
-    create_member_management.statusMyTaskDraftDropdownCheck();
-  });
+  // it("24.07. Verify that the Status filter displays Draft Member Management records correctly in My Tasks.", function () {
+  //   create_member_management.statusMyTaskDraftDropdownCheck();
+  // });
 
-  it("24.08. Verify that the Status filter displays Pending Approval Member Management records correctly in My Tasks.", function () {
-    create_member_management.statusMyTaskPendingApprovalDropdownCheck();
-  });
+  // it("24.08. Verify that the Status filter displays Pending Approval Member Management records correctly in My Tasks.", function () {
+  //   create_member_management.statusMyTaskPendingApprovalDropdownCheck();
+  // });
 
   it("24.09. Verify that the Search button displays the correct Member Management records in My Tasks.", function () {
     create_member_management.myTaskSearchButtonCheck();

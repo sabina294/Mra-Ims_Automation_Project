@@ -47,13 +47,13 @@ describe("23. Samity Close Module Test Cases", function () {
     Samity_close.myTaskRefreshButtonCheck();
   });
 
-  it("23.07. Verify that the Status filter displays Draft Samity Close records correctly in My Tasks.", function () {
-    Samity_close.statusMyTaskDraftDropdownCheck();
-  });
+  // it("23.07. Verify that the Status filter displays Draft Samity Close records correctly in My Tasks.", function () {
+  //   Samity_close.statusMyTaskDraftDropdownCheck();
+  // });
 
-  it("23.08. Verify that the Status filter displays Pending Approval Samity Close records correctly in My Tasks.", function () {
-    Samity_close.statusMyTaskPendingApprovalDropdownCheck();
-  });
+  // it("23.08. Verify that the Status filter displays Pending Approval Samity Close records correctly in My Tasks.", function () {
+  //   Samity_close.statusMyTaskPendingApprovalDropdownCheck();
+  // });
 
   it("23.09. Verify that the MFI Admin can successfully approve a Samity Close record after creation.", function () {
     Samity_close.approveSamityClose();

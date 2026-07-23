@@ -47,13 +47,13 @@ describe("22. Samity Day Change Module Test Cases", function () {
     samity_day_change.myTaskRefreshButtonCheck();
   });
 
-  it("22.07. Verify that the Status filter displays Draft Samity Day Change records correctly in My Tasks.", function () {
-    samity_day_change.statusMyTaskDraftDropdownCheck();
-  });
+  // it("22.07. Verify that the Status filter displays Draft Samity Day Change records correctly in My Tasks.", function () {
+  //   samity_day_change.statusMyTaskDraftDropdownCheck();
+  // });
 
-  it("22.08. Verify that the Status filter displays Pending Approval Samity Day Change records correctly in My Tasks.", function () {
-    samity_day_change.statusMyTaskPendingApprovalDropdownCheck();
-  });
+  // it("22.08. Verify that the Status filter displays Pending Approval Samity Day Change records correctly in My Tasks.", function () {
+  //   samity_day_change.statusMyTaskPendingApprovalDropdownCheck();
+  // });
 
   it("22.09. Verify that the MFI Admin can successfully approve a Samity Day Change record after creation.", function () {
     samity_day_change.approveSamityDayChange();

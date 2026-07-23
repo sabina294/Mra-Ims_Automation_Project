@@ -839,6 +839,10 @@
       "messageSaveEmp": "Mfi employee has been saved",
       "messageUpdateEmp": "Mfi employee has been updated"
     },
+    "approveEmployeeFrom": {
+      "OfficeDropdown": "1020 (Ashulia)",
+      "search": "Sabina Yeasmin"
+    },
     "rejectedEmployeeFrom": {
       "empNameEn": "Sabina Yeasmin",
       "empNameBn": "সাবিনা ইয়াসমিন",
@@ -863,7 +867,7 @@
       "messageUpdateEmp": "Mfi employee has been updated"
     },
     "gridEmpPromotionFrom": {
-      "newDepartment": "Board of Directors",
+      "newDepartment": "Department of Administration and Human Resources",
       "newDesignation": "Branch Manager",
       "search": "SHUMSHDDIN",
       "selectStatus": "Inactive",
