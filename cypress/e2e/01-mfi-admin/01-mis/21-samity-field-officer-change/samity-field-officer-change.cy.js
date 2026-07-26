@@ -67,67 +67,59 @@ describe("21. Samity Field Officer Change Module Test Cases", function () {
     samity_field_officer_change.myTaskRefreshButtonCheck();
   });
 
-  // it("21.12. Verify that the Status filter displays Draft Samity Field Officer Change records correctly in My Tasks.", function () {
-  //   samity_field_officer_change.statusMyTaskDraftDropdownCheck();
-  // });
-
-  // it("21.13. Verify that the Status filter displays Pending Approval Samity Field Officer Change records correctly in My Tasks.", function () {
-  //   samity_field_officer_change.statusMyTaskPendingApprovalDropdownCheck();
-  // });
-
-  it("21.14. Verify that an MFI Admin can successfully approve a Samity Field Officer Change record after creation.", function () {
+  it("21.12. Verify that an MFI Admin can successfully approve a Samity Field Officer Change record after creation.", function () {
     samity_field_officer_change.approveSamityChange();
   });
 
-  it("21.15. Verify that the Action button performs the expected action successfully.", function () {
+  it("21.13. Verify that the Action button performs the expected action successfully.", function () {
     samity_field_officer_change.actionButtonCheck();
   });
 
-  it("21.16. Verify that the user can successfully view Samity Field Officer Change information, including name and description.", function () {
+  it("21.14. Verify that the user can successfully view Samity Field Officer Change information, including name and description.", function () {
     samity_field_officer_change.viewSamityChange();
   });
 
-  it("21.17. Verify that clicking the Go Back button on the view page redirects the user to the Samity Field Officer Change list page.", function () {
+  it("21.15. Verify that clicking the Go Back button on the view page redirects the user to the Samity Field Officer Change list page.", function () {
     samity_field_officer_change.viewGoBackButton();
   });
 
-  it("21.18. Verify that the user can filter inactive records using the Status dropdown on the Samity Field Officer Change list page.", function () {
+  it("21.16. Verify that the user can filter inactive records using the Status dropdown on the Samity Field Officer Change list page.", function () {
     samity_field_officer_change.statusInactiveDropdownCheck();
   });
 
-  it("21.19. Verify that the Status dropdown correctly filters active records on the Samity Field Officer Change list page.", function () {
+  it("21.17. Verify that the Status dropdown correctly filters active records on the Samity Field Officer Change list page.", function () {
     samity_field_officer_change.statusActiveDropdownCheck();
   });
 
-  it("21.20. Verify that search results are displayed correctly when searching by Samity Field Officer Change name.", function () {
+  it("21.18. Verify that search results are displayed correctly when searching by Samity Field Officer Change name.", function () {
     samity_field_officer_change.searchInSamityFieldOfficerChangeName();
   });
 
-  it("21.21. Verify that the grid list resets successfully when the Reset button is clicked on the Samity Field Officer Change page.", function () {
+  it("21.19. Verify that the grid list resets successfully when the Reset button is clicked on the Samity Field Officer Change page.", function () {
     samity_field_officer_change.gridResetButtonCheck();
   });
 
-  it("21.22. Verify that clicking the Search button displays the filtered results on the Samity Field Officer Change list page.", function () {
+  it("21.20. Verify that clicking the Search button displays the filtered results on the Samity Field Officer Change list page.", function () {
     samity_field_officer_change.gridSearchButtonCheck();
   });
 
-  it("21.23. Verify that the grid list refreshes successfully when the Refresh button is clicked on the Samity Field Officer Change page.", function () {
+  it("21.21. Verify that the grid list refreshes successfully when the Refresh button is clicked on the Samity Field Officer Change page.", function () {
     samity_field_officer_change.gridRefreshButtonCheck();
   });
 
-  it("21.24. Verify that the grid list displays draft records successfully when the Draft button is enabled.", function () {
+  it("21.22. Verify that the grid list displays draft records successfully when the Draft button is enabled.", function () {
     samity_field_officer_change.gridDraftButton();
   });
 
-  it("21.25. Verify that the grid list displays non-draft records successfully when the Draft button is disabled.", function () {
+  it("21.23. Verify that the grid list displays non-draft records successfully when the Draft button is disabled.", function () {
     samity_field_officer_change.gridDraftButtonOff();
   });
 
-  it("21.26. Verify that office selection works correctly from the Office dropdown on the Samity Field Officer Change list page.", function () {
+  it("21.24. Verify that office selection works correctly from the Office dropdown on the Samity Field Officer Change list page.", function () {
     samity_field_officer_change.selectofficeDropdown();
   });
 
-  it("21.27. Verify that the grid list content changes correctly when switching the language from English to Bangla.", function () {
+  it("21.25. Verify that the grid list content changes correctly when switching the language from English to Bangla.", function () {
     samity_field_officer_change.gridLanguageSwitchCheck();
   });
 }); 

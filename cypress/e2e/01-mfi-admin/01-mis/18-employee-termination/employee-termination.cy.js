@@ -49,43 +49,47 @@ describe("18. Employee Termination Module Test Cases", function () {
         grid_employee_termination.myTaskRefreshButtonCheck();
     });
 
-    it("18.07. Verify that a new Employee Termination record can be created and approved successfully using valid required data.", function () {
+    it("18.07. Verify that the Status filter displays office dropdown Employee Termination records correctly in My Tasks.", function () {
+        grid_employee_termination.myTaskOfficeDropdownCheck();
+    });
+
+    it("18.08. Verify that a new Employee Termination record can be created and approved successfully using valid required data.", function () {
         grid_employee_termination.approveNewEmployeeTermination();
     });
 
-    it("18.08. Verify that inactive Employee Termination records can be filtered successfully using the Status dropdown.", function () {
+    it("18.09. Verify that inactive Employee Termination records can be filtered successfully using the Status dropdown.", function () {
         grid_employee_termination.statusInactiveDropdownCheck();
     });
 
-    it("18.09. Verify that active Employee Termination records can be filtered successfully using the Status dropdown.", function () {
+    it("18.10. Verify that active Employee Termination records can be filtered successfully using the Status dropdown.", function () {
         grid_employee_termination.statusActiveDropdownCheck();
     });
 
-    it("18.10. Verify that the search functionality works correctly when searching by employee name.", function () {
+    it("18.11. Verify that the search functionality works correctly when searching by employee name.", function () {
         grid_employee_termination.searchInEmployeeName();
     });
 
-    it("18.11. Verify that clicking the Reset button clears all applied filters and resets the Employee Termination grid.", function () {
+    it("18.12. Verify that clicking the Reset button clears all applied filters and resets the Employee Termination grid.", function () {
         grid_employee_termination.gridResetButtonCheck();
     });
 
-    it("18.12. Verify that clicking the Refresh button reloads the Employee Termination grid successfully.", function () {
+    it("18.13. Verify that clicking the Refresh button reloads the Employee Termination grid successfully.", function () {
         grid_employee_termination.gridRefreshButtonCheck();
     });
 
-    it("18.13. Verify that clicking the Search button updates the Employee Termination List grid successfully.", function () {
+    it("18.14. Verify that clicking the Search button updates the Employee Termination List grid successfully.", function () {
         grid_employee_termination.gridSearchButtonCheck();
     });
 
-    it("18.14. Verify that draft Employee Termination records are displayed when the Draft filter is enabled.", function () {
+    it("18.15. Verify that draft Employee Termination records are displayed when the Draft filter is enabled.", function () {
         grid_employee_termination.gridDraftButton();
     });
 
-    it("18.15. Verify that draft Employee Termination records are hidden when the Draft filter is disabled.", function () {
+    it("18.16. Verify that draft Employee Termination records are hidden when the Draft filter is disabled.", function () {
         grid_employee_termination.gridDraftButtonOff();
     });
 
-    it("18.16. Verify that the Employee Termination List page is displayed correctly after switching the language from English to Bangla.", function () {
+    it("18.17. Verify that the Employee Termination List page is displayed correctly after switching the language from English to Bangla.", function () {
         grid_employee_termination.gridLanguageSwitchCheck();
     });
 

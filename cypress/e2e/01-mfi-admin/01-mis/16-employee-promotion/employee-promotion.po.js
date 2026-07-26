@@ -124,6 +124,17 @@ class EmployeePromotion {
         );
     }
 
+    myTaskOfficeDropdownCheck() {
+        cy.fixture(this.test_data).then((data) => {
+            var empData = data.mfiAdmin.approveEmployeePromotionFrom;
+            cy.formController("office_id").type(empData.OfficeDropdown).type("{enter}");
+            cy.imsId("btn-reset").click();
+            cy.log(
+                "Employee Promotion form office dropdown check successfully"
+            );
+        });
+    }
+
     approveNewEmployeePromotion() {
         cy.imsId("toggle-action").first().click();
         cy.imsId("btn-table-action-view").first().click();

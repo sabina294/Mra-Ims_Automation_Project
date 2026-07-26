@@ -103,6 +103,7 @@ class EmployeeTransfer {
                 .first()
                 .click({ force: true });
             cy.formController("new_office_id").type(emtData.newOffice).type("{enter}");
+            cy.wait(1000);
             cy.imsId("btn-submit").click();
             cy.imsId("btn-yes").click();
             cy.imsId("btn-ok").click();
@@ -129,6 +130,17 @@ class EmployeeTransfer {
         cy.log(
             "successfully refresh page  displayed the my task list of the Employee transfer form "
         );
+    }
+
+    myTaskOfficeDropdownCheck() {
+        cy.fixture(this.test_data).then((data) => {
+            var emtData = data.mfiAdmin.approveEmployeeTransferFrom;
+            cy.formController("office_id").type(emtData.OfficeDropdown).type("{enter}");
+            cy.imsId("btn-reset").click();
+            cy.log(
+                "Employee Transfer form office dropdown check successfully"
+            );
+        });
     }
 
     approveNewEmployeeTransfer() {

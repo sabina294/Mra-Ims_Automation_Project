@@ -61,6 +61,17 @@ class EmployeeTermination {
         );
     }
 
+    myTaskOfficeDropdownCheck() {
+        cy.fixture(this.test_data).then((data) => {
+            var etData = data.mfiAdmin.approveEmployeeTerminationFrom;
+            cy.formController("office_id").type(etData.OfficeDropdown).type("{enter}");
+            cy.imsId("btn-reset").click();
+            cy.log(
+                "Employee Termination form office dropdown check successfully"
+            );
+        });
+    }
+
     approveNewEmployeeTermination() {
         cy.imsId("toggle-action").first().click();
         cy.imsId("btn-table-action-view").first().click();

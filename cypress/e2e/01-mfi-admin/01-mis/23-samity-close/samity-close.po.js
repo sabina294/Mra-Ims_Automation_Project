@@ -35,7 +35,7 @@ class SamityClose {
   myTaskSamityOfficeDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       var scData = data.mfiAdmin.approveSamityCloseFrom;
-      cy.formController("office_id").type(scData.office).type("{enter}");
+      cy.formController("office_id").type(scData.OfficeDropdown).type("{enter}");
       cy.log("Successfully navigate to my task menu samity close office dropdown");
     });
   }

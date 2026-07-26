@@ -48,11 +48,11 @@ class SamityChange {
 
   samityChange() {
     cy.fixture(this.test_data).then((data) => {
-      var smData = data.mfiAdmin.samityChangeFrom;
+      var sfcData = data.mfiAdmin.samityChangeFrom;
       cy.imsId("btn-reset").click();
       // cy.formController("search_text")
       //   .clear()
-      //   .type(smData.samityNameEn);
+      //   .type(sfcData.samityNameEn);
       // cy.imsId("btn-search").click();
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-mis-table-action-change").click();
@@ -66,7 +66,7 @@ class SamityChange {
       cy.imsId("btn-yes").click();
       cy.get("app-confirmation-modal")
         .should("be.visible")
-        .and("contain", smData.messageSamityChange);
+        .and("contain", sfcData.messageSamityChange);
       cy.imsId("btn-ok").click();
 
       cy.log("Successfully field officer changed for samity (MFI Admin)");
@@ -75,7 +75,7 @@ class SamityChange {
 
   myTaskMenuSamityChange() {
     cy.fixture(this.test_data).then((data) => {
-      var smData = data.mfiAdmin.samityChangeFrom;
+      var sfcData = data.mfiAdmin.samityChangeFrom;
       cy.imsId("menu-my-task").click();
       cy.imsId("submenu-awaiting-samity-field-officer-change").click();
       cy.log("Successfully navigate to my task menu samity field officer change");
@@ -84,8 +84,8 @@ class SamityChange {
 
   myTaskSamityOfficeDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var smData = data.mfiAdmin.approveSamityFrom;
-      cy.formController("office_id").type(smData.office).type("{enter}");
+      var sfcData = data.mfiAdmin.approveSamityChangeFrom;
+      cy.formController("office_id").type(sfcData.OfficeDropdown).type("{enter}");
       cy.log("Successfully navigate to my task menu samity field officer change office dropdown");
     });
   }
@@ -102,31 +102,9 @@ class SamityChange {
     );
   }
 
-  statusMyTaskDraftDropdownCheck() {
-    cy.fixture(this.test_data).then((data) => {
-      var smData = data.mfiAdmin.approveSamityChangeFrom;
-      cy.formController("status").type(smData.taskStatus).type("{enter}");
-      cy.log(
-        "Samity field officer change  form status draft dropdown check successfully"
-      );
-    });
-  }
-
-  statusMyTaskPendingApprovalDropdownCheck() {
-    cy.fixture(this.test_data).then((data) => {
-      var smData = data.mfiAdmin.approveSamityChangeFrom;
-      cy.imsId("btn-reset").click();
-      cy.formController("status").type(smData.myTaskStatus).type("{enter}");
-      cy.imsId("btn-reset").click();
-      cy.log(
-        "Samity field officer change form status pending approval dropdown check successfully"
-      );
-    });
-  }
-
   approveSamityChange() {
     cy.fixture(this.test_data).then((data) => {
-      var smData = data.mfiAdmin.samityChangeFrom;
+      var sfcData = data.mfiAdmin.samityChangeFrom;
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
       cy.imsId("btn-lock").click();
@@ -149,7 +127,7 @@ class SamityChange {
 
   viewSamityChange() {
     cy.fixture(this.test_data).then((data) => {
-      var smData = data.mfiAdmin.samityChangeFrom;
+      var sfcData = data.mfiAdmin.samityChangeFrom;
       cy.imsId("btn-table-action-view").click();
       cy.log("Successfully viewed the samity change list page");
     });
@@ -163,9 +141,9 @@ class SamityChange {
 
   statusInactiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var smData = data.mfiAdmin.samityChangeFrom;
+      var sfcData = data.mfiAdmin.samityChangeFrom;
       cy.imsId("btn-reset").click();
-      cy.formController("status").type(smData.selectStatus).type("{enter}");
+      cy.formController("status").type(sfcData.selectStatus).type("{enter}");
       cy.log(
         "samity field officer change status inactive dropdown check successfully"
       );
@@ -174,8 +152,8 @@ class SamityChange {
 
   statusActiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var smData = data.mfiAdmin.samityChangeFrom;
-      cy.formController("status").type(smData.statusSelect).type("{enter}");
+      var sfcData = data.mfiAdmin.samityChangeFrom;
+      cy.formController("status").type(sfcData.statusSelect).type("{enter}");
       cy.log(
         "samity field officer change status active dropdown check successfully"
       );
@@ -183,16 +161,16 @@ class SamityChange {
   }
   searchInSamityFieldOfficerChangeName() {
     cy.fixture(this.test_data).then((data) => {
-      var smData = data.mfiAdmin.samityChangeFrom;
+      var sfcData = data.mfiAdmin.samityChangeFrom;
       cy.imsId("btn-reset").click();
-      cy.formController("search_text").type(smData.samityNameEn);
+      cy.formController("search_text").type(sfcData.samityNameEn);
       cy.log("Successfully search in the Samity field officer change");
     });
   }
   statusOfficeDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var smData = data.mfiAdmin.samityChangeFrom;
-      cy.formController("office_id").type(smData.SelectOffice).type("{enter}");
+      var sfcData = data.mfiAdmin.samityChangeFrom;
+      cy.formController("office_id").type(sfcData.SelectOffice).type("{enter}");
       cy.log(
         "samity field officer change status office dropdown check successfully"
       );
@@ -205,9 +183,9 @@ class SamityChange {
 
   gridSearchButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var smData = data.mfiAdmin.samityChangeFrom;
+      var sfcData = data.mfiAdmin.samityChangeFrom;
       cy.imsId("btn-reset").click();
-      cy.formController("search_text").type(smData.search);
+      cy.formController("search_text").type(sfcData.search);
       cy.imsId("btn-search").click();
       cy.log("Successful search button click.");
     });
@@ -234,8 +212,8 @@ class SamityChange {
 
   selectofficeDropdown() {
     cy.fixture(this.test_data).then((data) => {
-      var smData = data.mfiAdmin.samityChangeFrom;
-      cy.formController("office_id").type(smData.selectOffice);
+      var sfcData = data.mfiAdmin.samityChangeFrom;
+      cy.formController("office_id").type(sfcData.selectOffice);
       cy.log("Successfully select office in the samity field officer change");
     });
   }

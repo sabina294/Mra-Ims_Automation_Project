@@ -44,9 +44,9 @@ describe("14. Employee Management Module Test Cases", function () {
   });
 
   it("14.06. Verify that the Status filter displays office dropdown Employee Management records correctly in My Tasks.", function () {
-    create_employee_management.statusMyTaskOfficeDropdownCheck();
+    create_employee_management.myTaskOfficeDropdownCheck();
   });
-
+2
   it("14.07. Verify that the Search button displays the correct Employee Management records in My Tasks.", function () {
     create_employee_management.myTaskSearchButtonCheck();
   });

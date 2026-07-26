@@ -17,40 +17,40 @@ module.exports = defineConfig({
 
     baseUrl: process.env.CYPRESS_BASE_URL,
 
-setupNodeEvents(on, config) {
+    setupNodeEvents(on, config) {
 
-  mochawesome(on);
+      mochawesome(on);
 
-  on("before:browser:launch", (browser, launchOptions) => {
+      on("before:browser:launch", (browser, launchOptions) => {
 
-    if (browser.family === "chromium") {
+        if (browser.family === "chromium") {
 
-      launchOptions.args.push(
-        "--use-fake-ui-for-media-stream"
-      );
+          launchOptions.args.push(
+            "--use-fake-ui-for-media-stream"
+          );
 
-      launchOptions.preferences = {
-        default: {
-          profile: {
-            content_settings: {
-              exceptions: {
-                geolocation: {
-                  [`${process.env.CYPRESS_BASE_URL},*`]: {
-                    setting: 1
+          launchOptions.preferences = {
+            default: {
+              profile: {
+                content_settings: {
+                  exceptions: {
+                    geolocation: {
+                      [`${process.env.CYPRESS_BASE_URL},*`]: {
+                        setting: 1
+                      }
+                    }
                   }
                 }
               }
             }
-          }
+          };
+
         }
-      };
+        return launchOptions;
+      });
 
-    }
-    return launchOptions;
-  });
-
-  return config;
-},
+      return config;
+    },
     video: false,
     testIsolation: false,
     watchForFileChanges: false,

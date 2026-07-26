@@ -80,27 +80,6 @@ class SamityCreation {
     );
   }
 
-  statusMyTaskDraftDropdownCheck() {
-    cy.fixture(this.test_data).then((data) => {
-      var smData = data.mfiAdmin.approveSamityFrom;
-      cy.formController("status").type(smData.taskStatus).type("{enter}");
-      cy.log(
-        "Samity Management form status draft dropdown check successfully"
-      );
-    });
-  }
-
-  statusMyTaskPendingApprovalDropdownCheck() {
-    cy.fixture(this.test_data).then((data) => {
-      var smData = data.mfiAdmin.approveSamityFrom;
-      cy.imsId("btn-reset").click();
-      cy.formController("status").type(smData.myTaskStatus).type("{enter}");
-      cy.log(
-        "Samity Management form status pending approval dropdown check successfully"
-      );
-    });
-  }
-
   myTaskSearchButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
       var smData = data.mfiAdmin.approveSamityFrom;

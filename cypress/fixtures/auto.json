@@ -207,16 +207,25 @@
       "selectStatus": "Inactive",
       "statusSelect": "Active"
     },
+    "approveEmployeePromotionFrom": {
+      "OfficeDropdown": "1020 (Ashulia)"
+    },
     "gridEmpTransferFrom": {
       "search": "ABDUL RASHID",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
-      "newOffice": "1004 (Dhaka Zonal Office)"
+      "newOffice": "1002 (Dhaka Regional Office)"
+    },
+    "approveEmployeeTransferFrom": {
+      "OfficeDropdown": "1020 (Ashulia)"
     },
     "gridEmpTerminationFrom": {
       "search": "AMER ALI",
       "selectStatus": "Inactive",
       "statusSelect": "Active"
+    },
+    "approveEmployeeTerminationFrom": {
+      "OfficeDropdown": "1020 (Ashulia)"
     },
     "createSamityFrom": {
       "samityNameEn": "Test Samity",
@@ -279,9 +288,7 @@
       "messageSamityChange": "Samity has been updated"
     },
     "approveSamityChangeFrom": {
-      "myTaskStatus": "Pending-Approval",
-      "taskStatus": "Draft",
-      "office": "1020 (Ashulia)"
+      "OfficeDropdown": "1020 (Ashulia)"
     },
     "samityDayChangeFrom": {
       "samityNameEn": "Katigram Mohila Samity",
@@ -293,9 +300,7 @@
       "messageSamityDayChange": "Samity day has been updated"
     },
     "approveSamityDayChangeFrom": {
-      "myTaskStatus": "Pending-Approval",
-      "taskStatus": "Draft",
-      "office": "1020 (Ashulia)"
+      "OfficeDropdown": "1020 (Ashulia)"
     },
     "samityCloseFrom": {
       "samityNameEn": "Rustampur Mohila Samity",
@@ -306,9 +311,7 @@
       "messageSamityClose": "Samity has been closed successfully."
     },
     "approveSamityCloseFrom": {
-      "myTaskStatus": "Pending-Approval",
-      "taskStatus": "Draft",
-      "office": "1020 (Ashulia)"
+      "OfficeDropdown": "1020 (Ashulia)"
     },
     "createMemberFrom": {
       "office": "1020 (Ashulia)",

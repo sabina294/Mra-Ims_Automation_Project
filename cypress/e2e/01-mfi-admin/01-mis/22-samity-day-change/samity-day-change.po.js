@@ -35,7 +35,7 @@ class SamityDayChange {
 
   myTaskMenuSamityDayChange() {
     cy.fixture(this.test_data).then((data) => {
-      var smData = data.mfiAdmin.samityDayChangeFrom;
+      var sdData = data.mfiAdmin.samityDayChangeFrom;
       cy.imsId("menu-my-task").click();
       cy.imsId("submenu-awaiting-samity-day-change").click();
       cy.log("Successfully navigate to my task menu samity day change");
@@ -44,8 +44,8 @@ class SamityDayChange {
 
   myTaskSamityOfficeDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var smData = data.mfiAdmin.approveSamityDayChangeFrom;
-      cy.formController("office_id").type(smData.office).type("{enter}");
+      var sdData = data.mfiAdmin.approveSamityDayChangeFrom;
+      cy.formController("office_id").type(sdData.OfficeDropdown).type("{enter}");
       cy.log("Successfully navigate to my task menu samity day change office dropdown");
     });
   }
@@ -60,28 +60,6 @@ class SamityDayChange {
     cy.log(
       "successfully refresh page  displayed the my task list of the Samity day change form "
     );
-  }
-
-  statusMyTaskDraftDropdownCheck() {
-    cy.fixture(this.test_data).then((data) => {
-      var smData = data.mfiAdmin.approveSamityDayChangeFrom;
-      cy.formController("status").type(smData.taskStatus).type("{enter}");
-      cy.log(
-        "Samity day change  form status draft dropdown check successfully"
-      );
-    });
-  }
-
-  statusMyTaskPendingApprovalDropdownCheck() {
-    cy.fixture(this.test_data).then((data) => {
-      var smData = data.mfiAdmin.approveSamityDayChangeFrom;
-      cy.imsId("btn-reset").click();
-      cy.formController("status").type(smData.myTaskStatus).type("{enter}");
-      cy.imsId("btn-reset").click();
-      cy.log(
-        "Samity day change form status pending approval dropdown check successfully"
-      );
-    });
   }
 
   approveSamityDayChange() {

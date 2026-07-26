@@ -99,7 +99,7 @@ class EmployeeManagementCreation {
     );
   }
 
-  statusMyTaskOfficeDropdownCheck() {
+  myTaskOfficeDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       var emData = data.mfiAdmin.approveEmployeeFrom;
       cy.formController("office_id").type(emData.OfficeDropdown).type("{enter}");
