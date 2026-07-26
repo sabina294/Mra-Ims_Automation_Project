@@ -514,28 +514,6 @@ class PaymentVoucherCreation {
         );
     }
 
-    statusMyTaskDraftDropdownCheck() {
-        cy.fixture(this.test_data).then((data) => {
-            var pvData = data.mfiAdmin.approvePaymentVoucher;
-            cy.formController("status").type(pvData.taskStatus).type("{enter}");
-            cy.log(
-                "Payment voucher form status draft dropdown check successfully"
-            );
-        });
-    }
-
-    statusMyTaskPendingApprovalDropdownCheck() {
-        cy.fixture(this.test_data).then((data) => {
-            var pvData = data.mfiAdmin.approvePaymentVoucher;
-            cy.imsId("btn-reset").click();
-            cy.formController("status").type(pvData.myTaskStatus).type("{enter}");
-            cy.log(
-                "Payment voucher form status pending approval dropdown check successfully"
-            );
-        });
-    }
-
-
     approvePaymentVoucher() {
         cy.fixture(this.test_data).then((data) => {
             var pvData = data.mfiAdmin.paymentVoucher;

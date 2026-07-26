@@ -36,7 +36,7 @@ class CalendarYearCreation {
     });
   }
 
-    myTaskMenuCalendarYear() {
+  myTaskMenuCalendarYear() {
     cy.fixture(this.test_data).then((data) => {
       var cyData = data.mfiAdmin.createCalendarYear;
       cy.imsId("menu-my-task").click();
@@ -45,17 +45,17 @@ class CalendarYearCreation {
     });
   }
 
-  myTaskResetButtonCheck() {
-    cy.imsId("btn-reset").click();
-    cy.log("Successful clean my task displaying.");
-  }
-
   myTaskRefreshButtonCheck() {
     cy.imsId("btn-refresh").click();
     cy.log(
       "successfully refresh page  displayed the my task list of the calendar year "
     );
   }
+  myTaskResetButtonCheck() {
+    cy.imsId("btn-reset").click();
+    cy.log("Successful clean my task displaying.");
+  }
+
 
   approveCalendare() {
     cy.imsId("toggle-action").first().click();

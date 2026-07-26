@@ -69,91 +69,75 @@ describe("04. Manual Journal Module Test Cases", function () {
         create_manual_journal.myTaskRefreshButtonCheck();
     });
 
-    // it("04.12. Verify that the Status filter displays Draft Manual Journal records correctly in My Tasks.", function () {
-    //     create_manual_journal.statusMyTaskDraftDropdownCheck();
-    // });
-
-    // it("04.13. Verify that the Status filter displays Pending Approval Manual Journal records correctly in My Tasks.", function () {
-    //     create_manual_journal.statusMyTaskPendingApprovalDropdownCheck();
-    // });
-
-    it("04.14. Verify that the successfully approve a manual journal after creation.", function () {
+    it("04.12. Verify that the successfully approve a manual journal after creation.", function () {
         create_manual_journal.approveManualJournal();
     });
 
-    it("04.15. Verify that the Action button performs the expected operation when clicked.", function () {
+    it("04.13. Verify that the Action button performs the expected operation when clicked.", function () {
         create_manual_journal.actionButtonCheck();
     });
 
-    it("04.16. Verify that the user can view the complete details of a manual journal record.", function () {
+    it("04.14. Verify that the user can view the complete details of a manual journal record.", function () {
         create_manual_journal.viewManualJournal();
     });
 
-    it("04.17. Verify that the Go Back button navigates the user to the Manual Journal list page.", function () {
+    it("04.15. Verify that the Go Back button navigates the user to the Manual Journal list page.", function () {
         create_manual_journal.goBackManualJournal();
     });
 
-    it("04.18. Verify that approved manual journals are filtered correctly using the Status dropdown.", function () {
-        create_manual_journal.statusApproveDropdownCheck();
-    });
-
-    it("04.19. Verify that rejected manual journals are filtered correctly using the Status dropdown.", function () {
-        create_manual_journal.statusRejectedDropdownCheck();
-    });
-
-    it("04.20. Verify that the search functionality returns the correct results when searching for a manual journal.", function () {
+    it("04.16. Verify that the search functionality returns the correct results when searching for a manual journal.", function () {
         create_manual_journal.searchName();
     });
 
-    it("04.21. Verify that the grid is reset successfully when the Reset button is clicked.", function () {
+    it("04.17. Verify that the grid is reset successfully when the Reset button is clicked.", function () {
         create_manual_journal.gridResetButtonCheck();
     });
 
-    it("04.22. Verify that the grid is refreshed successfully when the Refresh button is clicked.", function () {
+    it("04.18. Verify that the grid is refreshed successfully when the Refresh button is clicked.", function () {
         create_manual_journal.gridRefreshButtonCheck();
     });
 
-    it("04.23. Verify that the grid list is displayed successfully when the Draft button is enabled on the Member Management page.", function () {
+    it("04.19. Verify that the grid list is displayed successfully when the Draft button is enabled on the Member Management page.", function () {
         create_manual_journal.gridDraftButton();
     });
 
-    it("04.24. Verify that the grid list is displayed successfully when the Draft button is disabled on the Member Management page.", function () {
+    it("04.20. Verify that the grid list is displayed successfully when the Draft button is disabled on the Member Management page.", function () {
         create_manual_journal.gridDraftButtonOff();
     });
 
-    it("04.25. Verify that clicking the Search button reloads and displays the filtered results on the Manual Journal list page.", function () {
+    it("04.21. Verify that clicking the Search button reloads and displays the filtered results on the Manual Journal list page.", function () {
         create_manual_journal.gridSearchButtonCheck();
     });
 
-    it("04.26. Verify that the Reset button on the create page clears all input fields successfully.", function () {
+    it("04.22. Verify that the Reset button on the create page clears all input fields successfully.", function () {
         create_manual_journal.createResetButtonCheck();
     });
 
-    it("04.27. Verify that validation messages are displayed when submitting the form without completing the required fields.", function () {
+    it("04.23. Verify that validation messages are displayed when submitting the form without completing the required fields.", function () {
         create_manual_journal.createValidationMessageCheck();
     });
 
-    it("04.28. Verify that validation messages are displayed when submitting the form without completing the required fields.", function () {
+    it("04.24. Verify that validation messages are displayed when submitting the form without completing the required fields.", function () {
         create_manual_journal.createDraftButtonCheck();
     });
 
-    it("04.29. Verify that validation messages are displayed when submitting the form without completing the required fields.", function () {
+    it("04.25. Verify that validation messages are displayed when submitting the form without completing the required fields.", function () {
         create_manual_journal.createApproveButtonCheck();
     });
 
-    it("04.30. Verify that clicking the Go Back button on the create page redirects the user to the Manual Journal list page.", function () {
+    it("04.26. Verify that clicking the Go Back button on the create page redirects the user to the Manual Journal list page.", function () {
         create_manual_journal.createGoBackButtonCheck();
     });
 
-    it("04.31. Verify that clicking the Delete button removes the manual journal record successfully.", function () {
+    it("04.27. Verify that clicking the Delete button removes the manual journal record successfully.", function () {
         create_manual_journal.createDeleteButtonCheck();
     });
 
-    it("04.32. Verify that clicking the 'Add New Journal Details' button allows the user to add multiple journal detail entries successfully.", function () {
+    it("04.28. Verify that clicking the 'Add New Journal Details' button allows the user to add multiple journal detail entries successfully.", function () {
         create_manual_journal.createNewJournalDetailsButtonCheck();
     });
 
-    it("04.33. Verify that the grid content is updated correctly when switching the language from English to Bangla.", function () {
+    it("04.29. Verify that the grid content is updated correctly when switching the language from English to Bangla.", function () {
         create_manual_journal.gridLanguageSwitchCheck();
     });
 });

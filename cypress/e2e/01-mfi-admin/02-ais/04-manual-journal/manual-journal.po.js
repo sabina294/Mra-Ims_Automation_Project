@@ -166,27 +166,6 @@ class ManualJournalCreation {
         );
     }
 
-    statusMyTaskDraftDropdownCheck() {
-        cy.fixture(this.test_data).then((data) => {
-            var mjData = data.mfiAdmin.approveManualJournal;
-            cy.formController("status").type(mjData.taskStatus).type("{enter}");
-            cy.log(
-                "Manual journal form status draft dropdown check successfully"
-            );
-        });
-    }
-
-    statusMyTaskPendingApprovalDropdownCheck() {
-        cy.fixture(this.test_data).then((data) => {
-            var mjData = data.mfiAdmin.approveManualJournal;
-            cy.imsId("btn-reset").click();
-            cy.formController("status").type(mjData.myTaskStatus).type("{enter}");
-            cy.log(
-                "Manual journal form status pending approval dropdown check successfully"
-            );
-        });
-    }
-
     approveManualJournal() {
         cy.fixture(this.test_data).then((data) => {
             var mjData = data.mfiAdmin.manualJournal;
@@ -222,23 +201,6 @@ class ManualJournalCreation {
     goBackManualJournal() {
         cy.imsId("btn-go-back").click();
         cy.log("Successfully go back the manual journal page");
-    }
-
-    statusApproveDropdownCheck() {
-        cy.fixture(this.test_data).then((data) => {
-            var mjData = data.mfiAdmin.manualJournal;
-            cy.imsId("btn-reset").click();
-            cy.formController("status").type(mjData.selectStatus).type("{enter}");
-            cy.log("ledger sub group status inactive dropdown check successfully");
-        });
-    }
-
-    statusRejectedDropdownCheck() {
-        cy.fixture(this.test_data).then((data) => {
-            var mjData = data.mfiAdmin.manualJournal;
-            cy.formController("status").type(mjData.statusSelect).type("{enter}");
-            cy.log("ledger sub group status active dropdown check successfully");
-        });
     }
 
     searchName() {

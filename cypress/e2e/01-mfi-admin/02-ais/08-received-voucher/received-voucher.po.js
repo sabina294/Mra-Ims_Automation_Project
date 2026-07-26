@@ -481,27 +481,6 @@ class ReceivedVoucherCreation {
         );
     }
 
-    statusMyTaskDraftDropdownCheck() {
-        cy.fixture(this.test_data).then((data) => {
-            const rvData = data.mfiAdmin.approveReceivedVoucher;
-            cy.formController("status").type(rvData.taskStatus).type("{enter}");
-            cy.log(
-                "Received voucher form status draft dropdown check successfully"
-            );
-        });
-    }
-
-    statusMyTaskPendingApprovalDropdownCheck() {
-        cy.fixture(this.test_data).then((data) => {
-            const rvData = data.mfiAdmin.approveReceivedVoucher;
-            cy.imsId("btn-reset").click();
-            cy.formController("status").type(rvData.myTaskStatus).type("{enter}");
-            cy.log(
-                "Received voucher form status pending approval dropdown check successfully"
-            );
-        });
-    }
-
     approveReceivedVoucher() {
         cy.fixture(this.test_data).then(() => {
 

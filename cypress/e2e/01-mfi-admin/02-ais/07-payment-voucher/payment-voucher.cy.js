@@ -93,100 +93,91 @@ describe("07 Payment Voucher Module Test Cases", function () {
         create_payment_voucher.myTaskRefreshButtonCheck();
     });
 
-    // it("07.18. Verify that the Status filter displays Draft Payment Voucher records correctly in My Tasks.", function () {
-    //     create_payment_voucher.statusMyTaskDraftDropdownCheck();
-    // });
-
-    // it("07.19. Verify that the Status filter displays Pending Approval Payment Voucher records correctly in My Tasks.", function () {
-    //     create_payment_voucher.statusMyTaskPendingApprovalDropdownCheck();
-    // });
-
-
-    it("07.20. Verify that the Branch Manager can successfully approve a Payment Voucher after creation.", function () {
+    it("07.18. Verify that the Branch Manager can successfully approve a Payment Voucher after creation.", function () {
         create_payment_voucher.approvePaymentVoucher();
     });
 
-    it("07.21. Verify that the Action button performs the expected operation when clicked.", function () {
+    it("07.19. Verify that the Action button performs the expected operation when clicked.", function () {
         create_payment_voucher.actionButtonCheck();
     });
 
-    it("07.22. Verify that the View button displays the Payment Voucher details correctly.", function () {
+    it("07.20. Verify that the View button displays the Payment Voucher details correctly.", function () {
         create_payment_voucher.detailsViewCheck();
     });
 
-    it("07.23. Verify that the user can navigate back from the Payment Voucher details page successfully.", function () {
+    it("07.21. Verify that the user can navigate back from the Payment Voucher details page successfully.", function () {
         create_payment_voucher.viewGoBackPaymentVoucher();
     });
 
-    it("07.24. Verify that inactive Payment Vouchers can be filtered using the Status dropdown.", function () {
+    it("07.22. Verify that inactive Payment Vouchers can be filtered using the Status dropdown.", function () {
         create_payment_voucher.statusInactiveDropdownCheck();
     });
 
-    it("07.25. Verify that active Payment Vouchers can be filtered using the Status dropdown.", function () {
+    it("07.23. Verify that active Payment Vouchers can be filtered using the Status dropdown.", function () {
         create_payment_voucher.statusActiveDropdownCheck();
     });
 
-    it("07.26. Verify that the search functionality returns correct results when searching by Payment Voucher name.", function () {
+    it("07.24. Verify that the search functionality returns correct results when searching by Payment Voucher name.", function () {
         create_payment_voucher.searchName();
     });
 
-    it("07.27. Verify that the grid is reset successfully when the Reset button is clicked.", function () {
+    it("07.25. Verify that the grid is reset successfully when the Reset button is clicked.", function () {
         create_payment_voucher.gridResetButtonCheck();
     });
 
-    it("07.28. Verify that the grid is refreshed successfully when the Refresh button is clicked.", function () {
+    it("07.26. Verify that the grid is refreshed successfully when the Refresh button is clicked.", function () {
         create_payment_voucher.gridRefreshButtonCheck();
     });
 
-    it("07.29. Verify that clicking the Search button displays the Payment Voucher list based on the applied search criteria.", function () {
+    it("07.27. Verify that clicking the Search button displays the Payment Voucher list based on the applied search criteria.", function () {
         create_payment_voucher.gridSearchButtonCheck();
     });
 
-    it("07.30. Verify that the grid list is displayed when Draft mode is enabled.", function () {
+    it("07.28. Verify that the grid list is displayed when Draft mode is enabled.", function () {
         create_payment_voucher.gridDraftButton();
     });
 
-    it("07.31. Verify that the grid list is displayed when Draft mode is disabled.", function () {
+    it("07.29. Verify that the grid list is displayed when Draft mode is disabled.", function () {
         create_payment_voucher.gridDraftButtonOff();
     });
 
-    it("07.32. Verify that all input fields are cleared when the Reset button is clicked on the create page.", function () {
+    it("07.30. Verify that all input fields are cleared when the Reset button is clicked on the create page.", function () {
         create_payment_voucher.createResetButtonCheck();
     });
 
-    it("07.33. Verify that validation messages are displayed when submitting the form without providing required fields.", function () {
+    it("07.31. Verify that validation messages are displayed when submitting the form without providing required fields.", function () {
         create_payment_voucher.createValidationMessageCheck();
     });
 
-    it("07.34. Verify that validation messages are displayed when clicking the Draft button without providing required fields.", function () {
+    it("07.32. Verify that validation messages are displayed when clicking the Draft button without providing required fields.", function () {
         create_payment_voucher.createDraftButtonCheck();
     });
 
-    it("07.35. Verify that validation messages are displayed when clicking the Approve button without providing required fields.", function () {
+    it("07.33. Verify that validation messages are displayed when clicking the Approve button without providing required fields.", function () {
         create_payment_voucher.createApproveButtonCheck();
     });
 
-    it("07.36. Verify that clicking the Add icon adds a new Voucher Details row successfully.", function () {
+    it("07.34. Verify that clicking the Add icon adds a new Voucher Details row successfully.", function () {
         create_payment_voucher.createPaymentAddIconButtonCheck();
     });
 
-    it("07.37. Verify that clicking the Remove icon removes a Voucher Details row successfully.", function () {
+    it("07.35. Verify that clicking the Remove icon removes a Voucher Details row successfully.", function () {
         create_payment_voucher.createPaymentRemoveIconButtonCheck();
     });
 
-    it("07.38. Verify that clicking the Go Back button redirects the user to the Payment Voucher list page.", function () {
+    it("07.36. Verify that clicking the Go Back button redirects the user to the Payment Voucher list page.", function () {
         create_payment_voucher.createGoBackButtonCheck();
     });
 
-    it("07.39. Verify that clicking 'Add New Voucher Details' adds a new Voucher Details entry successfully.", function () {
+    it("07.37. Verify that clicking 'Add New Voucher Details' adds a new Voucher Details entry successfully.", function () {
         create_payment_voucher.createNewJournalDetailsButtonCheck();
     });
 
-    it("07.40. Verify that clicking the Delete button removes the selected Voucher Details entry successfully.", function () {
+    it("07.38. Verify that clicking the Delete button removes the selected Voucher Details entry successfully.", function () {
         create_payment_voucher.createDeleteButtonCheck();
     });
 
-    it("07.41. Verify that the grid content is updated correctly when switching the language from English to Bangla.", function () {
+    it("07.39. Verify that the grid content is updated correctly when switching the language from English to Bangla.", function () {
         create_payment_voucher.gridLanguageSwitchCheck();
     });
 

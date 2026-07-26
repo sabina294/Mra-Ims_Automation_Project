@@ -35,12 +35,12 @@ describe("42. Calendar Year Module Test Cases", function () {
     create_calendar_year.myTaskMenuCalendarYear();
   });
 
-  it("42.04. Verify that the Reset button clears all applied filters on the My Tasks page.", function () {
-    create_calendar_year.myTaskResetButtonCheck();
+  it("42.04. Verify that the Refresh button reloads the My Tasks list successfully.", function () {
+    create_calendar_year.myTaskRefreshButtonCheck();
   });
 
-  it("42.05. Verify that the Refresh button reloads the My Tasks list successfully.", function () {
-    create_calendar_year.myTaskRefreshButtonCheck();
+  it("42.05. Verify that the Reset button clears all applied filters on the My Tasks page.", function () {
+    create_calendar_year.myTaskResetButtonCheck();
   });
 
   it("42.06. Verify mfi-admin to successfully approve an calendar year record after creation.", function () {
