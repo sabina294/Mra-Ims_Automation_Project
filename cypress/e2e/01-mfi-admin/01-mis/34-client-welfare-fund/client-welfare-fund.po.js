@@ -55,6 +55,14 @@ class ClientWelfareFund {
     );
   }
 
+   myTaskOfficeDropdownCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      var wfData = data.mfiAdmin.approveClientWelfareFundFrom;
+      cy.formController("office_id").type(wfData.OfficeDropdown).type("{enter}");
+      cy.log("Successfully navigate to my task menu client welfare fund office dropdown");
+    });
+  }
+
   approveClientWelfareFund() {
     cy.fixture(this.test_data).then((data) => {
       var wfData = data.mfiAdmin.createClientWelfareFrom;

@@ -97,7 +97,7 @@ class LoanAccountProposalManagementCreation {
   myTaskOfficeDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       var lapData = data.mfiAdmin.approveLoanAccountFrom;
-      cy.formController("office_id").type(lapData.office).type("{enter}");
+      cy.formController("office_id").type(lapData.OfficeDropdown).type("{enter}");
       cy.log("Successfully navigate to my task menu loan account proposal management office dropdown");
     });
   }

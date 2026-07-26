@@ -45,7 +45,7 @@ class MemberSamityTransfer {
   myTaskMemberOfficeDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       var mstData = data.mfiAdmin.approveMemberSamityTransferFrom;
-      cy.formController("office_id").type(mstData.office).type("{enter}");
+      cy.formController("office_id").type(mstData.OfficeDropdown).type("{enter}");
       cy.log("Successfully navigate to my task menu member samity transfer office dropdown");
     });
   }

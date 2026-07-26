@@ -43,63 +43,67 @@ describe("34. Client Welfare Fund Module Test Cases", function () {
     create_client_welfare_fund.myTaskRefreshButtonCheck();
   });
 
-  it("34.06. Verify successful approve of a new loan welfare fund record", function () {
+  it("34.06. Verify that the Office dropdown filter works correctly on the My Tasks page.", function () {
+    create_client_welfare_fund.myTaskOfficeDropdownCheck();
+  });
+
+  it("34.07. Verify successful approve of a new loan welfare fund record", function () {
     create_client_welfare_fund.approveClientWelfareFund();
   });
 
-  it("34.07. Verify successfully performs the action when the action button is clicked.", function () {
+  it("34.08. Verify successfully performs the action when the action button is clicked.", function () {
     create_client_welfare_fund.actionButtonCheck();
   });
 
-  it("34.08. Verify successful loan welfare fund information View.", function () {
+  it("34.09. Verify successful loan welfare fund information View.", function () {
     create_client_welfare_fund.viewClientWelfareFund();
   });
 
-  it("34.09. Verify that clicking the go back button on the client welfare fund view page redirects the user to the client welfare fund list page.", function () {
+  it("34.10. Verify that clicking the go back button on the client welfare fund view page redirects the user to the client welfare fund list page.", function () {
     create_client_welfare_fund.viewGoBackButton();
   });
 
-  it("34.10. Verify Successful Search Result by Loan welfare fund Name", function () {
+  it("34.11. Verify Successful Search Result by Loan welfare fund Name", function () {
     create_client_welfare_fund.searchInClientWelfareFundName();
   });
 
-  it("34.11. Verify Successful Reset of Grid List Using the Reset Button on Loan welfare fund Page.", function () {
+  it("34.12. Verify Successful Reset of Grid List Using the Reset Button on Loan welfare fund Page.", function () {
     create_client_welfare_fund.gridResetButtonCheck();
   });
 
-  it("34.12. Verify Successful Refresh of Grid List Using the Refresh Button on Loan welfare fund Page.", function () {
+  it("34.13. Verify Successful Refresh of Grid List Using the Refresh Button on Loan welfare fund Page.", function () {
     create_client_welfare_fund.gridRefreshButtonCheck();
   });
 
-  it("34.13. Verify the Loan welfare fund creation reset button clears all entered input values.", function () {
+  it("34.14. Verify the Loan welfare fund creation reset button clears all entered input values.", function () {
     create_client_welfare_fund.createResetButtonCheck();
   });
 
-  it("34.14. Verify the Loan welfare fund creation fund payment information added.", function () {
+  it("34.15. Verify the Loan welfare fund creation fund payment information added.", function () {
     create_client_welfare_fund.createAddIconButtonCheck();
   });
 
-  it("34.15. Verify the Loan welfare fund creation fund payment information removed.", function () {
+  it("34.16. Verify the Loan welfare fund creation fund payment information removed.", function () {
     create_client_welfare_fund.createRemoveIconButtonCheck();
   });
 
-  it("34.16. Verify validation messages appear for required fields when the submit button is clicked with empty inputs.", function () {
+  it("34.17. Verify validation messages appear for required fields when the submit button is clicked with empty inputs.", function () {
     create_client_welfare_fund.createValidationMessageCheck();
   });
 
-  it("34.17. Verify validation messages appear for required fields when the approve button is clicked with empty inputs.", function () {
+  it("34.18. Verify validation messages appear for required fields when the approve button is clicked with empty inputs.", function () {
     create_client_welfare_fund.createApproveButtonCheck();
   });
 
-  it("34.18. Verify that clicking the go back button on the Loan welfare fund create page redirects the user to the Loan welfare fund list page.", function () {
+  it("34.19. Verify that clicking the go back button on the Loan welfare fund create page redirects the user to the Loan welfare fund list page.", function () {
     create_client_welfare_fund.createGoBackButtonCheck();
   });
 
-  it("34.19. Verify that when the user clicks the Search button on the Loan welfare fund grid page, the system redirects to the Loan welfare fund List page..", function () {
+  it("34.20. Verify that when the user clicks the Search button on the Loan welfare fund grid page, the system redirects to the Loan welfare fund List page..", function () {
     create_client_welfare_fund.gridSearchButtonCheck();
   });
 
-  it("34.20. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("34.21. Verify check that the grid list content changes correctly from english to bangla.", function () {
     create_client_welfare_fund.gridLanguageSwitchCheck();
   });
 });
