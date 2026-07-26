@@ -62,28 +62,6 @@ class MemberSamityTransfer {
     );
   }
 
-  statusMyTaskDraftDropdownCheck() {
-    cy.fixture(this.test_data).then((data) => {
-      var mstData = data.mfiAdmin.approveMemberSamityTransferFrom;
-      cy.formController("status").type(mstData.taskStatus).type("{enter}");
-      cy.log(
-        "Member samity transfer form status draft dropdown check successfully"
-      );
-    });
-  }
-
-  statusMyTaskPendingApprovalDropdownCheck() {
-    cy.fixture(this.test_data).then((data) => {
-      var mstData = data.mfiAdmin.approveMemberSamityTransferFrom;
-      cy.imsId("btn-reset").click();
-      cy.formController("status").type(mstData.myTaskStatus).type("{enter}");
-      cy.imsId("btn-reset").click();
-      cy.log(
-        "Member samity transfer form status pending approval dropdown check successfully"
-      );
-    });
-  }
-
   transferApprove() {
     cy.fixture(this.test_data).then((data) => {
       var mstData = data.mfiAdmin.memberSamityTransferFrom;

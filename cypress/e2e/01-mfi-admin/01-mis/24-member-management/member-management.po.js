@@ -108,27 +108,6 @@ class MemberManagementCreation {
     );
   }
 
-  statusMyTaskDraftDropdownCheck() {
-    cy.fixture(this.test_data).then((data) => {
-      var memData = data.mfiAdmin.approveMemberFrom;
-      cy.formController("status").type(memData.taskStatus).type("{enter}");
-      cy.log(
-        "Member Management form status draft dropdown check successfully"
-      );
-    });
-  }
-
-  statusMyTaskPendingApprovalDropdownCheck() {
-    cy.fixture(this.test_data).then((data) => {
-      var memData = data.mfiAdmin.approveMemberFrom;
-      cy.imsId("btn-reset").click();
-      cy.formController("status").type(memData.myTaskStatus).type("{enter}");
-      cy.log(
-        "Member Management form status pending approval dropdown check successfully"
-      );
-    });
-  }
-
   myTaskSearchButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
       var memData = data.mfiAdmin.createMemberFrom;
