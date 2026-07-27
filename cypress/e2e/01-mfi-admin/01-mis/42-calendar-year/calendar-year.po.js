@@ -44,18 +44,20 @@ class CalendarYearCreation {
       cy.log("Successfully navigate to my task menu Calendar Year");
     });
   }
-
-  myTaskRefreshButtonCheck() {
-    cy.imsId("btn-refresh").click();
-    cy.log(
-      "successfully refresh page  displayed the my task list of the calendar year "
-    );
-  }
+ 
   myTaskResetButtonCheck() {
     cy.imsId("btn-reset").click();
     cy.log("Successful clean my task displaying.");
   }
 
+   myTaskRefreshButtonCheck() {
+    cy.imsId("btn-refresh").click();
+    // cy.imsId("btn-reset").click();
+    // cy.imsId("btn-refresh").click();
+    cy.log(
+      "successfully refresh page  displayed the my task list of the calendar year "
+    );
+  }
 
   approveCalendare() {
     cy.imsId("toggle-action").first().click();

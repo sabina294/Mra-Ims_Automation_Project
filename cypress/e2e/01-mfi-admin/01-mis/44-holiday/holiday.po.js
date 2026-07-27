@@ -73,6 +73,8 @@ class HolidayCreation {
 
   myTaskRefreshButtonCheck() {
     cy.imsId("btn-refresh").click();
+    // cy.imsId("btn-reset").click();
+    // cy.imsId("btn-refresh").click();
     cy.log(
       "successfully refresh page  displayed the my task list of the holiday "
     );

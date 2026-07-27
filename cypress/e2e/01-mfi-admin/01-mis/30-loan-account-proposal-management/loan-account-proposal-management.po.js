@@ -39,6 +39,8 @@ class LoanAccountProposalManagementCreation {
       cy.wait(5000);
       cy.get('body').click(0, 0);
       cy.imsId("btn-submit").click();
+      // cy.imsId("btn-ok").click();
+      // cy.imsId("btn-submit").click();
       cy.imsId("btn-yes").click();
       cy.imsId("btn-ok").click();
 

@@ -77,6 +77,7 @@ class LoanDisbursement {
     }
     loanDisburseSubmitButtonCheck() {
         cy.imsId("btn-submit").click();
+        cy.imsId("btn-ok").click();
         cy.log("Loan Disburse submit button checked");
     }
 
