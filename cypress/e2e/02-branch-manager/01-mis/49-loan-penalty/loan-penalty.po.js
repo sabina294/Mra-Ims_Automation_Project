@@ -141,6 +141,7 @@ class LoanPenalty {
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-edit").click();
       cy.imsId("btn-draft").click();
+      cy.imsId("btn-yes").click();
       cy.imsId("btn-ok").click();
       cy.log("Successfully edited as draft the Loan penalty list page");
     });
