@@ -51,6 +51,29 @@ class StagingData {
     });
   }
 
+  StatusDropdownCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      var SData = data.branchManager.createStagingDataFrom;
+      cy.formController("status").type(SData.status).type("{enter}");
+      cy.wait(2000);
+      cy.log(
+        "successfully status dropdown selected and grid list displayed "
+      );
+    });
+  }
+
+  searchButtonCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      var SData = data.branchManager.createStagingDataFrom;
+      cy.formController("search_text").type(SData.search);
+      cy.imsId("btn-search").click();
+      cy.wait(2000);
+      cy.log(
+        "successfully search button clicked and grid list displayed "
+      );
+    });
+  }
+
   deleteButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
       var SData = data.branchManager.createStagingDataFrom;
@@ -60,6 +83,8 @@ class StagingData {
       cy.imsId("btn-start-process").click();
       cy.wait(1000);
       cy.imsId("btn-yes").click();
+      cy.wait(3000);
+      cy.imsId("btn-refresh").click();
       cy.wait(3000);
       cy.log(
         "successfully delete button clicked and grid list displayed "

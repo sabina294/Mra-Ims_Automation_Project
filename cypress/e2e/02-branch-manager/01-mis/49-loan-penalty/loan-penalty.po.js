@@ -150,8 +150,8 @@ class LoanPenalty {
   editGoBackButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
       var lpData = data.branchManager.createLoanPenaltyFrom;
-      // cy.imsId("toggle-action").first().click();
-      // cy.imsId("btn-table-action-edit").click();
+      cy.imsId("toggle-action").first().click();
+      cy.imsId("btn-table-action-edit").click();
       cy.imsId("btn-go-back").click();
       cy.log("Successfully edited as go back the Loan penalty list page");
     });

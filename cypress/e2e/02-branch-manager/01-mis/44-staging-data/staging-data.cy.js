@@ -43,11 +43,19 @@ describe("44. Staging Data Module Test Cases", function () {
     create_staging_data.samityDropdownCheck();
   });
 
-  // it("44.06. Verify that the Delete button is available and functions correctly in the Staging Data list", function () {
-  //   create_staging_data.deleteButtonCheck();
-  // });
+  it("44.06. Verify that the grid list updates successfully when a Status is selected from the dropdown on the Staging Data page", function () {
+    create_staging_data.StatusDropdownCheck();
+  });
 
-  it("44.07. Verify that the grid list content changes correctly from English to Bangla", function () {
+  it("44.07. Verify that the search button is available and functions correctly in the Staging Data list", function () {
+    create_staging_data.searchButtonCheck();
+  });
+
+  it("44.08. Verify that the Delete button is available and functions correctly in the Staging Data list", function () {
+    create_staging_data.deleteButtonCheck();
+  });
+
+  it("44.09. Verify that the grid list content changes correctly from English to Bangla", function () {
     create_staging_data.gridLanguageSwitchCheck();
   });
 

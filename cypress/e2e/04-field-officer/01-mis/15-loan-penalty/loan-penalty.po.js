@@ -158,6 +158,7 @@ class LoanPenalty {
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-edit").click();
       cy.imsId("btn-draft").click();
+      cy.imsId("btn-yes").click();
       cy.imsId("btn-ok").click();
       cy.log("Successfully edited as draft the Loan penalty list page");
     });
@@ -166,8 +167,8 @@ class LoanPenalty {
   editGoBackButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
       var lpData = data.fieldOfficer.createLoanPenaltyForm;
-      // cy.imsId("toggle-action").first().click();
-      // cy.imsId("btn-table-action-edit").click();
+      cy.imsId("toggle-action").first().click();
+      cy.imsId("btn-table-action-edit").click();
       cy.imsId("btn-go-back").click();
       cy.log("Successfully edited as go back the Loan penalty list page");
     });

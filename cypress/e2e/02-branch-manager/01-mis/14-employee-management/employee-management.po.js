@@ -181,6 +181,7 @@ class EmployeeManagementCreation {
       var emData = data.branchManager.createEmpMangFrom;
       cy.imsId("btn-reset").click();
       cy.formController("search_text").type(emData.search);
+      cy.imsId("btn-search").click();
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-edit").click();
       cy.imsId("btn-reset").click();

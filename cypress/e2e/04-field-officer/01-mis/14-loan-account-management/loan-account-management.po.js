@@ -24,6 +24,7 @@ class LoanAccountManagement {
     cy.fixture(this.test_data).then((data) => {
       var laData = data.fieldOfficer.loanAccountManagementFrom;
       cy.imsId("btn-table-action-view").click();
+      cy.selectMenu1("submenu-loan-account-management");
       cy.log("Successfully viewed the Loan account Management list page");
     });
   }

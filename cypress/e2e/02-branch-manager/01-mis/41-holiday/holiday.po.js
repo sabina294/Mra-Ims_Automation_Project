@@ -22,8 +22,8 @@ class HolidayCreation {
         .not('.ant-picker-cell-disabled')
         .first()
         .click({ force: true });
-      cy.formController("holiday_title_bn").type(hData.holidayTitleBn);
       cy.formController("holiday_title_en").type(hData.holidayTitleEn);
+      cy.formController("holiday_title_bn").type(hData.holidayTitleBn);
       cy.imsId("btn-submit").click();
       cy.imsId("btn-yes").click();
       cy.imsId("btn-ok").click();

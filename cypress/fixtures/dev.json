@@ -1173,8 +1173,10 @@
     },
     "createStagingDataFrom": {
       "fieldOfficer": "EMP-0122 - GAIS UDDIN KHAN",
-      "samity": "1020-101 (Ashulia Mohila Samity)"
-    },
+      "samity": "1020-101 (Ashulia Mohila Samity)",
+      "status": "Finished",
+      "search": "GAIS UDDIN KHAN"
+     },
     "regularCollection": {
       "loanAmount": "500",
       "loanAmount2": "500",

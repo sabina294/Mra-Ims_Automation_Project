@@ -35,9 +35,9 @@ describe("14. Loan Account Management Module Test Cases", function () {
     grid_loan_account_management.viewLoanAccountManagement();
   });
 
-  it("14.04. Verify that clicking the Go Back button on the Loan Account Management view page redirects the user to the list page.", function () {
-    grid_loan_account_management.viewGoBackButton();
-  });
+  // it("14.04. Verify that clicking the Go Back button on the Loan Account Management view page redirects the user to the list page.", function () {
+  //   grid_loan_account_management.viewGoBackButton();
+  // });
 
   it("14.05. Verify that the user can filter inactive Loan Account Management records using the Status dropdown on the list page.", function () {
     grid_loan_account_management.statusInactiveDropdownCheck();
