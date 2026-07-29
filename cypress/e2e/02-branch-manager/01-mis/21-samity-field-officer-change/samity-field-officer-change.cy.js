@@ -47,56 +47,68 @@ describe("21. Samity Field Officer Change Module Test Cases", function () {
     samity_field_officer_change.samityChange();
   });
 
-  it("21.07. Verify allow the branch manager to approve a Samity Field Officer Change record after creation", function () {
+  it("21.07. Verify that the newly created Samity Field Officer Change record appears in the My Tasks list.", function () {
+    samity_field_officer_change.myTaskMenuSamityChange();
+  });
+
+  it("21.08. Verify that the Reset button clears all applied filters on the My Tasks page.", function () {
+    samity_field_officer_change.myTaskResetButtonCheck();
+  });
+
+  it("21.09. Verify that the Refresh button reloads the My Tasks list successfully.", function () {
+    samity_field_officer_change.myTaskRefreshButtonCheck();
+  });
+
+  it("21.10. Verify allow the branch manager to approve a Samity Field Officer Change record after creation", function () {
     samity_field_officer_change.approveSamityChange();
   });
 
-  it("21.08. Verify perform the correct action when the action button is clicked", function () {
+  it("21.11. Verify perform the correct action when the action button is clicked", function () {
     samity_field_officer_change.actionButtonCheck();
   });
 
-  it("21.09. Verify display Samity Field Officer Change details correctly including name and description", function () {
+  it("21.12. Verify display Samity Field Officer Change details correctly including name and description", function () {
     samity_field_officer_change.viewSamityChange();
   });
 
-  it("21.10. Verify redirect to the list page when clicking the Go Back button from view page", function () {
+  it("21.13. Verify redirect to the list page when clicking the Go Back button from view page", function () {
     samity_field_officer_change.viewGoBackButton();
   });
 
-  it("21.11. Verify filter inactive records correctly using the Status dropdown on the list page", function () {
+  it("21.14. Verify filter inactive records correctly using the Status dropdown on the list page", function () {
     samity_field_officer_change.statusInactiveDropdownCheck();
   });
 
-  it("21.12. Verify filter active records correctly using the Status dropdown on the list page", function () {
+  it("21.15. Verify filter active records correctly using the Status dropdown on the list page", function () {
     samity_field_officer_change.statusActiveDropdownCheck();
   });
 
-  it("21.13. Verify display correct search results when searching by Samity Field Officer Change name", function () {
+  it("21.16. Verify display correct search results when searching by Samity Field Officer Change name", function () {
     samity_field_officer_change.searchInSamityFieldOfficerChangeName();
   });
 
-  it("21.14. Verify reset the grid list successfully when Reset button is clicked", function () {
+  it("21.17. Verify reset the grid list successfully when Reset button is clicked", function () {
     samity_field_officer_change.gridResetButtonCheck();
   });
 
-  it("21.15. Verify refresh the grid list successfully when Refresh button is clicked", function () {
+  it("21.18. Verify refresh the grid list successfully when Refresh button is clicked", function () {
     samity_field_officer_change.gridRefreshButtonCheck();
   });
 
-  it("21.16. Verify navigate correctly when Search button is clicked on the grid page", function () {
+  it("21.19. Verify navigate correctly when Search button is clicked on the grid page", function () {
     samity_field_officer_change.gridSearchButtonCheck();
   });
 
-  it("21.17. Verify display draft records when Draft filter is enabled", function () {
+  it("21.20. Verify display draft records when Draft filter is enabled", function () {
     samity_field_officer_change.gridDraftButton();
   });
 
-  it("21.18. Verify hide draft records when Draft filter is disabled", function () {
+  it("21.21. Verify hide draft records when Draft filter is disabled", function () {
     samity_field_officer_change.gridDraftButtonOff();
   });
 
-  it("21.19. Verify switch language correctly between English and Bangla in the grid view", function () {
+  it("21.22. Verify switch language correctly between English and Bangla in the grid view", function () {
     samity_field_officer_change.gridLanguageSwitchCheck();
   });
-  
+
 });

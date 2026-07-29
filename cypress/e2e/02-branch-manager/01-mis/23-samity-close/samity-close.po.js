@@ -23,11 +23,29 @@ class SamityClose {
     });
   }
 
-  approveSamityClose() {
+  myTaskMenuSamityClose() {
     cy.fixture(this.test_data).then((data) => {
       var scData = data.branchManager.samityCloseFrom;
       cy.imsId("menu-my-task").click();
       cy.imsId("submenu-awaiting-samity-close").click();
+      cy.log("Successfully navigate to my task menu samity close");
+    });
+  }
+
+  myTaskResetButtonCheck() {
+    cy.imsId("btn-reset").click();
+    cy.log("Successful clean my task displaying.");
+  }
+
+  myTaskRefreshButtonCheck() {
+    cy.imsId("btn-refresh").click();
+    cy.log(
+      "successfully refresh page  displayed the my task list of the Samity day change form "
+    );
+  }
+
+  approveSamityClose() {
+    cy.fixture(this.test_data).then((data) => {
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
       cy.imsId("btn-lock").click();
