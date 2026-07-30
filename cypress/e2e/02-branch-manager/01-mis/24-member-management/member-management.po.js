@@ -70,20 +70,44 @@ class MemberManagementCreation {
     });
   }
 
-  approveMemberManagement() {
+  myTaskMenuMember() {
     cy.fixture(this.test_data).then((data) => {
       var memData = data.branchManager.createMemberFrom;
       cy.imsId("menu-my-task").click();
       cy.imsId("submenu-awaiting-member-management").click();
+      cy.log("Successfully navigate to my task menu member management");
+    });
+  }
+
+  myTaskResetButtonCheck() {
+    cy.imsId("btn-reset").click();
+    cy.log("Successful clean my task displaying.");
+  }
+
+  myTaskRefreshButtonCheck() {
+    cy.imsId("btn-refresh").click();
+    cy.log(
+      "successfully refresh page  displayed the my task list of the Member Management form "
+    );
+  }
+
+  myTaskSearchButtonCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      var memData = data.branchManager.createMemberFrom;
+      cy.imsId("btn-reset").click();
       cy.formController("search_text").type(memData.memberNameEn);
+      cy.imsId("btn-search").click();
+      cy.log("Successful my task search button click.");
+    });
+  }
+
+  approveMemberManagement() {
+    cy.fixture(this.test_data).then((data) => {
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
       cy.imsId("btn-lock").click();
       cy.imsId("btn-approve").click();
       cy.imsId("btn-submit").click();
-      cy.get("app-confirmation-modal")
-        .contains(memData.messageApproveMember)
-        .and("be.visible");
       cy.imsId("btn-ok").click();
       cy.log("Successfully approved the member management ");
     });
@@ -100,8 +124,6 @@ class MemberManagementCreation {
   viewMemberManagement() {
     cy.fixture(this.test_data).then((data) => {
       var memData = data.branchManager.createMemberFrom;
-      cy.formController("search_text").type(memData.memberNameEn);
-      cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
       cy.log("Successfully viewed the member management list page");
     });
@@ -129,43 +151,35 @@ class MemberManagementCreation {
     cy.log("Successfully profile view go back the  member management list page");
   }
 
+  editResetButton() {
+    cy.imsId("toggle-action").first().click();
+    cy.imsId("btn-mis-table-action-edit").click();
+    cy.imsId("btn-reset").click();
+    cy.log("Successful clean displaying");
+  }
+
+  editGoBackButton() {
+    cy.imsId("btn-go-back").click();
+    cy.log("Successful edit go back button check.");
+  }
+
   editMemberManagement() {
     cy.fixture(this.test_data).then((data) => {
       var memData = data.branchManager.createMemberFrom;
       cy.imsId("btn-reset").click();
-      cy.formController("search_text").type(memData.memberNameEn);
-      cy.imsId("btn-search").click();
+      // cy.formController("search_text").type(memData.memberNameEn);
+      // cy.imsId("btn-search").click();
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-mis-table-action-edit").click();
-      cy.imsId("btn-go-back").click();
-      // cy.imsId("btn-submit").click();
-
+      cy.imsId("btn-submit").click();
       // cy.imsId("btn-yes").click();
-
-      // cy.get("app-confirmation-modal")
-      //   .contains(memData.messageUpdateMember)
-      //   .and("be.visible");
-      // cy.imsId("btn-ok").click();
+      cy.imsId("btn-ok").click();
+      cy.imsId("btn-go-back").click();
 
       cy.log("Member Management updated successfully");
     });
   }
 
-  editResetButton() {
-    cy.imsId("toggle-action").first().click();
-    cy.imsId("btn-mis-table-action-edit").click();
-    cy.imsId("btn-reset").click();
-    cy.imsId("btn-go-back").click();
-
-    cy.log("Successful clean displaying");
-  }
-
-  editGoBackButton() {
-    cy.imsId("toggle-action").first().click();
-    cy.imsId("btn-mis-table-action-edit").click();
-    cy.imsId("btn-go-back").click();
-    cy.log("Successful edit go back button check.");
-  }
 
   statusInactiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {

@@ -23,15 +23,15 @@ describe("15. Loan Penalty Module Test Cases", function () {
     cy.logout();
   });
 
-  // it("15.01. Verify complete BM staging and FO collection workflow", function () {
-  //   cy.fixture(test_data).then((d) => {
-  //     cy.logout();
-  //     cy.loginAsBranchManager(baseURL, d);
-  //     create_loan_penalty.startProcessStagingData(d);
-  //     cy.logout();
-  //     cy.loginAsFieldOfficer(baseURL, d);
-  //   });
-  // });
+  it("15.01. Verify complete BM staging and FO collection workflow", function () {
+    cy.fixture(test_data).then((d) => {
+      cy.logout();
+      cy.loginAsBranchManager(baseURL, d);
+      create_loan_penalty.startProcessStagingData(d);
+      cy.logout();
+      cy.loginAsFieldOfficer(baseURL, d);
+    });
+  });
 
   it("15.02. Verify that the Loan Penalty Grid List page loads successfully.", function () {
     create_loan_penalty.gridLoanPenaltyListPage();

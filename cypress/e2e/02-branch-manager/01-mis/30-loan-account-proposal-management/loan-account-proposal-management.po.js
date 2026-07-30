@@ -292,12 +292,38 @@ viewSchedulesCancelButtonCheck() {
     });
   }
 
+  myTaskMenuLoanAccountProposalManagement() {
+    cy.fixture(this.test_data).then((data) => {
+       var lapData = data.branchManager.createLoanAccountFrom;
+      cy.imsId("menu-my-task").click();
+      cy.imsId("submenu-awaiting-loan-account-proposal").click();
+      cy.log("Successfully navigate to my task menu loan account proposal management");
+    });
+  }
+
+  myTaskSamityDropdownCheck() {
+    cy.fixture(this.test_data).then((data) => {
+       var lapData = data.branchManager.approveLoanAccountFrom;
+      cy.formController("samity_id").type(lapData.SamityDropdown).type("{enter}");
+
+      cy.log("Successfully navigate to my task menu loan account proposal management samity dropdown");
+    });
+  }
+
+  myTaskResetButtonCheck() {
+    cy.imsId("btn-reset").click();
+    cy.log("Successful clean my task displaying.");
+  }
+
+  myTaskRefreshButtonCheck() {
+    cy.imsId("btn-refresh").click();
+    cy.log(
+      "successfully refresh page  displayed the my task list of the loan account proposal management "
+    );
+  }
 
   approveLoanAccountProposal() {
     cy.fixture(this.test_data).then((data) => {
-      var lapData = data.branchManager.createLoanAccountFrom;
-      cy.imsId("menu-my-task").click();
-      cy.imsId("submenu-awaiting-loan-account-proposal").click();
       // cy.formController("search_text").type(lapData.searchMember);
       // cy.imsId("btn-search").click();
       cy.imsId("toggle-action").first().click();

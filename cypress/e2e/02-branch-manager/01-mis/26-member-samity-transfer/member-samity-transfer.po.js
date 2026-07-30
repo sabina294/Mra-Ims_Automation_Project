@@ -76,11 +76,29 @@ class MemberSamityTransfer {
     });
   }
 
-  approveSamityTransfer() {
+  myTaskMenuSamityTransfer() {
     cy.fixture(this.test_data).then((data) => {
       var smData = data.branchManager.samityChangeFrom;
       cy.imsId("menu-my-task").click();
       cy.imsId("submenu-awaiting-member-samity-transfer").click();
+      cy.log("Successfully navigate to my task menu member samity transfer");
+    });
+  }
+
+  myTaskResetButtonCheck() {
+    cy.imsId("btn-reset").click();
+    cy.log("Successful clean my task displaying.");
+  }
+
+  myTaskRefreshButtonCheck() {
+    cy.imsId("btn-refresh").click();
+    cy.log(
+      "successfully refresh page  displayed the my task list of the member samity transfer form "
+    );
+  }
+
+  approveSamityTransfer() {
+    cy.fixture(this.test_data).then((data) => {
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
       cy.imsId("btn-lock").click();

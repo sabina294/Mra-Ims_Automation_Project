@@ -10,7 +10,7 @@ class DayEndProcessMis {
 
   startDayEndProcess() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("start-process-button").click();
+      cy.imsId("btn-start_process").click();
       cy.imsId("btn-yes").click();
       cy.imsId("btn-ok").click();
       cy.log("Successfully Day end process started.");
@@ -30,7 +30,7 @@ class DayEndProcessMis {
       cy.imsId("btn-delete").click();
       cy.imsId("btn-yes").click();
       cy.imsId("btn-ok").click();
-      cy.imsId("start-process-button").click();
+      cy.imsId("btn-start_process").click();
       cy.imsId("btn-yes").click();
       cy.imsId("btn-ok").click();
       cy.imsId("btn-refresh").click();

@@ -1044,7 +1044,7 @@
       "messageUpdateLoanAccount": "Do you want to update this loan account?"
     },
     "approveLoanAccountFrom": {
-      "office": "1020 (Ashulia)"
+      "SamityDropdown": "1020-111 (Rustampur Mohila Samity)"
     },
     "loanAccountManagementFrom": {
       "samity": "Chhaya Mohila Samity",

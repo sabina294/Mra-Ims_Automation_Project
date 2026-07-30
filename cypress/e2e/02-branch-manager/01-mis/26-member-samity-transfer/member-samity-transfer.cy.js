@@ -63,43 +63,55 @@ describe("26. Member Samity Transfer Module Test Cases", function () {
     member_samity_transfer.newSamityTransfer();
   });
 
-  it("26.11. Verify successfully approve a Samity transfer record after transfer", function () {
+  it("26.11. Verify that the newly created Samity transfer record appears in the My Tasks list.", function () {
+    member_samity_transfer.myTaskMenuSamityTransfer();
+  });
+
+  it("26.12. Verify that the Reset button clears all applied filters on the My Tasks page.", function () {
+    member_samity_transfer.myTaskResetButtonCheck();
+  });
+
+  it("26.13. Verify that the Refresh button reloads the My Tasks list successfully.", function () {
+    member_samity_transfer.myTaskRefreshButtonCheck();
+  });
+
+  it("26.14. Verify successfully approve a Samity transfer record after transfer", function () {
     member_samity_transfer.approveSamityTransfer();
   });
 
-  it("26.12. Verify process Samity transfer successfully without New Samity field", function () {
+  it("26.15. Verify process Samity transfer successfully without New Samity field", function () {
     member_samity_transfer.withoutNewSamity();
   });
 
-  it("26.13. Verify process Samity transfer successfully without Register Book Serial ID field", function () {
+  it("26.16. Verify process Samity transfer successfully without Register Book Serial ID field", function () {
     member_samity_transfer.withoutRegisterBookSerialId();
   });
 
-  it("26.14. Verify filter inactive Member Samity Transfers using Status dropdown", function () {
+  it("26.17. Verify filter inactive Member Samity Transfers using Status dropdown", function () {
     member_samity_transfer.statusInactiveDropdownCheck();
   });
 
-  it("26.15. Verify filter active Member Samity Transfers using Status dropdown", function () {
+  it("26.18. Verify filter active Member Samity Transfers using Status dropdown", function () {
     member_samity_transfer.statusActiveDropdownCheck();
   });
 
-  it("26.16. Verify return correct search results by Member Samity Transfer name", function () {
+  it("26.19. Verify return correct search results by Member Samity Transfer name", function () {
     member_samity_transfer.searchInMemberSamityTransferName();
   });
 
-  it("26.17. Verify reset grid list successfully using Reset button", function () {
+  it("26.20. Verify reset grid list successfully using Reset button", function () {
     member_samity_transfer.gridResetButtonCheck();
   });
 
-  it("26.18. Verify refresh grid list successfully using Refresh button", function () {
+  it("26.21. Verify refresh grid list successfully using Refresh button", function () {
     member_samity_transfer.gridRefreshButtonCheck();
   });
 
-  it("26.19. Verify navigate to list page when Search button is clicked on grid page", function () {
+  it("26.22. Verify navigate to list page when Search button is clicked on grid page", function () {
     member_samity_transfer.gridSearchButtonCheck();
   });
 
-  it("26.20. Verify switch grid content language between English and Bangla correctly", function () {
+  it("26.23. Verify switch grid content language between English and Bangla correctly", function () {
     member_samity_transfer.gridLanguageSwitchCheck();
   });
 });
