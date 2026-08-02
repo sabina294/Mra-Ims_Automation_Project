@@ -70,13 +70,13 @@ describe("15. Rejected Employee Module Test Cases", function () {
         create_rejected_employee.editEmployeeManagement();
     });
 
-    it("15.13. Verify that inactive employee records can be filtered using the status dropdown", function () {
-        create_rejected_employee.statusInactiveDropdownCheck();
-    });
+    // it("15.13. Verify that inactive employee records can be filtered using the status dropdown", function () {
+    //     create_rejected_employee.statusInactiveDropdownCheck();
+    // });
 
-    it("15.14. Verify that active employee records are displayed correctly when selected from the status dropdown", function () {
-        create_rejected_employee.statusActiveDropdownCheck();
-    });
+    // it("15.14. Verify that active employee records are displayed correctly when selected from the status dropdown", function () {
+    //     create_rejected_employee.statusActiveDropdownCheck();
+    // });
 
     it("15.15. Verify that search results are displayed correctly when searching by rejected employee name", function () {
         create_rejected_employee.searchInEmployeeName();

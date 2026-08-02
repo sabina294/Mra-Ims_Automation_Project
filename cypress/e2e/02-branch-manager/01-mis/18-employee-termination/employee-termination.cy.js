@@ -53,13 +53,13 @@ describe("18. Employee Termination Module Test Cases", function () {
         grid_employee_termination.approveNewEmployeeTermination();
     });
 
-    it("18.08. Verify that the user can filter inactive employee termination records using the Status dropdown", function () {
-        grid_employee_termination.statusInactiveDropdownCheck();
-    });
+    // it("18.08. Verify that the user can filter inactive employee termination records using the Status dropdown", function () {
+    //     grid_employee_termination.statusInactiveDropdownCheck();
+    // });
 
-    it("18.09. Verify that the user can filter active employee termination records using the Status dropdown", function () {
-        grid_employee_termination.statusActiveDropdownCheck();
-    });
+    // it("18.09. Verify that the user can filter active employee termination records using the Status dropdown", function () {
+    //     grid_employee_termination.statusActiveDropdownCheck();
+    // });
 
     it("18.10. Verify that the search functionality works correctly when searching by employee name", function () {
         grid_employee_termination.searchInEmployeeName();

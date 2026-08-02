@@ -39,7 +39,7 @@ describe("33. Client Welfare Fund Module Test Cases", function () {
     create_client_welfare_fund.createGoBackButtonCheck();
   });
 
-  it("33.05. Verify successful creation of a Loan Welfare Fund record by MFI Admin", function () {
+  it("33.05. Verify successful creation of a Loan Welfare Fund.", function () {
     create_client_welfare_fund.createClientWelfareFund();
   });
 

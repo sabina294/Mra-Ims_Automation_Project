@@ -43,7 +43,7 @@ describe("41. holiday Module Test Cases", function () {
     create_holiday.createGoBackButtonCheck();
   });
 
-  it("41.06. Verify that the MFI Admin can successfully approve a holiday record after creation.", function () {
+  it("41.06. Verify that the successfully approve a holiday record after creation.", function () {
     create_holiday.approveHoliday();
   });
 

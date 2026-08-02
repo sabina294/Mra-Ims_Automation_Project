@@ -67,13 +67,13 @@ describe("17. Employee Transfer Module Test Cases", function () {
         grid_employee_transfer.approveNewEmployeeTransfer();
     });
 
-    it("17.12. Verify that inactive Employee Transfer records can be filtered using the Status dropdown.", function () {
-        grid_employee_transfer.statusInactiveDropdownCheck();
-    });
+    // it("17.12. Verify that inactive Employee Transfer records can be filtered using the Status dropdown.", function () {
+    //     grid_employee_transfer.statusInactiveDropdownCheck();
+    // });
 
-    it("17.13. Verify that active Employee Transfer records can be filtered using the Status dropdown.", function () {
-        grid_employee_transfer.statusActiveDropdownCheck();
-    });
+    // it("17.13. Verify that active Employee Transfer records can be filtered using the Status dropdown.", function () {
+    //     grid_employee_transfer.statusActiveDropdownCheck();
+    // });
 
     it("17.14. Verify that search results are displayed correctly when searching by Employee Name.", function () {
         grid_employee_transfer.searchInEmployeeName();

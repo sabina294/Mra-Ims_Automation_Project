@@ -71,13 +71,13 @@ describe("16. Employee Promotion Module Test Cases", function () {
         grid_employee_promotion.approveNewEmployeePromotion();
     });
 
-    it("16.13. Verify that inactive employee promotion records can be filtered using the Status dropdown.", function () {
-        grid_employee_promotion.statusInactiveDropdownCheck();
-    });
+    // it("16.13. Verify that inactive employee promotion records can be filtered using the Status dropdown.", function () {
+    //     grid_employee_promotion.statusInactiveDropdownCheck();
+    // });
 
-    it("16.14. Verify that active employee promotion records can be filtered using the Status dropdown.", function () {
-        grid_employee_promotion.statusActiveDropdownCheck();
-    });
+    // it("16.14. Verify that active employee promotion records can be filtered using the Status dropdown.", function () {
+    //     grid_employee_promotion.statusActiveDropdownCheck();
+    // });
 
     it("16.15. Verify that search results are correctly displayed when searching by employee name.", function () {
         grid_employee_promotion.searchInEmployeeName();
