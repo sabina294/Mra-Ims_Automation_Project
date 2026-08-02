@@ -61,6 +61,8 @@ class CalendarYearCreation {
 
   approveCalendare() {
     cy.imsId("toggle-action").first().click();
+    cy.imsId("btn-mis-table-action-lock").click();
+    cy.imsId("toggle-action").first().click();
     cy.imsId("btn-table-action-view").click();
     cy.imsId("btn-add").click();
     cy.imsId("btn-yes").click();

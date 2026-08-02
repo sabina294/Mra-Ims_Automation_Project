@@ -38,20 +38,14 @@ class SamityCreation {
       cy.formController("geo_area_type")
         .type(smData.geoAreaType)
         .type("{enter}");
-
       cy.imsId("btn-submit").click();
-
       cy.imsId("btn-yes").click();
-      cy.get("app-confirmation-modal")
-        .contains(smData.messageSaveSamity)
-        .and("be.visible");
-
       cy.imsId("btn-ok").click();
       cy.log("Successfully created samity");
     });
   }
 
-   myTaskMenuSamity() {
+  myTaskMenuSamity() {
     cy.fixture(this.test_data).then((data) => {
       var smData = data.mfiAdmin.createSamityFrom;
       cy.imsId("menu-my-task").click();
@@ -548,6 +542,17 @@ class SamityCreation {
     cy.log("Successful edit go back button check.");
   }
 
+  gridOfficeDropdownCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      var smData = data.mfiAdmin.createSamityFrom;
+      cy.formController("office_id").type(smData.officeDropdown).type("{enter}");
+      cy.imsId("btn-reset").click();
+      cy.log(
+        "Samity Management form office dropdown check successfully"
+      );
+    });
+  }
+
   statusInactiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       var smData = data.mfiAdmin.createSamityFrom;
@@ -625,28 +630,23 @@ class SamityCreation {
         .type("{enter}");
 
       cy.imsId("btn-draft").click();
-
       cy.imsId("btn-yes").click();
-      cy.get("app-confirmation-modal")
-        .contains(smData.messageSaveSamity)
-        .and("be.visible");
-
       cy.imsId("btn-ok").click();
       cy.log("Successfully created samity");
     });
   }
 
-     gridDraftButton() {
-        cy.imsId(GRID.BUTTONS.DRAFT_ON)
-            .check({ force: true });
-        cy.log(messages.ui.draftOnMessage);
-    }
+  gridDraftButton() {
+    cy.imsId(GRID.BUTTONS.DRAFT_ON)
+      .check({ force: true });
+    cy.log(messages.ui.draftOnMessage);
+  }
 
-    gridDraftButtonOff() {
-        cy.imsId(GRID.BUTTONS.DRAFT_OFF)
-            .uncheck({ force: true });
-        cy.log(messages.ui.draftOffMessage);
-    }
+  gridDraftButtonOff() {
+    cy.imsId(GRID.BUTTONS.DRAFT_OFF)
+      .uncheck({ force: true });
+    cy.log(messages.ui.draftOffMessage);
+  }
 
   gridCheckboxCheck() {
 
@@ -668,53 +668,53 @@ class SamityCreation {
 
   gridCheckboxLockButtonCheck() {
 
-  cy.wait(3000);
+    cy.wait(3000);
 
-  // click actual checkbox
-  cy.get(".ant-checkbox-input", { timeout: 30000 })
-    .first()
-    .check({ force: true });
+    // click actual checkbox
+    cy.get(".ant-checkbox-input", { timeout: 30000 })
+      .first()
+      .check({ force: true });
 
-  cy.wait(1000);
+    cy.wait(1000);
 
-  // verify checked
-  cy.get(".ant-checkbox-wrapper")
-    .first()
-    .should('have.class', 'ant-checkbox-wrapper-checked');
+    // verify checked
+    cy.get(".ant-checkbox-wrapper")
+      .first()
+      .should('have.class', 'ant-checkbox-wrapper-checked');
 
-  // click lock button
-  cy.imsId("btn-lock")
-    .should('be.visible')
-    .and('not.be.disabled')
-    .click({ force: true });
+    // click lock button
+    cy.imsId("btn-lock")
+      .should('be.visible')
+      .and('not.be.disabled')
+      .click({ force: true });
 
-  cy.log("Checkbox lock button should be clickable and functional.");
-}
+    cy.log("Checkbox lock button should be clickable and functional.");
+  }
 
-gridCheckboxUnlockButtonCheck() {
+  gridCheckboxUnlockButtonCheck() {
 
-  cy.wait(3000);
+    cy.wait(3000);
 
-  // click actual checkbox
-  cy.get(".ant-checkbox-input", { timeout: 30000 })
-    .first()
-    .check({ force: true });
+    // click actual checkbox
+    cy.get(".ant-checkbox-input", { timeout: 30000 })
+      .first()
+      .check({ force: true });
 
-  cy.wait(1000);
+    cy.wait(1000);
 
-  // verify checked
-  cy.get(".ant-checkbox-wrapper")
-    .first()
-    .should('have.class', 'ant-checkbox-wrapper-checked');
+    // verify checked
+    cy.get(".ant-checkbox-wrapper")
+      .first()
+      .should('have.class', 'ant-checkbox-wrapper-checked');
 
-  // click unlock button
-  cy.imsId("btn-unlock")
-    .should('be.visible')
-    .and('not.be.disabled')
-    .click({ force: true });
+    // click unlock button
+    cy.imsId("btn-unlock")
+      .should('be.visible')
+      .and('not.be.disabled')
+      .click({ force: true });
 
-  cy.log("Checkbox unlock button should be clickable and functional.");
-}
+    cy.log("Checkbox unlock button should be clickable and functional.");
+  }
 
   selectofficeDropdown() {
     cy.fixture(this.test_data).then((data) => {

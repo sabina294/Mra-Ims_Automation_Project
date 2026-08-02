@@ -12,11 +12,11 @@ class RejectedEmployee {
       cy.imsId("btn-add-new").click();
       // cy.imsId("btn-submit").and("be.visible");
 
-      var emData = data.mfiAdmin.rejectedEmployeeFrom;
-      cy.formController("emp_name_en").type(emData.empNameEn);
-      cy.formController("emp_name_bn").type(emData.empNameBn);
+      var reData = data.mfiAdmin.rejectedEmployeeFrom;
+      cy.formController("emp_name_en").type(reData.empNameEn);
+      cy.formController("emp_name_bn").type(reData.empNameBn);
       cy.formController("date_of_birth").click();
-        cy.get('.ant-picker-dropdown')
+      cy.get('.ant-picker-dropdown')
         .should('be.visible');
       cy.get('.ant-picker-cell-in-view')
         .not('.ant-picker-cell-disabled')
@@ -27,33 +27,33 @@ class RejectedEmployee {
       cy.get(
         ".ant-form-item-control-input-content > .ant-radio-group > :nth-child(1) > .ant-radio > .ant-radio-input"
       ).click();
-      cy.formController("contactNo").type(emData.empMobileNo);
-      cy.formController("emailAddress").first().clear().type(emData.email);
+      cy.formController("contactNo").type(reData.empMobileNo);
+      cy.formController("emailAddress").first().clear().type(reData.email);
       cy.get('#nz-tabs-1-tab-1').click();
-      cy.formController("nid_number").type(emData.nidNumber);
+      cy.formController("nid_number").type(reData.nidNumber);
       cy.get('#nz-tabs-1-tab-2').click();
-      cy.formController("office_id").type(emData.office).type("{enter}");
+      cy.formController("office_id").type(reData.officeDropdown).type("{enter}");
       cy.formController("department_id")
-        .type(emData.department)
+        .type(reData.department)
         .type("{enter}");
       cy.wait(2000);
       cy.formController("empl_designation_id")
-        .type(emData.designation)
+        .type(reData.designation)
         .type("{enter}");
       cy.wait(2000);
 
       cy.get('#nz-tabs-1-tab-3').click();
-      cy.formController("father_name_en").type(emData.fatherNameEn);
-      cy.formController("mother_name_en").type(emData.motherNameEn);
+      cy.formController("father_name_en").type(reData.fatherNameEn);
+      cy.formController("mother_name_en").type(reData.motherNameEn);
       cy.get('#nz-tabs-1-tab-4').click();
       cy.formController("res_division_id")
-        .type(emData.division)
+        .type(reData.division)
         .type("{enter}");
       cy.formController("res_district_id")
-        .type(emData.district)
+        .type(reData.district)
         .type("{enter}");
-      cy.formController("res_upazila_id").type(emData.thana).type("{enter}");
-      cy.formController("res_address_line_1").type(emData.adressEn);
+      cy.formController("res_upazila_id").type(reData.thana).type("{enter}");
+      cy.formController("res_address_line_1").type(reData.adressEn);
       cy.imsId("ck-box").click();
       cy.get('#nz-tabs-1-tab-5').click();
       cy.imsId("btn_photo_image_id").attachFile("employeePhoto1.jpg");
@@ -67,7 +67,7 @@ class RejectedEmployee {
       cy.imsId("btn-submit").click();
       cy.imsId("btn-yes").click();
       cy.get("app-confirmation-modal")
-        .contains(emData.messageSaveEmp)
+        .contains(reData.messageSaveEmp)
         .and("be.visible");
       cy.imsId("btn-ok").click();
 
@@ -77,7 +77,7 @@ class RejectedEmployee {
 
   rejectedEmployee() {
     cy.fixture(this.test_data).then((data) => {
-      const emData = data.mfiAdmin.rejectedEmployeeFrom;
+      const reData = data.mfiAdmin.rejectedEmployeeFrom;
 
       cy.imsId("menu-my-task").click();
       cy.imsId("submenu-awaiting-employee-management").click();
@@ -93,7 +93,7 @@ class RejectedEmployee {
         .should("be.visible")
         .and("not.be.disabled")
         .clear()
-        .type(emData.rejectRemarks);
+        .type(reData.rejectRemarks);
 
       cy.imsId("btn-Reject").click();
       cy.imsId("btn-yes").click();
@@ -115,9 +115,9 @@ class RejectedEmployee {
 
   viewEmployeeManagement() {
     cy.fixture(this.test_data).then((data) => {
-      var emData = data.mfiAdmin.rejectedEmployeeFrom;
+      const reData = data.mfiAdmin.rejectedEmployeeFrom;
 
-      cy.formController("search_text").type(emData.empNameEn);
+      cy.formController("search_text").type(reData.empNameEn);
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
 
@@ -133,9 +133,9 @@ class RejectedEmployee {
 
   editResetButton() {
     cy.fixture(this.test_data).then((data) => {
-      var emData = data.mfiAdmin.rejectedEmployeeFrom;
+      const reData = data.mfiAdmin.rejectedEmployeeFrom;
       cy.imsId("btn-reset").click();
-      cy.formController("search_text").type(emData.search);
+      cy.formController("search_text").type(reData.search);
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-edit").click();
       cy.imsId("btn-reset").click();
@@ -147,9 +147,9 @@ class RejectedEmployee {
 
   editGoBackButton() {
     cy.fixture(this.test_data).then((data) => {
-      var emData = data.mfiAdmin.rejectedEmployeeFrom;
+      const reData = data.mfiAdmin.rejectedEmployeeFrom;
       cy.imsId("btn-reset").click();
-      cy.formController("search_text").type(emData.search);
+      cy.formController("search_text").type(reData.search);
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-edit").click();
       cy.imsId("btn-go-back").click();
@@ -167,11 +167,21 @@ class RejectedEmployee {
     cy.log("Rejected Employee updated successfully");
   }
 
+  gridOfficeDropdownCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      const reData = data.mfiAdmin.rejectedEmployeeFrom;
+      cy.formController("office_id").type(reData.officeDropdown).type("{enter}");
+      cy.imsId("btn-reset").click();
+      cy.log(
+        "Rejected Employee form office dropdown check successfully"
+      );
+    });
+  }
   statusRejectedDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var emData = data.mfiAdmin.rejectedEmployeeFrom;
+      const reData = data.mfiAdmin.rejectedEmployeeFrom;
       cy.imsId("btn-reset").click();
-      cy.formController("status").type(emData.selectStatus).type("{enter}");
+      cy.formController("status").type(reData.selectStatus).type("{enter}");
       cy.imsId("btn-reset").click();
       cy.log(
         "Rejected Employee form status rejected dropdown check successfully"
@@ -181,9 +191,9 @@ class RejectedEmployee {
 
   statusApprovedDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var emData = data.mfiAdmin.rejectedEmployeeFrom;
+      const reData = data.mfiAdmin.rejectedEmployeeFrom;
       cy.imsId("btn-reset").click();
-      cy.formController("status").type(emData.statusSelect).type("{enter}");
+      cy.formController("status").type(reData.statusSelect).type("{enter}");
       cy.log(
         "Rejected Employee form status approved dropdown check successfully"
       );
@@ -192,9 +202,9 @@ class RejectedEmployee {
 
   searchInEmployeeName() {
     cy.fixture(this.test_data).then((data) => {
-      var emData = data.mfiAdmin.rejectedEmployeeFrom;
+      const reData = data.mfiAdmin.rejectedEmployeeFrom;
       cy.imsId("btn-reset").click();
-      cy.formController("search_text").type(emData.empNameEn);
+      cy.formController("search_text").type(reData.empNameEn);
       cy.log("Successfully search in the Rejected Employee form");
     });
   }
@@ -213,9 +223,9 @@ class RejectedEmployee {
 
   gridSearchButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var emData = data.mfiAdmin.rejectedEmployeeFrom;
+      const reData = data.mfiAdmin.rejectedEmployeeFrom;
       cy.imsId("btn-reset").click();
-      cy.formController("search_text").type(emData.search);
+      cy.formController("search_text").type(reData.search);
       cy.imsId("btn-search").click();
       cy.log("Successful search button click.");
     });

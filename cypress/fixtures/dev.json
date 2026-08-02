@@ -197,6 +197,7 @@
       "statusSelect": "Approved",
       "search": "Sabina Yeasmin",
       "rejectRemarks": "Reject",
+      "officeDropdown": "1002 (Dhaka Regional Office)",
       "messageSaveEmp": "Mfi employee has been saved",
       "messageUpdateEmp": "Mfi employee has been updated"
     },
@@ -205,7 +206,8 @@
       "newDesignation": "Assistant Manager",
       "search": "MAHBUB",
       "selectStatus": "Inactive",
-      "statusSelect": "Active"
+      "statusSelect": "Active",
+      "officeDropdown": "1002 (Dhaka Regional Office)"
     },
     "approveEmployeePromotionFrom": {
       "OfficeDropdown": "1020 (Ashulia)"
@@ -214,6 +216,7 @@
       "search": "ABDUL RASHID",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
+      "officeDropdown": "1002 (Dhaka Regional Office)",
       "newOffice": "1002 (Dhaka Regional Office)"
     },
     "approveEmployeeTransferFrom": {
@@ -221,6 +224,7 @@
     },
     "gridEmpTerminationFrom": {
       "search": "AMER ALI",
+      "officeDropdown": "1002 (Dhaka Regional Office)",
       "selectStatus": "Inactive",
       "statusSelect": "Active"
     },
@@ -246,6 +250,7 @@
       "selectStatus": "Inactive",
       "statusSelect": "Active",
       "search": "Test Samity",
+      "officeDropdown": "1002 (Dhaka Regional Office)",
       "messageSaveSamity": "Unauth samity has been saved",
       "messageUpdateSamity": "Samity has been updated"
     },
@@ -1044,7 +1049,7 @@
       "messageUpdateLoanAccount": "Do you want to update this loan account?"
     },
     "approveLoanAccountFrom": {
-      "SamityDropdown": "1020 (Ashulia)"
+      "SamityDropdown": "1020-111 (Rustampur Mohila Samity)"
     },
     "loanAccountManagementFrom": {
       "samity": "Chhaya Mohila Samity",
@@ -1176,7 +1181,7 @@
       "samity": "1020-101 (Ashulia Mohila Samity)",
       "status": "Finished",
       "search": "GAIS UDDIN KHAN"
-     },
+    },
     "regularCollection": {
       "loanAmount": "500",
       "loanAmount2": "500",

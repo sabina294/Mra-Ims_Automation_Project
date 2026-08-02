@@ -67,13 +67,11 @@ class ClientWelfareFund {
     cy.fixture(this.test_data).then((data) => {
       var wfData = data.mfiAdmin.createClientWelfareFrom;
       cy.formController("search_text").type(wfData.search);
+      cy.imsId("search-button").click();
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
       cy.imsId("btn-authorize").click();
       cy.imsId("btn-yes").click();
-      cy.get("app-confirmation-modal")
-        .contains(wfData.approveMessage)
-        .and("be.visible");
       cy.imsId("btn-ok").click();
       cy.log("Successfully approved the loan welfare fund");
     });

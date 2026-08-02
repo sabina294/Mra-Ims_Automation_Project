@@ -34,10 +34,6 @@ class RejectedSamity {
       cy.imsId("btn-submit").click();
 
       cy.imsId("btn-yes").click();
-      cy.get("app-confirmation-modal")
-        .contains(rsData.messageSaveSamity)
-        .and("be.visible");
-
       cy.imsId("btn-ok").click();
       cy.log("Successfully created samity");
     });

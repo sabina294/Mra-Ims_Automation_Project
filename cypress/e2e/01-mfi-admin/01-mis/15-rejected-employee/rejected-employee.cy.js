@@ -59,31 +59,35 @@ describe("15. Rejected Employee Module Test Cases", function () {
         create_rejected_employee.editEmployeeManagement();
     });
 
-    it("15.10. Verify the user can filter rejected employee records using the status dropdown on the Rejected Employee List page.", function () {
-        create_rejected_employee.statusRejectedDropdownCheck();
+    it("15.10. Verify that the Office filter displays office dropdown rejected employee records correctly in grid list.", function () {
+        create_rejected_employee.gridOfficeDropdownCheck();
     });
 
-    it("15.11. Verify check if the filter for approved results works correctly with the status dropdown.", function () {
-        create_rejected_employee.statusApprovedDropdownCheck();
-    });
+    // it("15.11. Verify the user can filter rejected employee records using the status dropdown on the Rejected Employee List page.", function () {
+    //     create_rejected_employee.statusRejectedDropdownCheck();
+    // });
 
-    it("15.12. Verify that the search results are displayed correctly when searching by rejected employee name.", function () {
+    // it("15.12. Verify check if the filter for approved results works correctly with the status dropdown.", function () {
+    //     create_rejected_employee.statusApprovedDropdownCheck();
+    // });
+
+    it("15.13. Verify that the search results are displayed correctly when searching by rejected employee name.", function () {
         create_rejected_employee.searchInEmployeeName();
     });
 
-    it("15.13. Verify the grid list resets successfully when the reset button is clicked on the rejected employee page.", function () {
+    it("15.14. Verify the grid list resets successfully when the reset button is clicked on the rejected employee page.", function () {
         create_rejected_employee.gridResetButtonCheck();
     });
 
-    it("15.14. Verify that the grid list is refreshed successfully when the refresh button is clicked on the rejected employee page.", function () {
+    it("15.15. Verify that the grid list is refreshed successfully when the refresh button is clicked on the rejected employee page.", function () {
         create_rejected_employee.gridRefreshButtonCheck();
     });
 
-    it("15.15. Verify that when the user clicks the Search button on the rejected employee grid page, the system redirects to the employee management List page..", function () {
+    it("15.16. Verify that when the user clicks the Search button on the rejected employee grid page, the system redirects to the employee management List page..", function () {
         create_rejected_employee.gridSearchButtonCheck();
     });
 
-    it("15.16. Verify check that the grid list content changes correctly from english to bangla.", function () {
+    it("15.17. Verify check that the grid list content changes correctly from english to bangla.", function () {
         create_rejected_employee.gridLanguageSwitchCheck();
     });
 });

@@ -144,10 +144,20 @@ class EmployeePromotion {
         cy.log("Successfully approved employee promotion");
     }
 
+    gridOfficeDropdownCheck() {
+        cy.fixture(this.test_data).then((data) => {
+            var empData = data.mfiAdmin.gridEmpPromotionFrom;
+            cy.formController("office_id").type(empData.officeDropdown).type("{enter}");
+            cy.imsId("btn-reset").click();
+            cy.log(
+                "Employee Promotion form office dropdown check successfully"
+            );
+        });
+    }
+
     statusInactiveDropdownCheck() {
         cy.fixture(this.test_data).then((data) => {
             var empData = data.mfiAdmin.gridEmpPromotionFrom;
-            cy.selectMenu("menu-employee", "submenu-employee-promotion");
             cy.formController("status").type(empData.selectStatus).type("{enter}");
             cy.log(
                 "Employee Promotion form status inactive dropdown check successfully"
@@ -169,6 +179,7 @@ class EmployeePromotion {
     searchInEmployeeName() {
         cy.fixture(this.test_data).then((data) => {
             var empData = data.mfiAdmin.gridEmpPromotionFrom;
+            cy.selectMenu("menu-employee", "submenu-employee-promotion");
             cy.imsId("btn-reset").click();
             cy.formController("search_text").type(empData.search);
             cy.log("Successfully search in the Employee Promotion form");

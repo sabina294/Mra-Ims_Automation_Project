@@ -135,79 +135,83 @@ describe("19. Samity management Module Test Cases", function () {
     create_samity_management.editGoBackButton();
   });
 
-  it("19.29. Verify that the Status filter displays inactive Samity Management records correctly.", function () {
+  it("19.29. Verify that the Office filter displays office dropdown Samity Management records correctly in grid list.", function () {
+    create_samity_management.gridOfficeDropdownCheck();
+  });
+
+  it("19.30. Verify that the Status filter displays inactive Samity Management records correctly.", function () {
     create_samity_management.statusInactiveDropdownCheck();
   });
 
-  it("19.30. Verify that the Status filter displays active Samity Management records correctly.", function () {
+  it("19.31. Verify that the Status filter displays active Samity Management records correctly.", function () {
     create_samity_management.statusActiveDropdownCheck();
   });
 
-  it("19.31. Verify that the search results are displayed correctly when searching by Samity Management name.", function () {
+  it("19.32. Verify that the search results are displayed correctly when searching by Samity Management name.", function () {
     create_samity_management.searchInSamityManagementName();
   });
 
-  it("19.32. Verify that the Reset button clears all applied filters on the Samity Management list page.", function () {
+  it("19.33. Verify that the Reset button clears all applied filters on the Samity Management list page.", function () {
     create_samity_management.gridResetButtonCheck();
   });
 
-  it("19.33. Verify that the Refresh button reloads the Samity Management list successfully.", function () {
+  it("19.34. Verify that the Refresh button reloads the Samity Management list successfully.", function () {
     create_samity_management.gridRefreshButtonCheck();
   });
 
-  it("19.34. Verify that the Search button displays the correct records on the Samity Management list page.", function () {
+  it("19.35. Verify that the Search button displays the correct records on the Samity Management list page.", function () {
     create_samity_management.gridSearchButtonCheck();
   });
 
-  it("19.35. Verify that a Samity Management record can be saved successfully as a draft.", function () {
+  it("19.36. Verify that a Samity Management record can be saved successfully as a draft.", function () {
     create_samity_management.createDraftButton();
   });
 
-  it("19.36. Verify that enabling the Draft filter displays draft records correctly on the Samity Management list page.", function () {
+  it("19.37. Verify that enabling the Draft filter displays draft records correctly on the Samity Management list page.", function () {
     create_samity_management.gridDraftButton();
   });
 
-  it("19.37. Verify that disabling the Draft filter displays all records correctly on the Samity Management list page.", function () {
+  it("19.38. Verify that disabling the Draft filter displays all records correctly on the Samity Management list page.", function () {
     create_samity_management.gridDraftButtonOff();
   });
 
-  it("19.38. Verify that the record selection checkbox functions correctly.", function () {
+  it("19.39. Verify that the record selection checkbox functions correctly.", function () {
     create_samity_management.gridCheckboxCheck();
   });
 
-  it("19.39. Verify that the Lock action works correctly for the selected records.", function () {
+  it("19.40. Verify that the Lock action works correctly for the selected records.", function () {
     create_samity_management.gridCheckboxLockButtonCheck();
   });
 
-  it("19.40. Verify that the Unlock action works correctly for the selected records.", function () {
+  it("19.41. Verify that the Unlock action works correctly for the selected records.", function () {
     create_samity_management.gridCheckboxUnlockButtonCheck();
   });
 
-  it("19.41. Verify that the Office dropdown filter works correctly on the Samity Management list page.", function () {
+  it("19.42. Verify that the Office dropdown filter works correctly on the Samity Management list page.", function () {
     create_samity_management.selectofficeDropdown();
   });
 
-  it("19.42. Verify that the Reset button clears all entered values on the Samity Management creation page.", function () {
+  it("19.43. Verify that the Reset button clears all entered values on the Samity Management creation page.", function () {
     create_samity_management.createResetButtonCheck();
   });
 
-  it("19.43. Verify that validation messages are displayed for all required fields when the Submit button is clicked with empty inputs.", function () {
+  it("19.44. Verify that validation messages are displayed for all required fields when the Submit button is clicked with empty inputs.", function () {
     create_samity_management.createValidationMessageCheck();
   });
 
-  it("19.44. Verify that validation messages are displayed for all required fields when the Approve button is clicked with empty inputs.", function () {
+  it("19.45. Verify that validation messages are displayed for all required fields when the Approve button is clicked with empty inputs.", function () {
     create_samity_management.createApproveButtonCheck();
   });
 
-  it("19.45. Verify that clicking the Go Back button on the Samity Management creation page redirects the user to the Samity Management list page.", function () {
+  it("19.46. Verify that clicking the Go Back button on the Samity Management creation page redirects the user to the Samity Management list page.", function () {
     create_samity_management.createGoBackButtonCheck();
   });
 
-  it("19.46. Verify that clicking the Draft button on the Samity Management creation page saves the record as a draft successfully.", function () {
+  it("19.47. Verify that clicking the Draft button on the Samity Management creation page saves the record as a draft successfully.", function () {
     create_samity_management.createDraftButtonCheck();
   });
 
-  it("19.47. Verify that the Samity Management list is displayed correctly after switching the language from English to Bangla.", function () {
+  it("19.48. Verify that the Samity Management list is displayed correctly after switching the language from English to Bangla.", function () {
     create_samity_management.gridLanguageSwitchCheck();
   });
 });

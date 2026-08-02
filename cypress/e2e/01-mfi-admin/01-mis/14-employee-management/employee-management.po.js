@@ -227,6 +227,18 @@ class EmployeeManagementCreation {
     });
   }
 
+  gridOfficeDropdownCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      var emData = data.mfiAdmin.createEmpMangFrom;
+      cy.formController("office_id").type(emData.office).type("{enter}");
+      cy.imsId("btn-reset").click();
+      cy.log(
+        "Employee Management form office dropdown check successfully"
+      );
+    });
+  }
+
+
   statusInactiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       var emData = data.mfiAdmin.createEmpMangFrom;

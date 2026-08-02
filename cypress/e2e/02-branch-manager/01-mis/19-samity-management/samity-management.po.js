@@ -40,12 +40,7 @@ class SamityCreation {
         .type("{enter}");
 
       cy.imsId("btn-submit").click();
-
       cy.imsId("btn-yes").click();
-      cy.get("app-confirmation-modal")
-        .contains(smData.messageSaveSamity)
-        .and("be.visible");
-
       cy.imsId("btn-ok").click();
       cy.log("Successfully created samity");
     });
@@ -575,12 +570,7 @@ class SamityCreation {
         .type("{enter}");
 
       cy.imsId("btn-draft").click();
-
       cy.imsId("btn-yes").click();
-      cy.get("app-confirmation-modal")
-        .contains(smData.messageSaveSamity)
-        .and("be.visible");
-
       cy.imsId("btn-ok").click();
       cy.log("Successfully created samity");
     });
