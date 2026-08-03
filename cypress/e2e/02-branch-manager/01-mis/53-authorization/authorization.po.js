@@ -40,12 +40,12 @@ class Authorization {
         cy.log("authorization samity should be clickable and functional.");
     }
 
-    UnauthorizeSamity() {
-        cy.imsId("header-checkbox").click();
+    authorizeSingleSamity() {
+        cy.imsId("row-checkbox-1").click();
         cy.imsId("btn-lock").click();
         cy.imsId("btn-yes").click();
         cy.imsId("btn-ok").click();
-        cy.imsId("unauthorize-button").click();
+        cy.imsId("authorize-button").click();
         cy.imsId("btn-yes").click();
         cy.imsId("btn-ok").click();
         cy.log("authorization samity should be clickable and functional.");

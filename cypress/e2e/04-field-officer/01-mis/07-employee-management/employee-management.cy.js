@@ -103,7 +103,7 @@ describe("07. Employee Management Module Test Cases", function () {
     grid_employee_management.gridDraftButtonOff();
   });
 
-  it("07.21. Verify that when the user clicks the Search button on the employee management grid page, the system redirects to the employee management List page..", function () {
+  it("07.21. Verify that when the user clicks the Search button on the employee management grid page", function () {
     grid_employee_management.gridSearchButtonCheck();
   });
 

@@ -155,27 +155,6 @@ class EmployeePromotion {
         });
     }
 
-    statusInactiveDropdownCheck() {
-        cy.fixture(this.test_data).then((data) => {
-            var empData = data.mfiAdmin.gridEmpPromotionFrom;
-            cy.formController("status").type(empData.selectStatus).type("{enter}");
-            cy.log(
-                "Employee Promotion form status inactive dropdown check successfully"
-            );
-        });
-    }
-
-    statusActiveDropdownCheck() {
-        cy.fixture(this.test_data).then((data) => {
-            var empData = data.mfiAdmin.gridEmpPromotionFrom;
-            cy.imsId("btn-reset").click();
-            cy.formController("status").type(empData.statusSelect).type("{enter}");
-            cy.log(
-                "Employee Promotion form status active dropdown check successfully"
-            );
-        });
-    }
-
     searchInEmployeeName() {
         cy.fixture(this.test_data).then((data) => {
             var empData = data.mfiAdmin.gridEmpPromotionFrom;

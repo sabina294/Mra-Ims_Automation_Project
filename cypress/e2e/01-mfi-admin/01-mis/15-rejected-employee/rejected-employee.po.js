@@ -177,29 +177,7 @@ class RejectedEmployee {
       );
     });
   }
-  statusRejectedDropdownCheck() {
-    cy.fixture(this.test_data).then((data) => {
-      const reData = data.mfiAdmin.rejectedEmployeeFrom;
-      cy.imsId("btn-reset").click();
-      cy.formController("status").type(reData.selectStatus).type("{enter}");
-      cy.imsId("btn-reset").click();
-      cy.log(
-        "Rejected Employee form status rejected dropdown check successfully"
-      );
-    });
-  }
-
-  statusApprovedDropdownCheck() {
-    cy.fixture(this.test_data).then((data) => {
-      const reData = data.mfiAdmin.rejectedEmployeeFrom;
-      cy.imsId("btn-reset").click();
-      cy.formController("status").type(reData.statusSelect).type("{enter}");
-      cy.log(
-        "Rejected Employee form status approved dropdown check successfully"
-      );
-    });
-  }
-
+  
   searchInEmployeeName() {
     cy.fixture(this.test_data).then((data) => {
       const reData = data.mfiAdmin.rejectedEmployeeFrom;

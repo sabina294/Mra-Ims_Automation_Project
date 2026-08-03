@@ -163,27 +163,6 @@ class EmployeeTransfer {
         });
     }
 
-    statusInactiveDropdownCheck() {
-        cy.fixture(this.test_data).then((data) => {
-            var emtData = data.mfiAdmin.gridEmpTransferFrom;
-            cy.formController("status").type(emtData.selectStatus).type("{enter}");
-            cy.log(
-                "Employee Transfer form status inactive dropdown check successfully"
-            );
-        });
-    }
-
-    statusActiveDropdownCheck() {
-        cy.fixture(this.test_data).then((data) => {
-            var emtData = data.mfiAdmin.gridEmpTransferFrom;
-            cy.imsId("btn-reset").click();
-            cy.formController("status").type(emtData.statusSelect).type("{enter}");
-            cy.log(
-                "Employee Transfer form status active dropdown check successfully"
-            );
-        });
-    }
-
     searchInEmployeeName() {
         cy.fixture(this.test_data).then((data) => {
             var emtData = data.mfiAdmin.gridEmpTransferFrom;

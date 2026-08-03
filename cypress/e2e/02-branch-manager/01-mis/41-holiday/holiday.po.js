@@ -59,6 +59,7 @@ class HolidayCreation {
       cy.imsId("submenu-awaiting-holiday-approval").click();
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
+      cy.imsId("btn-lock").click();
       cy.imsId("btn-approve").click();
       cy.imsId("btn-yes").click();
       cy.imsId("btn-ok").click();

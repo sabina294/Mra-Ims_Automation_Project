@@ -41,7 +41,7 @@ class EmployeeManagement {
     cy.fixture(this.test_data).then((data) => {
       var emData = data.fieldOfficer.gridEmpMangFrom;
       cy.imsId("btn-reset").click();
-      cy.formController("search_text").type(emData.search);
+      cy.formController("search_text").type(emData.empNameEn);
       cy.imsId("btn-search").click();
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
@@ -127,7 +127,7 @@ class EmployeeManagement {
   }
 
   gridCheckboxCheck() {
-    cy.imsId("row-checkbox-9").click();
+    cy.imsId("row-checkbox-3").click();
     cy.imsId("btn-reset").click();
     cy.log("Checkbox should be clickable and functional.");
   }
@@ -138,7 +138,7 @@ class EmployeeManagement {
   }
 
   gridCheckboxUnlockButtonCheck() {
-    cy.imsId("row-checkbox-9").click();
+    cy.imsId("row-checkbox-3").click();
     cy.imsId("btn-unlock").click();
     cy.log("Checkbox unlock button should be clickable and functional.");
   }
@@ -168,7 +168,7 @@ class EmployeeManagement {
     cy.fixture(this.test_data).then((data) => {
       var emData = data.fieldOfficer.gridEmpMangFrom;
       cy.imsId("btn-reset").click();
-      cy.formController("search_text").type(emData.search);
+      cy.formController("search_text").type(emData.empNameEn);
       cy.imsId("btn-search").click();
       cy.log("Successful search button click.");
     });

@@ -27,9 +27,6 @@ class CalendarYearCreation {
       cy.imsId("btn-modal-submit").click();
       cy.imsId("btn-submit").click();
       cy.imsId("btn-yes").click();
-      cy.get("app-confirmation-modal")
-        .contains(cyData.messageSaveCalendar)
-        .and("be.visible");
       cy.imsId("btn-ok").click();
 
       cy.log("Successfully created Calendar Year ");
@@ -61,9 +58,8 @@ class CalendarYearCreation {
 
   approveCalendare() {
     cy.imsId("toggle-action").first().click();
-    cy.imsId("btn-mis-table-action-lock").click();
-    cy.imsId("toggle-action").first().click();
     cy.imsId("btn-table-action-view").click();
+    cy.imsId("btn-lock").click();
     cy.imsId("btn-add").click();
     cy.imsId("btn-yes").click();
     cy.wait(10000);

@@ -44,6 +44,10 @@ describe("53. Authorization Module Test Cases", function () {
         authorization.authorizeSamity();
     });
 
+    // it("53.05. Verify that the  single Samity authorization functionality works correctly.", function () {
+    //     authorization.authorizeSingleSamity();
+    // });
+
     it("53.06. Verify that grid filters and search criteria are reset successfully when the Reset button is clicked.", function () {
         authorization.gridResetButtonCheck();
     });

@@ -53,39 +53,31 @@ describe("18. Employee Termination Module Test Cases", function () {
         grid_employee_termination.approveNewEmployeeTermination();
     });
 
-    // it("18.08. Verify that the user can filter inactive employee termination records using the Status dropdown", function () {
-    //     grid_employee_termination.statusInactiveDropdownCheck();
-    // });
-
-    // it("18.09. Verify that the user can filter active employee termination records using the Status dropdown", function () {
-    //     grid_employee_termination.statusActiveDropdownCheck();
-    // });
-
-    it("18.10. Verify that the search functionality works correctly when searching by employee name", function () {
+    it("18.08. Verify that the search functionality works correctly when searching by employee name", function () {
         grid_employee_termination.searchInEmployeeName();
     });
 
-    it("18.11. Verify that the grid list resets successfully when the Reset button is clicked", function () {
+    it("18.09. Verify that the grid list resets successfully when the Reset button is clicked", function () {
         grid_employee_termination.gridResetButtonCheck();
     });
 
-    it("18.12. Verify that the grid list refreshes successfully when the Refresh button is clicked", function () {
+    it("18.10. Verify that the grid list refreshes successfully when the Refresh button is clicked", function () {
         grid_employee_termination.gridRefreshButtonCheck();
     });
 
-    it("18.13. Verify that clicking the Search button redirects or updates the Employee Termination List grid correctly", function () {
+    it("18.11. Verify that clicking the Search button redirects or updates the Employee Termination List grid correctly", function () {
         grid_employee_termination.gridSearchButtonCheck();
     });
 
-    it("18.14. Verify that the grid displays draft records when the Draft filter is enabled", function () {
+    it("18.12. Verify that the grid displays draft records when the Draft filter is enabled", function () {
         grid_employee_termination.gridDraftButton();
     });
 
-    it("18.15. Verify that the grid hides draft records when the Draft filter is disabled", function () {
+    it("18.13. Verify that the grid hides draft records when the Draft filter is disabled", function () {
         grid_employee_termination.gridDraftButtonOff();
     });
 
-    it("18.16. Verify that the grid content updates correctly when switching language from English to Bangla", function () {
+    it("18.14. Verify that the grid content updates correctly when switching language from English to Bangla", function () {
         grid_employee_termination.gridLanguageSwitchCheck();
     });
 

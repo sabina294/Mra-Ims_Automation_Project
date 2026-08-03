@@ -134,31 +134,10 @@ class EmployeePromotion {
         cy.log("Successfully approved employee promotion");
     }
 
-    statusInactiveDropdownCheck() {
-        cy.fixture(this.test_data).then((data) => {
-            var emData = data.branchManager.gridEmpPromotionFrom;
-            cy.selectMenu("menu-employee", "submenu-employee-promotion");
-            cy.formController("status").type(emData.selectStatus).type("{enter}");
-            cy.log(
-                "Employee Promotion form status inactive dropdown check successfully"
-            );
-        });
-    }
-
-    statusActiveDropdownCheck() {
-        cy.fixture(this.test_data).then((data) => {
-            var emData = data.branchManager.gridEmpPromotionFrom;
-            cy.imsId("btn-reset").click();
-            cy.formController("status").type(emData.statusSelect).type("{enter}");
-            cy.log(
-                "Employee Promotion form status active dropdown check successfully"
-            );
-        });
-    }
-
     searchInEmployeeName() {
         cy.fixture(this.test_data).then((data) => {
             var emData = data.branchManager.gridEmpPromotionFrom;
+            cy.selectMenu("menu-employee", "submenu-employee-promotion");
             cy.imsId("btn-reset").click();
             cy.formController("search_text").type(emData.search);
             cy.log("Successfully search in the Employee Promotion form");

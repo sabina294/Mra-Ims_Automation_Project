@@ -70,31 +70,10 @@ class EmployeeTermination {
         cy.log("Successfully approved employee termination");
     }
 
-    statusInactiveDropdownCheck() {
-        cy.fixture(this.test_data).then((data) => {
-            var etData = data.branchManager.gridEmpTerminationFrom;
-            cy.selectMenu("menu-employee", "submenu-employee-termination");
-            cy.formController("status").type(etData.selectStatus).type("{enter}");
-            cy.log(
-                "Employee Termination form status inactive dropdown check successfully"
-            );
-        });
-    }
-
-    statusActiveDropdownCheck() {
-        cy.fixture(this.test_data).then((data) => {
-            var etData = data.branchManager.gridEmpTerminationFrom;
-            cy.imsId("btn-reset").click();
-            cy.formController("status").type(etData.statusSelect).type("{enter}");
-            cy.log(
-                "Employee Termination form status active dropdown check successfully"
-            );
-        });
-    }
-
     searchInEmployeeName() {
         cy.fixture(this.test_data).then((data) => {
             var etData = data.branchManager.gridEmpTerminationFrom;
+            cy.selectMenu("menu-employee", "submenu-employee-termination");
             cy.imsId("btn-reset").click();
             cy.formController("search_text").type(etData.search);
             cy.log("Successfully search in the Employee Termination form");

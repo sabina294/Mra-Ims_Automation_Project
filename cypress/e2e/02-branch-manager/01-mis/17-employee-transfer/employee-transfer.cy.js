@@ -67,39 +67,31 @@ describe("17. Employee Transfer Module Test Cases", function () {
         grid_employee_transfer.approveNewEmployeeTransfer();
     });
 
-    // it("17.12. Verify that inactive Employee Transfer records can be filtered using the Status dropdown.", function () {
-    //     grid_employee_transfer.statusInactiveDropdownCheck();
-    // });
-
-    // it("17.13. Verify that active Employee Transfer records can be filtered using the Status dropdown.", function () {
-    //     grid_employee_transfer.statusActiveDropdownCheck();
-    // });
-
-    it("17.14. Verify that search results are displayed correctly when searching by Employee Name.", function () {
+    it("17.12. Verify that search results are displayed correctly when searching by Employee Name.", function () {
         grid_employee_transfer.searchInEmployeeName();
     });
 
-    it("17.15. Verify that the grid list resets successfully when the Reset button is clicked.", function () {
+    it("17.13. Verify that the grid list resets successfully when the Reset button is clicked.", function () {
         grid_employee_transfer.gridResetButtonCheck();
     });
 
-    it("17.16. Verify that the grid list refreshes successfully when the Refresh button is clicked.", function () {
+    it("17.14. Verify that the grid list refreshes successfully when the Refresh button is clicked.", function () {
         grid_employee_transfer.gridRefreshButtonCheck();
     });
 
-    it("17.17. Verify that when the user clicks the Search button on the Employee Transfer grid page, the system redirects to the Employee Transfer List page..", function () {
+    it("17.15. Verify that when the user clicks the Search button on the Employee Transfer grid page, the system redirects to the Employee Transfer List page..", function () {
         grid_employee_transfer.gridSearchButtonCheck();
     });
 
-    it("17.18. Verify that Draft records are displayed when the Draft toggle is enabled.", function () {
+    it("17.16. Verify that Draft records are displayed when the Draft toggle is enabled.", function () {
         grid_employee_transfer.gridDraftButton();
     });
 
-    it("17.19. Verify that Draft records are hidden when the Draft toggle is disabled.", function () {
+    it("17.17. Verify that Draft records are hidden when the Draft toggle is disabled.", function () {
         grid_employee_transfer.gridDraftButtonOff();
     });
 
-    it("17.20. Verify that the grid list content updates correctly when switching the language from English to Bangla.", function () {
+    it("17.18. Verify that the grid list content updates correctly when switching the language from English to Bangla.", function () {
         grid_employee_transfer.gridLanguageSwitchCheck();
     });
 });

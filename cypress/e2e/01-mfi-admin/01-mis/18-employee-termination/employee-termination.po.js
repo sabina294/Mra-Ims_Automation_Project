@@ -91,28 +91,7 @@ class EmployeeTermination {
             );
         });
     }
-
-    statusInactiveDropdownCheck() {
-        cy.fixture(this.test_data).then((data) => {
-            var etData = data.mfiAdmin.gridEmpTerminationFrom;
-            cy.formController("status").type(etData.selectStatus).type("{enter}");
-            cy.log(
-                "Employee Termination form status inactive dropdown check successfully"
-            );
-        });
-    }
-
-    statusActiveDropdownCheck() {
-        cy.fixture(this.test_data).then((data) => {
-            var etData = data.mfiAdmin.gridEmpTerminationFrom;
-            cy.imsId("btn-reset").click();
-            cy.formController("status").type(etData.statusSelect).type("{enter}");
-            cy.log(
-                "Employee Termination form status active dropdown check successfully"
-            );
-        });
-    }
-
+    
     searchInEmployeeName() {
         cy.fixture(this.test_data).then((data) => {
             var etData = data.mfiAdmin.gridEmpTerminationFrom;

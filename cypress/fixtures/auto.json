@@ -308,7 +308,7 @@
       "OfficeDropdown": "1020 (Ashulia)"
     },
     "samityCloseFrom": {
-      "samityNameEn": "Rustampur Mohila Samity",
+      "samityNameEn": "Test Samity",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
       "SelectOffice": "1019 (Amin Bazar)",
@@ -868,8 +868,6 @@
       "district": "Bandarban",
       "thana": "Bandarban Sadar",
       "adressEn": "Chattogram",
-      "selectStatus": "Rejected",
-      "statusSelect": "Approved",
       "search": "Sabina Yeasmin",
       "rejectRemarks": "Reject",
       "messageSaveEmp": "Mfi employee has been saved",
@@ -878,20 +876,14 @@
     "gridEmpPromotionFrom": {
       "newDepartment": "Department of Administration and Human Resources",
       "newDesignation": "Branch Manager",
-      "search": "SHUMSHDDIN",
-      "selectStatus": "Inactive",
-      "statusSelect": "Active"
+      "search": "SHUMSHDDIN"
     },
     "gridEmpTransferFrom": {
       "search": "ABU HANIFA",
-      "selectStatus": "Inactive",
-      "statusSelect": "Active",
       "newOffice": "1002 (Dhaka Regional Office)"
     },
     "gridEmpTerminationFrom": {
-      "search": "ROSTOM ALI",
-      "selectStatus": "Inactive",
-      "statusSelect": "Active"
+      "search": "ROSTOM ALI"
     },
     "createSamityFrom": {
       "samityNameEn": "Chhagalnaiya Samity",
@@ -1643,11 +1635,10 @@
       "search": "Nawabganj Area Office"
     },
     "gridEmpMangFrom": {
-      "empNameEn": "Sabina Yeasmin",
-      "empNameBn": "সাবিনা ইয়াসমিন",
+      "empNameEn": "JOYMOT ALI",
+      "empNameBn": "জয়মত আলী",
       "selectStatus": "Inactive",
-      "statusSelect": "Active",
-      "search": "Abul Kalam"
+      "statusSelect": "Active"
     },
     "gridSamityFrom": {
       "samityNameEn": "Test Samity",
