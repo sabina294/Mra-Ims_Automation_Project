@@ -1,9 +1,9 @@
 // npm run auto
 // npm run dev
-// npx cypress run --spec cypress/e2e/02-branch-manager/01-mis/55-day-end-process-ais/day-end-process.cy.js --browser chrome --headed
+// npx cypress run --spec cypress/e2e/02-branch-manager/01-mis/55-day-end-process-ais/day-end-process-ais.cy.js --browser chrome --headed
 
 import "cypress-file-upload";
-import { create_day_end_process_ais } from "./day-end-process.po";
+import { create_day_end_process_ais } from "./day-end-process-ais.po";
 
 describe("55. Day End Process (AIS)  Module Test Cases", function () {
   const baseURL = Cypress.env("BASE_URL");
