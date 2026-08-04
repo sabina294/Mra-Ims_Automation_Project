@@ -145,10 +145,6 @@ class EmployeeManagementCreation {
   viewEmployeeManagement() {
     cy.fixture(this.test_data).then((data) => {
       var emData = data.branchManager.createEmpMangFrom;
-
-      cy.formController("search_text").type(emData.empNameEn);
-      cy.imsId("btn-search").click();
-      cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
       cy.log("Successfully viewed the employee management list page");
     });
@@ -216,9 +212,9 @@ class EmployeeManagementCreation {
 
   editEmployeeManagement() {
     cy.fixture(this.test_data).then((data) => {
-      var emData = data.branchManager.approveEmployeeFrom;
+      var emData = data.branchManager.createEmpMangFrom;
       cy.imsId("btn-reset").click();
-      cy.formController("search_text").type(emData.search);
+      cy.formController("search_text").type(emData.empNameEn);
       cy.imsId("btn-search").click();
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-edit").click();

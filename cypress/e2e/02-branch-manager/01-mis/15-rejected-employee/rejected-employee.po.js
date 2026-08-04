@@ -113,9 +113,6 @@ class RejectedEmployee {
   viewEmployeeManagement() {
     cy.fixture(this.test_data).then((data) => {
       var emData = data.branchManager.rejectedEmployeeFrom;
-
-      cy.formController("search_text").type(emData.empNameEn);
-      cy.imsId("toggle-action").first().click();
       cy.imsId("btn-table-action-view").click();
       cy.log("Successfully viewed the Rejected Employee list page");
     });

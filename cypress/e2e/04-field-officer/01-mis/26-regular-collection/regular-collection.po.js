@@ -22,8 +22,8 @@ class RegularCollection {
 
     collectionProcess() {
         cy.fixture(this.test_data).then((data) => {
-            const rcData = data.fieldOfficer.regularCollection;
-              cy.get('tbody tr')
+            const rcData = data.branchManager.regularCollection;
+            cy.get('tbody tr')
                 .eq(0)
                 .find('input')
                 .eq(0)
@@ -35,8 +35,8 @@ class RegularCollection {
                 .eq(0)
                 .clear()
                 .type(rcData.loanAmount2);
-            cy.log("Regular collection amount entered successfully");
 
+            cy.log("Regular collection amount entered successfully");
         });
     }
 

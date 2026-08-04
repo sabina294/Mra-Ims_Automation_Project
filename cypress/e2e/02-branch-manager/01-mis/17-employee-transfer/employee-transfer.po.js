@@ -136,6 +136,7 @@ class EmployeeTransfer {
     approveNewEmployeeTransfer() {
         cy.imsId("toggle-action").first().click();
         cy.imsId("btn-table-action-view").first().click();
+        cy.imsId("btn-lock").click();
         cy.imsId("btn-approve").click();
         cy.imsId("btn-submit").click();
         cy.imsId("btn-ok").click();
