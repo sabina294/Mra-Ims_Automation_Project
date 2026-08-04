@@ -12,7 +12,8 @@ module.exports = defineConfig({
       "cypress/e2e/01-mfi-admin/**/*.cy.js",
       "cypress/e2e/02-branch-manager/**/*.cy.js",
       "cypress/e2e/03-mra-admin/**/*.cy.js",
-      "cypress/e2e/04-field-officer/**/*.cy.js"
+      "cypress/e2e/04-field-officer/**/*.cy.js",
+      "cypress/e2e/workflow.cy.js"
     ],
 
     baseUrl: process.env.CYPRESS_BASE_URL,

@@ -1142,6 +1142,11 @@
       "selectStatus": "Inactive",
       "statusSelect": "Approved"
     },
+    "createSavingsAccountClosureManagement": {
+      "search": "Samia",
+      "selectStatus": "Inactive",
+      "statusSelect": "Active"
+    },
     "gridCalendarYear": {
       "holidayTitleBn": "পরীক্ষার ছুটি",
       "holidayTitleEn": "Test Holiday",
