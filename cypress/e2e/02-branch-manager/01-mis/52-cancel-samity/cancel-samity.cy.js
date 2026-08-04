@@ -3,7 +3,7 @@
 // npx cypress run --spec cypress/e2e/02-branch-manager/01-mis/52-cancel-samity/cancel-samity.cy.js --browser chrome --headed
 
 import "cypress-file-upload";
-import { cancel_samity } from "./cancel-samity.po";
+import { cancel_samity } from "../../../../support/page-objects/cancel-samity.po";
 
 describe("52. Cancel Samity Module Test Cases", function () {
     const baseURL = Cypress.env("BASE_URL");

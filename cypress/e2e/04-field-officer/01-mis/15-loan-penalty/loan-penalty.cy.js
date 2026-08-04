@@ -4,6 +4,7 @@
 
 import "cypress-file-upload";
 import { create_loan_penalty } from "./loan-penalty.po";
+import { create_staging_data } from "../../../../support/page-objects/staging-data.po";
 
 describe("15. Loan Penalty Module Test Cases", function () {
   const baseURL = Cypress.env("BASE_URL");
@@ -27,7 +28,9 @@ describe("15. Loan Penalty Module Test Cases", function () {
     cy.fixture(test_data).then((d) => {
       cy.logout();
       cy.loginAsBranchManager(baseURL, d);
-      create_loan_penalty.startProcessStagingData(d);
+      create_staging_data.gridStagingDataListPage();
+      create_staging_data.startProcessStagingData();
+      create_staging_data.refreshButtonCheck();
       cy.logout();
       cy.loginAsFieldOfficer(baseURL, d);
     });

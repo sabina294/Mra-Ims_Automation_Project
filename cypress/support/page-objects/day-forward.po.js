@@ -1,3 +1,4 @@
+// Shared across 02-branch-manager/01-mis/56-day-forward and workflow.cy.js.
 class DayForwardMis {
     test_data = Cypress.env("TEST_DATA");
 

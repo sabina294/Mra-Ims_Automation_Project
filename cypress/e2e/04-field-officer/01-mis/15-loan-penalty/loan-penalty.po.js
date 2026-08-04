@@ -1,22 +1,6 @@
 class LoanPenalty {
   test_data = Cypress.env("TEST_DATA");
 
-  startProcessStagingData() {
-    cy.selectMenu("menu-process", "submenu-staging-data");
-    cy.imsId("btn-start-process").click();
-    cy.wait(1000);
-    cy.imsId("btn-yes").click();
-    cy.wait(3000);
-    const clickCount = 3; // change this number as needed
-    for (let i = 0; i < clickCount; i++) {
-      cy.imsId("btn-refresh").click();
-      cy.wait(2000); // optional wait between clicks
-    }
-    cy.log(
-      "successfully refresh page  displayed the grid list of the staging data form "
-    );
-  }
-
   gridLoanPenaltyListPage() {
     cy.fixture(this.test_data).then((data) => {
       cy.selectMenu("menu-loan-account", "submenu-loan-penalty");

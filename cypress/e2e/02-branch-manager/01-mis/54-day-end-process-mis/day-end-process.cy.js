@@ -3,7 +3,7 @@
 // npx cypress run --spec cypress/e2e/02-branch-manager/01-mis/54-day-end-process-mis/day-end-process.cy.js --browser chrome --headed
 
 import "cypress-file-upload";
-import { create_day_end_process_mis } from "./day-end-process.po";
+import { create_day_end_process_mis } from "../../../../support/page-objects/day-end-process-mis.po";
 
 describe("54. Day End Process (MIS)  Module Test Cases", function () {
   const baseURL = Cypress.env("BASE_URL");

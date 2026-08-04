@@ -1,3 +1,4 @@
+// Shared across 02-branch-manager/01-mis/52-cancel-samity and workflow.cy.js.
 class cancelSamity {
     test_data = Cypress.env("TEST_DATA");
 

@@ -1,3 +1,4 @@
+// Shared across 02-branch-manager/01-mis/55-day-end-process-ais and workflow.cy.js.
 class DayEndProcessAis {
   test_data = Cypress.env("TEST_DATA");
 

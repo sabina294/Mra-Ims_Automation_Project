@@ -1,3 +1,5 @@
+// Shared across 02-branch-manager/01-mis/44-staging-data, workflow.cy.js,
+// and 04-field-officer/01-mis/15-loan-penalty (uses it as a setup precondition).
 class StagingData {
   test_data = Cypress.env("TEST_DATA");
 

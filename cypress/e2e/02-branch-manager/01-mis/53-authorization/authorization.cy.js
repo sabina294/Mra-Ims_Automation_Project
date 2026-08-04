@@ -3,7 +3,7 @@
 // npx cypress run --spec cypress/e2e/02-branch-manager/01-mis/53-authorization/authorization.cy.js --browser chrome --headed
 
 import "cypress-file-upload";
-import { authorization } from "./authorization.po";
+import { authorization } from "../../../../support/page-objects/authorization.po";
 
 describe("53. Authorization Module Test Cases", function () {
     const baseURL = Cypress.env("BASE_URL");

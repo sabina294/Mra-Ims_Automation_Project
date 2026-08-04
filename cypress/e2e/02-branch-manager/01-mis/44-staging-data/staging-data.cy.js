@@ -3,7 +3,7 @@
 // npx cypress run --spec cypress/e2e/02-branch-manager/01-mis/44-staging-data/staging-data.cy.js --browser chrome --headed
 
 import "cypress-file-upload";
-import { create_staging_data } from "./staging-data.po";
+import { create_staging_data } from "../../../../support/page-objects/staging-data.po";
 
 describe("44. Staging Data Module Test Cases", function () {
   const baseURL = Cypress.env("BASE_URL");

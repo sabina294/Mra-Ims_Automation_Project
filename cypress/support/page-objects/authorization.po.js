@@ -1,5 +1,6 @@
-import messages from "../../../../support/constants/messages";
-import { GRID } from "../../../../support/constants/selectors";
+// Shared across 02-branch-manager/01-mis/53-authorization and workflow.cy.js.
+import messages from "../constants/messages";
+import { GRID } from "../constants/selectors";
 class Authorization {
     test_data = Cypress.env("TEST_DATA");
 
@@ -102,14 +103,6 @@ class Authorization {
         cy.imsId(GRID.BUTTONS.HISTORY_OFF)
             .uncheck({ force: true });
         cy.log(messages.ui.historyOffMessage);
-    }
-
-    gridHistoryFieldOfficerDropdownCheck() {
-        cy.fixture(this.test_data).then((data) => {
-            var aData = data.branchManager.authorization;
-            cy.formController("field_officer_id").type(aData.fieldOfficer).type("{enter}");
-            cy.log(" History Field officer dropdown should be clickable and functional.");
-        })
     }
 
     gridFieldOfficerDropdownCheck() {

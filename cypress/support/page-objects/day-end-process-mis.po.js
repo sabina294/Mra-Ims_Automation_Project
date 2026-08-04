@@ -1,3 +1,4 @@
+// Shared across 02-branch-manager/01-mis/54-day-end-process-mis and workflow.cy.js.
 class DayEndProcessMis {
   test_data = Cypress.env("TEST_DATA");
 

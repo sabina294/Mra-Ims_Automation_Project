@@ -3,7 +3,7 @@
 // npx cypress run --spec cypress/e2e/02-branch-manager/01-mis/56-day-forward/day-forward.cy.js --browser chrome --headed
 
 import "cypress-file-upload";
-import { grid_day_forward } from "./day-forward.po";
+import { grid_day_forward } from "../../../../support/page-objects/day-forward.po";
 
 describe("56. Day Forward Module Test Cases", function () {
     const baseURL = Cypress.env("BASE_URL");
