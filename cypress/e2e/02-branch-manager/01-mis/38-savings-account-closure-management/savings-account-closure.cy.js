@@ -48,7 +48,23 @@ describe("38. Savings Account Closure Management Module Test Cases", function ()
         savings_account_closure.gridSearchButtonCheck();
     });
 
-    it("38.08. Verify that the closure grid switches from English to Bangla.", function () {
+    it("38.08. Verify validation messages appear when Reset is clicked with empty required fields", function () {
+        savings_account_closure.createResetButtonCheck();
+    });
+
+    it("38.09. Verify validation messages appear when Draft is clicked with empty required fields", function () {
+        savings_account_closure.createDraftButtonCheck();
+    });
+
+    it("38.10. Verify validation messages appear when Submit is clicked with empty required fields", function () {
+        savings_account_closure.createSubmitButtonCheck();
+    });
+
+    it("38.11. Verify validation messages appear when Go Back is clicked with empty required fields", function () {
+        savings_account_closure.createGoBackButtonCheck();
+    });
+
+    it("38.12. Verify that the closure grid switches from English to Bangla.", function () {
         savings_account_closure.gridLanguageSwitchCheck();
     });
 });

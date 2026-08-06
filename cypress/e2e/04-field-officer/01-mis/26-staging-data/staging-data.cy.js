@@ -1,11 +1,11 @@
 // npm run auto
 // npm run dev
-// npx cypress run --spec cypress/e2e/04-field-officer/01-mis/27-staging-data/staging-data.cy.js --browser chrome --headed
+// npx cypress run --spec cypress/e2e/04-field-officer/01-mis/26-staging-data/staging-data.cy.js --browser chrome --headed
 
 import "cypress-file-upload";
 import { grid_staging_data } from "./staging-data.po";
 
-describe("27. Staging Data Module Test Cases", function () {
+describe("26. Staging Data Module Test Cases", function () {
   const baseURL = Cypress.env("BASE_URL");
   const test_data = Cypress.env("TEST_DATA");
   before(() => {
@@ -23,23 +23,23 @@ describe("27. Staging Data Module Test Cases", function () {
     cy.logout();
   });
 
-  it("27.01. Verify Staging Data Grid List Page loads successfully", function () {
+  it("26.01. Verify Staging Data Grid List Page loads successfully", function () {
     grid_staging_data.gridStagingDataListPage();
   });
 
-  it("27.02. Verify Staging data dropdown select field officer List page loads successfully", function () {
+  it("26.02. Verify Staging data dropdown select field officer List page loads successfully", function () {
     grid_staging_data.selectFieldOfficer();
   });
 
-  it("27.03. Verify Staging data dropdown select samity List page loads successfully", function () {
+  it("26.03. Verify Staging data dropdown select samity List page loads successfully", function () {
     grid_staging_data.selectSamity();
   });
 
-  it("27.04. Verify that the Refresh button works successfully", function () {
+  it("26.04. Verify that the Refresh button works successfully", function () {
     grid_staging_data.refreshButtonCheck();
   });
 
-  it("27.05. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("26.05. Verify check that the grid list content changes correctly from english to bangla.", function () {
     grid_staging_data.gridLanguageSwitchCheck();
   });
 });

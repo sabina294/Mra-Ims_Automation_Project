@@ -1143,9 +1143,12 @@
       "statusSelect": "Approved"
     },
     "createSavingsAccountClosureManagement": {
-      "search": "Samia",
+      "search": "Fariya",
       "selectStatus": "Inactive",
-      "statusSelect": "Active"
+      "statusSelect": "Active",
+      "samityId": "1020-101 (Ashulia Mohila Samity)",
+      "memberId": "1-1001 (Fariya)",
+      "savingsAccountId": "GS-1020-101-1001-1"
     },
     "gridCalendarYear": {
       "holidayTitleBn": "পরীক্ষার ছুটি",
@@ -1783,10 +1786,13 @@
       "selectStatus": "Inactive",
       "statusSelect": "Active"
     },
-    "createSavingsAccountClosureManagement": {
-      "search": "Samia",
+     "createSavingsAccountClosureManagement": {
+      "search": "Fariya",
       "selectStatus": "Inactive",
-      "statusSelect": "Active"
+      "statusSelect": "Active",
+      "samityId": "1020-101 (Ashulia Mohila Samity)",
+      "memberId": "1-1001 (Fariya)",
+      "savingsAccountId": "GS-1020-101-1001-1"
     },
     "gridCalendarYear": {
       "holidayTitleBn": "পরীক্ষার ছুটি",
