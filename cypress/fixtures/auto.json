@@ -1142,7 +1142,7 @@
       "selectStatus": "Inactive",
       "statusSelect": "Approved"
     },
-     "createSavingsAccountClosureManagement": {
+    "createSavingsAccountClosureManagement": {
       "search": "Samia",
       "selectStatus": "Inactive",
       "statusSelect": "Active"
@@ -1668,7 +1668,7 @@
       "adressEn": "Dhaka",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
-      "search": "Sohana Aktar Hashmi",
+      "search": "Minara Akter",
       "messageSaveMember": "Member has been saved",
       "messageApproveMember": "Member has been approved successfully",
       "messageUpdateMember": "Member has been updated"
@@ -1779,6 +1779,11 @@
       "statusSelect": "Active"
     },
     "createSavingsAccountManagement": {
+      "search": "Samia",
+      "selectStatus": "Inactive",
+      "statusSelect": "Active"
+    },
+    "createSavingsAccountClosureManagement": {
       "search": "Samia",
       "selectStatus": "Inactive",
       "statusSelect": "Active"

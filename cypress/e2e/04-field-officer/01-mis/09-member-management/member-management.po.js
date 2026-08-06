@@ -96,7 +96,7 @@ class MemberManagementCreation {
   editResetButton() {
     cy.fixture(this.test_data).then((data) => {
       var memData = data.fieldOfficer.createMemberFrom;
-      cy.formController("search_text").type(memData.search);
+      cy.formController("search_text").type(memData.memberNameEn);
       cy.imsId("btn-search").click();
       cy.imsId("toggle-action").first().click();
       cy.imsId("btn-mis-table-action-edit").click();
@@ -229,7 +229,7 @@ class MemberManagementCreation {
   }
 
   gridCheckboxCheck() {
-    cy.imsId("row-checkbox-9").click();
+    cy.imsId("row-checkbox-7").click();
     // cy.imsId("btn-reset").click();
     cy.log("Checkbox should be clickable and functional.");
   }
@@ -240,7 +240,7 @@ class MemberManagementCreation {
   }
 
   gridCheckboxUnlockButtonCheck() {
-    cy.imsId("row-checkbox-9").click();
+    cy.imsId("row-checkbox-7").click();
     cy.imsId("btn-unlock").click();
     cy.log("Checkbox unlock button should be clickable and functional.");
   }

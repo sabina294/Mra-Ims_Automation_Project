@@ -10,7 +10,7 @@ class cancelSamity {
     }
 
     gridCheckboxCheck() {
-        cy.imsId("check-samity-2").click();
+        cy.imsId("btn-cancel-2").click();
         cy.log("Checkbox should be clickable and functional.");
     }
 
