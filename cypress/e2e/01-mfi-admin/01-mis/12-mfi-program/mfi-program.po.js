@@ -306,7 +306,7 @@ class MfiProgramCreation {
     cy.log("Successful go back button check.");
   }
 
-    gridSearchButtonCheck() {
+  gridSearchButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
       var mpData = data.mfiAdmin.createMfiProgramFrom;
       cy.imsId("btn-reset").click();

@@ -24,7 +24,8 @@ export const GRID = {
     CREATERESET: "btn-reset",
     CREATESUBMIT: "btn-submit",
     CREATEGOBACK: "btn-go-back",
-    GOBACK: "btn-go-back",
+    CREATEDRAFT: "btn-draft",
+    CREATEAPPROVE: "btn-approve",
     CONFIRMATION_YES: "btn-yes",
     CONFIRMATION_NO: "btn-no",
     CONFIRMATION_OK: "btn-ok",
@@ -38,7 +39,7 @@ export const GRID = {
     ACTION_TOGGLE: "toggle-action",
   },
 
-   DROPDOWN: {
+  DROPDOWN: {
     STATUS: "dropdown-status",
     ROLE: "dropdown-role",
   },
@@ -50,5 +51,5 @@ export const GRID = {
     ACTION_DELETE: "btn-table-action-delete",
   },
 
- 
+
 };
