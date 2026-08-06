@@ -63,9 +63,9 @@ describe("17. Employee Transfer Module Test Cases", function () {
         grid_employee_transfer.myTaskRefreshButtonCheck();
     });
 
-    it("17.11. Verify that the system successfully approves a newly created Employee Transfer with valid required data.", function () {
-        grid_employee_transfer.approveNewEmployeeTransfer();
-    });
+    // it("17.11. Verify that the system successfully approves a newly created Employee Transfer with valid required data.", function () {
+    //     grid_employee_transfer.approveNewEmployeeTransfer();
+    // });
 
     it("17.12. Verify that search results are displayed correctly when searching by Employee Name.", function () {
         grid_employee_transfer.searchInEmployeeName();

@@ -308,11 +308,11 @@
       "OfficeDropdown": "1020 (Ashulia)"
     },
     "samityCloseFrom": {
-      "samityNameEn": "Test Samity",
+      "samityNameEn": "Nowakandi Mohila Samity",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
       "SelectOffice": "1019 (Amin Bazar)",
-      "search": "Rustampur Mohila Samity",
+      "search": "Abdullapur Mohila Samity",
       "messageSamityClose": "Samity has been closed successfully."
     },
     "approveSamityCloseFrom": {
