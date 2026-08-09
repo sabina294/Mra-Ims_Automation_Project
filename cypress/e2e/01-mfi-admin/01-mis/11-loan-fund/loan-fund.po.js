@@ -1,5 +1,5 @@
 import messages from "../../../../support/constants/messages";
-import { GRID } from "../../../../support/constants/selectors";
+import { COMMON } from "../../../../support/constants/selectors";
 class LoanFundCreation {
   test_data = Cypress.env("TEST_DATA");
 
@@ -12,7 +12,7 @@ class LoanFundCreation {
 
   createLoanFund() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId(GRID.CREATE.ADD_NEW).click();
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
       var lfData = data.mfiAdmin.createLoanFundFrom;
       cy.formController("bank_account_id")
         .type(lfData.bankAccount)
@@ -21,24 +21,24 @@ class LoanFundCreation {
         .type(lfData.fundingOrgId)
         .type("{enter}");
       cy.formController("amount").type(lfData.amount);
-      cy.imsId(GRID.CREATE.CREATESUBMIT).click();
-      cy.imsId(GRID.CREATE.CONFIRMATION_YES).click();
-      cy.imsId(GRID.CREATE.CONFIRMATION_OK).click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.YES).click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
       cy.log(messages.ui.submitSuccess);
     });
   }
 
   createWithoutBankAccount() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId(GRID.CREATE.ADD_NEW).click();
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
       var lfData = data.mfiAdmin.createLoanFundFrom;
       cy.formController("loan_funding_organization_id")
         .type(lfData.fundingOrgId)
         .type("{enter}");
       cy.formController("amount").type(lfData.amount);
-      cy.imsId(GRID.CREATE.CREATESUBMIT).click();
-      cy.imsId(GRID.CREATE.CONFIRMATION_OK).click();
-      cy.imsId(GRID.CREATE.CREATERESET).click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
+      cy.imsId(COMMON.BUTTONS.RESET).click();
       cy.log(messages.ui.withoutDataMessage);
     });
   }
@@ -50,9 +50,9 @@ class LoanFundCreation {
         .type(lfData.bankAccount)
         .type("{enter}");
       cy.formController("amount").type(lfData.amount);
-      cy.imsId(GRID.CREATE.CREATESUBMIT).click();
-      cy.imsId(GRID.CREATE.CONFIRMATION_OK).click();
-      cy.imsId(GRID.CREATE.CREATERESET).click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
+      cy.imsId(COMMON.BUTTONS.RESET).click();
       cy.log(messages.ui.withoutDataMessage);
     });
   }
@@ -66,9 +66,9 @@ class LoanFundCreation {
       cy.formController("loan_funding_organization_id")
         .type(lfData.fundingOrgId)
         .type("{enter}");
-      cy.imsId(GRID.CREATE.CREATESUBMIT).click();
-      cy.imsId(GRID.CREATE.CONFIRMATION_OK).click();
-      cy.imsId(GRID.CREATE.CREATERESET).click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
+      cy.imsId(COMMON.BUTTONS.RESET).click();
       cy.log(messages.ui.withoutDataMessage);
     });
   }
@@ -83,71 +83,71 @@ class LoanFundCreation {
         .type(lfData.fundingOrgId)
         .type("{enter}");
       cy.formController("amount").type(lfData.amount);
-      cy.imsId(GRID.CREATE.CREATESUBMIT).click();
-      cy.imsId(GRID.CREATE.CONFIRMATION_OK).click();
-      cy.imsId(GRID.CREATE.CREATEGOBACK).click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
+      cy.imsId(COMMON.BUTTONS.GO_BACK).click();
       cy.log(messages.ui.withoutDataMessage);
     });
   }
 
   actionButtonCheck() {
-    cy.imsId(GRID.TOGGLES.ACTION_TOGGLE).first().click();
+    cy.imsId(COMMON.TOGGLES.ACTION).first().click();
     cy.log(messages.ui.actionMessage);
   }
 
   viewLoanFund() {
     cy.fixture(this.test_data).then((data) => {
       var lfData = data.mfiAdmin.createLoanFundFrom;
-      cy.formController(GRID.INPUTS.SEARCH_TEXT).type(lfData.amount);
-      cy.imsId(GRID.BUTTONS.SEARCH).click();
-      cy.imsId(GRID.TOGGLES.ACTION_TOGGLE).first().click();
-      cy.imsId(GRID.BUTTONS.ACTIONVIEW).click();
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(lfData.amount);
+      cy.imsId(COMMON.BUTTONS.SEARCH).click();
+      cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+      cy.imsId(COMMON.GRID.ACTION_VIEW).click();
       cy.log(messages.ui.viewMessage);
     });
   }
 
   viewGoBackButton() {
-    cy.imsId(GRID.CREATE.CREATEGOBACK).click();
+    cy.imsId(COMMON.BUTTONS.GO_BACK).click();
     cy.log(messages.ui.goBackSuccess);
   }
 
   turnOffEditMode() {
-    cy.imsId(GRID.TOGGLES.ACTION_TOGGLE).first().click();
-    cy.imsId(GRID.BUTTONS.ACTIONEDIT).click();
-    cy.imsId(GRID.BUTTONS.TURNEDITMODE).click();
-    cy.imsId(GRID.CREATE.CREATEGOBACK).click();
+    cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+    cy.imsId(COMMON.GRID.ACTION_EDIT).click();
+    cy.imsId(COMMON.BUTTONS.TURN_EDIT_MODE).click();
+    cy.imsId(COMMON.BUTTONS.GO_BACK).click();
     cy.log(messages.ui.turnOnEditModeMessage);
   }
 
   editResetButton() {
-    cy.imsId(GRID.TOGGLES.ACTION_TOGGLE).first().click();
-    cy.imsId(GRID.BUTTONS.ACTIONEDIT).click();
-    cy.imsId(GRID.BUTTONS.RESET).click();
+    cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+    cy.imsId(COMMON.GRID.ACTION_EDIT).click();
+    cy.imsId(COMMON.BUTTONS.RESET).click();
   }
 
   editSubmitButton() {
-    cy.imsId(GRID.CREATE.CREATESUBMIT).click();
-    cy.imsId(GRID.CREATE.CONFIRMATION_OK).click();
+    cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+    cy.imsId(COMMON.CONFIRMATION.OK).click();
     cy.log(messages.ui.editSubmitMessage);
 
   }
 
   editGoBackButton() {
-    cy.imsId(GRID.CREATE.CREATEGOBACK).click();
+    cy.imsId(COMMON.BUTTONS.GO_BACK).click();
     cy.log(messages.ui.editGoBackMessage);
   }
 
   editLoanFund() {
     cy.fixture(this.test_data).then((data) => {
       var lfData = data.mfiAdmin.createLoanFundFrom;
-      cy.imsId(GRID.BUTTONS.RESET).click();
-      cy.formController(GRID.INPUTS.SEARCH_TEXT).type(lfData.search);
-      cy.imsId(GRID.BUTTONS.SEARCH).click();
-      cy.imsId(GRID.TOGGLES.ACTION_TOGGLE).first().click();
-      cy.imsId(GRID.BUTTONS.ACTIONEDIT).click();
-      cy.imsId(GRID.CREATE.CREATESUBMIT).click();
-      cy.imsId(GRID.CREATE.CONFIRMATION_YES).click();
-      cy.imsId(GRID.CREATE.CONFIRMATION_OK).click();
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(lfData.search);
+      cy.imsId(COMMON.BUTTONS.SEARCH).click();
+      cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+      cy.imsId(COMMON.GRID.ACTION_EDIT).click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.YES).click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
       cy.log(messages.ui.editSubmitMessage);
     });
   }
@@ -155,7 +155,7 @@ class LoanFundCreation {
   statusInactiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       var lfData = data.mfiAdmin.createLoanFundFrom;
-      cy.imsId(GRID.BUTTONS.RESET).click();
+      cy.imsId(COMMON.BUTTONS.RESET).click();
       cy.formController("status").type(lfData.statusSelect).type("{enter}");
       cy.log(messages.ui.statusInactiveDropdownMessage);
     });
@@ -171,19 +171,19 @@ class LoanFundCreation {
   searchInLoanFundName() {
     cy.fixture(this.test_data).then((data) => {
       var lfData = data.mfiAdmin.createLoanFundFrom;
-      cy.imsId(GRID.BUTTONS.RESET).click();
-      cy.formController(GRID.INPUTS.SEARCH_TEXT).type(lfData.fundingOrgId);
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(lfData.fundingOrgId);
       cy.log(messages.ui.searchMessage);
     });
   }
 
   gridResetButtonCheck() {
-    cy.imsId(GRID.BUTTONS.RESET).click();
+    cy.imsId(COMMON.BUTTONS.RESET).click();
     cy.log(messages.ui.gridResetMessage);
   }
 
   gridRefreshButtonCheck() {
-    cy.imsId(GRID.BUTTONS.REFRESH).click();
+    cy.imsId(COMMON.BUTTONS.REFRESH).click();
     cy.log(messages.ui.gridRefreshSuccess);
 
   }
@@ -191,41 +191,41 @@ class LoanFundCreation {
   createResetButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
       var lfData = data.mfiAdmin.createLoanFundFrom;
-      cy.imsId(GRID.CREATE.ADD_NEW).click();
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
       cy.formController("loan_funding_organization_id").type(
         lfData.fundingOrgId
       );
-      cy.imsId(GRID.CREATE.CREATERESET).click();
-      cy.imsId(GRID.CREATE.CREATEGOBACK).click();
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      cy.imsId(COMMON.BUTTONS.GO_BACK).click();
       cy.log(messages.ui.createResetMessage);
     });
   }
 
   createValidationMessageCheck() {
-    cy.imsId(GRID.CREATE.ADD_NEW).click();
-    cy.imsId(GRID.CREATE.CREATESUBMIT).click();
-    cy.imsId(GRID.CREATE.CONFIRMATION_OK).click();
+    cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+    cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+    cy.imsId(COMMON.CONFIRMATION.OK).click();
     cy.log(messages.ui.createValidationMessage);
   }
 
   createGoBackButtonCheck() {
-    cy.imsId(GRID.CREATE.CREATEGOBACK).click();
+    cy.imsId(COMMON.BUTTONS.GO_BACK).click();
     cy.log(messages.ui.createGoBackMessage);
   }
 
   gridSearchButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
       var lfData = data.mfiAdmin.createLoanFundFrom;
-      cy.imsId(GRID.BUTTONS.RESET).click();
-      cy.formController(GRID.INPUTS.SEARCH_TEXT).type(lfData.search);
-      cy.imsId(GRID.BUTTONS.SEARCH).click();
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(lfData.search);
+      cy.imsId(COMMON.BUTTONS.SEARCH).click();
       cy.log(messages.ui.gridSearchSuccess);
     });
   }
 
   gridLanguageSwitchCheck() {
-    cy.imsId(GRID.BUTTONS.PROFILE).click();
-    cy.imsId(GRID.BUTTONS.LANGUAGECHANGE).click();
+    cy.imsId(COMMON.BUTTONS.PROFILE).click();
+    cy.imsId(COMMON.BUTTONS.LANGUAGE_CHANGE).click();
     cy.log(messages.ui.languageSwitchSuccess);
   }
 }

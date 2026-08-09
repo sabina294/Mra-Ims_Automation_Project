@@ -1,5 +1,5 @@
 import messages from "../../../../support/constants/messages";
-import { GRID } from "../../../../support/constants/selectors";
+import { COMMON } from "../../../../support/constants/selectors";
 class ReguralCollection {
     test_data = Cypress.env("TEST_DATA");
 
@@ -30,7 +30,7 @@ class ReguralCollection {
     }
 
     gridHistoryButtonOnCheck() {
-        cy.imsId(GRID.BUTTONS.HISTORY_ON)
+        cy.imsId(COMMON.GRID.HISTORY_TOGGLE)
             .check({ force: true });
         cy.log(messages.ui.historyOnMessage);
     }
@@ -46,7 +46,7 @@ class ReguralCollection {
     }
 
     gridHistoryButtonOffCheck() {
-        cy.imsId(GRID.BUTTONS.HISTORY_OFF)
+        cy.imsId(COMMON.GRID.HISTORY_TOGGLE)
             .uncheck({ force: true });
         cy.log(messages.ui.historyOffMessage);
     }

@@ -1,5 +1,5 @@
 import messages from "../../../../support/constants/messages";
-import { GRID } from "../../../../support/constants/selectors";
+import { COMMON } from "../../../../support/constants/selectors";
 
 class loanAdjustment {
     test_data = Cypress.env("TEST_DATA");

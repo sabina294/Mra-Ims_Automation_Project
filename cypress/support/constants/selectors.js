@@ -1,34 +1,36 @@
-export const GRID = {
+export const COMMON = {
   BUTTONS: {
-    DRAFT_ON: "btn-draft-table",
-    DRAFT_OFF: "btn-draft-table",
-    DISBURSED_ON: "btn-draft-table",
-    DISBURSED_OFF: "btn-draft-table",
-    HISTORY_ON: "btn-history-table",
-    HISTORY_OFF: "btn-history-table",
+    ADD_NEW: "btn-add-new",
     RESET: "btn-reset",
+    SUBMIT: "btn-submit",
+    GO_BACK: "btn-go-back",
+    DRAFT: "btn-draft",
+    APPROVE: "btn-approve",
     REFRESH: "btn-refresh",
     SEARCH: "btn-search",
     CANCEL: "btn-cancel",
     EDIT: "btn-edit",
     DELETE: "btn-delete",
-    ACTIONVIEW: "btn-table-action-view",
-    ACTIONEDIT: "btn-table-action-edit",
-    TURNEDITMODE: "switch-button",
+    TURN_EDIT_MODE: "switch-button",
     PROFILE: "profile-menu",
-    LANGUAGECHANGE: "btn-lang-bangla",
-
+    LANGUAGE_CHANGE: "btn-lang-bangla",
   },
-  CREATE: {
-    ADD_NEW: "btn-add-new",
-    CREATERESET: "btn-reset",
-    CREATESUBMIT: "btn-submit",
-    CREATEGOBACK: "btn-go-back",
-    CREATEDRAFT: "btn-draft",
-    CREATEAPPROVE: "btn-approve",
-    CONFIRMATION_YES: "btn-yes",
-    CONFIRMATION_NO: "btn-no",
-    CONFIRMATION_OK: "btn-ok",
+
+  GRID: {
+    ACTION_VIEW: "btn-table-action-view",
+    ACTION_EDIT: "btn-table-action-edit",
+    ACTION_DELETE: "btn-table-action-delete",
+    DRAFT_TOGGLE: "btn-draft-table",
+    HISTORY_TOGGLE: "btn-history-table",
+    ACTION_TOGGLE: "toggle-action",
+    ROW: "table-row",
+    FIRST_ROW: "table-row-first",
+  },
+
+  CONFIRMATION: {
+    YES: "btn-yes",
+    NO: "btn-no",
+    OK: "btn-ok",
   },
 
   INPUTS: {
@@ -36,10 +38,10 @@ export const GRID = {
   },
 
   TOGGLES: {
-    ACTION_TOGGLE: "toggle-action",
+    ACTION: "toggle-action",
   },
 
-  DROPDOWN: {
+  DROPDOWNS: {
     STATUS: "dropdown-status",
     ROLE: "dropdown-role",
   },
@@ -47,9 +49,5 @@ export const GRID = {
   TABLE: {
     ROW: "table-row",
     FIRST_ROW: "table-row-first",
-    ACTION_EDIT: "btn-table-action-edit",
-    ACTION_DELETE: "btn-table-action-delete",
   },
-
-
 };

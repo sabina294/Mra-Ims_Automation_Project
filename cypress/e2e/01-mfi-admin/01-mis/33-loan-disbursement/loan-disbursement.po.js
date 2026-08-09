@@ -1,5 +1,5 @@
 import messages from "../../../../support/constants/messages";
-import { GRID } from "../../../../support/constants/selectors";
+import { COMMON } from "../../../../support/constants/selectors";
 class LoanDisbursement {
     test_data = Cypress.env("TEST_DATA");
 
@@ -64,13 +64,13 @@ class LoanDisbursement {
 
 
     gridDisbursedOnButtonCheck() {
-        cy.imsId(GRID.BUTTONS.DISBURSED_ON)
+        cy.imsId(COMMON.GRID.DRAFT_TOGGLE)
             .check({ force: true });
         cy.log(messages.ui.disbursedOnMessage);
     }
 
     gridDisbursedOffButtonCheck() {
-        cy.imsId(GRID.BUTTONS.DISBURSED_OFF)
+        cy.imsId(COMMON.GRID.DRAFT_TOGGLE)
             .uncheck({ force: true });
         cy.log(messages.ui.disbursedOffMessage);
     }

@@ -1,4 +1,4 @@
-import { GRID } from "../../../../support/constants/selectors";
+import { COMMON } from "../../../../support/constants/selectors";
 import messages from "../../../../support/constants/messages";
 class SavingsWithdraw {
     test_data = Cypress.env("TEST_DATA");
@@ -21,13 +21,13 @@ class SavingsWithdraw {
     }
 
     gridHistoryOnButton() {
-        cy.imsId(GRID.BUTTONS.HISTORY_ON)
+        cy.imsId(COMMON.GRID.HISTORY_TOGGLE)
             .check({ force: true });
         cy.log(messages.ui.historyOnMessage);
     }
 
     gridHistoryButtonOff() {
-        cy.imsId(GRID.BUTTONS.HISTORY_OFF)
+        cy.imsId(COMMON.GRID.HISTORY_TOGGLE)
             .uncheck({ force: true });
         cy.log(messages.ui.historyOffMessage);
     }

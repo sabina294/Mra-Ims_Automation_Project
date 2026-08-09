@@ -1,5 +1,5 @@
 import messages from "../../../../support/constants/messages";
-import { GRID } from "../../../../support/constants/selectors";
+import { COMMON } from "../../../../support/constants/selectors";
 class CalendarYearCreation {
   test_data = Cypress.env("TEST_DATA");
 
@@ -114,13 +114,13 @@ class CalendarYearCreation {
   }
 
   gridDraftButton() {
-    cy.imsId(GRID.BUTTONS.DRAFT_ON)
+    cy.imsId(COMMON.GRID.DRAFT_TOGGLE)
       .check({ force: true });
     cy.log(messages.ui.draftOnMessage);
   }
 
   gridDraftButtonOff() {
-    cy.imsId(GRID.BUTTONS.DRAFT_OFF)
+    cy.imsId(COMMON.GRID.DRAFT_TOGGLE)
       .uncheck({ force: true });
     cy.log(messages.ui.draftOffMessage);
   }
