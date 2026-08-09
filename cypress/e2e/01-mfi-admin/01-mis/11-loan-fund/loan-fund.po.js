@@ -205,12 +205,10 @@ class LoanFundCreation {
     cy.imsId(GRID.CREATE.ADD_NEW).click();
     cy.imsId(GRID.CREATE.CREATESUBMIT).click();
     cy.imsId(GRID.CREATE.CONFIRMATION_OK).click();
-    cy.imsId(GRID.CREATE.CREATEGOBACK).click();
     cy.log(messages.ui.createValidationMessage);
   }
 
   createGoBackButtonCheck() {
-    cy.imsId(GRID.CREATE.ADD_NEW).click();
     cy.imsId(GRID.CREATE.CREATEGOBACK).click();
     cy.log(messages.ui.createGoBackMessage);
   }
