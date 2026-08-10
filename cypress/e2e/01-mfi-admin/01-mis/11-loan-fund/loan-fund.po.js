@@ -13,7 +13,7 @@ class LoanFundCreation {
   createLoanFund() {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
-      var lfData = data.mfiAdmin.createLoanFundFrom;
+      const lfData = data.mfiAdmin.createLoanFundFrom;
       cy.formController("bank_account_id")
         .type(lfData.bankAccount)
         .type("{enter}");
@@ -31,7 +31,7 @@ class LoanFundCreation {
   createWithoutBankAccount() {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
-      var lfData = data.mfiAdmin.createLoanFundFrom;
+      const lfData = data.mfiAdmin.createLoanFundFrom;
       cy.formController("loan_funding_organization_id")
         .type(lfData.fundingOrgId)
         .type("{enter}");
@@ -45,7 +45,7 @@ class LoanFundCreation {
 
   createWithoutFundingOrganizationId() {
     cy.fixture(this.test_data).then((data) => {
-      var lfData = data.mfiAdmin.createLoanFundFrom;
+      const lfData = data.mfiAdmin.createLoanFundFrom;
       cy.formController("bank_account_id")
         .type(lfData.bankAccount)
         .type("{enter}");
@@ -59,7 +59,7 @@ class LoanFundCreation {
 
   createWithoutAmount() {
     cy.fixture(this.test_data).then((data) => {
-      var lfData = data.mfiAdmin.createLoanFundFrom;
+      const lfData = data.mfiAdmin.createLoanFundFrom;
       cy.formController("bank_account_id")
         .type(lfData.bankAccount)
         .type("{enter}");
@@ -75,7 +75,7 @@ class LoanFundCreation {
 
   createWithoutStatus() {
     cy.fixture(this.test_data).then((data) => {
-      var lfData = data.mfiAdmin.createLoanFundFrom;
+      const lfData = data.mfiAdmin.createLoanFundFrom;
       cy.formController("bank_account_id")
         .type(lfData.bankAccount)
         .type("{enter}");
@@ -97,7 +97,7 @@ class LoanFundCreation {
 
   viewLoanFund() {
     cy.fixture(this.test_data).then((data) => {
-      var lfData = data.mfiAdmin.createLoanFundFrom;
+      const lfData = data.mfiAdmin.createLoanFundFrom;
       cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(lfData.amount);
       cy.imsId(COMMON.BUTTONS.SEARCH).click();
       cy.imsId(COMMON.TOGGLES.ACTION).first().click();
@@ -139,7 +139,7 @@ class LoanFundCreation {
 
   editLoanFund() {
     cy.fixture(this.test_data).then((data) => {
-      var lfData = data.mfiAdmin.createLoanFundFrom;
+      const lfData = data.mfiAdmin.createLoanFundFrom;
       cy.imsId(COMMON.BUTTONS.RESET).click();
       cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(lfData.search);
       cy.imsId(COMMON.BUTTONS.SEARCH).click();
@@ -154,23 +154,23 @@ class LoanFundCreation {
 
   statusInactiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var lfData = data.mfiAdmin.createLoanFundFrom;
+      const lfData = data.mfiAdmin.createLoanFundFrom;
       cy.imsId(COMMON.BUTTONS.RESET).click();
       cy.formController("status").type(lfData.statusSelect).type("{enter}");
-      cy.log(messages.ui.statusInactiveDropdownMessage);
+      cy.log(messages.ui.dropdownInactiveMessage);
     });
   }
   statusActiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var lfData = data.mfiAdmin.createLoanFundFrom;
+      const lfData = data.mfiAdmin.createLoanFundFrom;
       cy.formController("status").type(lfData.statusSelect).type("{enter}");
-      cy.log(messages.ui.statusActiveDropdownMessage);
+      cy.log(messages.ui.dropdownActiveMessage);
     });
   }
 
   searchInLoanFundName() {
     cy.fixture(this.test_data).then((data) => {
-      var lfData = data.mfiAdmin.createLoanFundFrom;
+      const lfData = data.mfiAdmin.createLoanFundFrom;
       cy.imsId(COMMON.BUTTONS.RESET).click();
       cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(lfData.fundingOrgId);
       cy.log(messages.ui.searchMessage);
@@ -179,7 +179,7 @@ class LoanFundCreation {
 
   gridResetButtonCheck() {
     cy.imsId(COMMON.BUTTONS.RESET).click();
-    cy.log(messages.ui.gridResetMessage);
+    cy.log(messages.ui.gridResetSuccess);
   }
 
   gridRefreshButtonCheck() {
@@ -190,14 +190,14 @@ class LoanFundCreation {
 
   createResetButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var lfData = data.mfiAdmin.createLoanFundFrom;
+      const lfData = data.mfiAdmin.createLoanFundFrom;
       cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
       cy.formController("loan_funding_organization_id").type(
         lfData.fundingOrgId
       );
       cy.imsId(COMMON.BUTTONS.RESET).click();
       cy.imsId(COMMON.BUTTONS.GO_BACK).click();
-      cy.log(messages.ui.createResetMessage);
+      cy.log(messages.validation.requiredField);
     });
   }
 
@@ -205,7 +205,7 @@ class LoanFundCreation {
     cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
     cy.imsId(COMMON.BUTTONS.SUBMIT).click();
     cy.imsId(COMMON.CONFIRMATION.OK).click();
-    cy.log(messages.ui.createValidationMessage);
+    cy.log(messages.validation.requiredField);
   }
 
   createGoBackButtonCheck() {
@@ -215,18 +215,18 @@ class LoanFundCreation {
 
   gridSearchButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var lfData = data.mfiAdmin.createLoanFundFrom;
+      const lfData = data.mfiAdmin.createLoanFundFrom;
       cy.imsId(COMMON.BUTTONS.RESET).click();
       cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(lfData.search);
       cy.imsId(COMMON.BUTTONS.SEARCH).click();
-      cy.log(messages.ui.gridSearchSuccess);
+      cy.log(messages.ui.searchMessage);
     });
   }
 
   gridLanguageSwitchCheck() {
     cy.imsId(COMMON.BUTTONS.PROFILE).click();
     cy.imsId(COMMON.BUTTONS.LANGUAGE_CHANGE).click();
-    cy.log(messages.ui.languageSwitchSuccess);
+    cy.log(messages.ui.languageSwitchMessage);
   }
 }
 

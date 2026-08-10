@@ -1,111 +1,113 @@
+import messages from "../../../../support/constants/messages";
+import { COMMON } from "../../../../support/constants/selectors";
 class SavingsProductCreation {
   test_data = Cypress.env("TEST_DATA");
 
   gridSavingsProductListPage() {
     cy.fixture(this.test_data).then((data) => {
       cy.selectMenu1("menu-savings-product");
-      cy.log("Successfully savings product list page.");
+      cy.log(messages.ui.gridListMessage);
     });
   }
 
   actionButtonCheck() {
-    cy.imsId("toggle-action").first().click();
+    cy.imsId(COMMON.TOGGLES.ACTION).first().click();
     cy.log(
-      "Action button clicked successfully on the savings product  list page."
+      messages.ui.actionMessage
     );
   }
 
   viewSavingsProduct() {
     cy.fixture(this.test_data).then((data) => {
-      var spData = data.branchManager.gridSavingsProduct;
-      cy.imsId("btn-table-action-view").click();
-      cy.log("Successfully viewed the savings product list page");
+      const spData = data.branchManager.gridSavingsProduct;
+      cy.imsId(COMMON.GRID.ACTION_VIEW).click();
+      cy.log(messages.ui.viewMessage);
     });
   }
 
   viewGoBackButton() {
-    cy.imsId("btn-go-back").click();
+    cy.imsId(COMMON.BUTTONS.GO_BACK).click();
 
-    cy.log("Successfully view go back the savings product list page");
+    cy.log(messages.ui.goBackSuccess);
   }
 
   turnOnEditMode() {
-    cy.imsId("toggle-action").first().click();
-    cy.imsId("btn-table-action-view").click();
-    cy.imsId("switch-button").click();
+    cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+    cy.imsId(COMMON.GRID.ACTION_VIEW).click();
+    cy.imsId(COMMON.BUTTONS.TURN_EDIT_MODE).click();
 
-    cy.log("Savings product form Edit Mode toggled successfully");
+    cy.log(messages.ui.turnOnEditModeMessage);
   }
 
   editResetButton() {
-    cy.imsId("btn-reset").click();
-    cy.log("Successful clean displaying");
+    cy.imsId(COMMON.BUTTONS.RESET).click();
+    cy.log(messages.ui.editResetMessage);
   }
 
   editSubmitButton() {
-    cy.imsId("btn-submit").click();
-    cy.imsId("btn-ok").click();
-    cy.log("Successful clean displaying");
+    cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+    cy.imsId(COMMON.CONFIRMATION.OK).click();
+    cy.log(messages.ui.editSubmitMessage);
   }
 
   editGoBackButton() {
-    cy.imsId("btn-go-back").click();
-    cy.log("Successful edit go back button check.");
+    cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+    cy.log(messages.ui.editGoBackMessage);
   }
 
   statusInactiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var spData = data.branchManager.gridSavingsProduct;
-      cy.imsId("btn-reset").click();
+      const spData = data.branchManager.gridSavingsProduct;
+      cy.imsId(COMMON.BUTTONS.RESET).click();
       cy.formController("status").type(spData.selectStatus).type("{enter}");
-      cy.log("savings product  status inactive dropdown check successfully");
+      cy.log(messages.ui.dropdownInactiveMessage);
     });
   }
 
   statusActiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var spData = data.branchManager.gridSavingsProduct;
+      const spData = data.branchManager.gridSavingsProduct;
       cy.formController("status").type(spData.statusSelect).type("{enter}");
-      cy.log("savings product  status active dropdown check successfully");
+      cy.log(messages.ui.dropdownActiveMessage);
     });
   }
 
   searchInSavingsProductName() {
     cy.fixture(this.test_data).then((data) => {
-      var spData = data.branchManager.gridSavingsProduct;
-      cy.imsId("btn-reset").click();
-      cy.formController("search_text").type(spData.intersetTerms);
-      cy.log("Successfully search in the savings product ");
+      const spData = data.branchManager.gridSavingsProduct;
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(spData.intersetTerms);
+      cy.log(messages.ui.searchMessage);
     });
   }
 
   gridResetButtonCheck() {
-    cy.imsId("btn-reset").click();
-    cy.log("Successful clean displaying.");
+    cy.imsId(COMMON.BUTTONS.RESET).click();
+    cy.log(messages.ui.gridResetSuccess);
   }
 
   gridRefreshButtonCheck() {
-    cy.imsId("btn-refresh").click();
+    cy.imsId(COMMON.BUTTONS.REFRESH).click();
     cy.log(
-      "successfully refresh page  displayed the grid list of the savings product  "
+      messages.ui.gridRefreshSuccess
     );
   }
 
   gridSearchButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var spData = data.branchManager.gridSavingsProduct;
-      cy.imsId("btn-reset").click();
-      cy.formController("search_text").type(spData.intersetTerms);
-      cy.imsId("btn-search").click();
+      const spData = data.branchManager.gridSavingsProduct;
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(spData.intersetTerms);
+      cy.imsId(COMMON.BUTTONS.SEARCH).click();
 
-      cy.log("Successfully search button click.");
+      cy.log(messages.ui.searchMessage);
     });
   }
 
   gridLanguageSwitchCheck() {
-    cy.imsId("profile-menu").click();
-    cy.imsId("btn-lang-bangla").click();
-    cy.log("Successful switch bangla language check.");
+    cy.imsId(COMMON.BUTTONS.PROFILE).click();
+    cy.imsId(COMMON.BUTTONS.LANGUAGE_CHANGE).click();
+    cy.log(messages.ui.languageSwitchMessage);
   }
 }
 

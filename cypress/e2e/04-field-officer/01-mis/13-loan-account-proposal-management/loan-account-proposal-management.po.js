@@ -1,3 +1,5 @@
+import messages from "../../../../support/constants/messages";
+import { COMMON } from "../../../../support/constants/selectors";
 class LoanAccountProposalManagementCreation {
   test_data = Cypress.env("TEST_DATA");
 
@@ -7,14 +9,14 @@ class LoanAccountProposalManagementCreation {
         "menu-loan-account",
         "submenu-loan-account-proposal-management"
       );
-      cy.log("Successfully Loan account proposal Management list page.");
+      cy.log(messages.ui.gridListMessage);
     });
   }
 
   createLoanAccountProposalManagement() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      var lapData = data.fieldOfficer.createLoanAccountFrom;
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+      const lapData = data.fieldOfficer.createLoanAccountFrom;
       cy.formController("samity_id").type(lapData.samity).type("{enter}");
       cy.formController("member_id").type(lapData.member).type("{enter}");
       cy.formController("lending_category_id")
@@ -42,18 +44,18 @@ class LoanAccountProposalManagementCreation {
         .first()
         .click({ force: true });
 
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-yes").click();
-      cy.imsId("btn-ok").click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.YES).click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
 
-      cy.log("Successfully created loan account proposal management");
+      cy.log(messages.ui.submitSuccess);
     });
   }
 
   viewSchedulesCheck() {
     cy.fixture(this.test_data).then((data) => {
       const lapData = data.fieldOfficer.createLoanAccountFrom;
-      cy.imsId("btn-add-new").click();
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
       cy.formController("samity_id").type(lapData.samity).type("{enter}");
       cy.formController("member_id").type(lapData.member).type("{enter}");
       cy.formController("econ_purpose_mra_code")
@@ -68,7 +70,7 @@ class LoanAccountProposalManagementCreation {
       cy.imsId("btn-preview-repay-schedule").click();
       cy.get("nz-modal-container")
         .should("be.visible");
-      cy.log("Successfully viewed loan account proposal management schedules");
+      cy.log(messages.ui.viewMessage);
     });
   }
 
@@ -80,14 +82,14 @@ class LoanAccountProposalManagementCreation {
       .click();
     cy.get("nz-modal-container")
       .should("not.exist");
-    cy.imsId("btn-go-back").click();
-    cy.log("Successfully canceled repayment schedule preview");
+    cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+    cy.log(messages.ui.viewMessage);
   }
 
   createWithoutSamity() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      var lapData = data.fieldOfficer.createLoanAccountFrom;
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+      const lapData = data.fieldOfficer.createLoanAccountFrom;
       cy.formController("member_id").type(lapData.member).type("{enter}");
       cy.formController("lending_category_id")
         .type(lapData.lendingCategory)
@@ -108,17 +110,17 @@ class LoanAccountProposalManagementCreation {
       cy.wait(5000);
 
       
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-ok").click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
 
-      cy.log("Successfully verified the Samity field while creating the loan account proposal");
+      cy.log(messages.ui.withoutDataMessage);
     });
   }
 
   createWithoutMember() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-reset").click();
-      var lapData = data.fieldOfficer.createLoanAccountFrom;
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      const lapData = data.fieldOfficer.createLoanAccountFrom;
       cy.formController("lending_category_id")
         .type(lapData.lendingCategory)
         .type("{enter}");
@@ -137,17 +139,17 @@ class LoanAccountProposalManagementCreation {
       cy.formController("applied_loan_amount").type(lapData.appliedLoanAmount);
       cy.wait(5000);
 
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-ok").click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
 
-      cy.log("Successfully verified the member field while creating the loan account proposal");
+      cy.log(messages.ui.withoutDataMessage);
     });
   }
 
   createWithoutLendingCategory() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-reset").click();
-      var lapData = data.fieldOfficer.createLoanAccountFrom;
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      const lapData = data.fieldOfficer.createLoanAccountFrom;
       cy.formController("samity_id").type(lapData.samity).type("{enter}");
       cy.formController("member_id").type(lapData.member).type("{enter}");
       cy.formController("econ_purpose_mra_code")
@@ -158,17 +160,17 @@ class LoanAccountProposalManagementCreation {
         .type("{enter}");
       cy.formController("applied_loan_amount").type(lapData.appliedLoanAmount);
       cy.wait(5000);
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-ok").click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
 
-      cy.log("Successfully verified the lending category field while creating the loan account proposal");
+      cy.log(messages.ui.withoutDataMessage);
     });
   }
 
   createWithoutEconomicSector() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-reset").click();
-      var lapData = data.fieldOfficer.createLoanAccountFrom;
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      const lapData = data.fieldOfficer.createLoanAccountFrom;
       cy.formController("samity_id").type(lapData.samity).type("{enter}");
       cy.formController("member_id").type(lapData.member).type("{enter}");
       cy.formController("lending_category_id")
@@ -184,17 +186,17 @@ class LoanAccountProposalManagementCreation {
       cy.wait(5000);
 
 
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-ok").click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
 
-      cy.log("Successfully verified the economic sector field while creating the loan account proposal");
+      cy.log(messages.ui.withoutDataMessage);
     });
   }
 
   createWithoutEconomicActivity() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-reset").click();
-      var lapData = data.fieldOfficer.createLoanAccountFrom;
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      const lapData = data.fieldOfficer.createLoanAccountFrom;
       cy.formController("samity_id").type(lapData.samity).type("{enter}");
       cy.formController("member_id").type(lapData.member).type("{enter}");
       cy.formController("lending_category_id")
@@ -213,16 +215,16 @@ class LoanAccountProposalManagementCreation {
       cy.wait(5000);
 
 
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-ok").click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
 
-      cy.log("Successfully created loan account proposal management");
+      cy.log(messages.ui.withoutDataMessage);
     });
   }
 
   createWithoutEconomicPurpose() {
     cy.fixture(this.test_data).then((data) => {
-      var lapData = data.fieldOfficer.createLoanAccountFrom;
+      const lapData = data.fieldOfficer.createLoanAccountFrom;
       cy.formController("samity_id").type(lapData.samity).type("{enter}");
       cy.formController("member_id").type(lapData.member).type("{enter}");
       cy.formController("lending_category_id")
@@ -239,17 +241,17 @@ class LoanAccountProposalManagementCreation {
         .type("{enter}");
       cy.formController("applied_loan_amount").type(lapData.appliedLoanAmount);
       cy.wait(5000);
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-ok").click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
 
-      cy.log("Successfully created loan account proposal management");
+      cy.log(messages.ui.withoutDataMessage);
     });
   }
 
   createWithoutLoanProduct() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-reset").click();
-      var lapData = data.fieldOfficer.createLoanAccountFrom;
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      const lapData = data.fieldOfficer.createLoanAccountFrom;
       cy.formController("samity_id").type(lapData.samity).type("{enter}");
       cy.formController("member_id").type(lapData.member).type("{enter}");
       cy.formController("lending_category_id")
@@ -267,17 +269,17 @@ class LoanAccountProposalManagementCreation {
       cy.formController("applied_loan_amount").type(lapData.appliedLoanAmount);
       cy.wait(1000);
 
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-ok").click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
 
-      cy.log("Successfully created loan account proposal management");
+      cy.log(messages.ui.withoutDataMessage);
     });
   }
 
   createWithoutAppliedLoanAmount() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-reset").click();
-      var lapData = data.fieldOfficer.createLoanAccountFrom;
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      const lapData = data.fieldOfficer.createLoanAccountFrom;
       cy.formController("samity_id").type(lapData.samity).type("{enter}");
       cy.formController("member_id").type(lapData.member).type("{enter}");
       cy.formController("lending_category_id")
@@ -296,107 +298,107 @@ class LoanAccountProposalManagementCreation {
         .type(lapData.loanProduct)
         .type("{enter}");
 
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-ok").click();
-      cy.imsId("btn-go-back").click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
+      cy.imsId(COMMON.BUTTONS.GO_BACK).click();
 
-      cy.log("Successfully created loan account proposal management");
+      cy.log(messages.ui.withoutDataMessage);
     });
   }
 
 
   actionButtonCheck() {
-    cy.imsId("toggle-action").first().click();
+    cy.imsId(COMMON.TOGGLES.ACTION).first().click();
     cy.log(
-      "Action button clicked successfully on the loan account proposal management list page."
+      messages.ui.actionMessage
     );
   }
 
   viewLoanAccountProposalManagement() {
     cy.fixture(this.test_data).then((data) => {
-      var lapData = data.fieldOfficer.createLoanAccountFrom;
-      cy.formController("search_text").type(lapData.memberNameEn);
-      cy.imsId("btn-search").click();
-      cy.imsId("toggle-action").first().click();
-      cy.imsId("btn-table-action-view").click();
+      const lapData = data.fieldOfficer.createLoanAccountFrom;
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(lapData.memberNameEn);
+      cy.imsId(COMMON.BUTTONS.SEARCH).click();
+      cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+      cy.imsId(COMMON.GRID.ACTION_VIEW).click();
       cy.log(
-        "Successfully viewed the Loan account proposal Management list page"
+        messages.ui.viewMessage
       );
     });
   }
 
   viewGoBackButton() {
-    cy.imsId("btn-go-back").click();
+    cy.imsId(COMMON.BUTTONS.GO_BACK).click();
     cy.log(
-      "Successfully viewed go back the Loan account proposal Management  list page"
+      messages.ui.goBackSuccess
     );
   }
 
   editLoanAccountProposalManagement() {
     cy.fixture(this.test_data).then((data) => {
-      var lapData = data.fieldOfficer.createLoanAccountFrom;
-      cy.imsId("btn-reset").click();
-      cy.formController("search_text").type(lapData.memberNameEn);
-      cy.imsId("toggle-action").first().click();
-      cy.imsId("btn-table-action-edit").click();
-      cy.imsId("btn-submit").click();
+      const lapData = data.fieldOfficer.createLoanAccountFrom;
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(lapData.memberNameEn);
+      cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+      cy.imsId(COMMON.GRID.ACTION_EDIT).click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
 
       cy.get("app-confirmation-modal")
         .contains(lapData.messageUpdateLoanAccount)
         .and("be.visible");
-      cy.imsId("btn-yes").click();
+      cy.imsId(COMMON.CONFIRMATION.YES).click();
 
-      cy.log("Loan account proposal Management updated successfully");
+      cy.log(messages.ui.editMessage);
     });
   }
   statusInactiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var lapData = data.fieldOfficer.createLoanAccountFrom;
-      cy.imsId("btn-reset").click();
+      const lapData = data.fieldOfficer.createLoanAccountFrom;
+      cy.imsId(COMMON.BUTTONS.RESET).click();
       cy.formController("status").type(lapData.selectStatus).type("{enter}");
       cy.log(
-        "Loan account proposal Management status inactive dropdown check successfully"
+        messages.ui.dropdownInactiveMessage
       );
     });
   }
   statusActiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var lapData = data.fieldOfficer.createLoanAccountFrom;
-      cy.imsId("btn-reset").click();
+      const lapData = data.fieldOfficer.createLoanAccountFrom;
+      cy.imsId(COMMON.BUTTONS.RESET).click();
       cy.formController("status").type(lapData.statusSelect).type("{enter}");
       cy.log(
-        "Loan account proposal Management status active dropdown check successfully"
+        messages.ui.dropdownActiveMessage
       );
     });
   }
   searchInLoanAccountProposalName() {
     cy.fixture(this.test_data).then((data) => {
-      var lapData = data.fieldOfficer.createLoanAccountFrom;
-      cy.imsId("btn-reset").click();
-      cy.formController("search_text").type(lapData.memberNameEn);
-      cy.log("Successfully search in the Loan account proposal Management");
+      const lapData = data.fieldOfficer.createLoanAccountFrom;
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(lapData.memberNameEn);
+      cy.log(messages.ui.searchMessage);
     });
   }
 
   gridResetButtonCheck() {
-    cy.imsId("btn-reset").click();
-    cy.log("Successful clean displaying.");
+    cy.imsId(COMMON.BUTTONS.RESET).click();
+    cy.log(messages.ui.gridResetSuccess);
   }
   gridRefreshButtonCheck() {
-    cy.imsId("btn-refresh").click();
+    cy.imsId(COMMON.BUTTONS.REFRESH).click();
     cy.log(
-      "successfully refresh page  displayed the grid list of the Loan account proposal Management "
+      messages.ui.gridRefreshSuccess
     );
   }
 
   createAddGuarantorButtonCheck() {
-    cy.imsId("btn-add-new").should("be.visible").click();
+    cy.imsId(COMMON.BUTTONS.ADD_NEW).should("be.visible").click();
     cy.imsId("btn-add-guarantor")
       .should("be.visible")
       .first()
       .click();
 
-    cy.log("Successfully clicked 'Add Guarantor' button.");
+    cy.log(messages.ui.submitSuccess);
   }
 
   createRemoveButtonCheck() {
@@ -404,48 +406,48 @@ class LoanAccountProposalManagementCreation {
       .should("be.visible")
       .first()
       .click();
-    cy.log("Successfully clicked 'Remove Guarantor' button.");
+    cy.log(messages.ui.submitSuccess);
   }
 
 
   createResetButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-reset").click();
-      cy.log("Successful reset button clean displaying.");
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      cy.log(messages.validation.requiredField);
     });
   }
 
   createValidationMessageCheck() {
-    cy.imsId("btn-submit").click();
-    cy.imsId("btn-ok").click();
-    cy.log("Successful validation message displaying.");
+    cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+    cy.imsId(COMMON.CONFIRMATION.OK).click();
+    cy.log(messages.validation.requiredField);
   }
 
   createDraftButtonCheck() {
-    cy.imsId("btn-draft").click();
-    cy.imsId("btn-ok").click();
-    cy.log("Successful draft button validation message displaying.");
+    cy.imsId(COMMON.BUTTONS.DRAFT).click();
+    cy.imsId(COMMON.CONFIRMATION.OK).click();
+    cy.log(messages.ui.draftOnMessage);
   }
 
   createGoBackButtonCheck() {
-    cy.imsId("btn-go-back").click();
-    cy.log("Successful go back button check.");
+    cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+    cy.log(messages.ui.createGoBackMessage);
   }
 
   gridSearchButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var lapData = data.fieldOfficer.createLoanAccountFrom;
-      cy.imsId("btn-reset").click();
-      cy.formController("search_text").type(lapData.memberNameEn);
-      cy.imsId("btn-search").click();
-      cy.log("Successful search button click.");
+      const lapData = data.fieldOfficer.createLoanAccountFrom;
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(lapData.memberNameEn);
+      cy.imsId(COMMON.BUTTONS.SEARCH).click();
+      cy.log(messages.ui.searchMessage);
     });
   }
 
   gridLanguageSwitchCheck() {
-    cy.imsId("profile-menu").click();
-    cy.imsId("btn-lang-bangla").click();
-    cy.log("Successful switch bangla language check.");
+    cy.imsId(COMMON.BUTTONS.PROFILE).click();
+    cy.imsId(COMMON.BUTTONS.LANGUAGE_CHANGE).click();
+    cy.log(messages.ui.languageSwitchMessage);
   }
 }
 

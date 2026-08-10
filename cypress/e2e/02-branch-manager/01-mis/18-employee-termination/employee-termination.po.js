@@ -6,7 +6,7 @@ class EmployeeTermination {
     gridEmployeeTerminationListPage() {
         cy.fixture(this.test_data).then((data) => {
             cy.selectMenu("menu-employee", "submenu-employee-termination");
-            cy.log("Successfully Employee Termination list page.");
+            cy.log(messages.ui.gridListMessage);
         });
     }
 
@@ -19,11 +19,11 @@ class EmployeeTermination {
         // ensure view page loaded
         cy.url().should("include", "employee-termination/view");
 
-        cy.imsId("btn-submit").click();
-        cy.imsId("btn-yes").click();
-        cy.imsId("btn-ok").click();
+        cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+        cy.imsId(COMMON.CONFIRMATION.YES).click();
+        cy.imsId(COMMON.CONFIRMATION.OK).click();
 
-        cy.log("Successfully created employee termination");
+        cy.log(messages.ui.submitSuccess);
     }
 
     terminationGoBackButton() {
@@ -35,14 +35,14 @@ class EmployeeTermination {
         // ensure view page loaded
         cy.url().should("include", "employee-termination/view");
 
-        cy.imsId("btn-go-back").click();
+        cy.imsId(COMMON.BUTTONS.GO_BACK).click();
 
         cy.log("Successful termination go back button check.");
     }
 
     myTaskMenuEmployeeTermination() {
         cy.fixture(this.test_data).then((data) => {
-            var etData = data.branchManager.gridEmpTerminationFrom;
+            const etData = data.branchManager.gridEmpTerminationFrom;
             cy.imsId("menu-my-task").click();
             cy.imsId("submenu-awaiting-employee-termination").click();
             cy.log("Successfully navigate to my task menu employee termination");
@@ -50,56 +50,56 @@ class EmployeeTermination {
     }
 
     myTaskResetButtonCheck() {
-        cy.imsId("btn-reset").click();
+        cy.imsId(COMMON.BUTTONS.RESET).click();
         cy.log("Successful clean my task displaying.");
     }
 
     myTaskRefreshButtonCheck() {
-        cy.imsId("btn-refresh").click();
+        cy.imsId(COMMON.BUTTONS.REFRESH).click();
         cy.log(
             "successfully refresh page  displayed the my task list of the Employee termination form "
         );
     }
 
     approveNewEmployeeTermination() {
-        cy.imsId("toggle-action").first().click();
-        cy.imsId("btn-table-action-view").first().click();
+        cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+        cy.imsId(COMMON.GRID.ACTION_VIEW).first().click();
         cy.imsId("btn-lock").click();
-        cy.imsId("btn-approve").click();
-        cy.imsId("btn-submit").click();
-        cy.imsId("btn-ok").click();
+        cy.imsId(COMMON.BUTTONS.APPROVE).click();
+        cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+        cy.imsId(COMMON.CONFIRMATION.OK).click();
         cy.log("Successfully approved employee termination");
     }
 
     searchInEmployeeName() {
         cy.fixture(this.test_data).then((data) => {
-            var etData = data.branchManager.gridEmpTerminationFrom;
+            const etData = data.branchManager.gridEmpTerminationFrom;
             cy.selectMenu("menu-employee", "submenu-employee-termination");
-            cy.imsId("btn-reset").click();
-            cy.formController("search_text").type(etData.search);
-            cy.log("Successfully search in the Employee Termination form");
+            cy.imsId(COMMON.BUTTONS.RESET).click();
+            cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(etData.search);
+            cy.log(messages.ui.searchMessage);
         });
     }
 
     gridResetButtonCheck() {
-        cy.imsId("btn-reset").click();
-        cy.log("Successful clean displaying.");
+        cy.imsId(COMMON.BUTTONS.RESET).click();
+        cy.log(messages.ui.gridResetSuccess);
     }
 
     gridRefreshButtonCheck() {
-        cy.imsId("btn-refresh").click();
+        cy.imsId(COMMON.BUTTONS.REFRESH).click();
         cy.log(
-            "successfully refresh page  displayed the grid list of the Employee Termination form "
+            messages.ui.gridRefreshSuccess
         );
     }
 
     gridSearchButtonCheck() {
         cy.fixture(this.test_data).then((data) => {
-            var etData = data.branchManager.gridEmpTerminationFrom;
-            cy.imsId("btn-reset").click();
-            cy.formController("search_text").type(etData.search);
-            cy.imsId("btn-search").click();
-            cy.log("Successful search button click.");
+            const etData = data.branchManager.gridEmpTerminationFrom;
+            cy.imsId(COMMON.BUTTONS.RESET).click();
+            cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(etData.search);
+            cy.imsId(COMMON.BUTTONS.SEARCH).click();
+            cy.log(messages.ui.searchMessage);
         });
     }
 
@@ -116,9 +116,9 @@ class EmployeeTermination {
     }
 
     gridLanguageSwitchCheck() {
-        cy.imsId("profile-menu").click();
-        cy.imsId("btn-lang-bangla").click();
-        cy.log("Successful switch to bangla language check.");
+        cy.imsId(COMMON.BUTTONS.PROFILE).click();
+        cy.imsId(COMMON.BUTTONS.LANGUAGE_CHANGE).click();
+        cy.log(messages.ui.languageSwitchMessage);
     }
 }
 

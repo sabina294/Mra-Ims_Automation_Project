@@ -11,67 +11,67 @@ class OfficeGrid {
   }
 
   actionButtonCheck() {
-    cy.imsId("toggle-action").first().click();
+    cy.imsId(COMMON.TOGGLES.ACTION).first().click();
     cy.log(
-      "Action button clicked successfully on the office list page."
+      messages.ui.actionMessage
     );
   }
 
   viewOffice() {
     cy.fixture(this.test_data).then((data) => {
-      var omData = data.fieldOfficer.gridOfficeFrom;
-      cy.formController("search_text").type(omData.officeNameEn);
-      cy.imsId("toggle-action").first().click();
-      cy.imsId("btn-table-action-view").click();
-      cy.log("Successfully viewed the office list page");
+      const omData = data.fieldOfficer.gridOfficeFrom;
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(omData.officeNameEn);
+      cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+      cy.imsId(COMMON.GRID.ACTION_VIEW).click();
+      cy.log(messages.ui.viewMessage);
     });
   }
 
   viewGoBackButton() {
-    cy.imsId("btn-go-back").click();
+    cy.imsId(COMMON.BUTTONS.GO_BACK).click();
 
-    cy.log("Successful view go back button check.");
+    cy.log(messages.ui.goBackSuccess);
   }
 
   turnOnEditMode() {
     cy.fixture(this.test_data).then((data) => {
-      var omData = data.fieldOfficer.gridOfficeFrom;
-      cy.imsId("btn-reset").click();
-      cy.formController("search_text").type(omData.search);
-      cy.imsId("btn-search").click();
-      cy.imsId("toggle-action").first().click();
-      cy.imsId("btn-table-action-view").click();
-      cy.imsId("switch-button").click();
+      const omData = data.fieldOfficer.gridOfficeFrom;
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(omData.search);
+      cy.imsId(COMMON.BUTTONS.SEARCH).click();
+      cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+      cy.imsId(COMMON.GRID.ACTION_VIEW).click();
+      cy.imsId(COMMON.BUTTONS.TURN_EDIT_MODE).click();
 
-      cy.log("Office form Edit Mode toggled successfully");
+      cy.log(messages.ui.turnOnEditModeMessage);
     });
   }
 
   editSubmitButton() {
-    cy.imsId("btn-submit").click();
-    cy.imsId("btn-ok").click();
+    cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+    cy.imsId(COMMON.CONFIRMATION.OK).click();
 
-    cy.log("Successful submit validation check.");
+    cy.log(messages.ui.editSubmitMessage);
   }
 
   editGoBackButton() {
     cy.imsId("btn-back").click();
-    cy.log("Successful edit go back button check.");
+    cy.log(messages.ui.editGoBackMessage);
   }
 
   editDraftButton() {
     cy.fixture(this.test_data).then((data) => {
-      var omData = data.fieldOfficer.gridOfficeFrom;
-      cy.imsId("btn-reset").click();
-      cy.formController("search_text").type(omData.search);
-      cy.imsId("btn-search").click();
-      cy.imsId("toggle-action").first().click();
-      cy.imsId("btn-table-action-view").click();
-      cy.imsId("switch-button").click();
-      cy.imsId("btn-draft").click();
-      cy.imsId("btn-ok").click();
+      const omData = data.fieldOfficer.gridOfficeFrom;
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(omData.search);
+      cy.imsId(COMMON.BUTTONS.SEARCH).click();
+      cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+      cy.imsId(COMMON.GRID.ACTION_VIEW).click();
+      cy.imsId(COMMON.BUTTONS.TURN_EDIT_MODE).click();
+      cy.imsId(COMMON.BUTTONS.DRAFT).click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
 
-      cy.log("Office form Edit Mode toggled successfully");
+      cy.log(messages.ui.editMessage);
     });
   }
 
@@ -79,45 +79,45 @@ class OfficeGrid {
 
   statusInactiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var omData = data.fieldOfficer.gridOfficeFrom;
-      cy.imsId("btn-reset").click();
+      const omData = data.fieldOfficer.gridOfficeFrom;
+      cy.imsId(COMMON.BUTTONS.RESET).click();
       cy.formController("status").type(omData.selectStatus).type("{enter}");
-      cy.log("office status inactive dropdown check successfully");
+      cy.log(messages.ui.dropdownInactiveMessage);
     });
   }
 
   statusActiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var omData = data.fieldOfficer.gridOfficeFrom;
+      const omData = data.fieldOfficer.gridOfficeFrom;
       cy.formController("status").type(omData.statusSelect).type("{enter}");
-      cy.log("officestatus active dropdown check successfully");
+      cy.log(messages.ui.dropdownActiveMessage);
     });
   }
 
   searchInOfficeManagementName() {
     cy.fixture(this.test_data).then((data) => {
-      var omData = data.fieldOfficer.gridOfficeFrom;
-      cy.imsId("btn-reset").click();
-      cy.formController("search_text").type(omData.officeNameEn);
-      cy.log("Successfully search in the office");
+      const omData = data.fieldOfficer.gridOfficeFrom;
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(omData.officeNameEn);
+      cy.log(messages.ui.searchMessage);
     });
   }
 
   gridResetButtonCheck() {
-    cy.imsId("btn-reset").click();
-    cy.log("Successful clean displaying.");
+    cy.imsId(COMMON.BUTTONS.RESET).click();
+    cy.log(messages.ui.gridResetSuccess);
   }
 
   gridRefreshButtonCheck() {
-    cy.imsId("btn-refresh").click();
+    cy.imsId(COMMON.BUTTONS.REFRESH).click();
     cy.log(
-      "successfully refresh page  displayed the grid list of the office "
+      messages.ui.gridRefreshSuccess
     );
   }
 
   gridCheckboxCheck() {
     cy.imsId("row-checkbox-2").click();
-    cy.imsId("btn-reset").click();
+    cy.imsId(COMMON.BUTTONS.RESET).click();
     cy.log("Checkbox should be clickable and functional.");
   }
 
@@ -146,25 +146,25 @@ class OfficeGrid {
 
 
   createGoBackButtonCheck() {
-    cy.imsId("btn-add-new").click();
+    cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
     cy.imsId("btn-back").click();
-    cy.log("Successful go back button check.");
+    cy.log(messages.ui.createGoBackMessage);
   }
 
   gridSearchButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var omData = data.fieldOfficer.gridOfficeFrom;
-      cy.imsId("btn-reset").click();
-      cy.formController("search_text").type(omData.search);
-      cy.imsId("btn-search").click();
-      cy.log("Successful search button click.");
+      const omData = data.fieldOfficer.gridOfficeFrom;
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(omData.search);
+      cy.imsId(COMMON.BUTTONS.SEARCH).click();
+      cy.log(messages.ui.searchMessage);
     });
   }
 
   gridLanguageSwitchCheck() {
-    cy.imsId("profile-menu").click();
-    cy.imsId("btn-lang-bangla").click();
-    cy.log("Successful switch bangla language check.");
+    cy.imsId(COMMON.BUTTONS.PROFILE).click();
+    cy.imsId(COMMON.BUTTONS.LANGUAGE_CHANGE).click();
+    cy.log(messages.ui.languageSwitchMessage);
   }
 }
 

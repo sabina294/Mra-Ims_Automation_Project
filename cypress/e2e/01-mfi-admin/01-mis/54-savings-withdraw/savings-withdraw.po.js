@@ -6,13 +6,13 @@ class SavingsWithdraw {
     gridSavingsWithdrawListPage() {
         cy.fixture(this.test_data).then((data) => {
             cy.selectMenu("menu-transaction", "submenu-savings-withdraw");
-            cy.log("Successfully Savings Withdraw list page.");
+            cy.log(messages.ui.gridListMessage);
         });
     }
 
     statusOfficeDropdownCheck() {
         cy.fixture(this.test_data).then((data) => {
-            var swData = data.mfiAdmin.gridSavingsWithdraw;
+            const swData = data.mfiAdmin.gridSavingsWithdraw;
             cy.formController("office_id").type(swData.selectOffice).type("{enter}");
             cy.log(
                 "Savings Withdraw status office dropdown check successfully"
@@ -33,19 +33,19 @@ class SavingsWithdraw {
     }
 
     gridResetButtonCheck() {
-        cy.imsId("btn-reset").click();
-        cy.log("Successful clean displaying.");
+        cy.imsId(COMMON.BUTTONS.RESET).click();
+        cy.log(messages.ui.gridResetSuccess);
     }
     gridRefreshButtonCheck() {
-        cy.imsId("btn-refresh").click();
+        cy.imsId(COMMON.BUTTONS.REFRESH).click();
         cy.log(
-            "successfully refresh page  displayed the grid list of the Savings Withdraw"
+            messages.ui.gridRefreshSuccess
         );
     }
     gridLanguageSwitchCheck() {
-        cy.imsId("profile-menu").click();
-        cy.imsId("btn-lang-bangla").click();
-        cy.log("Unsccessful switch bangla language check.");
+        cy.imsId(COMMON.BUTTONS.PROFILE).click();
+        cy.imsId(COMMON.BUTTONS.LANGUAGE_CHANGE).click();
+        cy.log(messages.ui.languageSwitchMessage);
     }
 }
 

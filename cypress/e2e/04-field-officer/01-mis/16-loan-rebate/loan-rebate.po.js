@@ -1,63 +1,65 @@
+import messages from "../../../../support/constants/messages";
+import { COMMON } from "../../../../support/constants/selectors";
 class LoanRebate {
   test_data = Cypress.env("TEST_DATA");
 
   gridLoanRebateListPage() {
     cy.fixture(this.test_data).then((data) => {
       cy.selectMenu("menu-loan-account", "submenu-loan-rebate");
-      cy.log("Successfully Loan rebate list page.");
+      cy.log(messages.ui.gridListMessage);
     });
   }
 
   createDraftButton() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      var lrData = data.fieldOfficer.createLoanRebateFrom;
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+      const lrData = data.fieldOfficer.createLoanRebateFrom;
       cy.formController("samity_id").type(lrData.selectSamity).type("{enter}");
       cy.formController("member_id").type(lrData.selectMember).type("{enter}");
       cy.formController("loan_account_id")
         .type(lrData.selectLoanAccount)
         .type("{enter}");
       cy.wait(2000);
-      cy.imsId("btn-draft").click();
-      cy.imsId("btn-ok").click();
+      cy.imsId(COMMON.BUTTONS.DRAFT).click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
 
-      cy.log("Successfully created page information draft Loan rebate");
+      cy.log(messages.ui.draftOnMessage);
     });
   }
 
   createSubmitButton() {
-    cy.imsId("btn-submit").click();
-    cy.imsId("btn-ok").click();
-    cy.log("Successfully created page information submit Loan rebate");
+    cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+    cy.imsId(COMMON.CONFIRMATION.OK).click();
+    cy.log(messages.ui.submitSuccess);
 
   }
   createGoBackButton() {
-    cy.imsId("btn-go-back").click();
-    cy.log("Successfully created  page information go back Loan rebate");
+    cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+    cy.log(messages.ui.submitSuccess);
 
   }
 
   createResetButton() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      var lrData = data.fieldOfficer.createLoanRebateFrom;
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+      const lrData = data.fieldOfficer.createLoanRebateFrom;
       cy.formController("samity_id").type(lrData.selectSamity).type("{enter}");
       cy.formController("member_id").type(lrData.selectMember).type("{enter}");
       cy.formController("loan_account_id")
         .type(lrData.selectLoanAccount)
         .type("{enter}");
       cy.wait(2000);
-      cy.imsId("btn-reset").click();
-      cy.imsId("btn-go-back").click();
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      cy.imsId(COMMON.BUTTONS.GO_BACK).click();
 
-      cy.log("Successfully created page information reset Loan rebate");
+      cy.log(messages.ui.submitSuccess);
     });
   }
 
   createAddIconRebate() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      var lrData = data.fieldOfficer.createLoanRebateFrom;
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+      const lrData = data.fieldOfficer.createLoanRebateFrom;
       cy.formController("samity_id").type(lrData.selectSamity).type("{enter}");
       cy.formController("member_id").type(lrData.selectMember).type("{enter}");
       cy.formController("loan_account_id")
@@ -65,7 +67,7 @@ class LoanRebate {
         .type("{enter}");
       cy.wait(2000);
       cy.imsId("addIconButton").click();
-      cy.log("Successfully created page information add icon Loan rebate");
+      cy.log(messages.ui.submitSuccess);
     });
   }
 
@@ -73,15 +75,15 @@ class LoanRebate {
     cy.imsId("removeIconButton")
       .first()
       .click();
-    cy.imsId("btn-go-back").click();
-    cy.log("Successfully removed Loan rebate row");
+    cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+    cy.log(messages.ui.submitSuccess);
 
   }
 
   createLoanRebate() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      var lrData = data.fieldOfficer.createLoanRebateFrom;
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+      const lrData = data.fieldOfficer.createLoanRebateFrom;
       cy.formController("samity_id").type(lrData.selectSamity).type("{enter}");
       cy.formController("member_id").type(lrData.selectMember).type("{enter}");
       cy.formController("loan_account_id")
@@ -95,41 +97,41 @@ class LoanRebate {
         .type(lrData.rebateType)
         .type("{enter}");
       cy.formController("rebate_amount").type(lrData.Amount);
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-yes").click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.YES).click();
       cy.get("app-confirmation-modal")
         .contains(lrData.messageSaveLoanRebate)
         .and("be.visible");
-      cy.imsId("btn-ok").click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
 
-      cy.log("Successfully created Loan rebate");
+      cy.log(messages.ui.submitSuccess);
     });
   }
 
   actionButtonCheck() {
-    cy.imsId("toggle-action").first().click();
-    cy.log("Action button clicked successfully on the loan welfare list page.");
+    cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+    cy.log(messages.ui.actionMessage);
   }
 
   viewLoanRebate() {
     cy.fixture(this.test_data).then((data) => {
-      var lrData = data.fieldOfficer.createLoanRebateFrom;
-      cy.imsId("btn-table-action-view").click();
-      cy.log("Successfully viewed the Loan rebate list page");
+      const lrData = data.fieldOfficer.createLoanRebateFrom;
+      cy.imsId(COMMON.GRID.ACTION_VIEW).click();
+      cy.log(messages.ui.viewMessage);
     });
   }
 
   goBackLoanRebate() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-go-back").click();
+      cy.imsId(COMMON.BUTTONS.GO_BACK).click();
       cy.log("Successfully viewed go back the Loan rebate list page");
     });
   }
 
   statusSubmittedDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var lrData = data.fieldOfficer.createLoanRebateFrom;
-      cy.imsId("btn-reset").click();
+      const lrData = data.fieldOfficer.createLoanRebateFrom;
+      cy.imsId(COMMON.BUTTONS.RESET).click();
       cy.formController("status").type(lrData.selectStatus).type("{enter}");
       cy.log("Loan rebate status submitted dropdown check successfully");
     });
@@ -137,7 +139,7 @@ class LoanRebate {
 
   statusApprovedDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var lrData = data.fieldOfficer.createLoanRebateFrom;
+      const lrData = data.fieldOfficer.createLoanRebateFrom;
       cy.formController("status").type(lrData.statusSelect).type("{enter}");
       cy.log("Loan rebate  status approved dropdown check successfully");
     });
@@ -145,39 +147,39 @@ class LoanRebate {
 
   searchInLoanRebateName() {
     cy.fixture(this.test_data).then((data) => {
-      var lrData = data.fieldOfficer.createLoanRebateFrom;
-      //   cy.imsId("btn-reset").click();
-      cy.formController("search_text").type(lrData.search);
-      cy.log("Successfully search in the Loan rebate");
+      const lrData = data.fieldOfficer.createLoanRebateFrom;
+      //   cy.imsId(COMMON.BUTTONS.RESET).click();
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(lrData.search);
+      cy.log(messages.ui.searchMessage);
     });
   }
 
   gridResetButtonCheck() {
-    cy.imsId("btn-reset").click();
-    cy.log("Successful clean displaying.");
+    cy.imsId(COMMON.BUTTONS.RESET).click();
+    cy.log(messages.ui.gridResetSuccess);
   }
 
   gridRefreshButtonCheck() {
-    cy.imsId("btn-refresh").click();
+    cy.imsId(COMMON.BUTTONS.REFRESH).click();
     cy.log(
-      "successfully refresh page  displayed the grid list of the Loan rebate "
+      messages.ui.gridRefreshSuccess
     );
   }
 
   gridSearchButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var lrData = data.fieldOfficer.createLoanRebateFrom;
-      cy.imsId("btn-reset").click();
-      cy.formController("search_text").type(lrData.samityNameEn);
-      cy.imsId("btn-search").click();
-      cy.log("Successful search button click.");
+      const lrData = data.fieldOfficer.createLoanRebateFrom;
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(lrData.samityNameEn);
+      cy.imsId(COMMON.BUTTONS.SEARCH).click();
+      cy.log(messages.ui.searchMessage);
     });
   }
 
   gridLanguageSwitchCheck() {
-    cy.imsId("profile-menu").click();
-    cy.imsId("btn-lang-bangla").click();
-    cy.log("Successful switch bangla language check.");
+    cy.imsId(COMMON.BUTTONS.PROFILE).click();
+    cy.imsId(COMMON.BUTTONS.LANGUAGE_CHANGE).click();
+    cy.log(messages.ui.languageSwitchMessage);
   }
 }
 

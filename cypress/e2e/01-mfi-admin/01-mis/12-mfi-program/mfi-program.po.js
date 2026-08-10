@@ -1,19 +1,21 @@
+import messages from "../../../../support/constants/messages";
+import { COMMON } from "../../../../support/constants/selectors";
 class MfiProgramCreation {
   test_data = Cypress.env("TEST_DATA");
 
   gridMfiProgramListPage() {
     cy.fixture(this.test_data).then((data) => {
       cy.selectMenu("menu-configuration", "submenu-mfi-program");
-      cy.log("Successfully mfi program list page.");
+      cy.log(messages.ui.gridListMessage);
     });
   }
 
   createMfiProgram() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      cy.imsId("btn-submit").and("be.visible");
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).and("be.visible");
 
-      var mpData = data.mfiAdmin.createMfiProgramFrom;
+      const mpData = data.mfiAdmin.createMfiProgramFrom;
       cy.formController("mfi_program_name_en").type(mpData.programNameEn);
       cy.formController("mfi_program_short_name").type(mpData.programShortName);
       cy.formController("funding_category")
@@ -21,46 +23,46 @@ class MfiProgramCreation {
         .type("{enter}");
       cy.formController("loan_fund_ids").type(mpData.loanFund).type("{enter}");
       cy.get("body").click(0, 0);
-      cy.imsId("btn-submit").click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
 
-      cy.imsId("btn-yes").click();
+      cy.imsId(COMMON.CONFIRMATION.YES).click();
       cy.get("app-confirmation-modal")
         .contains(mpData.messageSaveMfiProgram)
         .and("be.visible");
 
-      cy.imsId("btn-ok").click();
-      cy.log("Successfully created mfi program");
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
+      cy.log(messages.ui.submitSuccess);
     });
   }
 
   createWithoutNameEn() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      cy.imsId("btn-submit").and("be.visible");
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).and("be.visible");
 
-      var mpData = data.mfiAdmin.createMfiProgramFrom;
+      const mpData = data.mfiAdmin.createMfiProgramFrom;
       cy.formController("mfi_program_short_name").type(mpData.programShortName);
       cy.formController("funding_category")
         .type(mpData.fundingCategory)
         .type("{enter}");
       cy.formController("loan_fund_ids").type(mpData.loanFund).type("{enter}");
       cy.get("body").click(0, 0);
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-ok").click();
-      cy.imsId("btn-go-back").click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
+      cy.imsId(COMMON.BUTTONS.GO_BACK).click();
 
       cy.log(
-        "Successful cannot creation mfi program without one mandatory field."
+        messages.ui.withoutDataMessage
       );
     });
   }
 
   createWithoutNameBn() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      cy.imsId("btn-submit").and("be.visible");
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).and("be.visible");
 
-      var mpData = data.mfiAdmin.createMfiProgramFrom;
+      const mpData = data.mfiAdmin.createMfiProgramFrom;
       cy.formController("mfi_program_name_en").type(mpData.programNameEn);
       cy.formController("mfi_program_short_name").type(mpData.programShortName);
       cy.formController("funding_category")
@@ -69,91 +71,91 @@ class MfiProgramCreation {
       cy.formController("loan_fund_ids").type(mpData.loanFund).type("{enter}");
       cy.get("body").click(0, 0);
 
-      cy.imsId("btn-submit").click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
 
-      cy.imsId("btn-yes").click();
+      cy.imsId(COMMON.CONFIRMATION.YES).click();
       cy.get("app-confirmation-modal")
         .contains(mpData.messageSaveMfiProgram)
         .and("be.visible");
 
-      cy.imsId("btn-ok").click();
-      cy.log("Successfully created mfi program");
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
+      cy.log(messages.ui.withoutDataMessage);
     });
   }
 
   createWithoutShortName() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      cy.imsId("btn-submit").and("be.visible");
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).and("be.visible");
 
-      var mpData = data.mfiAdmin.createMfiProgramFrom;
+      const mpData = data.mfiAdmin.createMfiProgramFrom;
       cy.formController("mfi_program_name_en").type(mpData.programNameEn);
       cy.formController("funding_category")
         .type(mpData.fundingCategory)
         .type("{enter}");
       cy.formController("loan_fund_ids").type(mpData.loanFund).type("{enter}");
       cy.get("body").click(0, 0);
-      cy.imsId("btn-submit").click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
 
-      cy.imsId("btn-ok").click();
-      cy.imsId("btn-go-back").click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
+      cy.imsId(COMMON.BUTTONS.GO_BACK).click();
 
       cy.log(
-        "Successful cannot creation mfi program without one mandatory field."
+        messages.ui.withoutDataMessage
       );
     });
   }
 
   createWithoutFundingCategory() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      cy.imsId("btn-submit").and("be.visible");
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).and("be.visible");
 
-      var mpData = data.mfiAdmin.createMfiProgramFrom;
+      const mpData = data.mfiAdmin.createMfiProgramFrom;
       cy.formController("mfi_program_name_en").type(mpData.programNameEn);
       cy.formController("mfi_program_short_name").type(mpData.programShortName);
       cy.formController("loan_fund_ids").type(mpData.loanFund).type("{enter}");
       cy.get("body").click(0, 0);
-      cy.imsId("btn-submit").click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
 
-      cy.imsId("btn-ok").click();
-      cy.imsId("btn-go-back").click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
+      cy.imsId(COMMON.BUTTONS.GO_BACK).click();
 
       cy.log(
-        "Successful cannot creation mfi program without one mandatory field."
+        messages.ui.withoutDataMessage
       );
     });
   }
 
   createWithoutLoanFund() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      cy.imsId("btn-submit").and("be.visible");
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).and("be.visible");
 
-      var mpData = data.mfiAdmin.createMfiProgramFrom;
+      const mpData = data.mfiAdmin.createMfiProgramFrom;
       cy.formController("mfi_program_name_en").type(mpData.programNameEn);
       cy.formController("mfi_program_short_name").type(mpData.programShortName);
       cy.formController("funding_category")
         .type(mpData.fundingCategory)
         .type("{enter}");
-      cy.imsId("btn-submit").click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
 
-      cy.imsId("btn-ok").click();
-      cy.imsId("btn-go-back").click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
+      cy.imsId(COMMON.BUTTONS.GO_BACK).click();
 
       cy.log(
-        "Successful cannot creation mfi program without one mandatory field."
+        messages.ui.withoutDataMessage
       );
     });
   }
 
   createWithoutStatus() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      cy.imsId("btn-submit").and("be.visible");
-      cy.imsId("btn-reset").click();
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).and("be.visible");
+      cy.imsId(COMMON.BUTTONS.RESET).click();
 
-      var mpData = data.mfiAdmin.createMfiProgramFrom;
+      const mpData = data.mfiAdmin.createMfiProgramFrom;
       cy.formController("mfi_program_name_en").type(mpData.programNameEn);
       cy.formController("mfi_program_short_name").type(mpData.programShortName);
       cy.formController("funding_category")
@@ -161,165 +163,165 @@ class MfiProgramCreation {
         .type("{enter}");
       cy.formController("loan_fund_ids").type(mpData.loanFund).type("{enter}");
       cy.get("body").click(0, 0);
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-ok").click();
-      cy.imsId("btn-go-back").click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
+      cy.imsId(COMMON.BUTTONS.GO_BACK).click();
 
       cy.log(
-        "Successful cannot creation mfi program without one mandatory field."
+        messages.ui.withoutDataMessage
       );
     });
   }
 
   actionButtonCheck() {
-    cy.imsId("toggle-action").first().click();
-    cy.log("Action button clicked successfully on the mfi program list page.");
+    cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+    cy.log(messages.ui.actionMessage);
   }
 
   viewMfiProgram() {
     cy.fixture(this.test_data).then((data) => {
-      var mpData = data.mfiAdmin.createMfiProgramFrom;
-      // cy.formController("search_text").type(mpData.programNameEn);
-      // cy.imsId("toggle-action").first().click();
-      cy.imsId("btn-table-action-view").click();
-      cy.log("Successfully viewed the mfi program list page");
+      const mpData = data.mfiAdmin.createMfiProgramFrom;
+      // cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(mpData.programNameEn);
+      // cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+      cy.imsId(COMMON.GRID.ACTION_VIEW).click();
+      cy.log(messages.ui.viewMessage);
     });
   }
 
   viewGoBackButton() {
-    cy.imsId("btn-go-back").click();
-    cy.log("Successfully view go back the mfi program list page");
+    cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+    cy.log(messages.ui.goBackSuccess);
 
   }
 
   turnOffEditMode() {
-    cy.imsId("toggle-action").first().click();
-    cy.imsId("btn-table-action-edit").click();
-    cy.imsId("switch-button").click();
-    cy.imsId("btn-go-back").click();
+    cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+    cy.imsId(COMMON.GRID.ACTION_EDIT).click();
+    cy.imsId(COMMON.BUTTONS.TURN_EDIT_MODE).click();
+    cy.imsId(COMMON.BUTTONS.GO_BACK).click();
 
-    cy.log("Mfi program form Edit Mode toggled successfully");
+    cy.log(messages.ui.turnOnEditModeMessage);
   }
 
   editMfiProgram() {
-    cy.imsId("btn-reset").click();
-    cy.imsId("toggle-action").first().click();
-    cy.imsId("btn-table-action-edit").click();
-    cy.imsId("btn-submit").click();
-    cy.imsId("btn-yes").click();
-    cy.imsId("btn-ok").click();
-    cy.log("MFI program updated successfully");
+    cy.imsId(COMMON.BUTTONS.RESET).click();
+    cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+    cy.imsId(COMMON.GRID.ACTION_EDIT).click();
+    cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+    cy.imsId(COMMON.CONFIRMATION.YES).click();
+    cy.imsId(COMMON.CONFIRMATION.OK).click();
+    cy.log(messages.ui.editMessage);
 
   }
 
   editResetButton() {
-    cy.imsId("btn-reset").click();
-    cy.imsId("toggle-action").first().click();
-    cy.imsId("btn-table-action-edit").click();
-    cy.imsId("btn-reset").click();
-    cy.imsId("btn-go-back").click();
+    cy.imsId(COMMON.BUTTONS.RESET).click();
+    cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+    cy.imsId(COMMON.GRID.ACTION_EDIT).click();
+    cy.imsId(COMMON.BUTTONS.RESET).click();
+    cy.imsId(COMMON.BUTTONS.GO_BACK).click();
 
-    cy.log("Successful clean displaying");
+    cy.log(messages.ui.editResetMessage);
   }
 
   editSubmitButton() {
     cy.fixture(this.test_data).then((data) => {
-      var mpData = data.mfiAdmin.createMfiProgramFrom;
-      cy.imsId("toggle-action").first().click();
-      cy.imsId("btn-table-action-edit").click();
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-yes").click();
+      const mpData = data.mfiAdmin.createMfiProgramFrom;
+      cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+      cy.imsId(COMMON.GRID.ACTION_EDIT).click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.YES).click();
       cy.get("app-confirmation-modal")
         .contains(mpData.messageUpdateMfiProgram)
         .and("be.visible");
-      cy.imsId("btn-ok").click();
-      cy.log("Successfully updated mfi program");
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
+      cy.log(messages.ui.editSubmitMessage);
     });
   }
 
   editGoBackButton() {
-    cy.imsId("toggle-action").first().click();
-    cy.imsId("btn-table-action-edit").click();
-    cy.imsId("btn-go-back").click();
-    cy.log("Successful edit go back button check.");
+    cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+    cy.imsId(COMMON.GRID.ACTION_EDIT).click();
+    cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+    cy.log(messages.ui.editGoBackMessage);
   }
 
   statusInactiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var mpData = data.mfiAdmin.createMfiProgramFrom;
-      cy.imsId("btn-reset").click();
+      const mpData = data.mfiAdmin.createMfiProgramFrom;
+      cy.imsId(COMMON.BUTTONS.RESET).click();
       cy.formController("status").type(mpData.selectStatus).type("{enter}");
-      cy.log("Mfi program status inactive dropdown check successfully");
+      cy.log(messages.ui.dropdownInactiveMessage);
     });
   }
   statusActiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var mpData = data.mfiAdmin.createMfiProgramFrom;
+      const mpData = data.mfiAdmin.createMfiProgramFrom;
       cy.formController("status").type(mpData.statusSelect).type("{enter}");
-      cy.log("Mfi program status active dropdown check successfully");
+      cy.log(messages.ui.dropdownActiveMessage);
     });
   }
 
   searchInMfiProgramName() {
     cy.fixture(this.test_data).then((data) => {
-      var mpData = data.mfiAdmin.createMfiProgramFrom;
-      cy.imsId("btn-reset").click();
-      cy.formController("search_text").type(mpData.programNameEn);
-      cy.log("Successfully search in the mfi program");
+      const mpData = data.mfiAdmin.createMfiProgramFrom;
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(mpData.programNameEn);
+      cy.log(messages.ui.searchMessage);
     });
   }
 
   gridResetButtonCheck() {
-    cy.imsId("btn-reset").click();
-    cy.log("Successful clean displaying.");
+    cy.imsId(COMMON.BUTTONS.RESET).click();
+    cy.log(messages.ui.gridResetSuccess);
   }
 
   gridRefreshButtonCheck() {
-    cy.imsId("btn-refresh").click();
+    cy.imsId(COMMON.BUTTONS.REFRESH).click();
     cy.log(
-      "successfully refresh page  displayed the grid list of the mfi program "
+      messages.ui.gridRefreshSuccess
     );
   }
 
   createResetButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var mpData = data.mfiAdmin.createMfiProgramFrom;
-      cy.imsId("btn-add-new").click();
+      const mpData = data.mfiAdmin.createMfiProgramFrom;
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
       cy.formController("mfi_program_name_en").type(mpData.programNameEn);
-      cy.imsId("btn-reset").click();
-      cy.imsId("btn-go-back").click();
-      cy.log("Successful reset button clean displaying.");
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+      cy.log(messages.validation.requiredField);
     });
   }
 
   createValidationMessageCheck() {
-    cy.imsId("btn-add-new").click();
-    cy.imsId("btn-submit").click();
-    cy.imsId("btn-ok").click();
-    cy.imsId("btn-go-back").click();
-    cy.log("Successful validation message displaying.");
+    cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+    cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+    cy.imsId(COMMON.CONFIRMATION.OK).click();
+    cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+    cy.log(messages.validation.requiredField);
   }
 
   createGoBackButtonCheck() {
-    cy.imsId("btn-add-new").click();
-    cy.imsId("btn-go-back").click();
-    cy.log("Successful go back button check.");
+    cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+    cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+    cy.log(messages.ui.createGoBackMessage);
   }
 
   gridSearchButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var mpData = data.mfiAdmin.createMfiProgramFrom;
-      cy.imsId("btn-reset").click();
-      cy.formController("search_text").type(mpData.search);
-      cy.imsId("btn-search").click();
-      cy.log("Successful search button click.");
+      const mpData = data.mfiAdmin.createMfiProgramFrom;
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(mpData.search);
+      cy.imsId(COMMON.BUTTONS.SEARCH).click();
+      cy.log(messages.ui.searchMessage);
     });
   }
 
   gridLanguageSwitchCheck() {
-    cy.imsId("profile-menu").click();
-    cy.imsId("btn-lang-bangla").click();
-    cy.log("Successful switch bangla language check.");
+    cy.imsId(COMMON.BUTTONS.PROFILE).click();
+    cy.imsId(COMMON.BUTTONS.LANGUAGE_CHANGE).click();
+    cy.log(messages.ui.languageSwitchMessage);
   }
 }
 

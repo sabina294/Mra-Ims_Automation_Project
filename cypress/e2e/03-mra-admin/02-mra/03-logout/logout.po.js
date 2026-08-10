@@ -1,13 +1,15 @@
+import messages from "../../../../support/constants/messages";
+import { COMMON } from "../../../../support/constants/selectors";
 class LogoutPage {
 
   gridLanguageSwitchCheck() {
-    cy.imsId("profile-menu").click();
-    cy.imsId("btn-lang-bangla").click();
-    cy.log("Successful switch bangla language check.");
+    cy.imsId(COMMON.BUTTONS.PROFILE).click();
+    cy.imsId(COMMON.BUTTONS.LANGUAGE_CHANGE).click();
+    cy.log(messages.ui.languageSwitchMessage);
   }
 
   logout() {
-    cy.imsId("profile-menu").click();
+    cy.imsId(COMMON.BUTTONS.PROFILE).click();
     cy.imsId("btn-logout").click();
     cy.log("Successfully logged out");
   }

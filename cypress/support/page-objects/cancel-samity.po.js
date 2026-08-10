@@ -1,39 +1,40 @@
 // Shared across 02-branch-manager/01-mis/52-cancel-samity and workflow.cy.js.
+import messages from "../constants/messages";
+import { COMMON } from "../constants/selectors";
 class cancelSamity {
     test_data = Cypress.env("TEST_DATA");
 
     gridCancelSamityListPage() {
         cy.fixture(this.test_data).then((data) => {
             cy.selectMenu("menu-process", "submenu-cancel-samity");
-            cy.log("Successfully Cancel Samity list page.");
+            cy.log(messages.ui.gridListMessage);
         });
     }
 
     gridCheckboxCheck() {
-        cy.imsId("check-samity-2").click();
-        cy.log("Checkbox should be clickable and functional.");
+        cy.imsId(COMMON.BUTTONS.CHECK_SAMITY).click();
+        cy.log(messages.ui.checkboxMessage);
     }
 
     cancelMultipleSamity() {
-        cy.imsId("btn-cancel-multiple").click();
-        cy.imsId("btn-yes").click();
-        cy.imsId("btn-ok").click();
-        cy.log("Cancel samity should be clickable and functional.");
+        cy.imsId(COMMON.BUTTONS.CANCEL_MULTIPLE).click();
+        cy.imsId(COMMON.CONFIRMATION.YES).click();
+        cy.imsId(COMMON.CONFIRMATION.OK).click();
+        cy.log(messages.ui.cancelMultipleSamityMessage);
     }
 
     restoreSamity() {
-        cy.imsId("btn-restore-2").click();
-        cy.imsId("btn-yes").click();
-        cy.imsId("btn-ok").click();
-        cy.log("Restore samity should be clickable and functional.");
+        cy.imsId(COMMON.BUTTONS.RESTORE).click();
+        cy.imsId(COMMON.CONFIRMATION.YES).click();
+        cy.imsId(COMMON.CONFIRMATION.OK).click();
+        cy.log(messages.ui.restoreSamityMessage);
     }
-
     cancelSamity() {
         cy.fixture(this.test_data).then((data) => {
             const csData = data.branchManager.cancelSamity;
 
-            cy.imsId("btn-cancel-2").click();
-            cy.imsId("btn-yes").click();
+            cy.imsId(COMMON.BUTTONS.CANCEL).click();
+            cy.imsId(COMMON.CONFIRMATION.YES).click();
 
             cy.get('[formcontrolname="remarks"]')   // 🔥 use this first
                 .should("be.visible")
@@ -45,13 +46,13 @@ class cancelSamity {
 
     submitCancelSamity() {
         cy.imsId("btn-submit").should("be.visible").click();
-        cy.imsId("btn-ok").click();
+        cy.imsId(COMMON.CONFIRMATION.OK).click();
     }
 
     gridLanguageSwitchCheck() {
-        cy.imsId("profile-menu").click();
-        cy.imsId("btn-lang-bangla").click();
-        cy.log("Successfully switched to bangla language.");
+        cy.imsId(COMMON.BUTTONS.PROFILE).click();
+        cy.imsId(COMMON.BUTTONS.LANGUAGE_CHANGE).click();
+        cy.log(messages.ui.languageSwitchMessage);
     }
 
 }

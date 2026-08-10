@@ -1,33 +1,35 @@
+import messages from "../../../../support/constants/messages";
+import { COMMON } from "../../../../support/constants/selectors";
 class MemberAttendance {
     test_data = Cypress.env("TEST_DATA");
 
     gridMemberAttendanceListPage() {
         cy.fixture(this.test_data).then((data) => {
             cy.selectMenu("menu-member", "submenu-member-attendance");
-            cy.log("Successfully member attendance list page.");
+            cy.log(messages.ui.gridListMessage);
         });
     }
 
     actionButtonCheck() {
-        cy.imsId("toggle-action").first().click();
+        cy.imsId(COMMON.TOGGLES.ACTION).first().click();
         cy.log(
-            "Action button clicked successfully on the member attendance list page."
+            messages.ui.actionMessage
         );
     }
 
     searchInMemberAttendanceName() {
         cy.fixture(this.test_data).then((data) => {
-            var matData = data.mfiAdmin.memberAttendanceFrom;
-            cy.imsId("btn-reset").click();
-            cy.formController("search_text").type(matData.search);
-            cy.log("Successfully search in the Member Attendance field");
+            const matData = data.mfiAdmin.memberAttendanceFrom;
+            cy.imsId(COMMON.BUTTONS.RESET).click();
+            cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(matData.search);
+            cy.log(messages.ui.searchMessage);
         });
     }
     statusOfficeDropdownCheck() {
         cy.fixture(this.test_data).then((data) => {
-            var matData = data.mfiAdmin.memberAttendanceFrom;
+            const matData = data.mfiAdmin.memberAttendanceFrom;
             cy.formController("office_id").type(matData.SelectOffice).type("{enter}");
-            cy.imsId("btn-reset").click();
+            cy.imsId(COMMON.BUTTONS.RESET).click();
 
             cy.log(
                 "Member attendance status office dropdown check successfully"
@@ -35,30 +37,30 @@ class MemberAttendance {
         });
     }
     gridResetButtonCheck() {
-        cy.imsId("btn-reset").click();
-        cy.log("Successful clean displaying.");
+        cy.imsId(COMMON.BUTTONS.RESET).click();
+        cy.log(messages.ui.gridResetSuccess);
     }
 
     gridSearchButtonCheck() {
         cy.fixture(this.test_data).then((data) => {
-            var matData = data.mfiAdmin.memberAttendanceFrom;
-            cy.formController("search_text").type(matData.search);
-            cy.imsId("btn-search").click();
-            cy.log("Successful search button click.");
+            const matData = data.mfiAdmin.memberAttendanceFrom;
+            cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(matData.search);
+            cy.imsId(COMMON.BUTTONS.SEARCH).click();
+            cy.log(messages.ui.searchMessage);
         });
     }
 
     gridRefreshButtonCheck() {
-        cy.imsId("btn-refresh").click();
+        cy.imsId(COMMON.BUTTONS.REFRESH).click();
         cy.log(
-            "successfully refresh page  displayed the grid list of the member attendance change "
+            messages.ui.gridRefreshSuccess
         );
     }
 
     gridLanguageSwitchCheck() {
-        cy.imsId("profile-menu").click();
-        cy.imsId("btn-lang-bangla").click();
-        cy.log("Unsccessful switch bangla language check.");
+        cy.imsId(COMMON.BUTTONS.PROFILE).click();
+        cy.imsId(COMMON.BUTTONS.LANGUAGE_CHANGE).click();
+        cy.log(messages.ui.languageSwitchMessage);
     }
 }
 

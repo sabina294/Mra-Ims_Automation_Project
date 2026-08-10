@@ -6,14 +6,14 @@ class specialCollection {
     gridSpecialCollectionListPage() {
         cy.fixture(this.test_data).then((data) => {
             cy.selectMenu("menu-transaction", "submenu-special-collection");
-            cy.log("Successfully special collection list page.");
+            cy.log(messages.ui.gridListMessage);
         });
     }
 
     deleteNewCollection() {
         cy.fixture(this.test_data).then((data) => {
-            cy.imsId("btn-add-new").click();
-            var scData = data.branchManager.specialCollection;
+            cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+            const scData = data.branchManager.specialCollection;
             cy.formController("samityId").click();
             cy.contains(scData.selectSamity).click()
             cy.formController("employeeId").click();
@@ -26,13 +26,13 @@ class specialCollection {
                 .clear()
                 .type(scData.inputAmount);
             cy.imsId("btn-save").click();
-            cy.imsId("btn-yes").click();
-            cy.imsId("btn-ok").click();
-            cy.imsId("toggle-action").first().click();
-            cy.imsId("btn-table-action-delete").click();
+            cy.imsId(COMMON.CONFIRMATION.YES).click();
+            cy.imsId(COMMON.CONFIRMATION.OK).click();
+            cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+            cy.imsId(COMMON.GRID.ACTION_DELETE).click();
             cy.imsId("btn-delete").click();
-            cy.imsId("btn-yes").click();
-            cy.imsId("btn-ok").click();
+            cy.imsId(COMMON.CONFIRMATION.YES).click();
+            cy.imsId(COMMON.CONFIRMATION.OK).click();
 
             cy.log("Successfully deleted new special collection");
         });
@@ -40,7 +40,7 @@ class specialCollection {
 
     createNewCollection() {
         cy.fixture(this.test_data).then((data) => {
-            cy.imsId("btn-add-new").click();
+            cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
             const scData = data.branchManager.specialCollection;
             cy.formController("samityId").click();
             cy.contains(scData.selectSamity).click();
@@ -54,94 +54,94 @@ class specialCollection {
                 .clear()
                 .type(scData.inputAmount);
             cy.imsId("btn-save").click();
-            cy.imsId("btn-yes").click();
-            cy.imsId("btn-ok").click();
+            cy.imsId(COMMON.CONFIRMATION.YES).click();
+            cy.imsId(COMMON.CONFIRMATION.OK).click();
 
-            cy.log("Successfully created new special collection");
+            cy.log(messages.ui.submitSuccess);
         });
     }
 
     actionButtonCheck() {
-        cy.imsId("toggle-action").first().click();
-        cy.log("Action button clicked successfully on the special collection list page.");
+        cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+        cy.log(messages.ui.actionMessage);
     }
 
     viewSpecialCollection() {
-        cy.imsId("toggle-action").first().click();
-        cy.imsId("btn-table-action-view").click();
-        cy.log("successfully on the view special collection list page.");
+        cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+        cy.imsId(COMMON.GRID.ACTION_VIEW).click();
+        cy.log(messages.ui.viewMessage);
     }
 
     viewGoBackButton() {
-        cy.imsId("btn-go-back").click();
-        cy.log("successfully on the view special collection list page.");
+        cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+        cy.log(messages.ui.goBackSuccess);
     }
 
     editSpecialCollection() {
-        cy.imsId("toggle-action").first().click();
-        cy.imsId("btn-table-action-edit").click();
-        cy.log("successfully on the edit special collection list page.");
+        cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+        cy.imsId(COMMON.GRID.ACTION_EDIT).click();
+        cy.log(messages.ui.editMessage);
     }
 
     editGoBackButton() {
-        cy.imsId("btn-go-back").click();
-        cy.log("successfully on the edit go back button.");
+        cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+        cy.log(messages.ui.editGoBackMessage);
     }
 
     EditSaveCollection() {
         cy.fixture(this.test_data).then((data) => {
-            var scData = data.branchManager.specialCollection;
-            cy.imsId("toggle-action").first().click();
-            cy.imsId("btn-table-action-edit").click();
+            const scData = data.branchManager.specialCollection;
+            cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+            cy.imsId(COMMON.GRID.ACTION_EDIT).click();
             cy.get('input:visible:not(:disabled)')
                 .last()
                 .should('be.visible')
                 .clear()
                 .type(scData.inputAmount);
             cy.imsId("btn-save").click();
-            cy.imsId("btn-yes").click();
-            cy.imsId("btn-ok").click();
-            cy.log("successfully saved the collection.");
+            cy.imsId(COMMON.CONFIRMATION.YES).click();
+            cy.imsId(COMMON.CONFIRMATION.OK).click();
+            cy.log(messages.ui.editMessage);
 
         })
     }
 
     actionSpecialSubmit() {
-        cy.imsId("toggle-action").first().click();
+        cy.imsId(COMMON.TOGGLES.ACTION).first().click();
         cy.imsId("btn-table-action-submit").click();
         cy.log("successfully on the action submit button check.");
     }
 
     actionSpecialGoBack() {
-        cy.imsId("btn-go-back").click();
+        cy.imsId(COMMON.BUTTONS.GO_BACK).click();
         cy.log("successfully on the action submit button check.");
     }
 
     specialSubmit() {
-        cy.imsId("toggle-action").first().click();
+        cy.imsId(COMMON.TOGGLES.ACTION).first().click();
         cy.imsId("btn-table-action-submit").click();
-        cy.imsId("btn-submit").click();
-        cy.imsId("btn-yes").click();
-        cy.imsId("btn-ok").click();
+        cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+        cy.imsId(COMMON.CONFIRMATION.YES).click();
+        cy.imsId(COMMON.CONFIRMATION.OK).click();
         cy.log("successfully on the action submit button check.");
     }
 
     viewUnsubmitted() {
-        cy.imsId("toggle-action").first().click();
-        cy.imsId("btn-table-action-view").click();
-        cy.log("Action button clicked successfully on the special collection list page.");
+        cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+        cy.imsId(COMMON.GRID.ACTION_VIEW).click();
+        cy.log(messages.ui.viewMessage);
     }
 
     viewGoBackButtonUnsubmitted() {
-        // cy.imsId("toggle-action").first().click();
-        cy.imsId("btn-go-back").click();
-        cy.log("successfully on the view special collection list page.");
+        // cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+        cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+        cy.log(messages.ui.viewMessage);
     }
 
     gridActionUnsubmittedButtonCheck() {
         cy.fixture(this.test_data).then((data) => {
-            var scData = data.branchManager.specialCollection;
-            cy.imsId("toggle-action").first().click();
+            const scData = data.branchManager.specialCollection;
+            cy.imsId(COMMON.TOGGLES.ACTION).first().click();
             cy.imsId("btn-table-action-unsubmit").click();
             cy.log("Successfully grid unsubmitted the Special Collection list page");
         });
@@ -149,43 +149,43 @@ class specialCollection {
 
     gridActionUnsubmittedGoBackButton() {
         cy.fixture(this.test_data).then((data) => {
-            var scData = data.branchManager.specialCollection;
-            cy.imsId("btn-go-back").click();
+            const scData = data.branchManager.specialCollection;
+            cy.imsId(COMMON.BUTTONS.GO_BACK).click();
             cy.log("Successfully viewed go back the Special Collection list page");
         });
     }
 
     UnsubmittedButtonCheck() {
         cy.fixture(this.test_data).then((data) => {
-            var scData = data.branchManager.specialCollection;
-            cy.imsId("toggle-action").first().click();
+            const scData = data.branchManager.specialCollection;
+            cy.imsId(COMMON.TOGGLES.ACTION).first().click();
             cy.imsId("btn-table-action-unsubmit").click();
             cy.imsId("btn-unsubmit").click();
-            cy.imsId("btn-yes").click();
-            cy.imsId("btn-ok").click();
+            cy.imsId(COMMON.CONFIRMATION.YES).click();
+            cy.imsId(COMMON.CONFIRMATION.OK).click();
             cy.log("Successfully unsubmitted the Special Collection list page");
         });
     }
 
     againSpecialSubmit() {
-        cy.imsId("toggle-action").first().click();
+        cy.imsId(COMMON.TOGGLES.ACTION).first().click();
         cy.imsId("btn-table-action-submit").click();
-        cy.imsId("btn-submit").click();
-        cy.imsId("btn-yes").click();
-        cy.imsId("btn-ok").click();
+        cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+        cy.imsId(COMMON.CONFIRMATION.YES).click();
+        cy.imsId(COMMON.CONFIRMATION.OK).click();
         cy.log("successfully on the again submit special collection.");
     }
 
     
     gridResetButtonCheck() {
-        cy.imsId("btn-reset").click();
-        cy.log("Successful clean displaying.");
+        cy.imsId(COMMON.BUTTONS.RESET).click();
+        cy.log(messages.ui.gridResetSuccess);
     }
 
     gridRefreshButtonCheck() {
-        cy.imsId("btn-refresh").click();
+        cy.imsId(COMMON.BUTTONS.REFRESH).click();
         cy.log(
-            "successfully refresh page  displayed the grid list of the special collection "
+            messages.ui.gridRefreshSuccess
         );
     }
 
@@ -197,7 +197,7 @@ class specialCollection {
 
     fieldOfficerHistoryDropdownCheck() {
         cy.fixture(this.test_data).then((data) => {
-            var scData = data.branchManager.specialCollection;
+            const scData = data.branchManager.specialCollection;
             cy.formController("field_officer_id").type(scData.fieldOfficer).type("{enter}");
             cy.log(
                 "successfully field officer dropdown displayed the grid list of the special collection "
@@ -213,7 +213,7 @@ class specialCollection {
 
     fieldOfficerDropdownCheck() {
         cy.fixture(this.test_data).then((data) => {
-            var scData = data.branchManager.specialCollection;
+            const scData = data.branchManager.specialCollection;
             cy.formController("field_officer_id").type(scData.fieldOfficer).type("{enter}");
             cy.log(
                 "successfully field officer dropdown displayed the grid list of the special collection "
@@ -223,7 +223,7 @@ class specialCollection {
 
     gridSamityDropdownCheck() {
         cy.fixture(this.test_data).then((data) => {
-            var scData = data.branchManager.specialCollection;
+            const scData = data.branchManager.specialCollection;
             cy.formController("staging_samity_id").type(scData.Samity).type("{enter}");
             cy.log(
                 "successfully samity dropdown displayed the grid list of the special collection "
@@ -232,9 +232,9 @@ class specialCollection {
     }
 
     gridLanguageSwitchCheck() {
-        cy.imsId("profile-menu").click();
-        cy.imsId("btn-lang-bangla").click();
-        cy.log("Unsuccessful switch bangla language check.");
+        cy.imsId(COMMON.BUTTONS.PROFILE).click();
+        cy.imsId(COMMON.BUTTONS.LANGUAGE_CHANGE).click();
+        cy.log(messages.ui.languageSwitchMessage);
     }
 
 }

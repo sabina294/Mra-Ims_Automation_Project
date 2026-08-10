@@ -3,7 +3,7 @@
 const constants = {
   STATUS: {
     ACTIVE: "Active",
-    INACTIVE: "Inctive",
+    INACTIVE: "Inactive",
     APPROVE: "Approve",
     REJECT: "Reject",
     PENDING: "pending",

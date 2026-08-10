@@ -1,274 +1,275 @@
+import messages from "../../../../support/constants/messages";
+import { COMMON } from "../../../../support/constants/selectors";
 class LoanClassStatusCreation {
   test_data = Cypress.env("TEST_DATA");
 
   gridLoanClassStatusListPage() {
     cy.fixture(this.test_data).then((data) => {
       cy.selectMenu("menu-configuration", "submenu-loan-class-status");
-      cy.log("Successfully loan class status list page.");
+      cy.log(messages.ui.gridListMessage);
     });
   }
 
   createLoanClassStatus() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      cy.imsId("btn-submit").and("be.visible");
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).and("be.visible");
 
-      var loanClasStaData = data.mraAdmin.createloanClassStatusFrom;
-      var randomNumber = Math.floor(1000 + Math.random() * 9000);
-      var loanClassId = loanClasStaData.loanClassId + "-" + randomNumber;
+      const loanClasStaData = data.mraAdmin.createloanClassStatusFrom;
+      const randomNumber = Math.floor(1000 + Math.random() * 9000);
+      const loanClassId = loanClasStaData.loanClassId + "-" + randomNumber;
 
       cy.formController("loan_class_status_id").type(loanClassId);
       cy.formController("name_en").type(loanClasStaData.loanClassNameEn);
       cy.formController("description").type(loanClasStaData.description);
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-yes").click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.YES).click();
       cy.get("app-confirmation-modal")
         .contains(loanClasStaData.messageSaveLoClSt)
         .and("be.visible");
-      cy.imsId("btn-ok").click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
 
-      cy.log("Successfully created loan class status");
+      cy.log(messages.ui.submitSuccess);
     });
   }
 
   createAllField() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      cy.imsId("btn-submit").and("be.visible");
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).and("be.visible");
 
-      var loanClasStaData = data.mraAdmin.createloanClassStatusFrom;
-      var randomNumber = Math.floor(1000 + Math.random() * 9000);
-      var loanClassId = loanClasStaData.loanClassId + "-" + randomNumber;
+      const loanClasStaData = data.mraAdmin.createloanClassStatusFrom;
+      const randomNumber = Math.floor(1000 + Math.random() * 9000);
+      const loanClassId = loanClasStaData.loanClassId + "-" + randomNumber;
 
       cy.formController("loan_class_status_id").type(loanClassId);
       cy.formController("name_en").type(loanClasStaData.loanClassNameEn);
       cy.formController("name_bn").type(loanClasStaData.loanClassNameBn);
       cy.formController("description").type(loanClasStaData.description);
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-yes").click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.YES).click();
       cy.get("app-confirmation-modal")
         .contains(loanClasStaData.messageSaveLoClSt)
         .and("be.visible");
-      cy.imsId("btn-ok").click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
 
-      cy.log("Successfully created loan class status all field");
+      cy.log(messages.ui.submitSuccess);
     });
   }
 
   createWithoutLoanId() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      cy.imsId("btn-submit").and("be.visible");
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).and("be.visible");
 
-      var loanClasStaData = data.mraAdmin.createloanClassStatusFrom;
-      var randomNumber = Math.floor(1000 + Math.random() * 9000);
-      var loanClassId = loanClasStaData.loanClassId + "-" + randomNumber;
+      const loanClasStaData = data.mraAdmin.createloanClassStatusFrom;
+      const randomNumber = Math.floor(1000 + Math.random() * 9000);
+      const loanClassId = loanClasStaData.loanClassId + "-" + randomNumber;
 
       cy.formController("name_en").type(loanClasStaData.loanClassNameEn);
       cy.formController("name_bn").type(loanClasStaData.loanClassNameBn);
       cy.formController("description").type(loanClasStaData.description);
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-ok").click();
-      cy.imsId("btn-go-back").click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
+      cy.imsId(COMMON.BUTTONS.GO_BACK).click();
 
       cy.log(
-        "Successful cannot creation loan class status without one mandatory field."
+        messages.ui.withoutDataMessage
       );
     });
   }
 
   createWithoutLoanNameEn() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      cy.imsId("btn-submit").and("be.visible");
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).and("be.visible");
 
-      var loanClasStaData = data.mraAdmin.createloanClassStatusFrom;
-      var randomNumber = Math.floor(1000 + Math.random() * 9000);
-      var loanClassId = loanClasStaData.loanClassId + "-" + randomNumber;
+      const loanClasStaData = data.mraAdmin.createloanClassStatusFrom;
+      const randomNumber = Math.floor(1000 + Math.random() * 9000);
+      const loanClassId = loanClasStaData.loanClassId + "-" + randomNumber;
 
       cy.formController("loan_class_status_id").type(loanClassId);
       cy.formController("name_bn").type(loanClasStaData.loanClassNameBn);
       cy.formController("description").type(loanClasStaData.description);
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-ok").click();
-      cy.imsId("btn-go-back").click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
+      cy.imsId(COMMON.BUTTONS.GO_BACK).click();
 
-      cy.log("Successfully created loan class status without loan name en");
+      cy.log(messages.ui.withoutDataMessage);
     });
   }
 
   createWithoutLoanNameBn() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      cy.imsId("btn-submit").and("be.visible");
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).and("be.visible");
 
-      var loanClasStaData = data.mraAdmin.createloanClassStatusFrom;
-      var randomNumber = Math.floor(1000 + Math.random() * 9000);
-      var loanClassId = loanClasStaData.loanClassId + "-" + randomNumber;
+      const loanClasStaData = data.mraAdmin.createloanClassStatusFrom;
+      const randomNumber = Math.floor(1000 + Math.random() * 9000);
+      const loanClassId = loanClasStaData.loanClassId + "-" + randomNumber;
 
       cy.formController("loan_class_status_id").type(loanClassId);
       cy.formController("name_en").type(loanClasStaData.loanClassNameEn);
       cy.formController("description").type(loanClasStaData.description);
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-yes").click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.YES).click();
       cy.get("app-confirmation-modal")
         .contains(loanClasStaData.messageSaveLoClSt)
         .and("be.visible");
-      cy.imsId("btn-ok").click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
 
-      cy.log("Successfully created loan class status without loan name bn");
+      cy.log(messages.ui.withoutDataMessage);
     });
   }
 
 
   createWithoutDescription() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      cy.imsId("btn-submit").and("be.visible");
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).and("be.visible");
 
-      var loanClasStaData = data.mraAdmin.createloanClassStatusFrom;
-      var randomNumber = Math.floor(1000 + Math.random() * 9000);
-      var loanClassId = loanClasStaData.loanClassId + "-" + randomNumber;
+      const loanClasStaData = data.mraAdmin.createloanClassStatusFrom;
+      const randomNumber = Math.floor(1000 + Math.random() * 9000);
+      const loanClassId = loanClasStaData.loanClassId + "-" + randomNumber;
 
       cy.formController("loan_class_status_id").type(loanClassId);
       cy.formController("name_en").type(loanClasStaData.loanClassNameEn);
       cy.formController("name_bn").type(loanClasStaData.loanClassNameBn);
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-ok").click();
-      cy.imsId("btn-go-back").click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
+      cy.imsId(COMMON.BUTTONS.GO_BACK).click();
 
       cy.log(
-        "Successful cannot creation loan class status without one mandatory field."
+        messages.ui.withoutDataMessage
       );
     });
   }
 
   createWithoutLoanStatus() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      cy.imsId("btn-submit").and("be.visible");
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).and("be.visible");
 
-      var loanClasStaData = data.mraAdmin.createloanClassStatusFrom;
-      var randomNumber = Math.floor(1000 + Math.random() * 9000);
-      var loanClassId = loanClasStaData.loanClassId + "-" + randomNumber;
-      cy.imsId("btn-reset").click();
+      const loanClasStaData = data.mraAdmin.createloanClassStatusFrom;
+      const randomNumber = Math.floor(1000 + Math.random() * 9000);
+      const loanClassId = loanClasStaData.loanClassId + "-" + randomNumber;
+      cy.imsId(COMMON.BUTTONS.RESET).click();
       cy.formController("loan_class_status_id").type(loanClassId);
       cy.formController("name_en").type(loanClasStaData.loanClassNameEn);
       cy.formController("name_bn").type(loanClasStaData.loanClassNameBn);
       cy.formController("description").type(loanClasStaData.description);
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-ok").click();
-      cy.imsId("btn-go-back").click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
+      cy.imsId(COMMON.BUTTONS.GO_BACK).click();
 
-      cy.log("Successfully created loan class status without loan status");
+      cy.log(messages.ui.withoutDataMessage);
     });
   }
 
   createWithoutOneMandatoryField() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      cy.imsId("btn-submit").and("be.visible");
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).and("be.visible");
 
-      var loanClasStaData = data.mraAdmin.createloanClassStatusFrom;
-      var randomNumber = Math.floor(1000 + Math.random() * 9000);
-      var loanClassId = loanClasStaData.loanClassId + "-" + randomNumber;
+      const loanClasStaData = data.mraAdmin.createloanClassStatusFrom;
+      const randomNumber = Math.floor(1000 + Math.random() * 9000);
+      const loanClassId = loanClasStaData.loanClassId + "-" + randomNumber;
 
       cy.formController("loan_class_status_id").type(loanClassId);
       cy.formController("name_bn").type(loanClasStaData.loanClassNameBn);
       cy.formController("description").type(loanClasStaData.description);
 
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-ok").click();
-      cy.imsId("btn-go-back").click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
+      cy.imsId(COMMON.BUTTONS.GO_BACK).click();
 
       cy.log(
-        "Successful cannot creation loan class status without one mandatory field"
+        messages.ui.withoutDataMessage
       );
     });
   }
 
   createWithoutMandatoryField() {
     cy.fixture(this.test_data).then((data) => {
-      var loanClasStaData = data.mraAdmin.createloanClassStatusFrom;
-      cy.imsId("btn-add-new").click();
+      const loanClasStaData = data.mraAdmin.createloanClassStatusFrom;
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
       cy.formController("name_bn").type(loanClasStaData.loanClassNameBn);
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-ok").click();
-      cy.imsId("btn-go-back").click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
+      cy.imsId(COMMON.BUTTONS.GO_BACK).click();
       cy.log(
-        "Successful cannot creation loan class status without mandatory field."
+        messages.ui.withoutDataMessage
       );
     });
   }
 
   actionButtonCheck() {
-    cy.imsId("toggle-action").first().click();
+    cy.imsId(COMMON.TOGGLES.ACTION).first().click();
     cy.log(
-      "Action button clicked successfully on the loan class status list page."
+      messages.ui.actionMessage
     );
   }
 
   viewLoanClassStatus() {
     cy.fixture(this.test_data).then((data) => {
-      var loanClasStaData = data.mraAdmin.createloanClassStatusFrom;
-      cy.formController("search_text").type(loanClasStaData.loanClassNameEn);
-      cy.imsId("toggle-action").first().click();
-      cy.imsId("btn-table-action-view").click();
-      cy.log("Successfully viewed the loan class status list page");
+      const loanClasStaData = data.mraAdmin.createloanClassStatusFrom;
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(loanClasStaData.loanClassNameEn);
+      cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+      cy.imsId(COMMON.GRID.ACTION_VIEW).click();
+      cy.log(messages.ui.viewMessage);
     });
   }
 
   viewGoBackButton() {
-    cy.imsId("btn-go-back").click();
+    cy.imsId(COMMON.BUTTONS.GO_BACK).click();
 
-    cy.log("Successfully view go back the loan class status list page");
+    cy.log(messages.ui.goBackSuccess);
   }
 
   turnOffOnEditMode() {
-    cy.imsId("toggle-action").first().click();
-    cy.imsId("btn-table-action-edit").click();
-    cy.imsId("switch-button").click();
-    cy.imsId("btn-go-back").click();
+    cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+    cy.imsId(COMMON.GRID.ACTION_EDIT).click();
+    cy.imsId(COMMON.BUTTONS.TURN_EDIT_MODE).click();
+    cy.imsId(COMMON.BUTTONS.GO_BACK).click();
 
-    cy.log("Payment method form Edit Mode toggled successfully");
+    cy.log(messages.ui.turnOnEditModeMessage);
   }
 
   editLoanClassStatus() {
     cy.fixture(this.test_data).then((data) => {
-      var loanClasStaData = data.mraAdmin.createloanClassStatusFrom;
-      cy.imsId("toggle-action").first().click();
-      cy.imsId("btn-table-action-edit").click();
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-yes").click();
+      const loanClasStaData = data.mraAdmin.createloanClassStatusFrom;
+      cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+      cy.imsId(COMMON.GRID.ACTION_EDIT).click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.YES).click();
 
       cy.get("app-confirmation-modal")
         .contains(loanClasStaData.messageUpdateLoClSt)
         .and("be.visible");
-      cy.imsId("btn-ok").click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
 
-      cy.log("Loan class status updated successfully");
+      cy.log(messages.ui.editMessage);
     });
   }
 
   editResetButton() {
-    cy.imsId("toggle-action").first().click();
-    cy.imsId("btn-table-action-edit").click();
-    cy.imsId("btn-reset").click();
-    cy.imsId("btn-go-back").click();
+    cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+    cy.imsId(COMMON.GRID.ACTION_EDIT).click();
+    cy.imsId(COMMON.BUTTONS.RESET).click();
+    cy.imsId(COMMON.BUTTONS.GO_BACK).click();
 
-    cy.log("Successful clean displaying");
+    cy.log(messages.ui.editResetMessage);
   }
 
   editSubmitButton() {
     cy.fixture(this.test_data).then((data) => {
-      var loanClasStaData = data.mraAdmin.createloanClassStatusFrom;
-      cy.imsId("toggle-action").first().click();
-      cy.imsId("btn-table-action-edit").click();
-      cy.imsId("btn-reset").click();
+      const loanClasStaData = data.mraAdmin.createloanClassStatusFrom;
+      cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+      cy.imsId(COMMON.GRID.ACTION_EDIT).click();
+      cy.imsId(COMMON.BUTTONS.RESET).click();
 
-      var loanClasStaData = data.mraAdmin.createloanClassStatusFrom;
-      var randomNumber = Math.floor(1000 + Math.random() * 9000);
-      var loanClassId = loanClasStaData.loanClassId + "-" + randomNumber;
+      const randomNumber = Math.floor(1000 + Math.random() * 9000);
+      const loanClassId = loanClasStaData.loanClassId + "-" + randomNumber;
 
       cy.formController("loan_class_status_id").type(loanClassId);
       cy.formController("name_en").type(loanClasStaData.loanClassNameEn);
@@ -276,105 +277,105 @@ class LoanClassStatusCreation {
       cy.formController("description").type(loanClasStaData.description);
       cy.formController("status").type(loanClasStaData.status).type("{enter}");
 
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-yes").click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.YES).click();
       cy.get("app-confirmation-modal")
         .contains(loanClasStaData.messageUpdateLoClSt)
         .and("be.visible");
-      cy.imsId("btn-ok").click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
 
-      cy.log("Successfully updated loan class status all field");
+      cy.log(messages.ui.editSubmitMessage);
     });
   }
 
   editGoBackButton() {
-    cy.imsId("toggle-action").first().click();
-    cy.imsId("btn-table-action-edit").click();
-    cy.imsId("btn-go-back").click();
-    cy.log("Successful edit go back button check.");
+    cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+    cy.imsId(COMMON.GRID.ACTION_EDIT).click();
+    cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+    cy.log(messages.ui.editGoBackMessage);
   }
 
   statusInactiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var loanClasStaData = data.mraAdmin.createloanClassStatusFrom;
-      cy.imsId("btn-reset").click();
+      const loanClasStaData = data.mraAdmin.createloanClassStatusFrom;
+      cy.imsId(COMMON.BUTTONS.RESET).click();
       cy.formController("status")
         .type(loanClasStaData.selectStatus)
         .type("{enter}");
-      cy.log("loan class status inactive dropdown check successfully");
+      cy.log(messages.ui.dropdownInactiveMessage);
     });
   }
 
   statusActiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var loanClasStaData = data.mraAdmin.createloanClassStatusFrom;
+      const loanClasStaData = data.mraAdmin.createloanClassStatusFrom;
       cy.formController("status")
         .type(loanClasStaData.statusSelect)
         .type("{enter}");
-      cy.log("loan class status active dropdown check successfully");
+      cy.log(messages.ui.dropdownActiveMessage);
     });
   }
 
   searchInLoanClassId() {
     cy.fixture(this.test_data).then((data) => {
-      var loanClasStaData = data.mraAdmin.createloanClassStatusFrom;
-      cy.imsId("btn-reset").click();
-      cy.formController("search_text").type(loanClasStaData.loanClassId);
-      cy.log("Successfully search in the loan class status");
+      const loanClasStaData = data.mraAdmin.createloanClassStatusFrom;
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(loanClasStaData.loanClassId);
+      cy.log(messages.ui.searchMessage);
     });
   }
 
   gridResetButtonCheck() {
-    cy.imsId("btn-reset").click();
-    cy.log("Successful clean displaying.");
+    cy.imsId(COMMON.BUTTONS.RESET).click();
+    cy.log(messages.ui.gridResetSuccess);
   }
 
   gridRefreshButtonCheck() {
-    cy.imsId("btn-refresh").click();
+    cy.imsId(COMMON.BUTTONS.REFRESH).click();
     cy.log(
-      "successfully refresh page  displayed the grid list of the loan class status "
+      messages.ui.gridRefreshSuccess
     );
   }
 
   createResetButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var loanClasStaData = data.mraAdmin.createloanClassStatusFrom;
-      cy.imsId("btn-add-new").click();
+      const loanClasStaData = data.mraAdmin.createloanClassStatusFrom;
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
       cy.formController("name_en").type(loanClasStaData.loanClassNameEn);
-      cy.imsId("btn-reset").click();
-      cy.imsId("btn-go-back").click();
-      cy.log("Successful clean displaying.");
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+      cy.log(messages.validation.requiredField);
     });
   }
 
   createValidationMessageCheck() {
-    cy.imsId("btn-add-new").click();
-    cy.imsId("btn-submit").click();
-    cy.imsId("btn-ok").click();
-    cy.imsId("btn-go-back").click();
-    cy.log("Successful validation message displaying.");
+    cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+    cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+    cy.imsId(COMMON.CONFIRMATION.OK).click();
+    cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+    cy.log(messages.validation.requiredField);
   }
 
   createGoBackButtonCheck() {
-    cy.imsId("btn-add-new").click();
-    cy.imsId("btn-go-back").click();
-    cy.log("Successful go back button check.");
+    cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+    cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+    cy.log(messages.ui.createGoBackMessage);
   }
 
   gridSearchButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var loanClasStaData = data.mraAdmin.createloanClassStatusFrom;
-      cy.imsId("btn-reset").click();
-      cy.formController("search_text").type(loanClasStaData.search);
-      cy.imsId("btn-search").click();
-      cy.log("Successful search button click.");
+      const loanClasStaData = data.mraAdmin.createloanClassStatusFrom;
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(loanClasStaData.search);
+      cy.imsId(COMMON.BUTTONS.SEARCH).click();
+      cy.log(messages.ui.searchMessage);
     });
   }
 
   gridLanguageSwitchCheck() {
-    cy.imsId("profile-menu").click();
-    cy.imsId("btn-lang-bangla").click();
-    cy.log("Successful switch bangla language check.");
+    cy.imsId(COMMON.BUTTONS.PROFILE).click();
+    cy.imsId(COMMON.BUTTONS.LANGUAGE_CHANGE).click();
+    cy.log(messages.ui.languageSwitchMessage);
   }
 }
 

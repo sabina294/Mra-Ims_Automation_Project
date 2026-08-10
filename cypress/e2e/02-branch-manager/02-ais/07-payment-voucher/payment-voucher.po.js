@@ -6,14 +6,14 @@ class PaymentVoucherCreation {
     gridPaymentVoucherListPage() {
         cy.fixture(this.test_data).then((data) => {
             cy.selectMenu("menu-voucher", "submenu-payment-voucher");
-            cy.log("Successfully payment voucher list page.");
+            cy.log(messages.ui.gridListMessage);
         });
     }
 
     createPaymentVoucher() {
         cy.fixture(this.test_data).then((data) => {
-            var pvData = data.branchManager.paymentVoucher;
-            cy.imsId("btn-add-new").click();
+            const pvData = data.branchManager.paymentVoucher;
+            cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
 
             cy.formController("voucher_name_en").type(pvData.voucherNameEn);
             cy.formController("voucher_name_bn").type(pvData.voucherNameBn);
@@ -42,18 +42,18 @@ class PaymentVoucherCreation {
             cy.wait(1000);
             cy.formController("remarks").eq(2).type(pvData.remarks1);
             cy.formController("transaction_amount").clear().type(pvData.amount);
-            cy.imsId("btn-submit").click();
-            cy.imsId("btn-yes").click();
-            cy.imsId("btn-ok").click();
+            cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+            cy.imsId(COMMON.CONFIRMATION.YES).click();
+            cy.imsId(COMMON.CONFIRMATION.OK).click();
 
-            cy.log("Successfully created payment voucher");
+            cy.log(messages.ui.submitSuccess);
         });
     }
 
     createWithoutVoucherNameEn() {
         cy.fixture(this.test_data).then((data) => {
-            var pvData = data.branchManager.paymentVoucher;
-            cy.imsId("btn-add-new").click();
+            const pvData = data.branchManager.paymentVoucher;
+            cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
             cy.formController("voucher_name_bn").type(pvData.voucherNameBn);
             cy.formController("payment_date").click();
             cy.get('.ant-picker-dropdown')
@@ -81,16 +81,16 @@ class PaymentVoucherCreation {
             cy.wait(1000);
             cy.formController("remarks").eq(2).type(pvData.remarks1);
             cy.formController("transaction_amount").clear().type(pvData.amount);
-            cy.imsId("btn-submit").click();
-            cy.imsId("btn-ok").click();
-            cy.imsId("btn-reset").click();
-            cy.log("Unsuccessfully created payment voucher without NameEn");
+            cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+            cy.imsId(COMMON.CONFIRMATION.OK).click();
+            cy.imsId(COMMON.BUTTONS.RESET).click();
+            cy.log(messages.ui.withoutDataMessage);
         });
     }
 
     createWithoutVoucherNameBn() {
         cy.fixture(this.test_data).then((data) => {
-            var pvData = data.branchManager.paymentVoucher;
+            const pvData = data.branchManager.paymentVoucher;
             cy.formController("voucher_name_en").type(pvData.voucherNameEn);
             cy.formController("payment_date").click();
             cy.get('.ant-picker-dropdown')
@@ -118,17 +118,17 @@ class PaymentVoucherCreation {
             cy.wait(1000);
             cy.formController("remarks").eq(2).type(pvData.remarks1);
             cy.formController("transaction_amount").clear().type(pvData.amount);
-            cy.imsId("btn-submit").click();
-            cy.imsId("btn-ok").click();
-            cy.imsId("btn-reset").click();
+            cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+            cy.imsId(COMMON.CONFIRMATION.OK).click();
+            cy.imsId(COMMON.BUTTONS.RESET).click();
 
-            cy.log("Unsuccessfully created payment voucher without NameBn");
+            cy.log(messages.ui.withoutDataMessage);
         });
     }
 
     createWithoutVoucherDate() {
         cy.fixture(this.test_data).then((data) => {
-            var pvData = data.branchManager.paymentVoucher;
+            const pvData = data.branchManager.paymentVoucher;
             cy.formController("voucher_name_en").type(pvData.voucherNameEn);
             cy.formController("voucher_name_bn").type(pvData.voucherNameBn);
             cy.formController("voucher_prepared_by").type(pvData.preparedBy).type("{enter}");
@@ -150,17 +150,17 @@ class PaymentVoucherCreation {
             cy.wait(1000);
             cy.formController("remarks").eq(2).type(pvData.remarks1);
             cy.formController("transaction_amount").clear().type(pvData.amount);
-            cy.imsId("btn-submit").click();
-            cy.imsId("btn-ok").click();
-            cy.imsId("btn-reset").click();
+            cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+            cy.imsId(COMMON.CONFIRMATION.OK).click();
+            cy.imsId(COMMON.BUTTONS.RESET).click();
 
-            cy.log("Unsuccessfully created payment voucher without Voucher Date");
+            cy.log(messages.ui.withoutDataMessage);
         });
     }
 
     createWithoutVoucherPreparedBy() {
         cy.fixture(this.test_data).then((data) => {
-            var pvData = data.branchManager.paymentVoucher;
+            const pvData = data.branchManager.paymentVoucher;
             cy.formController("voucher_name_en").type(pvData.voucherNameEn);
             cy.formController("voucher_name_bn").type(pvData.voucherNameBn);
             cy.formController("payment_date").click();
@@ -188,17 +188,17 @@ class PaymentVoucherCreation {
             cy.wait(1000);
             cy.formController("remarks").eq(2).type(pvData.remarks1);
             cy.formController("transaction_amount").clear().type(pvData.amount);
-            cy.imsId("btn-submit").click();
-            cy.imsId("btn-ok").click();
-            cy.imsId("btn-reset").click();
+            cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+            cy.imsId(COMMON.CONFIRMATION.OK).click();
+            cy.imsId(COMMON.BUTTONS.RESET).click();
 
-            cy.log("Unsuccessfully created payment voucher without Voucher prepared By");
+            cy.log(messages.ui.withoutDataMessage);
         });
     }
 
     createWithoutVoucherRemarks() {
         cy.fixture(this.test_data).then((data) => {
-            var pvData = data.branchManager.paymentVoucher;
+            const pvData = data.branchManager.paymentVoucher;
             cy.formController("voucher_name_en").type(pvData.voucherNameEn);
             cy.formController("voucher_name_bn").type(pvData.voucherNameBn);
             cy.formController("payment_date").click();
@@ -227,17 +227,17 @@ class PaymentVoucherCreation {
             cy.wait(1000);
             cy.formController("remarks").eq(2).type(pvData.remarks1);
             cy.formController("transaction_amount").clear().type(pvData.amount);
-            cy.imsId("btn-submit").click();
-            cy.imsId("btn-ok").click();
-            cy.imsId("btn-reset").click();
+            cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+            cy.imsId(COMMON.CONFIRMATION.OK).click();
+            cy.imsId(COMMON.BUTTONS.RESET).click();
 
-            cy.log("Unsuccessfully created payment voucher without Voucher Remarks");
+            cy.log(messages.ui.withoutDataMessage);
         });
     }
 
     createWithoutVoucherPaymentMode() {
         cy.fixture(this.test_data).then((data) => {
-            var pvData = data.branchManager.paymentVoucher;
+            const pvData = data.branchManager.paymentVoucher;
             cy.formController("voucher_name_en").type(pvData.voucherNameEn);
             cy.formController("voucher_name_bn").type(pvData.voucherNameBn);
             cy.formController("payment_date").click();
@@ -265,17 +265,17 @@ class PaymentVoucherCreation {
             cy.wait(1000);
             cy.formController("remarks").eq(2).type(pvData.remarks1);
             cy.formController("transaction_amount").clear().type(pvData.amount);
-            cy.imsId("btn-submit").click();
-            cy.imsId("btn-ok").click();
-            cy.imsId("btn-reset").click();
+            cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+            cy.imsId(COMMON.CONFIRMATION.OK).click();
+            cy.imsId(COMMON.BUTTONS.RESET).click();
 
-            cy.log("Unsuccessfully created payment voucher without Voucher Payment Mode");
+            cy.log(messages.ui.withoutDataMessage);
         });
     }
 
     createWithoutVoucherAmount() {
         cy.fixture(this.test_data).then((data) => {
-            var pvData = data.branchManager.paymentVoucher;
+            const pvData = data.branchManager.paymentVoucher;
             cy.formController("voucher_name_en").type(pvData.voucherNameEn);
             cy.formController("voucher_name_bn").type(pvData.voucherNameBn);
             cy.formController("payment_date").click();
@@ -303,17 +303,17 @@ class PaymentVoucherCreation {
             cy.wait(1000);
             cy.formController("remarks").eq(2).type(pvData.remarks1);
             cy.formController("transaction_amount").clear().type(pvData.amount);
-            cy.imsId("btn-submit").click();
-            cy.imsId("btn-ok").click();
-            cy.imsId("btn-go-back").click();
-            cy.log("Unsuccessfully created payment voucher without Voucher Payment amount");
+            cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+            cy.imsId(COMMON.CONFIRMATION.OK).click();
+            cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+            cy.log(messages.ui.withoutDataMessage);
         });
     }
 
     createWithoutVoucherPaymentMethodRemarks() {
         cy.fixture(this.test_data).then((data) => {
-            var pvData = data.branchManager.paymentVoucher;
-            cy.imsId("btn-add-new").click();
+            const pvData = data.branchManager.paymentVoucher;
+            cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
             cy.formController("voucher_name_en").type(pvData.voucherNameEn);
             cy.formController("voucher_name_bn").type(pvData.voucherNameBn);
             cy.formController("payment_date").click();
@@ -341,17 +341,17 @@ class PaymentVoucherCreation {
             cy.wait(1000);
             cy.formController("remarks").eq(2).type(pvData.remarks1);
             cy.formController("transaction_amount").clear().type(pvData.amount);
-            cy.imsId("btn-submit").click();
-            cy.imsId("btn-ok").click();
-            cy.imsId("btn-reset").click();
+            cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+            cy.imsId(COMMON.CONFIRMATION.OK).click();
+            cy.imsId(COMMON.BUTTONS.RESET).click();
 
-            cy.log("Unsuccessfully created payment voucher without Voucher Payment Method Remarks");
+            cy.log(messages.ui.withoutDataMessage);
         });
     }
 
     createWithoutVoucherDetailDate() {
         cy.fixture(this.test_data).then((data) => {
-            var pvData = data.branchManager.paymentVoucher;
+            const pvData = data.branchManager.paymentVoucher;
             cy.formController("voucher_name_en").type(pvData.voucherNameEn);
             cy.formController("voucher_name_bn").type(pvData.voucherNameBn);
             cy.formController("payment_date").click();
@@ -373,17 +373,17 @@ class PaymentVoucherCreation {
             cy.wait(1000);
             cy.formController("remarks").eq(2).type(pvData.remarks1);
             cy.formController("transaction_amount").clear().type(pvData.amount);
-            cy.imsId("btn-submit").click();
-            cy.imsId("btn-ok").click();
-            cy.imsId("btn-reset").click();
+            cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+            cy.imsId(COMMON.CONFIRMATION.OK).click();
+            cy.imsId(COMMON.BUTTONS.RESET).click();
 
-            cy.log("Unsuccessfully created payment voucher without Voucher Detail Date");
+            cy.log(messages.ui.withoutDataMessage);
         });
     }
 
     createWithoutVoucherLedger() {
         cy.fixture(this.test_data).then((data) => {
-            var pvData = data.branchManager.paymentVoucher;
+            const pvData = data.branchManager.paymentVoucher;
             cy.formController("voucher_name_en").type(pvData.voucherNameEn);
             cy.formController("voucher_name_bn").type(pvData.voucherNameBn);
             cy.formController("payment_date").click();
@@ -410,17 +410,17 @@ class PaymentVoucherCreation {
                 .click({ force: true });
             cy.formController("remarks").eq(2).type(pvData.remarks1);
             cy.formController("transaction_amount").clear().type(pvData.amount);
-            cy.imsId("btn-submit").click();
-            cy.imsId("btn-ok").click();
-            cy.imsId("btn-reset").click();
+            cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+            cy.imsId(COMMON.CONFIRMATION.OK).click();
+            cy.imsId(COMMON.BUTTONS.RESET).click();
 
-            cy.log("Unsuccessfully created payment voucher without Voucher Detail Ledger");
+            cy.log(messages.ui.withoutDataMessage);
         });
     }
 
     createWithoutVoucherRemarks() {
         cy.fixture(this.test_data).then((data) => {
-            var pvData = data.branchManager.paymentVoucher;
+            const pvData = data.branchManager.paymentVoucher;
             cy.formController("voucher_name_en").type(pvData.voucherNameEn);
             cy.formController("voucher_name_bn").type(pvData.voucherNameBn);
             cy.formController("payment_date").click();
@@ -447,17 +447,17 @@ class PaymentVoucherCreation {
             cy.formController("ledger_id").type(pvData.ledger).type("{enter}");
             cy.wait(1000);
             cy.formController("transaction_amount").clear().type(pvData.amount);
-            cy.imsId("btn-submit").click();
-            cy.imsId("btn-ok").click();
-            cy.imsId("btn-reset").click();
+            cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+            cy.imsId(COMMON.CONFIRMATION.OK).click();
+            cy.imsId(COMMON.BUTTONS.RESET).click();
 
-            cy.log("Unsuccessfully created payment voucher without Voucher Remarks");
+            cy.log(messages.ui.withoutDataMessage);
         });
     }
 
     createWithoutVoucherAmount() {
         cy.fixture(this.test_data).then((data) => {
-            var pvData = data.branchManager.paymentVoucher;
+            const pvData = data.branchManager.paymentVoucher;
             cy.formController("voucher_name_en").type(pvData.voucherNameEn);
             cy.formController("voucher_name_bn").type(pvData.voucherNameBn);
             cy.formController("payment_date").click();
@@ -484,27 +484,27 @@ class PaymentVoucherCreation {
             cy.formController("ledger_id").type(pvData.ledger).type("{enter}");
             cy.wait(1000);
             cy.formController("remarks").eq(2).type(pvData.remarks1);
-            cy.imsId("btn-submit").click();
-            cy.imsId("btn-ok").click();
-            cy.imsId("btn-reset").click();
-            cy.imsId("btn-go-back").click();
+            cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+            cy.imsId(COMMON.CONFIRMATION.OK).click();
+            cy.imsId(COMMON.BUTTONS.RESET).click();
+            cy.imsId(COMMON.BUTTONS.GO_BACK).click();
 
-            cy.log("Unsuccessfully created payment voucher without Voucher Amount");
+            cy.log(messages.ui.withoutDataMessage);
         });
     }
 
     approvePaymentVoucher() {
         cy.fixture(this.test_data).then((data) => {
-            var pvData = data.branchManager.paymentVoucher;
+            const pvData = data.branchManager.paymentVoucher;
             cy.imsId("menu-my-task").click();
             cy.imsId("submenu-awaiting-payment-voucher").click();
-            // cy.formController("search_text").type(pvData.voucherNameEn);
-            cy.imsId("toggle-action").first().click();
-            cy.imsId("btn-table-action-view").click();
+            // cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(pvData.voucherNameEn);
+            cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+            cy.imsId(COMMON.GRID.ACTION_VIEW).click();
             cy.imsId("btn-lock").click();
-            cy.imsId("btn-approve").click();
-            cy.imsId("btn-submit").click();
-            cy.imsId("btn-ok").click();
+            cy.imsId(COMMON.BUTTONS.APPROVE).click();
+            cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+            cy.imsId(COMMON.CONFIRMATION.OK).click();
 
             cy.log("Successfully approve payment voucher");
         });
@@ -512,66 +512,66 @@ class PaymentVoucherCreation {
 
     actionButtonCheck() {
         cy.selectMenu("menu-voucher", "submenu-payment-voucher");
-        cy.imsId("toggle-action").first().click();
-        cy.log("Action button clicked successfully on the payment voucher list page.");
+        cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+        cy.log(messages.ui.actionMessage);
     }
 
     detailsViewCheck() {
-        cy.imsId("btn-table-action-view").click();
+        cy.imsId(COMMON.GRID.ACTION_VIEW).click();
         cy.log("Details view button clicked successfully on the payment voucher list page.");
     }
 
     viewGoBackPaymentVoucher() {
-        cy.imsId("btn-go-back").click();
-        cy.log("Successfully go back the payment voucher page");
+        cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+        cy.log(messages.ui.viewMessage);
     }
 
     statusInactiveDropdownCheck() {
         cy.fixture(this.test_data).then((data) => {
-            var pvData = data.branchManager.paymentVoucher;
-            cy.imsId("btn-reset").click();
+            const pvData = data.branchManager.paymentVoucher;
+            cy.imsId(COMMON.BUTTONS.RESET).click();
             cy.formController("status").type(pvData.selectStatus).type("{enter}");
-            cy.log("ledger sub group status inactive dropdown check successfully");
+            cy.log(messages.ui.dropdownInactiveMessage);
         });
     }
 
     statusActiveDropdownCheck() {
         cy.fixture(this.test_data).then((data) => {
-            var pvData = data.branchManager.paymentVoucher;
+            const pvData = data.branchManager.paymentVoucher;
             cy.formController("status").type(pvData.statusSelect).type("{enter}");
-            cy.log("ledger sub group status active dropdown check successfully");
+            cy.log(messages.ui.dropdownActiveMessage);
         });
     }
 
     searchName() {
         cy.fixture(this.test_data).then((data) => {
-            var pvData = data.branchManager.paymentVoucher;
-            cy.imsId("btn-reset").click();
-            cy.formController("search_text").type(pvData.voucherNameBn);
+            const pvData = data.branchManager.paymentVoucher;
+            cy.imsId(COMMON.BUTTONS.RESET).click();
+            cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(pvData.voucherNameBn);
             cy.log("Successfully search in the payment voucher");
         });
     }
 
     gridResetButtonCheck() {
-        cy.imsId("btn-reset").click();
-        cy.log("Successful clean displaying.");
+        cy.imsId(COMMON.BUTTONS.RESET).click();
+        cy.log(messages.ui.gridResetSuccess);
     }
 
     gridRefreshButtonCheck() {
-        cy.imsId("btn-refresh").click();
+        cy.imsId(COMMON.BUTTONS.REFRESH).click();
         cy.log(
-            "successfully refresh page  displayed the grid list of the payment voucher "
+            messages.ui.gridRefreshSuccess
         );
     }
 
     gridSearchButtonCheck() {
         cy.fixture(this.test_data).then((data) => {
-            var pvData = data.branchManager.paymentVoucher;
-            cy.imsId("btn-reset").click();
-            cy.formController("search_text").type(pvData.voucherNameEn);
-            cy.imsId("btn-search").click();
+            const pvData = data.branchManager.paymentVoucher;
+            cy.imsId(COMMON.BUTTONS.RESET).click();
+            cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(pvData.voucherNameEn);
+            cy.imsId(COMMON.BUTTONS.SEARCH).click();
 
-            cy.log("Successfully search button click.");
+            cy.log(messages.ui.searchMessage);
         });
     }
 
@@ -588,27 +588,27 @@ class PaymentVoucherCreation {
     }
 
     createResetButtonCheck() {
-        cy.imsId("btn-add-new").click();
-        cy.imsId("btn-reset").click();
-        cy.log("Successful reset button clean displaying.");
+        cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+        cy.imsId(COMMON.BUTTONS.RESET).click();
+        cy.log(messages.validation.requiredField);
     }
 
     createValidationMessageCheck() {
-        cy.imsId("btn-submit").click();
-        cy.imsId("btn-ok").click();
-        cy.log("Successful validation message displaying.");
+        cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+        cy.imsId(COMMON.CONFIRMATION.OK).click();
+        cy.log(messages.validation.requiredField);
     }
 
     createDraftButtonCheck() {
-        cy.imsId("btn-draft").click();
-        cy.imsId("btn-ok").click();
-        cy.log("Successful validation message displaying.");
+        cy.imsId(COMMON.BUTTONS.DRAFT).click();
+        cy.imsId(COMMON.CONFIRMATION.OK).click();
+        cy.log(messages.ui.draftOnMessage);
     }
 
     createApproveButtonCheck() {
-        cy.imsId("btn-approve").click();
-        cy.imsId("btn-ok").click();
-        cy.log("Successful validation message displaying.");
+        cy.imsId(COMMON.BUTTONS.APPROVE).click();
+        cy.imsId(COMMON.CONFIRMATION.OK).click();
+        cy.log(messages.ui.submitSuccess);
     }
 
     createPaymentAddIconButtonCheck() {
@@ -624,26 +624,26 @@ class PaymentVoucherCreation {
     }
 
     createGoBackButtonCheck() {
-        cy.imsId("btn-go-back").click();
-        cy.log("Successful go back button check.");
+        cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+        cy.log(messages.ui.createGoBackMessage);
     }
 
     createNewJournalDetailsButtonCheck() {
-        cy.imsId("btn-add-new").click();
+        cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
         cy.imsId("btn-add-icon-0").click();
-        cy.log("Successful add button check.");
+        cy.log(messages.ui.submitSuccess);
     }
 
     createDeleteButtonCheck() {
         cy.imsId("btn-remove-icon-1").click();
-        cy.imsId("btn-go-back").click();
-        cy.log("Successful delete button check.");
+        cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+        cy.log(messages.ui.submitSuccess);
     }
 
     gridLanguageSwitchCheck() {
-        cy.imsId("profile-menu").click();
-        cy.imsId("btn-lang-bangla").click();
-        cy.log("Unsccessful switch bangla language check.");
+        cy.imsId(COMMON.BUTTONS.PROFILE).click();
+        cy.imsId(COMMON.BUTTONS.LANGUAGE_CHANGE).click();
+        cy.log(messages.ui.languageSwitchMessage);
     }
 }
 

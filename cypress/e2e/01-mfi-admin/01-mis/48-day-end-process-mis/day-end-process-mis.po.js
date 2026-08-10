@@ -1,17 +1,19 @@
+import messages from "../../../../support/constants/messages";
+import { COMMON } from "../../../../support/constants/selectors";
 class DayEndProcessMis {
   test_data = Cypress.env("TEST_DATA");
 
   gridDayEndProcessListPage() {
     cy.fixture(this.test_data).then((data) => {
       cy.selectMenu("menu-process", "submenu-day-end-process-mis");
-      cy.log("Successfully day end process list page.");
+      cy.log(messages.ui.gridListMessage);
     });
   }
   
   gridLanguageSwitchCheck() {
-    cy.imsId("profile-menu").click();
-    cy.imsId("btn-lang-bangla").click();
-    cy.log("Unsuccessful switch to Bangla language check.");
+    cy.imsId(COMMON.BUTTONS.PROFILE).click();
+    cy.imsId(COMMON.BUTTONS.LANGUAGE_CHANGE).click();
+    cy.log(messages.ui.languageSwitchMessage);
   }
 }
 

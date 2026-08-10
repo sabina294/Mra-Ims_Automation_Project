@@ -6,14 +6,14 @@ class ManualJournalCreation {
     gridManualJournalListPage() {
         cy.fixture(this.test_data).then((data) => {
             cy.selectMenu("menu-accounting", "submenu-manual-journal");
-            cy.log("Successfully Chart of accounts list page.");
+            cy.log(messages.ui.gridListMessage);
         });
     }
 
     createManualJournal() {
         cy.fixture(this.test_data).then((data) => {
-            var mjData = data.branchManager.manualJournal;
-            cy.imsId("btn-add-new").click();
+            const mjData = data.branchManager.manualJournal;
+            cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
             cy.imsId("btn-delete").first().click();
 
             cy.formController("reference_no").type(mjData.reference);
@@ -28,18 +28,18 @@ class ManualJournalCreation {
 
             cy.formController("debited_amount").clear().type(mjData.debitedAmount);
             cy.formController("credited_amount").clear().type(mjData.creditedAmount);
-            cy.imsId("btn-submit").click();
-            cy.imsId("btn-yes").click();
-            cy.imsId("btn-ok").click();
+            cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+            cy.imsId(COMMON.CONFIRMATION.YES).click();
+            cy.imsId(COMMON.CONFIRMATION.OK).click();
 
-            cy.log("Successfully created manual journal");
+            cy.log(messages.ui.submitSuccess);
         });
     }
 
     createWithoutReferenceNumber() {
         cy.fixture(this.test_data).then((data) => {
-            var mjData = data.branchManager.manualJournal;
-            cy.imsId("btn-add-new").click();
+            const mjData = data.branchManager.manualJournal;
+            cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
             cy.imsId("btn-delete").first().click();
 
             cy.formController("description").eq(0).type(mjData.description);
@@ -52,17 +52,17 @@ class ManualJournalCreation {
 
             cy.formController("debited_amount").clear().type(mjData.debitedAmount);
             cy.formController("credited_amount").clear().type(mjData.creditedAmount);
-            cy.imsId("btn-submit").click();
-            cy.imsId("btn-ok").click();
-            cy.imsId("btn-reset").click();
+            cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+            cy.imsId(COMMON.CONFIRMATION.OK).click();
+            cy.imsId(COMMON.BUTTONS.RESET).click();
 
-            cy.log("Unsuccessfully created manual journal without reference number");
+            cy.log(messages.ui.withoutDataMessage);
         });
     }
 
     createWithoutDescription() {
         cy.fixture(this.test_data).then((data) => {
-            var mjData = data.branchManager.manualJournal;
+            const mjData = data.branchManager.manualJournal;
             cy.formController("reference_no").type(mjData.reference);
             // First description field
             cy.formController("ledger_id").type(mjData.ledger).type("{enter}");
@@ -72,18 +72,18 @@ class ManualJournalCreation {
 
             cy.formController("debited_amount").clear().type(mjData.debitedAmount);
             cy.formController("credited_amount").clear().type(mjData.creditedAmount);
-            cy.imsId("btn-submit").click();
-            cy.imsId("btn-ok").click();
-            cy.imsId("btn-reset").click();
+            cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+            cy.imsId(COMMON.CONFIRMATION.OK).click();
+            cy.imsId(COMMON.BUTTONS.RESET).click();
 
 
-            cy.log("Unsuccessfully created manual journal without description");
+            cy.log(messages.ui.withoutDataMessage);
         });
     }
 
     createWithoutJournalDetailsLedger() {
         cy.fixture(this.test_data).then((data) => {
-            var mjData = data.branchManager.manualJournal;
+            const mjData = data.branchManager.manualJournal;
             cy.formController("reference_no").type(mjData.reference);
             // First description field
             cy.formController("description").eq(0).type(mjData.description);
@@ -96,32 +96,32 @@ class ManualJournalCreation {
 
             cy.formController("debited_amount").clear().type(mjData.debitedAmount);
             cy.formController("credited_amount").clear().type(mjData.creditedAmount);
-            cy.imsId("btn-submit").click();
-            cy.imsId("btn-ok").click();
-            cy.imsId("btn-reset").click();
-            cy.log("Unsuccessfully created manual journal without journal details ledger");
+            cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+            cy.imsId(COMMON.CONFIRMATION.OK).click();
+            cy.imsId(COMMON.BUTTONS.RESET).click();
+            cy.log(messages.ui.withoutDataMessage);
         });
     }
     createWithoutJournalDetailsDescription() {
         cy.fixture(this.test_data).then((data) => {
-            var mjData = data.branchManager.manualJournal;
+            const mjData = data.branchManager.manualJournal;
 
             cy.formController("reference_no").type(mjData.reference);
             // First description field
             cy.formController("description").eq(0).type(mjData.description);
             cy.formController("debited_amount").clear().type(mjData.debitedAmount);
             cy.formController("credited_amount").clear().type(mjData.creditedAmount);
-            cy.imsId("btn-submit").click();
-            cy.imsId("btn-ok").click();
-            cy.imsId("btn-reset").click();
+            cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+            cy.imsId(COMMON.CONFIRMATION.OK).click();
+            cy.imsId(COMMON.BUTTONS.RESET).click();
 
-            cy.log("Unsuccessfully created manual journal without journal details description");
+            cy.log(messages.ui.withoutDataMessage);
         });
     }
 
     createWithoutJournalDetailsDebitedAmount() {
         cy.fixture(this.test_data).then((data) => {
-            var mjData = data.branchManager.manualJournal;
+            const mjData = data.branchManager.manualJournal;
 
             cy.formController("reference_no").type(mjData.reference);
             // First description field
@@ -133,17 +133,17 @@ class ManualJournalCreation {
             // Second description field
             cy.formController("description").eq(1).type(mjData.description1);
             cy.formController("credited_amount").clear().type(mjData.creditedAmount);
-            cy.imsId("btn-submit").click();
-            cy.imsId("btn-ok").click();
-            cy.imsId("btn-reset").click();
+            cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+            cy.imsId(COMMON.CONFIRMATION.OK).click();
+            cy.imsId(COMMON.BUTTONS.RESET).click();
 
-            cy.log("Unsuccessfully created manual journal without journal details credited amount");
+            cy.log(messages.ui.withoutDataMessage);
         });
     }
 
     createWithoutJournalDetailsCreditedAmount() {
         cy.fixture(this.test_data).then((data) => {
-            var mjData = data.branchManager.manualJournal;
+            const mjData = data.branchManager.manualJournal;
 
             cy.formController("reference_no").type(mjData.reference);
             // First description field
@@ -156,39 +156,39 @@ class ManualJournalCreation {
             cy.formController("description").eq(1).type(mjData.description1);
 
             cy.formController("debited_amount").clear().type(mjData.debitedAmount);
-            cy.imsId("btn-submit").click();
-            cy.imsId("btn-ok").click();
-            cy.imsId("btn-go-back").click();
+            cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+            cy.imsId(COMMON.CONFIRMATION.OK).click();
+            cy.imsId(COMMON.BUTTONS.GO_BACK).click();
 
-            cy.log("Unsuccessfully created manual journal without journal details debited amount");
+            cy.log(messages.ui.withoutDataMessage);
         });
     }
 
 
     actionButtonCheck() {
-        cy.imsId("toggle-action").first().click();
-        cy.log("Action button clicked successfully on the manual journal list page.");
+        cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+        cy.log(messages.ui.actionMessage);
     }
 
     viewManualJournal() {
         cy.fixture(this.test_data).then((data) => {
-            var mjData = data.branchManager.manualJournal;
-            cy.formController("search_text").type(mjData.nameEn);
-            cy.imsId("toggle-action").first().click();
-            cy.imsId("btn-table-action-view").click();
-            cy.log("Successfully viewed the manual journal page");
+            const mjData = data.branchManager.manualJournal;
+            cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(mjData.nameEn);
+            cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+            cy.imsId(COMMON.GRID.ACTION_VIEW).click();
+            cy.log(messages.ui.viewMessage);
         });
     }
 
     goBackManualJournal() {
-        cy.imsId("btn-go-back").click();
+        cy.imsId(COMMON.BUTTONS.GO_BACK).click();
         cy.log("Successfully go back the manual journal page");
     }
 
     statusApproveDropdownCheck() {
         cy.fixture(this.test_data).then((data) => {
-            var mjData = data.branchManager.manualJournal;
-            cy.imsId("btn-reset").click();
+            const mjData = data.branchManager.manualJournal;
+            cy.imsId(COMMON.BUTTONS.RESET).click();
             cy.formController("status").type(mjData.selectStatus).type("{enter}");
             cy.log("ledger sub group status inactive dropdown check successfully");
         });
@@ -196,7 +196,7 @@ class ManualJournalCreation {
 
     statusRejectedDropdownCheck() {
         cy.fixture(this.test_data).then((data) => {
-            var mjData = data.branchManager.manualJournal;
+            const mjData = data.branchManager.manualJournal;
             cy.formController("status").type(mjData.statusSelect).type("{enter}");
             cy.log("ledger sub group status active dropdown check successfully");
         });
@@ -204,21 +204,21 @@ class ManualJournalCreation {
 
     searchName() {
         cy.fixture(this.test_data).then((data) => {
-            var mjData = data.branchManager.manualJournal;
-            cy.imsId("btn-reset").click();
-            cy.formController("search_text").type(mjData.nameEn);
+            const mjData = data.branchManager.manualJournal;
+            cy.imsId(COMMON.BUTTONS.RESET).click();
+            cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(mjData.nameEn);
             cy.log("Successfully search in the manual journal");
         });
     }
 
     gridResetButtonCheck() {
-        cy.imsId("btn-reset").click();
-        cy.log("Successful clean displaying.");
+        cy.imsId(COMMON.BUTTONS.RESET).click();
+        cy.log(messages.ui.gridResetSuccess);
     }
     gridRefreshButtonCheck() {
-        cy.imsId("btn-refresh").click();
+        cy.imsId(COMMON.BUTTONS.REFRESH).click();
         cy.log(
-            "successfully refresh page  displayed the grid list of the manual journal "
+            messages.ui.gridRefreshSuccess
         );
     }
 
@@ -237,55 +237,55 @@ class ManualJournalCreation {
 
     gridSearchButtonCheck() {
         cy.fixture(this.test_data).then((data) => {
-            var mjData = data.branchManager.manualJournal;
-            cy.imsId("btn-reset").click();
-            cy.formController("search_text").type(mjData.nameEn);
-            cy.imsId("btn-search").click();
+            const mjData = data.branchManager.manualJournal;
+            cy.imsId(COMMON.BUTTONS.RESET).click();
+            cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(mjData.nameEn);
+            cy.imsId(COMMON.BUTTONS.SEARCH).click();
 
-            cy.log("Successfully search button click.");
+            cy.log(messages.ui.searchMessage);
         });
     }
 
     createResetButtonCheck() {
-        cy.imsId("btn-add-new").click();
-        cy.imsId("btn-reset").click();
-        cy.imsId("btn-go-back").click();
-        cy.log("Successful reset button clean displaying.");
+        cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+        cy.imsId(COMMON.BUTTONS.RESET).click();
+        cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+        cy.log(messages.validation.requiredField);
     }
 
     createValidationMessageCheck() {
-        cy.imsId("btn-add-new").click();
-        cy.imsId("btn-submit").click();
-        cy.imsId("btn-ok").click();
-        cy.imsId("btn-go-back").click();
-        cy.log("Successful validation message displaying.");
+        cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+        cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+        cy.imsId(COMMON.CONFIRMATION.OK).click();
+        cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+        cy.log(messages.validation.requiredField);
     }
 
     createGoBackButtonCheck() {
-        cy.imsId("btn-add-new").click();
-        cy.imsId("btn-go-back").click();
-        cy.log("Successful go back button check.");
+        cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+        cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+        cy.log(messages.ui.createGoBackMessage);
     }
 
 
     createDeleteButtonCheck() {
-        cy.imsId("btn-add-new").click();
+        cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
         cy.imsId("btn-delete").eq(1).click();
-        cy.imsId("btn-go-back").click();
-        cy.log("Successful delete button check.");
+        cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+        cy.log(messages.ui.submitSuccess);
     }
 
     createNewJournalDetailsButtonCheck() {
-        cy.imsId("btn-add-new").click();
+        cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
         cy.imsId("btn-add").eq(1).click();
-        cy.imsId("btn-go-back").click();
-        cy.log("Successful delete button check.");
+        cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+        cy.log(messages.ui.submitSuccess);
     }
 
     gridLanguageSwitchCheck() {
-        cy.imsId("profile-menu").click();
-        cy.imsId("btn-lang-bangla").click();
-        cy.log("Successful switch bangla language check.");
+        cy.imsId(COMMON.BUTTONS.PROFILE).click();
+        cy.imsId(COMMON.BUTTONS.LANGUAGE_CHANGE).click();
+        cy.log(messages.ui.languageSwitchMessage);
     }
 }
 

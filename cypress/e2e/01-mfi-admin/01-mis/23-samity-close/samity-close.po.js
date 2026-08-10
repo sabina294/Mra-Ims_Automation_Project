@@ -6,26 +6,26 @@ class SamityClose {
   gridSamityCloseListPage() {
     cy.fixture(this.test_data).then((data) => {
       cy.selectMenu("menu-samity", "submenu-samity-close");
-      cy.log("Successfully Samity close list page.");
+      cy.log(messages.ui.gridListMessage);
     });
   }
 
   samityClose() {
     cy.fixture(this.test_data).then((data) => {
-      var scData = data.mfiAdmin.samityCloseFrom;
-      cy.formController("search_text").type(scData.samityNameEn);
-      cy.imsId("btn-search").click();
-      cy.imsId("toggle-action").first().click();
+      const scData = data.mfiAdmin.samityCloseFrom;
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(scData.samityNameEn);
+      cy.imsId(COMMON.BUTTONS.SEARCH).click();
+      cy.imsId(COMMON.TOGGLES.ACTION).first().click();
       cy.imsId("btn-mis-table-action-close").click();
-      cy.imsId("btn-yes").click();
-      cy.imsId("btn-ok").click();
+      cy.imsId(COMMON.CONFIRMATION.YES).click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
       cy.log("Successfully Samity close");
     });
   }
 
   myTaskMenuSamityClose() {
     cy.fixture(this.test_data).then((data) => {
-      var scData = data.mfiAdmin.samityCloseFrom;
+      const scData = data.mfiAdmin.samityCloseFrom;
       cy.imsId("menu-my-task").click();
       cy.imsId("submenu-awaiting-samity-close").click();
       cy.log("Successfully navigate to my task menu samity close");
@@ -34,19 +34,19 @@ class SamityClose {
 
   myTaskSamityOfficeDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var scData = data.mfiAdmin.approveSamityCloseFrom;
+      const scData = data.mfiAdmin.approveSamityCloseFrom;
       cy.formController("office_id").type(scData.OfficeDropdown).type("{enter}");
       cy.log("Successfully navigate to my task menu samity close office dropdown");
     });
   }
 
   myTaskResetButtonCheck() {
-    cy.imsId("btn-reset").click();
+    cy.imsId(COMMON.BUTTONS.RESET).click();
     cy.log("Successful clean my task displaying.");
   }
 
   myTaskRefreshButtonCheck() {
-    cy.imsId("btn-refresh").click();
+    cy.imsId(COMMON.BUTTONS.REFRESH).click();
     cy.log(
       "successfully refresh page  displayed the my task list of the Samity close form "
     );
@@ -54,7 +54,7 @@ class SamityClose {
 
   statusMyTaskDraftDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var scData = data.mfiAdmin.approveSamityCloseFrom;
+      const scData = data.mfiAdmin.approveSamityCloseFrom;
       cy.formController("status").type(scData.taskStatus).type("{enter}");
       cy.log(
         "Samity close form status draft dropdown check successfully"
@@ -64,10 +64,10 @@ class SamityClose {
 
   statusMyTaskPendingApprovalDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var scData = data.mfiAdmin.approveSamityCloseFrom;
-      cy.imsId("btn-reset").click();
+      const scData = data.mfiAdmin.approveSamityCloseFrom;
+      cy.imsId(COMMON.BUTTONS.RESET).click();
       cy.formController("status").type(scData.myTaskStatus).type("{enter}");
-      cy.imsId("btn-reset").click();
+      cy.imsId(COMMON.BUTTONS.RESET).click();
       cy.log(
         "Samity close form status pending approval dropdown check successfully"
       );
@@ -77,13 +77,13 @@ class SamityClose {
 
   approveSamityClose() {
     cy.fixture(this.test_data).then((data) => {
-      var scData = data.mfiAdmin.samityCloseFrom;
-      cy.imsId("toggle-action").first().click();
-      cy.imsId("btn-table-action-view").click();
+      const scData = data.mfiAdmin.samityCloseFrom;
+      cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+      cy.imsId(COMMON.GRID.ACTION_VIEW).click();
       cy.imsId("btn-lock").click();
-      cy.imsId("btn-approve").click();
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-ok").click();
+      cy.imsId(COMMON.BUTTONS.APPROVE).click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
 
       cy.log("Successfully approve samity change");
     });
@@ -91,80 +91,80 @@ class SamityClose {
 
   actionButtonCheck() {
     cy.selectMenu("menu-samity", "submenu-samity-close");
-    cy.imsId("toggle-action").first().click();
+    cy.imsId(COMMON.TOGGLES.ACTION).first().click();
     cy.log(
-      "Action button clicked successfully on the Samity close list page."
+      messages.ui.actionMessage
     );
   }
 
   viewSamityClose() {
     cy.fixture(this.test_data).then((data) => {
-      var scData = data.mfiAdmin.samityCloseFrom;
-      cy.formController("search_text").type(scData.samityNameEn);
-      cy.imsId("toggle-action").first().click();
-      cy.imsId("btn-table-action-view").click();
-      cy.log("Successfully viewed the Samity close list page");
+      const scData = data.mfiAdmin.samityCloseFrom;
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(scData.samityNameEn);
+      cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+      cy.imsId(COMMON.GRID.ACTION_VIEW).click();
+      cy.log(messages.ui.viewMessage);
     });
   }
 
   viewGoBackButton() {
-    cy.imsId("btn-go-back").click();
-    cy.log("Successfully view go back the Samity close list page");
+    cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+    cy.log(messages.ui.goBackSuccess);
 
   }
 
   statusInactiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var scData = data.mfiAdmin.samityCloseFrom;
-      cy.imsId("btn-reset").click();
+      const scData = data.mfiAdmin.samityCloseFrom;
+      cy.imsId(COMMON.BUTTONS.RESET).click();
       cy.formController("status").type(scData.selectStatus).type("{enter}");
-      cy.log("Samity close status inactive dropdown check successfully");
+      cy.log(messages.ui.dropdownInactiveMessage);
     });
   }
 
   statusActiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var scData = data.mfiAdmin.samityCloseFrom;
+      const scData = data.mfiAdmin.samityCloseFrom;
       cy.formController("status").type(scData.statusSelect).type("{enter}");
-      cy.log("Samity close status active dropdown check successfully");
+      cy.log(messages.ui.dropdownActiveMessage);
     });
   }
 
   searchInSamityCloseName() {
     cy.fixture(this.test_data).then((data) => {
-      var scData = data.mfiAdmin.samityCloseFrom;
-      cy.imsId("btn-reset").click();
-      cy.formController("search_text").type(scData.samityNameEn);
-      cy.log("Successfully search in the Samity close");
+      const scData = data.mfiAdmin.samityCloseFrom;
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(scData.samityNameEn);
+      cy.log(messages.ui.searchMessage);
     });
   }
 
   statusOfficeDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var scData = data.mfiAdmin.samityCloseFrom;
+      const scData = data.mfiAdmin.samityCloseFrom;
       cy.formController("office_id").type(scData.SelectOffice).type("{enter}");
       cy.log("Samity close status office dropdown check successfully");
     });
   }
   gridResetButtonCheck() {
-    cy.imsId("btn-reset").click();
-    cy.log("Successful clean displaying.");
+    cy.imsId(COMMON.BUTTONS.RESET).click();
+    cy.log(messages.ui.gridResetSuccess);
   }
 
   gridSearchButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var scData = data.mfiAdmin.samityCloseFrom;
-      cy.imsId("btn-reset").click();
-      cy.formController("search_text").type(scData.search);
-      cy.imsId("btn-search").click();
-      cy.log("Successful search button click.");
+      const scData = data.mfiAdmin.samityCloseFrom;
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(scData.search);
+      cy.imsId(COMMON.BUTTONS.SEARCH).click();
+      cy.log(messages.ui.searchMessage);
     });
   }
 
   gridRefreshButtonCheck() {
-    cy.imsId("btn-refresh").click();
+    cy.imsId(COMMON.BUTTONS.REFRESH).click();
     cy.log(
-      "successfully refresh page  displayed the grid list of the Samity close "
+      messages.ui.gridRefreshSuccess
     );
   }
 
@@ -182,16 +182,16 @@ class SamityClose {
 
   selectofficeDropdown() {
     cy.fixture(this.test_data).then((data) => {
-      var scData = data.mfiAdmin.samityCloseFrom;
+      const scData = data.mfiAdmin.samityCloseFrom;
       cy.formController("office_id").type(scData.SelectOffice);
       cy.log("Successfully select office in the Samity close");
     });
   }
 
   gridLanguageSwitchCheck() {
-    cy.imsId("profile-menu").click();
-    cy.imsId("btn-lang-bangla").click();
-    cy.log("Unsccessful switch bangla language check.");
+    cy.imsId(COMMON.BUTTONS.PROFILE).click();
+    cy.imsId(COMMON.BUTTONS.LANGUAGE_CHANGE).click();
+    cy.log(messages.ui.languageSwitchMessage);
   }
 }
 

@@ -1,3 +1,5 @@
+import messages from "../../../../support/constants/messages";
+import { COMMON } from "../../../../support/constants/selectors";
 class RemarksCreation {
   test_data = Cypress.env("TEST_DATA");
 
@@ -6,29 +8,29 @@ class RemarksCreation {
   gridRemarksListPage() {
     cy.fixture(this.test_data).then(() => {
       cy.selectMenu("menu-configuration", "submenu-remarks");
-      cy.log("Remarks list page loaded successfully.");
+      cy.log(messages.ui.gridListMessage);
     });
   }
 
   actionButtonCheck() {
-    cy.imsId("toggle-action").first().click();
-    cy.log("Action menu opened successfully on the Remarks list page.");
+    cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+    cy.log(messages.ui.actionMessage);
   }
 
   gridResetButtonCheck() {
-    cy.imsId("btn-reset").click();
-    cy.log("Grid reset button cleared all filters successfully.");
+    cy.imsId(COMMON.BUTTONS.RESET).click();
+    cy.log(messages.ui.gridResetSuccess);
   }
 
   gridRefreshButtonCheck() {
-    cy.imsId("btn-refresh").click();
-    cy.log("Grid list refreshed successfully on the Remarks page.");
+    cy.imsId(COMMON.BUTTONS.REFRESH).click();
+    cy.log(messages.ui.gridRefreshSuccess);
   }
 
   gridLanguageSwitchCheck() {
-    cy.imsId("profile-menu").click();
-    cy.imsId("btn-lang-bangla").click();
-    cy.log("Language switched successfully from English to Bangla.");
+    cy.imsId(COMMON.BUTTONS.PROFILE).click();
+    cy.imsId(COMMON.BUTTONS.LANGUAGE_CHANGE).click();
+    cy.log(messages.ui.languageSwitchMessage);
   }
 
   /* ------------------ Create Remarks ------------------ */
@@ -37,22 +39,22 @@ class RemarksCreation {
     cy.fixture(this.test_data).then((data) => {
       const remarksData = data.mraAdmin.createremarksFrom;
 
-      cy.imsId("btn-add-new").click();
-      cy.imsId("btn-submit").should("be.visible");
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).should("be.visible");
 
       cy.formController("name_en").type(remarksData.nameEn);
       cy.formController("name_bn").type(remarksData.nameBn);
 
-      cy.imsId("btn-submit").click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
 
       cy.get("app-confirmation-modal")
         .contains(remarksData.messageSaveRem)
         .should("be.visible");
 
-      cy.imsId("btn-yes").click();
-      cy.imsId("btn-ok").click();
+      cy.imsId(COMMON.CONFIRMATION.YES).click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
 
-      cy.log("Remarks created successfully.");
+      cy.log(messages.ui.submitSuccess);
     });
   }
 
@@ -60,14 +62,14 @@ class RemarksCreation {
     cy.fixture(this.test_data).then((data) => {
       const remarksData = data.mraAdmin.createremarksFrom;
 
-      cy.imsId("btn-add-new").click();
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
       cy.formController("name_bn").type(remarksData.nameBn);
 
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-ok").click();
-      cy.imsId("btn-go-back").click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
+      cy.imsId(COMMON.BUTTONS.GO_BACK).click();
 
-      cy.log("Remarks creation blocked due to missing English name.");
+      cy.log(messages.ui.withoutDataMessage);
     });
   }
 
@@ -75,14 +77,14 @@ class RemarksCreation {
     cy.fixture(this.test_data).then((data) => {
       const remarksData = data.mraAdmin.createremarksFrom;
 
-      cy.imsId("btn-add-new").click();
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
       cy.formController("name_en").type(remarksData.nameEn);
 
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-ok").click();
-      cy.imsId("btn-go-back").click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
+      cy.imsId(COMMON.BUTTONS.GO_BACK).click();
 
-      cy.log("Remarks creation blocked due to missing Bangla name.");
+      cy.log(messages.ui.withoutDataMessage);
     });
   }
 
@@ -90,17 +92,17 @@ class RemarksCreation {
     cy.fixture(this.test_data).then((data) => {
       const remarksData = data.mraAdmin.createremarksFrom;
 
-      cy.imsId("btn-add-new").click();
-      cy.imsId("btn-reset").click();
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+      cy.imsId(COMMON.BUTTONS.RESET).click();
 
       cy.formController("name_en").type(remarksData.nameEn);
       cy.formController("name_bn").type(remarksData.nameBn);
 
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-ok").click();
-      cy.imsId("btn-go-back").click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
+      cy.imsId(COMMON.BUTTONS.GO_BACK).click();
 
-      cy.log("Remarks creation blocked due to missing status field.");
+      cy.log(messages.ui.withoutDataMessage);
     });
   }
 
@@ -108,14 +110,14 @@ class RemarksCreation {
     cy.fixture(this.test_data).then((data) => {
       const remarksData = data.mraAdmin.createremarksFrom;
 
-      cy.imsId("btn-add-new").click();
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
       cy.formController("name_en").type(remarksData.nameEn);
 
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-ok").click();
-      cy.imsId("btn-go-back").click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
+      cy.imsId(COMMON.BUTTONS.GO_BACK).click();
 
-      cy.log("Remarks creation failed as one or more mandatory fields were missing.");
+      cy.log(messages.ui.withoutDataMessage);
     });
   }
 
@@ -123,38 +125,38 @@ class RemarksCreation {
     cy.fixture(this.test_data).then((data) => {
       const remarksData = data.mraAdmin.createremarksFrom;
 
-      cy.imsId("btn-add-new").click();
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
       cy.formController("name_en").type(remarksData.nameEn);
-      cy.imsId("btn-reset").click();
-      cy.imsId("btn-go-back").click();
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      cy.imsId(COMMON.BUTTONS.GO_BACK).click();
 
-      cy.log("Create form reset button cleared all input fields successfully.");
+      cy.log(messages.validation.requiredField);
     });
   }
 
   createValidationMessageCheck() {
-    cy.imsId("btn-add-new").click();
-    cy.imsId("btn-submit").click();
-    cy.imsId("btn-ok").click();
-    cy.imsId("btn-go-back").click();
+    cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+    cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+    cy.imsId(COMMON.CONFIRMATION.OK).click();
+    cy.imsId(COMMON.BUTTONS.GO_BACK).click();
 
-    cy.log("Validation messages displayed correctly for required fields.");
+    cy.log(messages.validation.requiredField);
   }
 
   createGoBackButtonCheck() {
-    cy.imsId("btn-add-new").click();
-    cy.imsId("btn-go-back").click();
+    cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+    cy.imsId(COMMON.BUTTONS.GO_BACK).click();
 
-    cy.log("Create page Go Back button redirected to the Remarks list page.");
+    cy.log(messages.ui.createGoBackMessage);
   }
 
     gridSearchButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
       const remarksData = data.mraAdmin.createremarksFrom;
-      cy.imsId("btn-reset").click();
-      cy.formController("search_text").type(remarksData.search);
-      cy.imsId("btn-search").click();
-      cy.log("Successful search button click.");
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(remarksData.search);
+      cy.imsId(COMMON.BUTTONS.SEARCH).click();
+      cy.log(messages.ui.searchMessage);
     });
   }
 
@@ -164,92 +166,92 @@ class RemarksCreation {
     cy.fixture(this.test_data).then((data) => {
       const remarksData = data.mraAdmin.createremarksFrom;
 
-      cy.formController("search_text").type(remarksData.nameEn);
-      cy.imsId("toggle-action").first().click();
-      cy.imsId("btn-table-action-view").click();
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(remarksData.nameEn);
+      cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+      cy.imsId(COMMON.GRID.ACTION_VIEW).click();
 
       cy.get("app-mra-mfi").contains(remarksData.nameEn).should("be.visible");
       cy.get("app-mra-mfi").contains(remarksData.nameBn).should("be.visible");
 
-      cy.log("Remarks details viewed successfully.");
+      cy.log(messages.ui.viewMessage);
     });
   }
 
   viewGoBackButton() {
-    cy.imsId("btn-go-back").click();
-    cy.log("View page Go Back button redirected to the Remarks list page.");
+    cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+    cy.log(messages.ui.goBackSuccess);
   }
 
   /* ------------------ Edit Remarks ------------------ */
 
   turnOffOnEditMode() {
-    cy.imsId("toggle-action").first().click();
-    cy.imsId("btn-table-action-edit").click();
-    cy.imsId("switch-button").click();
-    cy.imsId("btn-go-back").click();
+    cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+    cy.imsId(COMMON.GRID.ACTION_EDIT).click();
+    cy.imsId(COMMON.BUTTONS.TURN_EDIT_MODE).click();
+    cy.imsId(COMMON.BUTTONS.GO_BACK).click();
 
-    cy.log("Edit mode toggled on and off successfully.");
+    cy.log(messages.ui.turnOnEditModeMessage);
   }
 
   editRemarks() {
     cy.fixture(this.test_data).then((data) => {
       const remarksData = data.mraAdmin.createremarksFrom;
 
-      cy.imsId("toggle-action").first().click();
-      cy.imsId("btn-table-action-edit").click();
-      cy.imsId("btn-submit").click();
+      cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+      cy.imsId(COMMON.GRID.ACTION_EDIT).click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
 
       cy.get("app-confirmation-modal")
         .contains(remarksData.messageUpdateRem)
         .should("be.visible");
 
-      cy.imsId("btn-yes").click();
-      cy.imsId("btn-ok").click();
+      cy.imsId(COMMON.CONFIRMATION.YES).click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
 
-      cy.log("Remarks updated successfully.");
+      cy.log(messages.ui.editMessage);
     });
   }
 
   editResetButton() {
-    cy.imsId("toggle-action").first().click();
-    cy.imsId("btn-table-action-edit").click();
-    cy.imsId("btn-reset").click();
-    cy.imsId("btn-go-back").click();
+    cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+    cy.imsId(COMMON.GRID.ACTION_EDIT).click();
+    cy.imsId(COMMON.BUTTONS.RESET).click();
+    cy.imsId(COMMON.BUTTONS.GO_BACK).click();
 
-    cy.log("Edit form reset button cleared changes successfully.");
+    cy.log(messages.ui.editResetMessage);
   }
 
   editSubmitButton() {
     cy.fixture(this.test_data).then((data) => {
       const remarksData = data.mraAdmin.createremarksFrom;
 
-      cy.imsId("toggle-action").first().click();
-      cy.imsId("btn-table-action-edit").click();
-      cy.imsId("btn-reset").click();
+      cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+      cy.imsId(COMMON.GRID.ACTION_EDIT).click();
+      cy.imsId(COMMON.BUTTONS.RESET).click();
 
       cy.formController("name_en").type(remarksData.nameEn);
       cy.formController("name_bn").type(remarksData.nameBn);
       cy.formController("status").type(remarksData.status).type("{enter}");
 
-      cy.imsId("btn-submit").click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
 
       cy.get("app-confirmation-modal")
         .contains(remarksData.messageUpdateRem)
         .should("be.visible");
 
-      cy.imsId("btn-yes").click();
-      cy.imsId("btn-ok").click();
+      cy.imsId(COMMON.CONFIRMATION.YES).click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
 
-      cy.log("Remarks edited and submitted successfully.");
+      cy.log(messages.ui.editSubmitMessage);
     });
   }
 
   editGoBackButton() {
-    cy.imsId("toggle-action").first().click();
-    cy.imsId("btn-table-action-edit").click();
-    cy.imsId("btn-go-back").click();
+    cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+    cy.imsId(COMMON.GRID.ACTION_EDIT).click();
+    cy.imsId(COMMON.BUTTONS.GO_BACK).click();
 
-    cy.log("Edit page Go Back button redirected successfully.");
+    cy.log(messages.ui.editGoBackMessage);
   }
 
   /* ------------------ Filter & Search ------------------ */
@@ -258,12 +260,12 @@ class RemarksCreation {
     cy.fixture(this.test_data).then((data) => {
       const remarksData = data.mraAdmin.createremarksFrom;
 
-      cy.imsId("btn-reset").click();
+      cy.imsId(COMMON.BUTTONS.RESET).click();
       cy.formController("status")
         .type(remarksData.selectStatus)
         .type("{enter}");
 
-      cy.log("Inactive Remarks filtered successfully using status dropdown.");
+      cy.log(messages.ui.dropdownInactiveMessage);
     });
   }
 
@@ -275,7 +277,7 @@ class RemarksCreation {
         .type(remarksData.statusSelect)
         .type("{enter}");
 
-      cy.log("Active Remarks filtered successfully using status dropdown.");
+      cy.log(messages.ui.dropdownActiveMessage);
     });
   }
 
@@ -283,10 +285,10 @@ class RemarksCreation {
     cy.fixture(this.test_data).then((data) => {
       const remarksData = data.mraAdmin.createremarksFrom;
 
-      cy.imsId("btn-reset").click();
-      cy.formController("search_text").type(remarksData.nameEn);
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(remarksData.nameEn);
 
-      cy.log("Remarks searched successfully by name.");
+      cy.log(messages.ui.searchMessage);
     });
   }
 }

@@ -6,7 +6,7 @@ class EmployeeTransfer {
     gridEmployeeTransferListPage() {
         cy.fixture(this.test_data).then((data) => {
             cy.selectMenu("menu-employee", "submenu-employee-transfer");
-            cy.log("Successfully Employee Transfer list page.");
+            cy.log(messages.ui.gridListMessage);
         });
     }
 
@@ -17,31 +17,31 @@ class EmployeeTransfer {
             .first()
             .click();
 
-        cy.imsId("btn-reset").click();
+        cy.imsId(COMMON.BUTTONS.RESET).click();
 
         cy.log("Successful clean displaying");
     }
 
     transferSubmitButton() {
-        cy.imsId("btn-submit").click();
-        cy.imsId("btn-ok").click();
+        cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+        cy.imsId(COMMON.CONFIRMATION.OK).click();
         cy.log("Successfully validation check transfer");
     }
 
     createEmployeeTransferWithoutEffectiveDate() {
         cy.fixture(this.test_data).then((data) => {
-            var emtData = data.mfiAdmin.gridEmpTransferFrom;
+            const emtData = data.mfiAdmin.gridEmpTransferFrom;
             cy.formController("new_office_id").type(emtData.newOffice).type("{enter}");
-            cy.imsId("btn-submit").click();
-            cy.imsId("btn-ok").click();
-            cy.imsId("btn-reset").click();
-            cy.log("Successfully created employee transfer effective date field check.");
+            cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+            cy.imsId(COMMON.CONFIRMATION.OK).click();
+            cy.imsId(COMMON.BUTTONS.RESET).click();
+            cy.log(messages.ui.submitSuccess);
         });
     }
 
     createEmployeeTransferWithoutOffice() {
         cy.fixture(this.test_data).then((data) => {
-            var emtData = data.mfiAdmin.gridEmpTransferFrom;
+            const emtData = data.mfiAdmin.gridEmpTransferFrom;
             cy.formController("effective_date").click();
             cy.get('.ant-picker-dropdown')
                 .should('be.visible');
@@ -49,20 +49,20 @@ class EmployeeTransfer {
                 .not('.ant-picker-cell-disabled')
                 .first()
                 .click({ force: true });
-            cy.imsId("btn-submit").click();
-            cy.imsId("btn-ok").click();
-            cy.log("Successfully created employee transfer office field check.");
+            cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+            cy.imsId(COMMON.CONFIRMATION.OK).click();
+            cy.log(messages.ui.submitSuccess);
         });
     }
 
     transferGoBackButton() {
-        cy.imsId("btn-go-back").click();
+        cy.imsId(COMMON.BUTTONS.GO_BACK).click();
         cy.log("Successful transfer go back button check.");
     }
 
     createEmployeeTransferWithoutReportingManager() {
         cy.fixture(this.test_data).then((data) => {
-            var emtData = data.mfiAdmin.gridEmpTransferFrom;
+            const emtData = data.mfiAdmin.gridEmpTransferFrom;
             cy.imsId("btn-table-action-transfer")
                 .not(":disabled")
                 .first()
@@ -75,22 +75,22 @@ class EmployeeTransfer {
                 .first()
                 .click({ force: true });
             cy.formController("new_office_id").type(emtData.newOffice).type("{enter}");
-            cy.imsId("btn-submit").click();
-            cy.imsId("btn-yes").click();
-            cy.imsId("btn-ok").click();
-            cy.log("Successfully created employee transfer");
+            cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+            cy.imsId(COMMON.CONFIRMATION.YES).click();
+            cy.imsId(COMMON.CONFIRMATION.OK).click();
+            cy.log(messages.ui.submitSuccess);
         });
     }
 
 
     transferGoBackButton() {
-        cy.imsId("btn-go-back").click();
+        cy.imsId(COMMON.BUTTONS.GO_BACK).click();
         cy.log("Successful transfer go back button check.");
     }
 
     createEmployeeTransfer() {
         cy.fixture(this.test_data).then((data) => {
-            var emtData = data.mfiAdmin.gridEmpTransferFrom;
+            const emtData = data.mfiAdmin.gridEmpTransferFrom;
             cy.imsId("btn-table-action-transfer")
                 .not(":disabled")
                 .first()
@@ -104,16 +104,16 @@ class EmployeeTransfer {
                 .click({ force: true });
             cy.formController("new_office_id").type(emtData.newOffice).type("{enter}");
             cy.wait(1000);
-            cy.imsId("btn-submit").click();
-            cy.imsId("btn-yes").click();
-            cy.imsId("btn-ok").click();
-            cy.log("Successfully created employee transfer");
+            cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+            cy.imsId(COMMON.CONFIRMATION.YES).click();
+            cy.imsId(COMMON.CONFIRMATION.OK).click();
+            cy.log(messages.ui.submitSuccess);
         });
     }
 
     myTaskMenuEmployeeTransfer() {
         cy.fixture(this.test_data).then((data) => {
-            var emtData = data.mfiAdmin.gridEmpTransferFrom;
+            const emtData = data.mfiAdmin.gridEmpTransferFrom;
             cy.imsId("menu-my-task").click();
             cy.imsId("submenu-awaiting-employee-transfer").click();
             cy.log("Successfully navigate to my task menu employee transfer");
@@ -121,12 +121,12 @@ class EmployeeTransfer {
     }
 
     myTaskResetButtonCheck() {
-        cy.imsId("btn-reset").click();
+        cy.imsId(COMMON.BUTTONS.RESET).click();
         cy.log("Successful clean my task displaying.");
     }
 
     myTaskRefreshButtonCheck() {
-        cy.imsId("btn-refresh").click();
+        cy.imsId(COMMON.BUTTONS.REFRESH).click();
         cy.log(
             "successfully refresh page  displayed the my task list of the Employee transfer form "
         );
@@ -134,9 +134,9 @@ class EmployeeTransfer {
 
     myTaskOfficeDropdownCheck() {
         cy.fixture(this.test_data).then((data) => {
-            var emtData = data.mfiAdmin.approveEmployeeTransferFrom;
+            const emtData = data.mfiAdmin.approveEmployeeTransferFrom;
             cy.formController("office_id").type(emtData.OfficeDropdown).type("{enter}");
-            cy.imsId("btn-reset").click();
+            cy.imsId(COMMON.BUTTONS.RESET).click();
             cy.log(
                 "Employee Transfer form office dropdown check successfully"
             );
@@ -144,20 +144,20 @@ class EmployeeTransfer {
     }
 
     approveNewEmployeeTransfer() {
-        cy.imsId("toggle-action").first().click();
-        cy.imsId("btn-table-action-view").first().click();
+        cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+        cy.imsId(COMMON.GRID.ACTION_VIEW).first().click();
         cy.imsId("btn-lock").click();
-        cy.imsId("btn-approve").click();
-        cy.imsId("btn-submit").click();
-        cy.imsId("btn-ok").click();
+        cy.imsId(COMMON.BUTTONS.APPROVE).click();
+        cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+        cy.imsId(COMMON.CONFIRMATION.OK).click();
         cy.log("Successfully approved employee transfer");
     }
 
     gridOfficeDropdownCheck() {
         cy.fixture(this.test_data).then((data) => {
-            var emtData = data.mfiAdmin.gridEmpTransferFrom;
+            const emtData = data.mfiAdmin.gridEmpTransferFrom;
             cy.formController("office_id").type(emtData.officeDropdown).type("{enter}");
-            cy.imsId("btn-reset").click();
+            cy.imsId(COMMON.BUTTONS.RESET).click();
             cy.log(
                 "Employee Transfer form office dropdown check successfully"
             );
@@ -166,33 +166,33 @@ class EmployeeTransfer {
 
     searchInEmployeeName() {
         cy.fixture(this.test_data).then((data) => {
-            var emtData = data.mfiAdmin.gridEmpTransferFrom;
+            const emtData = data.mfiAdmin.gridEmpTransferFrom;
             cy.selectMenu("menu-employee", "submenu-employee-transfer");
-            cy.imsId("btn-reset").click();
-            cy.formController("search_text").type(emtData.search);
-            cy.log("Successfully search in the Employee Transfer form");
+            cy.imsId(COMMON.BUTTONS.RESET).click();
+            cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(emtData.search);
+            cy.log(messages.ui.searchMessage);
         });
     }
 
     gridResetButtonCheck() {
-        cy.imsId("btn-reset").click();
-        cy.log("Successful clean displaying.");
+        cy.imsId(COMMON.BUTTONS.RESET).click();
+        cy.log(messages.ui.gridResetSuccess);
     }
 
     gridRefreshButtonCheck() {
-        cy.imsId("btn-refresh").click();
+        cy.imsId(COMMON.BUTTONS.REFRESH).click();
         cy.log(
-            "successfully refresh page  displayed the grid list of the Employee Transfer form "
+            messages.ui.gridRefreshSuccess
         );
     }
 
     gridSearchButtonCheck() {
         cy.fixture(this.test_data).then((data) => {
-            var emtData = data.mfiAdmin.gridEmpTransferFrom;
-            cy.imsId("btn-reset").click();
-            cy.formController("search_text").type(emtData.search);
-            cy.imsId("btn-search").click();
-            cy.log("Successful search button click.");
+            const emtData = data.mfiAdmin.gridEmpTransferFrom;
+            cy.imsId(COMMON.BUTTONS.RESET).click();
+            cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(emtData.search);
+            cy.imsId(COMMON.BUTTONS.SEARCH).click();
+            cy.log(messages.ui.searchMessage);
         });
     }
 
@@ -209,9 +209,9 @@ class EmployeeTransfer {
     }
 
     gridLanguageSwitchCheck() {
-        cy.imsId("profile-menu").click();
-        cy.imsId("btn-lang-bangla").click();
-        cy.log("Successful switch to bangla language check.");
+        cy.imsId(COMMON.BUTTONS.PROFILE).click();
+        cy.imsId(COMMON.BUTTONS.LANGUAGE_CHANGE).click();
+        cy.log(messages.ui.languageSwitchMessage);
     }
 }
 

@@ -6,19 +6,19 @@ class CancelHoliday {
     gridCancelHolidayListPage() {
         cy.fixture(this.test_data).then((data) => {
             cy.selectMenu("menu-calendar", "submenu-cancel-holiday");
-            cy.log("Successfully Cancel Holiday list page.");
+            cy.log(messages.ui.gridListMessage);
         });
     }
 
     gridResetButtonCheck() {
-        cy.imsId("btn-reset").click();
-        cy.log("Successful clean displaying.");
+        cy.imsId(COMMON.BUTTONS.RESET).click();
+        cy.log(messages.ui.gridResetSuccess);
     }
 
     gridRefreshButtonCheck() {
-        cy.imsId("btn-refresh").click();
+        cy.imsId(COMMON.BUTTONS.REFRESH).click();
         cy.log(
-            "successfully refresh page  displayed the grid list of the Cancel Holiday "
+            messages.ui.gridRefreshSuccess
         );
     }
 
@@ -35,56 +35,56 @@ class CancelHoliday {
     }
 
     createResetButtonCheck() {
-        cy.imsId("btn-add-new").click();
-        cy.imsId("btn-reset").click();
-        cy.log("Successful reset button check.");
+        cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+        cy.imsId(COMMON.BUTTONS.RESET).click();
+        cy.log(messages.validation.requiredField);
     }
 
     createApproveButtonCheck() {
-        cy.imsId("btn-approve").click();
-        cy.log("Successful approve button check.");
+        cy.imsId(COMMON.BUTTONS.APPROVE).click();
+        cy.log(messages.ui.submitSuccess);
     }
 
     createOkButton() {
-        cy.imsId("btn-ok").click();
-        cy.log("Successful ok button check.");
+        cy.imsId(COMMON.CONFIRMATION.OK).click();
+        cy.log(messages.ui.submitSuccess);
     }
 
     createSubmitButtonCheck() {
-        cy.imsId("btn-submit").click();
-        // cy.imsId("btn-ok").click();
-        cy.log("Successful submit button check.");
+        cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+        // cy.imsId(COMMON.CONFIRMATION.OK).click();
+        cy.log(messages.ui.submitSuccess);
     }
 
     createDraftButtonCheck() {
-        cy.imsId("btn-draft").click();
-        cy.log("Successful draft button check.");
+        cy.imsId(COMMON.BUTTONS.DRAFT).click();
+        cy.log(messages.ui.draftOnMessage);
     }
 
     createDraftOkButton() {
-        cy.imsId("btn-ok").click();
-        cy.log("Successful ok button check.");
+        cy.imsId(COMMON.CONFIRMATION.OK).click();
+        cy.log(messages.ui.draftOnMessage);
     }
 
     createGoBackButtonCheck() {
-        cy.imsId("btn-go-back").click();
-        cy.log("Successful go back button check.");
+        cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+        cy.log(messages.ui.createGoBackMessage);
     }
 
     gridSearchButtonCheck() {
         cy.fixture(this.test_data).then((data) => {
-            var chData = data.fieldOfficer.cancelHoliday;
-            cy.imsId("btn-reset").click();
-            cy.formController("search_text").type(chData.search);
-            cy.imsId("btn-search").click();
-            cy.log("Successful search button click.");
+            const chData = data.fieldOfficer.cancelHoliday;
+            cy.imsId(COMMON.BUTTONS.RESET).click();
+            cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(chData.search);
+            cy.imsId(COMMON.BUTTONS.SEARCH).click();
+            cy.log(messages.ui.searchMessage);
         });
     }
 
     gridLanguageSwitchCheck() {
-        cy.imsId("profile-menu").click();
-        cy.imsId("btn-lang-bangla").click();
-        cy.log("Unsccessful switch bangla language check.");
+        cy.imsId(COMMON.BUTTONS.PROFILE).click();
+        cy.imsId(COMMON.BUTTONS.LANGUAGE_CHANGE).click();
+        cy.log(messages.ui.languageSwitchMessage);
     }
 }
 

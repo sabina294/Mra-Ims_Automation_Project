@@ -1,116 +1,118 @@
+import messages from "../../../../support/constants/messages";
+import { COMMON } from "../../../../support/constants/selectors";
 class Designation {
   test_data = Cypress.env("TEST_DATA");
 
   gridDesignationListPage() {
     cy.fixture(this.test_data).then((data) => {
       cy.selectMenu("menu-configuration", "submenu-designation");
-      cy.log("Successfully designation list page.");
+      cy.log(messages.ui.gridListMessage);
     });
   }
 
   actionButtonCheck() {
-    cy.imsId("toggle-action").first().click();
-    cy.log("Action button clicked successfully on the designation list page.");
+    cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+    cy.log(messages.ui.actionMessage);
   }
 
   viewDesignation() {
     cy.fixture(this.test_data).then((data) => {
-      var desData = data.fieldOfficer.gridDesignationFrom;
-      cy.formController("search_text").type(desData.nameEn);
-      cy.imsId("toggle-action").first().click();
-      cy.imsId("btn-table-action-view").click();
-      cy.log("Successfully viewed the designation list page");
+      const desData = data.fieldOfficer.gridDesignationFrom;
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(desData.nameEn);
+      cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+      cy.imsId(COMMON.GRID.ACTION_VIEW).click();
+      cy.log(messages.ui.viewMessage);
     });
   }
 
    viewGoBackButton() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-go-back").click();
-      cy.log("Successfully viewed the designation list page");
+      cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+      cy.log(messages.ui.goBackSuccess);
     });
   }
 
 
   turnOnEditMode() {
-    cy.imsId("toggle-action").first().click();
-    cy.imsId("btn-table-action-view").click();
-    cy.imsId("switch-button").click();
+    cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+    cy.imsId(COMMON.GRID.ACTION_VIEW).click();
+    cy.imsId(COMMON.BUTTONS.TURN_EDIT_MODE).click();
 
-    cy.log("Designation form Edit Mode toggled successfully");
+    cy.log(messages.ui.turnOnEditModeMessage);
   }
 
   editResetButton() {
-    cy.imsId("btn-reset").click();
-    cy.log("Successful clean displaying");
+    cy.imsId(COMMON.BUTTONS.RESET).click();
+    cy.log(messages.ui.editResetMessage);
   }
 
   editSubmitButton() {
-    cy.imsId("btn-submit").click();
-    cy.imsId("btn-ok").click();
+    cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+    cy.imsId(COMMON.CONFIRMATION.OK).click();
 
-    cy.log("Successful submit validation check.");
+    cy.log(messages.ui.editSubmitMessage);
   }
 
   editGoBackButton() {
-    cy.imsId("btn-go-back").click();
-    cy.log("Successful edit go back button check.");
+    cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+    cy.log(messages.ui.editGoBackMessage);
   }
 
   statusInactiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var desData = data.fieldOfficer.gridDesignationFrom;
+      const desData = data.fieldOfficer.gridDesignationFrom;
 
-      cy.imsId("btn-reset").click();
+      cy.imsId(COMMON.BUTTONS.RESET).click();
       cy.formController("status").type(desData.selectStatus).type("{enter}");
-      cy.log("Designation status inactive dropdown check successfully");
+      cy.log(messages.ui.dropdownInactiveMessage);
     });
   }
 
   statusActiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var desData = data.fieldOfficer.gridDesignationFrom;
+      const desData = data.fieldOfficer.gridDesignationFrom;
 
       cy.formController("status").type(desData.statusSelect).type("{enter}");
-      cy.log("Designation status active dropdown check successfully");
+      cy.log(messages.ui.dropdownActiveMessage);
     });
   }
 
   searchInDesignationName() {
     cy.fixture(this.test_data).then((data) => {
-      var desData = data.fieldOfficer.gridDesignationFrom;
+      const desData = data.fieldOfficer.gridDesignationFrom;
 
-      cy.imsId("btn-reset").click();
-      cy.formController("search_text").type(desData.nameEn);
-      cy.log("Successfully search in the designation");
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(desData.nameEn);
+      cy.log(messages.ui.searchMessage);
     });
   }
 
   gridResetButtonCheck() {
-    cy.imsId("btn-reset").click();
-    cy.log("Successful clean displaying.");
+    cy.imsId(COMMON.BUTTONS.RESET).click();
+    cy.log(messages.ui.gridResetSuccess);
   }
 
   gridRefreshButtonCheck() {
-    cy.imsId("btn-refresh").click();
+    cy.imsId(COMMON.BUTTONS.REFRESH).click();
     cy.log(
-      "successfully refresh page  displayed the grid list of the designation "
+      messages.ui.gridRefreshSuccess
     );
   }
 
   gridSearchButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var desData = data.fieldOfficer.gridDesignationFrom;
-      cy.imsId("btn-reset").click();
-      cy.formController("search_text").type(desData.search);
-      cy.imsId("btn-search").click();
-      cy.log("Successful search button click.");
+      const desData = data.fieldOfficer.gridDesignationFrom;
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(desData.search);
+      cy.imsId(COMMON.BUTTONS.SEARCH).click();
+      cy.log(messages.ui.searchMessage);
     });
   }
 
   gridLanguageSwitchCheck() {
-    cy.imsId("profile-menu").click();
-    cy.imsId("btn-lang-bangla").click();
-    cy.log("Successful switch bangla language check.");
+    cy.imsId(COMMON.BUTTONS.PROFILE).click();
+    cy.imsId(COMMON.BUTTONS.LANGUAGE_CHANGE).click();
+    cy.log(messages.ui.languageSwitchMessage);
   }
 }
 

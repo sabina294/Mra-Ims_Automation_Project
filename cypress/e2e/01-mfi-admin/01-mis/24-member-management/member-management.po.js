@@ -6,16 +6,16 @@ class MemberManagementCreation {
   gridMemberManagementListPage() {
     cy.fixture(this.test_data).then((data) => {
       cy.selectMenu("menu-member", "submenu-member-management");
-      cy.log("Successfully Member management list page.");
+      cy.log(messages.ui.gridListMessage);
     });
   }
 
   createMemberManagement() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      cy.imsId("btn-submit").and("be.visible");
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).and("be.visible");
 
-      var memData = data.mfiAdmin.createMemberFrom;
+      const memData = data.mfiAdmin.createMemberFrom;
       cy.formController("office_id").type(memData.office).type("{enter}");
       cy.wait(1000);
       cy.formController("samity_id").type(memData.smity).type("{enter}");
@@ -68,20 +68,20 @@ class MemberManagementCreation {
       cy.wait(3000);
       cy.imsId("btn_nid_front_doc_id").attachFile("nidPront1.jpg");
       cy.wait(3000);
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-yes").click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.YES).click();
       cy.get("app-confirmation-modal")
         .contains(memData.messageSaveMember)
         .and("be.visible");
-      cy.imsId("btn-ok").click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
 
-      cy.log("Successfully created member management");
+      cy.log(messages.ui.submitSuccess);
     });
   }
 
   myTaskMenuMember() {
     cy.fixture(this.test_data).then((data) => {
-      var memData = data.mfiAdmin.createMemberFrom;
+      const memData = data.mfiAdmin.createMemberFrom;
          cy.imsId("menu-my-task").click();
       cy.imsId("submenu-awaiting-member-management").click();
       cy.log("Successfully navigate to my task menu member management");
@@ -90,19 +90,19 @@ class MemberManagementCreation {
 
   myTaskMemberOfficeDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var memData = data.mfiAdmin.createMemberFrom;
+      const memData = data.mfiAdmin.createMemberFrom;
       cy.formController("office_id").type(memData.office).type("{enter}");
       cy.log("Successfully navigate to my task menu member management office dropdown");
     });
   }
 
   myTaskResetButtonCheck() {
-    cy.imsId("btn-reset").click();
+    cy.imsId(COMMON.BUTTONS.RESET).click();
     cy.log("Successful clean my task displaying.");
   }
 
   myTaskRefreshButtonCheck() {
-    cy.imsId("btn-refresh").click();
+    cy.imsId(COMMON.BUTTONS.REFRESH).click();
     cy.log(
       "successfully refresh page  displayed the my task list of the Member Management form "
     );
@@ -110,136 +110,136 @@ class MemberManagementCreation {
 
   myTaskSearchButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var memData = data.mfiAdmin.createMemberFrom;
-      cy.imsId("btn-reset").click();
-      cy.formController("search_text").type(memData.memberNameEn);
-      cy.imsId("btn-search").click();
+      const memData = data.mfiAdmin.createMemberFrom;
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(memData.memberNameEn);
+      cy.imsId(COMMON.BUTTONS.SEARCH).click();
       cy.log("Successful my task search button click.");
     });
   }
 
   approveMemberManagement() {
     cy.fixture(this.test_data).then((data) => {
-      var memData = data.mfiAdmin.createMemberFrom;
-      cy.imsId("toggle-action").first().click();
-      cy.imsId("btn-table-action-view").click();
+      const memData = data.mfiAdmin.createMemberFrom;
+      cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+      cy.imsId(COMMON.GRID.ACTION_VIEW).click();
       cy.imsId("btn-lock").click();
-      cy.imsId("btn-approve").click();
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-ok").click();
+      cy.imsId(COMMON.BUTTONS.APPROVE).click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
       cy.log("Successfully approved the member management ");
     });
   }
 
   actionButtonCheck() {
     cy.selectMenu("menu-member", "submenu-member-management");
-    cy.imsId("toggle-action").first().click();
+    cy.imsId(COMMON.TOGGLES.ACTION).first().click();
     cy.log(
-      "Action button clicked successfully on the member management list page."
+      messages.ui.actionMessage
     );
   }
 
   viewMemberManagement() {
     cy.fixture(this.test_data).then((data) => {
-      var memData = data.mfiAdmin.createMemberFrom;
-      cy.formController("search_text").type(memData.search);
-      cy.imsId("toggle-action").first().click();
-      cy.imsId("btn-table-action-view").click();
-      cy.log("Successfully viewed the member management list page");
+      const memData = data.mfiAdmin.createMemberFrom;
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(memData.search);
+      cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+      cy.imsId(COMMON.GRID.ACTION_VIEW).click();
+      cy.log(messages.ui.viewMessage);
     });
   }
 
   viewGoBackButton() {
-    cy.imsId("btn-go-back").click();
-    cy.log("Successfully view go back the member management list page");
+    cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+    cy.log(messages.ui.goBackSuccess);
 
   }
 
   editResetButton() {
-    cy.imsId("toggle-action").first().click();
+    cy.imsId(COMMON.TOGGLES.ACTION).first().click();
     cy.imsId("btn-mis-table-action-edit").click();
-    cy.imsId("btn-reset").click();
-    cy.log("Successful reset button working");
+    cy.imsId(COMMON.BUTTONS.RESET).click();
+    cy.log(messages.ui.editResetMessage);
   }
 
   editDraftButton() {
-    cy.imsId("btn-draft").click();
-    cy.imsId("btn-ok").click();
-    cy.log("Successful draft button working");
+    cy.imsId(COMMON.BUTTONS.DRAFT).click();
+    cy.imsId(COMMON.CONFIRMATION.OK).click();
+    cy.log(messages.ui.editMessage);
   }
 
   editSubmitButton() {
-    cy.imsId("btn-submit").click();
-    cy.imsId("btn-ok").click();
-    cy.log("Successful submit button working");
+    cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+    cy.imsId(COMMON.CONFIRMATION.OK).click();
+    cy.log(messages.ui.editSubmitMessage);
   }
 
   editApproveButton() {
-    cy.imsId("btn-approve").click();
-    cy.imsId("btn-ok").click();
-    cy.log("Successful approve button working");
+    cy.imsId(COMMON.BUTTONS.APPROVE).click();
+    cy.imsId(COMMON.CONFIRMATION.OK).click();
+    cy.log(messages.ui.editMessage);
   }
 
   editGoBackButton() {
-    cy.imsId("btn-go-back").click();
-    cy.log("Successful edit go back button check.");
+    cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+    cy.log(messages.ui.editGoBackMessage);
   }
 
   editMemberManagement() {
     cy.fixture(this.test_data).then((data) => {
-      var memData = data.mfiAdmin.createMemberFrom;
-      cy.imsId("btn-reset").click();
-      cy.formController("search_text").type(memData.search);
-      cy.imsId("toggle-action").first().click();
+      const memData = data.mfiAdmin.createMemberFrom;
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(memData.search);
+      cy.imsId(COMMON.TOGGLES.ACTION).first().click();
       cy.imsId("btn-mis-table-action-edit").click();
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-ok").click();
-      cy.imsId("btn-go-back").click();
-      cy.log("Member Management updated successfully");
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
+      cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+      cy.log(messages.ui.editMessage);
     });
   }
 
   statusInactiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var memData = data.mfiAdmin.createMemberFrom;
-      cy.imsId("btn-reset").click();
+      const memData = data.mfiAdmin.createMemberFrom;
+      cy.imsId(COMMON.BUTTONS.RESET).click();
       cy.formController("status").type(memData.selectStatus).type("{enter}");
-      cy.log("Member management status inactive dropdown check successfully");
+      cy.log(messages.ui.dropdownInactiveMessage);
     });
   }
 
   statusActiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var memData = data.mfiAdmin.createMemberFrom;
+      const memData = data.mfiAdmin.createMemberFrom;
       cy.formController("status").type(memData.statusSelect).type("{enter}");
-      cy.log("Member management status active dropdown check successfully");
+      cy.log(messages.ui.dropdownActiveMessage);
     });
   }
 
   searchInMemberManagementName() {
     cy.fixture(this.test_data).then((data) => {
-      var memData = data.mfiAdmin.createMemberFrom;
-      cy.imsId("btn-reset").click();
-      cy.formController("search_text").type(memData.memberNameEn);
-      cy.log("Successfully search in the Member management");
+      const memData = data.mfiAdmin.createMemberFrom;
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(memData.memberNameEn);
+      cy.log(messages.ui.searchMessage);
     });
   }
 
   gridResetButtonCheck() {
-    cy.imsId("btn-reset").click();
-    cy.log("Successful clean displaying.");
+    cy.imsId(COMMON.BUTTONS.RESET).click();
+    cy.log(messages.ui.gridResetSuccess);
   }
 
   gridRefreshButtonCheck() {
-    cy.imsId("btn-refresh").click();
+    cy.imsId(COMMON.BUTTONS.REFRESH).click();
     cy.log(
-      "successfully refresh page  displayed the grid list of the Member management "
+      messages.ui.gridRefreshSuccess
     );
   }
 
   gridCheckboxCheck() {
     cy.imsId("row-checkbox-8").click();
-    cy.imsId("btn-reset").click();
+    cy.imsId(COMMON.BUTTONS.RESET).click();
     cy.log("Checkbox should be clickable and functional.");
   }
 
@@ -269,63 +269,63 @@ class MemberManagementCreation {
 
   selectofficeDropdown() {
     cy.fixture(this.test_data).then((data) => {
-      var memData = data.mfiAdmin.createMemberFrom;
+      const memData = data.mfiAdmin.createMemberFrom;
       cy.formController("office_id").type(memData.office);
       cy.log("Successfully select office in the member management");
     });
   }
 
   createApproveButtonCheck() {
-    cy.imsId("btn-add-new").click();
-    cy.imsId("btn-approve").click();
-    cy.imsId("btn-ok").click();
-    cy.imsId("btn-go-back").click();
-    cy.log("Successful approve button check.");
+    cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+    cy.imsId(COMMON.BUTTONS.APPROVE).click();
+    cy.imsId(COMMON.CONFIRMATION.OK).click();
+    cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+    cy.log(messages.ui.submitSuccess);
   }
 
   createSubmitButtonCheck() {
-    cy.imsId("btn-add-new").click();
-    cy.imsId("btn-submit").click();
-    cy.imsId("btn-ok").click();
-    cy.imsId("btn-go-back").click();
-    cy.log("Successful submit button check.");
+    cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+    cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+    cy.imsId(COMMON.CONFIRMATION.OK).click();
+    cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+    cy.log(messages.ui.submitSuccess);
   }
 
   createDraftButtonCheck() {
-    cy.imsId("btn-add-new").click();
-    cy.imsId("btn-draft").click();
-    cy.imsId("btn-ok").click();
-    cy.imsId("btn-go-back").click();
-    cy.log("Successful draft button check.");
+    cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+    cy.imsId(COMMON.BUTTONS.DRAFT).click();
+    cy.imsId(COMMON.CONFIRMATION.OK).click();
+    cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+    cy.log(messages.ui.draftOnMessage);
   }
 
   createResetButtonCheck() {
-    cy.imsId("btn-add-new").click();
-    cy.imsId("btn-reset").click();
-    cy.imsId("btn-go-back").click();
-    cy.log("Successful reset button check.");
+    cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+    cy.imsId(COMMON.BUTTONS.RESET).click();
+    cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+    cy.log(messages.validation.requiredField);
   }
 
   createGoBackButtonCheck() {
-    cy.imsId("btn-add-new").click();
-    cy.imsId("btn-go-back").click();
-    cy.log("Successful go back button check.");
+    cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+    cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+    cy.log(messages.ui.createGoBackMessage);
   }
 
   gridSearchButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var memData = data.mfiAdmin.createMemberFrom;
-      cy.imsId("btn-reset").click();
-      cy.formController("search_text").type(memData.search);
-      cy.imsId("btn-search").click();
-      cy.log("Successful search button click.");
+      const memData = data.mfiAdmin.createMemberFrom;
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(memData.search);
+      cy.imsId(COMMON.BUTTONS.SEARCH).click();
+      cy.log(messages.ui.searchMessage);
     });
   }
 
   gridLanguageSwitchCheck() {
-    cy.imsId("profile-menu").click();
-    cy.imsId("btn-lang-bangla").click();
-    cy.log("Unsccessful switch bangla language check.");
+    cy.imsId(COMMON.BUTTONS.PROFILE).click();
+    cy.imsId(COMMON.BUTTONS.LANGUAGE_CHANGE).click();
+    cy.log(messages.ui.languageSwitchMessage);
   }
 }
 

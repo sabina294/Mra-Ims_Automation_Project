@@ -6,22 +6,22 @@ class ReguralCollection {
     gridRegularCollectionListPage() {
         cy.fixture(this.test_data).then((data) => {
             cy.selectMenu("menu-transaction", "submenu-regular-collection");
-            cy.log("Successfully Regular Collection list page.");
+            cy.log(messages.ui.gridListMessage);
         });
     }
 
     searchInRegularCollectionName() {
         cy.fixture(this.test_data).then((data) => {
-            var rcData = data.mfiAdmin.regularCollectionFrom;
-            cy.imsId("btn-reset").click();
-            cy.formController("search_text").type(rcData.samity);
-            cy.imsId("btn-search").click();
-            cy.log("Successfully search in the Regular Collection");
+            const rcData = data.mfiAdmin.regularCollectionFrom;
+            cy.imsId(COMMON.BUTTONS.RESET).click();
+            cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(rcData.samity);
+            cy.imsId(COMMON.BUTTONS.SEARCH).click();
+            cy.log(messages.ui.searchMessage);
         });
     }
     statusOfficeDropdownCheck() {
         cy.fixture(this.test_data).then((data) => {
-            var rcData = data.mfiAdmin.regularCollectionFrom;
+            const rcData = data.mfiAdmin.regularCollectionFrom;
             cy.formController("office_id").type(rcData.office).type("{enter}");
             cy.log(
                 "Regular Collection status office dropdown check successfully"
@@ -37,10 +37,10 @@ class ReguralCollection {
 
     historyOfficeDropdownCheck() {
         cy.fixture(this.test_data).then((data) => {
-            var rcData = data.mfiAdmin.regularCollectionFrom;
+            const rcData = data.mfiAdmin.regularCollectionFrom;
             cy.formController("office_id").type(rcData.office).type("{enter}");
             cy.log(
-                "successfully office dropdown displayed the grid list of the regular collection "
+                messages.ui.historyOffMessage
             );
         })
     }
@@ -52,19 +52,19 @@ class ReguralCollection {
     }
 
     gridResetButtonCheck() {
-        cy.imsId("btn-reset").click();
-        cy.log("Successful clean displaying.");
+        cy.imsId(COMMON.BUTTONS.RESET).click();
+        cy.log(messages.ui.gridResetSuccess);
     }
     gridRefreshButtonCheck() {
-        cy.imsId("btn-refresh").click();
+        cy.imsId(COMMON.BUTTONS.REFRESH).click();
         cy.log(
-            "successfully refresh page  displayed the grid list of the Regular Collection"
+            messages.ui.gridRefreshSuccess
         );
     }
     gridLanguageSwitchCheck() {
-        cy.imsId("profile-menu").click();
-        cy.imsId("btn-lang-bangla").click();
-        cy.log("Unsuccessful switch bangla language check.");
+        cy.imsId(COMMON.BUTTONS.PROFILE).click();
+        cy.imsId(COMMON.BUTTONS.LANGUAGE_CHANGE).click();
+        cy.log(messages.ui.languageSwitchMessage);
     }
 }
 

@@ -1,3 +1,5 @@
+import messages from "../../../../support/constants/messages";
+import { COMMON } from "../../../../support/constants/selectors";
 class DayEndProcessAis {
     test_data = Cypress.env("TEST_DATA");
 
@@ -40,7 +42,7 @@ class DayEndProcessAis {
 
      previousPreviewGoBackButton() {
         cy.fixture(this.test_data).then((data) => {
-            cy.imsId("btn-go-back").click();
+            cy.imsId(COMMON.BUTTONS.GO_BACK).click();
             cy.log("Successfully day end process previous preview go back button clicked.");
         });
     }
@@ -53,9 +55,9 @@ class DayEndProcessAis {
     }
 
     gridLanguageSwitchCheck() {
-        cy.imsId("profile-menu").click();
-        cy.imsId("btn-lang-bangla").click();
-        cy.log("Successful switch bangla language check.");
+        cy.imsId(COMMON.BUTTONS.PROFILE).click();
+        cy.imsId(COMMON.BUTTONS.LANGUAGE_CHANGE).click();
+        cy.log(messages.ui.languageSwitchMessage);
     }
 }
 

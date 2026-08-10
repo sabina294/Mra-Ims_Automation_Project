@@ -1,16 +1,18 @@
+import messages from "../../../../support/constants/messages";
+import { COMMON } from "../../../../support/constants/selectors";
 class ClientWelfareFund {
   test_data = Cypress.env("TEST_DATA");
 
   gridClientWelfareFundListPage() {
     cy.fixture(this.test_data).then((data) => {
       cy.selectMenu("menu-loan-account", "submenu-client-welfare-fund");
-      cy.log("Successfully client welfar fund list page.");
+      cy.log(messages.ui.gridListMessage);
     });
   }
   createClientWelfareFund() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      var wfData = data.branchManager.createClientWelfareFrom;
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+      const wfData = data.branchManager.createClientWelfareFrom;
       cy.formController("samity_id").type(wfData.selectSamity).type("{enter}");
       cy.formController("member_id").type(wfData.selectMember).type("{enter}");
       cy.formController("loan_account_id")
@@ -22,106 +24,106 @@ class ClientWelfareFund {
         .type("{enter}");
       cy.wait(2000);
       cy.formController("amount").type(wfData.inputAmount);
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-yes").click();
-      cy.imsId('btn-ok').click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.YES).click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
 
-      cy.log("Successfully created client welfare fund");
+      cy.log(messages.ui.submitSuccess);
     });
   }
 
   approveClientWelfareFund() {
     cy.fixture(this.test_data).then((data) => {
-      var wfData = data.branchManager.createClientWelfareFrom;
+      const wfData = data.branchManager.createClientWelfareFrom;
       cy.imsId("menu-my-task").click();
       cy.imsId("submenu-awaiting-client-welfare-fund").click();
-      cy.imsId("toggle-action").first().click();
-      cy.imsId("btn-table-action-view").click();
+      cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+      cy.imsId(COMMON.GRID.ACTION_VIEW).click();
       cy.imsId("btn-authorize").click();
-      cy.imsId("btn-yes").click();
-      cy.imsId("btn-ok").click();
+      cy.imsId(COMMON.CONFIRMATION.YES).click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
       cy.log("Successfully approved the loan welfare fund");
     });
   }
 
   actionButtonCheck() {
     cy.selectMenu("menu-loan-account", "submenu-client-welfare-fund");
-    cy.imsId("toggle-action").first().click();
-    cy.log("Action button clicked successfully on the loan welfare list page.");
+    cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+    cy.log(messages.ui.actionMessage);
   }
 
   viewClientWelfareFund() {
     cy.fixture(this.test_data).then((data) => {
-      var wfData = data.branchManager.createClientWelfareFrom;
-      // cy.formController("search_text").type(wfData.search);
-      cy.imsId("toggle-action").first().click();
-      cy.imsId("btn-table-action-view").click();
-      cy.imsId("btn-go-back").click();
-      cy.log("Successfully viewed the client welfare fund list page");
+      const wfData = data.branchManager.createClientWelfareFrom;
+      // cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(wfData.search);
+      cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+      cy.imsId(COMMON.GRID.ACTION_VIEW).click();
+      cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+      cy.log(messages.ui.viewMessage);
     });
   }
 
   searchInClientWelfareFundName() {
     cy.fixture(this.test_data).then((data) => {
-      var wfData = data.branchManager.createClientWelfareFrom;
-      cy.imsId("btn-reset").click();
-      cy.formController("search_text").type(wfData.search);
-      cy.log("Successfully search in the client welfare fund");
+      const wfData = data.branchManager.createClientWelfareFrom;
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(wfData.search);
+      cy.log(messages.ui.searchMessage);
     });
   }
 
   gridResetButtonCheck() {
-    cy.imsId("btn-reset").click();
-    cy.log("Successful clean displaying.");
+    cy.imsId(COMMON.BUTTONS.RESET).click();
+    cy.log(messages.ui.gridResetSuccess);
   }
 
   gridRefreshButtonCheck() {
-    cy.imsId("btn-refresh").click();
+    cy.imsId(COMMON.BUTTONS.REFRESH).click();
     cy.log(
-      "successfully refresh page  displayed the grid list of the client welfare fund "
+      messages.ui.gridRefreshSuccess
     );
   }
 
   createResetButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      var wfData = data.branchManager.createClientWelfareFrom;
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+      const wfData = data.branchManager.createClientWelfareFrom;
       cy.formController("samity_id").type(wfData.selectSamity).type("{enter}");
       cy.formController("member_id").type(wfData.selectMember).type("{enter}");
       cy.formController("loan_account_id")
         .type(wfData.selectLoanAccount)
         .type("{enter}");
       cy.wait(2000);
-      cy.imsId("btn-reset").click();
-      cy.log("Successful clean displaying.");
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      cy.log(messages.validation.requiredField);
     });
   }
 
   createValidationMessageCheck() {
-    cy.imsId("btn-submit").click();
-    cy.imsId("btn-ok").click();
-    cy.log("Successful validation message displaying.");
+    cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+    cy.imsId(COMMON.CONFIRMATION.OK).click();
+    cy.log(messages.validation.requiredField);
   }
 
   createGoBackButtonCheck() {
-    cy.imsId("btn-go-back").click();
-    cy.log("Successful go back button check.");
+    cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+    cy.log(messages.ui.createGoBackMessage);
   }
 
   gridSearchButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var wfData = data.branchManager.createClientWelfareFrom;
-      cy.imsId("btn-reset").click();
-      cy.formController("search_text").type(wfData.search);
-      cy.imsId("btn-search").click();
-      cy.log("Successful search button click.");
+      const wfData = data.branchManager.createClientWelfareFrom;
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(wfData.search);
+      cy.imsId(COMMON.BUTTONS.SEARCH).click();
+      cy.log(messages.ui.searchMessage);
     });
   }
 
   gridLanguageSwitchCheck() {
-    cy.imsId("profile-menu").click();
-    cy.imsId("btn-lang-bangla").click();
-    cy.log("Successful switch to Bangla language check.");
+    cy.imsId(COMMON.BUTTONS.PROFILE).click();
+    cy.imsId(COMMON.BUTTONS.LANGUAGE_CHANGE).click();
+    cy.log(messages.ui.languageSwitchMessage);
   }
 
 }

@@ -14,7 +14,7 @@ class AreaCreation {
   createArea() {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
-      var arData = data.mfiAdmin.createAreaFrom;
+      const arData = data.mfiAdmin.createAreaFrom;
       cy.formController("area_name_en").type(arData.nameEn);
       cy.formController("area_name_bn").type(arData.nameBn);
       cy.formController("zone_id").type(arData.zoneName).type("{enter}");
@@ -29,7 +29,7 @@ class AreaCreation {
   createWithoutNameEn() {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
-      var arData = data.mfiAdmin.createAreaFrom;
+      const arData = data.mfiAdmin.createAreaFrom;
       cy.formController("area_name_bn").type(arData.nameBn);
       cy.formController("zone_id").type(arData.zoneName).type("{enter}");
       cy.formController("area_code").type(arData.areaCode);
@@ -43,7 +43,7 @@ class AreaCreation {
   createWithoutNameBn() {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
-      var arData = data.mfiAdmin.createAreaFrom;
+      const arData = data.mfiAdmin.createAreaFrom;
       cy.formController("area_name_en").type(arData.nameEn);
       cy.formController("zone_id").type(arData.zoneName).type("{enter}");
       cy.formController("area_code").type(arData.areaCode);
@@ -57,7 +57,7 @@ class AreaCreation {
   createWithoutZone() {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
-      var arData = data.mfiAdmin.createAreaFrom;
+      const arData = data.mfiAdmin.createAreaFrom;
       cy.formController("area_name_en").type(arData.nameEn);
       cy.formController("area_name_bn").type(arData.nameBn);
       cy.formController("area_code").type(arData.areaCode);
@@ -71,7 +71,7 @@ class AreaCreation {
   createWithoutAreaCode() {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
-      var arData = data.mfiAdmin.createAreaFrom;
+      const arData = data.mfiAdmin.createAreaFrom;
       cy.formController("area_name_en").type(arData.nameEn);
       cy.formController("area_name_bn").type(arData.nameBn);
       cy.formController("zone_id").type(arData.zoneName).type("{enter}");
@@ -86,7 +86,7 @@ class AreaCreation {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
       cy.imsId(COMMON.BUTTONS.RESET).click();
-      var arData = data.mfiAdmin.createAreaFrom;
+      const arData = data.mfiAdmin.createAreaFrom;
       cy.formController("area_name_en").type(arData.nameEn);
       cy.formController("area_name_bn").type(arData.nameBn);
       cy.formController("zone_id").type(arData.zoneName).type("{enter}");
@@ -105,7 +105,7 @@ class AreaCreation {
 
   viewArea() {
     cy.fixture(this.test_data).then((data) => {
-      var arData = data.mfiAdmin.createAreaFrom;
+      const arData = data.mfiAdmin.createAreaFrom;
       cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(arData.nameEn);
       cy.imsId(COMMON.TOGGLES.ACTION).first().click();
       cy.imsId(COMMON.GRID.ACTION_VIEW).click();
@@ -146,7 +146,7 @@ class AreaCreation {
 
   editSubmitButton() {
     cy.fixture(this.test_data).then((data) => {
-      var arData = data.mfiAdmin.createAreaFrom;
+      const arData = data.mfiAdmin.createAreaFrom;
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
       cy.imsId(COMMON.CONFIRMATION.OK).click();
       cy.log(messages.ui.editSubmitMessage);
@@ -160,7 +160,7 @@ class AreaCreation {
 
   statusInactiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var arData = data.mfiAdmin.createAreaFrom;
+      const arData = data.mfiAdmin.createAreaFrom;
       cy.imsId(COMMON.BUTTONS.RESET).click();
       cy.formController("status").type(arData.selectStatus).type("{enter}");
       cy.log(messages.ui.dropdownInactiveMessage);
@@ -169,7 +169,7 @@ class AreaCreation {
 
   statusActiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var arData = data.mfiAdmin.createAreaFrom;
+      const arData = data.mfiAdmin.createAreaFrom;
       cy.formController("status").type(arData.statusSelect).type("{enter}");
       cy.log(messages.ui.dropdownActiveMessage);
     });
@@ -177,7 +177,7 @@ class AreaCreation {
 
   searchInAreaName() {
     cy.fixture(this.test_data).then((data) => {
-      var arData = data.mfiAdmin.createAreaFrom;
+      const arData = data.mfiAdmin.createAreaFrom;
       cy.imsId(COMMON.BUTTONS.RESET).click();
       cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(arData.nameEn);
       cy.log(messages.ui.searchMessage);
@@ -196,7 +196,7 @@ class AreaCreation {
 
   createResetButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var arData = data.mfiAdmin.createAreaFrom;
+      const arData = data.mfiAdmin.createAreaFrom;
       cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
       cy.formController("area_name_en").type(arData.nameEn);
       cy.imsId(COMMON.BUTTONS.RESET).click();

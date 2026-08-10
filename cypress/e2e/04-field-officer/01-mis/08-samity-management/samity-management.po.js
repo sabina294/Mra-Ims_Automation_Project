@@ -6,116 +6,116 @@ class Samity {
   gridSamityManagementListPage() {
     cy.fixture(this.test_data).then((data) => {
       cy.selectMenu1("menu-samity");
-      cy.log("Successfully samity management list page.");
+      cy.log(messages.ui.gridListMessage);
     });
   }
 
   actionButtonCheck() {
-    cy.imsId("toggle-action").first().click();
+    cy.imsId(COMMON.TOGGLES.ACTION).first().click();
     cy.log(
-      "Action button clicked successfully on the samity management list page."
+      messages.ui.actionMessage
     );
   }
 
   viewSamity() {
     cy.fixture(this.test_data).then((data) => {
-      var smData = data.fieldOfficer.gridSamityFrom;
-      // cy.formController("search_text").type(smData.search);
-      cy.imsId("toggle-action").first().click();
-      cy.imsId("btn-table-action-view").click();
-      cy.log("Successfully viewed the samity list page");
+      const smData = data.fieldOfficer.gridSamityFrom;
+      // cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(smData.search);
+      cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+      cy.imsId(COMMON.GRID.ACTION_VIEW).click();
+      cy.log(messages.ui.viewMessage);
     });
   }
 
   viewGoBackButton() {
-    cy.imsId("btn-go-back").click();
-    cy.imsId("btn-reset").click();
+    cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+    cy.imsId(COMMON.BUTTONS.RESET).click();
 
-    cy.log("Successfully view go back the samity management list page");
+    cy.log(messages.ui.goBackSuccess);
 
   }
 
   turnOnEditMode() {
-    cy.imsId("toggle-action").first().click();
-    cy.imsId("btn-table-action-view").click();
+    cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+    cy.imsId(COMMON.GRID.ACTION_VIEW).click();
     cy.get('.ant-switch-inner > .hidden').click();
 
-    cy.log("Samity Management form Edit Mode toggled successfully");
+    cy.log(messages.ui.turnOnEditModeMessage);
   }
 
   editResetButton() {
-    cy.imsId("btn-reset").click();
+    cy.imsId(COMMON.BUTTONS.RESET).click();
 
-    cy.log("Successful clean displaying");
+    cy.log(messages.ui.editResetMessage);
   }
 
   editSubmitButton() {
-    cy.imsId("btn-submit").click();
-    cy.imsId("btn-ok").click();
+    cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+    cy.imsId(COMMON.CONFIRMATION.OK).click();
 
-    cy.log("Successful submit validation check.");
+    cy.log(messages.ui.editSubmitMessage);
   }
 
   editApproveButton() {
-    cy.imsId("btn-approve").click();
-    cy.imsId("btn-ok").click();
+    cy.imsId(COMMON.BUTTONS.APPROVE).click();
+    cy.imsId(COMMON.CONFIRMATION.OK).click();
 
-    cy.log("Successful approve validation check.");
+    cy.log(messages.ui.editMessage);
   }
 
 
   editDraftButton() {
-    cy.imsId("btn-draft").click();
-    cy.imsId("btn-ok").click();
+    cy.imsId(COMMON.BUTTONS.DRAFT).click();
+    cy.imsId(COMMON.CONFIRMATION.OK).click();
 
-    cy.log("Successful draft button validation check.");
+    cy.log(messages.ui.editMessage);
   }
 
   editGoBackButton() {
-    cy.imsId("btn-go-back").click();
-    cy.log("Successful edit go back button check.");
+    cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+    cy.log(messages.ui.editGoBackMessage);
   }
 
   statusInactiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var smData = data.fieldOfficer.gridSamityFrom;
-      cy.imsId("btn-reset").click();
+      const smData = data.fieldOfficer.gridSamityFrom;
+      cy.imsId(COMMON.BUTTONS.RESET).click();
       cy.formController("status").type(smData.selectStatus).type("{enter}");
-      cy.log("Samity management status inactive dropdown check successfully");
+      cy.log(messages.ui.dropdownInactiveMessage);
     });
   }
   statusActiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var smData = data.fieldOfficer.gridSamityFrom;
+      const smData = data.fieldOfficer.gridSamityFrom;
       cy.formController("status").type(smData.statusSelect).type("{enter}");
-      cy.log("Samity management status active dropdown check successfully");
+      cy.log(messages.ui.dropdownActiveMessage);
     });
   }
 
   searchInSamityManagementName() {
     cy.fixture(this.test_data).then((data) => {
-      var smData = data.fieldOfficer.gridSamityFrom;
-      cy.imsId("btn-reset").click();
-      cy.formController("search_text").type(smData.samityNameEn);
-      cy.log("Successfully search in the Samity management");
+      const smData = data.fieldOfficer.gridSamityFrom;
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(smData.samityNameEn);
+      cy.log(messages.ui.searchMessage);
     });
   }
 
   gridResetButtonCheck() {
-    cy.imsId("btn-reset").click();
-    cy.log("Successful clean displaying.");
+    cy.imsId(COMMON.BUTTONS.RESET).click();
+    cy.log(messages.ui.gridResetSuccess);
   }
 
   gridRefreshButtonCheck() {
-    cy.imsId("btn-refresh").click();
+    cy.imsId(COMMON.BUTTONS.REFRESH).click();
     cy.log(
-      "successfully refresh page  displayed the grid list of the samity management "
+      messages.ui.gridRefreshSuccess
     );
   }
 
   gridCheckboxCheck() {
     cy.imsId("row-checkbox-2").click();
-    cy.imsId("btn-reset").click();
+    cy.imsId(COMMON.BUTTONS.RESET).click();
     cy.log("Checkbox should be clickable and functional.");
   }
 
@@ -144,18 +144,18 @@ class Samity {
 
   gridSearchButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var smData = data.fieldOfficer.gridSamityFrom;
-      cy.imsId("btn-reset").click();
-      cy.formController("search_text").type(smData.search);
-      cy.imsId("btn-search").click();
-      cy.log("Successful search button click.");
+      const smData = data.fieldOfficer.gridSamityFrom;
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(smData.search);
+      cy.imsId(COMMON.BUTTONS.SEARCH).click();
+      cy.log(messages.ui.searchMessage);
     });
   }
 
   gridLanguageSwitchCheck() {
-    cy.imsId("profile-menu").click();
-    cy.imsId("btn-lang-bangla").click();
-    cy.log("Successful switch bangla language check.");
+    cy.imsId(COMMON.BUTTONS.PROFILE).click();
+    cy.imsId(COMMON.BUTTONS.LANGUAGE_CHANGE).click();
+    cy.log(messages.ui.languageSwitchMessage);
   }
 }
 

@@ -1,34 +1,36 @@
+import messages from "../../../../support/constants/messages";
+import { COMMON } from "../../../../support/constants/selectors";
 class BankBranchCreation {
   test_data = Cypress.env("TEST_DATA");
 
   gridBankBranchListPage() {
     cy.fixture(this.test_data).then((data) => {
       cy.selectMenu("menu-configuration", "submenu-bank-branch");
-      cy.log("Successfully bank branch list page.");
+      cy.log(messages.ui.gridListMessage);
     });
   }
 
   createBankBranch() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      var bankBData = data.mraAdmin.createbankbranchFrom;
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+      const bankBData = data.mraAdmin.createbankbranchFrom;
       cy.formController("name_en").type(bankBData.nameEn);
       cy.formController("bank_oid").type(bankBData.bank).type("{enter}");
 
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-yes").click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.YES).click();
       cy.get("app-confirmation-modal")
         .contains(bankBData.messageSaveBaB)
         .and("be.visible");
-      cy.imsId("btn-ok").click();
-      cy.log("Successfully created bank branch");
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
+      cy.log(messages.ui.submitSuccess);
     });
   }
 
   createAllField() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      var bankBData = data.mraAdmin.createbankbranchFrom;
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+      const bankBData = data.mraAdmin.createbankbranchFrom;
       cy.formController("name_en").type(bankBData.nameEn);
       cy.formController("name_bn").type(bankBData.nameBn);
       cy.formController("branch_code").type(bankBData.branchCode);
@@ -44,20 +46,20 @@ class BankBranchCreation {
       cy.formController("date_of_opening").click();
       cy.contains("4").click();
 
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-yes").click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.YES).click();
       cy.get("app-confirmation-modal")
         .contains(bankBData.messageSaveBaB)
         .and("be.visible");
-      cy.imsId("btn-ok").click();
-      cy.log("Successfully created bank branch all field");
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
+      cy.log(messages.ui.submitSuccess);
     });
   }
 
   createWithoutMandatoryFieldNameEn() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      var bankBData = data.mraAdmin.createbankbranchFrom;
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+      const bankBData = data.mraAdmin.createbankbranchFrom;
       cy.formController("name_bn").type(bankBData.nameBn);
       cy.formController("branch_code").type(bankBData.branchCode);
       cy.formController("bank_oid").type(bankBData.bank).type("{enter}");
@@ -72,20 +74,20 @@ class BankBranchCreation {
       cy.formController("date_of_opening").click();
       cy.contains("4").click();
 
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-ok").click();
-      cy.imsId("btn-go-back").click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
+      cy.imsId(COMMON.BUTTONS.GO_BACK).click();
 
       cy.log(
-        "Successful cannot creation bank branch without one mandatory field"
+        messages.ui.withoutDataMessage
       );
     });
   }
 
   createWithoutMandatoryFieldNameBn() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      var bankBData = data.mraAdmin.createbankbranchFrom;
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+      const bankBData = data.mraAdmin.createbankbranchFrom;
       cy.formController("name_en").type(bankBData.nameEn);
       cy.formController("branch_code").type(bankBData.branchCode);
       cy.formController("bank_oid").type(bankBData.bank).type("{enter}");
@@ -100,21 +102,21 @@ class BankBranchCreation {
       cy.formController("date_of_opening").click();
       cy.contains("4").click();
 
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-yes").click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.YES).click();
       cy.get("app-confirmation-modal")
         .contains(bankBData.messageSaveBaB)
         .and("be.visible");
-      cy.imsId("btn-ok").click();
-      cy.log("Successfully created bank branch all field");
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
+      cy.log(messages.ui.withoutDataMessage);
     });
   }
 
 
   createWithoutMandatoryFieldBranchCode() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      var bankBData = data.mraAdmin.createbankbranchFrom;
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+      const bankBData = data.mraAdmin.createbankbranchFrom;
       cy.formController("name_en").type(bankBData.nameEn);
       cy.formController("name_bn").type(bankBData.nameBn);
       cy.formController("bank_oid").type(bankBData.bank).type("{enter}");
@@ -129,20 +131,20 @@ class BankBranchCreation {
       cy.formController("date_of_opening").click();
       cy.contains("4").click();
 
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-yes").click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.YES).click();
       cy.get("app-confirmation-modal")
         .contains(bankBData.messageSaveBaB)
         .and("be.visible");
-      cy.imsId("btn-ok").click();
-      cy.log("Successfully created bank branch all field");
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
+      cy.log(messages.ui.withoutDataMessage);
     });
   }
 
   createWithoutMandatoryFieldBank() {
     cy.fixture(this.test_data).then((data) => {
-      var bankBData = data.mraAdmin.createbankbranchFrom;
-      cy.imsId("btn-add-new").click();
+      const bankBData = data.mraAdmin.createbankbranchFrom;
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
       cy.formController("name_en").type(bankBData.nameEn);
       cy.formController("name_bn").type(bankBData.nameBn);
       cy.formController("branch_code").type(bankBData.branchCode);
@@ -156,18 +158,18 @@ class BankBranchCreation {
       cy.formController("email").type(bankBData.email);
       cy.formController("date_of_opening").click();
       cy.contains("4").click();
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-ok").click();
-      cy.imsId("btn-go-back").click();
-      cy.log("Successful cannot creation bank branch without mandatory field.");
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
+      cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+      cy.log(messages.ui.withoutDataMessage);
     });
   }
 
 
   createWithoutMandatoryFieldWorkingDays() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      var bankBData = data.mraAdmin.createbankbranchFrom;
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+      const bankBData = data.mraAdmin.createbankbranchFrom;
       cy.formController("name_en").type(bankBData.nameEn);
       cy.formController("name_bn").type(bankBData.nameBn);
       cy.formController("branch_code").type(bankBData.branchCode);
@@ -182,13 +184,13 @@ class BankBranchCreation {
       cy.formController("date_of_opening").click();
       cy.contains("4").click();
 
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-yes").click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.YES).click();
       cy.get("app-confirmation-modal")
         .contains(bankBData.messageSaveBaB)
         .and("be.visible");
-      cy.imsId("btn-ok").click();
-      cy.log("Successfully created bank branch all field");
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
+      cy.log(messages.ui.withoutDataMessage);
     });
   }
 
@@ -196,8 +198,8 @@ class BankBranchCreation {
 
   createWithoutMandatoryFieldDistrict() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      var bankBData = data.mraAdmin.createbankbranchFrom;
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+      const bankBData = data.mraAdmin.createbankbranchFrom;
       cy.formController("name_en").type(bankBData.nameEn);
       cy.formController("name_bn").type(bankBData.nameBn);
       cy.formController("branch_code").type(bankBData.branchCode);
@@ -213,13 +215,13 @@ class BankBranchCreation {
       cy.formController("date_of_opening").click();
       cy.contains("4").click();
 
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-yes").click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.YES).click();
       cy.get("app-confirmation-modal")
         .contains(bankBData.messageSaveBaB)
         .and("be.visible");
-      cy.imsId("btn-ok").click();
-      cy.log("Successfully created bank branch all field");
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
+      cy.log(messages.ui.withoutDataMessage);
     });
   }
 
@@ -227,8 +229,8 @@ class BankBranchCreation {
 
   createWithoutMandatoryFieldBranchAdress() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      var bankBData = data.mraAdmin.createbankbranchFrom;
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+      const bankBData = data.mraAdmin.createbankbranchFrom;
       cy.formController("name_en").type(bankBData.nameEn);
       cy.formController("name_bn").type(bankBData.nameBn);
       cy.formController("branch_code").type(bankBData.branchCode);
@@ -243,21 +245,21 @@ class BankBranchCreation {
       cy.formController("date_of_opening").click();
       cy.contains("4").click();
 
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-yes").click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.YES).click();
       cy.get("app-confirmation-modal")
         .contains(bankBData.messageSaveBaB)
         .and("be.visible");
-      cy.imsId("btn-ok").click();
-      cy.log("Successfully created bank branch all field");
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
+      cy.log(messages.ui.withoutDataMessage);
     });
   }
 
 
   createWithoutMandatoryFieldAdressBn() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      var bankBData = data.mraAdmin.createbankbranchFrom;
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+      const bankBData = data.mraAdmin.createbankbranchFrom;
       cy.formController("name_en").type(bankBData.nameEn);
       cy.formController("name_bn").type(bankBData.nameBn);
       cy.formController("branch_code").type(bankBData.branchCode);
@@ -272,21 +274,21 @@ class BankBranchCreation {
       cy.formController("date_of_opening").click();
       cy.contains("4").click();
 
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-yes").click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.YES).click();
       cy.get("app-confirmation-modal")
         .contains(bankBData.messageSaveBaB)
         .and("be.visible");
-      cy.imsId("btn-ok").click();
-      cy.log("Successfully created bank branch all field");
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
+      cy.log(messages.ui.withoutDataMessage);
     });
   }
 
 
   createWithoutMandatoryFieldTelephoneNumber() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      var bankBData = data.mraAdmin.createbankbranchFrom;
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+      const bankBData = data.mraAdmin.createbankbranchFrom;
       cy.formController("name_en").type(bankBData.nameEn);
       cy.formController("name_bn").type(bankBData.nameBn);
       cy.formController("branch_code").type(bankBData.branchCode);
@@ -301,21 +303,21 @@ class BankBranchCreation {
       cy.formController("date_of_opening").click();
       cy.contains("4").click();
 
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-yes").click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.YES).click();
       cy.get("app-confirmation-modal")
         .contains(bankBData.messageSaveBaB)
         .and("be.visible");
-      cy.imsId("btn-ok").click();
-      cy.log("Successfully created bank branch all field");
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
+      cy.log(messages.ui.withoutDataMessage);
     });
   }
 
 
   createWithoutMandatoryFieldFax() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      var bankBData = data.mraAdmin.createbankbranchFrom;
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+      const bankBData = data.mraAdmin.createbankbranchFrom;
       cy.formController("name_en").type(bankBData.nameEn);
       cy.formController("name_bn").type(bankBData.nameBn);
       cy.formController("branch_code").type(bankBData.branchCode);
@@ -330,21 +332,21 @@ class BankBranchCreation {
       cy.formController("date_of_opening").click();
       cy.contains("4").click();
 
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-yes").click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.YES).click();
       cy.get("app-confirmation-modal")
         .contains(bankBData.messageSaveBaB)
         .and("be.visible");
-      cy.imsId("btn-ok").click();
-      cy.log("Successfully created bank branch all field");
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
+      cy.log(messages.ui.withoutDataMessage);
     });
   }
 
 
   createWithoutMandatoryFieldRoutingNumber() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      var bankBData = data.mraAdmin.createbankbranchFrom;
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+      const bankBData = data.mraAdmin.createbankbranchFrom;
       cy.formController("name_en").type(bankBData.nameEn);
       cy.formController("name_bn").type(bankBData.nameBn);
       cy.formController("branch_code").type(bankBData.branchCode);
@@ -359,20 +361,20 @@ class BankBranchCreation {
       cy.formController("date_of_opening").click();
       cy.contains("4").click();
 
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-yes").click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.YES).click();
       cy.get("app-confirmation-modal")
         .contains(bankBData.messageSaveBaB)
         .and("be.visible");
-      cy.imsId("btn-ok").click();
-      cy.log("Successfully created bank branch all field");
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
+      cy.log(messages.ui.withoutDataMessage);
     });
   }
 
   createWithoutMandatoryFieldSwiftCode() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      var bankBData = data.mraAdmin.createbankbranchFrom;
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+      const bankBData = data.mraAdmin.createbankbranchFrom;
       cy.formController("name_en").type(bankBData.nameEn);
       cy.formController("name_bn").type(bankBData.nameBn);
       cy.formController("branch_code").type(bankBData.branchCode);
@@ -387,20 +389,20 @@ class BankBranchCreation {
       cy.formController("date_of_opening").click();
       cy.contains("4").click();
 
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-yes").click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.YES).click();
       cy.get("app-confirmation-modal")
         .contains(bankBData.messageSaveBaB)
         .and("be.visible");
-      cy.imsId("btn-ok").click();
-      cy.log("Successfully created bank branch all field");
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
+      cy.log(messages.ui.withoutDataMessage);
     });
   }
 
   createWithoutMandatoryFieldEmail() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      var bankBData = data.mraAdmin.createbankbranchFrom;
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+      const bankBData = data.mraAdmin.createbankbranchFrom;
       cy.formController("name_en").type(bankBData.nameEn);
       cy.formController("name_bn").type(bankBData.nameBn);
       cy.formController("branch_code").type(bankBData.branchCode);
@@ -415,20 +417,20 @@ class BankBranchCreation {
       cy.formController("date_of_opening").click();
       cy.contains("4").click();
 
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-yes").click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.YES).click();
       cy.get("app-confirmation-modal")
         .contains(bankBData.messageSaveBaB)
         .and("be.visible");
-      cy.imsId("btn-ok").click();
-      cy.log("Successfully created bank branch all field");
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
+      cy.log(messages.ui.withoutDataMessage);
     });
   }
 
   createWithoutMandatoryFieldDateOpening() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      var bankBData = data.mraAdmin.createbankbranchFrom;
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+      const bankBData = data.mraAdmin.createbankbranchFrom;
       cy.formController("name_en").type(bankBData.nameEn);
       cy.formController("name_bn").type(bankBData.nameBn);
       cy.formController("branch_code").type(bankBData.branchCode);
@@ -441,113 +443,113 @@ class BankBranchCreation {
       cy.formController("routing_number").type(bankBData.routingNo);
       cy.formController("swift_code").type(bankBData.swiftCode);
       cy.formController("email").type(bankBData.email);
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-yes").click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.YES).click();
       cy.get("app-confirmation-modal")
         .contains(bankBData.messageSaveBaB)
         .and("be.visible");
-      cy.imsId("btn-ok").click();
-      cy.log("Successfully created bank branch all field");
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
+      cy.log(messages.ui.withoutDataMessage);
     });
   }
 
   actionButtonCheck() {
-    cy.imsId("toggle-action").first().click();
-    cy.log("Action button clicked successfully on the bank branch list page.");
+    cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+    cy.log(messages.ui.actionMessage);
   }
 
   viewBankBranch() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("toggle-action").first().click();
-      cy.imsId("btn-table-action-view").click();
+      cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+      cy.imsId(COMMON.GRID.ACTION_VIEW).click();
 
-      cy.log("Successfully viewed the bank branch list page");
+      cy.log(messages.ui.viewMessage);
     });
   }
 
   viewGoBackButton() {
-    cy.imsId("btn-go-back").click();
+    cy.imsId(COMMON.BUTTONS.GO_BACK).click();
 
-    cy.log("Successfully view go back the bank branch list page");
+    cy.log(messages.ui.goBackSuccess);
 
   }
 
   turnOffOnEditMode() {
-    cy.imsId("toggle-action").first().click();
-    cy.imsId("btn-table-action-edit").click();
-    cy.imsId("switch-button").click();
-    cy.imsId("btn-go-back").click();
+    cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+    cy.imsId(COMMON.GRID.ACTION_EDIT).click();
+    cy.imsId(COMMON.BUTTONS.TURN_EDIT_MODE).click();
+    cy.imsId(COMMON.BUTTONS.GO_BACK).click();
 
-    cy.log("Bank branch form Edit Mode toggled successfully");
+    cy.log(messages.ui.turnOnEditModeMessage);
   }
 
   editBankBranch() {
     cy.fixture(this.test_data).then((data) => {
-      var bankBData = data.mraAdmin.createbankbranchFrom;
-      cy.imsId("toggle-action").first().click();
-      cy.imsId("btn-table-action-edit").click();
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-yes").click();
+      const bankBData = data.mraAdmin.createbankbranchFrom;
+      cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+      cy.imsId(COMMON.GRID.ACTION_EDIT).click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.YES).click();
 
       cy.get("app-confirmation-modal")
         .contains(bankBData.messageUpdateBaB)
         .and("be.visible");
-      cy.imsId("btn-ok").click();
-      cy.log("Bank branch updated successfully");
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
+      cy.log(messages.ui.editMessage);
     });
   }
 
   editResetButton() {
-    cy.imsId("toggle-action").first().click();
-    cy.imsId("btn-table-action-edit").click();
-    cy.imsId("btn-reset").click();
-    cy.imsId("btn-go-back").click();
+    cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+    cy.imsId(COMMON.GRID.ACTION_EDIT).click();
+    cy.imsId(COMMON.BUTTONS.RESET).click();
+    cy.imsId(COMMON.BUTTONS.GO_BACK).click();
 
-    cy.log("Successful clean displaying");
+    cy.log(messages.ui.editResetMessage);
   }
 
   editGoBackButton() {
-    cy.imsId("toggle-action").first().click();
-    cy.imsId("btn-table-action-edit").click();
-    cy.imsId("btn-go-back").click();
-    cy.log("Successful edit go back button check.");
+    cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+    cy.imsId(COMMON.GRID.ACTION_EDIT).click();
+    cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+    cy.log(messages.ui.editGoBackMessage);
   }
 
   statusInactiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var bankBData = data.mraAdmin.createbankbranchFrom;
-      cy.imsId("btn-reset").click();
+      const bankBData = data.mraAdmin.createbankbranchFrom;
+      cy.imsId(COMMON.BUTTONS.RESET).click();
       cy.formController("status").type(bankBData.selectStatus).type("{enter}");
-      cy.log("Bank branch status inactive dropdown check successfully");
+      cy.log(messages.ui.dropdownInactiveMessage);
     });
   }
 
   statusActiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var bankBData = data.mraAdmin.createbankbranchFrom;
+      const bankBData = data.mraAdmin.createbankbranchFrom;
       cy.formController("status").type(bankBData.statusSelect).type("{enter}");
-      cy.log("Bank branch status active dropdown check successfully");
+      cy.log(messages.ui.dropdownActiveMessage);
     });
   }
 
   searchInBankBranchName() {
     cy.fixture(this.test_data).then((data) => {
-      var bankBData = data.mraAdmin.createbankbranchFrom;
-      cy.imsId("btn-reset").click();
-      cy.formController("search_text").type(bankBData.nameEn);
-      cy.log("Successfully search in the Bank branch");
+      const bankBData = data.mraAdmin.createbankbranchFrom;
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(bankBData.nameEn);
+      cy.log(messages.ui.searchMessage);
     });
   }
 
   gridResetButtonCheck() {
-    cy.imsId("btn-reset").click();
-    cy.log("Successful clean displaying.");
+    cy.imsId(COMMON.BUTTONS.RESET).click();
+    cy.log(messages.ui.gridResetSuccess);
   }
 
   gridRefreshButtonCheck() {
-    cy.imsId("btn-refresh").click();
+    cy.imsId(COMMON.BUTTONS.REFRESH).click();
     cy.log(
-      "successfully refresh page  displayed the grid list of the Bank branch "
+      messages.ui.gridRefreshSuccess
     );
   }
 
@@ -558,7 +560,7 @@ class BankBranchCreation {
 
   selectBankDropdown() {
     cy.fixture(this.test_data).then((data) => {
-      var bankBData = data.mraAdmin.createbankbranchFrom;
+      const bankBData = data.mraAdmin.createbankbranchFrom;
       cy.formController("bank_id").type(bankBData.bank);
       cy.log("Successfully select bank in the Bank branch");
     });
@@ -566,43 +568,43 @@ class BankBranchCreation {
 
   createResetButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var bankBData = data.mraAdmin.createbankbranchFrom;
-      cy.imsId("btn-add-new").click();
+      const bankBData = data.mraAdmin.createbankbranchFrom;
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
       cy.formController("name_en").type(bankBData.nameEn);
-      cy.imsId("btn-reset").click();
-      cy.imsId("btn-go-back").click();
-      cy.log("Successful clean displaying.");
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+      cy.log(messages.validation.requiredField);
     });
   }
 
   createValidationMessageCheck() {
-    cy.imsId("btn-add-new").click();
-    cy.imsId("btn-submit").click();
-    cy.imsId("btn-ok").click();
-    cy.imsId("btn-go-back").click();
-    cy.log("Successful validation message displaying.");
+    cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+    cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+    cy.imsId(COMMON.CONFIRMATION.OK).click();
+    cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+    cy.log(messages.validation.requiredField);
   }
 
   createGoBackButtonCheck() {
-    cy.imsId("btn-add-new").click();
-    cy.imsId("btn-go-back").click();
-    cy.log("Successful go back button check.");
+    cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+    cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+    cy.log(messages.ui.createGoBackMessage);
   }
 
   gridSearchButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var bankBData = data.mraAdmin.createbankbranchFrom;
-      cy.imsId("btn-reset").click();
-      cy.formController("search_text").type(bankBData.search);
-      cy.imsId("btn-search").click();
-      cy.log("Successful search button click.");
+      const bankBData = data.mraAdmin.createbankbranchFrom;
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(bankBData.search);
+      cy.imsId(COMMON.BUTTONS.SEARCH).click();
+      cy.log(messages.ui.searchMessage);
     });
   }
 
   gridLanguageSwitchCheck() {
-    cy.imsId("profile-menu").click();
-    cy.imsId("btn-lang-bangla").click();
-    cy.log("Successful switch bangla language check.");
+    cy.imsId(COMMON.BUTTONS.PROFILE).click();
+    cy.imsId(COMMON.BUTTONS.LANGUAGE_CHANGE).click();
+    cy.log(messages.ui.languageSwitchMessage);
   }
 }
 

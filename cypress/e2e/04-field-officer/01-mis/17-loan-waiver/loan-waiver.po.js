@@ -1,63 +1,65 @@
+import messages from "../../../../support/constants/messages";
+import { COMMON } from "../../../../support/constants/selectors";
 class LoanWaiver {
   test_data = Cypress.env("TEST_DATA");
 
   gridLoanWaiverListPage() {
     cy.fixture(this.test_data).then((data) => {
       cy.selectMenu("menu-loan-account", "submenu-loan-waiver");
-      cy.log("Successfully Loan waiver list page.");
+      cy.log(messages.ui.gridListMessage);
     });
   }
 
   createDraftButton() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      var lwData = data.fieldOfficer.createLoanWaiverFrom;
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+      const lwData = data.fieldOfficer.createLoanWaiverFrom;
       cy.formController("samity_id").type(lwData.selectSamity).type("{enter}");
       cy.formController("member_id").type(lwData.selectMember).type("{enter}");
       cy.formController("loan_account_id")
         .type(lwData.selectLoanAccount)
         .type("{enter}");
       cy.wait(2000);
-      cy.imsId("btn-draft").click();
-      cy.imsId("btn-ok").click();
+      cy.imsId(COMMON.BUTTONS.DRAFT).click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
 
-      cy.log("Successfully created page information draft loan waiver");
+      cy.log(messages.ui.draftOnMessage);
     });
   }
 
   createSubmitButton() {
-    cy.imsId("btn-submit").click();
-    cy.imsId("btn-ok").click();
-    cy.log("Successfully created page information submit loan waiver");
+    cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+    cy.imsId(COMMON.CONFIRMATION.OK).click();
+    cy.log(messages.ui.submitSuccess);
 
   }
 
   createGoBackButton() {
-    cy.imsId("btn-go-back").click();
-    cy.log("Successfully created  page information go back loan waiver");
+    cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+    cy.log(messages.ui.submitSuccess);
 
   }
 
   createResetButton() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      var lwData = data.fieldOfficer.createLoanWaiverFrom;
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+      const lwData = data.fieldOfficer.createLoanWaiverFrom;
       cy.formController("samity_id").type(lwData.selectSamity).type("{enter}");
       cy.formController("member_id").type(lwData.selectMember).type("{enter}");
       cy.formController("loan_account_id")
         .type(lwData.selectLoanAccount)
         .type("{enter}");
       cy.wait(2000);
-      cy.imsId("btn-reset").click();
-      cy.imsId("btn-go-back").click();
-      cy.log("Successfully created page information reset Loan waiver");
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+      cy.log(messages.ui.submitSuccess);
     });
   }
 
   createAddIconWaiver() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      var lwData = data.fieldOfficer.createLoanWaiverFrom;
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+      const lwData = data.fieldOfficer.createLoanWaiverFrom;
       cy.formController("samity_id").type(lwData.selectSamity).type("{enter}");
       cy.formController("member_id").type(lwData.selectMember).type("{enter}");
       cy.formController("loan_account_id")
@@ -65,21 +67,21 @@ class LoanWaiver {
         .type("{enter}");
       cy.wait(2000);
       cy.imsId("btn-add-method-0").click();
-      cy.log("Successfully created page information add icon Loan waiver");
+      cy.log(messages.ui.submitSuccess);
     });
   }
 
   createRemoveIconWaiver() {
     cy.imsId("btn-remove-method-0").click();
-    cy.imsId("btn-go-back").click();
-    cy.log("Successfully created page information remove icon Loan waiver");
+    cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+    cy.log(messages.ui.submitSuccess);
 
   }
 
   createLoanWaiver() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      var lwData = data.fieldOfficer.createLoanWaiverFrom;
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+      const lwData = data.fieldOfficer.createLoanWaiverFrom;
       cy.formController("samity_id").type(lwData.selectSamity).type("{enter}");
       cy.formController("member_id").type(lwData.selectMember).type("{enter}");
       cy.formController("loan_account_id")
@@ -89,38 +91,38 @@ class LoanWaiver {
       cy.formController("waiver_type")
         .type(lwData.selectRebate)
         .type("{enter}");
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-yes").click();
-      cy.imsId("btn-ok").click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.YES).click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
 
-      cy.log("Successfully created Loan waiver");
+      cy.log(messages.ui.submitSuccess);
     });
   }
 
   actionButtonCheck() {
-    cy.imsId("toggle-action").first().click();
-    cy.log("Action button clicked successfully on the loan waiver list page.");
+    cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+    cy.log(messages.ui.actionMessage);
   }
 
   viewLoanWaiver() {
     cy.fixture(this.test_data).then((data) => {
-      var lwData = data.fieldOfficer.createLoanWaiverFrom;
-      cy.imsId("btn-table-action-view").click();
-      cy.log("Successfully viewed the Loan waiver list page");
+      const lwData = data.fieldOfficer.createLoanWaiverFrom;
+      cy.imsId(COMMON.GRID.ACTION_VIEW).click();
+      cy.log(messages.ui.viewMessage);
     });
   }
 
   viewGoBackButton() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-go-back").click();
-      cy.log("Successfully viewed go back the Loan waiver list page");
+      cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+      cy.log(messages.ui.goBackSuccess);
     });
   }
 
   statusSubmittedDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var lwData = data.fieldOfficer.createLoanWaiverFrom;
-      cy.imsId("btn-reset").click();
+      const lwData = data.fieldOfficer.createLoanWaiverFrom;
+      cy.imsId(COMMON.BUTTONS.RESET).click();
       cy.formController("status").type(lwData.selectStatus).type("{enter}");
       cy.log("Loan waiver status submitted dropdown check successfully");
     });
@@ -128,8 +130,8 @@ class LoanWaiver {
 
   statusApprovedDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var lwData = data.fieldOfficer.createLoanWaiverFrom;
-      cy.imsId("btn-reset").click();
+      const lwData = data.fieldOfficer.createLoanWaiverFrom;
+      cy.imsId(COMMON.BUTTONS.RESET).click();
       cy.formController("status").type(lwData.statusSelect).type("{enter}");
       cy.log("Loan waiver  status approved dropdown check successfully");
     });
@@ -137,40 +139,40 @@ class LoanWaiver {
 
   searchInLoanWaivereName() {
     cy.fixture(this.test_data).then((data) => {
-      var lwData = data.fieldOfficer.createLoanWaiverFrom;
-      cy.imsId("btn-reset").click();
-      cy.formController("search_text").type(lwData.search);
-      cy.log("Successfully search in the Loan waiver");
+      const lwData = data.fieldOfficer.createLoanWaiverFrom;
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(lwData.search);
+      cy.log(messages.ui.searchMessage);
     });
   }
 
   gridResetButtonCheck() {
-    cy.imsId("btn-reset").click();
-    cy.log("Successful clean displaying.");
+    cy.imsId(COMMON.BUTTONS.RESET).click();
+    cy.log(messages.ui.gridResetSuccess);
   }
 
   gridRefreshButtonCheck() {
-    cy.imsId("btn-refresh").click();
+    cy.imsId(COMMON.BUTTONS.REFRESH).click();
     cy.log(
-      "successfully refresh page  displayed the grid list of the Loan waiver "
+      messages.ui.gridRefreshSuccess
     );
   }
 
   gridSearchButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var lwData = data.fieldOfficer.createLoanWaiverFrom;
-      cy.imsId("btn-reset").click();
-      cy.formController("search_text").type(lwData.samityNameEn);
-      cy.imsId("btn-search").click();
-      cy.log("Successful search button click.");
+      const lwData = data.fieldOfficer.createLoanWaiverFrom;
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(lwData.samityNameEn);
+      cy.imsId(COMMON.BUTTONS.SEARCH).click();
+      cy.log(messages.ui.searchMessage);
     });
   }
 
 
   gridLanguageSwitchCheck() {
-    cy.imsId("profile-menu").click();
-    cy.imsId("btn-lang-bangla").click();
-    cy.log("Successful switch bangla language check.");
+    cy.imsId(COMMON.BUTTONS.PROFILE).click();
+    cy.imsId(COMMON.BUTTONS.LANGUAGE_CHANGE).click();
+    cy.log(messages.ui.languageSwitchMessage);
   }
 }
 

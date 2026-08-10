@@ -6,14 +6,14 @@ class EmployeeManagementCreation {
   gridEmployeeListPage() {
     cy.fixture(this.test_data).then((data) => {
       cy.selectMenu("menu-employee", "submenu-employee-management");
-      cy.log("Successfully Employee Management list page.");
+      cy.log(messages.ui.gridListMessage);
     });
   }
 
   createEmployeeManagement() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      var emData = data.mraAdmin.createEmployeeFrom;
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+      const emData = data.mraAdmin.createEmployeeFrom;
       cy.formController("name_en").type(emData.employeeNameEn);
       cy.formController("name_bn").type(emData.employeeNameBn);
       cy.formController("date_of_birth").click();
@@ -65,29 +65,29 @@ class EmployeeManagementCreation {
       cy.wait(1000);
       cy.imsId("btn_tin_doc_id").attachFile("tinDocImg1.jpg");
       cy.wait(1000);
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-yes").click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.YES).click();
       cy.get("app-confirmation-modal")
         .contains(emData.messageSaveEmployee)
         .and("be.visible");
-      cy.imsId("btn-ok").click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
 
-      cy.log("Successfully created employee management");
+      cy.log(messages.ui.submitSuccess);
     });
   }
 
   approveEmployee() {
     cy.fixture(this.test_data).then((data) => {
-      var emData = data.mraAdmin.createEmployeeFrom;
+      const emData = data.mraAdmin.createEmployeeFrom;
       cy.imsId("menu-my-task").click();
       cy.imsId("submenu-awaiting-employee-management").click();
-      cy.imsId("toggle-action").first().click();
-      cy.imsId("btn-table-action-view").click();
+      cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+      cy.imsId(COMMON.GRID.ACTION_VIEW).click();
       cy.imsId("btn-lock").click();
-      cy.imsId("btn-approve").click();
+      cy.imsId(COMMON.BUTTONS.APPROVE).click();
       cy.imsId("btn-Approve").click();
-      cy.imsId("btn-yes").click();
-      cy.imsId("btn-ok").click();
+      cy.imsId(COMMON.CONFIRMATION.YES).click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
 
       cy.log("Successfully approve employee management");
     });
@@ -95,9 +95,9 @@ class EmployeeManagementCreation {
 
   createAllField() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
 
-      var emData = data.mraAdmin.createEmployeeFrom;
+      const emData = data.mraAdmin.createEmployeeFrom;
       cy.formController("name_en").type(emData.employeeNameEn);
       cy.formController("name_bn").type(emData.employeeNameBn);
       cy.formController("date_of_birth").click();
@@ -181,154 +181,154 @@ class EmployeeManagementCreation {
       cy.imsId("btn_tin_doc_id").attachFile("tinDocImg1.jpg");
       cy.wait(1000);
 
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-yes").click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.YES).click();
       cy.get("app-confirmation-modal")
         .contains(emData.messageSaveEmployee)
         .and("be.visible");
-      cy.imsId("btn-ok").click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
 
-      cy.log("Successfully created employee management all fields");
+      cy.log(messages.ui.submitSuccess);
     });
   }
 
   actionButtonCheck() {
     cy.selectMenu("menu-employee", "submenu-employee-management");
-    cy.imsId("toggle-action").first().click();
+    cy.imsId(COMMON.TOGGLES.ACTION).first().click();
     cy.log(
-      "Action button clicked successfully on the employee management list page."
+      messages.ui.actionMessage
     );
   }
 
   viewEmployeeManagement() {
     cy.fixture(this.test_data).then((data) => {
-      var emData = data.mraAdmin.createEmployeeFrom;
+      const emData = data.mraAdmin.createEmployeeFrom;
 
-      cy.formController("search_text").type(emData.search);
-      cy.imsId("toggle-action").first().click();
-      cy.imsId("btn-table-action-view").click();
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(emData.search);
+      cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+      cy.imsId(COMMON.GRID.ACTION_VIEW).click();
 
-      cy.log("Successfully viewed the employee management list page");
+      cy.log(messages.ui.viewMessage);
     });
   }
 
   viewGoBackButton() {
-    cy.imsId("btn-go-back").click();
+    cy.imsId(COMMON.BUTTONS.GO_BACK).click();
 
-    cy.log("Successfully view go back the Employee management list page");
+    cy.log(messages.ui.goBackSuccess);
   }
 
   turnOffOnEditMode() {
-    cy.imsId("toggle-action").first().click();
-    cy.imsId("btn-table-action-view").click();
+    cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+    cy.imsId(COMMON.GRID.ACTION_VIEW).click();
     cy.get('.ant-switch-inner > .hidden').click();
-    cy.imsId("btn-go-back").click();
+    cy.imsId(COMMON.BUTTONS.GO_BACK).click();
 
 
-    cy.log("Employee management form Edit Mode toggled successfully");
+    cy.log(messages.ui.turnOnEditModeMessage);
   }
 
   editEmployeeManagement() {
     cy.fixture(this.test_data).then((data) => {
-      var emData = data.mraAdmin.createEmployeeFrom;
-      cy.imsId("btn-reset").click();
-      cy.formController("search_text").type(emData.employeeNameEn);
-      cy.imsId("toggle-action").first().click();
-      cy.imsId("btn-table-action-edit").click();
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-yes").click();
-      cy.imsId("btn-ok").click();
+      const emData = data.mraAdmin.createEmployeeFrom;
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(emData.employeeNameEn);
+      cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+      cy.imsId(COMMON.GRID.ACTION_EDIT).click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.YES).click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
 
-      cy.log("Employee Management updated successfully");
+      cy.log(messages.ui.editMessage);
     });
   }
 
   editResetButton() {
     cy.fixture(this.test_data).then((data) => {
-      var emData = data.mraAdmin.createEmployeeFrom;
-      cy.imsId("btn-reset").click();
+      const emData = data.mraAdmin.createEmployeeFrom;
+      cy.imsId(COMMON.BUTTONS.RESET).click();
 
-      cy.formController("search_text").type(emData.search);
-      cy.imsId("toggle-action").first().click();
-      cy.imsId("btn-table-action-edit").click();
-      cy.imsId("btn-reset").click();
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(emData.search);
+      cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+      cy.imsId(COMMON.GRID.ACTION_EDIT).click();
+      cy.imsId(COMMON.BUTTONS.RESET).click();
 
-      cy.log("Successful clean displaying");
+      cy.log(messages.ui.editResetMessage);
     });
   }
 
   editDraftButton() {
-    cy.imsId("btn-draft").first().click();
-    cy.imsId("btn-ok").click();
+    cy.imsId(COMMON.BUTTONS.DRAFT).first().click();
+    cy.imsId(COMMON.CONFIRMATION.OK).click();
 
-    cy.log("Successful draft button check.");
+    cy.log(messages.ui.editMessage);
   }
 
   editSubmitButton() {
-    cy.imsId("btn-submit").first().click();
-    cy.imsId("btn-ok").click();
+    cy.imsId(COMMON.BUTTONS.SUBMIT).first().click();
+    cy.imsId(COMMON.CONFIRMATION.OK).click();
 
-    cy.log("Successful submit button check.");
+    cy.log(messages.ui.editSubmitMessage);
   }
 
   editApproveButton() {
-    cy.imsId("btn-approve").first().click();
-    cy.imsId("btn-ok").click();
+    cy.imsId(COMMON.BUTTONS.APPROVE).first().click();
+    cy.imsId(COMMON.CONFIRMATION.OK).click();
 
-    cy.log("Successful approve button check.");
+    cy.log(messages.ui.editMessage);
   }
 
   editGoBackButton() {
-    cy.imsId("btn-go-back").click();
-    cy.log("Successful edit go back button check.");
+    cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+    cy.log(messages.ui.editGoBackMessage);
 
   }
 
   statusInactiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var emData = data.mraAdmin.createEmployeeFrom;
-      cy.imsId("btn-reset").click();
+      const emData = data.mraAdmin.createEmployeeFrom;
+      cy.imsId(COMMON.BUTTONS.RESET).click();
       cy.formController("status").type(emData.selectStatus).type("{enter}");
       cy.log(
-        "Employee Management form status inactive dropdown check successfully"
+        messages.ui.dropdownInactiveMessage
       );
     });
   }
 
   statusActiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var emData = data.mraAdmin.createEmployeeFrom;
+      const emData = data.mraAdmin.createEmployeeFrom;
       cy.formController("status").type(emData.statusSelect).type("{enter}");
       cy.log(
-        "Employee Management form status active dropdown check successfully"
+        messages.ui.dropdownActiveMessage
       );
     });
   }
 
   searchInEmployeeName() {
     cy.fixture(this.test_data).then((data) => {
-      var emData = data.mraAdmin.createEmployeeFrom;
-      cy.imsId("btn-reset").click();
-      cy.formController("search_text").type(emData.employeeNameEn);
-      cy.log("Successfully search in the Employee Management form");
+      const emData = data.mraAdmin.createEmployeeFrom;
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(emData.employeeNameEn);
+      cy.log(messages.ui.searchMessage);
     });
   }
 
   gridResetButtonCheck() {
-    cy.imsId("btn-reset").click();
-    cy.log("Successful clean displaying.");
+    cy.imsId(COMMON.BUTTONS.RESET).click();
+    cy.log(messages.ui.gridResetSuccess);
   }
 
   gridRefreshButtonCheck() {
-    cy.imsId("btn-refresh").click();
+    cy.imsId(COMMON.BUTTONS.REFRESH).click();
     cy.log(
-      "successfully refresh page  displayed the grid list of the Employee Management form "
+      messages.ui.gridRefreshSuccess
     );
   }
 
   gridCheckboxCheck() {
     cy.imsId("row-checkbox-3").click();
-    cy.imsId("btn-reset").click();
+    cy.imsId(COMMON.BUTTONS.RESET).click();
     cy.log("Checkbox should be clickable and functional.");
   }
 
@@ -357,51 +357,51 @@ class EmployeeManagementCreation {
 
   createResetButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var emData = data.mraAdmin.createEmployeeFrom;
-      cy.imsId("btn-add-new").click();
+      const emData = data.mraAdmin.createEmployeeFrom;
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
       cy.formController("name_en").type(emData.employeeNameEn);
-      cy.imsId("btn-reset").click();
-      cy.log("Successful clean displaying.");
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      cy.log(messages.validation.requiredField);
     });
   }
 
   createDraftButtonCheck() {
-    cy.imsId("btn-draft").click();
-    cy.imsId("btn-ok").click();
-    cy.log("Successful draft button check.");
+    cy.imsId(COMMON.BUTTONS.DRAFT).click();
+    cy.imsId(COMMON.CONFIRMATION.OK).click();
+    cy.log(messages.ui.draftOnMessage);
   }
 
   createValidationMessageCheck() {
-    cy.imsId("btn-submit").click();
-    cy.imsId("btn-ok").click();
-    cy.log("Successful validation message displaying.");
+    cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+    cy.imsId(COMMON.CONFIRMATION.OK).click();
+    cy.log(messages.validation.requiredField);
   }
 
   createApproveButtonCheck() {
-    cy.imsId("btn-approve").click();
-    cy.imsId("btn-ok").click();
-    cy.log("Successful approve button check.");
+    cy.imsId(COMMON.BUTTONS.APPROVE).click();
+    cy.imsId(COMMON.CONFIRMATION.OK).click();
+    cy.log(messages.ui.submitSuccess);
   }
 
   createGoBackButtonCheck() {
-    cy.imsId("btn-go-back").click();
-    cy.log("Successful go back button check.");
+    cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+    cy.log(messages.ui.createGoBackMessage);
   }
 
   gridSearchButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var emData = data.mraAdmin.createEmployeeFrom;
-      cy.imsId("btn-reset").click();
-      cy.formController("search_text").type(emData.search);
-      cy.imsId("btn-search").click();
-      cy.log("Successful search button click.");
+      const emData = data.mraAdmin.createEmployeeFrom;
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(emData.search);
+      cy.imsId(COMMON.BUTTONS.SEARCH).click();
+      cy.log(messages.ui.searchMessage);
     });
   }
 
   gridLanguageSwitchCheck() {
-    cy.imsId("profile-menu").click();
-    cy.imsId("btn-lang-bangla").click();
-    cy.log("Successful switch bangla language check.");
+    cy.imsId(COMMON.BUTTONS.PROFILE).click();
+    cy.imsId(COMMON.BUTTONS.LANGUAGE_CHANGE).click();
+    cy.log(messages.ui.languageSwitchMessage);
   }
 }
 

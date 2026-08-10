@@ -1,36 +1,38 @@
+import messages from "../../../../support/constants/messages";
+import { COMMON } from "../../../../support/constants/selectors";
 class TrialBalance {
     test_data = Cypress.env("TEST_DATA");
 
     gridTrialBalanceListPage() {
         cy.fixture(this.test_data).then((data) => {
             cy.selectMenu("menu-financial-statement", "submenu-trial-balance");
-            cy.log("Successfully Trial balance list page.");
+            cy.log(messages.ui.gridListMessage);
         });
     }
 
       gridRefreshButtonCheck() {
     cy.imsId("btn-reload").click();
     cy.log(
-      "successfully refresh page  displayed the grid list of the trial balance form "
+      messages.ui.gridRefreshSuccess
     );
     }   
 
     selectofficeDropdown() {
         cy.fixture(this.test_data).then((data) => {
-            var tbData = data.mfiAdmin.createTrialBalanceFrom;
+            const tbData = data.mfiAdmin.createTrialBalanceFrom;
             cy.formController("office_id").type(tbData.office);
             cy.log("Successfully select office in the trial balance list page.");
         });
     }
 
     gridLanguageSwitchCheck() {
-        cy.imsId("profile-menu").click();
-        cy.imsId("btn-lang-bangla").click();
-        cy.log("Unsccessful switch bangla language check.");
+        cy.imsId(COMMON.BUTTONS.PROFILE).click();
+        cy.imsId(COMMON.BUTTONS.LANGUAGE_CHANGE).click();
+        cy.log(messages.ui.languageSwitchMessage);
     }
 
     gridGoBackButtonCheck() {
-        cy.imsId("btn-go-back").click();
+        cy.imsId(COMMON.BUTTONS.GO_BACK).click();
         cy.log("Successful go back button check.");
     }
 

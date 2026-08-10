@@ -1,28 +1,30 @@
+import messages from "../../../../../support/constants/messages";
+import { COMMON } from "../../../../../support/constants/selectors";
 class IncomeStatementReport {
     test_data = Cypress.env("TEST_DATA");
 
     gridIncomeStatementListPage() {
         cy.fixture(this.test_data).then((data) => {
             cy.selectMenu("menu-report", "income-statement");
-            cy.log("Successfully Income Statement list page.");
+            cy.log(messages.ui.gridListMessage);
         });
     }
 
     viewReportButtonCheck() {
         cy.imsId("btn-view-report").click();
         cy.wait(3000);
-        cy.log("Successful view report button check.");
+        cy.log(messages.ui.viewMessage);
     }
 
     gridGoBackButtonCheck() {
-        cy.imsId("btn-go-back").click();
+        cy.imsId(COMMON.BUTTONS.GO_BACK).click();
         cy.log("Successful go back button check.");
     }
 
     gridLanguageSwitchCheck() {
-        cy.imsId("profile-menu").click();
-        cy.imsId("btn-lang-bangla").click();
-        cy.log("Unsuccessful switch bangla language check.");
+        cy.imsId(COMMON.BUTTONS.PROFILE).click();
+        cy.imsId(COMMON.BUTTONS.LANGUAGE_CHANGE).click();
+        cy.log(messages.ui.languageSwitchMessage);
     }
 }
 

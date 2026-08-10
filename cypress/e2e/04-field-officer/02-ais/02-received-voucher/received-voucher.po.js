@@ -7,14 +7,14 @@ class ReceivedVoucherCreation {
     gridReceivedVoucherListPage() {
         cy.fixture(this.test_data).then(() => {
             cy.selectMenu("menu-voucher", "submenu-received-voucher");
-            cy.log("Successfully received voucher list page.");
+            cy.log(messages.ui.gridListMessage);
         });
     }
 
     createReceivedVoucher() {
         cy.fixture(this.test_data).then((data) => {
-            var rvData = data.fieldOfficer.receivedVoucher;
-            cy.imsId("btn-add-new").click();
+            const rvData = data.fieldOfficer.receivedVoucher;
+            cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
             cy.formController("voucher_name_en").type(rvData.voucherNameEn);
             cy.formController("voucher_name_bn").type(rvData.voucherNameBn);
             cy.formController("received_date").click();
@@ -41,17 +41,17 @@ class ReceivedVoucherCreation {
             cy.wait(1000);
             cy.formController("remarks").eq(2).type(rvData.remarks1);
             cy.formController("transaction_amount").clear().type(rvData.amount);
-            cy.imsId("btn-submit").click();
-            cy.imsId("btn-yes").click();
-            cy.imsId("btn-ok").click();
-            cy.log("Successfully created received voucher");
+            cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+            cy.imsId(COMMON.CONFIRMATION.YES).click();
+            cy.imsId(COMMON.CONFIRMATION.OK).click();
+            cy.log(messages.ui.submitSuccess);
         });
     }
 
     createWithoutVoucherNameEn() {
         cy.fixture(this.test_data).then((data) => {
-            var rvData = data.fieldOfficer.receivedVoucher;
-            cy.imsId("btn-add-new").click();
+            const rvData = data.fieldOfficer.receivedVoucher;
+            cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
             cy.formController("voucher_name_bn").type(rvData.voucherNameBn);
             cy.formController("received_date").click();
             cy.get('.ant-picker-dropdown')
@@ -77,17 +77,17 @@ class ReceivedVoucherCreation {
             cy.wait(1000);
             cy.formController("remarks").eq(2).type(rvData.remarks1);
             cy.formController("transaction_amount").clear().type(rvData.amount);
-            cy.imsId("btn-submit").click();
-            cy.imsId("btn-ok").click();
-            cy.imsId("btn-reset").click();
-            cy.log("Validation check without Voucher Name English.");
+            cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+            cy.imsId(COMMON.CONFIRMATION.OK).click();
+            cy.imsId(COMMON.BUTTONS.RESET).click();
+            cy.log(messages.ui.withoutDataMessage);
 
         });
     }
 
     createWithoutVoucherNameBn() {
         cy.fixture(this.test_data).then((data) => {
-            var rvData = data.fieldOfficer.receivedVoucher;
+            const rvData = data.fieldOfficer.receivedVoucher;
             cy.formController("voucher_name_en").type(rvData.voucherNameEn);
             cy.formController("received_date").click();
             cy.get('.ant-picker-dropdown')
@@ -113,16 +113,16 @@ class ReceivedVoucherCreation {
             cy.wait(1000);
             cy.formController("remarks").eq(2).type(rvData.remarks1);
             cy.formController("transaction_amount").clear().type(rvData.amount);
-            cy.imsId("btn-submit").click();
-            cy.imsId("btn-ok").click();
-            cy.imsId("btn-reset").click();
-            cy.log("Validation check without Voucher Name Bangla.");
+            cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+            cy.imsId(COMMON.CONFIRMATION.OK).click();
+            cy.imsId(COMMON.BUTTONS.RESET).click();
+            cy.log(messages.ui.withoutDataMessage);
         });
     }
 
     createWithoutVoucherDate() {
         cy.fixture(this.test_data).then((data) => {
-            var rvData = data.fieldOfficer.receivedVoucher;
+            const rvData = data.fieldOfficer.receivedVoucher;
             cy.formController("voucher_name_en").type(rvData.voucherNameEn);
             cy.formController("voucher_name_bn").type(rvData.voucherNameBn);
             cy.formController("voucher_prepared_by").type(rvData.preparedBy).type("{enter}");
@@ -142,17 +142,17 @@ class ReceivedVoucherCreation {
             cy.wait(1000);
             cy.formController("remarks").eq(2).type(rvData.remarks1);
             cy.formController("transaction_amount").clear().type(rvData.amount);
-            cy.imsId("btn-submit").click();
-            cy.imsId("btn-ok").click();
-            cy.imsId("btn-reset").click();
-            cy.log("Validation check without Voucher Date.");
+            cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+            cy.imsId(COMMON.CONFIRMATION.OK).click();
+            cy.imsId(COMMON.BUTTONS.RESET).click();
+            cy.log(messages.ui.withoutDataMessage);
 
         });
     }
 
     createWithoutVoucherPreparedBy() {
         cy.fixture(this.test_data).then((data) => {
-            var rvData = data.fieldOfficer.receivedVoucher;
+            const rvData = data.fieldOfficer.receivedVoucher;
             cy.formController("voucher_name_en").type(rvData.voucherNameEn);
             cy.formController("voucher_name_bn").type(rvData.voucherNameBn);
             cy.formController("received_date").click();
@@ -177,17 +177,17 @@ class ReceivedVoucherCreation {
             cy.wait(1000);
             cy.formController("remarks").eq(2).type(rvData.remarks1);
             cy.formController("transaction_amount").clear().type(rvData.amount);
-            cy.imsId("btn-submit").click();
-            cy.imsId("btn-ok").click();
-            cy.imsId("btn-reset").click();
-            cy.log("Validation check without Voucher Prepared By.");
+            cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+            cy.imsId(COMMON.CONFIRMATION.OK).click();
+            cy.imsId(COMMON.BUTTONS.RESET).click();
+            cy.log(messages.ui.withoutDataMessage);
 
         });
     }
 
     createWithoutVoucherRemarks() {
         cy.fixture(this.test_data).then((data) => {
-            var rvData = data.fieldOfficer.receivedVoucher;
+            const rvData = data.fieldOfficer.receivedVoucher;
             cy.formController("voucher_name_en").type(rvData.voucherNameEn);
             cy.formController("voucher_name_bn").type(rvData.voucherNameBn);
             cy.formController("received_date").click();
@@ -213,17 +213,17 @@ class ReceivedVoucherCreation {
             cy.wait(1000);
             cy.formController("remarks").eq(2).type(rvData.remarks1);
             cy.formController("transaction_amount").clear().type(rvData.amount);
-            cy.imsId("btn-submit").click();
-            cy.imsId("btn-ok").click();
-            cy.imsId("btn-reset").click();
-            cy.log("Validation check without Voucher Remarks.");
+            cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+            cy.imsId(COMMON.CONFIRMATION.OK).click();
+            cy.imsId(COMMON.BUTTONS.RESET).click();
+            cy.log(messages.ui.withoutDataMessage);
 
         });
     }
 
     createWithoutVoucherReceiveMode() {
         cy.fixture(this.test_data).then((data) => {
-            var rvData = data.fieldOfficer.receivedVoucher;
+            const rvData = data.fieldOfficer.receivedVoucher;
             cy.formController("voucher_name_en").type(rvData.voucherNameEn);
             cy.formController("voucher_name_bn").type(rvData.voucherNameBn);
             cy.formController("received_date").click();
@@ -248,16 +248,16 @@ class ReceivedVoucherCreation {
             cy.wait(1000);
             cy.formController("remarks").eq(2).type(rvData.remarks1);
             cy.formController("transaction_amount").clear().type(rvData.amount);
-            cy.imsId("btn-submit").click();
-            cy.imsId("btn-ok").click();
-            cy.imsId("btn-reset").click();
-            cy.log("Validation check without Receive Mode.");
+            cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+            cy.imsId(COMMON.CONFIRMATION.OK).click();
+            cy.imsId(COMMON.BUTTONS.RESET).click();
+            cy.log(messages.ui.withoutDataMessage);
         });
     }
 
     createWithoutVoucherAmount() {
         cy.fixture(this.test_data).then((data) => {
-            var rvData = data.fieldOfficer.receivedVoucher;
+            const rvData = data.fieldOfficer.receivedVoucher;
             cy.formController("voucher_name_en").type(rvData.voucherNameEn);
             cy.formController("voucher_name_bn").type(rvData.voucherNameBn);
             cy.formController("received_date").click();
@@ -282,17 +282,17 @@ class ReceivedVoucherCreation {
             cy.wait(1000);
             cy.formController("remarks").eq(2).type(rvData.remarks1);
             cy.formController("transaction_amount").clear().type(rvData.amount);
-            cy.imsId("btn-submit").click();
-            cy.imsId("btn-ok").click();
-            cy.imsId("btn-reset").click();
-            cy.log("Validation check without Amount.");
+            cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+            cy.imsId(COMMON.CONFIRMATION.OK).click();
+            cy.imsId(COMMON.BUTTONS.RESET).click();
+            cy.log(messages.ui.withoutDataMessage);
 
         });
     }
 
     createWithoutVoucherReceiveMethodRemarks() {
         cy.fixture(this.test_data).then((data) => {
-            var rvData = data.fieldOfficer.receivedVoucher;
+            const rvData = data.fieldOfficer.receivedVoucher;
             cy.formController("voucher_name_en").type(rvData.voucherNameEn);
             cy.formController("voucher_name_bn").type(rvData.voucherNameBn);
             cy.formController("received_date").click();
@@ -317,17 +317,17 @@ class ReceivedVoucherCreation {
             cy.wait(1000);
             cy.formController("remarks").eq(2).type(rvData.remarks1);
             cy.formController("transaction_amount").clear().type(rvData.amount);
-            cy.imsId("btn-submit").click();
-            cy.imsId("btn-ok").click();
-            cy.imsId("btn-reset").click();
-            cy.log("Validation check without Receive Method Remarks.");
+            cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+            cy.imsId(COMMON.CONFIRMATION.OK).click();
+            cy.imsId(COMMON.BUTTONS.RESET).click();
+            cy.log(messages.ui.withoutDataMessage);
 
         });
     }
 
     createWithoutVoucherDetailDate() {
         cy.fixture(this.test_data).then((data) => {
-            var rvData = data.fieldOfficer.receivedVoucher;
+            const rvData = data.fieldOfficer.receivedVoucher;
             cy.formController("voucher_name_en").type(rvData.voucherNameEn);
             cy.formController("voucher_name_bn").type(rvData.voucherNameBn);
             cy.formController("received_date").click();
@@ -346,16 +346,16 @@ class ReceivedVoucherCreation {
             cy.wait(1000);
             cy.formController("remarks").eq(2).type(rvData.remarks1);
             cy.formController("transaction_amount").clear().type(rvData.amount);
-            cy.imsId("btn-submit").click();
-            cy.imsId("btn-ok").click();
-            cy.imsId("btn-reset").click();
-            cy.log("Validation check without Detail Date.");
+            cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+            cy.imsId(COMMON.CONFIRMATION.OK).click();
+            cy.imsId(COMMON.BUTTONS.RESET).click();
+            cy.log(messages.ui.withoutDataMessage);
         });
     }
 
     createWithoutVoucherLedger() {
         cy.fixture(this.test_data).then((data) => {
-            var rvData = data.fieldOfficer.receivedVoucher;
+            const rvData = data.fieldOfficer.receivedVoucher;
             cy.formController("voucher_name_en").type(rvData.voucherNameEn);
             cy.formController("voucher_name_bn").type(rvData.voucherNameBn);
             cy.formController("received_date").click();
@@ -379,17 +379,17 @@ class ReceivedVoucherCreation {
                 .click({ force: true });
             cy.formController("remarks").eq(2).type(rvData.remarks1);
             cy.formController("transaction_amount").clear().type(rvData.amount);
-            cy.imsId("btn-submit").click();
-            cy.imsId("btn-ok").click();
-            cy.imsId("btn-reset").click();
-            cy.log("Validation check without Ledger.");
+            cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+            cy.imsId(COMMON.CONFIRMATION.OK).click();
+            cy.imsId(COMMON.BUTTONS.RESET).click();
+            cy.log(messages.ui.withoutDataMessage);
 
         });
     }
 
     createWithoutVoucherDetailsRemarks() {
         cy.fixture(this.test_data).then((data) => {
-            var rvData = data.fieldOfficer.receivedVoucher;
+            const rvData = data.fieldOfficer.receivedVoucher;
             cy.formController("voucher_name_en").type(rvData.voucherNameEn);
             cy.formController("voucher_name_bn").type(rvData.voucherNameBn);
             cy.formController("received_date").click();
@@ -415,17 +415,17 @@ class ReceivedVoucherCreation {
             cy.formController("ledger_id").type(rvData.ledger).type("{enter}");
             cy.wait(1000);
             cy.formController("transaction_amount").clear().type(rvData.amount);
-            cy.imsId("btn-submit").click();
-            cy.imsId("btn-ok").click();
-            cy.imsId("btn-reset").click();
-            cy.log("Validation check without Details Remarks.");
+            cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+            cy.imsId(COMMON.CONFIRMATION.OK).click();
+            cy.imsId(COMMON.BUTTONS.RESET).click();
+            cy.log(messages.ui.withoutDataMessage);
 
         });
     }
 
     createWithoutVoucherDetailsAmount() {
         cy.fixture(this.test_data).then((data) => {
-            var rvData = data.fieldOfficer.receivedVoucher;
+            const rvData = data.fieldOfficer.receivedVoucher;
             cy.formController("voucher_name_en").type(rvData.voucherNameEn);
             cy.formController("voucher_name_bn").type(rvData.voucherNameBn);
             cy.formController("received_date").click();
@@ -451,11 +451,11 @@ class ReceivedVoucherCreation {
             cy.formController("ledger_id").type(rvData.ledger).type("{enter}");
             cy.wait(1000);
             cy.formController("remarks").eq(2).type(rvData.remarks1);
-            cy.imsId("btn-submit").click();
-            cy.imsId("btn-ok").click();
-            cy.imsId("btn-reset").click();
-            cy.imsId("btn-go-back").click();
-            cy.log("Validation check without Details Amount.");
+            cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+            cy.imsId(COMMON.CONFIRMATION.OK).click();
+            cy.imsId(COMMON.BUTTONS.RESET).click();
+            cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+            cy.log(messages.ui.withoutDataMessage);
 
         });
     }
@@ -465,12 +465,12 @@ class ReceivedVoucherCreation {
             cy.switchModule("AIS");
             cy.imsId("menu-my-task").click();
             cy.imsId("submenu-awaiting-received-voucher").click();
-            cy.imsId("toggle-action").first().click();
-            cy.imsId("btn-table-action-view").click();
+            cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+            cy.imsId(COMMON.GRID.ACTION_VIEW).click();
             cy.imsId("btn-lock").click();
-            cy.imsId("btn-approve").click();
-            cy.imsId("btn-submit").click();
-            cy.imsId("btn-ok").click();
+            cy.imsId(COMMON.BUTTONS.APPROVE).click();
+            cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+            cy.imsId(COMMON.CONFIRMATION.OK).click();
 
             cy.log("Successfully approved received voucher");
         });
@@ -478,64 +478,64 @@ class ReceivedVoucherCreation {
 
     actionButtonCheck() {
         cy.selectMenu("menu-voucher", "submenu-received-voucher");
-        cy.imsId("toggle-action").first().click();
-        cy.log("Action button clicked successfully on the received voucher list page.");
+        cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+        cy.log(messages.ui.actionMessage);
     }
 
     detailsViewCheck() {
-        cy.imsId("btn-table-action-view").click();
+        cy.imsId(COMMON.GRID.ACTION_VIEW).click();
         cy.log("Details view button clicked successfully on the received voucher list page.");
     }
 
     viewGoBackReceivedVoucher() {
-        cy.imsId("btn-go-back").click();
-        cy.log("Successfully went back to the received voucher list page");
+        cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+        cy.log(messages.ui.viewMessage);
     }
 
     statusInactiveDropdownCheck() {
         cy.fixture(this.test_data).then((data) => {
-            var rvData = data.fieldOfficer.receivedVoucher;
-            cy.imsId("btn-reset").click();
+            const rvData = data.fieldOfficer.receivedVoucher;
+            cy.imsId(COMMON.BUTTONS.RESET).click();
             cy.formController("status").type(rvData.selectStatus).type("{enter}");
-            cy.log("Received voucher status inactive dropdown check successful");
+            cy.log(messages.ui.dropdownInactiveMessage);
         });
     }
 
     statusActiveDropdownCheck() {
         cy.fixture(this.test_data).then((data) => {
-            var rvData = data.fieldOfficer.receivedVoucher;
+            const rvData = data.fieldOfficer.receivedVoucher;
             cy.formController("status").type(rvData.statusSelect).type("{enter}");
-            cy.log("Received voucher status active dropdown check successful");
+            cy.log(messages.ui.dropdownActiveMessage);
         });
     }
 
     searchName() {
         cy.fixture(this.test_data).then((data) => {
-            var rvData = data.fieldOfficer.receivedVoucher;
-            cy.imsId("btn-reset").click();
-            cy.formController("search_text").type(rvData.voucherNameBn);
+            const rvData = data.fieldOfficer.receivedVoucher;
+            cy.imsId(COMMON.BUTTONS.RESET).click();
+            cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(rvData.voucherNameBn);
             cy.log("Successfully searched received voucher");
         });
     }
 
     gridResetButtonCheck() {
-        cy.imsId("btn-reset").click();
-        cy.log("Grid reset button clicked successfully");
+        cy.imsId(COMMON.BUTTONS.RESET).click();
+        cy.log(messages.ui.gridResetSuccess);
     }
 
     gridRefreshButtonCheck() {
-        cy.imsId("btn-refresh").click();
-        cy.log("Grid refreshed successfully on received voucher list page");
+        cy.imsId(COMMON.BUTTONS.REFRESH).click();
+        cy.log(messages.ui.gridRefreshSuccess);
     }
 
     gridSearchButtonCheck() {
         cy.fixture(this.test_data).then((data) => {
-            var rvData = data.fieldOfficer.receivedVoucher;
-            cy.imsId("btn-reset").click();
-            cy.formController("search_text").type(rvData.voucherNameBn);
-            cy.imsId("btn-search").click();
+            const rvData = data.fieldOfficer.receivedVoucher;
+            cy.imsId(COMMON.BUTTONS.RESET).click();
+            cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(rvData.voucherNameBn);
+            cy.imsId(COMMON.BUTTONS.SEARCH).click();
 
-            cy.log("Successfully search button click.");
+            cy.log(messages.ui.searchMessage);
         });
     }
 
@@ -551,60 +551,60 @@ class ReceivedVoucherCreation {
         cy.log(messages.ui.draftOffMessage);
     }
     createResetButtonCheck() {
-        cy.imsId("btn-add-new").click();
-        cy.imsId("btn-reset").click();
-        cy.log("Create reset button cleared all input successfully");
+        cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+        cy.imsId(COMMON.BUTTONS.RESET).click();
+        cy.log(messages.validation.requiredField);
     }
 
     createValidationMessageCheck() {
-        cy.imsId("btn-submit").click();
-        cy.imsId("btn-ok").click();
-        cy.log("Validation messages displayed successfully");
+        cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+        cy.imsId(COMMON.CONFIRMATION.OK).click();
+        cy.log(messages.validation.requiredField);
     }
 
     createDraftButtonCheck() {
-        cy.imsId("btn-draft").click();
-        cy.imsId("btn-ok").click();
-        cy.log("Draft validation messages displayed successfully");
+        cy.imsId(COMMON.BUTTONS.DRAFT).click();
+        cy.imsId(COMMON.CONFIRMATION.OK).click();
+        cy.log(messages.ui.draftOnMessage);
     }
 
     createApproveButtonCheck() {
-        cy.imsId("btn-approve").click();
-        cy.imsId("btn-ok").click();
-        cy.log("Approve validation messages displayed successfully");
+        cy.imsId(COMMON.BUTTONS.APPROVE).click();
+        cy.imsId(COMMON.CONFIRMATION.OK).click();
+        cy.log(messages.ui.submitSuccess);
     }
 
     createPaymentAddIconButtonCheck() {
         cy.imsId("btn-add-icon").click();
-        cy.log("Add icon button clicked successfully");
+        cy.log(messages.ui.submitSuccess);
     }
 
     createPaymentRemoveIconButtonCheck() {
         cy.imsId("btn-remove-icon").first().click();
-        cy.log("Remove icon button clicked successfully");
+        cy.log(messages.ui.submitSuccess);
     }
 
     createGoBackButtonCheck() {
-        cy.imsId("btn-go-back").click();
-        cy.log("Go back button clicked successfully");
+        cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+        cy.log(messages.ui.createGoBackMessage);
     }
 
     createNewJournalDetailsButtonCheck() {
-        cy.imsId("btn-add-new").click();
+        cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
         cy.imsId("btn-add-icon-0").click();
-        cy.log("Add new journal details button clicked successfully");
+        cy.log(messages.ui.submitSuccess);
     }
 
     createDeleteButtonCheck() {
         cy.imsId("btn-remove-icon-1").click();
-        cy.imsId("btn-go-back").click();
-        cy.log("Delete button clicked successfully");
+        cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+        cy.log(messages.ui.submitSuccess);
     }
 
     gridLanguageSwitchCheck() {
-        cy.imsId("profile-menu").click();
-        cy.imsId("btn-lang-bangla").click();
-        cy.log("Grid language switched successfully to Bangla");
+        cy.imsId(COMMON.BUTTONS.PROFILE).click();
+        cy.imsId(COMMON.BUTTONS.LANGUAGE_CHANGE).click();
+        cy.log(messages.ui.languageSwitchMessage);
     }
 }
 

@@ -11,86 +11,86 @@ class OfficeGrid {
   }
 
   actionButtonCheck() {
-    cy.imsId("toggle-action").first().click();
+    cy.imsId(COMMON.TOGGLES.ACTION).first().click();
     cy.log(
-      "Action button clicked successfully on the office list page."
+      messages.ui.actionMessage
     );
   }
 
   viewOffice() {
     cy.fixture(this.test_data).then((data) => {
-      var omData = data.branchManager.gridOfficeFrom;
-      cy.formController("search_text").type(omData.officeNameEn);
-      cy.imsId("toggle-action").first().click();
-      cy.imsId("btn-table-action-view").click();
-      cy.log("Successfully viewed the office list page");
+      const omData = data.branchManager.gridOfficeFrom;
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(omData.officeNameEn);
+      cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+      cy.imsId(COMMON.GRID.ACTION_VIEW).click();
+      cy.log(messages.ui.viewMessage);
     });
   }
 
   viewGoBackButton() {
-    cy.imsId("btn-go-back").click();
+    cy.imsId(COMMON.BUTTONS.GO_BACK).click();
 
-    cy.log("Successfully view go back the office list page");
+    cy.log(messages.ui.goBackSuccess);
   }
 
   editGoBackButton() {
-    cy.imsId("toggle-action").first().click();
-    cy.imsId("btn-table-action-edit").click();
+    cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+    cy.imsId(COMMON.GRID.ACTION_EDIT).click();
     cy.imsId("btn-back").click();
-    cy.log("Successful edit go back button check.");
+    cy.log(messages.ui.editGoBackMessage);
   }
 
   statusInactiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var omData = data.branchManager.gridOfficeFrom;
-      cy.imsId("btn-reset").click();
+      const omData = data.branchManager.gridOfficeFrom;
+      cy.imsId(COMMON.BUTTONS.RESET).click();
       cy.formController("status").type(omData.selectStatus).type("{enter}");
-      cy.log("office status inactive dropdown check successfully");
+      cy.log(messages.ui.dropdownInactiveMessage);
     });
   }
 
   statusActiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var omData = data.branchManager.gridOfficeFrom;
+      const omData = data.branchManager.gridOfficeFrom;
       cy.formController("status").type(omData.statusSelect).type("{enter}");
-      cy.log("officestatus active dropdown check successfully");
+      cy.log(messages.ui.dropdownActiveMessage);
     });
   }
 
   searchInOfficeManagementName() {
     cy.fixture(this.test_data).then((data) => {
-      var omData = data.branchManager.gridOfficeFrom;
-      cy.imsId("btn-reset").click();
-      cy.formController("search_text").type(omData.officeNameEn);
-      cy.log("Successfully search in the office");
+      const omData = data.branchManager.gridOfficeFrom;
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(omData.officeNameEn);
+      cy.log(messages.ui.searchMessage);
     });
   }
 
   gridSearchButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var omData = data.branchManager.gridOfficeFrom;
-      cy.imsId("btn-reset").click();
-      cy.formController("search_text").type(omData.search);
-      cy.imsId("btn-search").click();
-      cy.log("Successful search button click.");
+      const omData = data.branchManager.gridOfficeFrom;
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(omData.search);
+      cy.imsId(COMMON.BUTTONS.SEARCH).click();
+      cy.log(messages.ui.searchMessage);
     });
   }
 
   gridResetButtonCheck() {
-    cy.imsId("btn-reset").click();
-    cy.log("Successful clean displaying.");
+    cy.imsId(COMMON.BUTTONS.RESET).click();
+    cy.log(messages.ui.gridResetSuccess);
   }
 
   gridRefreshButtonCheck() {
-    cy.imsId("btn-refresh").click();
+    cy.imsId(COMMON.BUTTONS.REFRESH).click();
     cy.log(
-      "successfully refresh page  displayed the grid list of the office "
+      messages.ui.gridRefreshSuccess
     );
   }
 
   gridDraftButton() {
     cy.imsId("btn-draft-on").click();
-    cy.log("Draft button should be clickable and functional.");
+    cy.log(messages.ui.draftOnMessage);
   }
 
   gridDraftButton() {
@@ -123,9 +123,9 @@ class OfficeGrid {
 
 
   gridLanguageSwitchCheck() {
-    cy.imsId("profile-menu").click();
-    cy.imsId("btn-lang-bangla").click();
-    cy.log("Successful switch bangla language check.");
+    cy.imsId(COMMON.BUTTONS.PROFILE).click();
+    cy.imsId(COMMON.BUTTONS.LANGUAGE_CHANGE).click();
+    cy.log(messages.ui.languageSwitchMessage);
   }
 }
 

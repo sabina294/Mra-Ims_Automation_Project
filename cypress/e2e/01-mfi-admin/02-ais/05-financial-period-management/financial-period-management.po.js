@@ -6,14 +6,14 @@ class FinancialPeriodManagementCreation {
     gridFinancialPeriodListPage() {
         cy.fixture(this.test_data).then((data) => {
             cy.selectMenu("menu-accounting", "submenu-financial-period-management");
-            cy.log("Successfully Chart of accounts list page.");
+            cy.log(messages.ui.gridListMessage);
         });
     }
 
     createFinancialPeriodManagement() {
         cy.fixture(this.test_data).then((data) => {
-            var fpmData = data.mfiAdmin.financialPeriodManagement;
-            cy.imsId("btn-add-new").click();
+            const fpmData = data.mfiAdmin.financialPeriodManagement;
+            cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
             cy.formController("name_en").type(fpmData.nameEn);
             cy.formController("name_bn").type(fpmData.nameBn);
             cy.formController("period_type").type(fpmData.periodType).type("{enter}");
@@ -21,116 +21,116 @@ class FinancialPeriodManagementCreation {
             cy.wait(1000);
             cy.contains(15).click();
             cy.wait(1000);
-            cy.imsId("btn-submit").click();
-            cy.imsId("btn-yes").click();
-            cy.imsId("btn-ok").click();
+            cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+            cy.imsId(COMMON.CONFIRMATION.YES).click();
+            cy.imsId(COMMON.CONFIRMATION.OK).click();
 
-            cy.log("Successfully created financial period management");
+            cy.log(messages.ui.submitSuccess);
         });
     }
 
 
     createwithoutNameEnglish() {
         cy.fixture(this.test_data).then((data) => {
-            var fpmData = data.mfiAdmin.financialPeriodManagement;
-            cy.imsId("btn-add-new").click();
+            const fpmData = data.mfiAdmin.financialPeriodManagement;
+            cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
             cy.formController("name_bn").type(fpmData.nameBn);
             cy.formController("period_type").type(fpmData.periodType).type("{enter}");
             cy.formController("start_date").click();
             cy.wait(1000);
             cy.contains(15).click();
             cy.wait(1000);
-            cy.imsId("btn-submit").click();
-            cy.imsId("btn-ok").click();
-            cy.imsId("btn-reset").click();
+            cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+            cy.imsId(COMMON.CONFIRMATION.OK).click();
+            cy.imsId(COMMON.BUTTONS.RESET).click();
 
-            cy.log("Unsuccessfully created financial period management without name in English");
+            cy.log(messages.ui.withoutDataMessage);
         });
     }
 
     createwithoutNameBangla() {
         cy.fixture(this.test_data).then((data) => {
-            var fpmData = data.mfiAdmin.financialPeriodManagement;
+            const fpmData = data.mfiAdmin.financialPeriodManagement;
             cy.formController("name_en").type(fpmData.nameEn);
             cy.formController("period_type").type(fpmData.periodType).type("{enter}");
             cy.formController("start_date").click();
             cy.wait(1000);
             cy.contains(15).click();
             cy.wait(1000);
-            cy.imsId("btn-submit").click();
-            cy.imsId("btn-ok").click();
-            cy.imsId("btn-reset").click();
+            cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+            cy.imsId(COMMON.CONFIRMATION.OK).click();
+            cy.imsId(COMMON.BUTTONS.RESET).click();
 
-            cy.log("Unsuccessfully created financial period management without name in Bangla");
+            cy.log(messages.ui.withoutDataMessage);
         });
     }
 
     createwithoutPeriodType() {
         cy.fixture(this.test_data).then((data) => {
-            var fpmData = data.mfiAdmin.financialPeriodManagement;
+            const fpmData = data.mfiAdmin.financialPeriodManagement;
             cy.formController("name_en").type(fpmData.nameEn);
             cy.formController("name_bn").type(fpmData.nameBn);
             cy.formController("start_date").click();
             cy.wait(1000);
             cy.contains(15).click();
             cy.wait(1000);
-            cy.imsId("btn-submit").click();
-            cy.imsId("btn-ok").click();
-            cy.imsId("btn-go-back").click();
-            cy.log("Unsuccessfully created financial period management without period type");
+            cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+            cy.imsId(COMMON.CONFIRMATION.OK).click();
+            cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+            cy.log(messages.ui.withoutDataMessage);
         });
     }
 
     actionButtonCheck() {
-        cy.imsId("toggle-action").first().click();
-        cy.log("Action button clicked successfully on the financial period management list page.");
+        cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+        cy.log(messages.ui.actionMessage);
     }
 
     createDetailsViewCheck() {
-        cy.imsId("btn-table-action-view").first().click();
-        cy.log("View button clicked successfully on the financial period management list page.");
+        cy.imsId(COMMON.GRID.ACTION_VIEW).first().click();
+        cy.log(messages.ui.submitSuccess);
     }
 
     goBackFinancialPeriodManagement() {
-        cy.imsId("btn-go-back").click();
+        cy.imsId(COMMON.BUTTONS.GO_BACK).click();
         cy.log("Successfully go back the financial period management page");
     }
 
     statusInactiveDropdownCheck() {
         cy.fixture(this.test_data).then((data) => {
-            var fpmData = data.mfiAdmin.financialPeriodManagement;
-            cy.imsId("btn-reset").click();
+            const fpmData = data.mfiAdmin.financialPeriodManagement;
+            cy.imsId(COMMON.BUTTONS.RESET).click();
             cy.formController("status").type(fpmData.selectStatus).type("{enter}");
-            cy.log("ledger sub group status inactive dropdown check successfully");
+            cy.log(messages.ui.dropdownInactiveMessage);
         });
     }
 
     statusActiveDropdownCheck() {
         cy.fixture(this.test_data).then((data) => {
-            var fpmData = data.mfiAdmin.financialPeriodManagement;
-            cy.imsId("btn-reset").click();
+            const fpmData = data.mfiAdmin.financialPeriodManagement;
+            cy.imsId(COMMON.BUTTONS.RESET).click();
             cy.formController("status").type(fpmData.statusSelect).type("{enter}");
-            cy.log("ledger sub group status active dropdown check successfully");
+            cy.log(messages.ui.dropdownActiveMessage);
         });
     }
 
     searchName() {
         cy.fixture(this.test_data).then((data) => {
-            var fpmData = data.mfiAdmin.financialPeriodManagement;
-            cy.imsId("btn-reset").click();
-            cy.formController("search_text").type(fpmData.nameEn);
+            const fpmData = data.mfiAdmin.financialPeriodManagement;
+            cy.imsId(COMMON.BUTTONS.RESET).click();
+            cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(fpmData.nameEn);
             cy.log("Successfully search in the financial period management");
         });
     }
 
     gridResetButtonCheck() {
-        cy.imsId("btn-reset").click();
-        cy.log("Successful clean displaying.");
+        cy.imsId(COMMON.BUTTONS.RESET).click();
+        cy.log(messages.ui.gridResetSuccess);
     }
     gridRefreshButtonCheck() {
-        cy.imsId("btn-refresh").click();
+        cy.imsId(COMMON.BUTTONS.REFRESH).click();
         cy.log(
-            "successfully refresh page  displayed the grid list of the financial period management "
+            messages.ui.gridRefreshSuccess
         );
     }
 
@@ -147,40 +147,40 @@ class FinancialPeriodManagementCreation {
     }
 
     createResetButtonCheck() {
-        cy.imsId("btn-add-new").click();
-        cy.imsId("btn-reset").click();
-        cy.imsId("btn-go-back").click();
-        cy.log("Successful reset button clean displaying.");
+        cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+        cy.imsId(COMMON.BUTTONS.RESET).click();
+        cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+        cy.log(messages.validation.requiredField);
     }
 
     createValidationMessageCheck() {
-        cy.imsId("btn-add-new").click();
-        cy.imsId("btn-submit").click();
-        cy.imsId("btn-ok").click();
-        cy.imsId("btn-go-back").click();
-        cy.log("Successful validation message displaying.");
+        cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+        cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+        cy.imsId(COMMON.CONFIRMATION.OK).click();
+        cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+        cy.log(messages.validation.requiredField);
     }
 
     createGoBackButtonCheck() {
-        cy.imsId("btn-add-new").click();
-        cy.imsId("btn-go-back").click();
-        cy.log("Successful go back button check.");
+        cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+        cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+        cy.log(messages.ui.createGoBackMessage);
     }
 
     gridSearchButtonCheck() {
         cy.fixture(this.test_data).then((data) => {
-            var fpmData = data.mfiAdmin.financialPeriodManagement;
-            cy.imsId("btn-reset").click();
-            cy.formController("search_text").type(fpmData.search);
-            cy.imsId("btn-search").click();
-            cy.log("Successful search button click.");
+            const fpmData = data.mfiAdmin.financialPeriodManagement;
+            cy.imsId(COMMON.BUTTONS.RESET).click();
+            cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(fpmData.search);
+            cy.imsId(COMMON.BUTTONS.SEARCH).click();
+            cy.log(messages.ui.searchMessage);
         });
     }
 
     gridLanguageSwitchCheck() {
-        cy.imsId("profile-menu").click();
-        cy.imsId("btn-lang-bangla").click();
-        cy.log("Unsccessful switch bangla language check.");
+        cy.imsId(COMMON.BUTTONS.PROFILE).click();
+        cy.imsId(COMMON.BUTTONS.LANGUAGE_CHANGE).click();
+        cy.log(messages.ui.languageSwitchMessage);
     }
 }
 

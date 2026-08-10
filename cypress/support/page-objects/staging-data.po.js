@@ -1,22 +1,24 @@
 // Shared across 02-branch-manager/01-mis/44-staging-data, workflow.cy.js,
 // and 04-field-officer/01-mis/15-loan-penalty (uses it as a setup precondition).
+import messages from "../constants/messages";
+import { COMMON } from "../constants/selectors";
 class StagingData {
   test_data = Cypress.env("TEST_DATA");
 
   gridStagingDataListPage() {
     cy.fixture(this.test_data).then((data) => {
       cy.selectMenu("menu-process", "submenu-staging-data");
-      cy.log("SuccessfullyStaging Data list page.");
+      cy.log(messages.ui.gridListMessage);
     });
   }
 
   startProcessStagingData() {
-    cy.imsId("btn-start-process").click();
+    cy.imsId(COMMON.BUTTONS.START_PROCESS).click();
     cy.wait(1000);
-    cy.imsId("btn-yes").click();
+    cy.imsId(COMMON.CONFIRMATION.YES).click();
     cy.wait(3000);
     cy.log(
-      "successfully refresh page  displayed the grid list of the staging data form "
+      messages.ui.startProcessMessage
     );
   }
 
@@ -24,10 +26,10 @@ class StagingData {
     cy.fixture(this.test_data).then((data) => {
       const clickCount = 3; // change this number as needed
       for (let i = 0; i < clickCount; i++) {
-        cy.imsId("btn-refresh").click();
+        cy.imsId(COMMON.BUTTONS.REFRESH).click();
         cy.wait(2000); // optional wait between clicks
       }
-      cy.log("Successfully clicked refresh button multiple times");
+      cy.log(messages.ui.gridRefreshSuccess);
     });
   }
 
@@ -36,9 +38,7 @@ class StagingData {
       var SData = data.branchManager.createStagingDataFrom;
       cy.formController("field_officer_id").type(SData.fieldOfficer).type("{enter}");
       cy.wait(2000);
-      cy.log(
-        "successfully field officer dropdown selected and grid list displayed "
-      );
+      cy.log(messages.ui.fieldOfficerDropdownMessage);
     });
   }
 
@@ -47,9 +47,7 @@ class StagingData {
       var SData = data.branchManager.createStagingDataFrom;
       cy.formController("samity_id").type(SData.samity).type("{enter}");
       cy.wait(2000);
-      cy.log(
-        "successfully samity dropdown selected and grid list displayed "
-      );
+      cy.log(messages.ui.samityDropdownMessage);
     });
   }
 
@@ -58,9 +56,7 @@ class StagingData {
       var SData = data.branchManager.createStagingDataFrom;
       cy.formController("status").type(SData.status).type("{enter}");
       cy.wait(2000);
-      cy.log(
-        "successfully status dropdown selected and grid list displayed "
-      );
+      cy.log(messages.ui.dropdownActiveMessage);
     });
   }
 
@@ -68,36 +64,32 @@ class StagingData {
     cy.fixture(this.test_data).then((data) => {
       var SData = data.branchManager.createStagingDataFrom;
       cy.formController("search_text").type(SData.search);
-      cy.imsId("btn-search").click();
+      cy.imsId(COMMON.BUTTONS.SEARCH).click();
       cy.wait(2000);
-      cy.log(
-        "successfully search button clicked and grid list displayed "
-      );
+      cy.log(messages.ui.searchMessage);
     });
   }
 
   deleteButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
       var SData = data.branchManager.createStagingDataFrom;
-      cy.imsId("btn-delete").click();
-      cy.imsId("btn-yes").click();
+      cy.imsId(COMMON.BUTTONS.DELETE).click();
+      cy.imsId(COMMON.CONFIRMATION.YES).click();
       cy.wait(5000);
-      cy.imsId("btn-start-process").click();
+      cy.imsId(COMMON.BUTTONS.START_PROCESS).click();
       cy.wait(1000);
-      cy.imsId("btn-yes").click();
+      cy.imsId(COMMON.CONFIRMATION.YES).click();
       cy.wait(3000);
-      cy.imsId("btn-refresh").click();
+      cy.imsId(COMMON.BUTTONS.REFRESH).click();
       cy.wait(3000);
-      cy.log(
-        "successfully delete button clicked and grid list displayed "
-      );
+      cy.log(messages.ui.revertMessage);
     });
   }
 
   gridLanguageSwitchCheck() {
-    cy.imsId("profile-menu").click();
-    cy.imsId("btn-lang-bangla").click();
-    cy.log("Successful switch to Bangla language check.");
+    cy.imsId(COMMON.BUTTONS.PROFILE).click();
+    cy.imsId(COMMON.BUTTONS.LANGUAGE_CHANGE).click();
+    cy.log(messages.ui.languageSwitchMessage);
   }
 
 }

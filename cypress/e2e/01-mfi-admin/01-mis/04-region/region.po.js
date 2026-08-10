@@ -14,7 +14,7 @@ class RegionCreation {
   createRegion() {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
-      var regData = data.mfiAdmin.createRegionFrom;
+      const regData = data.mfiAdmin.createRegionFrom;
       cy.formController("region_name_en").type(regData.nameEn);
       cy.formController("region_name_bn").type(regData.nameBn);
       cy.formController("region_code").type(regData.regionCode);
@@ -28,7 +28,7 @@ class RegionCreation {
   createWithoutNameEn() {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
-      var regData = data.mfiAdmin.createRegionFrom;
+      const regData = data.mfiAdmin.createRegionFrom;
       cy.formController("region_name_bn").type(regData.nameBn);
       cy.formController("region_code").type(regData.regionCode);
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
@@ -41,7 +41,7 @@ class RegionCreation {
   createWithoutNameBn() {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
-      var regData = data.mfiAdmin.createRegionFrom;
+      const regData = data.mfiAdmin.createRegionFrom;
       cy.formController("region_name_en").type(regData.nameEn);
       cy.formController("region_code").type(regData.regionCode);
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
@@ -54,7 +54,7 @@ class RegionCreation {
   createWithoutCode() {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
-      var regData = data.mfiAdmin.createRegionFrom;
+      const regData = data.mfiAdmin.createRegionFrom;
       cy.formController("region_name_en").type(regData.nameEn);
       cy.formController("region_name_bn").type(regData.nameBn);
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
@@ -68,7 +68,7 @@ class RegionCreation {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
       cy.imsId(COMMON.BUTTONS.RESET).click();
-      var regData = data.mfiAdmin.createRegionFrom;
+      const regData = data.mfiAdmin.createRegionFrom;
       cy.formController("region_name_en").type(regData.nameEn);
       cy.formController("region_name_bn").type(regData.nameBn);
       cy.formController("region_code").type(regData.regionCode);
@@ -86,7 +86,7 @@ class RegionCreation {
 
   viewRegion() {
     cy.fixture(this.test_data).then((data) => {
-      var regData = data.mfiAdmin.createRegionFrom;
+      const regData = data.mfiAdmin.createRegionFrom;
       cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(regData.nameEn);
       cy.imsId(COMMON.BUTTONS.SEARCH).click();
       cy.imsId(COMMON.TOGGLES.ACTION).first().click();
@@ -109,7 +109,7 @@ class RegionCreation {
 
   editRegion() {
     cy.fixture(this.test_data).then((data) => {
-      var regData = data.mfiAdmin.createRegionFrom;
+      const regData = data.mfiAdmin.createRegionFrom;
       cy.imsId(COMMON.BUTTONS.RESET).click();
       cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(regData.search);
       cy.imsId(COMMON.BUTTONS.SEARCH).click();
@@ -140,7 +140,7 @@ class RegionCreation {
 
   statusInactiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var regData = data.mfiAdmin.createRegionFrom;
+      const regData = data.mfiAdmin.createRegionFrom;
       cy.imsId(COMMON.BUTTONS.RESET).click();
       cy.formController("status").type(regData.selectStatus).type("{enter}");
       cy.log(messages.ui.dropdownInactiveMessage);
@@ -149,7 +149,7 @@ class RegionCreation {
 
   statusActiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var regData = data.mfiAdmin.createRegionFrom;
+      const regData = data.mfiAdmin.createRegionFrom;
       cy.formController("status").type(regData.statusSelect).type("{enter}");
       cy.log(messages.ui.dropdownActiveMessage);
     });
@@ -157,7 +157,7 @@ class RegionCreation {
 
   searchInRegionName() {
     cy.fixture(this.test_data).then((data) => {
-      var regData = data.mfiAdmin.createRegionFrom;
+      const regData = data.mfiAdmin.createRegionFrom;
       cy.imsId(COMMON.BUTTONS.RESET).click();
       cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(regData.nameEn);
       cy.imsId(COMMON.BUTTONS.SEARCH).click();
@@ -177,7 +177,7 @@ class RegionCreation {
 
   createResetButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var regData = data.mfiAdmin.createRegionFrom;
+      const regData = data.mfiAdmin.createRegionFrom;
       cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
       cy.formController("region_name_en").type(regData.nameEn);
       cy.imsId(COMMON.BUTTONS.RESET).click();

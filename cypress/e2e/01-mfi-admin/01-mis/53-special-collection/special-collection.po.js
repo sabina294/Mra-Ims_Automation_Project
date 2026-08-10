@@ -6,22 +6,22 @@ class SpecialCollection {
     gridSpecialCollectionListPage() {
         cy.fixture(this.test_data).then((data) => {
             cy.selectMenu("menu-transaction", "submenu-special-collection");
-            cy.log("Successfully Special Collection list page.");
+            cy.log(messages.ui.gridListMessage);
         });
     }
 
     searchInSpecialCollectionName() {
         cy.fixture(this.test_data).then((data) => {
-            var scData = data.mfiAdmin.specialCollectionFrom;
-            cy.imsId("btn-reset").click();
-            cy.formController("search_text").type(scData.samity);
-            cy.imsId("btn-search").click();
-            cy.log("Successfully search in the Special Collection");
+            const scData = data.mfiAdmin.specialCollectionFrom;
+            cy.imsId(COMMON.BUTTONS.RESET).click();
+            cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(scData.samity);
+            cy.imsId(COMMON.BUTTONS.SEARCH).click();
+            cy.log(messages.ui.searchMessage);
         });
     }
     statusOfficeDropdownCheck() {
         cy.fixture(this.test_data).then((data) => {
-            var scData = data.mfiAdmin.specialCollectionFrom;
+            const scData = data.mfiAdmin.specialCollectionFrom;
             cy.formController("office_id").type(scData.office).type("{enter}");
             cy.log(
                 "Special Collection status office dropdown check successfully"
@@ -42,19 +42,19 @@ class SpecialCollection {
 
 
     gridResetButtonCheck() {
-        cy.imsId("btn-reset").click();
-        cy.log("Successful clean displaying.");
+        cy.imsId(COMMON.BUTTONS.RESET).click();
+        cy.log(messages.ui.gridResetSuccess);
     }
     gridRefreshButtonCheck() {
-        cy.imsId("btn-refresh").click();
+        cy.imsId(COMMON.BUTTONS.REFRESH).click();
         cy.log(
-            "successfully refresh page  displayed the grid list of the Special Collection"
+            messages.ui.gridRefreshSuccess
         );
     }
     gridLanguageSwitchCheck() {
-        cy.imsId("profile-menu").click();
-        cy.imsId("btn-lang-bangla").click();
-        cy.log("Unsuccessful switch bangla language check.");
+        cy.imsId(COMMON.BUTTONS.PROFILE).click();
+        cy.imsId(COMMON.BUTTONS.LANGUAGE_CHANGE).click();
+        cy.log(messages.ui.languageSwitchMessage);
     }
 }
 

@@ -1,66 +1,68 @@
+import messages from "../../../../support/constants/messages";
+import { COMMON } from "../../../../support/constants/selectors";
 class AutoVoucher {
     test_data = Cypress.env("TEST_DATA");
 
     gridAutoVoucherListPage() {
         cy.fixture(this.test_data).then((data) => {
             cy.selectMenu("menu-voucher", "submenu-auto-voucher");
-            cy.log("Successfully auto voucher list page.");
+            cy.log(messages.ui.gridListMessage);
         });
     }
 
 
     statusInactiveDropdownCheck() {
         cy.fixture(this.test_data).then((data) => {
-            var avData = data.branchManager.autoVoucherFrom;
-            cy.imsId("btn-reset").click();
+            const avData = data.branchManager.autoVoucherFrom;
+            cy.imsId(COMMON.BUTTONS.RESET).click();
             cy.formController("status").type(avData.selectStatus).type("{enter}");
-            cy.log("ledger sub group status inactive dropdown check successfully");
+            cy.log(messages.ui.dropdownInactiveMessage);
         });
     }
 
     statusActiveDropdownCheck() {
         cy.fixture(this.test_data).then((data) => {
-            var avData = data.branchManager.autoVoucherFrom;
+            const avData = data.branchManager.autoVoucherFrom;
             cy.formController("status").type(avData.statusSelect).type("{enter}");
-            cy.log("ledger sub group status active dropdown check successfully");
+            cy.log(messages.ui.dropdownActiveMessage);
         });
     }
 
     searchName() {
         cy.fixture(this.test_data).then((data) => {
-            var avData = data.branchManager.autoVoucherFrom;
-            cy.imsId("btn-reset").click();
-            cy.formController("search_text").type(avData.preparedBy);
+            const avData = data.branchManager.autoVoucherFrom;
+            cy.imsId(COMMON.BUTTONS.RESET).click();
+            cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(avData.preparedBy);
             cy.log("Successfully search in the auto voucher");
         });
     }
 
     gridResetButtonCheck() {
-        cy.imsId("btn-reset").click();
-        cy.log("Successful clean displaying.");
+        cy.imsId(COMMON.BUTTONS.RESET).click();
+        cy.log(messages.ui.gridResetSuccess);
     }
     gridRefreshButtonCheck() {
-        cy.imsId("btn-refresh").click();
+        cy.imsId(COMMON.BUTTONS.REFRESH).click();
         cy.log(
-            "successfully refresh page  displayed the grid list of the auto voucher "
+            messages.ui.gridRefreshSuccess
         );
     }
 
     gridSearchButtonCheck() {
         cy.fixture(this.test_data).then((data) => {
-            var avData = data.branchManager.autoVoucherFrom;
-            cy.imsId("btn-reset").click();
-            cy.formController("search_text").type(avData.search);
-            cy.imsId("btn-search").click();
+            const avData = data.branchManager.autoVoucherFrom;
+            cy.imsId(COMMON.BUTTONS.RESET).click();
+            cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(avData.search);
+            cy.imsId(COMMON.BUTTONS.SEARCH).click();
 
-            cy.log("Successfully search button click.");
+            cy.log(messages.ui.searchMessage);
         });
     }
 
     gridLanguageSwitchCheck() {
-        cy.imsId("profile-menu").click();
-        cy.imsId("btn-lang-bangla").click();
-        cy.log("Unsccessful switch bangla language check.");
+        cy.imsId(COMMON.BUTTONS.PROFILE).click();
+        cy.imsId(COMMON.BUTTONS.LANGUAGE_CHANGE).click();
+        cy.log(messages.ui.languageSwitchMessage);
     }
 }
 

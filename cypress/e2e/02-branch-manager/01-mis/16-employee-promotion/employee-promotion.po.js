@@ -6,7 +6,7 @@ class EmployeePromotion {
     gridEmployeePromotionListPage() {
         cy.fixture(this.test_data).then((data) => {
             cy.selectMenu("menu-employee", "submenu-employee-promotion");
-            cy.log("Successfully Employee Promotion list page.");
+            cy.log(messages.ui.gridListMessage);
         });
     }
 
@@ -17,32 +17,32 @@ class EmployeePromotion {
             .first()
             .click();
 
-        cy.imsId("btn-reset").click();
+        cy.imsId(COMMON.BUTTONS.RESET).click();
 
         cy.log("Successful clean displaying");
     }
 
     promotionSubmitButton() {
-        cy.imsId("btn-submit").click();
-        cy.imsId("btn-ok").click();
+        cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+        cy.imsId(COMMON.CONFIRMATION.OK).click();
         cy.log("Successfully validation check promotion");
     }
 
     createEmployeePromotionWithoutEffectiveDate() {
         cy.fixture(this.test_data).then((data) => {
-            var empata = data.branchManager.gridEmpPromotionFrom;
+            const empata = data.branchManager.gridEmpPromotionFrom;
             cy.formController("new_department_id").type(empata.newDepartment).type("{enter}");
             cy.formController("new_designation_id").type(empata.newDesignation).type("{enter}");
-            cy.imsId("btn-submit").click();
-            cy.imsId("btn-ok").click();
-            cy.imsId("btn-reset").click();
-            cy.log("Successful promotion effective date field check.");
+            cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+            cy.imsId(COMMON.CONFIRMATION.OK).click();
+            cy.imsId(COMMON.BUTTONS.RESET).click();
+            cy.log(messages.ui.submitSuccess);
         });
     }
 
     createEmployeePromotionWithoutDepartment() {
         cy.fixture(this.test_data).then((data) => {
-            var empata = data.branchManager.gridEmpPromotionFrom;
+            const empata = data.branchManager.gridEmpPromotionFrom;
             cy.formController("effective_date").click();
             cy.get('.ant-picker-dropdown')
                 .should('be.visible');
@@ -51,16 +51,16 @@ class EmployeePromotion {
                 .first()
                 .click({ force: true });
             cy.formController("new_designation_id").type(empata.newDesignation).type("{enter}");
-            cy.imsId("btn-submit").click();
-            cy.imsId("btn-ok").click();
-            cy.imsId("btn-reset").click();
-            cy.log("Successful promotion department field check.");
+            cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+            cy.imsId(COMMON.CONFIRMATION.OK).click();
+            cy.imsId(COMMON.BUTTONS.RESET).click();
+            cy.log(messages.ui.submitSuccess);
         });
     }
 
     createEmployeePromotionWithoutDesignation() {
         cy.fixture(this.test_data).then((data) => {
-            var empata = data.branchManager.gridEmpPromotionFrom;
+            const empata = data.branchManager.gridEmpPromotionFrom;
             cy.formController("effective_date").click();
             cy.get('.ant-picker-dropdown')
                 .should('be.visible');
@@ -69,20 +69,20 @@ class EmployeePromotion {
                 .first()
                 .click({ force: true });
             cy.formController("new_department_id").type(empata.newDepartment).type("{enter}");
-            cy.imsId("btn-submit").click();
-            cy.imsId("btn-ok").click();
-            cy.log("Successful promotion designation field check.");
+            cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+            cy.imsId(COMMON.CONFIRMATION.OK).click();
+            cy.log(messages.ui.submitSuccess);
         });
     }
 
     promotionGoBackButton() {
-        cy.imsId("btn-go-back").click();
+        cy.imsId(COMMON.BUTTONS.GO_BACK).click();
         cy.log("Successful promotion go back button check.");
     }
 
     createEmployeePromotion() {
         cy.fixture(this.test_data).then((data) => {
-            var empata = data.branchManager.gridEmpPromotionFrom;
+            const empata = data.branchManager.gridEmpPromotionFrom;
             cy.imsId("btn-table-action-promotion")
                 .not(":disabled")
                 .first()
@@ -97,16 +97,16 @@ class EmployeePromotion {
             cy.formController("new_department_id").type(empata.newDepartment).type("{enter}");
             cy.wait(1000);
             cy.formController("new_designation_id").type(empata.newDesignation).type("{enter}");
-            cy.imsId("btn-submit").click();
-            cy.imsId("btn-yes").click();
-            cy.imsId("btn-ok").click();
-            cy.log("Successfully created employee promotion");
+            cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+            cy.imsId(COMMON.CONFIRMATION.YES).click();
+            cy.imsId(COMMON.CONFIRMATION.OK).click();
+            cy.log(messages.ui.submitSuccess);
         });
     }
 
     myTaskMenuEmployeePromotion() {
         cy.fixture(this.test_data).then((data) => {
-            var empData = data.branchManager.gridEmpPromotionFrom;
+            const empData = data.branchManager.gridEmpPromotionFrom;
             cy.imsId("menu-my-task").click();
             cy.imsId("submenu-awaiting-employee-promotion").click();
             cy.log("Successfully navigate to my task menu employee promotion");
@@ -114,56 +114,56 @@ class EmployeePromotion {
     }
 
     myTaskResetButtonCheck() {
-        cy.imsId("btn-reset").click();
+        cy.imsId(COMMON.BUTTONS.RESET).click();
         cy.log("Successful clean my task displaying.");
     }
 
     myTaskRefreshButtonCheck() {
-        cy.imsId("btn-refresh").click();
+        cy.imsId(COMMON.BUTTONS.REFRESH).click();
         cy.log(
             "successfully refresh page  displayed the my task list of the Employee promotion form "
         );
     }
 
     approveNewEmployeePromotion() {
-        cy.imsId("toggle-action").first().click();
-        cy.imsId("btn-table-action-view").first().click();
+        cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+        cy.imsId(COMMON.GRID.ACTION_VIEW).first().click();
         cy.imsId("btn-lock").click();
-        cy.imsId("btn-approve").click();
-        cy.imsId("btn-submit").click();
-        cy.imsId("btn-ok").click();
+        cy.imsId(COMMON.BUTTONS.APPROVE).click();
+        cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+        cy.imsId(COMMON.CONFIRMATION.OK).click();
         cy.log("Successfully approved employee promotion");
     }
 
     searchInEmployeeName() {
         cy.fixture(this.test_data).then((data) => {
-            var emData = data.branchManager.gridEmpPromotionFrom;
+            const emData = data.branchManager.gridEmpPromotionFrom;
             cy.selectMenu("menu-employee", "submenu-employee-promotion");
-            cy.imsId("btn-reset").click();
-            cy.formController("search_text").type(emData.search);
-            cy.log("Successfully search in the Employee Promotion form");
+            cy.imsId(COMMON.BUTTONS.RESET).click();
+            cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(emData.search);
+            cy.log(messages.ui.searchMessage);
         });
     }
 
     gridResetButtonCheck() {
-        cy.imsId("btn-reset").click();
-        cy.log("Successful clean displaying.");
+        cy.imsId(COMMON.BUTTONS.RESET).click();
+        cy.log(messages.ui.gridResetSuccess);
     }
 
     gridRefreshButtonCheck() {
-        cy.imsId("btn-refresh").click();
+        cy.imsId(COMMON.BUTTONS.REFRESH).click();
         cy.log(
-            "successfully refresh page  displayed the grid list of the Employee Promotion form "
+            messages.ui.gridRefreshSuccess
         );
     }
 
     gridSearchButtonCheck() {
         cy.fixture(this.test_data).then((data) => {
-            var emData = data.branchManager.gridEmpPromotionFrom;
-            cy.imsId("btn-reset").click();
-            cy.formController("search_text").type(emData.search);
-            cy.imsId("btn-search").click();
-            cy.log("Successful search button click.");
+            const emData = data.branchManager.gridEmpPromotionFrom;
+            cy.imsId(COMMON.BUTTONS.RESET).click();
+            cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(emData.search);
+            cy.imsId(COMMON.BUTTONS.SEARCH).click();
+            cy.log(messages.ui.searchMessage);
         });
     }
 
@@ -180,9 +180,9 @@ class EmployeePromotion {
     }
 
     gridLanguageSwitchCheck() {
-        cy.imsId("profile-menu").click();
-        cy.imsId("btn-lang-bangla").click();
-        cy.log("Successful switch to bangla language check.");
+        cy.imsId(COMMON.BUTTONS.PROFILE).click();
+        cy.imsId(COMMON.BUTTONS.LANGUAGE_CHANGE).click();
+        cy.log(messages.ui.languageSwitchMessage);
     }
 }
 

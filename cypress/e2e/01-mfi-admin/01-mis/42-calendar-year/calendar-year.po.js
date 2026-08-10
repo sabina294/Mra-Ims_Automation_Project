@@ -6,16 +6,16 @@ class CalendarYearCreation {
   gridCalendarListPage() {
     cy.fixture(this.test_data).then((data) => {
       cy.selectMenu("menu-calendar", "submenu-calendar-year");
-      cy.log("Successfully Calendar Year list page.");
+      cy.log(messages.ui.gridListMessage);
     });
   }
 
   createCalendar() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      // cy.imsId("btn-submit").and("be.visible");
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+      // cy.imsId(COMMON.BUTTONS.SUBMIT).and("be.visible");
 
-      var cyData = data.mfiAdmin.createCalendarYear;
+      const cyData = data.mfiAdmin.createCalendarYear;
       cy.imsId("btn-add").click();
       cy.formController("holiday_title_bn").type(cyData.holidayTitleBn);
       cy.formController("holiday_title_en").type(cyData.holidayTitleEn);
@@ -25,17 +25,17 @@ class CalendarYearCreation {
         .type("{enter}");
 
       cy.imsId("btn-modal-submit").click();
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-yes").click();
-      cy.imsId("btn-ok").click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.YES).click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
 
-      cy.log("Successfully created Calendar Year ");
+      cy.log(messages.ui.submitSuccess);
     });
   }
 
   myTaskMenuCalendarYear() {
     cy.fixture(this.test_data).then((data) => {
-      var cyData = data.mfiAdmin.createCalendarYear;
+      const cyData = data.mfiAdmin.createCalendarYear;
       cy.imsId("menu-my-task").click();
       cy.imsId("submenu-awaiting-calendar-year").click();
       cy.log("Successfully navigate to my task menu Calendar Year");
@@ -43,73 +43,73 @@ class CalendarYearCreation {
   }
  
   myTaskResetButtonCheck() {
-    cy.imsId("btn-reset").click();
+    cy.imsId(COMMON.BUTTONS.RESET).click();
     cy.log("Successful clean my task displaying.");
   }
 
    myTaskRefreshButtonCheck() {
-    cy.imsId("btn-refresh").click();
-    // cy.imsId("btn-reset").click();
-    // cy.imsId("btn-refresh").click();
+    cy.imsId(COMMON.BUTTONS.REFRESH).click();
+    // cy.imsId(COMMON.BUTTONS.RESET).click();
+    // cy.imsId(COMMON.BUTTONS.REFRESH).click();
     cy.log(
       "successfully refresh page  displayed the my task list of the calendar year "
     );
   }
 
   approveCalendare() {
-    cy.imsId("toggle-action").first().click();
-    cy.imsId("btn-table-action-view").click();
+    cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+    cy.imsId(COMMON.GRID.ACTION_VIEW).click();
     cy.imsId("btn-lock").click();
     cy.imsId("btn-add").click();
-    cy.imsId("btn-yes").click();
+    cy.imsId(COMMON.CONFIRMATION.YES).click();
     cy.wait(10000);
-    cy.imsId("btn-ok").click();
+    cy.imsId(COMMON.CONFIRMATION.OK).click();
     cy.log("Successfully approve Calendar Year ");
   }
 
   actionButtonCheck() {
     cy.selectMenu("menu-calendar", "submenu-calendar-year");
-    cy.imsId("toggle-action").first().click();
+    cy.imsId(COMMON.TOGGLES.ACTION).first().click();
     cy.log(
-      "Action button clicked successfully on the Calendar Year list page."
+      messages.ui.actionMessage
     );
   }
 
   viewCalendar() {
     cy.fixture(this.test_data).then((data) => {
-      var cyData = data.mfiAdmin.createCalendarYear;
+      const cyData = data.mfiAdmin.createCalendarYear;
 
-      cy.formController("search_text").type(cyData.search);
-      cy.imsId("toggle-action").first().click();
-      cy.imsId("btn-table-action-view").click();
-      cy.log("Successfully viewed the Calendar Year list page");
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(cyData.search);
+      cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+      cy.imsId(COMMON.GRID.ACTION_VIEW).click();
+      cy.log(messages.ui.viewMessage);
     });
   }
 
   viewGoBackButton() {
-    cy.imsId("btn-go-back").click();
-    cy.log("Successfully view go back the Calendar Year list page");
+    cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+    cy.log(messages.ui.goBackSuccess);
 
   }
 
   searchCalendarStatus() {
     cy.fixture(this.test_data).then((data) => {
-      var cyData = data.mfiAdmin.createCalendarYear;
-      cy.imsId("btn-reset").click();
-      cy.formController("search_text").type(cyData.search);
+      const cyData = data.mfiAdmin.createCalendarYear;
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(cyData.search);
       cy.log("Successfully search in the Calendar Year form");
     });
   }
 
   gridResetButtonCheck() {
-    cy.imsId("btn-reset").click();
-    cy.log("Successful clean displaying.");
+    cy.imsId(COMMON.BUTTONS.RESET).click();
+    cy.log(messages.ui.gridResetSuccess);
   }
 
   gridRefreshButtonCheck() {
-    cy.imsId("btn-refresh").click();
+    cy.imsId(COMMON.BUTTONS.REFRESH).click();
     cy.log(
-      "successfully refresh page  displayed the grid list of the Calendar Year form "
+      messages.ui.gridRefreshSuccess
     );
   }
 
@@ -127,7 +127,7 @@ class CalendarYearCreation {
 
   statusOfficeDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var cyData = data.mfiAdmin.createCalendarYear;
+      const cyData = data.mfiAdmin.createCalendarYear;
       cy.formController("office_id").type(cyData.selectOffice).type("{enter}");
       cy.log(
         "Calendar year status office dropdown check successfully"
@@ -137,43 +137,43 @@ class CalendarYearCreation {
 
   createResetButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      cy.imsId("btn-reset").click();
-      cy.imsId("btn-go-back").click();
-      cy.log("Successful clean displaying.");
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+      cy.log(messages.validation.requiredField);
     });
   }
 
   createSubmitButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-yes").click();
-      cy.imsId("btn-ok").click();
-      cy.log("Successful submit button working.");
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.YES).click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
+      cy.log(messages.ui.submitSuccess);
     });
   }
 
   createGoBackButtonCheck() {
-    cy.imsId("btn-add-new").click();
-    cy.imsId("btn-go-back").click();
-    cy.log("Successful go back button check.");
+    cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+    cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+    cy.log(messages.ui.createGoBackMessage);
   }
 
   gridSearchButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var cyData = data.mfiAdmin.createCalendarYear;
-      cy.imsId("btn-reset").click();
-      cy.formController("search_text").type(cyData.search);
-      cy.imsId("btn-search").click();
-      cy.log("Successful search button click.");
+      const cyData = data.mfiAdmin.createCalendarYear;
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(cyData.search);
+      cy.imsId(COMMON.BUTTONS.SEARCH).click();
+      cy.log(messages.ui.searchMessage);
     });
   }
 
   gridLanguageSwitchCheck() {
-    cy.imsId("profile-menu").click();
-    cy.imsId("btn-lang-bangla").click();
-    cy.log("Unsccessful switch bangla language check.");
+    cy.imsId(COMMON.BUTTONS.PROFILE).click();
+    cy.imsId(COMMON.BUTTONS.LANGUAGE_CHANGE).click();
+    cy.log(messages.ui.languageSwitchMessage);
   }
 }
 

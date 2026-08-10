@@ -6,13 +6,13 @@ class RegularCollection {
     gridRegularCollectionListPage() {
         cy.fixture(this.test_data).then((data) => {
             cy.selectMenu("menu-transaction", "submenu-regular-collection");
-            cy.log("Successfully regular collection list page.");
+            cy.log(messages.ui.gridListMessage);
         });
     }
 
     actionButtonCheck() {
-        cy.imsId("toggle-action").first().click();
-        cy.log("Action button clicked successfully on the regular collection list page.");
+        cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+        cy.log(messages.ui.actionMessage);
     }
     openButtonCheck() {
         cy.imsId("btn-table-action-open").first().click();
@@ -42,61 +42,61 @@ class RegularCollection {
     collectionSave() {
         cy.fixture(this.test_data).then((data) => {
             cy.imsId("btn-save").click();
-            cy.imsId("btn-yes").click();
-            cy.imsId("btn-ok").click();
+            cy.imsId(COMMON.CONFIRMATION.YES).click();
+            cy.imsId(COMMON.CONFIRMATION.OK).click();
             cy.log("successfully on the regular collection save.");
         });
     }
 
     viewRegularCollection() {
-        cy.imsId("toggle-action").first().click();
-        cy.imsId("btn-table-action-view").click();
-        cy.log("successfully on the view regular collection list page.");
+        cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+        cy.imsId(COMMON.GRID.ACTION_VIEW).click();
+        cy.log(messages.ui.viewMessage);
     }
 
     viewGoBackButton() {
-        cy.imsId("btn-go-back").click();
-        cy.log("successfully on the view regular collection list page.");
+        cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+        cy.log(messages.ui.goBackSuccess);
     }
 
     editRegularCollection() {
-        cy.imsId("toggle-action").first().click();
-        cy.imsId("btn-table-action-edit").click();
-        cy.log("successfully on the edit regular collection list page.");
+        cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+        cy.imsId(COMMON.GRID.ACTION_EDIT).click();
+        cy.log(messages.ui.editMessage);
     }
 
     editSaveButton() {
         cy.imsId("btn-save").click();
-        cy.imsId("btn-yes").click();
-        cy.imsId("btn-ok").click();
-        cy.log("successfully on the edit regular collection save.");
+        cy.imsId(COMMON.CONFIRMATION.YES).click();
+        cy.imsId(COMMON.CONFIRMATION.OK).click();
+        cy.log(messages.ui.editMessage);
     }
 
     collectionGoBack() {
-        cy.imsId("toggle-action").first().click();
-        cy.imsId("btn-table-action-view").click();
-        cy.imsId("btn-go-back").click();
+        cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+        cy.imsId(COMMON.GRID.ACTION_VIEW).click();
+        cy.imsId(COMMON.BUTTONS.GO_BACK).click();
         cy.log("successfully on the go back regular collection.");
     }
 
     collectionSubmit() {
-        cy.imsId("toggle-action").first().click();
+        cy.imsId(COMMON.TOGGLES.ACTION).first().click();
         cy.imsId("btn-table-action-submit").click();
-        cy.imsId("btn-submit").click();
-        cy.imsId("btn-yes").click();
-        cy.imsId("btn-ok").click();
+        cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+        cy.imsId(COMMON.CONFIRMATION.YES).click();
+        cy.imsId(COMMON.CONFIRMATION.OK).click();
         cy.log("successfully on the submit regular collection.");
     }
 
     gridResetButtonCheck() {
-        cy.imsId("btn-reset").click();
-        cy.log("Successful clean displaying.");
+        cy.imsId(COMMON.BUTTONS.RESET).click();
+        cy.log(messages.ui.gridResetSuccess);
     }
 
     gridRefreshButtonCheck() {
-        cy.imsId("btn-refresh").click();
+        cy.imsId(COMMON.BUTTONS.REFRESH).click();
         cy.log(
-            "successfully refresh page  displayed the grid list of the regular collection "
+            messages.ui.gridRefreshSuccess
         );
     }
 
@@ -108,7 +108,7 @@ class RegularCollection {
 
     fieldOfficerDropdownCheck() {
         cy.fixture(this.test_data).then((data) => {
-            var rcData = data.branchManager.regularCollection;
+            const rcData = data.branchManager.regularCollection;
             cy.formController("field_officer_id").type(rcData.fieldOfficer).type("{enter}");
             cy.log(
                 "successfully field officer dropdown displayed the grid list of the regular collection "
@@ -123,14 +123,14 @@ class RegularCollection {
     }
 
     gridLanguageSwitchCheck() {
-        cy.imsId("profile-menu").click();
-        cy.imsId("btn-lang-bangla").click();
-        cy.log("Unsuccessful switch bangla language check.");
+        cy.imsId(COMMON.BUTTONS.PROFILE).click();
+        cy.imsId(COMMON.BUTTONS.LANGUAGE_CHANGE).click();
+        cy.log(messages.ui.languageSwitchMessage);
     }
 
     fieldOfficerDropdownCheck() {
         cy.fixture(this.test_data).then((data) => {
-            var rcData = data.branchManager.regularCollection;
+            const rcData = data.branchManager.regularCollection;
             cy.formController("field_officer_id").type(rcData.fieldOfficer).type("{enter}");
             cy.log(
                 "successfully field officer dropdown displayed the grid list of the regular collection "
@@ -140,7 +140,7 @@ class RegularCollection {
 
     gridSamityDropdownCheck() {
         cy.fixture(this.test_data).then((data) => {
-            var rcData = data.branchManager.regularCollection;
+            const rcData = data.branchManager.regularCollection;
             cy.formController("staging_samity_id").type(rcData.Samity).type("{enter}");
             cy.log(
                 "successfully samity dropdown displayed the grid list of the regular collection "

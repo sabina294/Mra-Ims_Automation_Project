@@ -14,9 +14,9 @@ class FeeConfigurationCreation {
   createFeeConfiguration() {
   cy.fixture(this.test_data).then((data) => {
     cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
-    var fcData = data.mfiAdmin.createFeeConfigurationFrom;
-    var randomNumber = Math.floor(1000 + Math.random() * 9000);
-    var FeeCollectionCode = fcData.FeeCollCode + "-" + randomNumber;
+    const fcData = data.mfiAdmin.createFeeConfigurationFrom;
+    const randomNumber = Math.floor(1000 + Math.random() * 9000);
+    const FeeCollectionCode = fcData.FeeCollCode + "-" + randomNumber;
     cy.formController("fee_collection_code")
       .type(FeeCollectionCode);
     cy.formController("fee_type_name_en")
@@ -47,7 +47,7 @@ class FeeConfigurationCreation {
   createWitoutCollCode() {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
-      var fcData = data.mfiAdmin.createFeeConfigurationFrom;
+      const fcData = data.mfiAdmin.createFeeConfigurationFrom;
       cy.formController("fee_type_name_en").type(fcData.feeTypeNameEn);
       cy.formController("amount").type(fcData.amount);
       cy.formController("ledger_id").type(fcData.ledger).type("{enter}");
@@ -61,9 +61,9 @@ class FeeConfigurationCreation {
   createWithoutNameEn() {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
-      var fcData = data.mfiAdmin.createFeeConfigurationFrom;
-      var randomNumber = Math.floor(1000 + Math.random() * 9000);
-      var FeeCollectionCode = fcData.FeeCollCode + "-" + randomNumber;
+      const fcData = data.mfiAdmin.createFeeConfigurationFrom;
+      const randomNumber = Math.floor(1000 + Math.random() * 9000);
+      const FeeCollectionCode = fcData.FeeCollCode + "-" + randomNumber;
       cy.formController("fee_collection_code").type(FeeCollectionCode);
       cy.formController("amount").type(fcData.amount);
       cy.formController("ledger_id").type(fcData.ledger).type("{enter}");
@@ -77,9 +77,9 @@ class FeeConfigurationCreation {
   createWithoutNameBn() {
      cy.fixture(this.test_data).then((data) => {
     cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
-    var fcData = data.mfiAdmin.createFeeConfigurationFrom;
-    var randomNumber = Math.floor(1000 + Math.random() * 9000);
-    var FeeCollectionCode = fcData.FeeCollCode + "-" + randomNumber;
+    const fcData = data.mfiAdmin.createFeeConfigurationFrom;
+    const randomNumber = Math.floor(1000 + Math.random() * 9000);
+    const FeeCollectionCode = fcData.FeeCollCode + "-" + randomNumber;
     cy.formController("fee_collection_code")
       .type(FeeCollectionCode);
     cy.formController("fee_type_name_en")
@@ -110,9 +110,9 @@ class FeeConfigurationCreation {
   createWithoutAmount() {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
-      var fcData = data.mfiAdmin.createFeeConfigurationFrom;
-      var randomNumber = Math.floor(1000 + Math.random() * 9000);
-      var FeeCollectionCode = fcData.FeeCollCode + "-" + randomNumber;
+      const fcData = data.mfiAdmin.createFeeConfigurationFrom;
+      const randomNumber = Math.floor(1000 + Math.random() * 9000);
+      const FeeCollectionCode = fcData.FeeCollCode + "-" + randomNumber;
       cy.formController("fee_collection_code").type(FeeCollectionCode);
       cy.formController("fee_type_name_en").type(fcData.feeTypeNameEn);
       cy.formController("ledger_id").type(fcData.ledger).type("{enter}");
@@ -126,9 +126,9 @@ class FeeConfigurationCreation {
   createWithoutLedger() {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
-      var fcData = data.mfiAdmin.createFeeConfigurationFrom;
-      var randomNumber = Math.floor(1000 + Math.random() * 9000);
-      var FeeCollectionCode = fcData.FeeCollCode + "-" + randomNumber;
+      const fcData = data.mfiAdmin.createFeeConfigurationFrom;
+      const randomNumber = Math.floor(1000 + Math.random() * 9000);
+      const FeeCollectionCode = fcData.FeeCollCode + "-" + randomNumber;
       cy.formController("fee_collection_code").type(FeeCollectionCode);
       cy.formController("fee_type_name_en").type(fcData.feeTypeNameEn);
       cy.formController("amount").type(fcData.amount);
@@ -142,9 +142,9 @@ class FeeConfigurationCreation {
    createWithoutSubledger() {
   cy.fixture(this.test_data).then((data) => {
     cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
-    var fcData = data.mfiAdmin.createFeeConfigurationFrom;
-    var randomNumber = Math.floor(1000 + Math.random() * 9000);
-    var FeeCollectionCode = fcData.FeeCollCode + "-" + randomNumber;
+    const fcData = data.mfiAdmin.createFeeConfigurationFrom;
+    const randomNumber = Math.floor(1000 + Math.random() * 9000);
+    const FeeCollectionCode = fcData.FeeCollCode + "-" + randomNumber;
     cy.formController("fee_collection_code")
       .type(FeeCollectionCode);
     cy.formController("fee_type_name_en")
@@ -176,9 +176,9 @@ class FeeConfigurationCreation {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
       cy.imsId(COMMON.BUTTONS.RESET).click();
-      var fcData = data.mfiAdmin.createFeeConfigurationFrom;
-      var randomNumber = Math.floor(1000 + Math.random() * 9000);
-      var FeeCollectionCode = fcData.FeeCollCode + "-" + randomNumber;
+      const fcData = data.mfiAdmin.createFeeConfigurationFrom;
+      const randomNumber = Math.floor(1000 + Math.random() * 9000);
+      const FeeCollectionCode = fcData.FeeCollCode + "-" + randomNumber;
       cy.formController("fee_collection_code").type(FeeCollectionCode);
       cy.formController("fee_type_name_en").type(fcData.feeTypeNameEn);
       cy.formController("amount").type(fcData.amount);
@@ -197,7 +197,7 @@ class FeeConfigurationCreation {
 
   viewFeeConfiguration() {
     cy.fixture(this.test_data).then((data) => {
-      var fcData = data.mfiAdmin.createFeeConfigurationFrom;
+      const fcData = data.mfiAdmin.createFeeConfigurationFrom;
       cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(fcData.feeTypeNameEn);
       cy.imsId(COMMON.TOGGLES.ACTION).first().click();
       cy.imsId(COMMON.GRID.ACTION_VIEW).click();
@@ -257,7 +257,7 @@ class FeeConfigurationCreation {
 
   statusInactiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var fcData = data.mfiAdmin.createFeeConfigurationFrom;
+      const fcData = data.mfiAdmin.createFeeConfigurationFrom;
       cy.imsId(COMMON.BUTTONS.RESET).click();
       cy.formController("status").type(fcData.selectStatus).type("{enter}");
       cy.log(messages.ui.dropdownInactiveMessage);
@@ -266,7 +266,7 @@ class FeeConfigurationCreation {
 
   statusActiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var fcData = data.mfiAdmin.createFeeConfigurationFrom;
+      const fcData = data.mfiAdmin.createFeeConfigurationFrom;
       cy.formController("status").type(fcData.statusSelect).type("{enter}");
       cy.log(messages.ui.dropdownActiveMessage);
     });
@@ -274,7 +274,7 @@ class FeeConfigurationCreation {
 
   searchInFeeConfigurationName() {
     cy.fixture(this.test_data).then((data) => {
-      var fcData = data.mfiAdmin.createFeeConfigurationFrom;
+      const fcData = data.mfiAdmin.createFeeConfigurationFrom;
       cy.imsId(COMMON.BUTTONS.RESET).click();
       cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(fcData.feeTypeNameEn);
       cy.log(messages.ui.searchMessage);
@@ -293,7 +293,7 @@ class FeeConfigurationCreation {
 
   createResetButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var fcData = data.mfiAdmin.createFeeConfigurationFrom;
+      const fcData = data.mfiAdmin.createFeeConfigurationFrom;
       cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
       cy.formController("fee_type_name_en").type(fcData.feeTypeNameEn);
       cy.imsId(COMMON.BUTTONS.RESET).click();

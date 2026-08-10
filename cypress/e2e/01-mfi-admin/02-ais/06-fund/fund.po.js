@@ -1,17 +1,19 @@
+import messages from "../../../../support/constants/messages";
+import { COMMON } from "../../../../support/constants/selectors";
 class fundTransferCreation {
     test_data = Cypress.env("TEST_DATA");
 
     gridfundListPage() {
         cy.fixture(this.test_data).then((data) => {
             cy.selectMenu1("menu-fund");
-            cy.log("Successfully fund transfer list page.");
+            cy.log(messages.ui.gridListMessage);
         });
     }
 
     createfund() {
         cy.fixture(this.test_data).then((data) => {
-            var ftData = data.mfiAdmin.fund;
-            cy.imsId("btn-add-new").click();
+            const ftData = data.mfiAdmin.fund;
+            cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
             cy.formController("recipient_office_id").type(ftData.office).type("{enter}");
             cy.wait(2000);
             cy.formController("transaction_amount").type(ftData.Amount);
@@ -19,9 +21,9 @@ class fundTransferCreation {
             cy.formController("sender_pay_mode").type(ftData.senderPayment).type("{enter}");
             cy.formController("recipient_received_mode").type(ftData.recipientReceivedMode).type("{enter}");
             cy.formController("remarks").type(ftData.remarks);
-            cy.imsId("btn-submit").click();
-            cy.imsId("btn-yes").click();
-            cy.imsId("btn-ok").click();
+            cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+            cy.imsId(COMMON.CONFIRMATION.YES).click();
+            cy.imsId(COMMON.CONFIRMATION.OK).click();
 
             cy.log("Successfully created fund transfer");
         });
@@ -29,161 +31,161 @@ class fundTransferCreation {
 
 
     actionButtonCheck() {
-        cy.imsId("toggle-action").first().click();
-        cy.log("Action button clicked successfully on the fund transfer list page.");
+        cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+        cy.log(messages.ui.actionMessage);
     }
 
     statusInactiveDropdownCheck() {
         cy.fixture(this.test_data).then((data) => {
-            var ftData = data.mfiAdmin.fund;
-            cy.imsId("btn-reset").click();
+            const ftData = data.mfiAdmin.fund;
+            cy.imsId(COMMON.BUTTONS.RESET).click();
             cy.formController("status").type(ftData.selectStatus).type("{enter}");
-            cy.log("ledger sub group status inactive dropdown check successfully");
+            cy.log(messages.ui.dropdownInactiveMessage);
         });
     }
 
     statusActiveDropdownCheck() {
         cy.fixture(this.test_data).then((data) => {
-            var ftData = data.mfiAdmin.fund;
+            const ftData = data.mfiAdmin.fund;
             cy.formController("status").type(ftData.statusSelect).type("{enter}");
-            cy.log("ledger sub group status active dropdown check successfully");
+            cy.log(messages.ui.dropdownActiveMessage);
         });
     }
 
     searchName() {
         cy.fixture(this.test_data).then((data) => {
-            var ftData = data.mfiAdmin.fund;
-            cy.imsId("btn-reset").click();
-            cy.formController("search_text").type(ftData.senderPayment);
+            const ftData = data.mfiAdmin.fund;
+            cy.imsId(COMMON.BUTTONS.RESET).click();
+            cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(ftData.senderPayment);
             cy.log("Successfully search in the fund transfer");
         });
     }
 
     gridResetButtonCheck() {
-        cy.imsId("btn-reset").click();
-        cy.log("Successful clean displaying.");
+        cy.imsId(COMMON.BUTTONS.RESET).click();
+        cy.log(messages.ui.gridResetSuccess);
     }
     gridRefreshButtonCheck() {
-        cy.imsId("btn-refresh").click();
+        cy.imsId(COMMON.BUTTONS.REFRESH).click();
         cy.log(
-            "successfully refresh page  displayed the grid list of the fund transfer "
+            messages.ui.gridRefreshSuccess
         );
     }
 
     createwithoutRecipientOfficeID() {
         cy.fixture(this.test_data).then((data) => {
-            var ftData = data.mfiAdmin.fund;
-            cy.imsId("btn-add-new").click();
+            const ftData = data.mfiAdmin.fund;
+            cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
             cy.formController("transaction_amount").type(ftData.Amount);
             cy.wait(1000);
             cy.formController("sender_pay_mode").type(ftData.senderPayment).type("{enter}");
             cy.formController("recipient_received_mode").type(ftData.recipientReceivedMode).type("{enter}");
             cy.formController("remarks").type(ftData.remarks);
-            cy.imsId("btn-submit").click();
-            cy.imsId("btn-ok").click();
-            cy.imsId("btn-reset").click();
+            cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+            cy.imsId(COMMON.CONFIRMATION.OK).click();
+            cy.imsId(COMMON.BUTTONS.RESET).click();
 
-            cy.log("Unsuccessfully created fund transfer without recipient office ID");
+            cy.log(messages.ui.withoutDataMessage);
         });
     }
 
     createwithoutTransactionAmount() {
         cy.fixture(this.test_data).then((data) => {
-            var ftData = data.mfiAdmin.fund;
+            const ftData = data.mfiAdmin.fund;
             cy.formController("recipient_office_id").type(ftData.office).type("{enter}");
             cy.wait(2000);
             cy.formController("sender_pay_mode").type(ftData.senderPayment).type("{enter}");
             cy.formController("recipient_received_mode").type(ftData.recipientReceivedMode).type("{enter}");
             cy.formController("remarks").type(ftData.remarks);
-            cy.imsId("btn-submit").click();
-            cy.imsId("btn-ok").click();
-            cy.imsId("btn-reset").click();
+            cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+            cy.imsId(COMMON.CONFIRMATION.OK).click();
+            cy.imsId(COMMON.BUTTONS.RESET).click();
 
-            cy.log("Unsuccessfully created fund transfer without transaction amount");
+            cy.log(messages.ui.withoutDataMessage);
         });
     }
 
     createwithoutSenderPaymentMode() {
         cy.fixture(this.test_data).then((data) => {
-            var ftData = data.mfiAdmin.fund;
+            const ftData = data.mfiAdmin.fund;
             cy.formController("recipient_office_id").type(ftData.office).type("{enter}");
             cy.wait(2000);
             cy.formController("transaction_amount").type(ftData.Amount);
             cy.wait(1000);
             cy.formController("recipient_received_mode").type(ftData.recipientReceivedMode).type("{enter}");
             cy.formController("remarks").type(ftData.remarks);
-            cy.imsId("btn-submit").click();
-            cy.imsId("btn-ok").click();
-            cy.imsId("btn-reset").click();
+            cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+            cy.imsId(COMMON.CONFIRMATION.OK).click();
+            cy.imsId(COMMON.BUTTONS.RESET).click();
 
-            cy.log("Unsuccessfully created fund transfer without sender payment mode");
+            cy.log(messages.ui.withoutDataMessage);
         });
     }
 
     createwithoutRecipientReceivedMode() {
         cy.fixture(this.test_data).then((data) => {
-            var ftData = data.mfiAdmin.fund;
+            const ftData = data.mfiAdmin.fund;
             cy.formController("recipient_office_id").type(ftData.office).type("{enter}");
             cy.wait(2000);
             cy.formController("transaction_amount").type(ftData.Amount);
             cy.wait(1000);
             cy.formController("sender_pay_mode").type(ftData.senderPayment).type("{enter}");
             cy.formController("remarks").type(ftData.remarks);
-            cy.imsId("btn-submit").click();
-            cy.imsId("btn-ok").click();
-            cy.imsId("btn-reset").click();
+            cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+            cy.imsId(COMMON.CONFIRMATION.OK).click();
+            cy.imsId(COMMON.BUTTONS.RESET).click();
 
-            cy.log("Unsuccessfully created fund transfer without recipient received mode");
+            cy.log(messages.ui.withoutDataMessage);
         });
     }
 
     createwithoutRemarks() {
         cy.fixture(this.test_data).then((data) => {
-            var ftData = data.mfiAdmin.fund;
+            const ftData = data.mfiAdmin.fund;
             cy.formController("recipient_office_id").type(ftData.office).type("{enter}");
             cy.wait(2000);
             cy.formController("transaction_amount").type(ftData.Amount);
             cy.wait(1000);
             cy.formController("sender_pay_mode").type(ftData.senderPayment).type("{enter}");
             cy.formController("recipient_received_mode").type(ftData.recipientReceivedMode).type("{enter}");
-            cy.imsId("btn-submit").click();
-            cy.imsId("btn-ok").click();
-            cy.imsId("btn-go-back").click();
-            cy.log("Unsuccessfully created fund transfer without remarks");
+            cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+            cy.imsId(COMMON.CONFIRMATION.OK).click();
+            cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+            cy.log(messages.ui.withoutDataMessage);
         });
     }
 
     createResetButtonCheck() {
-        cy.imsId("btn-add-new").click();
-        cy.imsId("btn-reset").click();
-        cy.log("Successful reset button clean displaying.");
+        cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+        cy.imsId(COMMON.BUTTONS.RESET).click();
+        cy.log(messages.validation.requiredField);
     }
 
     createValidationMessageCheck() {
-        cy.imsId("btn-submit").click();
-        cy.imsId("btn-ok").click();
-        cy.log("Successful validation message displaying.");
+        cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+        cy.imsId(COMMON.CONFIRMATION.OK).click();
+        cy.log(messages.validation.requiredField);
     }
 
     createGoBackButtonCheck() {
-        cy.imsId("btn-go-back").click();
-        cy.log("Successful go back button check.");
+        cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+        cy.log(messages.ui.createGoBackMessage);
     }
 
     gridSearchButtonCheck() {
         cy.fixture(this.test_data).then((data) => {
-            var ftData = data.mfiAdmin.fund;
-            cy.imsId("btn-reset").click();
-            cy.formController("search_text").type(ftData.search);
-            cy.imsId("btn-search").click();
-            cy.log("Successful search button click.");
+            const ftData = data.mfiAdmin.fund;
+            cy.imsId(COMMON.BUTTONS.RESET).click();
+            cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(ftData.search);
+            cy.imsId(COMMON.BUTTONS.SEARCH).click();
+            cy.log(messages.ui.searchMessage);
         });
     }
 
     gridLanguageSwitchCheck() {
-        cy.imsId("profile-menu").click();
-        cy.imsId("btn-lang-bangla").click();
-        cy.log("Unsccessful switch bangla language check.");
+        cy.imsId(COMMON.BUTTONS.PROFILE).click();
+        cy.imsId(COMMON.BUTTONS.LANGUAGE_CHANGE).click();
+        cy.log(messages.ui.languageSwitchMessage);
     }
 }
 

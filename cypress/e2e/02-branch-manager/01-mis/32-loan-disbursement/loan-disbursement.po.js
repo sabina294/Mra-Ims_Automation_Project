@@ -7,50 +7,50 @@ class LoanDisbursement {
     gridLoanDisbursementListPage() {
         cy.fixture(this.test_data).then((data) => {
             cy.selectMenu("menu-loan-account", "submenu-loan-disbursement");
-            cy.log("Successfully Loan Disbursement list page.");
+            cy.log(messages.ui.gridListMessage);
         });
     }
 
     actionButtonCheck() {
-        cy.imsId("toggle-action").first().click();
+        cy.imsId(COMMON.TOGGLES.ACTION).first().click();
         cy.log(
-            "Action button clicked successfully on the loan disbursement list page."
+            messages.ui.actionMessage
         );
     }
 
     viewLoanDisbursement() {
         cy.fixture(this.test_data).then((data) => {
-            var ldData = data.branchManager.loanDisbursementFrom;
-            cy.imsId("btn-table-action-view").click();
-            cy.log("Successfully viewed the Loan Disbursement list page");
+            const ldData = data.branchManager.loanDisbursementFrom;
+            cy.imsId(COMMON.GRID.ACTION_VIEW).click();
+            cy.log(messages.ui.viewMessage);
         });
     }
 
     viewGoBackButton() {
-        cy.imsId("btn-go-back").click();
+        cy.imsId(COMMON.BUTTONS.GO_BACK).click();
 
-        cy.log("Successfully view go back the  loan disbursement list page");
+        cy.log(messages.ui.goBackSuccess);
     }
 
     gridSearchButtonCheck() {
         cy.fixture(this.test_data).then((data) => {
-            var ldData = data.branchManager.loanDisbursementFrom;
-            cy.imsId("btn-reset").click();
-            cy.formController("search_text").type(ldData.search);
-            cy.imsId("btn-search").click();
-            cy.log("Successful search button click.");
+            const ldData = data.branchManager.loanDisbursementFrom;
+            cy.imsId(COMMON.BUTTONS.RESET).click();
+            cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(ldData.search);
+            cy.imsId(COMMON.BUTTONS.SEARCH).click();
+            cy.log(messages.ui.searchMessage);
         });
     }
 
     gridResetButtonCheck() {
-        cy.imsId("btn-reset").click();
-        cy.log("Successful clean displaying.");
+        cy.imsId(COMMON.BUTTONS.RESET).click();
+        cy.log(messages.ui.gridResetSuccess);
     }
 
     gridRefreshButtonCheck() {
-        cy.imsId("btn-refresh").click();
+        cy.imsId(COMMON.BUTTONS.REFRESH).click();
         cy.log(
-            "successfully refresh page  displayed the grid list of the Loan Disbursement"
+            messages.ui.gridRefreshSuccess
         );
     }
 
@@ -69,22 +69,22 @@ class LoanDisbursement {
     loanDisburseButtonCheck() {
         cy.fixture(this.test_data).then(() => {
 
-            cy.imsId("toggle-action").first().click();
+            cy.imsId(COMMON.TOGGLES.ACTION).first().click();
             cy.imsId("btn-table-action-disburse").click();
             cy.imsId("btn-loan-disburse").click({ force: true });
             cy.log("Loan Disburse button clicked successfully");
         });
     }
     loanDisburseSubmitButtonCheck() {
-        cy.imsId("btn-submit").click();
-        cy.imsId("btn-ok").click();
+        cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+        cy.imsId(COMMON.CONFIRMATION.OK).click();
         cy.log("Loan Disburse submit button checked");
     }
 
      gridLanguageSwitchCheck() {
-        cy.imsId("profile-menu").click();
-        cy.imsId("btn-lang-bangla").click();
-        cy.log("Unsuccessful switch bangla language check.");
+        cy.imsId(COMMON.BUTTONS.PROFILE).click();
+        cy.imsId(COMMON.BUTTONS.LANGUAGE_CHANGE).click();
+        cy.log(messages.ui.languageSwitchMessage);
     }
     
 }

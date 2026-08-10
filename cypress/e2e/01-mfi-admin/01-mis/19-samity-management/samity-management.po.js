@@ -6,14 +6,14 @@ class SamityCreation {
   gridSamityManagementListPage() {
     cy.fixture(this.test_data).then((data) => {
       cy.selectMenu("menu-samity", "submenu-samity-management");
-      cy.log("Successfully samity management list page.");
+      cy.log(messages.ui.gridListMessage);
     });
   }
 
   createSamity() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      var smData = data.mfiAdmin.createSamityFrom;
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+      const smData = data.mfiAdmin.createSamityFrom;
       cy.formController("samity_name_en").first().type(smData.samityNameEn);
       cy.formController("samity_name_bn").type(smData.samityNameBn);
       cy.formController("samity_type").type(smData.samityType).type("{enter}");
@@ -38,16 +38,16 @@ class SamityCreation {
       cy.formController("geo_area_type")
         .type(smData.geoAreaType)
         .type("{enter}");
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-yes").click();
-      cy.imsId("btn-ok").click();
-      cy.log("Successfully created samity");
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.YES).click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
+      cy.log(messages.ui.submitSuccess);
     });
   }
 
   myTaskMenuSamity() {
     cy.fixture(this.test_data).then((data) => {
-      var smData = data.mfiAdmin.createSamityFrom;
+      const smData = data.mfiAdmin.createSamityFrom;
       cy.imsId("menu-my-task").click();
       cy.imsId("submenu-awaiting-samity-management").click();
       cy.log("Successfully navigate to my task menu samity management");
@@ -56,19 +56,19 @@ class SamityCreation {
 
   myTaskSamityOfficeDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var smData = data.mfiAdmin.approveSamityFrom;
+      const smData = data.mfiAdmin.approveSamityFrom;
       cy.formController("office_id").type(smData.office).type("{enter}");
       cy.log("Successfully navigate to my task menu samity management office dropdown");
     });
   }
 
   myTaskResetButtonCheck() {
-    cy.imsId("btn-reset").click();
+    cy.imsId(COMMON.BUTTONS.RESET).click();
     cy.log("Successful clean my task displaying.");
   }
 
   myTaskRefreshButtonCheck() {
-    cy.imsId("btn-refresh").click();
+    cy.imsId(COMMON.BUTTONS.REFRESH).click();
     cy.log(
       "successfully refresh page  displayed the my task list of the Samity Management form "
     );
@@ -76,10 +76,10 @@ class SamityCreation {
 
   myTaskSearchButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var smData = data.mfiAdmin.approveSamityFrom;
-      cy.imsId("btn-reset").click();
-      cy.formController("search_text").type(smData.search);
-      cy.imsId("btn-search").click();
+      const smData = data.mfiAdmin.approveSamityFrom;
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(smData.search);
+      cy.imsId(COMMON.BUTTONS.SEARCH).click();
       cy.log("Successful my task search button click.");
     });
   }
@@ -87,22 +87,22 @@ class SamityCreation {
 
   approveSamity() {
     cy.fixture(this.test_data).then((data) => {
-      var smData = data.mfiAdmin.createSamityFrom;
-      cy.imsId("toggle-action").first().click();
-      cy.imsId("btn-table-action-view").click();
+      const smData = data.mfiAdmin.createSamityFrom;
+      cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+      cy.imsId(COMMON.GRID.ACTION_VIEW).click();
       cy.imsId("btn-lock").click();
-      cy.imsId("btn-approve").click();
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-ok").click();
+      cy.imsId(COMMON.BUTTONS.APPROVE).click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
       cy.log("Successfully approve samity management");
     });
   }
 
   createWithoutNameEn() {
     cy.fixture(this.test_data).then((data) => {
-      var smData = data.mfiAdmin.createSamityFrom;
+      const smData = data.mfiAdmin.createSamityFrom;
       cy.selectMenu("menu-samity", "submenu-samity-management");
-      cy.imsId("btn-add-new").click();
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
 
       cy.formController("samity_name_bn").type(smData.samityNameBn);
       cy.formController("samity_type").type(smData.samityType).type("{enter}");
@@ -125,18 +125,18 @@ class SamityCreation {
       cy.formController("geo_area_type")
         .type(smData.geoAreaType)
         .type("{enter}");
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-ok").click();
-      cy.imsId("btn-go-back").click();
-      cy.log("Unsuccessfully created samity");
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
+      cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+      cy.log(messages.ui.withoutDataMessage);
     });
   }
 
 
   createWithoutNameBn() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      var smData = data.mfiAdmin.createSamityFrom;
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+      const smData = data.mfiAdmin.createSamityFrom;
       cy.formController("samity_name_en").first().type(smData.samityNameEn);
       cy.formController("samity_type").type(smData.samityType).type("{enter}");
       cy.formController("office_id").type(smData.office).type("{enter}");
@@ -159,19 +159,19 @@ class SamityCreation {
         .type(smData.geoAreaType)
         .type("{enter}");
 
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-ok").click();
-      cy.imsId("btn-go-back").click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
+      cy.imsId(COMMON.BUTTONS.GO_BACK).click();
 
-      cy.log("Unsuccessfully created samity");
+      cy.log(messages.ui.withoutDataMessage);
     });
   }
 
 
   createWithoutSamityType() {
     cy.fixture(this.test_data).then((data) => {
-      var smData = data.mfiAdmin.createSamityFrom;
-      cy.imsId("btn-add-new").click();
+      const smData = data.mfiAdmin.createSamityFrom;
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
       cy.formController("samity_name_en").first().type(smData.samityNameEn);
       cy.formController("samity_name_bn").type(smData.samityNameBn);
       cy.formController("office_id").type(smData.office).type("{enter}");
@@ -195,16 +195,16 @@ class SamityCreation {
         .type("{enter}");
 
 
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-ok").click();
-      cy.imsId("btn-reset").click();
-      cy.log("Unsuccessfully created  without samity type");
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      cy.log(messages.ui.withoutDataMessage);
     });
   }
 
   createWithoutOffice() {
     cy.fixture(this.test_data).then((data) => {
-      var smData = data.mfiAdmin.createSamityFrom;
+      const smData = data.mfiAdmin.createSamityFrom;
       cy.formController("samity_name_en").first().type(smData.samityNameEn);
       cy.formController("samity_name_bn").type(smData.samityNameBn);
       cy.formController("samity_type").type(smData.samityType).type("{enter}");
@@ -228,16 +228,16 @@ class SamityCreation {
         .type("{enter}");
 
 
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-ok").click();
-      cy.imsId("btn-reset").click();
-      cy.log("Successfully created samity");
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      cy.log(messages.ui.withoutDataMessage);
     });
   }
 
   createWithoutFieldOfficer() {
     cy.fixture(this.test_data).then((data) => {
-      var smData = data.mfiAdmin.createSamityFrom;
+      const smData = data.mfiAdmin.createSamityFrom;
       cy.formController("samity_name_en").first().type(smData.samityNameEn);
       cy.formController("samity_name_bn").type(smData.samityNameBn);
       cy.formController("samity_type").type(smData.samityType).type("{enter}");
@@ -259,16 +259,16 @@ class SamityCreation {
         .type("{enter}");
 
 
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-ok").click();
-      cy.imsId("btn-reset").click();
-      cy.log("Successfully created samity");
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      cy.log(messages.ui.withoutDataMessage);
     });
   }
 
   createWithoutMfiProgram() {
     cy.fixture(this.test_data).then((data) => {
-      var smData = data.mfiAdmin.createSamityFrom;
+      const smData = data.mfiAdmin.createSamityFrom;
       cy.formController("samity_name_en").first().type(smData.samityNameEn);
       cy.formController("samity_name_bn").type(smData.samityNameBn);
       cy.formController("samity_type").type(smData.samityType).type("{enter}");
@@ -290,16 +290,16 @@ class SamityCreation {
         .type("{enter}");
 
 
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-ok").click();
-      cy.imsId("btn-reset").click();
-      cy.log("Successfully created samity");
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      cy.log(messages.ui.withoutDataMessage);
     });
   }
 
   createWithoutSamityDay() {
     cy.fixture(this.test_data).then((data) => {
-      var smData = data.mfiAdmin.createSamityFrom;
+      const smData = data.mfiAdmin.createSamityFrom;
       cy.formController("samity_name_en").first().type(smData.samityNameEn);
       cy.formController("samity_name_bn").type(smData.samityNameBn);
       cy.formController("samity_type").type(smData.samityType).type("{enter}");
@@ -323,16 +323,16 @@ class SamityCreation {
         .type("{enter}");
 
 
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-ok").click();
-      cy.imsId("btn-reset").click();
-      cy.log("Successfully created samity");
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      cy.log(messages.ui.withoutDataMessage);
     });
   }
 
   createWithoutSamityFrequency() {
     cy.fixture(this.test_data).then((data) => {
-      var smData = data.mfiAdmin.createSamityFrom;
+      const smData = data.mfiAdmin.createSamityFrom;
       cy.formController("samity_name_en").first().type(smData.samityNameEn);
       cy.formController("samity_name_bn").type(smData.samityNameBn);
       cy.formController("samity_type").type(smData.samityType).type("{enter}");
@@ -354,16 +354,16 @@ class SamityCreation {
         .type("{enter}");
 
 
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-ok").click();
-      cy.imsId("btn-reset").click();
-      cy.log("Successfully created samity");
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      cy.log(messages.ui.withoutDataMessage);
     });
   }
 
   createWithoutSamityMaximumMember() {
     cy.fixture(this.test_data).then((data) => {
-      var smData = data.mfiAdmin.createSamityFrom;
+      const smData = data.mfiAdmin.createSamityFrom;
       cy.formController("samity_name_en").first().type(smData.samityNameEn);
       cy.formController("samity_name_bn").type(smData.samityNameBn);
       cy.formController("samity_type").type(smData.samityType).type("{enter}");
@@ -387,16 +387,16 @@ class SamityCreation {
         .type("{enter}");
 
 
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-ok").click();
-      cy.imsId("btn-reset").click();
-      cy.log("Successfully created samity");
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      cy.log(messages.ui.withoutDataMessage);
     });
   }
 
   createWithoutSamityWorkingArea() {
     cy.fixture(this.test_data).then((data) => {
-      var smData = data.mfiAdmin.createSamityFrom;
+      const smData = data.mfiAdmin.createSamityFrom;
       cy.formController("samity_name_en").first().type(smData.samityNameEn);
       cy.formController("samity_name_bn").type(smData.samityNameBn);
       cy.formController("samity_type").type(smData.samityType).type("{enter}");
@@ -418,16 +418,16 @@ class SamityCreation {
         .type("{enter}");
 
 
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-ok").click();
-      cy.imsId("btn-reset").click();
-      cy.log("Successfully created samity");
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      cy.log(messages.ui.withoutDataMessage);
     });
   }
 
   createWithoutSamityAdressLine1() {
     cy.fixture(this.test_data).then((data) => {
-      var smData = data.mfiAdmin.createSamityFrom;
+      const smData = data.mfiAdmin.createSamityFrom;
       cy.formController("samity_name_en").first().type(smData.samityNameEn);
       cy.formController("samity_name_bn").type(smData.samityNameBn);
       cy.formController("samity_type").type(smData.samityType).type("{enter}");
@@ -451,16 +451,16 @@ class SamityCreation {
         .type("{enter}");
 
 
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-ok").click();
-      cy.imsId("btn-reset").click();
-      cy.log("Successfully created samity");
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      cy.log(messages.ui.withoutDataMessage);
     });
   }
 
   createWithoutSamityGeoAreaType() {
     cy.fixture(this.test_data).then((data) => {
-      var smData = data.mfiAdmin.createSamityFrom;
+      const smData = data.mfiAdmin.createSamityFrom;
       cy.formController("samity_name_en").first().type(smData.samityNameEn);
       cy.formController("samity_name_bn").type(smData.samityNameBn);
       cy.formController("samity_type").type(smData.samityType).type("{enter}");
@@ -481,72 +481,72 @@ class SamityCreation {
         .type("{enter}");
       cy.formController("address_line_1").type(smData.adressEn);
 
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-ok").click();
-      cy.imsId("btn-go-back").click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
+      cy.imsId(COMMON.BUTTONS.GO_BACK).click();
 
-      cy.log("Successfully created samity");
+      cy.log(messages.ui.withoutDataMessage);
     });
   }
 
   actionButtonCheck() {
-    cy.imsId("toggle-action").first().click();
+    cy.imsId(COMMON.TOGGLES.ACTION).first().click();
     cy.log(
-      "Action button clicked successfully on the samity management list page."
+      messages.ui.actionMessage
     );
   }
 
   viewSamity() {
     cy.fixture(this.test_data).then((data) => {
-      var smData = data.mfiAdmin.createSamityFrom;
-      cy.formController("search_text").type(smData.samityNameEn);
-      cy.imsId("toggle-action").first().click();
-      cy.imsId("btn-table-action-view").click();
-      cy.log("Successfully viewed the samity list page");
+      const smData = data.mfiAdmin.createSamityFrom;
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(smData.samityNameEn);
+      cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+      cy.imsId(COMMON.GRID.ACTION_VIEW).click();
+      cy.log(messages.ui.viewMessage);
     });
   }
 
   viewGoBackButton() {
-    cy.imsId("btn-go-back").click();
-    cy.log("Successfully view go back the Samity Management list page");
+    cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+    cy.log(messages.ui.goBackSuccess);
 
   }
 
   editResetButton() {
-    cy.imsId("toggle-action").first().click();
-    cy.imsId("btn-table-action-edit").click();
-    cy.imsId("btn-reset").click();
-    cy.log("Successful reset button working");
+    cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+    cy.imsId(COMMON.GRID.ACTION_EDIT).click();
+    cy.imsId(COMMON.BUTTONS.RESET).click();
+    cy.log(messages.ui.editResetMessage);
   }
 
   editDraftButton() {
-    cy.imsId("btn-draft").click();
-    cy.imsId("btn-ok").click();
-    cy.log("Successful draft button working");
+    cy.imsId(COMMON.BUTTONS.DRAFT).click();
+    cy.imsId(COMMON.CONFIRMATION.OK).click();
+    cy.log(messages.ui.editMessage);
   }
 
   editSubmitButton() {
-    cy.imsId("btn-submit").click();
-    cy.imsId("btn-ok").click();
-    cy.log("Successful submit button working");
+    cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+    cy.imsId(COMMON.CONFIRMATION.OK).click();
+    cy.log(messages.ui.editSubmitMessage);
   }
 
   editApproveButton() {
-    cy.imsId("btn-approve").click();
-    cy.imsId("btn-ok").click();
-    cy.log("Successful approve button working");
+    cy.imsId(COMMON.BUTTONS.APPROVE).click();
+    cy.imsId(COMMON.CONFIRMATION.OK).click();
+    cy.log(messages.ui.editMessage);
   }
 
   editGoBackButton() {
-    cy.imsId("btn-go-back").click();
-    cy.log("Successful edit go back button check.");
+    cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+    cy.log(messages.ui.editGoBackMessage);
   }
 
   gridOfficeDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var smData = data.mfiAdmin.createSamityFrom;
+      const smData = data.mfiAdmin.createSamityFrom;
       cy.formController("office_id").type(smData.officeDropdown).type("{enter}");
-      cy.imsId("btn-reset").click();
+      cy.imsId(COMMON.BUTTONS.RESET).click();
       cy.log(
         "Samity Management form office dropdown check successfully"
       );
@@ -555,55 +555,55 @@ class SamityCreation {
 
   statusInactiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var smData = data.mfiAdmin.createSamityFrom;
-      cy.imsId("btn-reset").click();
+      const smData = data.mfiAdmin.createSamityFrom;
+      cy.imsId(COMMON.BUTTONS.RESET).click();
       cy.formController("status").type(smData.selectStatus).type("{enter}");
-      cy.log("Samity management status inactive dropdown check successfully");
+      cy.log(messages.ui.dropdownInactiveMessage);
     });
   }
   statusActiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var smData = data.mfiAdmin.createSamityFrom;
+      const smData = data.mfiAdmin.createSamityFrom;
       cy.formController("status").type(smData.statusSelect).type("{enter}");
-      cy.log("Samity management status active dropdown check successfully");
+      cy.log(messages.ui.dropdownActiveMessage);
     });
   }
 
   searchInSamityManagementName() {
     cy.fixture(this.test_data).then((data) => {
-      var smData = data.mfiAdmin.createSamityFrom;
-      cy.imsId("btn-reset").click();
-      cy.formController("search_text").type(smData.samityNameEn);
-      cy.log("Successfully search in the Samity management");
+      const smData = data.mfiAdmin.createSamityFrom;
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(smData.samityNameEn);
+      cy.log(messages.ui.searchMessage);
     });
   }
 
   gridResetButtonCheck() {
-    cy.imsId("btn-reset").click();
-    cy.log("Successful clean displaying.");
+    cy.imsId(COMMON.BUTTONS.RESET).click();
+    cy.log(messages.ui.gridResetSuccess);
   }
 
   gridRefreshButtonCheck() {
-    cy.imsId("btn-refresh").click();
+    cy.imsId(COMMON.BUTTONS.REFRESH).click();
     cy.log(
-      "successfully refresh page  displayed the grid list of the samity management "
+      messages.ui.gridRefreshSuccess
     );
   }
 
   gridSearchButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var smData = data.mfiAdmin.createSamityFrom;
-      cy.imsId("btn-reset").click();
-      cy.formController("search_text").type(smData.search);
-      cy.imsId("btn-search").click();
-      cy.log("Successful search button click.");
+      const smData = data.mfiAdmin.createSamityFrom;
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(smData.search);
+      cy.imsId(COMMON.BUTTONS.SEARCH).click();
+      cy.log(messages.ui.searchMessage);
     });
   }
 
   createDraftButton() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      var smData = data.mfiAdmin.createSamityFrom;
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+      const smData = data.mfiAdmin.createSamityFrom;
       cy.formController("samity_name_en").first().type(smData.draftName);
       cy.formController("samity_name_bn").type(smData.draftNameBn);
       cy.formController("samity_type").type(smData.samityType).type("{enter}");
@@ -629,10 +629,10 @@ class SamityCreation {
         .type(smData.geoAreaType)
         .type("{enter}");
 
-      cy.imsId("btn-draft").click();
-      cy.imsId("btn-yes").click();
-      cy.imsId("btn-ok").click();
-      cy.log("Successfully created samity");
+      cy.imsId(COMMON.BUTTONS.DRAFT).click();
+      cy.imsId(COMMON.CONFIRMATION.YES).click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
+      cy.log(messages.ui.draftOnMessage);
     });
   }
 
@@ -658,7 +658,7 @@ class SamityCreation {
       .should('be.visible')
       .click({ force: true });
 
-    cy.imsId("btn-reset")
+    cy.imsId(COMMON.BUTTONS.RESET)
       .scrollIntoView()
       .should('be.visible')
       .click({ force: true });
@@ -718,7 +718,7 @@ class SamityCreation {
 
   selectofficeDropdown() {
     cy.fixture(this.test_data).then((data) => {
-      var smData = data.mfiAdmin.createSamityFrom;
+      const smData = data.mfiAdmin.createSamityFrom;
       cy.formController("office_id").type(smData.office);
       cy.log("Successfully select office in the samity management");
     });
@@ -726,49 +726,49 @@ class SamityCreation {
 
   createResetButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var smData = data.mfiAdmin.createSamityFrom;
-      cy.imsId("btn-add-new").click();
+      const smData = data.mfiAdmin.createSamityFrom;
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
       cy.formController("samity_name_en").type(smData.samityNameEn);
-      cy.imsId("btn-reset").click();
-      cy.imsId("btn-go-back").click();
-      cy.log("Successful clean displaying.");
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+      cy.log(messages.validation.requiredField);
     });
   }
 
   createValidationMessageCheck() {
-    cy.imsId("btn-add-new").click();
-    cy.imsId("btn-submit").click();
-    cy.imsId("btn-ok").click();
-    cy.imsId("btn-go-back").click();
-    cy.log("Successful validation message displaying.");
+    cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+    cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+    cy.imsId(COMMON.CONFIRMATION.OK).click();
+    cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+    cy.log(messages.validation.requiredField);
   }
 
   createApproveButtonCheck() {
-    cy.imsId("btn-add-new").click();
-    cy.imsId("btn-approve").click();
-    cy.imsId("btn-ok").click();
-    cy.imsId("btn-go-back").click();
-    cy.log("Successful Approve button check.");
+    cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+    cy.imsId(COMMON.BUTTONS.APPROVE).click();
+    cy.imsId(COMMON.CONFIRMATION.OK).click();
+    cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+    cy.log(messages.ui.submitSuccess);
   }
 
   createGoBackButtonCheck() {
-    cy.imsId("btn-add-new").click();
-    cy.imsId("btn-go-back").click();
-    cy.log("Successful go back button check.");
+    cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+    cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+    cy.log(messages.ui.createGoBackMessage);
   }
 
   createDraftButtonCheck() {
-    cy.imsId("btn-add-new").click();
-    cy.imsId("btn-draft").click();
-    cy.imsId("btn-ok").click();
-    cy.imsId("btn-go-back").click();
-    cy.log("Successful draft button check.");
+    cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+    cy.imsId(COMMON.BUTTONS.DRAFT).click();
+    cy.imsId(COMMON.CONFIRMATION.OK).click();
+    cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+    cy.log(messages.ui.draftOnMessage);
   }
 
   gridLanguageSwitchCheck() {
-    cy.imsId("profile-menu").click();
-    cy.imsId("btn-lang-bangla").click();
-    cy.log("Unsccessful switch bangla language check.");
+    cy.imsId(COMMON.BUTTONS.PROFILE).click();
+    cy.imsId(COMMON.BUTTONS.LANGUAGE_CHANGE).click();
+    cy.log(messages.ui.languageSwitchMessage);
   }
 }
 

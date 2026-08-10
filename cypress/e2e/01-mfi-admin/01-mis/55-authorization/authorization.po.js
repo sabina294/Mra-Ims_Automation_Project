@@ -6,19 +6,19 @@ class Authorization {
     gridAuthorizationListPage() {
         cy.fixture(this.test_data).then((data) => {
             cy.selectMenu("menu-transaction", "submenu-authorization");
-            cy.log("Successfully authorization list page.");
+            cy.log(messages.ui.gridListMessage);
         });
     }
 
     gridResetButtonCheck() {
-        cy.imsId("btn-reset").click();
-        cy.log("Successful clean displaying.");
+        cy.imsId(COMMON.BUTTONS.RESET).click();
+        cy.log(messages.ui.gridResetSuccess);
     }
 
     gridRefreshButtonCheck() {
-        cy.imsId("btn-refresh").click();
+        cy.imsId(COMMON.BUTTONS.REFRESH).click();
         cy.log(
-            "successfully refresh page  displayed the grid list of the authorization form "
+            messages.ui.gridRefreshSuccess
         );
     }
 
@@ -30,7 +30,7 @@ class Authorization {
 
     gridPendingOfficeDropdownCheck() {
         cy.fixture(this.test_data).then((data) => {
-            var aData = data.mfiAdmin.authorizationFrom;
+            const aData = data.mfiAdmin.authorizationFrom;
             cy.formController("office_id").type(aData.office).type("{enter}");
             cy.log("Office dropdown should be clickable and functional.");
         })
@@ -50,9 +50,9 @@ class Authorization {
 
     gridHistoryFieldOfficerDropdownCheck() {
         cy.fixture(this.test_data).then((data) => {
-            var aData = data.mfiAdmin.authorizationFrom;
+            const aData = data.mfiAdmin.authorizationFrom;
             cy.formController("field_officer_id").type(aData.fieldOfficer).type("{enter}");
-            cy.log(" History Field officer dropdown should be clickable and functional.");
+            cy.log(messages.ui.historyOffMessage);
         })
     }
 
@@ -64,15 +64,15 @@ class Authorization {
 
     gridHistoryOfficeDropdownCheck() {
         cy.fixture(this.test_data).then((data) => {
-            var aData = data.mfiAdmin.authorizationFrom;
+            const aData = data.mfiAdmin.authorizationFrom;
             cy.formController("office_id").type(aData.office).type("{enter}");
-            cy.log("Office dropdown should be clickable and functional.");
+            cy.log(messages.ui.historyOffMessage);
         })
     }
 
     gridOfficeDropdownCheck() {
         cy.fixture(this.test_data).then((data) => {
-            var aData = data.mfiAdmin.authorizationFrom;
+            const aData = data.mfiAdmin.authorizationFrom;
             cy.formController("office_id").type(aData.office).type("{enter}");
             cy.log(" Office dropdown should be clickable and functional.");
         })
@@ -80,16 +80,16 @@ class Authorization {
 
     gridSamityDropdownCheck() {
         cy.fixture(this.test_data).then((data) => {
-            var aData = data.mfiAdmin.authorizationFrom;
+            const aData = data.mfiAdmin.authorizationFrom;
             cy.formController("field_officer_id").type(aData.samity).type("{enter}");
             cy.log(" Samity dropdown should be clickable and functional.");
         })
     }
 
     gridLanguageSwitchCheck() {
-        cy.imsId("profile-menu").click();
-        cy.imsId("btn-lang-bangla").click();
-        cy.log("Unsuccessful switch to Bangla language check.");
+        cy.imsId(COMMON.BUTTONS.PROFILE).click();
+        cy.imsId(COMMON.BUTTONS.LANGUAGE_CHANGE).click();
+        cy.log(messages.ui.languageSwitchMessage);
     }
 }
 

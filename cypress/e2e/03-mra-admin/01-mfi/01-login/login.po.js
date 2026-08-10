@@ -1,3 +1,4 @@
+import { COMMON } from "../../../../support/constants/selectors";
 import { assert } from "tcomb";
 
 class LoginTest {
@@ -8,7 +9,7 @@ class LoginTest {
     cy.fixture(test_data).then((data) => {
       cy.loginAsMraAdmin(baseURL, data);
 
-      cy.imsId("profile-menu").click();
+      cy.imsId(COMMON.BUTTONS.PROFILE).click();
       cy.imsId("user-name-container")
         .contains(data.credential.mraAdminName)
         .and("be.visible");

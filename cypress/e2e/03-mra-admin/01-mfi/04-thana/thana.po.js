@@ -1,208 +1,210 @@
+import messages from "../../../../support/constants/messages";
+import { COMMON } from "../../../../support/constants/selectors";
 class ThanaCreation {
   test_data = Cypress.env("TEST_DATA");
 
   gridThanaListPage() {
     cy.fixture(this.test_data).then((data) => {
       cy.selectMenu("menu-configuration", "submenu-thana");
-      cy.log("Successfully thana list page.");
+      cy.log(messages.ui.gridListMessage);
     });
   }
 
   createThana() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      cy.imsId("btn-submit").and("be.visible");
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).and("be.visible");
 
-      var upaData = data.mraAdmin.createthanaFrom;
+      const upaData = data.mraAdmin.createthanaFrom;
       cy.formController("name_en").type(upaData.nameEn);
       cy.formController("district_oid").type(upaData.district).type("{enter}");
 
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-yes").click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.YES).click();
       cy.get("app-confirmation-modal")
         .contains(upaData.messageSaveUpa)
         .and("be.visible");
-      cy.imsId("btn-ok").click();
-      cy.log("Successfully created thana");
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
+      cy.log(messages.ui.submitSuccess);
     });
   }
 
   createWithoutNameEn() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      cy.imsId("btn-submit").and("be.visible");
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).and("be.visible");
 
-      var upaData = data.mraAdmin.createthanaFrom;
+      const upaData = data.mraAdmin.createthanaFrom;
       cy.formController("name_bn").type(upaData.nameBn);
       cy.formController("upazila_code").type(upaData.upaCode);
       cy.formController("postal_code").type(upaData.postCode);
       cy.formController("website").type(upaData.webSite);
       cy.formController("district_oid").type(upaData.district).type("{enter}");
 
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-ok").click();
-      cy.imsId("btn-go-back").click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
+      cy.imsId(COMMON.BUTTONS.GO_BACK).click();
 
-      cy.log("Successful cannot creation thana without one mandatory field.");
+      cy.log(messages.ui.withoutDataMessage);
     });
   }
 
   createWithoutNameBn() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      cy.imsId("btn-submit").and("be.visible");
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).and("be.visible");
 
-      var upaData = data.mraAdmin.createthanaFrom;
+      const upaData = data.mraAdmin.createthanaFrom;
       cy.formController("name_en").type(upaData.nameEn);
       cy.formController("upazila_code").type(upaData.upaCode);
       cy.formController("postal_code").type(upaData.postCode);
       cy.formController("website").type(upaData.webSite);
       cy.formController("district_oid").type(upaData.district).type("{enter}");
 
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-yes").click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.YES).click();
       cy.get("app-confirmation-modal")
         .contains(upaData.messageSaveUpa)
         .and("be.visible");
-      cy.imsId("btn-ok").click();
-      cy.log("Successfully created thana");
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
+      cy.log(messages.ui.withoutDataMessage);
     });
   }
 
   createWithoutUpazilaCode() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      cy.imsId("btn-submit").and("be.visible");
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).and("be.visible");
 
-      var upaData = data.mraAdmin.createthanaFrom;
+      const upaData = data.mraAdmin.createthanaFrom;
       cy.formController("name_en").type(upaData.nameEn);
       cy.formController("name_bn").type(upaData.nameBn);
       cy.formController("postal_code").type(upaData.postCode);
       cy.formController("website").type(upaData.webSite);
       cy.formController("district_oid").type(upaData.district).type("{enter}");
 
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-yes").click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.YES).click();
       cy.get("app-confirmation-modal")
         .contains(upaData.messageSaveUpa)
         .and("be.visible");
-      cy.imsId("btn-ok").click();
-      cy.log("Successfully created thana");
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
+      cy.log(messages.ui.withoutDataMessage);
     });
   }
 
   createWithoutPostalCode() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      cy.imsId("btn-submit").and("be.visible");
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).and("be.visible");
 
-      var upaData = data.mraAdmin.createthanaFrom;
+      const upaData = data.mraAdmin.createthanaFrom;
       cy.formController("name_en").type(upaData.nameEn);
       cy.formController("name_bn").type(upaData.nameBn);
       cy.formController("upazila_code").type(upaData.upaCode);
       cy.formController("website").type(upaData.webSite);
       cy.formController("district_oid").type(upaData.district).type("{enter}");
 
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-yes").click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.YES).click();
       cy.get("app-confirmation-modal")
         .contains(upaData.messageSaveUpa)
         .and("be.visible");
-      cy.imsId("btn-ok").click();
-      cy.log("Successfully created thana");
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
+      cy.log(messages.ui.withoutDataMessage);
     });
   }
 
   createWithoutWebsite() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      cy.imsId("btn-submit").and("be.visible");
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).and("be.visible");
 
-      var upaData = data.mraAdmin.createthanaFrom;
+      const upaData = data.mraAdmin.createthanaFrom;
       cy.formController("name_en").type(upaData.nameEn);
       cy.formController("name_bn").type(upaData.nameBn);
       cy.formController("upazila_code").type(upaData.upaCode);
       cy.formController("postal_code").type(upaData.postCode);
       cy.formController("district_oid").type(upaData.district).type("{enter}");
 
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-yes").click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.YES).click();
       cy.get("app-confirmation-modal")
         .contains(upaData.messageSaveUpa)
         .and("be.visible");
-      cy.imsId("btn-ok").click();
-      cy.log("Successfully created thana");
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
+      cy.log(messages.ui.withoutDataMessage);
     });
   }
 
   createWithoutUpazilaType() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      cy.imsId("btn-submit").and("be.visible");
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).and("be.visible");
 
-      var upaData = data.mraAdmin.createthanaFrom;
-      cy.imsId("btn-reset").click();
+      const upaData = data.mraAdmin.createthanaFrom;
+      cy.imsId(COMMON.BUTTONS.RESET).click();
       cy.formController("name_en").type(upaData.nameEn);
       cy.formController("name_bn").type(upaData.nameBn);
       cy.formController("upazila_code").type(upaData.upaCode);
       cy.formController("postal_code").type(upaData.postCode);
       cy.formController("district_oid").type(upaData.district).type("{enter}");
 
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-ok").click();
-      cy.imsId("btn-go-back").click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
+      cy.imsId(COMMON.BUTTONS.GO_BACK).click();
 
-      cy.log("Successful cannot creation thana without one mandatory field.");
+      cy.log(messages.ui.withoutDataMessage);
     });
   }
 
   createWithoutDistrict() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      cy.imsId("btn-submit").and("be.visible");
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).and("be.visible");
 
-      var upaData = data.mraAdmin.createthanaFrom;
+      const upaData = data.mraAdmin.createthanaFrom;
       cy.formController("name_en").type(upaData.nameEn);
       cy.formController("name_bn").type(upaData.nameBn);
       cy.formController("upazila_code").type(upaData.upaCode);
       cy.formController("postal_code").type(upaData.postCode);
       cy.formController("website").type(upaData.webSite);
 
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-ok").click();
-      cy.imsId("btn-go-back").click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
+      cy.imsId(COMMON.BUTTONS.GO_BACK).click();
 
-      cy.log("Successful cannot creation thana without one mandatory field.");
+      cy.log(messages.ui.withoutDataMessage);
     });
   }
 
   createWithoutStatus() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      cy.imsId("btn-submit").and("be.visible");
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).and("be.visible");
 
-      var upaData = data.mraAdmin.createthanaFrom;
-      cy.imsId("btn-reset").click();
+      const upaData = data.mraAdmin.createthanaFrom;
+      cy.imsId(COMMON.BUTTONS.RESET).click();
       cy.formController("name_en").type(upaData.nameEn);
       cy.formController("name_bn").type(upaData.nameBn);
       cy.formController("upazila_code").type(upaData.upaCode);
       cy.formController("postal_code").type(upaData.postCode);
       cy.formController("website").type(upaData.webSite);
 
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-ok").click();
-      cy.imsId("btn-go-back").click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
+      cy.imsId(COMMON.BUTTONS.GO_BACK).click();
 
-      cy.log("Successful cannot creation thana without one mandatory field.");
+      cy.log(messages.ui.withoutDataMessage);
     });
   }
 
   createAllField() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      cy.imsId("btn-submit").and("be.visible");
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).and("be.visible");
 
-      var upaData = data.mraAdmin.createthanaFrom;
+      const upaData = data.mraAdmin.createthanaFrom;
       cy.formController("name_en").type(upaData.nameEn);
       cy.formController("name_bn").type(upaData.nameBn);
       cy.formController("upazila_code").type(upaData.upaCode);
@@ -210,109 +212,109 @@ class ThanaCreation {
       cy.formController("website").type(upaData.webSite);
       cy.formController("district_oid").type(upaData.district).type("{enter}");
 
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-yes").click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.YES).click();
       cy.get("app-confirmation-modal")
         .contains(upaData.messageSaveUpa)
         .and("be.visible");
-      cy.imsId("btn-ok").click();
-      cy.log("Successfully created thana all field");
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
+      cy.log(messages.ui.submitSuccess);
     });
   }
 
   createWithoutOneMandatoryField() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      cy.imsId("btn-submit").and("be.visible");
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).and("be.visible");
 
-      var upaData = data.mraAdmin.createthanaFrom;
+      const upaData = data.mraAdmin.createthanaFrom;
       cy.formController("name_bn").type(upaData.nameBn);
       cy.formController("upazila_code").type(upaData.upaCode);
       cy.formController("postal_code").type(upaData.postCode);
       cy.formController("website").type(upaData.webSite);
       cy.formController("district_oid").type(upaData.district).type("{enter}");
 
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-ok").click();
-      cy.imsId("btn-go-back").click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
+      cy.imsId(COMMON.BUTTONS.GO_BACK).click();
 
-      cy.log("Successful cannot creation thana without one mandatory field.");
+      cy.log(messages.ui.withoutDataMessage);
     });
   }
 
   createWithoutMandatoryField() {
     cy.fixture(this.test_data).then((data) => {
-      var upaData = data.mraAdmin.createthanaFrom;
-      cy.imsId("btn-add-new").click();
+      const upaData = data.mraAdmin.createthanaFrom;
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
       cy.formController("name_bn").type(upaData.nameBn);
       cy.formController("upazila_code").type(upaData.upaCode);
       cy.formController("postal_code").type(upaData.postCode);
       cy.formController("website").type(upaData.webSite);
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-ok").click();
-      cy.imsId("btn-go-back").click();
-      cy.log("Successful cannot creation thana without mandatory field..");
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
+      cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+      cy.log(messages.ui.withoutDataMessage);
     });
   }
 
   actionButtonCheck() {
-    cy.imsId("toggle-action").first().click();
-    cy.log("Action button clicked successfully on the thana list page.");
+    cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+    cy.log(messages.ui.actionMessage);
   }
 
   viewThana() {
-      cy.imsId("btn-table-action-view").click();
-      cy.log("Successfully viewed the thana list page");
+      cy.imsId(COMMON.GRID.ACTION_VIEW).click();
+      cy.log(messages.ui.viewMessage);
   }
 
   viewGoBackButton() {
-    cy.imsId("btn-go-back").click();
+    cy.imsId(COMMON.BUTTONS.GO_BACK).click();
 
-    cy.log("Successfully view go back the thana list page");
+    cy.log(messages.ui.goBackSuccess);
 
   }
 
   turnOffOnEditMode() {
-    cy.imsId("toggle-action").first().click();
-    cy.imsId("btn-table-action-edit").click();
-    cy.imsId("switch-button").click();
-    cy.imsId("btn-go-back").click();
+    cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+    cy.imsId(COMMON.GRID.ACTION_EDIT).click();
+    cy.imsId(COMMON.BUTTONS.TURN_EDIT_MODE).click();
+    cy.imsId(COMMON.BUTTONS.GO_BACK).click();
 
-    cy.log("Thana form Edit Mode toggled successfully");
+    cy.log(messages.ui.turnOnEditModeMessage);
   }
 
   editThana() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("toggle-action").first().click();
-      cy.imsId("btn-table-action-edit").click();
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-yes").click();
+      cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+      cy.imsId(COMMON.GRID.ACTION_EDIT).click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.YES).click();
 
-      var upaData = data.mraAdmin.createthanaFrom;
+      const upaData = data.mraAdmin.createthanaFrom;
       cy.get("app-confirmation-modal")
         .contains(upaData.messageUpdateUpa)
         .and("be.visible");
-      cy.imsId("btn-ok").click();
-      cy.log("Thana updated successfully");
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
+      cy.log(messages.ui.editMessage);
     });
   }
 
   editResetButton() {
-    cy.imsId("toggle-action").first().click();
-    cy.imsId("btn-table-action-edit").click();
-    cy.imsId("btn-reset").click();
-    cy.imsId("btn-go-back").click();
+    cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+    cy.imsId(COMMON.GRID.ACTION_EDIT).click();
+    cy.imsId(COMMON.BUTTONS.RESET).click();
+    cy.imsId(COMMON.BUTTONS.GO_BACK).click();
 
-    cy.log("Successful clean displaying");
+    cy.log(messages.ui.editResetMessage);
   }
 
   editSubmitButton() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("toggle-action").first().click();
-      cy.imsId("btn-table-action-edit").click();
-      cy.imsId("btn-reset").click();
+      cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+      cy.imsId(COMMON.GRID.ACTION_EDIT).click();
+      cy.imsId(COMMON.BUTTONS.RESET).click();
 
-      var upaData = data.mraAdmin.createthanaFrom;
+      const upaData = data.mraAdmin.createthanaFrom;
       cy.formController("name_en").type(upaData.nameEn);
       cy.formController("name_bn").type(upaData.nameBn);
       cy.formController("upazila_code").type(upaData.upaCode);
@@ -322,54 +324,54 @@ class ThanaCreation {
       cy.formController("type").type(upaData.upaType).type("{enter}");
       cy.formController("status").type(upaData.status).type("{enter}");
 
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-yes").click();
-      cy.imsId("btn-ok").click();
-      cy.log("Successfully updated thana");
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.YES).click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
+      cy.log(messages.ui.editSubmitMessage);
     });
   }
 
   editGoBackButton() {
-    cy.imsId("toggle-action").first().click();
-    cy.imsId("btn-table-action-edit").click();
-    cy.imsId("btn-go-back").click();
-    cy.log("Successful edit go back button check.");
+    cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+    cy.imsId(COMMON.GRID.ACTION_EDIT).click();
+    cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+    cy.log(messages.ui.editGoBackMessage);
   }
 
   statusInactiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var upaData = data.mraAdmin.createthanaFrom;
-      cy.imsId("btn-reset").click();
+      const upaData = data.mraAdmin.createthanaFrom;
+      cy.imsId(COMMON.BUTTONS.RESET).click();
       cy.formController("status").type(upaData.selectStatus).type("{enter}");
-      cy.log("Thana status inactive dropdown check successfully");
+      cy.log(messages.ui.dropdownInactiveMessage);
     });
   }
 
   statusActiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var upaData = data.mraAdmin.createthanaFrom;
+      const upaData = data.mraAdmin.createthanaFrom;
       cy.formController("status").type(upaData.statusSelect).type("{enter}");
-      cy.log("Thana status active dropdown check successfully");
+      cy.log(messages.ui.dropdownActiveMessage);
     });
   }
 
   searchInThanaName() {
     cy.fixture(this.test_data).then((data) => {
-      var upaData = data.mraAdmin.createthanaFrom;
-      cy.imsId("btn-reset").click();
-      cy.formController("search_text").type(upaData.nameEn);
-      cy.log("Successfully search in the Thana");
+      const upaData = data.mraAdmin.createthanaFrom;
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(upaData.nameEn);
+      cy.log(messages.ui.searchMessage);
     });
   }
 
   gridResetButtonCheck() {
-    cy.imsId("btn-reset").click();
-    cy.log("Successful clean displaying.");
+    cy.imsId(COMMON.BUTTONS.RESET).click();
+    cy.log(messages.ui.gridResetSuccess);
   }
 
   gridRefreshButtonCheck() {
-    cy.imsId("btn-refresh").click();
-    cy.log("successfully refresh page  displayed the grid list of the Thana ");
+    cy.imsId(COMMON.BUTTONS.REFRESH).click();
+    cy.log(messages.ui.gridRefreshSuccess);
   }
 
   paginationCheck() {
@@ -379,43 +381,43 @@ class ThanaCreation {
 
   createResetButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var upaData = data.mraAdmin.createthanaFrom;
-      cy.imsId("btn-add-new").click();
+      const upaData = data.mraAdmin.createthanaFrom;
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
       cy.formController("name_bn").type(upaData.nameBn);
-      cy.imsId("btn-reset").click();
-      cy.imsId("btn-go-back").click();
-      cy.log("Successful reset button and clean displaying.");
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+      cy.log(messages.validation.requiredField);
     });
   }
 
   createValidationMessageCheck() {
-    cy.imsId("btn-add-new").click();
-    cy.imsId("btn-submit").click();
-    cy.imsId("btn-ok").click();
-    cy.imsId("btn-go-back").click();
-    cy.log("Successful validation message displaying.");
+    cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+    cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+    cy.imsId(COMMON.CONFIRMATION.OK).click();
+    cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+    cy.log(messages.validation.requiredField);
   }
 
   createGoBackButtonCheck() {
-    cy.imsId("btn-add-new").click();
-    cy.imsId("btn-go-back").click();
-    cy.log("Successful go back button check.");
+    cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+    cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+    cy.log(messages.ui.createGoBackMessage);
   }
 
   gridSearchButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var upaData = data.mraAdmin.createthanaFrom;
-      cy.imsId("btn-reset").click();
-      cy.formController("search_text").type(upaData.search);
-      cy.imsId("btn-search").click();
-      cy.log("Successful search button click.");
+      const upaData = data.mraAdmin.createthanaFrom;
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(upaData.search);
+      cy.imsId(COMMON.BUTTONS.SEARCH).click();
+      cy.log(messages.ui.searchMessage);
     });
   }
 
   gridLanguageSwitchCheck() {
-    cy.imsId("profile-menu").click();
-    cy.imsId("btn-lang-bangla").click();
-    cy.log("Successful switch bangla language check.");
+    cy.imsId(COMMON.BUTTONS.PROFILE).click();
+    cy.imsId(COMMON.BUTTONS.LANGUAGE_CHANGE).click();
+    cy.log(messages.ui.languageSwitchMessage);
   }
 }
 

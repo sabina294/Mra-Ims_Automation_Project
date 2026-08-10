@@ -2,17 +2,16 @@ import messages from "../../../../support/constants/messages";
 import { COMMON } from "../../../../support/constants/selectors";
 class DepartmentCreation {
   test_data = Cypress.env("TEST_DATA");
+
   gridDepartmentListPage() {
-    cy.fixture(this.test_data).then((data) => {
-      cy.selectMenu("menu-configuration", "submenu-department");
-      cy.log(messages.ui.gridListMessage);
-    });
+    cy.selectMenu("menu-configuration", "submenu-department");
+    cy.log(messages.ui.gridListMessage);
   }
 
   createDepartment() {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
-      var depData = data.mfiAdmin.createDepartmentFrom;
+      const depData = data.mfiAdmin.createDepartmentFrom;
       cy.formController("name_en").type(depData.nameEn);
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
       cy.imsId(COMMON.CONFIRMATION.YES).click();
@@ -24,7 +23,7 @@ class DepartmentCreation {
   createWithoutNameEn() {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
-      var depData = data.mfiAdmin.createDepartmentFrom;
+      const depData = data.mfiAdmin.createDepartmentFrom;
       cy.formController("name_bn").type(depData.nameBn);
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
       cy.imsId(COMMON.CONFIRMATION.OK).click();
@@ -36,7 +35,7 @@ class DepartmentCreation {
   createWithoutNameBn() {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
-      var depData = data.mfiAdmin.createDepartmentFrom;
+      const depData = data.mfiAdmin.createDepartmentFrom;
       cy.formController("name_en").type(depData.nameEn);
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
       cy.imsId(COMMON.CONFIRMATION.YES).click();
@@ -49,7 +48,7 @@ class DepartmentCreation {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
       cy.imsId(COMMON.BUTTONS.RESET).click();
-      var depData = data.mfiAdmin.createDepartmentFrom;
+      const depData = data.mfiAdmin.createDepartmentFrom;
       cy.formController("name_en").type(depData.nameEn);
       cy.formController("name_bn").type(depData.nameBn);
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
@@ -65,10 +64,9 @@ class DepartmentCreation {
   }
 
   viewDepartment() {
-    cy.fixture(this.test_data).then((data) => {
-      cy.imsId(COMMON.GRID.ACTION_VIEW).click();
-      cy.log(messages.ui.viewMessage);
-    });
+    cy.imsId(COMMON.GRID.ACTION_VIEW).click();
+    cy.log(messages.ui.viewMessage);
+
   }
 
   viewGoBackButton() {
@@ -86,14 +84,12 @@ class DepartmentCreation {
   }
 
   editDepartment() {
-    cy.fixture(this.test_data).then((data) => {
-      cy.imsId(COMMON.TOGGLES.ACTION).first().click();
-      cy.imsId(COMMON.GRID.ACTION_EDIT).click();
-      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
-      cy.imsId(COMMON.CONFIRMATION.YES).click();
-      cy.imsId(COMMON.CONFIRMATION.OK).click();
-      cy.log(messages.ui.editMessage);
-    });
+    cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+    cy.imsId(COMMON.GRID.ACTION_EDIT).click();
+    cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+    cy.imsId(COMMON.CONFIRMATION.YES).click();
+    cy.imsId(COMMON.CONFIRMATION.OK).click();
+    cy.log(messages.ui.editMessage);
   }
 
   editResetButton() {
@@ -116,7 +112,7 @@ class DepartmentCreation {
 
   statusInactiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var depData = data.mfiAdmin.createDepartmentFrom;
+      const depData = data.mfiAdmin.createDepartmentFrom;
       cy.imsId(COMMON.BUTTONS.RESET).click();
       cy.formController("status").type(depData.selectStatus).type("{enter}");
       cy.log(messages.ui.dropdownInactiveMessage);
@@ -125,7 +121,7 @@ class DepartmentCreation {
 
   statusActiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var depData = data.mfiAdmin.createDepartmentFrom;
+      const depData = data.mfiAdmin.createDepartmentFrom;
       cy.formController("status").type(depData.statusSelect).type("{enter}");
       cy.log(messages.ui.dropdownActiveMessage);
     });
@@ -133,7 +129,7 @@ class DepartmentCreation {
 
   searchInDepartmentName() {
     cy.fixture(this.test_data).then((data) => {
-      var depData = data.mfiAdmin.createDepartmentFrom;
+      const depData = data.mfiAdmin.createDepartmentFrom;
       cy.imsId(COMMON.BUTTONS.RESET).click();
       cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(depData.nameEn);
       cy.log(messages.ui.searchMessage);
@@ -152,7 +148,7 @@ class DepartmentCreation {
 
   createResetButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var depData = data.mfiAdmin.createDepartmentFrom;
+      const depData = data.mfiAdmin.createDepartmentFrom;
       cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
       cy.formController("name_en").type(depData.nameEn);
       cy.imsId(COMMON.BUTTONS.RESET).click();

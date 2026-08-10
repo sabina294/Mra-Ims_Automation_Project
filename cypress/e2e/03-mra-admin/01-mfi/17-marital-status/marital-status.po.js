@@ -1,3 +1,5 @@
+import messages from "../../../../support/constants/messages";
+import { COMMON } from "../../../../support/constants/selectors";
 class MaritalStatusCreation {
   test_data = Cypress.env("TEST_DATA");
 
@@ -5,7 +7,7 @@ class MaritalStatusCreation {
   gridMaritalStatusListPage() {
     cy.fixture(this.test_data).then(() => {
       cy.selectMenu("menu-configuration", "submenu-marital-status");
-      cy.log("Marital status list page loaded successfully.");
+      cy.log(messages.ui.gridListMessage);
     });
   }
 
@@ -14,18 +16,18 @@ class MaritalStatusCreation {
     cy.fixture(this.test_data).then((data) => {
       const maritalStatusData = data.mraAdmin.createmaritalstatusFrom;
 
-      cy.imsId("btn-add-new").click();
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
       cy.formController("description_en").type(maritalStatusData.nameEn);
       cy.formController("description_bn").type(maritalStatusData.nameBn);
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-yes").click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.YES).click();
 
       cy.get("app-confirmation-modal")
         .contains(maritalStatusData.messageSaveMalSt)
         .should("be.visible");
-      cy.imsId("btn-ok").click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
 
-      cy.log("Marital status created successfully.");
+      cy.log(messages.ui.submitSuccess);
     });
   }
 
@@ -33,13 +35,13 @@ class MaritalStatusCreation {
     cy.fixture(this.test_data).then((data) => {
       const maritalStatusData = data.mraAdmin.createmaritalstatusFrom;
 
-      cy.imsId("btn-add-new").click();
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
       cy.formController("description_bn").type(maritalStatusData.nameBn);
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-ok").click();
-      cy.imsId("btn-go-back").click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
+      cy.imsId(COMMON.BUTTONS.GO_BACK).click();
 
-      cy.log("Creation blocked: English name is mandatory.");
+      cy.log(messages.ui.withoutDataMessage);
     });
   }
 
@@ -47,13 +49,13 @@ class MaritalStatusCreation {
     cy.fixture(this.test_data).then((data) => {
       const maritalStatusData = data.mraAdmin.createmaritalstatusFrom;
 
-      cy.imsId("btn-add-new").click();
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
       cy.formController("description_en").type(maritalStatusData.nameEn);
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-ok").click();
-      cy.imsId("btn-go-back").click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
+      cy.imsId(COMMON.BUTTONS.GO_BACK).click();
 
-      cy.log("Creation blocked: Bangla name is mandatory.");
+      cy.log(messages.ui.withoutDataMessage);
     });
   }
 
@@ -61,16 +63,16 @@ class MaritalStatusCreation {
     cy.fixture(this.test_data).then((data) => {
       const maritalStatusData = data.mraAdmin.createmaritalstatusFrom;
 
-      cy.imsId("btn-add-new").click();
-      cy.imsId("btn-reset").click();
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+      cy.imsId(COMMON.BUTTONS.RESET).click();
       cy.formController("description_en").type(maritalStatusData.nameEn);
       cy.formController("description_bn").type(maritalStatusData.nameBn);
       // intentionally not selecting status
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-ok").click();
-      cy.imsId("btn-go-back").click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
+      cy.imsId(COMMON.BUTTONS.GO_BACK).click();
 
-      cy.log("Creation blocked: Status is mandatory.");
+      cy.log(messages.ui.withoutDataMessage);
     });
   }
 
@@ -78,21 +80,21 @@ class MaritalStatusCreation {
     cy.fixture(this.test_data).then((data) => {
       const maritalStatusData = data.mraAdmin.createmaritalstatusFrom;
 
-      cy.imsId("btn-add-new").click();
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
       cy.formController("description_en").type(maritalStatusData.nameEn);
       // leave other mandatory fields empty
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-ok").click();
-      cy.imsId("btn-go-back").click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
+      cy.imsId(COMMON.BUTTONS.GO_BACK).click();
 
-      cy.log("Creation blocked: Mandatory field missing.");
+      cy.log(messages.ui.withoutDataMessage);
     });
   }
 
   // ---------------- Action Button ----------------
   actionButtonCheck() {
-    cy.imsId("toggle-action").first().click();
-    cy.log("Action button clicked successfully on the marital status list page.");
+    cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+    cy.log(messages.ui.actionMessage);
   }
 
   // ---------------- View Marital Status ----------------
@@ -100,9 +102,9 @@ class MaritalStatusCreation {
     cy.fixture(this.test_data).then((data) => {
       const maritalStatusData = data.mraAdmin.createmaritalstatusFrom;
 
-      cy.formController("search_text").type(maritalStatusData.nameEn);
-      cy.imsId("toggle-action").first().click();
-      cy.imsId("btn-table-action-view").click();
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(maritalStatusData.nameEn);
+      cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+      cy.imsId(COMMON.GRID.ACTION_VIEW).click();
 
       cy.get("app-mra-mfi")
         .contains(maritalStatusData.nameEn)
@@ -111,59 +113,59 @@ class MaritalStatusCreation {
         .contains(maritalStatusData.nameBn)
         .should("be.visible");
 
-      cy.log("Marital status details viewed successfully.");
+      cy.log(messages.ui.viewMessage);
     });
   }
 
   viewGoBackButton() {
-    cy.imsId("btn-go-back").click();
-    cy.log("Returned successfully to the marital status list page from view.");
+    cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+    cy.log(messages.ui.goBackSuccess);
   }
 
   // ---------------- Edit Marital Status ----------------
   turnOffOnEditMode() {
-    cy.imsId("toggle-action").first().click();
-    cy.imsId("btn-table-action-edit").click();
-    cy.imsId("switch-button").click(); // toggle edit mode
-    cy.imsId("btn-go-back").click();
+    cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+    cy.imsId(COMMON.GRID.ACTION_EDIT).click();
+    cy.imsId(COMMON.BUTTONS.TURN_EDIT_MODE).click(); // toggle edit mode
+    cy.imsId(COMMON.BUTTONS.GO_BACK).click();
 
-    cy.log("Edit mode toggled successfully.");
+    cy.log(messages.ui.turnOnEditModeMessage);
   }
 
   editMaritalStatus() {
     cy.fixture(this.test_data).then((data) => {
       const maritalStatusData = data.mraAdmin.createmaritalstatusFrom;
 
-      cy.imsId("toggle-action").first().click();
-      cy.imsId("btn-table-action-edit").click();
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-yes").click();
+      cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+      cy.imsId(COMMON.GRID.ACTION_EDIT).click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.YES).click();
 
       cy.get("app-confirmation-modal")
         .contains(maritalStatusData.messageUpdateMaSt)
         .should("be.visible");
-      cy.imsId("btn-ok").click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
 
-      cy.log("Marital status updated successfully.");
+      cy.log(messages.ui.editMessage);
     });
   }
 
   editResetButton() {
-    cy.imsId("toggle-action").first().click();
-    cy.imsId("btn-table-action-edit").click();
-    cy.imsId("btn-reset").click();
-    cy.imsId("btn-go-back").click();
+    cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+    cy.imsId(COMMON.GRID.ACTION_EDIT).click();
+    cy.imsId(COMMON.BUTTONS.RESET).click();
+    cy.imsId(COMMON.BUTTONS.GO_BACK).click();
 
-    cy.log("Edit form reset successfully.");
+    cy.log(messages.ui.editResetMessage);
   }
 
   editSubmitButton() {
     cy.fixture(this.test_data).then((data) => {
       const maritalStatusData = data.mraAdmin.createmaritalstatusFrom;
 
-      cy.imsId("toggle-action").first().click();
-      cy.imsId("btn-table-action-edit").click();
-      cy.imsId("btn-reset").click();
+      cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+      cy.imsId(COMMON.GRID.ACTION_EDIT).click();
+      cy.imsId(COMMON.BUTTONS.RESET).click();
 
       cy.formController("description_en").type(maritalStatusData.nameEn);
       cy.formController("description_bn").type(maritalStatusData.nameBn);
@@ -171,34 +173,34 @@ class MaritalStatusCreation {
         .type(maritalStatusData.status)
         .type("{enter}");
 
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-yes").click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.YES).click();
 
       cy.get("app-confirmation-modal")
         .contains(maritalStatusData.messageUpdateMaSt)
         .should("be.visible");
-      cy.imsId("btn-ok").click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
 
-      cy.log("Marital status edited and submitted successfully.");
+      cy.log(messages.ui.editSubmitMessage);
     });
   }
 
   editGoBackButton() {
-    cy.imsId("toggle-action").first().click();
-    cy.imsId("btn-table-action-edit").click();
-    cy.imsId("btn-go-back").click();
-    cy.log("Returned successfully to the marital status list page from edit.");
+    cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+    cy.imsId(COMMON.GRID.ACTION_EDIT).click();
+    cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+    cy.log(messages.ui.editGoBackMessage);
   }
 
   // ---------------- Filter / Search ----------------
   statusInactiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       const maritalStatusData = data.mraAdmin.createmaritalstatusFrom;
-      cy.imsId("btn-reset").click();
+      cy.imsId(COMMON.BUTTONS.RESET).click();
       cy.formController("status")
         .type(maritalStatusData.selectStatus)
         .type("{enter}");
-      cy.log("Inactive status filter applied successfully.");
+      cy.log(messages.ui.dropdownInactiveMessage);
     });
   }
 
@@ -208,71 +210,71 @@ class MaritalStatusCreation {
       cy.formController("status")
         .type(maritalStatusData.statusSelect)
         .type("{enter}");
-      cy.log("Active status filter applied successfully.");
+      cy.log(messages.ui.dropdownActiveMessage);
     });
   }
 
   searchInMaritalStatusName() {
     cy.fixture(this.test_data).then((data) => {
       const maritalStatusData = data.mraAdmin.createmaritalstatusFrom;
-      cy.imsId("btn-reset").click();
-      cy.formController("search_text").type(maritalStatusData.nameEn);
-      cy.log("Search by marital status name performed successfully.");
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(maritalStatusData.nameEn);
+      cy.log(messages.ui.searchMessage);
     });
   }
 
   // ---------------- Grid Operations ----------------
   gridResetButtonCheck() {
-    cy.imsId("btn-reset").click();
-    cy.log("Grid reset successfully.");
+    cy.imsId(COMMON.BUTTONS.RESET).click();
+    cy.log(messages.ui.gridResetSuccess);
   }
 
   gridRefreshButtonCheck() {
-    cy.imsId("btn-refresh").click();
-    cy.log("Grid refreshed successfully.");
+    cy.imsId(COMMON.BUTTONS.REFRESH).click();
+    cy.log(messages.ui.gridRefreshSuccess);
   }
 
   // ---------------- Create Form Operations ----------------
   createResetButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
       const maritalStatusData = data.mraAdmin.createmaritalstatusFrom;
-      cy.imsId("btn-add-new").click();
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
       cy.formController("description_en").type(maritalStatusData.nameEn);
-      cy.imsId("btn-reset").click();
-      cy.imsId("btn-go-back").click();
-      cy.log("Create form reset successfully.");
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+      cy.log(messages.validation.requiredField);
     });
   }
 
   createValidationMessageCheck() {
-    cy.imsId("btn-add-new").click();
-    cy.imsId("btn-submit").click();
-    cy.imsId("btn-ok").click();
-    cy.imsId("btn-go-back").click();
-    cy.log("Validation messages displayed successfully.");
+    cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+    cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+    cy.imsId(COMMON.CONFIRMATION.OK).click();
+    cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+    cy.log(messages.validation.requiredField);
   }
 
   createGoBackButtonCheck() {
-    cy.imsId("btn-add-new").click();
-    cy.imsId("btn-go-back").click();
-    cy.log("Returned successfully to the marital status list page from create form.");
+    cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+    cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+    cy.log(messages.ui.createGoBackMessage);
   }
 
   gridSearchButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
       const maritalStatusData = data.mraAdmin.createmaritalstatusFrom;
-      cy.imsId("btn-reset").click();
-      cy.formController("search_text").type(maritalStatusData.search);
-      cy.imsId("btn-search").click();
-      cy.log("Successful search button click.");
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(maritalStatusData.search);
+      cy.imsId(COMMON.BUTTONS.SEARCH).click();
+      cy.log(messages.ui.searchMessage);
     });
   }
 
   // ---------------- Language Switch ----------------
   gridLanguageSwitchCheck() {
-    cy.imsId("profile-menu").click();
-    cy.imsId("btn-lang-bangla").click();
-    cy.log("Grid language switched to Bangla successfully.");
+    cy.imsId(COMMON.BUTTONS.PROFILE).click();
+    cy.imsId(COMMON.BUTTONS.LANGUAGE_CHANGE).click();
+    cy.log(messages.ui.languageSwitchMessage);
   }
 }
 

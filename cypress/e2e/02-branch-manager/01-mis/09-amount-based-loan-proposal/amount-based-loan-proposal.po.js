@@ -1,3 +1,5 @@
+import messages from "../../../../support/constants/messages";
+import { COMMON } from "../../../../support/constants/selectors";
 class AmountBasedLoanProposalApproval {
   test_data = Cypress.env("TEST_DATA");
 
@@ -7,111 +9,111 @@ class AmountBasedLoanProposalApproval {
         "menu-configuration",
         "submenu-amount-based-loan-proposal-approval"
       );
-      cy.log("Successfully amount based loan list page.");
+      cy.log(messages.ui.gridListMessage);
     });
   }
 
   actionButtonCheck() {
-    cy.imsId("toggle-action").first().click();
-    cy.log("Action button clicked successfully on the area list page.");
+    cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+    cy.log(messages.ui.actionMessage);
   }
 
   viewAmountBasedLoanProposal() {
     cy.fixture(this.test_data).then((data) => {
-      var ablpaData = data.branchManager.gridAmountBasedLoanFrom;
-      cy.formController("search_text").type(ablpaData.roleName);
-      cy.imsId("toggle-action").first().click();
-      cy.imsId("btn-table-action-view").click();
-      cy.log("Successfully viewed the amount based loan list page");
+      const ablpaData = data.branchManager.gridAmountBasedLoanFrom;
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(ablpaData.roleName);
+      cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+      cy.imsId(COMMON.GRID.ACTION_VIEW).click();
+      cy.log(messages.ui.viewMessage);
     });
   }
 
   viewGoBackButton() {
-    cy.imsId("btn-go-back").click();
+    cy.imsId(COMMON.BUTTONS.GO_BACK).click();
 
-    cy.log("Successfully view go back the amount based loan list page");
+    cy.log(messages.ui.goBackSuccess);
 
   }
 
   turnOnEditMode() {
-    cy.imsId("toggle-action").first().click();
-    cy.imsId("btn-table-action-view").click();
-    cy.imsId("switch-button").click();
-    cy.imsId("btn-go-back").click();
+    cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+    cy.imsId(COMMON.GRID.ACTION_VIEW).click();
+    cy.imsId(COMMON.BUTTONS.TURN_EDIT_MODE).click();
+    cy.imsId(COMMON.BUTTONS.GO_BACK).click();
 
-    cy.log("Amount based loan form Edit Mode toggled successfully");
+    cy.log(messages.ui.turnOnEditModeMessage);
   }
 
   editResetButton() {
-    cy.imsId("toggle-action").first().click();
-    cy.imsId("btn-table-action-view").click();
-    cy.imsId("switch-button").click();
-    cy.imsId("btn-reset").click();
-    cy.log("Successful clean displaying");
+    cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+    cy.imsId(COMMON.GRID.ACTION_VIEW).click();
+    cy.imsId(COMMON.BUTTONS.TURN_EDIT_MODE).click();
+    cy.imsId(COMMON.BUTTONS.RESET).click();
+    cy.log(messages.ui.editResetMessage);
   }
 
   editSubmitButton() {
-    cy.imsId("btn-submit").click();
-    cy.imsId("btn-ok").click();
-    cy.log("Successful submit displaying");
+    cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+    cy.imsId(COMMON.CONFIRMATION.OK).click();
+    cy.log(messages.ui.editSubmitMessage);
   }
 
   editGoBackButton() {
-    cy.imsId("btn-go-back").click();
-    cy.log("Successful edit go back button check.");
+    cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+    cy.log(messages.ui.editGoBackMessage);
   }
 
   statusInactiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var ablpaData = data.branchManager.gridAmountBasedLoanFrom;
-      cy.imsId("btn-reset").click();
+      const ablpaData = data.branchManager.gridAmountBasedLoanFrom;
+      cy.imsId(COMMON.BUTTONS.RESET).click();
       cy.formController("status").type(ablpaData.selectStatus).type("{enter}");
-      cy.log("Amount based loan status inactive dropdown check successfully");
+      cy.log(messages.ui.dropdownInactiveMessage);
     });
   }
   statusActiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var ablpaData = data.branchManager.gridAmountBasedLoanFrom;
+      const ablpaData = data.branchManager.gridAmountBasedLoanFrom;
       cy.formController("status").type(ablpaData.statusSelect).type("{enter}");
-      cy.log("Amount based loan status active dropdown check successfully");
+      cy.log(messages.ui.dropdownActiveMessage);
     });
   }
 
   searchInRoleName() {
     cy.fixture(this.test_data).then((data) => {
-      var ablpaData = data.branchManager.gridAmountBasedLoanFrom;
-      cy.imsId("btn-reset").click();
-      cy.formController("search_text").type(ablpaData.roleName);
-      cy.log("Successfully search in the amount based loan");
+      const ablpaData = data.branchManager.gridAmountBasedLoanFrom;
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(ablpaData.roleName);
+      cy.log(messages.ui.searchMessage);
     });
   }
 
   gridResetButtonCheck() {
-    cy.imsId("btn-reset").click();
-    cy.log("Successful clean displaying.");
+    cy.imsId(COMMON.BUTTONS.RESET).click();
+    cy.log(messages.ui.gridResetSuccess);
   }
 
   gridRefreshButtonCheck() {
-    cy.imsId("btn-refresh").click();
+    cy.imsId(COMMON.BUTTONS.REFRESH).click();
     cy.log(
-      "successfully refresh page  displayed the grid list of the amount based loan "
+      messages.ui.gridRefreshSuccess
     );
   }
 
   gridSearchButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var ablpaData = data.branchManager.gridAmountBasedLoanFrom;
-      cy.imsId("btn-reset").click();
-      cy.formController("search_text").type(ablpaData.search);
-      cy.imsId("btn-search").click();
-      cy.log("Successful search button click.");
+      const ablpaData = data.branchManager.gridAmountBasedLoanFrom;
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(ablpaData.search);
+      cy.imsId(COMMON.BUTTONS.SEARCH).click();
+      cy.log(messages.ui.searchMessage);
     });
   }
 
   gridLanguageSwitchCheck() {
-    cy.imsId("profile-menu").click();
-    cy.imsId("btn-lang-bangla").click();
-    cy.log("Successful switch bangla language check.");
+    cy.imsId(COMMON.BUTTONS.PROFILE).click();
+    cy.imsId(COMMON.BUTTONS.LANGUAGE_CHANGE).click();
+    cy.log(messages.ui.languageSwitchMessage);
   }
 }
 

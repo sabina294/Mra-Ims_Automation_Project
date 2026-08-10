@@ -1,87 +1,89 @@
+import messages from "../../../../support/constants/messages";
+import { COMMON } from "../../../../support/constants/selectors";
 class LedgerSetting {
     test_data = Cypress.env("TEST_DATA");
 
     gridLedgerSubGroupListPage() {
         cy.fixture(this.test_data).then((data) => {
             cy.selectMenu("menu-accounting", "submenu-ledger-setting");
-            cy.log("Successfully Chart of accounts list page.");
+            cy.log(messages.ui.gridListMessage);
         });
     }
 
     actionButtonCheck() {
-        cy.imsId("toggle-action").first().click();
-        cy.log("Action button clicked successfully on the ledger sub group list page.");
+        cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+        cy.log(messages.ui.actionMessage);
     }
 
 
     editResetButton() {
-        cy.imsId("toggle-action").first().click();
-        cy.imsId("btn-table-action-edit").click();
-        cy.imsId("btn-reset").click();
-        cy.imsId("btn-go-back").click();
+        cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+        cy.imsId(COMMON.GRID.ACTION_EDIT).click();
+        cy.imsId(COMMON.BUTTONS.RESET).click();
+        cy.imsId(COMMON.BUTTONS.GO_BACK).click();
 
-        cy.log("Successful clean displaying");
+        cy.log(messages.ui.editResetMessage);
     }
 
     editGoBackButton() {
-        cy.imsId("toggle-action").first().click();
-        cy.imsId("btn-table-action-edit").click();
-        cy.imsId("btn-go-back").click();
-        cy.log("Successful edit go back button check.");
+        cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+        cy.imsId(COMMON.GRID.ACTION_EDIT).click();
+        cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+        cy.log(messages.ui.editGoBackMessage);
     }
 
     statusInactiveDropdownCheck() {
         cy.fixture(this.test_data).then((data) => {
-            var lsData = data.branchManager.ledgerSetting;
-            cy.imsId("btn-reset").click();
+            const lsData = data.branchManager.ledgerSetting;
+            cy.imsId(COMMON.BUTTONS.RESET).click();
             cy.formController("status").type(lsData.selectStatus).type("{enter}");
-            cy.log("ledger sub group status inactive dropdown check successfully");
+            cy.log(messages.ui.dropdownInactiveMessage);
         });
     }
 
     statusActiveDropdownCheck() {
         cy.fixture(this.test_data).then((data) => {
-            var lsData = data.branchManager.ledgerSetting;
+            const lsData = data.branchManager.ledgerSetting;
             cy.formController("status").type(lsData.statusSelect).type("{enter}");
-            cy.log("ledger sub group status active dropdown check successfully");
+            cy.log(messages.ui.dropdownActiveMessage);
         });
     }
 
     searchName() {
         cy.fixture(this.test_data).then((data) => {
-            var lsData = data.branchManager.ledgerSetting;
-            cy.imsId("btn-reset").click();
-            cy.formController("search_text").type(lsData.nameEn);
+            const lsData = data.branchManager.ledgerSetting;
+            cy.imsId(COMMON.BUTTONS.RESET).click();
+            cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(lsData.nameEn);
             cy.log("Successfully search in the ledger sub group");
         });
     }
 
     gridResetButtonCheck() {
-        cy.imsId("btn-reset").click();
-        cy.log("Successful clean displaying.");
+        cy.imsId(COMMON.BUTTONS.RESET).click();
+        cy.log(messages.ui.gridResetSuccess);
     }
     gridRefreshButtonCheck() {
-        cy.imsId("btn-refresh").click();
+        cy.imsId(COMMON.BUTTONS.REFRESH).click();
         cy.log(
-            "successfully refresh page  displayed the grid list of the ledger sub group "
+            messages.ui.gridRefreshSuccess
         );
     }
 
     gridSearchButtonCheck() {
         cy.fixture(this.test_data).then((data) => {
-            var lsData = data.branchManager.ledgerSetting;
-            cy.imsId("btn-reset").click();
-            cy.formController("search_text").type(lsData.nameEn);
-            cy.imsId("btn-search").click();
+            const lsData = data.branchManager.ledgerSetting;
+            cy.imsId(COMMON.BUTTONS.RESET).click();
+            cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(lsData.nameEn);
+            cy.imsId(COMMON.BUTTONS.SEARCH).click();
 
-            cy.log("Successfully search button click.");
+            cy.log(messages.ui.searchMessage);
         });
     }
 
     gridLanguageSwitchCheck() {
-        cy.imsId("profile-menu").click();
-        cy.imsId("btn-lang-bangla").click();
-        cy.log("Successful switch bangla language check.");
+        cy.imsId(COMMON.BUTTONS.PROFILE).click();
+        cy.imsId(COMMON.BUTTONS.LANGUAGE_CHANGE).click();
+        cy.log(messages.ui.languageSwitchMessage);
     }
 }
 

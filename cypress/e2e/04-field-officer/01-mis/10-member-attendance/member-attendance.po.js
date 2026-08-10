@@ -1,39 +1,41 @@
+import messages from "../../../../support/constants/messages";
+import { COMMON } from "../../../../support/constants/selectors";
 class MemberAttendance {
   test_data = Cypress.env("TEST_DATA");
 
   gridMemberAttendanceListPage() {
     cy.fixture(this.test_data).then((data) => {
       cy.selectMenu("menu-member", "submenu-member-attendance");
-      cy.log("Successfully member attendance list page.");
+      cy.log(messages.ui.gridListMessage);
     });
   }
 
   gridResetButtonCheck() {
-    cy.imsId("btn-reset").click();
-    cy.log("Successful clean displaying.");
+    cy.imsId(COMMON.BUTTONS.RESET).click();
+    cy.log(messages.ui.gridResetSuccess);
   }
 
   gridRefreshButtonCheck() {
-    cy.imsId("btn-refresh").click();
+    cy.imsId(COMMON.BUTTONS.REFRESH).click();
     cy.log(
-      "successfully refresh page  displayed the grid list of the Member attendance "
+      messages.ui.gridRefreshSuccess
     );
   }
 
     gridSearchButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var maData = data.fieldOfficer.memberAttendanceFrom;
-      cy.imsId("btn-reset").click();
-      cy.formController("search_text").type(maData.samity);
-      cy.imsId("btn-search").click();
-      cy.log("Successful search button click.");
+      const maData = data.fieldOfficer.memberAttendanceFrom;
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(maData.samity);
+      cy.imsId(COMMON.BUTTONS.SEARCH).click();
+      cy.log(messages.ui.searchMessage);
     });
   }
 
   gridLanguageSwitchCheck() {
-    cy.imsId("profile-menu").click();
-    cy.imsId("btn-lang-bangla").click();
-    cy.log("Successful switch bangla language check.");
+    cy.imsId(COMMON.BUTTONS.PROFILE).click();
+    cy.imsId(COMMON.BUTTONS.LANGUAGE_CHANGE).click();
+    cy.log(messages.ui.languageSwitchMessage);
   }
 }
 

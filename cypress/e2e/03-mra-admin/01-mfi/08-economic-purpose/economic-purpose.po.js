@@ -1,19 +1,21 @@
+import messages from "../../../../support/constants/messages";
+import { COMMON } from "../../../../support/constants/selectors";
 class EconomicPurposeCreation {
   test_data = Cypress.env("TEST_DATA");
 
   gridEconomicPurposeListPage() {
     cy.fixture(this.test_data).then((data) => {
       cy.selectMenu("menu-configuration", "submenu-economic-purpose");
-      cy.log("Successfully economic purpose list page.");
+      cy.log(messages.ui.gridListMessage);
     });
   }
 
   createEconomicPurpose() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      cy.imsId("btn-submit").and("be.visible");
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).and("be.visible");
 
-      var ecoPurData = data.mraAdmin.createeconomicPurposeFrom;
+      const ecoPurData = data.mraAdmin.createeconomicPurposeFrom;
       cy.formController("mra_code").type(ecoPurData.economicPurposeCode);
       cy.formController("name_en").type(ecoPurData.nameEn);
       cy.formController("name_bn").type(ecoPurData.nameBn);
@@ -22,24 +24,24 @@ class EconomicPurposeCreation {
       cy.formController("lending_category_id")
         .type(ecoPurData.lendingCategory)
         .type("{enter}");
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-yes").click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.YES).click();
 
       cy.get("app-confirmation-modal")
         .contains(ecoPurData.messageSaveEcPu)
         .and("be.visible");
-      cy.imsId("btn-ok").click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
 
-      cy.log("Successfully created economic purpose");
+      cy.log(messages.ui.submitSuccess);
     });
   }
 
   createWithoutEcoPurCode() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      cy.imsId("btn-submit").and("be.visible");
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).and("be.visible");
 
-      var ecoPurData = data.mraAdmin.createeconomicPurposeFrom;
+      const ecoPurData = data.mraAdmin.createeconomicPurposeFrom;
       cy.formController("name_en").type(ecoPurData.nameEn);
       cy.formController("name_bn").type(ecoPurData.nameBn);
       cy.formController("sector").type(ecoPurData.economicSector);
@@ -47,22 +49,22 @@ class EconomicPurposeCreation {
       cy.formController("lending_category_id")
         .type(ecoPurData.lendingCategory)
         .type("{enter}");
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-ok").click();
-      cy.imsId("btn-go-back").click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
+      cy.imsId(COMMON.BUTTONS.GO_BACK).click();
 
       cy.log(
-        "Successful cannot creation division without one mandatory field."
+        messages.ui.withoutDataMessage
       );
     });
   }
 
   createWithoutEcoPurNameEn() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      cy.imsId("btn-submit").and("be.visible");
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).and("be.visible");
 
-      var ecoPurData = data.mraAdmin.createeconomicPurposeFrom;
+      const ecoPurData = data.mraAdmin.createeconomicPurposeFrom;
       cy.formController("mra_code").type(ecoPurData.economicPurposeCode);
       cy.formController("name_bn").type(ecoPurData.nameBn);
       cy.formController("sector").type(ecoPurData.economicSector);
@@ -70,22 +72,22 @@ class EconomicPurposeCreation {
       cy.formController("lending_category_id")
         .type(ecoPurData.lendingCategory)
         .type("{enter}");
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-ok").click();
-      cy.imsId("btn-go-back").click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
+      cy.imsId(COMMON.BUTTONS.GO_BACK).click();
 
       cy.log(
-        "Successful cannot creation division without one mandatory field."
+        messages.ui.withoutDataMessage
       );
     });
   }
 
   createWithoutEcoPurNameBn() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      cy.imsId("btn-submit").and("be.visible");
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).and("be.visible");
 
-      var ecoPurData = data.mraAdmin.createeconomicPurposeFrom;
+      const ecoPurData = data.mraAdmin.createeconomicPurposeFrom;
       cy.formController("mra_code").type(ecoPurData.economicPurposeCode);
       cy.formController("name_en").type(ecoPurData.nameEn);
       cy.formController("sector").type(ecoPurData.economicSector);
@@ -93,22 +95,22 @@ class EconomicPurposeCreation {
       cy.formController("lending_category_id")
         .type(ecoPurData.lendingCategory)
         .type("{enter}");
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-ok").click();
-      cy.imsId("btn-go-back").click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
+      cy.imsId(COMMON.BUTTONS.GO_BACK).click();
 
       cy.log(
-        "Successful cannot creation division without one mandatory field."
+        messages.ui.withoutDataMessage
       );
     });
   }
 
   createWithoutEcoPurSector() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      cy.imsId("btn-submit").and("be.visible");
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).and("be.visible");
 
-      var ecoPurData = data.mraAdmin.createeconomicPurposeFrom;
+      const ecoPurData = data.mraAdmin.createeconomicPurposeFrom;
       cy.formController("mra_code").type(ecoPurData.economicPurposeCode);
       cy.formController("name_en").type(ecoPurData.nameEn);
       cy.formController("name_bn").type(ecoPurData.nameBn);
@@ -116,22 +118,22 @@ class EconomicPurposeCreation {
       cy.formController("lending_category_id")
         .type(ecoPurData.lendingCategory)
         .type("{enter}");
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-ok").click();
-      cy.imsId("btn-go-back").click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
+      cy.imsId(COMMON.BUTTONS.GO_BACK).click();
 
       cy.log(
-        "Successful cannot creation division without one mandatory field."
+        messages.ui.withoutDataMessage
       );
     });
   }
 
   createWithoutEcoPurActivity() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      cy.imsId("btn-submit").and("be.visible");
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).and("be.visible");
 
-      var ecoPurData = data.mraAdmin.createeconomicPurposeFrom;
+      const ecoPurData = data.mraAdmin.createeconomicPurposeFrom;
       cy.formController("mra_code").type(ecoPurData.economicPurposeCode);
       cy.formController("name_en").type(ecoPurData.nameEn);
       cy.formController("name_bn").type(ecoPurData.nameBn);
@@ -139,44 +141,44 @@ class EconomicPurposeCreation {
       cy.formController("lending_category_id")
         .type(ecoPurData.lendingCategory)
         .type("{enter}");
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-ok").click();
-      cy.imsId("btn-go-back").click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
+      cy.imsId(COMMON.BUTTONS.GO_BACK).click();
 
       cy.log(
-        "Successful cannot creation division without one mandatory field."
+        messages.ui.withoutDataMessage
       );
     });
   }
 
   createWithoutLendingCategory() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      cy.imsId("btn-submit").and("be.visible");
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).and("be.visible");
 
-      var ecoPurData = data.mraAdmin.createeconomicPurposeFrom;
+      const ecoPurData = data.mraAdmin.createeconomicPurposeFrom;
       cy.formController("mra_code").type(ecoPurData.economicPurposeCode);
       cy.formController("name_en").type(ecoPurData.nameEn);
       cy.formController("name_bn").type(ecoPurData.nameBn);
       cy.formController("sector").type(ecoPurData.economicSector);
       cy.formController("econ_activity").type(ecoPurData.economicActivity);
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-ok").click();
-      cy.imsId("btn-go-back").click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
+      cy.imsId(COMMON.BUTTONS.GO_BACK).click();
 
       cy.log(
-        "Successful cannot creation division without one mandatory field."
+        messages.ui.withoutDataMessage
       );
     });
   }
 
   createWithoutEcoPurStatus() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      cy.imsId("btn-submit").and("be.visible");
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).and("be.visible");
 
-      var ecoPurData = data.mraAdmin.createeconomicPurposeFrom;
-      cy.imsId("btn-reset").click();
+      const ecoPurData = data.mraAdmin.createeconomicPurposeFrom;
+      cy.imsId(COMMON.BUTTONS.RESET).click();
       cy.formController("mra_code").type(ecoPurData.economicPurposeCode);
       cy.formController("name_en").type(ecoPurData.nameEn);
       cy.formController("name_bn").type(ecoPurData.nameBn);
@@ -185,22 +187,22 @@ class EconomicPurposeCreation {
       cy.formController("lending_category_id")
         .type(ecoPurData.lendingCategory)
         .type("{enter}");
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-ok").click();
-      cy.imsId("btn-go-back").click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
+      cy.imsId(COMMON.BUTTONS.GO_BACK).click();
 
       cy.log(
-        "Successful cannot creation division without one mandatory field."
+        messages.ui.withoutDataMessage
       );
     });
   }
 
   createWithoutOneMandatoryField() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      cy.imsId("btn-submit").and("be.visible");
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).and("be.visible");
 
-      var ecoPurData = data.mraAdmin.createeconomicPurposeFrom;
+      const ecoPurData = data.mraAdmin.createeconomicPurposeFrom;
       cy.formController("mra_code").type(ecoPurData.economicPurposeCode);
       cy.formController("name_bn").type(ecoPurData.nameBn);
       cy.formController("sector").type(ecoPurData.economicSector);
@@ -209,29 +211,29 @@ class EconomicPurposeCreation {
         .type(ecoPurData.lendingCategory)
         .type("{enter}");
 
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-ok").click();
-      cy.imsId("btn-go-back").click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
+      cy.imsId(COMMON.BUTTONS.GO_BACK).click();
 
       cy.log(
-        "Successful cannot creation economic purpose without one mandatory field"
+        messages.ui.withoutDataMessage
       );
     });
   }
 
   actionButtonCheck() {
-    cy.imsId("toggle-action").first().click();
+    cy.imsId(COMMON.TOGGLES.ACTION).first().click();
     cy.log(
-      "Action button clicked successfully on the economic purpose list page."
+      messages.ui.actionMessage
     );
   }
 
   viewEconomicPurpose() {
     cy.fixture(this.test_data).then((data) => {
-      var ecoPurData = data.mraAdmin.createeconomicPurposeFrom;
-      cy.formController("search_text").type(ecoPurData.nameEn);
-      cy.imsId("toggle-action").first().click();
-      cy.imsId("btn-table-action-view").click();
+      const ecoPurData = data.mraAdmin.createeconomicPurposeFrom;
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(ecoPurData.nameEn);
+      cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+      cy.imsId(COMMON.GRID.ACTION_VIEW).click();
 
       cy.get("app-mra-mfi")
         .contains(ecoPurData.economicPurposeCode)
@@ -239,59 +241,59 @@ class EconomicPurposeCreation {
       cy.get("app-mra-mfi").contains(ecoPurData.nameEn).and("be.visible");
       cy.get("app-mra-mfi").contains(ecoPurData.nameBn).and("be.visible");
 
-      cy.log("Successfully viewed the economic purpose list page");
+      cy.log(messages.ui.viewMessage);
     });
   }
 
   viewGoBackButton() {
-    cy.imsId("btn-go-back").click();
+    cy.imsId(COMMON.BUTTONS.GO_BACK).click();
 
-    cy.log("Successfully view go back the economic purpose list page");
+    cy.log(messages.ui.goBackSuccess);
 
   }
 
   turnOffOnEditMode() {
-    cy.imsId("toggle-action").first().click();
-    cy.imsId("btn-table-action-edit").click();
-    cy.imsId("switch-button").click();
-    cy.imsId("btn-go-back").click();
+    cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+    cy.imsId(COMMON.GRID.ACTION_EDIT).click();
+    cy.imsId(COMMON.BUTTONS.TURN_EDIT_MODE).click();
+    cy.imsId(COMMON.BUTTONS.GO_BACK).click();
 
-    cy.log("Economic purpose form Edit Mode toggled successfully");
+    cy.log(messages.ui.turnOnEditModeMessage);
   }
 
   editEconomicPurpose() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("toggle-action").first().click();
-      cy.imsId("btn-table-action-edit").click();
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-yes").click();
+      cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+      cy.imsId(COMMON.GRID.ACTION_EDIT).click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.YES).click();
 
-      var ecoPurData = data.mraAdmin.createeconomicPurposeFrom;
+      const ecoPurData = data.mraAdmin.createeconomicPurposeFrom;
       cy.get("app-confirmation-modal")
         .contains(ecoPurData.messageUpdateEcPu)
         .and("be.visible");
-      cy.imsId("btn-ok").click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
 
-      cy.log("Economic purpose updated successfully");
+      cy.log(messages.ui.editMessage);
     });
   }
 
   editResetButton() {
-    cy.imsId("toggle-action").first().click();
-    cy.imsId("btn-table-action-edit").click();
-    cy.imsId("btn-reset").click();
-    cy.imsId("btn-go-back").click();
+    cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+    cy.imsId(COMMON.GRID.ACTION_EDIT).click();
+    cy.imsId(COMMON.BUTTONS.RESET).click();
+    cy.imsId(COMMON.BUTTONS.GO_BACK).click();
 
-    cy.log("Successful clean displaying");
+    cy.log(messages.ui.editResetMessage);
   }
 
   editSubmitButton() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("toggle-action").first().click();
-      cy.imsId("btn-table-action-edit").click();
-      cy.imsId("btn-reset").click();
+      cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+      cy.imsId(COMMON.GRID.ACTION_EDIT).click();
+      cy.imsId(COMMON.BUTTONS.RESET).click();
 
-      var ecoPurData = data.mraAdmin.createeconomicPurposeFrom;
+      const ecoPurData = data.mraAdmin.createeconomicPurposeFrom;
       cy.formController("mra_code").type(ecoPurData.economicPurposeCode);
       cy.formController("name_en").type(ecoPurData.nameEn);
       cy.formController("name_bn").type(ecoPurData.nameBn);
@@ -302,60 +304,60 @@ class EconomicPurposeCreation {
         .type("{enter}");
       cy.formController("status").type(ecoPurData.status).type("{enter}");
 
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-yes").click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.YES).click();
 
       cy.get("app-confirmation-modal")
         .contains(ecoPurData.messageUpdateEcPu)
         .and("be.visible");
-      cy.imsId("btn-ok").click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
 
-      cy.log("Successfully updated economic purpose");
+      cy.log(messages.ui.editSubmitMessage);
     });
   }
 
   editGoBackButton() {
-    cy.imsId("toggle-action").first().click();
-    cy.imsId("btn-table-action-edit").click();
-    cy.imsId("btn-go-back").click();
-    cy.log("Successful edit go back button check.");
+    cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+    cy.imsId(COMMON.GRID.ACTION_EDIT).click();
+    cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+    cy.log(messages.ui.editGoBackMessage);
   }
 
   statusInactiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var ecoPurData = data.mraAdmin.createeconomicPurposeFrom;
-      cy.imsId("btn-reset").click();
+      const ecoPurData = data.mraAdmin.createeconomicPurposeFrom;
+      cy.imsId(COMMON.BUTTONS.RESET).click();
       cy.formController("status").type(ecoPurData.selectStatus).type("{enter}");
-      cy.log("economic purpose status inactive dropdown check successfully");
+      cy.log(messages.ui.dropdownInactiveMessage);
     });
   }
 
   statusActiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var ecoPurData = data.mraAdmin.createeconomicPurposeFrom;
+      const ecoPurData = data.mraAdmin.createeconomicPurposeFrom;
       cy.formController("status").type(ecoPurData.statusSelect).type("{enter}");
-      cy.log("economic purpose status active dropdown check successfully");
+      cy.log(messages.ui.dropdownActiveMessage);
     });
   }
 
   searchInEconomicPurposetName() {
     cy.fixture(this.test_data).then((data) => {
-      var ecoPurData = data.mraAdmin.createeconomicPurposeFrom;
-      cy.imsId("btn-reset").click();
-      cy.formController("search_text").type(ecoPurData.nameEn);
-      cy.log("Successfully search in the economic purpose");
+      const ecoPurData = data.mraAdmin.createeconomicPurposeFrom;
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(ecoPurData.nameEn);
+      cy.log(messages.ui.searchMessage);
     });
   }
 
   gridResetButtonCheck() {
-    cy.imsId("btn-reset").click();
-    cy.log("Successful clean displaying.");
+    cy.imsId(COMMON.BUTTONS.RESET).click();
+    cy.log(messages.ui.gridResetSuccess);
   }
 
   gridRefreshButtonCheck() {
-    cy.imsId("btn-refresh").click();
+    cy.imsId(COMMON.BUTTONS.REFRESH).click();
     cy.log(
-      "successfully refresh page  displayed the grid list of the economic purpose "
+      messages.ui.gridRefreshSuccess
     );
   }
 
@@ -366,43 +368,43 @@ class EconomicPurposeCreation {
 
   createResetButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var ecoPurData = data.mraAdmin.createeconomicPurposeFrom;
-      cy.imsId("btn-add-new").click();
+      const ecoPurData = data.mraAdmin.createeconomicPurposeFrom;
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
       cy.formController("name_en").type(ecoPurData.nameEn);
-      cy.imsId("btn-reset").click();
-      cy.imsId("btn-go-back").click();
-      cy.log("Successful clean displaying.");
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+      cy.log(messages.validation.requiredField);
     });
   }
 
   createValidationMessageCheck() {
-    cy.imsId("btn-add-new").click();
-    cy.imsId("btn-submit").click();
-    cy.imsId("btn-ok").click();
-    cy.imsId("btn-go-back").click();
-    cy.log("Successful validation message displaying.");
+    cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+    cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+    cy.imsId(COMMON.CONFIRMATION.OK).click();
+    cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+    cy.log(messages.validation.requiredField);
   }
 
   createGoBackButtonCheck() {
-    cy.imsId("btn-add-new").click();
-    cy.imsId("btn-go-back").click();
-    cy.log("Successful go back button check.");
+    cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+    cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+    cy.log(messages.ui.createGoBackMessage);
   }
 
   gridSearchButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
-        var ecoPurData = data.mraAdmin.createeconomicPurposeFrom;
-      cy.imsId("btn-reset").click();
-      cy.formController("search_text").type(ecoPurData.search);
-      cy.imsId("btn-search").click();
-      cy.log("Successful search button click.");
+        const ecoPurData = data.mraAdmin.createeconomicPurposeFrom;
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(ecoPurData.search);
+      cy.imsId(COMMON.BUTTONS.SEARCH).click();
+      cy.log(messages.ui.searchMessage);
     });
   }
 
   gridLanguageSwitchCheck() {
-    cy.imsId("profile-menu").click();
-    cy.imsId("btn-lang-bangla").click();
-    cy.log("Successful switch bangla language check.");
+    cy.imsId(COMMON.BUTTONS.PROFILE).click();
+    cy.imsId(COMMON.BUTTONS.LANGUAGE_CHANGE).click();
+    cy.log(messages.ui.languageSwitchMessage);
   }
 }
 

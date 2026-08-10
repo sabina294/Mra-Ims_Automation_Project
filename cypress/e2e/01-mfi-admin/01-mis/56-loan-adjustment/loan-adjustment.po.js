@@ -1,24 +1,26 @@
+import messages from "../../../../support/constants/messages";
+import { COMMON } from "../../../../support/constants/selectors";
 class LoanAdjustment {
     test_data = Cypress.env("TEST_DATA");
 
     gridLoanAdjustmentListPage() {
         cy.fixture(this.test_data).then((data) => {
             cy.selectMenu("menu-transaction", "submenu-loan-adjustment");
-            cy.log("Successfully Loan Adjustment list page.");
+            cy.log(messages.ui.gridListMessage);
         });
     }
 
     searchInLoanAdjustmentName() {
         cy.fixture(this.test_data).then((data) => {
-            var laData = data.mfiAdmin.loanAdjustmentFrom;
-            cy.imsId("btn-reset").click();
-            cy.formController("search_text").type(laData.samity);
-            cy.log("Successfully search in the Loan Adjustment");
+            const laData = data.mfiAdmin.loanAdjustmentFrom;
+            cy.imsId(COMMON.BUTTONS.RESET).click();
+            cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(laData.samity);
+            cy.log(messages.ui.searchMessage);
         });
     }
     statusOfficeDropdownCheck() {
         cy.fixture(this.test_data).then((data) => {
-            var laData = data.mfiAdmin.loanAdjustmentFrom;
+            const laData = data.mfiAdmin.loanAdjustmentFrom;
             cy.formController("office_id").type(laData.office).type("{enter}");
             cy.log(
                 "Loan Adjustment status office dropdown check successfully"
@@ -26,29 +28,29 @@ class LoanAdjustment {
         });
     }
     gridResetButtonCheck() {
-        cy.imsId("btn-reset").click();
-        cy.log("Successful clean displaying.");
+        cy.imsId(COMMON.BUTTONS.RESET).click();
+        cy.log(messages.ui.gridResetSuccess);
     }
     gridRefreshButtonCheck() {
-        cy.imsId("btn-refresh").click();
+        cy.imsId(COMMON.BUTTONS.REFRESH).click();
         cy.log(
-            "successfully refresh page  displayed the grid list of the Loan Adjustment"
+            messages.ui.gridRefreshSuccess
         );
     }
     gridSearchButtonCheck() {
         cy.fixture(this.test_data).then((data) => {
-            var laData = data.mfiAdmin.loanAdjustmentFrom;
-            cy.imsId("btn-reset").click();
-            cy.formController("search_text").type(laData.search);
-            cy.imsId("btn-search").click();
-            cy.log("Successful search button click.");
+            const laData = data.mfiAdmin.loanAdjustmentFrom;
+            cy.imsId(COMMON.BUTTONS.RESET).click();
+            cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(laData.search);
+            cy.imsId(COMMON.BUTTONS.SEARCH).click();
+            cy.log(messages.ui.searchMessage);
         });
     }
 
     gridLanguageSwitchCheck() {
-        cy.imsId("profile-menu").click();
-        cy.imsId("btn-lang-bangla").click();
-        cy.log("Unsuccessful switch bangla language check.");
+        cy.imsId(COMMON.BUTTONS.PROFILE).click();
+        cy.imsId(COMMON.BUTTONS.LANGUAGE_CHANGE).click();
+        cy.log(messages.ui.languageSwitchMessage);
     }
 }
 

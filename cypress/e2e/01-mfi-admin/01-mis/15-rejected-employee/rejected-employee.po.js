@@ -1,18 +1,20 @@
+import messages from "../../../../support/constants/messages";
+import { COMMON } from "../../../../support/constants/selectors";
 class RejectedEmployee {
   test_data = Cypress.env("TEST_DATA");
   gridEmployeeListPage() {
     cy.fixture(this.test_data).then((data) => {
       cy.selectMenu("menu-employee", "submenu-employee-management");
-      cy.log("Successfully Rejected Employee list page.");
+      cy.log(messages.ui.gridListMessage);
     });
   }
 
   createEmployeeManagement() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      // cy.imsId("btn-submit").and("be.visible");
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+      // cy.imsId(COMMON.BUTTONS.SUBMIT).and("be.visible");
 
-      var reData = data.mfiAdmin.rejectedEmployeeFrom;
+      const reData = data.mfiAdmin.rejectedEmployeeFrom;
       cy.formController("emp_name_en").type(reData.empNameEn);
       cy.formController("emp_name_bn").type(reData.empNameBn);
       cy.formController("date_of_birth").click();
@@ -64,14 +66,14 @@ class RejectedEmployee {
       cy.wait(1000);
       cy.imsId("btn_tin_doc_id").attachFile("tinDocImg1.jpg");
       cy.wait(1000);
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-yes").click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.YES).click();
       cy.get("app-confirmation-modal")
         .contains(reData.messageSaveEmp)
         .and("be.visible");
-      cy.imsId("btn-ok").click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
 
-      cy.log("Successfully created Rejected Employee");
+      cy.log(messages.ui.submitSuccess);
     });
   }
 
@@ -81,8 +83,8 @@ class RejectedEmployee {
 
       cy.imsId("menu-my-task").click();
       cy.imsId("submenu-awaiting-employee-management").click();
-      cy.imsId("toggle-action").first().click();
-      cy.imsId("btn-table-action-view").click();
+      cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+      cy.imsId(COMMON.GRID.ACTION_VIEW).click();
 
       cy.imsId("btn-lock").click();
       cy.imsId("btn-reject").click();
@@ -96,10 +98,10 @@ class RejectedEmployee {
         .type(reData.rejectRemarks);
 
       cy.imsId("btn-Reject").click();
-      cy.imsId("btn-yes").click();
+      cy.imsId(COMMON.CONFIRMATION.YES).click();
 
       // ✅ Wait until modal is closed before moving on
-      cy.imsId("btn-ok").click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
 
       cy.log("✅ Successfully rejected employee");
     });
@@ -107,9 +109,9 @@ class RejectedEmployee {
 
   actionButtonCheck() {
     cy.selectMenu("menu-employee", "submenu-rejected-employee");
-    cy.imsId("toggle-action").first().click();
+    cy.imsId(COMMON.TOGGLES.ACTION).first().click();
     cy.log(
-      "Action button clicked successfully on the Rejected Employee list page."
+      messages.ui.actionMessage
     );
   }
 
@@ -117,61 +119,61 @@ class RejectedEmployee {
     cy.fixture(this.test_data).then((data) => {
       const reData = data.mfiAdmin.rejectedEmployeeFrom;
 
-      cy.formController("search_text").type(reData.empNameEn);
-      cy.imsId("toggle-action").first().click();
-      cy.imsId("btn-table-action-view").click();
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(reData.empNameEn);
+      cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+      cy.imsId(COMMON.GRID.ACTION_VIEW).click();
 
-      cy.log("Successfully viewed the Rejected Employee list page");
+      cy.log(messages.ui.viewMessage);
     });
   }
 
   viewGoBackButton() {
-    cy.imsId("btn-go-back").click();
-    cy.log("Successfully view go back the Rejected Employee list page");
+    cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+    cy.log(messages.ui.goBackSuccess);
 
   }
 
   editResetButton() {
     cy.fixture(this.test_data).then((data) => {
       const reData = data.mfiAdmin.rejectedEmployeeFrom;
-      cy.imsId("btn-reset").click();
-      cy.formController("search_text").type(reData.search);
-      cy.imsId("toggle-action").first().click();
-      cy.imsId("btn-table-action-edit").click();
-      cy.imsId("btn-reset").click();
-      cy.imsId("btn-go-back").click();
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(reData.search);
+      cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+      cy.imsId(COMMON.GRID.ACTION_EDIT).click();
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      cy.imsId(COMMON.BUTTONS.GO_BACK).click();
 
-      cy.log("Successful clean displaying");
+      cy.log(messages.ui.editResetMessage);
     });
   }
 
   editGoBackButton() {
     cy.fixture(this.test_data).then((data) => {
       const reData = data.mfiAdmin.rejectedEmployeeFrom;
-      cy.imsId("btn-reset").click();
-      cy.formController("search_text").type(reData.search);
-      cy.imsId("toggle-action").first().click();
-      cy.imsId("btn-table-action-edit").click();
-      cy.imsId("btn-go-back").click();
-      cy.log("Successful edit go back button check.");
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(reData.search);
+      cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+      cy.imsId(COMMON.GRID.ACTION_EDIT).click();
+      cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+      cy.log(messages.ui.editGoBackMessage);
     });
   }
 
   editEmployeeManagement() {
-    cy.imsId("toggle-action").first().click();
-    cy.imsId("btn-table-action-edit").click();
-    // cy.imsId("btn-submit").click();
-    // cy.imsId("btn-ok").click();
-    cy.imsId("btn-go-back").click();
+    cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+    cy.imsId(COMMON.GRID.ACTION_EDIT).click();
+    // cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+    // cy.imsId(COMMON.CONFIRMATION.OK).click();
+    cy.imsId(COMMON.BUTTONS.GO_BACK).click();
 
-    cy.log("Rejected Employee updated successfully");
+    cy.log(messages.ui.editMessage);
   }
 
   gridOfficeDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       const reData = data.mfiAdmin.rejectedEmployeeFrom;
       cy.formController("office_id").type(reData.officeDropdown).type("{enter}");
-      cy.imsId("btn-reset").click();
+      cy.imsId(COMMON.BUTTONS.RESET).click();
       cy.log(
         "Rejected Employee form office dropdown check successfully"
       );
@@ -181,38 +183,38 @@ class RejectedEmployee {
   searchInEmployeeName() {
     cy.fixture(this.test_data).then((data) => {
       const reData = data.mfiAdmin.rejectedEmployeeFrom;
-      cy.imsId("btn-reset").click();
-      cy.formController("search_text").type(reData.empNameEn);
-      cy.log("Successfully search in the Rejected Employee form");
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(reData.empNameEn);
+      cy.log(messages.ui.searchMessage);
     });
   }
 
   gridResetButtonCheck() {
-    cy.imsId("btn-reset").click();
-    cy.log("Successful clean displaying.");
+    cy.imsId(COMMON.BUTTONS.RESET).click();
+    cy.log(messages.ui.gridResetSuccess);
   }
 
   gridRefreshButtonCheck() {
-    cy.imsId("btn-refresh").click();
+    cy.imsId(COMMON.BUTTONS.REFRESH).click();
     cy.log(
-      "successfully refresh page  displayed the grid list of the Rejected Employee form "
+      messages.ui.gridRefreshSuccess
     );
   }
 
   gridSearchButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
       const reData = data.mfiAdmin.rejectedEmployeeFrom;
-      cy.imsId("btn-reset").click();
-      cy.formController("search_text").type(reData.search);
-      cy.imsId("btn-search").click();
-      cy.log("Successful search button click.");
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(reData.search);
+      cy.imsId(COMMON.BUTTONS.SEARCH).click();
+      cy.log(messages.ui.searchMessage);
     });
   }
 
   gridLanguageSwitchCheck() {
-    cy.imsId("profile-menu").click();
-    cy.imsId("btn-lang-bangla").click();
-    cy.log("Unsccessful switch bangla language check.");
+    cy.imsId(COMMON.BUTTONS.PROFILE).click();
+    cy.imsId(COMMON.BUTTONS.LANGUAGE_CHANGE).click();
+    cy.log(messages.ui.languageSwitchMessage);
   }
 }
 

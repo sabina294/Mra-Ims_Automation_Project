@@ -14,9 +14,9 @@ class FundingOrganizationCreation {
   createFundingOrganization() {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
-      var foData = data.mfiAdmin.createFundingOrganizationFrom;
-      var randomNumber = Math.floor(1000 + Math.random() * 9000);
-      var idShortCode = foData.idShortCode + "-" + randomNumber;
+      const foData = data.mfiAdmin.createFundingOrganizationFrom;
+      const randomNumber = Math.floor(1000 + Math.random() * 9000);
+      const idShortCode = foData.idShortCode + "-" + randomNumber;
       cy.formController("funding_org_name").type(foData.FundingNameEn);
       cy.formController("loan_funding_organization_id").type(idShortCode);
       cy.formController("funding_organization_type").type(foData.fundingOrgType).type("{enter}");
@@ -30,9 +30,9 @@ class FundingOrganizationCreation {
   createWithoutFundingOrgName() {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
-      var foData = data.mfiAdmin.createFundingOrganizationFrom;
-      var randomNumber = Math.floor(1000 + Math.random() * 9000);
-      var idShortCode = foData.idShortCode + "-" + randomNumber;
+      const foData = data.mfiAdmin.createFundingOrganizationFrom;
+      const randomNumber = Math.floor(1000 + Math.random() * 9000);
+      const idShortCode = foData.idShortCode + "-" + randomNumber;
       cy.formController("loan_funding_organization_id").type(idShortCode);
       cy.formController("funding_organization_type").type(foData.fundingOrgType).type("{enter}");
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
@@ -45,7 +45,7 @@ class FundingOrganizationCreation {
   createWithoutId() {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
-      var foData = data.mfiAdmin.createFundingOrganizationFrom;
+      const foData = data.mfiAdmin.createFundingOrganizationFrom;
       cy.formController("funding_org_name").type(foData.FundingNameEn);
       cy.formController("funding_organization_type").type(foData.fundingOrgType).type("{enter}");
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
@@ -58,9 +58,9 @@ class FundingOrganizationCreation {
   createWithoutFundingOrgType() {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
-      var foData = data.mfiAdmin.createFundingOrganizationFrom;
-      var randomNumber = Math.floor(1000 + Math.random() * 9000);
-      var idShortCode = foData.idShortCode + "-" + randomNumber;
+      const foData = data.mfiAdmin.createFundingOrganizationFrom;
+      const randomNumber = Math.floor(1000 + Math.random() * 9000);
+      const idShortCode = foData.idShortCode + "-" + randomNumber;
       cy.formController("funding_org_name").type(foData.FundingNameEn);
       cy.formController("loan_funding_organization_id").type(idShortCode);
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
@@ -74,9 +74,9 @@ class FundingOrganizationCreation {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
       cy.imsId(COMMON.BUTTONS.RESET).click();
-      var foData = data.mfiAdmin.createFundingOrganizationFrom;
-      var randomNumber = Math.floor(1000 + Math.random() * 9000);
-      var idShortCode = foData.idShortCode + "-" + randomNumber;
+      const foData = data.mfiAdmin.createFundingOrganizationFrom;
+      const randomNumber = Math.floor(1000 + Math.random() * 9000);
+      const idShortCode = foData.idShortCode + "-" + randomNumber;
       cy.formController("funding_org_name").type(foData.FundingNameEn);
       cy.formController("loan_funding_organization_id").type(idShortCode);
       cy.formController("funding_organization_type").type(foData.fundingOrgType).type("{enter}");
@@ -94,7 +94,7 @@ class FundingOrganizationCreation {
 
   viewFundingOrganization() {
     cy.fixture(this.test_data).then((data) => {
-      var foData = data.mfiAdmin.createFundingOrganizationFrom;
+      const foData = data.mfiAdmin.createFundingOrganizationFrom;
       cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(foData.FundingNameEn);
       cy.imsId(COMMON.BUTTONS.SEARCH).click();
       cy.imsId(COMMON.TOGGLES.ACTION).first().click();
@@ -138,9 +138,9 @@ class FundingOrganizationCreation {
   editSubmitButton() {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
-      var foData = data.mfiAdmin.createFundingOrganizationFrom;
-      var randomNumber = Math.floor(1000 + Math.random() * 9000);
-      var idShortCode = foData.idShortCode + "-" + randomNumber;
+      const foData = data.mfiAdmin.createFundingOrganizationFrom;
+      const randomNumber = Math.floor(1000 + Math.random() * 9000);
+      const idShortCode = foData.idShortCode + "-" + randomNumber;
       cy.formController("funding_org_name").type(foData.FundingNameEn);
       cy.formController("loan_funding_organization_id").type(idShortCode);
       cy.formController("funding_organization_type").type(foData.fundingOrgType).type("{enter}");
@@ -160,7 +160,7 @@ class FundingOrganizationCreation {
 
   statusInactiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var foData = data.mfiAdmin.createFundingOrganizationFrom;
+      const foData = data.mfiAdmin.createFundingOrganizationFrom;
       cy.imsId(COMMON.BUTTONS.RESET).click();
       cy.formController("status").type(foData.selectStatus).type("{enter}");
       cy.log(messages.ui.dropdownInactiveMessage);
@@ -169,7 +169,7 @@ class FundingOrganizationCreation {
 
   statusActiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var foData = data.mfiAdmin.createFundingOrganizationFrom;
+      const foData = data.mfiAdmin.createFundingOrganizationFrom;
       cy.formController("status").type(foData.statusSelect).type("{enter}");
       cy.log(messages.ui.dropdownActiveMessage);
     });
@@ -177,7 +177,7 @@ class FundingOrganizationCreation {
 
   searchInFundingOrganizationName() {
     cy.fixture(this.test_data).then((data) => {
-      var foData = data.mfiAdmin.createFundingOrganizationFrom;
+      const foData = data.mfiAdmin.createFundingOrganizationFrom;
       cy.imsId(COMMON.BUTTONS.RESET).click();
       cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(foData.FundingNameEn);
       cy.log(messages.ui.searchMessage);
@@ -196,7 +196,7 @@ class FundingOrganizationCreation {
 
   createResetButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var foData = data.mfiAdmin.createFundingOrganizationFrom;
+      const foData = data.mfiAdmin.createFundingOrganizationFrom;
       cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
       cy.formController("funding_org_name").type(foData.FundingNameEn);
       cy.imsId(COMMON.BUTTONS.RESET).click();

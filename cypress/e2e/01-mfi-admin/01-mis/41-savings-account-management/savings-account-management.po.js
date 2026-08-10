@@ -1,3 +1,5 @@
+import messages from "../../../../support/constants/messages";
+import { COMMON } from "../../../../support/constants/selectors";
 class SavingsAccountManagementCreation {
   test_data = Cypress.env("TEST_DATA");
 
@@ -7,38 +9,38 @@ class SavingsAccountManagementCreation {
         "menu-savings-account",
         "submenu-savings-account-management"
       );
-      cy.log("Successfully Savings Account Management list page.");
+      cy.log(messages.ui.gridListMessage);
     });
   }
 
   actionButtonCheck() {
-    cy.imsId("toggle-action").first().click();
+    cy.imsId(COMMON.TOGGLES.ACTION).first().click();
     cy.log(
-      "Action button clicked successfully on the savings account  management list page."
+      messages.ui.actionMessage
     );
   }
 
   viewSavingsAccountManag() {
     cy.fixture(this.test_data).then((data) => {
-      var samData = data.mfiAdmin.createSavingsAccountManagement;
+      const samData = data.mfiAdmin.createSavingsAccountManagement;
 
-      // cy.formController("search_text").type(samData.search);
-      cy.imsId("toggle-action").first().click();
-      cy.imsId("btn-table-action-view").click();
-      cy.log("Successfully viewed the savings account  management list page");
+      // cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(samData.search);
+      cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+      cy.imsId(COMMON.GRID.ACTION_VIEW).click();
+      cy.log(messages.ui.viewMessage);
     });
   }
 
   viewGoBackButton() {
-    cy.imsId("btn-go-back").click();
-    cy.log("Successfully view go back the savings account  management list page");
+    cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+    cy.log(messages.ui.goBackSuccess);
 
   }
 
   statusApprovedDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var samData = data.mfiAdmin.createSavingsAccountManagement;
-      cy.imsId("btn-reset").click();
+      const samData = data.mfiAdmin.createSavingsAccountManagement;
+      cy.imsId(COMMON.BUTTONS.RESET).click();
       cy.formController("status").type(samData.selectStatus).type("{enter}");
       cy.log(
         "Savings account  management form status approved dropdown check successfully"
@@ -48,8 +50,8 @@ class SavingsAccountManagementCreation {
 
   statusRejectedDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var samData = data.mfiAdmin.createSavingsAccountManagement;
-      cy.imsId("btn-reset").click();
+      const samData = data.mfiAdmin.createSavingsAccountManagement;
+      cy.imsId(COMMON.BUTTONS.RESET).click();
       cy.formController("status").type(samData.statusSelect).type("{enter}");
       cy.log(
         "Savings account management form status rejected dropdown check successfully"
@@ -59,7 +61,7 @@ class SavingsAccountManagementCreation {
 
   statusOfficeDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var samData = data.mfiAdmin.createSavingsAccountManagement;
+      const samData = data.mfiAdmin.createSavingsAccountManagement;
       cy.formController("office_id").type(samData.selectOffice).type("{enter}");
       cy.log(
         "Savings account management status office dropdown check successfully"
@@ -69,39 +71,39 @@ class SavingsAccountManagementCreation {
 
   searchSavingsAccManag() {
     cy.fixture(this.test_data).then((data) => {
-      var samData = data.mfiAdmin.createSavingsAccountManagement;
-      cy.imsId("btn-reset").click();
-      cy.formController("search_text").type(samData.search);
+      const samData = data.mfiAdmin.createSavingsAccountManagement;
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(samData.search);
       cy.log("Successfully search in the savings account  management form");
     });
   }
 
   gridResetButtonCheck() {
-    cy.imsId("btn-reset").click();
-    cy.log("Successful clean displaying.");
+    cy.imsId(COMMON.BUTTONS.RESET).click();
+    cy.log(messages.ui.gridResetSuccess);
   }
 
   gridRefreshButtonCheck() {
-    cy.imsId("btn-refresh").click();
+    cy.imsId(COMMON.BUTTONS.REFRESH).click();
     cy.log(
-      "successfully refresh page  displayed the grid list of the Savings account  management form "
+      messages.ui.gridRefreshSuccess
     );
   }
 
   gridSearchButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var samData = data.mfiAdmin.createSavingsAccountManagement;
-      cy.imsId("btn-reset").click();
-      cy.formController("search_text").type(samData.search);
-      cy.imsId("btn-search").click();
-      cy.log("Successful search button click.");
+      const samData = data.mfiAdmin.createSavingsAccountManagement;
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(samData.search);
+      cy.imsId(COMMON.BUTTONS.SEARCH).click();
+      cy.log(messages.ui.searchMessage);
     });
   }
 
   gridLanguageSwitchCheck() {
-    cy.imsId("profile-menu").click();
-    cy.imsId("btn-lang-bangla").click();
-    cy.log("Unsccessful switch bangla language check.");
+    cy.imsId(COMMON.BUTTONS.PROFILE).click();
+    cy.imsId(COMMON.BUTTONS.LANGUAGE_CHANGE).click();
+    cy.log(messages.ui.languageSwitchMessage);
   }
 }
 

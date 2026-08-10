@@ -14,9 +14,9 @@ class BankAccountCreation {
   createBankAccount() {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
-      var baData = data.mfiAdmin.createBankAccountFrom;
-      var randomNumber = Math.floor(1000 + Math.random() * 9000);
-      var accNumber = baData.accNumber + "-" + randomNumber;
+      const baData = data.mfiAdmin.createBankAccountFrom;
+      const randomNumber = Math.floor(1000 + Math.random() * 9000);
+      const accNumber = baData.accNumber + "-" + randomNumber;
       cy.formController("bank_id").type(baData.bankName).type("{enter}");
       cy.formController("bank_branch_id").type(baData.branchName).type("{enter}");
       cy.formController("account_name_en").type(baData.accNameEn);
@@ -33,9 +33,9 @@ class BankAccountCreation {
   createWithoutBank() {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
-      var baData = data.mfiAdmin.createBankAccountFrom;
-      var randomNumber = Math.floor(1000 + Math.random() * 9000);
-      var accNumber = baData.accNumber + "-" + randomNumber;
+      const baData = data.mfiAdmin.createBankAccountFrom;
+      const randomNumber = Math.floor(1000 + Math.random() * 9000);
+      const accNumber = baData.accNumber + "-" + randomNumber;
       cy.formController("bank_branch_id").type(baData.branchName).type("{enter}");
       cy.formController("account_name_en").type(baData.accNameEn);
       cy.formController("account_name_bn").type(baData.accNameBn);
@@ -51,9 +51,9 @@ class BankAccountCreation {
   createWithoutBankBranch() {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
-      var baData = data.mfiAdmin.createBankAccountFrom;
-      var randomNumber = Math.floor(1000 + Math.random() * 9000);
-      var accNumber = baData.accNumber + "-" + randomNumber;
+      const baData = data.mfiAdmin.createBankAccountFrom;
+      const randomNumber = Math.floor(1000 + Math.random() * 9000);
+      const accNumber = baData.accNumber + "-" + randomNumber;
       cy.formController("bank_id").type(baData.bankName).type("{enter}");
       cy.formController("account_name_en").type(baData.accNameEn);
       cy.formController("account_name_bn").type(baData.accNameBn);
@@ -69,9 +69,9 @@ class BankAccountCreation {
   createWithoutNameEn() {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
-      var baData = data.mfiAdmin.createBankAccountFrom;
-      var randomNumber = Math.floor(1000 + Math.random() * 9000);
-      var accNumber = baData.accNumber + "-" + randomNumber;
+      const baData = data.mfiAdmin.createBankAccountFrom;
+      const randomNumber = Math.floor(1000 + Math.random() * 9000);
+      const accNumber = baData.accNumber + "-" + randomNumber;
       cy.formController("bank_id").type(baData.bankName).type("{enter}");
       cy.formController("bank_branch_id").type(baData.branchName).type("{enter}");
       cy.formController("account_name_bn").type(baData.accNameBn);
@@ -87,9 +87,9 @@ class BankAccountCreation {
   createWithoutNameBn() {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
-      var baData = data.mfiAdmin.createBankAccountFrom;
-      var randomNumber = Math.floor(1000 + Math.random() * 9000);
-      var accNumber = baData.accNumber + "-" + randomNumber;
+      const baData = data.mfiAdmin.createBankAccountFrom;
+      const randomNumber = Math.floor(1000 + Math.random() * 9000);
+      const accNumber = baData.accNumber + "-" + randomNumber;
       cy.formController("bank_id").type(baData.bankName).type("{enter}");
       cy.formController("bank_branch_id").type(baData.branchName).type("{enter}");
       cy.formController("account_name_en").type(baData.accNameEn);
@@ -105,9 +105,9 @@ class BankAccountCreation {
   createWithoutAccType() {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
-      var baData = data.mfiAdmin.createBankAccountFrom;
-      var randomNumber = Math.floor(1000 + Math.random() * 9000);
-      var accNumber = baData.accNumber + "-" + randomNumber;
+      const baData = data.mfiAdmin.createBankAccountFrom;
+      const randomNumber = Math.floor(1000 + Math.random() * 9000);
+      const accNumber = baData.accNumber + "-" + randomNumber;
       cy.formController("bank_id").type(baData.bankName).type("{enter}");
       cy.formController("bank_branch_id").type(baData.branchName).type("{enter}");
       cy.formController("account_name_en").type(baData.accNameEn);
@@ -123,7 +123,7 @@ class BankAccountCreation {
   createWithoutAccNumber() {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
-      var baData = data.mfiAdmin.createBankAccountFrom;
+      const baData = data.mfiAdmin.createBankAccountFrom;
       cy.formController("bank_id").type(baData.bankName).type("{enter}");
       cy.formController("bank_branch_id").type(baData.branchName).type("{enter}");
       cy.formController("account_name_en").type(baData.accNameEn);
@@ -140,9 +140,9 @@ class BankAccountCreation {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
       cy.imsId(COMMON.BUTTONS.RESET).click();
-      var baData = data.mfiAdmin.createBankAccountFrom;
-      var randomNumber = Math.floor(1000 + Math.random() * 9000);
-      var accNumber = baData.accNumber + "-" + randomNumber;
+      const baData = data.mfiAdmin.createBankAccountFrom;
+      const randomNumber = Math.floor(1000 + Math.random() * 9000);
+      const accNumber = baData.accNumber + "-" + randomNumber;
       cy.formController("bank_id").type(baData.bankName).type("{enter}");
       cy.formController("bank_branch_id").type(baData.branchName).type("{enter}");
       cy.formController("account_name_en").type(baData.accNameEn);
@@ -163,7 +163,7 @@ class BankAccountCreation {
 
   viewBankAccount() {
     cy.fixture(this.test_data).then((data) => {
-      var baData = data.mfiAdmin.createBankAccountFrom;
+      const baData = data.mfiAdmin.createBankAccountFrom;
       cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(baData.search);
       cy.imsId(COMMON.TOGGLES.ACTION).first().click();
       cy.imsId(COMMON.GRID.ACTION_VIEW).click();
@@ -186,7 +186,7 @@ class BankAccountCreation {
 
   editBankAccount() {
     cy.fixture(this.test_data).then((data) => {
-      var baData = data.mfiAdmin.createBankAccountFrom;
+      const baData = data.mfiAdmin.createBankAccountFrom;
       cy.imsId(COMMON.BUTTONS.RESET).click();
       cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(baData.accNameEn);
       cy.imsId(COMMON.BUTTONS.SEARCH).click();
@@ -219,7 +219,7 @@ class BankAccountCreation {
 
   statusInactiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var baData = data.mfiAdmin.createBankAccountFrom;
+      const baData = data.mfiAdmin.createBankAccountFrom;
       cy.imsId(COMMON.BUTTONS.RESET).click();
       cy.formController("status").type(baData.selectStatus).type("{enter}");
       cy.log(messages.ui.dropdownInactiveMessage);
@@ -228,7 +228,7 @@ class BankAccountCreation {
 
   statusActiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var baData = data.mfiAdmin.createBankAccountFrom;
+      const baData = data.mfiAdmin.createBankAccountFrom;
       cy.imsId(COMMON.BUTTONS.RESET).click();
       cy.formController("status").type(baData.statusSelect).type("{enter}");
       cy.log(messages.ui.dropdownActiveMessage);
@@ -237,7 +237,7 @@ class BankAccountCreation {
 
   searchInBankAccountName() {
     cy.fixture(this.test_data).then((data) => {
-      var baData = data.mfiAdmin.createBankAccountFrom;
+      const baData = data.mfiAdmin.createBankAccountFrom;
       cy.imsId(COMMON.BUTTONS.RESET).click();
       cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(baData.accNameEn);
       cy.log(messages.ui.searchMessage);
@@ -261,7 +261,7 @@ class BankAccountCreation {
 
   createResetButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var baData = data.mfiAdmin.createBankAccountFrom;
+      const baData = data.mfiAdmin.createBankAccountFrom;
       cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
       cy.formController("account_name_en").type(baData.accNameEn);
       cy.imsId(COMMON.BUTTONS.RESET).click();

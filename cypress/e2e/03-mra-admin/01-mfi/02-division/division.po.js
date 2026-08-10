@@ -1,300 +1,302 @@
+import messages from "../../../../support/constants/messages";
+import { COMMON } from "../../../../support/constants/selectors";
 class DivisionCreation {
   test_data = Cypress.env("TEST_DATA");
 
   gridDivisionListPage() {
     cy.fixture(this.test_data).then((data) => {
       cy.selectMenu("menu-configuration", "submenu-division");
-      cy.log("Successfully division list page.");
+      cy.log(messages.ui.gridListMessage);
     });
   }
 
   createDivision() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      cy.imsId("btn-submit").and("be.visible");
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).and("be.visible");
 
-      var divData = data.mraAdmin.createdivisionFrom;
+      const divData = data.mraAdmin.createdivisionFrom;
       cy.formController("name_en").type(divData.nameEn);
       cy.formController("name_bn").type(divData.nameBn);
       cy.formController("division_code").type(divData.Code);
       cy.formController("establish_year").type(divData.establishedYear);
 
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-yes").click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.YES).click();
       cy.get("app-confirmation-modal")
         .contains(divData.messageSaveDivi)
         .and("be.visible");
-      cy.imsId("btn-ok").click();
-      cy.log("Successfully created division");
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
+      cy.log(messages.ui.submitSuccess);
     });
   }
 
   createWithoutNameEn() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      cy.imsId("btn-submit").and("be.visible");
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).and("be.visible");
 
-      var divData = data.mraAdmin.createdivisionFrom;
+      const divData = data.mraAdmin.createdivisionFrom;
       cy.formController("name_bn").type(divData.nameBn);
       cy.formController("division_code").type(divData.Code);
       cy.formController("establish_year").type(divData.establishedYear);
 
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-ok").click();
-      cy.imsId("btn-go-back").click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
+      cy.imsId(COMMON.BUTTONS.GO_BACK).click();
 
       cy.log(
-        "Successful cannot creation division without one mandatory field."
+        messages.ui.withoutDataMessage
       );
     });
   }
 
   createWithoutNameBn() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      cy.imsId("btn-submit").and("be.visible");
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).and("be.visible");
 
-      var divData = data.mraAdmin.createdivisionFrom;
+      const divData = data.mraAdmin.createdivisionFrom;
       cy.formController("name_en").type(divData.nameEn);
       cy.formController("division_code").type(divData.Code);
       cy.formController("establish_year").type(divData.establishedYear);
 
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-ok").click();
-      cy.imsId("btn-go-back").click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
+      cy.imsId(COMMON.BUTTONS.GO_BACK).click();
 
       cy.log(
-        "Successful cannot creation division without one mandatory field."
+        messages.ui.withoutDataMessage
       );
     });
   }
 
   createWithoutDivisionCode() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      cy.imsId("btn-submit").and("be.visible");
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).and("be.visible");
 
-      var divData = data.mraAdmin.createdivisionFrom;
+      const divData = data.mraAdmin.createdivisionFrom;
       cy.formController("name_en").type(divData.nameEn);
       cy.formController("name_bn").type(divData.nameBn);
       cy.formController("establish_year").type(divData.establishedYear);
 
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-ok").click();
-      cy.imsId("btn-go-back").click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
+      cy.imsId(COMMON.BUTTONS.GO_BACK).click();
 
       cy.log(
-        "Successful cannot creation division without one mandatory field."
+        messages.ui.withoutDataMessage
       );
     });
   }
 
   createWithoutEstabYear() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      cy.imsId("btn-submit").and("be.visible");
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).and("be.visible");
 
-      var divData = data.mraAdmin.createdivisionFrom;
+      const divData = data.mraAdmin.createdivisionFrom;
       cy.formController("name_en").type(divData.nameEn);
       cy.formController("name_bn").type(divData.nameBn);
       cy.formController("division_code").type(divData.Code);
 
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-ok").click();
-      cy.imsId("btn-go-back").click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
+      cy.imsId(COMMON.BUTTONS.GO_BACK).click();
 
       cy.log(
-        "Successful cannot creation division without one mandatory field."
+        messages.ui.withoutDataMessage
       );
     });
   }
 
   createWithoutStatus() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      cy.imsId("btn-submit").and("be.visible");
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).and("be.visible");
 
-      var divData = data.mraAdmin.createdivisionFrom;
-      cy.imsId("btn-reset").click();
+      const divData = data.mraAdmin.createdivisionFrom;
+      cy.imsId(COMMON.BUTTONS.RESET).click();
       cy.formController("name_en").type(divData.nameEn);
       cy.formController("name_bn").type(divData.nameBn);
       cy.formController("division_code").type(divData.Code);
       cy.formController("establish_year").type(divData.establishedYear);
 
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-ok").click();
-      cy.imsId("btn-go-back").click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
+      cy.imsId(COMMON.BUTTONS.GO_BACK).click();
 
       cy.log(
-        "Successful cannot creation division without one mandatory field."
+        messages.ui.withoutDataMessage
       );
     });
   }
 
   actionButtonCheck() {
-    cy.imsId("toggle-action").first().click();
-    cy.log("Action button clicked successfully on the division list page.");
+    cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+    cy.log(messages.ui.actionMessage);
   }
 
   viewDivision() {
     cy.fixture(this.test_data).then((data) => {
-      var divData = data.mraAdmin.createdivisionFrom;
-      cy.formController("search_text").type(divData.nameEn);
-      cy.imsId("btn-search").click();
-      cy.imsId("toggle-action").first().click();
-      cy.imsId("btn-table-action-view").click();
-      cy.log("Successfully viewed the division list page");
+      const divData = data.mraAdmin.createdivisionFrom;
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(divData.nameEn);
+      cy.imsId(COMMON.BUTTONS.SEARCH).click();
+      cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+      cy.imsId(COMMON.GRID.ACTION_VIEW).click();
+      cy.log(messages.ui.viewMessage);
     });
   }
 
   viewGoBackButton() {
-    cy.imsId("btn-go-back").click();
+    cy.imsId(COMMON.BUTTONS.GO_BACK).click();
 
-    cy.log("Successfully view go back the division list page");
+    cy.log(messages.ui.goBackSuccess);
 
   }
 
   editDivision() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("toggle-action").first().click();
-      cy.imsId("btn-table-action-edit").click();
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-yes").click();
+      cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+      cy.imsId(COMMON.GRID.ACTION_EDIT).click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.YES).click();
 
-      var divData = data.mraAdmin.createdivisionFrom;
+      const divData = data.mraAdmin.createdivisionFrom;
       cy.get("app-confirmation-modal")
         .contains(divData.messageUpdateDivi)
         .and("be.visible");
-      cy.imsId("btn-ok").click();
-      cy.log("Division updated successfully");
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
+      cy.log(messages.ui.editMessage);
     });
   }
 
   turnOffEditMode() {
-    cy.imsId("toggle-action").first().click();
-    cy.imsId("btn-table-action-edit").click();
-    cy.imsId("switch-button").click();
-    cy.imsId("btn-go-back").click();
+    cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+    cy.imsId(COMMON.GRID.ACTION_EDIT).click();
+    cy.imsId(COMMON.BUTTONS.TURN_EDIT_MODE).click();
+    cy.imsId(COMMON.BUTTONS.GO_BACK).click();
 
-    cy.log("Division form Edit Mode toggled successfully");
+    cy.log(messages.ui.turnOnEditModeMessage);
 
   }
 
   editResetButton() {
-    cy.imsId("toggle-action").first().click();
-    cy.imsId("btn-table-action-edit").click();
-    cy.imsId("btn-reset").click();
-    cy.imsId("btn-go-back").click();
+    cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+    cy.imsId(COMMON.GRID.ACTION_EDIT).click();
+    cy.imsId(COMMON.BUTTONS.RESET).click();
+    cy.imsId(COMMON.BUTTONS.GO_BACK).click();
 
-    cy.log("Successful clean displaying");
+    cy.log(messages.ui.editResetMessage);
   }
 
   editSubmitButton() {
     cy.fixture(this.test_data).then((data) => {
-      var divData = data.mraAdmin.createdivisionFrom;
-      cy.imsId("toggle-action").first().click();
-      cy.imsId("btn-table-action-edit").click();
-      cy.imsId("btn-reset").click();
+      const divData = data.mraAdmin.createdivisionFrom;
+      cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+      cy.imsId(COMMON.GRID.ACTION_EDIT).click();
+      cy.imsId(COMMON.BUTTONS.RESET).click();
       cy.formController("name_en").type(divData.nameEn);
       cy.formController("name_bn").type(divData.nameBn);
       cy.formController("division_code").type(divData.Code);
       cy.formController("establish_year").type(divData.establishedYear);
       cy.formController("status").type(divData.status).type("{enter}");
 
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-yes").click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.YES).click();
       cy.get("app-confirmation-modal")
         .contains(divData.messageUpdateDivi)
         .and("be.visible");
-      cy.imsId("btn-ok").click();
-      cy.log("Successfully updated division");
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
+      cy.log(messages.ui.editSubmitMessage);
     });
   }
 
   editGoBackButton() {
-    cy.imsId("toggle-action").first().click();
-    cy.imsId("btn-table-action-edit").click();
-    cy.imsId("btn-go-back").click();
-    cy.log("Successful edit go back button check.");
+    cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+    cy.imsId(COMMON.GRID.ACTION_EDIT).click();
+    cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+    cy.log(messages.ui.editGoBackMessage);
   }
 
   statusInactiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var divData = data.mraAdmin.createdivisionFrom;
-      cy.imsId("btn-reset").click();
+      const divData = data.mraAdmin.createdivisionFrom;
+      cy.imsId(COMMON.BUTTONS.RESET).click();
       cy.formController("status").type(divData.selectStatus).type("{enter}");
-      cy.log("division status inactive dropdown check successfully");
+      cy.log(messages.ui.dropdownInactiveMessage);
     });
   }
 
   statusActiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var divData = data.mraAdmin.createdivisionFrom;
+      const divData = data.mraAdmin.createdivisionFrom;
       cy.formController("status").type(divData.statusSelect).type("{enter}");
-      cy.log("division status active dropdown check successfully");
+      cy.log(messages.ui.dropdownActiveMessage);
     });
   }
 
   searchInDivisionName() {
     cy.fixture(this.test_data).then((data) => {
-      var divData = data.mraAdmin.createdivisionFrom;
-      cy.imsId("btn-reset").click();
-      cy.formController("search_text").type(divData.nameEn);
-      cy.log("Successfully search in the division");
+      const divData = data.mraAdmin.createdivisionFrom;
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(divData.nameEn);
+      cy.log(messages.ui.searchMessage);
     });
   }
 
   gridResetButtonCheck() {
-    cy.imsId("btn-reset").click();
-    cy.log("Successful clean displaying.");
+    cy.imsId(COMMON.BUTTONS.RESET).click();
+    cy.log(messages.ui.gridResetSuccess);
   }
 
   gridRefreshButtonCheck() {
-    cy.imsId("btn-refresh").click();
+    cy.imsId(COMMON.BUTTONS.REFRESH).click();
     cy.log(
-      "successfully refresh page  displayed the grid list of the division "
+      messages.ui.gridRefreshSuccess
     );
   }
 
   gridSearchButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var divData = data.mraAdmin.createdivisionFrom;
-      cy.imsId("btn-reset").click();
-      cy.formController("search_text").type(divData.search);
-      cy.imsId("btn-search").click();
-      cy.log("Successful search button click.");
+      const divData = data.mraAdmin.createdivisionFrom;
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(divData.search);
+      cy.imsId(COMMON.BUTTONS.SEARCH).click();
+      cy.log(messages.ui.searchMessage);
     });
   }
 
   createResetButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var divData = data.mraAdmin.createdivisionFrom;
-      cy.imsId("btn-add-new").click();
+      const divData = data.mraAdmin.createdivisionFrom;
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
       cy.formController("name_en").type(divData.nameEn);
-      cy.imsId("btn-reset").click();
-      cy.imsId("btn-go-back").click();
-      cy.log("Successful reset button clean displaying.");
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+      cy.log(messages.validation.requiredField);
     });
   }
 
   createValidationMessageCheck() {
-    cy.imsId("btn-add-new").click();
-    cy.imsId("btn-submit").click();
-    cy.imsId("btn-ok").click();
-    cy.imsId("btn-go-back").click();
-    cy.log("Successful validation message displaying.");
+    cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+    cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+    cy.imsId(COMMON.CONFIRMATION.OK).click();
+    cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+    cy.log(messages.validation.requiredField);
   }
 
   createGoBackButtonCheck() {
-    cy.imsId("btn-add-new").click();
-    cy.imsId("btn-go-back").click();
-    cy.log("Successful go back button check.");
+    cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+    cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+    cy.log(messages.ui.createGoBackMessage);
   }
 
   gridLanguageSwitchCheck() {
-    cy.imsId("profile-menu").click();
-    cy.imsId("btn-lang-bangla").click();
-    cy.log("Successful switch bangla language check.");
+    cy.imsId(COMMON.BUTTONS.PROFILE).click();
+    cy.imsId(COMMON.BUTTONS.LANGUAGE_CHANGE).click();
+    cy.log(messages.ui.languageSwitchMessage);
   }
 }
 

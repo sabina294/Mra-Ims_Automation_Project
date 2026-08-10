@@ -1,16 +1,18 @@
+import messages from "../../../../support/constants/messages";
+import { COMMON } from "../../../../support/constants/selectors";
 class LoanProvisionWriteOff {
     test_data = Cypress.env("TEST_DATA");
 
     gridLoanProvisionWriteOffListPage() {
         cy.fixture(this.test_data).then((data) => {
             cy.selectMenu("menu-loan-account", "submenu-loan-provision-write-off");
-            cy.log("Successfully loan provision write-off list page.");
+            cy.log(messages.ui.gridListMessage);
         });
     }
 
     selectofficeDropdown() {
         cy.fixture(this.test_data).then((data) => {
-            var lpData = data.mfiAdmin.loanProvisionFrom;
+            const lpData = data.mfiAdmin.loanProvisionFrom;
             cy.formController("office_id").type(lpData.selectOffice).type("{enter}");
             cy.log(
                 "loan provision write-off office dropdown check successfully"
@@ -20,8 +22,8 @@ class LoanProvisionWriteOff {
 
     statusSubmittedDropdownCheck() {
         cy.fixture(this.test_data).then((data) => {
-            var lpData = data.mfiAdmin.loanProvisionFrom;
-            cy.imsId("btn-reset").click();
+            const lpData = data.mfiAdmin.loanProvisionFrom;
+            cy.imsId(COMMON.BUTTONS.RESET).click();
             cy.formController("status").type(lpData.selectStatus).type("{enter}");
             cy.log(
                 "loan provision write-off status submitted dropdown check successfully"
@@ -30,7 +32,7 @@ class LoanProvisionWriteOff {
     }
     statusApprovedDropdownCheck() {
         cy.fixture(this.test_data).then((data) => {
-            var lpData = data.mfiAdmin.loanProvisionFrom;
+            const lpData = data.mfiAdmin.loanProvisionFrom;
             cy.formController("status").type(lpData.statusSelect).type("{enter}");
             cy.log(
                 "loan provision write-off status approved dropdown check successfully"
@@ -40,39 +42,39 @@ class LoanProvisionWriteOff {
 
     searchInLoanProvisionWriteOffName() {
         cy.fixture(this.test_data).then((data) => {
-            var lpData = data.mfiAdmin.loanProvisionFrom;
-            cy.imsId("btn-reset").click();
-            cy.formController("search_text").type(lpData.search);
-            cy.log("Successfully search in the loan provision write-off");
+            const lpData = data.mfiAdmin.loanProvisionFrom;
+            cy.imsId(COMMON.BUTTONS.RESET).click();
+            cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(lpData.search);
+            cy.log(messages.ui.searchMessage);
         });
     }
 
     gridResetButtonCheck() {
-        cy.imsId("btn-reset").click();
-        cy.log("Successful clean displaying.");
+        cy.imsId(COMMON.BUTTONS.RESET).click();
+        cy.log(messages.ui.gridResetSuccess);
     }
 
     gridRefreshButtonCheck() {
-        cy.imsId("btn-refresh").click();
+        cy.imsId(COMMON.BUTTONS.REFRESH).click();
         cy.log(
-            "successfully refresh page displayed the grid list of the loan Provision"
+            messages.ui.gridRefreshSuccess
         );
     }
 
     gridSearchButtonCheck() {
         cy.fixture(this.test_data).then((data) => {
-            var lpData = data.mfiAdmin.loanProvisionFrom;
-            cy.imsId("btn-reset").click();
-            cy.formController("search_text").type(lpData.search);
-            cy.imsId("btn-search").click();
-            cy.log("Successful search button click.");
+            const lpData = data.mfiAdmin.loanProvisionFrom;
+            cy.imsId(COMMON.BUTTONS.RESET).click();
+            cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(lpData.search);
+            cy.imsId(COMMON.BUTTONS.SEARCH).click();
+            cy.log(messages.ui.searchMessage);
         });
     }
 
     gridLanguageSwitchCheck() {
-        cy.imsId("profile-menu").click();
-        cy.imsId("btn-lang-bangla").click();
-        cy.log("Unsccessful switch bangla language check.");
+        cy.imsId(COMMON.BUTTONS.PROFILE).click();
+        cy.imsId(COMMON.BUTTONS.LANGUAGE_CHANGE).click();
+        cy.log(messages.ui.languageSwitchMessage);
     }
 }
 

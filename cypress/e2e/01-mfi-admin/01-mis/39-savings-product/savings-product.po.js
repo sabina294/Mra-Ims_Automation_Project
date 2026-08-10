@@ -1,17 +1,19 @@
+import messages from "../../../../support/constants/messages";
+import { COMMON } from "../../../../support/constants/selectors";
 class SavingsProductCreation {
   test_data = Cypress.env("TEST_DATA");
 
   gridSavingsProductListPage() {
     cy.fixture(this.test_data).then((data) => {
       cy.selectMenu1("menu-savings-product");
-      cy.log("Successfully savings product list page.");
+      cy.log(messages.ui.gridListMessage);
     });
   }
 
   createSavingsProduct() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      var spData = data.mfiAdmin.createSavingsProduct;
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+      const spData = data.mfiAdmin.createSavingsProduct;
 
       cy.formController("office_id_list").type(spData.office).type("{enter}");
       cy.formController("savings_type_id")
@@ -44,20 +46,20 @@ class SavingsProductCreation {
         .not('.ant-picker-cell-disabled')
         .first()
         .click({ force: true });
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-yes").click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.YES).click();
       cy.get("app-confirmation-modal")
         .contains(spData.saveSavingsMessage)
         .and("be.visible");
-      cy.imsId("btn-ok").click();
-      cy.log("Successfully created savings product");
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
+      cy.log(messages.ui.submitSuccess);
     });
   }
 
   createWithoutOffice() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      var spData = data.mfiAdmin.createSavingsProduct;
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+      const spData = data.mfiAdmin.createSavingsProduct;
       cy.formController("savings_type_id")
         .type(spData.savingsType)
         .type("{enter}");
@@ -88,15 +90,15 @@ class SavingsProductCreation {
         .not('.ant-picker-cell-disabled')
         .first()
         .click({ force: true });
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-ok").click();
-      cy.imsId("btn-reset").click();
-      cy.log("Successfully created savings product");
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      cy.log(messages.ui.withoutDataMessage);
     });
   }
   createWithoutSavingsType() {
     cy.fixture(this.test_data).then((data) => {
-      var spData = data.mfiAdmin.createSavingsProduct;
+      const spData = data.mfiAdmin.createSavingsProduct;
 
       cy.formController("office_id_list").type(spData.office).type("{enter}");
       cy.formController("short_name_dep").type(spData.depositId);
@@ -126,15 +128,15 @@ class SavingsProductCreation {
         .not('.ant-picker-cell-disabled')
         .first()
         .click({ force: true });
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-ok").click();
-      cy.imsId("btn-reset").click();
-      cy.log("Successfully created savings product");
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      cy.log(messages.ui.withoutDataMessage);
     });
   }
   createWithoutDepositAccountIdPrefix() {
     cy.fixture(this.test_data).then((data) => {
-      var spData = data.mfiAdmin.createSavingsProduct;
+      const spData = data.mfiAdmin.createSavingsProduct;
 
       cy.formController("office_id_list").type(spData.office).type("{enter}");
       cy.formController("savings_type_id")
@@ -166,15 +168,15 @@ class SavingsProductCreation {
         .not('.ant-picker-cell-disabled')
         .first()
         .click({ force: true });
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-ok").click();
-      cy.imsId("btn-reset").click();
-      cy.log("Successfully created savings product");
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      cy.log(messages.ui.withoutDataMessage);
     });
   }
   createWithoutSavingsProductNameEn() {
     cy.fixture(this.test_data).then((data) => {
-      var spData = data.mfiAdmin.createSavingsProduct;
+      const spData = data.mfiAdmin.createSavingsProduct;
 
       cy.formController("office_id_list").type(spData.office).type("{enter}");
       cy.formController("savings_type_id")
@@ -206,15 +208,15 @@ class SavingsProductCreation {
         .not('.ant-picker-cell-disabled')
         .first()
         .click({ force: true });
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-ok").click();
-      cy.imsId("btn-reset").click();
-      cy.log("Successfully created savings product");
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      cy.log(messages.ui.withoutDataMessage);
     });
   }
   createWithoutSavingsProductNameBn() {
     cy.fixture(this.test_data).then((data) => {
-      var spData = data.mfiAdmin.createSavingsProduct;
+      const spData = data.mfiAdmin.createSavingsProduct;
 
       cy.formController("office_id_list").type(spData.office).type("{enter}");
       cy.formController("savings_type_id")
@@ -246,15 +248,15 @@ class SavingsProductCreation {
         .not('.ant-picker-cell-disabled')
         .first()
         .click({ force: true });
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-ok").click();
-      cy.imsId("btn-reset").click();
-      cy.log("Successfully created savings product");
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      cy.log(messages.ui.withoutDataMessage);
     });
   }
   createWithoutDisplayName() {
     cy.fixture(this.test_data).then((data) => {
-      var spData = data.mfiAdmin.createSavingsProduct;
+      const spData = data.mfiAdmin.createSavingsProduct;
 
       cy.formController("office_id_list").type(spData.office).type("{enter}");
       cy.formController("savings_type_id")
@@ -286,15 +288,15 @@ class SavingsProductCreation {
         .not('.ant-picker-cell-disabled')
         .first()
         .click({ force: true });
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-ok").click();
-      cy.imsId("btn-reset").click();
-      cy.log("Successfully created savings product");
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      cy.log(messages.ui.withoutDataMessage);
     });
   }
   createWithoutStatus() {
     cy.fixture(this.test_data).then((data) => {
-      var spData = data.mfiAdmin.createSavingsProduct;
+      const spData = data.mfiAdmin.createSavingsProduct;
 
       cy.formController("office_id_list").type(spData.office).type("{enter}");
       cy.formController("savings_type_id")
@@ -327,15 +329,15 @@ class SavingsProductCreation {
         .not('.ant-picker-cell-disabled')
         .first()
         .click({ force: true });
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-ok").click();
-      cy.imsId("btn-reset").click();
-      cy.log("Successfully created savings product");
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      cy.log(messages.ui.withoutDataMessage);
     });
   }
   createWithoutInterestRateTerms() {
     cy.fixture(this.test_data).then((data) => {
-      var spData = data.mfiAdmin.createSavingsProduct;
+      const spData = data.mfiAdmin.createSavingsProduct;
 
       cy.formController("office_id_list").type(spData.office).type("{enter}");
       cy.formController("savings_type_id")
@@ -361,15 +363,15 @@ class SavingsProductCreation {
         .not('.ant-picker-cell-disabled')
         .first()
         .click({ force: true });
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-ok").click();
-      cy.imsId("btn-reset").click();
-      cy.log("Successfully created savings product");
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      cy.log(messages.ui.withoutDataMessage);
     });
   }
   createWithoutInterestRateFrequency() {
     cy.fixture(this.test_data).then((data) => {
-      var spData = data.mfiAdmin.createSavingsProduct;
+      const spData = data.mfiAdmin.createSavingsProduct;
 
       cy.formController("office_id_list").type(spData.office).type("{enter}");
       cy.formController("savings_type_id")
@@ -399,15 +401,15 @@ class SavingsProductCreation {
         .not('.ant-picker-cell-disabled')
         .first()
         .click({ force: true });
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-ok").click();
-      cy.imsId("btn-reset").click();
-      cy.log("Successfully created savings product");
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      cy.log(messages.ui.withoutDataMessage);
     });
   }
   createWithoutCalculatedUsing() {
     cy.fixture(this.test_data).then((data) => {
-      var spData = data.mfiAdmin.createSavingsProduct;
+      const spData = data.mfiAdmin.createSavingsProduct;
 
       cy.formController("office_id_list").type(spData.office).type("{enter}");
       cy.formController("savings_type_id")
@@ -440,15 +442,15 @@ class SavingsProductCreation {
         .not('.ant-picker-cell-disabled')
         .first()
         .click({ force: true });
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-ok").click();
-      cy.imsId("btn-reset").click();
-      cy.log("Successfully created savings product");
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      cy.log(messages.ui.withoutDataMessage);
     });
   }
   createWithoutInterestPostingPeriod() {
     cy.fixture(this.test_data).then((data) => {
-      var spData = data.mfiAdmin.createSavingsProduct;
+      const spData = data.mfiAdmin.createSavingsProduct;
 
       cy.formController("office_id_list").type(spData.office).type("{enter}");
       cy.formController("savings_type_id")
@@ -478,15 +480,15 @@ class SavingsProductCreation {
         .not('.ant-picker-cell-disabled')
         .first()
         .click({ force: true });
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-ok").click();
-      cy.imsId("btn-reset").click();
-      cy.log("Successfully created savings product");
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      cy.log(messages.ui.withoutDataMessage);
     });
   }
   createWithoutStartDate() {
     cy.fixture(this.test_data).then((data) => {
-      var spData = data.mfiAdmin.createSavingsProduct;
+      const spData = data.mfiAdmin.createSavingsProduct;
 
       cy.formController("office_id_list").type(spData.office).type("{enter}");
       cy.formController("savings_type_id")
@@ -513,162 +515,162 @@ class SavingsProductCreation {
         .type(spData.intersetPostin)
         .type("{enter}");
 
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-ok").click();
-      cy.imsId("btn-go-back").click();
-      cy.log("Successfully created savings product");
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
+      cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+      cy.log(messages.ui.withoutDataMessage);
     });
   }
 
 
   actionButtonCheck() {
-    cy.imsId("toggle-action").first().click();
+    cy.imsId(COMMON.TOGGLES.ACTION).first().click();
     cy.log(
-      "Action button clicked successfully on the savings product  list page."
+      messages.ui.actionMessage
     );
   }
 
   viewSavingsProduct() {
     cy.fixture(this.test_data).then((data) => {
-      var spData = data.mfiAdmin.createSavingsProduct;
-      cy.formController("search_text").type(spData.intersetTerms);
-      cy.imsId("toggle-action").first().click();
-      cy.imsId("btn-table-action-view").click();
-      cy.log("Successfully viewed the savings product list page");
+      const spData = data.mfiAdmin.createSavingsProduct;
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(spData.intersetTerms);
+      cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+      cy.imsId(COMMON.GRID.ACTION_VIEW).click();
+      cy.log(messages.ui.viewMessage);
     });
   }
 
   viewGoBackButton() {
-    cy.imsId("btn-go-back").click();
-    cy.log("Successfully view go back the savings product list page");
+    cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+    cy.log(messages.ui.goBackSuccess);
 
   }
 
   turnOffEditMode() {
     cy.fixture(this.test_data).then((data) => {
-      var spData = data.mfiAdmin.createSavingsProduct;
-      cy.imsId("btn-reset").click();
-      cy.formController("search_text").type(spData.intersetTerms);
-      cy.imsId("toggle-action").first().click();
-      cy.imsId("btn-table-action-edit").click();
-      cy.imsId("switch-button").click();
-      cy.imsId("btn-go-back").click();
+      const spData = data.mfiAdmin.createSavingsProduct;
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(spData.intersetTerms);
+      cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+      cy.imsId(COMMON.GRID.ACTION_EDIT).click();
+      cy.imsId(COMMON.BUTTONS.TURN_EDIT_MODE).click();
+      cy.imsId(COMMON.BUTTONS.GO_BACK).click();
 
-      cy.log("Savings product form Edit Mode toggled successfully");
+      cy.log(messages.ui.turnOnEditModeMessage);
     });
   }
 
   editSavingsProduct() {
     cy.fixture(this.test_data).then((data) => {
-      var spData = data.mfiAdmin.createSavingsProduct;
-      cy.imsId("btn-reset").click();
-      cy.formController("search_text").type(spData.intersetTerms);
-      cy.imsId("toggle-action").first().click();
-      cy.imsId("btn-table-action-edit").click();
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-yes").click();
+      const spData = data.mfiAdmin.createSavingsProduct;
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(spData.intersetTerms);
+      cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+      cy.imsId(COMMON.GRID.ACTION_EDIT).click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.YES).click();
       cy.get("app-confirmation-modal")
         .contains(spData.updateSavingsMessage)
         .and("be.visible");
-      cy.imsId("btn-ok").click();
-      cy.log("Savings product updated successfully");
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
+      cy.log(messages.ui.editMessage);
     });
   }
 
   editResetButton() {
-    cy.imsId("toggle-action").first().click();
-    cy.imsId("btn-table-action-edit").click();
-    cy.imsId("btn-reset").click();
-    cy.log("Successful clean displaying");
+    cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+    cy.imsId(COMMON.GRID.ACTION_EDIT).click();
+    cy.imsId(COMMON.BUTTONS.RESET).click();
+    cy.log(messages.ui.editResetMessage);
   }
 
   editSubmitButton() {
-    cy.imsId("btn-submit").click();
-    cy.imsId("btn-ok").click();
-    cy.log("Successful edit submit button check");
+    cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+    cy.imsId(COMMON.CONFIRMATION.OK).click();
+    cy.log(messages.ui.editSubmitMessage);
   }
 
   editGoBackButton() {
-    cy.imsId("btn-go-back").click();
-    cy.log("Successful edit go back button check.");
+    cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+    cy.log(messages.ui.editGoBackMessage);
   }
 
   statusInactiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var spData = data.mfiAdmin.createSavingsProduct;
-      cy.imsId("btn-reset").click();
+      const spData = data.mfiAdmin.createSavingsProduct;
+      cy.imsId(COMMON.BUTTONS.RESET).click();
       cy.formController("status").type(spData.selectStatus).type("{enter}");
-      cy.log("savings product  status inactive dropdown check successfully");
+      cy.log(messages.ui.dropdownInactiveMessage);
     });
   }
 
   statusActiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var spData = data.mfiAdmin.createSavingsProduct;
+      const spData = data.mfiAdmin.createSavingsProduct;
       cy.formController("status").type(spData.statusSelect).type("{enter}");
-      cy.log("savings product  status active dropdown check successfully");
+      cy.log(messages.ui.dropdownActiveMessage);
     });
   }
 
   searchInSavingsProductName() {
     cy.fixture(this.test_data).then((data) => {
-      var spData = data.mfiAdmin.createSavingsProduct;
-      cy.formController("search_text").type(spData.intersetTerms);
-      cy.log("Successfully search in the savings product ");
+      const spData = data.mfiAdmin.createSavingsProduct;
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(spData.intersetTerms);
+      cy.log(messages.ui.searchMessage);
     });
   }
 
   gridResetButtonCheck() {
-    cy.imsId("btn-reset").click();
-    cy.log("Successful clean displaying.");
+    cy.imsId(COMMON.BUTTONS.RESET).click();
+    cy.log(messages.ui.gridResetSuccess);
   }
 
   gridRefreshButtonCheck() {
-    cy.imsId("btn-refresh").click();
+    cy.imsId(COMMON.BUTTONS.REFRESH).click();
     cy.log(
-      "successfully refresh page  displayed the grid list of the savings product  "
+      messages.ui.gridRefreshSuccess
     );
   }
 
   createResetButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var spData = data.mfiAdmin.createSavingsProduct;
-      cy.imsId("btn-add-new").click();
+      const spData = data.mfiAdmin.createSavingsProduct;
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
       cy.formController("interest_rate_terms").first().type(spData.intersetTerms);
-      cy.imsId("btn-reset").click();
-      cy.imsId("btn-go-back").click();
-      cy.log("Successful reset button clean displaying.");
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+      cy.log(messages.validation.requiredField);
     });
   }
 
   createValidationMessageCheck() {
-    cy.imsId("btn-add-new").click();
-    cy.imsId("btn-submit").click();
-    cy.imsId("btn-ok").click();
-    cy.imsId("btn-go-back").click();
-    cy.log("Successful validation message displaying.");
+    cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+    cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+    cy.imsId(COMMON.CONFIRMATION.OK).click();
+    cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+    cy.log(messages.validation.requiredField);
   }
 
   createGoBackButtonCheck() {
-    cy.imsId("btn-add-new").click();
-    cy.imsId("btn-go-back").click();
-    cy.log("Successful go back button check.");
+    cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+    cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+    cy.log(messages.ui.createGoBackMessage);
   }
 
   gridSearchButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var spData = data.mfiAdmin.createSavingsProduct;
-      cy.imsId("btn-reset").click();
-      cy.formController("search_text").type(spData.search);
-      cy.imsId("btn-search").click();
-      cy.log("Successful search button click.");
+      const spData = data.mfiAdmin.createSavingsProduct;
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(spData.search);
+      cy.imsId(COMMON.BUTTONS.SEARCH).click();
+      cy.log(messages.ui.searchMessage);
     });
   }
 
   gridLanguageSwitchCheck() {
-    cy.imsId("profile-menu").click();
-    cy.imsId("btn-lang-bangla").click();
-    cy.log("Successful switch bangla language check.");
+    cy.imsId(COMMON.BUTTONS.PROFILE).click();
+    cy.imsId(COMMON.BUTTONS.LANGUAGE_CHANGE).click();
+    cy.log(messages.ui.languageSwitchMessage);
   }
 }
 

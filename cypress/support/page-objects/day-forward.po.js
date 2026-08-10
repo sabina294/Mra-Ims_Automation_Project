@@ -1,51 +1,53 @@
 // Shared across 02-branch-manager/01-mis/56-day-forward and workflow.cy.js.
+import messages from "../constants/messages";
+import { COMMON } from "../constants/selectors";
 class DayForwardMis {
     test_data = Cypress.env("TEST_DATA");
 
     gridDayForwardListPage() {
         cy.fixture(this.test_data).then((data) => {
             cy.selectMenu("menu-process", "submenu-day-forward");
-            cy.log("Successfully day forward  list page.");
+            cy.log(messages.ui.gridListMessage);
         });
     }
 
     gridDayForwardDayRoutine() {
-        cy.imsId("btn-forward").click();
-        cy.log("Successfully switch to day forward check.");
+        cy.imsId(COMMON.BUTTONS.FORWARD).click();
+        cy.log(messages.ui.dayForwardMessage);
     }
 
     startProccess() {
-        cy.imsId("btn-start-process").click();
-        cy.imsId("btn-yes").click();
-        cy.imsId("btn-ok").click();
-        cy.log("Successfully switch to start process button check.");
+        cy.imsId(COMMON.BUTTONS.START_PROCESS).click();
+        cy.imsId(COMMON.CONFIRMATION.YES).click();
+        cy.imsId(COMMON.CONFIRMATION.OK).click();
+        cy.log(messages.ui.startProcessMessage);
     }
 
     dayForwardConfirm() {
-        cy.imsId("btn-confirm").click();
-        cy.imsId("btn-yes").click();
-        cy.imsId("btn-ok").click();
-        cy.log("Successfully confirm button check.");
+        cy.imsId(COMMON.BUTTONS.CONFIRM).click();
+        cy.imsId(COMMON.CONFIRMATION.YES).click();
+        cy.imsId(COMMON.CONFIRMATION.OK).click();
+        cy.log(messages.ui.confirmMessage);
     }
 
     gridDeleteButtonCheck() {
-        cy.imsId("delete-button").click();
-        cy.imsId("btn-yes").click();
-        cy.imsId("btn-ok").click();
-        cy.imsId("btn-forward").click();
-        cy.imsId("btn-start-process").click();
-        cy.imsId("btn-yes").click();
-        cy.imsId("btn-ok").click();
-        cy.imsId("btn-confirm").click();
-        cy.imsId("btn-yes").click();
-        cy.imsId("btn-ok").click();
-        cy.log("Successfully delete button check.");
+        cy.imsId(COMMON.BUTTONS.FORWARD_DELETE).click();
+        cy.imsId(COMMON.CONFIRMATION.YES).click();
+        cy.imsId(COMMON.CONFIRMATION.OK).click();
+        cy.imsId(COMMON.BUTTONS.FORWARD).click();
+        cy.imsId(COMMON.BUTTONS.START_PROCESS).click();
+        cy.imsId(COMMON.CONFIRMATION.YES).click();
+        cy.imsId(COMMON.CONFIRMATION.OK).click();
+        cy.imsId(COMMON.BUTTONS.CONFIRM).click();
+        cy.imsId(COMMON.CONFIRMATION.YES).click();
+        cy.imsId(COMMON.CONFIRMATION.OK).click();
+        cy.log(messages.ui.forwardDeleteMessage);
     }
 
     gridLanguageSwitchCheck() {
-        cy.imsId("profile-menu").click();
-        cy.imsId("btn-lang-bangla").click();
-        cy.log("Successful switch to Bangla language check.");
+        cy.imsId(COMMON.BUTTONS.PROFILE).click();
+        cy.imsId(COMMON.BUTTONS.LANGUAGE_CHANGE).click();
+        cy.log(messages.ui.languageSwitchMessage);
     }
 }
 

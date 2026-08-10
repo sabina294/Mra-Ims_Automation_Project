@@ -1,145 +1,147 @@
+import messages from "../../../../support/constants/messages";
+import { COMMON } from "../../../../support/constants/selectors";
 class ChartOfAccountsCreation {
     test_data = Cypress.env("TEST_DATA");
 
     gridChartOfAccountsListPage() {
         cy.fixture(this.test_data).then((data) => {
             cy.selectMenu("menu-accounting", "submenu-chart-of-accounts");
-            cy.log("Successfully Chart of accounts list page.");
+            cy.log(messages.ui.gridListMessage);
         });
     }
 
     createChartOfAccounts() {
         cy.fixture(this.test_data).then((data) => {
-            var coaData = data.mfiAdmin.chartOfAccounts;
+            const coaData = data.mfiAdmin.chartOfAccounts;
             cy.imsId("btn-add").click();
             cy.formController("ledger_group_id").type(coaData.ledgergroup).type("{enter}");
             cy.formController("ledger_subgroup_oid").type(coaData.ledgerSubGroup).type("{enter}");
             cy.formController("name_en").type(coaData.nameEn);
             cy.formController("name_bn").type(coaData.nameBn);
             cy.formController("mnemonic").type(coaData.mnemonicEn);
-            cy.imsId("btn-submit").click();
-            cy.imsId("btn-yes").click();
-            cy.imsId("btn-ok").click();
+            cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+            cy.imsId(COMMON.CONFIRMATION.YES).click();
+            cy.imsId(COMMON.CONFIRMATION.OK).click();
 
-            cy.log("Successfully created chart of accounts");
+            cy.log(messages.ui.submitSuccess);
         });
     }
 
     createwithoutLedgerId() {
         cy.fixture(this.test_data).then((data) => {
-            var coaData = data.mfiAdmin.chartOfAccounts;
+            const coaData = data.mfiAdmin.chartOfAccounts;
             cy.imsId("btn-add").click();
             cy.formController("name_en").type(coaData.nameEn);
             cy.formController("name_bn").type(coaData.nameBn);
             cy.formController("mnemonic").type(coaData.mnemonicEn);
-            cy.imsId("btn-submit").click();
-            cy.imsId("btn-ok").click();
-            cy.imsId("btn-reset").click();
-            cy.log("Unsuccessfully created chart of accounts without ledger id");
+            cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+            cy.imsId(COMMON.CONFIRMATION.OK).click();
+            cy.imsId(COMMON.BUTTONS.RESET).click();
+            cy.log(messages.ui.withoutDataMessage);
         });
     }
 
     createwithoutNameEnglish() {
         cy.fixture(this.test_data).then((data) => {
-            var coaData = data.mfiAdmin.chartOfAccounts;
+            const coaData = data.mfiAdmin.chartOfAccounts;
             cy.formController("ledger_group_id").type(coaData.ledgergroup).type("{enter}");
             cy.formController("ledger_subgroup_oid").type(coaData.ledgerSubGroup).type("{enter}");
             cy.formController("name_bn").type(coaData.nameBn);
             cy.formController("mnemonic").type(coaData.mnemonicEn);
-            cy.imsId("btn-submit").click();
-            cy.imsId("btn-ok").click();
-            cy.imsId("btn-reset").click();
+            cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+            cy.imsId(COMMON.CONFIRMATION.OK).click();
+            cy.imsId(COMMON.BUTTONS.RESET).click();
 
-            cy.log("Unsuccessfully created chart of accounts without name in English");
+            cy.log(messages.ui.withoutDataMessage);
         });
     }
 
     createwithoutNameBangla() {
         cy.fixture(this.test_data).then((data) => {
-            var coaData = data.mfiAdmin.chartOfAccounts;
+            const coaData = data.mfiAdmin.chartOfAccounts;
             cy.formController("ledger_group_id").type(coaData.ledgergroup).type("{enter}");
             cy.formController("ledger_subgroup_oid").type(coaData.ledgerSubGroup).type("{enter}");
             cy.formController("name_en").type(coaData.nameEn);
             cy.formController("mnemonic").type(coaData.mnemonicEn);
-            cy.imsId("btn-submit").click();
-            cy.imsId("btn-ok").click();
-            cy.imsId("btn-reset").click();
+            cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+            cy.imsId(COMMON.CONFIRMATION.OK).click();
+            cy.imsId(COMMON.BUTTONS.RESET).click();
 
-            cy.log("Unsuccessfully created chart of accounts without name in Bangla");
+            cy.log(messages.ui.withoutDataMessage);
         });
     }
 
     createwithoutMnemonics() {
         cy.fixture(this.test_data).then((data) => {
-            var coaData = data.mfiAdmin.chartOfAccounts;
+            const coaData = data.mfiAdmin.chartOfAccounts;
             cy.formController("ledger_group_id").type(coaData.ledgergroup).type("{enter}");
             cy.formController("ledger_subgroup_oid").type(coaData.ledgerSubGroup).type("{enter}");
             cy.formController("name_en").type(coaData.nameEn);
             cy.formController("name_bn").type(coaData.nameBn);
-            cy.imsId("btn-submit").click();
-            cy.imsId("btn-ok").click();
-            cy.imsId("btn-reset").click();
-            cy.log("Unsuccessfully created chart of accounts without mnemonics");
+            cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+            cy.imsId(COMMON.CONFIRMATION.OK).click();
+            cy.imsId(COMMON.BUTTONS.RESET).click();
+            cy.log(messages.ui.withoutDataMessage);
         });
     }
 
     createwithoutBalanceSheetItem() {
         cy.fixture(this.test_data).then((data) => {
-            var coaData = data.mfiAdmin.chartOfAccounts;
+            const coaData = data.mfiAdmin.chartOfAccounts;
             cy.formController("ledger_group_id").type(coaData.ledgergroup).type("{enter}");
             cy.formController("ledger_subgroup_oid").type(coaData.ledgerSubGroup).type("{enter}");
             cy.formController("name_en").type(coaData.nameEn);
             cy.formController("name_bn").type(coaData.nameBn);
             cy.formController("mnemonic").type(coaData.mnemonicEn);
             cy.formController("status").type(coaData.status);
-            cy.imsId("btn-submit").click();
-            cy.imsId("btn-ok").click();
-            cy.imsId("btn-reset").click();
-            cy.log("Successfully created chart of accounts without balance sheet item");
+            cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+            cy.imsId(COMMON.CONFIRMATION.OK).click();
+            cy.imsId(COMMON.BUTTONS.RESET).click();
+            cy.log(messages.ui.withoutDataMessage);
         });
     }
 
     createwithoutStatus() {
         cy.fixture(this.test_data).then((data) => {
-            var coaData = data.mfiAdmin.chartOfAccounts;
+            const coaData = data.mfiAdmin.chartOfAccounts;
             cy.formController("ledger_group_id").type(coaData.ledgergroup).type("{enter}");
             cy.formController("ledger_subgroup_oid").type(coaData.ledgerSubGroup).type("{enter}");
             cy.formController("name_en").type(coaData.nameEn);
             cy.formController("name_bn").type(coaData.nameBn);
             cy.formController("mnemonic").type(coaData.mnemonicEn);
-            cy.imsId("btn-submit").click();
-            cy.imsId("btn-ok").click();
-            cy.imsId("btn-go-back").click();
-            cy.log("Successfully created chart of accounts without status");
+            cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+            cy.imsId(COMMON.CONFIRMATION.OK).click();
+            cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+            cy.log(messages.ui.withoutDataMessage);
         });
     }
 
     createResetButtonCheck() {
         cy.fixture(this.test_data).then((data) => {
-            var coaData = data.mfiAdmin.chartOfAccounts;
+            const coaData = data.mfiAdmin.chartOfAccounts;
             cy.imsId("btn-add").click();
             cy.formController("name_en").type(coaData.nameEn);
-            cy.imsId("btn-reset").click();
-            cy.log("Successful reset button clean displaying.");
+            cy.imsId(COMMON.BUTTONS.RESET).click();
+            cy.log(messages.validation.requiredField);
         });
     }
 
     createValidationMessageCheck() {
-        cy.imsId("btn-submit").click();
-        cy.imsId("btn-ok").click();
-        cy.log("Successful validation message displaying.");
+        cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+        cy.imsId(COMMON.CONFIRMATION.OK).click();
+        cy.log(messages.validation.requiredField);
     }
 
     createGoBackButtonCheck() {
-        cy.imsId("btn-go-back").click();
-        cy.log("Successful go back button check.");
+        cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+        cy.log(messages.ui.createGoBackMessage);
     }
 
 
     gridLanguageSwitchCheck() {
-        cy.imsId("profile-menu").click();
-        cy.imsId("btn-lang-bangla").click();
-        cy.log("Successful switch bangla language check.");
+        cy.imsId(COMMON.BUTTONS.PROFILE).click();
+        cy.imsId(COMMON.BUTTONS.LANGUAGE_CHANGE).click();
+        cy.log(messages.ui.languageSwitchMessage);
     }
 }
 

@@ -6,15 +6,15 @@ class HolidayCreation {
   gridHolidayListPage() {
     cy.fixture(this.test_data).then((data) => {
       cy.selectMenu("menu-calendar", "submenu-holiday");
-      cy.log("Successfully Holiday list page.");
+      cy.log(messages.ui.gridListMessage);
     });
   }
 
   createHoliday() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      var hData = data.fieldOfficer.createHoliday;
-      cy.imsId("btn-add-new").click();
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+      const hData = data.fieldOfficer.createHoliday;
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
       cy.formController("end_date").click();
       cy.get('.ant-picker-dropdown')
         .should('be.visible');
@@ -24,14 +24,14 @@ class HolidayCreation {
         .click({ force: true });
       cy.formController("holiday_title_en").type(hData.holidayTitleEn);
       cy.formController("holiday_title_bn").type(hData.holidayTitleBn);
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-yes").click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.YES).click();
       cy.get("app-confirmation-modal")
         .contains(hData.messageSaveHoliday)
         .and("be.visible");
-      cy.imsId("btn-ok").click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
 
-      cy.log("Successfully created Holiday ");
+      cy.log(messages.ui.submitSuccess);
     });
   }
 
@@ -39,11 +39,11 @@ class HolidayCreation {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId("menu-my-task").click();
       cy.imsId("submenu-awaiting-holiday-approval").click();
-      cy.imsId("toggle-action").first().click();
-      cy.imsId("btn-table-action-view").click();
-      cy.imsId("btn-approve").click();
-      cy.imsId("btn-yes").click();
-      cy.imsId("btn-ok").click();
+      cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+      cy.imsId(COMMON.GRID.ACTION_VIEW).click();
+      cy.imsId(COMMON.BUTTONS.APPROVE).click();
+      cy.imsId(COMMON.CONFIRMATION.YES).click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
 
       cy.log("Successfully approve Holiday ");
     });
@@ -51,43 +51,43 @@ class HolidayCreation {
 
   searchHolidayTitle() {
     cy.fixture(this.test_data).then((data) => {
-      var hData = data.fieldOfficer.createHoliday;
+      const hData = data.fieldOfficer.createHoliday;
       // cy.selectMenu("menu-calendar", "submenu-holiday");
-      cy.imsId("btn-reset").click();
-      cy.formController("search_text").type(hData.search);
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(hData.search);
       cy.log("Successfully search in the Holiday form");
     });
   }
 
   selectHolidayYear() {
     cy.fixture(this.test_data).then((data) => {
-      var hData = data.fieldOfficer.createHoliday;
-      cy.imsId("btn-reset").click();
+      const hData = data.fieldOfficer.createHoliday;
+      cy.imsId(COMMON.BUTTONS.RESET).click();
       cy.formController("calendar_year").type(hData.calendarYear).type("{enter}");
       cy.log("Successfully selected calendar year in the Holiday form");
     });
   }
 
   gridResetButtonCheck() {
-    cy.imsId("btn-reset").click();
-    cy.log("Successful clean displaying.");
+    cy.imsId(COMMON.BUTTONS.RESET).click();
+    cy.log(messages.ui.gridResetSuccess);
   }
 
   gridRefreshButtonCheck() {
-    cy.imsId("btn-refresh").click();
+    cy.imsId(COMMON.BUTTONS.REFRESH).click();
     cy.log(
-      "successfully refresh page  displayed the grid list of the Holiday form "
+      messages.ui.gridRefreshSuccess
     );
   }
 
 
   gridSearchButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var hData = data.fieldOfficer.createHoliday;
-      cy.imsId("btn-reset").click();
-      cy.formController("search_text").type(hData.search);
-      cy.imsId("btn-search").click();
-      cy.log("Successful search button click.");
+      const hData = data.fieldOfficer.createHoliday;
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(hData.search);
+      cy.imsId(COMMON.BUTTONS.SEARCH).click();
+      cy.log(messages.ui.searchMessage);
     });
   }
 
@@ -105,32 +105,32 @@ class HolidayCreation {
 
   createSubmitButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      var hData = data.fieldOfficer.createHoliday;
-      cy.imsId("btn-add-new").click();
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-ok").click();
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+      const hData = data.fieldOfficer.createHoliday;
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
 
-      cy.log("Successful submit button check.");
+      cy.log(messages.ui.submitSuccess);
     });
   }
   createResetButtonCheck() {
-    cy.imsId("btn-submit").click();
-    cy.imsId("btn-ok").click();
-    cy.log("Successful reset button check.");
+    cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+    cy.imsId(COMMON.CONFIRMATION.OK).click();
+    cy.log(messages.validation.requiredField);
 
   }
 
   createGoBackButtonCheck() {
-    cy.imsId("btn-go-back").click();
-    cy.log("Successful go back button check.");
+    cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+    cy.log(messages.ui.createGoBackMessage);
 
   }
 
   gridLanguageSwitchCheck() {
-    cy.imsId("profile-menu").click();
-    cy.imsId("btn-lang-bangla").click();
-    cy.log("Successful switch bangla language check.");
+    cy.imsId(COMMON.BUTTONS.PROFILE).click();
+    cy.imsId(COMMON.BUTTONS.LANGUAGE_CHANGE).click();
+    cy.log(messages.ui.languageSwitchMessage);
   }
 }
 

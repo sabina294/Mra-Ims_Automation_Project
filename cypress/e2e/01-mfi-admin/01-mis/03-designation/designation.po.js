@@ -14,7 +14,7 @@ class DesignationCreation {
   createDesignation() {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
-      var desData = data.mfiAdmin.createDesignationFrom;
+      const desData = data.mfiAdmin.createDesignationFrom;
       cy.formController("emp_designation_en").type(desData.nameEn);
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
       cy.imsId(COMMON.CONFIRMATION.YES).click();
@@ -26,7 +26,7 @@ class DesignationCreation {
   createWithoutNameEn() {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
-      var desData = data.mfiAdmin.createDesignationFrom;
+      const desData = data.mfiAdmin.createDesignationFrom;
       cy.formController("emp_designation_bn").type(desData.nameBn);
       cy.formController("emp_designation_short_name").type(desData.shortName);
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
@@ -39,7 +39,7 @@ class DesignationCreation {
   createWithoutNameBn() {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
-      var desData = data.mfiAdmin.createDesignationFrom;
+      const desData = data.mfiAdmin.createDesignationFrom;
       cy.formController("emp_designation_en").type(desData.nameEn);
       cy.formController("emp_designation_short_name").type(desData.shortName);
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
@@ -52,7 +52,7 @@ class DesignationCreation {
   createWithoutShortName() {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
-      var desData = data.mfiAdmin.createDesignationFrom;
+      const desData = data.mfiAdmin.createDesignationFrom;
       cy.formController("emp_designation_en").type(desData.nameEn);
       cy.formController("emp_designation_bn").type(desData.nameBn);
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
@@ -66,7 +66,7 @@ class DesignationCreation {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
       cy.imsId(COMMON.BUTTONS.RESET).click();
-      var desData = data.mfiAdmin.createDesignationFrom;
+      const desData = data.mfiAdmin.createDesignationFrom;
       cy.formController("emp_designation_en").type(desData.nameEn);
       cy.formController("emp_designation_bn").type(desData.nameBn);
       cy.formController("emp_designation_short_name").type(desData.shortName);
@@ -84,7 +84,7 @@ class DesignationCreation {
 
   viewDesignation() {
     cy.fixture(this.test_data).then((data) => {
-      var desData = data.mfiAdmin.createDesignationFrom;
+      const desData = data.mfiAdmin.createDesignationFrom;
       cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(desData.nameEn);
       cy.imsId(COMMON.TOGGLES.ACTION).first().click();
       cy.imsId(COMMON.GRID.ACTION_VIEW).click();
@@ -125,7 +125,7 @@ class DesignationCreation {
 
   editSubmitButton() {
     cy.fixture(this.test_data).then((data) => {
-      var desData = data.mfiAdmin.createDesignationFrom;
+      const desData = data.mfiAdmin.createDesignationFrom;
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
       cy.imsId(COMMON.CONFIRMATION.OK).click();
       cy.log(messages.ui.editSubmitMessage);
@@ -139,7 +139,7 @@ class DesignationCreation {
 
   statusInactiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var desData = data.mfiAdmin.createDesignationFrom;
+      const desData = data.mfiAdmin.createDesignationFrom;
       cy.imsId(COMMON.BUTTONS.RESET).click();
       cy.formController("status").type(desData.selectStatus).type("{enter}");
       cy.log(messages.ui.dropdownInactiveMessage);
@@ -148,7 +148,7 @@ class DesignationCreation {
 
   statusActiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var desData = data.mfiAdmin.createDesignationFrom;
+      const desData = data.mfiAdmin.createDesignationFrom;
       cy.formController("status").type(desData.statusSelect).type("{enter}");
       cy.log(messages.ui.dropdownActiveMessage);
     });
@@ -156,7 +156,7 @@ class DesignationCreation {
 
   searchInDesignationName() {
     cy.fixture(this.test_data).then((data) => {
-      var desData = data.mfiAdmin.createDesignationFrom;
+      const desData = data.mfiAdmin.createDesignationFrom;
       cy.imsId(COMMON.BUTTONS.RESET).click();
       cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(desData.nameEn);
       cy.log(messages.ui.searchMessage);
@@ -175,7 +175,7 @@ class DesignationCreation {
 
   createResetButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var desData = data.mfiAdmin.createDesignationFrom;
+      const desData = data.mfiAdmin.createDesignationFrom;
       cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
       cy.formController("emp_designation_en").type(desData.nameEn);
       cy.imsId(COMMON.BUTTONS.RESET).click();

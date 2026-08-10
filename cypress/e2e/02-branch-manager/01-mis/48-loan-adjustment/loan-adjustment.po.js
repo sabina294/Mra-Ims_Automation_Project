@@ -1,3 +1,5 @@
+import messages from "../../../../support/constants/messages";
+import { COMMON } from "../../../../support/constants/selectors";
 class loanAdjustment {
     test_data = Cypress.env("TEST_DATA");
 
@@ -5,15 +7,15 @@ class loanAdjustment {
     gridLoanAdjustmentListPage() {
         cy.fixture(this.test_data).then((data) => {
             cy.selectMenu("menu-transaction", "submenu-loan-adjustment");
-            cy.log("Successfully loan adjustment list page loaded.");
+            cy.log(messages.ui.gridListMessage);
         });
     }
 
     createNewLoanAdjustment() {
         cy.fixture(this.test_data).then((data) => {
-            cy.imsId("btn-add-new").click();
+            cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
 
-            var laData = data.branchManager.loanAdjustment;
+            const laData = data.branchManager.loanAdjustment;
 
             cy.formController("samity_id").click();
             cy.contains(laData.selectSamity).click()
@@ -23,7 +25,7 @@ class loanAdjustment {
             cy.contains(laData.selectAccount).click()
             cy.imsId("checkbox-1").click();
             cy.imsId("input-1").clear().type(laData.inputAmount);
-            cy.log("Successfully created new loan adjustment.");
+            cy.log(messages.ui.submitSuccess);
         });
     }
 
@@ -31,9 +33,9 @@ class loanAdjustment {
     saveNewLoanAdjustment() {
         cy.fixture(this.test_data).then((data) => {
 
-            cy.imsId("btn-submit").click();
-            cy.imsId("btn-yes").click();
-            cy.imsId("btn-ok").click();
+            cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+            cy.imsId(COMMON.CONFIRMATION.YES).click();
+            cy.imsId(COMMON.CONFIRMATION.OK).click();
 
             cy.log("Successfully saved new loan adjustment.");
         });
@@ -41,25 +43,25 @@ class loanAdjustment {
 
 
     actionButtonCheck() {
-        cy.imsId("toggle-action").first().click();
-        cy.log("Action button clicked successfully on loan adjustment list page.");
+        cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+        cy.log(messages.ui.actionMessage);
     }
 
 
     viewLoanAdjustment() {
-        cy.imsId("btn-table-action-view").click();
-        cy.log("Successfully viewed loan adjustment details.");
+        cy.imsId(COMMON.GRID.ACTION_VIEW).click();
+        cy.log(messages.ui.viewMessage);
     }
 
 
     viewGoBack() {
-        cy.imsId("btn-go-back").click();
-        cy.log("Successfully back from loan adjustment view page.");
+        cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+        cy.log(messages.ui.viewMessage);
     }
 
 
     actionLoanAdjustmentUnsubmit() {
-        cy.imsId("toggle-action").first().click();
+        cy.imsId(COMMON.TOGGLES.ACTION).first().click();
         cy.imsId("btn-table-action-unsubmit").click();
 
         cy.log("Successfully opened loan adjustment unsubmit action.");
@@ -67,53 +69,53 @@ class loanAdjustment {
 
 
     actionLoanAdjustmentUnsubmitGoBack() {
-        cy.imsId("btn-go-back").click();
+        cy.imsId(COMMON.BUTTONS.GO_BACK).click();
 
         cy.log("Successfully back from unsubmit action page.");
     }
 
 
     loanAdjustmentUnsubmit() {
-        cy.imsId("toggle-action").first().click();
+        cy.imsId(COMMON.TOGGLES.ACTION).first().click();
         cy.imsId("btn-table-action-unsubmit").click();
 
         cy.imsId("btn-unsubmit").click();
-        cy.imsId("btn-yes").click();
-        cy.imsId("btn-ok").click();
+        cy.imsId(COMMON.CONFIRMATION.YES).click();
+        cy.imsId(COMMON.CONFIRMATION.OK).click();
 
         cy.log("Successfully unsubmitted loan adjustment.");
     }
 
 
     actionEditLoanAdjustment() {
-        cy.imsId("toggle-action").first().click();
-        cy.imsId("btn-table-action-edit").click();
+        cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+        cy.imsId(COMMON.GRID.ACTION_EDIT).click();
 
         cy.log("Successfully opened loan adjustment edit page.");
     }
 
     editDraftButton() {
-        cy.imsId("btn-draft").first().click();
+        cy.imsId(COMMON.BUTTONS.DRAFT).first().click();
 
-        // cy.imsId("btn-yes").click();
-        cy.imsId("btn-ok").click();
+        // cy.imsId(COMMON.CONFIRMATION.YES).click();
+        cy.imsId(COMMON.CONFIRMATION.OK).click();
 
-        cy.log("Successfully saved loan adjustment draft.");
+        cy.log(messages.ui.editMessage);
     }
 
 
     editGoBack() {
-        // cy.imsId("toggle-action").first().click();
-        // cy.imsId("btn-table-action-edit").click();
+        // cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+        // cy.imsId(COMMON.GRID.ACTION_EDIT).click();
 
-        cy.imsId("btn-go-back").click();
+        cy.imsId(COMMON.BUTTONS.GO_BACK).click();
 
-        cy.log("Successfully back from loan adjustment edit page.");
+        cy.log(messages.ui.editMessage);
     }
 
 
     actionLoanAdjustmentSubmit() {
-        cy.imsId("toggle-action").first().click();
+        cy.imsId(COMMON.TOGGLES.ACTION).first().click();
         cy.imsId("btn-table-action-submit").click();
 
         cy.log("Successfully opened loan adjustment submit action.");
@@ -121,19 +123,19 @@ class loanAdjustment {
 
 
     actionLoanAdjustmentGoBack() {
-        cy.imsId("btn-go-back").click();
+        cy.imsId(COMMON.BUTTONS.GO_BACK).click();
 
         cy.log("Successfully back from loan adjustment submit page.");
     }
 
 
     loanAdjustmentSubmit() {
-        cy.imsId("toggle-action").first().click();
+        cy.imsId(COMMON.TOGGLES.ACTION).first().click();
         cy.imsId("btn-table-action-submit").click();
 
-        cy.imsId("btn-submit").click();
-        cy.imsId("btn-yes").click();
-        cy.imsId("btn-ok").click();
+        cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+        cy.imsId(COMMON.CONFIRMATION.YES).click();
+        cy.imsId(COMMON.CONFIRMATION.OK).click();
 
         cy.log("Successfully submitted loan adjustment.");
     }
@@ -141,12 +143,12 @@ class loanAdjustment {
 
     loanAdjustmentDeleteProcess() {
 
-        cy.imsId("toggle-action").first().click();
+        cy.imsId(COMMON.TOGGLES.ACTION).first().click();
         cy.imsId("btn-table-action-unsubmit").click();
 
         cy.imsId("btn-unsubmit").click();
-        cy.imsId("btn-yes").click();
-        cy.imsId("btn-ok").click();
+        cy.imsId(COMMON.CONFIRMATION.YES).click();
+        cy.imsId(COMMON.CONFIRMATION.OK).click();
 
         cy.log("Successfully prepared loan adjustment delete process.");
     }
@@ -154,24 +156,24 @@ class loanAdjustment {
 
     loanAdjustmentActionDelete() {
 
-        cy.imsId("toggle-action").first().click();
-        cy.imsId("btn-table-action-delete").click();
+        cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+        cy.imsId(COMMON.GRID.ACTION_DELETE).click();
 
         cy.log("Successfully opened loan adjustment delete action.");
     }
 
     loanAdjustmentActionDeleteGoBack() {
-        cy.imsId("btn-go-back").click();
+        cy.imsId(COMMON.BUTTONS.GO_BACK).click();
         cy.log("Successfully delete go back loan adjustment delete action.");
     }
 
 
     loanAdjustmentDelete() {
-        cy.imsId("toggle-action").first().click();
-        cy.imsId("btn-table-action-delete").click();
+        cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+        cy.imsId(COMMON.GRID.ACTION_DELETE).click();
         cy.imsId("btn-delete").click();
-        cy.imsId("btn-yes").click();
-        cy.imsId("btn-ok").click();
+        cy.imsId(COMMON.CONFIRMATION.YES).click();
+        cy.imsId(COMMON.CONFIRMATION.OK).click();
 
         cy.log("Successfully deleted loan adjustment.");
     }
@@ -181,9 +183,9 @@ class loanAdjustment {
 
         cy.fixture(this.test_data).then((data) => {
 
-            cy.imsId("btn-add-new").click();
+            cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
 
-            var laData = data.branchManager.loanAdjustment;
+            const laData = data.branchManager.loanAdjustment;
 
             cy.formController("samity_id").click();
             cy.contains(laData.selectSamity).click()
@@ -201,59 +203,59 @@ class loanAdjustment {
 
     againSaveNewLoanAdjustment() {
 
-        cy.imsId("btn-submit").click();
+        cy.imsId(COMMON.BUTTONS.SUBMIT).click();
 
-        cy.imsId("btn-yes").click();
-        cy.imsId("btn-ok").click();
+        cy.imsId(COMMON.CONFIRMATION.YES).click();
+        cy.imsId(COMMON.CONFIRMATION.OK).click();
 
         cy.log("Successfully saved loan adjustment again.");
     }
 
 
     editDraftButton() {
-        cy.imsId("toggle-action").first().click();
+        cy.imsId(COMMON.TOGGLES.ACTION).first().click();
         cy.imsId("btn-table-action-unsubmit").click();
         cy.imsId("btn-unsubmit").click();
-        cy.imsId("btn-yes").click();
-        cy.imsId("btn-ok").click();
-        cy.imsId("toggle-action").first().click();
-        cy.imsId("btn-table-action-edit").click();
-        cy.imsId("btn-draft").first().click();
-        cy.imsId("btn-ok").click();
+        cy.imsId(COMMON.CONFIRMATION.YES).click();
+        cy.imsId(COMMON.CONFIRMATION.OK).click();
+        cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+        cy.imsId(COMMON.GRID.ACTION_EDIT).click();
+        cy.imsId(COMMON.BUTTONS.DRAFT).first().click();
+        cy.imsId(COMMON.CONFIRMATION.OK).click();
 
-        cy.log("Successfully saved loan adjustment draft.");
+        cy.log(messages.ui.editMessage);
     }
 
     editSubmitButton() {
-        cy.imsId("toggle-action").first().click();
-        cy.imsId("btn-table-action-view").click();
+        cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+        cy.imsId(COMMON.GRID.ACTION_VIEW).click();
         cy.get('.ant-switch-inner').click();
-        cy.imsId("btn-submit").click();
-        cy.imsId("btn-yes").click();
-        cy.imsId("btn-ok").click();
-        cy.log("Successfully Edit submit loan adjustment draft.");
+        cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+        cy.imsId(COMMON.CONFIRMATION.YES).click();
+        cy.imsId(COMMON.CONFIRMATION.OK).click();
+        cy.log(messages.ui.editSubmitMessage);
     }
 
     gridResetButtonCheck() {
 
-        cy.imsId("btn-reset").click();
+        cy.imsId(COMMON.BUTTONS.RESET).click();
 
-        cy.log("Successfully reset loan adjustment grid.");
+        cy.log(messages.ui.gridResetSuccess);
     }
 
 
     gridRefreshButtonCheck() {
 
-        cy.imsId("btn-refresh").click();
+        cy.imsId(COMMON.BUTTONS.REFRESH).click();
 
-        cy.log("Successfully refreshed loan adjustment grid.");
+        cy.log(messages.ui.gridRefreshSuccess);
     }
 
     gridLanguageSwitchCheck() {
 
-        cy.imsId("profile-menu").click();
-        cy.imsId("btn-lang-bangla").click();
-        cy.log("Successfully switched loan adjustment language to Bangla.");
+        cy.imsId(COMMON.BUTTONS.PROFILE).click();
+        cy.imsId(COMMON.BUTTONS.LANGUAGE_CHANGE).click();
+        cy.log(messages.ui.languageSwitchMessage);
     }
 }
 

@@ -6,64 +6,64 @@ class CalendarYear {
   gridCalendarListPage() {
     cy.fixture(this.test_data).then((data) => {
       cy.selectMenu("menu-calendar", "submenu-calendar-year");
-      cy.log("Successfully Calendar Year list page.");
+      cy.log(messages.ui.gridListMessage);
     });
   }
 
   actionButtonCheck() {
-    cy.imsId("toggle-action").first().click();
+    cy.imsId(COMMON.TOGGLES.ACTION).first().click();
     cy.log(
-      "Action button clicked successfully on the Calendar Year list page."
+      messages.ui.actionMessage
     );
   }
 
   viewCalendar() {
     cy.fixture(this.test_data).then((data) => {
-      var cyData = data.branchManager.gridCalendarYear;
+      const cyData = data.branchManager.gridCalendarYear;
 
-      cy.formController("search_text").type(cyData.search);
-      cy.imsId("btn-search").click();
-      cy.imsId("toggle-action").first().click();
-      cy.imsId("btn-table-action-view").click();
-      cy.log("Successfully viewed the Calendar Year list page");
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(cyData.search);
+      cy.imsId(COMMON.BUTTONS.SEARCH).click();
+      cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+      cy.imsId(COMMON.GRID.ACTION_VIEW).click();
+      cy.log(messages.ui.viewMessage);
     });
   }
 
   viewGoBackButton() {
-    cy.imsId("btn-go-back").click();
+    cy.imsId(COMMON.BUTTONS.GO_BACK).click();
 
-    cy.log("Successfully view go back the Calendar Year list page");
+    cy.log(messages.ui.goBackSuccess);
   }
 
   searchCalendarStatus() {
     cy.fixture(this.test_data).then((data) => {
-      var cyData = data.branchManager.gridCalendarYear;
-      cy.imsId("btn-reset").click();
-      cy.formController("search_text").type(cyData.search);
+      const cyData = data.branchManager.gridCalendarYear;
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(cyData.search);
       cy.log("Successfully search in the Calendar Year form");
     });
   }
 
   gridResetButtonCheck() {
-    cy.imsId("btn-reset").click();
-    cy.log("Successful clean displaying.");
+    cy.imsId(COMMON.BUTTONS.RESET).click();
+    cy.log(messages.ui.gridResetSuccess);
   }
 
   gridRefreshButtonCheck() {
-    cy.imsId("btn-refresh").click();
+    cy.imsId(COMMON.BUTTONS.REFRESH).click();
     cy.log(
-      "successfully refresh page  displayed the grid list of the Calendar Year form "
+      messages.ui.gridRefreshSuccess
     );
   }
 
   gridSearchButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var cyData = data.branchManager.gridCalendarYear;
-      cy.imsId("btn-reset").click();
-      cy.formController("search_text").type(cyData.search);
-      cy.imsId("btn-search").click();
+      const cyData = data.branchManager.gridCalendarYear;
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(cyData.search);
+      cy.imsId(COMMON.BUTTONS.SEARCH).click();
 
-      cy.log("Successfully search button click.");
+      cy.log(messages.ui.searchMessage);
     });
   }
 
@@ -80,9 +80,9 @@ class CalendarYear {
   }
 
   gridLanguageSwitchCheck() {
-    cy.imsId("profile-menu").click();
-    cy.imsId("btn-lang-bangla").click();
-    cy.log("Unsccessful switch bangla language check.");
+    cy.imsId(COMMON.BUTTONS.PROFILE).click();
+    cy.imsId(COMMON.BUTTONS.LANGUAGE_CHANGE).click();
+    cy.log(messages.ui.languageSwitchMessage);
   }
 }
 

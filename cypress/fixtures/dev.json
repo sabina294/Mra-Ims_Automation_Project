@@ -106,9 +106,7 @@
       "status": "Active",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
-      "search": "Dhaka Zonal Office",
-      "messageSaveLoanFund": "Mfi loan fund has been saved",
-      "messageUpdateLoanFund": "Mfi loan fund has been updated"
+      "search": "Dhaka Zonal Office"
     },
     "createMfiProgramFrom": {
       "programNameEn": "Sahosh",
@@ -1142,7 +1140,7 @@
       "selectStatus": "Inactive",
       "statusSelect": "Approved"
     },
-     "createSavingsAccountClosureManagement": {
+    "createSavingsAccountClosureManagement": {
       "search": "Fariya",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
@@ -1786,7 +1784,7 @@
       "selectStatus": "Inactive",
       "statusSelect": "Active"
     },
-     "createSavingsAccountClosureManagement": {
+    "createSavingsAccountClosureManagement": {
       "search": "Fariya",
       "selectStatus": "Inactive",
       "statusSelect": "Active",

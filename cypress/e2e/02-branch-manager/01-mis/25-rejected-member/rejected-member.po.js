@@ -1,13 +1,15 @@
+import messages from "../../../../support/constants/messages";
+import { COMMON } from "../../../../support/constants/selectors";
 class RrejectedMember {
   test_data = Cypress.env("TEST_DATA");
 
   createRejectedMember() {
     cy.fixture(this.test_data).then((data) => {
       cy.selectMenu("menu-member", "submenu-member-management");
-      cy.imsId("btn-add-new").click();
-      cy.imsId("btn-submit").and("be.visible");
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).and("be.visible");
 
-      var memData = data.branchManager.createMemberFrom;
+      const memData = data.branchManager.createMemberFrom;
       cy.formController("samity_id").type(memData.smity).type("{enter}");
       cy.wait(1000);
       cy.formController("member_name_en").type(memData.memberNameEn);
@@ -52,136 +54,136 @@ class RrejectedMember {
       cy.wait(3000);
       cy.imsId("btn_nid_front_doc_id").attachFile("nidPront1.jpg");
       cy.wait(3000);
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-yes").click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.YES).click();
       cy.get("app-confirmation-modal")
         .contains(memData.messageSaveMember)
         .and("be.visible");
-      cy.imsId("btn-ok").click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
 
-      cy.log("Successfully created member management");
+      cy.log(messages.ui.submitSuccess);
     });
   }
 
   myTaskRejectedMember() {
     cy.fixture(this.test_data).then((data) => {
-      var rejmData = data.branchManager.createRejectedMemberFrom;
+      const rejmData = data.branchManager.createRejectedMemberFrom;
       cy.imsId("menu-my-task").click();
       cy.imsId("submenu-awaiting-member-management").click();
-      cy.formController("search_text").type(rejmData.memberNameEn);
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(rejmData.memberNameEn);
       cy.wait(2000);
 
-      cy.imsId("toggle-action").first().click();
-      cy.imsId("btn-table-action-view").click();
+      cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+      cy.imsId(COMMON.GRID.ACTION_VIEW).click();
       cy.imsId("btn-lock").click();
       cy.imsId("btn-reject").click();
       cy.formController("approver_remarks").type(rejmData.rejectRemarks);
-      cy.imsId("btn-submit").click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
 
       cy.get("app-confirmation-modal")
         .contains(rejmData.messageRejectedMember)
         .and("be.visible");
-      cy.imsId("btn-ok").click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
       cy.log("Successfully reject the rejected member ");
     });
   }
 
   actionButtonCheck() {
     cy.selectMenu("menu-member", "submenu-rejected-member");
-    cy.imsId("toggle-action").first().click();
+    cy.imsId(COMMON.TOGGLES.ACTION).first().click();
     cy.log(
-      "Action button clicked successfully on the rejected management list page."
+      messages.ui.actionMessage
     );
   }
 
   searchInRejectMemberName() {
     cy.fixture(this.test_data).then((data) => {
-      var rejmData = data.branchManager.createRejectedMemberFrom;
-      cy.imsId("btn-reset").click();
-      cy.formController("search_text").type(rejmData.memberNameEn);
-      cy.log("Successfully search in the rejected member");
+      const rejmData = data.branchManager.createRejectedMemberFrom;
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(rejmData.memberNameEn);
+      cy.log(messages.ui.searchMessage);
     });
   }
 
   viewRrejectedMember() {
     cy.fixture(this.test_data).then((data) => {
-      var rejmData = data.branchManager.createRejectedMemberFrom;
-      cy.imsId("btn-reset").click();
-      cy.formController("search_text").type(rejmData.memberNameEn);
-      cy.imsId("toggle-action").first().click();
+      const rejmData = data.branchManager.createRejectedMemberFrom;
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(rejmData.memberNameEn);
+      cy.imsId(COMMON.TOGGLES.ACTION).first().click();
 
-      cy.imsId("btn-table-action-view").click();
-      cy.log("Successfully viewed the rejected member list page");
+      cy.imsId(COMMON.GRID.ACTION_VIEW).click();
+      cy.log(messages.ui.viewMessage);
     });
   }
 
   viewGoBackButton() {
-    cy.imsId("btn-go-back").click();
+    cy.imsId(COMMON.BUTTONS.GO_BACK).click();
 
-    cy.log("Successfully view go back the rejected member list page");
+    cy.log(messages.ui.goBackSuccess);
   }
 
   editResetButton() {
-    cy.imsId("btn-reset").click();
-    cy.imsId("toggle-action").first().click();
+    cy.imsId(COMMON.BUTTONS.RESET).click();
+    cy.imsId(COMMON.TOGGLES.ACTION).first().click();
     cy.imsId("btn-mis-table-action-edit").click();
-    cy.imsId("btn-reset").click();
-    cy.imsId("btn-go-back").click();
+    cy.imsId(COMMON.BUTTONS.RESET).click();
+    cy.imsId(COMMON.BUTTONS.GO_BACK).click();
 
-    cy.log("Successful clean displaying");
+    cy.log(messages.ui.editResetMessage);
   }
 
   editGoBackButton() {
-    cy.imsId("toggle-action").first().click();
+    cy.imsId(COMMON.TOGGLES.ACTION).first().click();
     cy.imsId("btn-mis-table-action-edit").click();
-    cy.imsId("btn-go-back").click();
-    cy.log("Successful edit go back button check.");
+    cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+    cy.log(messages.ui.editGoBackMessage);
   }
 
   editRrejectedMember() {
     cy.fixture(this.test_data).then((data) => {
-      var rejmData = data.branchManager.createRejectedMemberFrom;
-      cy.imsId("toggle-action").first().click();
+      const rejmData = data.branchManager.createRejectedMemberFrom;
+      cy.imsId(COMMON.TOGGLES.ACTION).first().click();
       cy.imsId("btn-mis-table-action-edit").click();
-      cy.imsId("btn-go-back").click();
+      cy.imsId(COMMON.BUTTONS.GO_BACK).click();
 
-      // cy.imsId("btn-submit").click();
-      // cy.imsId("btn-yes").click();
+      // cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      // cy.imsId(COMMON.CONFIRMATION.YES).click();
 
       // cy.get("app-confirmation-modal")
       //   .contains(rejmData.messageUpdateRejectedMember)
       //   .and("be.visible");
-      // cy.imsId("btn-ok").click();
+      // cy.imsId(COMMON.CONFIRMATION.OK).click();
 
-      cy.log("Reject member updated successfully");
+      cy.log(messages.ui.editMessage);
     });
   }
   gridResetButtonCheck() {
-    cy.imsId("btn-reset").click();
-    cy.log("Successful clean displaying.");
+    cy.imsId(COMMON.BUTTONS.RESET).click();
+    cy.log(messages.ui.gridResetSuccess);
   }
 
   gridRefreshButtonCheck() {
-    cy.imsId("btn-refresh").click();
+    cy.imsId(COMMON.BUTTONS.REFRESH).click();
     cy.log(
-      "successfully refresh page  displayed the grid list of the rejected member "
+      messages.ui.gridRefreshSuccess
     );
   }
 
     gridSearchButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var rejmData = data.branchManager.createRejectedMemberFrom;
-      cy.imsId("btn-reset").click();
-      cy.formController("search_text").type(rejmData.memberNameEn);
-      cy.imsId("btn-search").click();
-      cy.log("Successful search button click.");
+      const rejmData = data.branchManager.createRejectedMemberFrom;
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(rejmData.memberNameEn);
+      cy.imsId(COMMON.BUTTONS.SEARCH).click();
+      cy.log(messages.ui.searchMessage);
     });
   }
 
   gridLanguageSwitchCheck() {
-    cy.imsId("profile-menu").click();
-    cy.imsId("btn-lang-bangla").click();
-    cy.log("Successful switch bangla language check.");
+    cy.imsId(COMMON.BUTTONS.PROFILE).click();
+    cy.imsId(COMMON.BUTTONS.LANGUAGE_CHANGE).click();
+    cy.log(messages.ui.languageSwitchMessage);
   }
 }
 

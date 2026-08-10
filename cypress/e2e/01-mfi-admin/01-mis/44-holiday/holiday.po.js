@@ -6,37 +6,37 @@ class HolidayCreation {
   gridHolidayListPage() {
     cy.fixture(this.test_data).then((data) => {
       cy.selectMenu("menu-calendar", "submenu-holiday");
-      cy.log("Successfully Holiday list page.");
+      cy.log(messages.ui.gridListMessage);
     });
   }
 
   createResetButton() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("btn-add-new").click();
-      var hData = data.mfiAdmin.createHoliday;
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+      const hData = data.mfiAdmin.createHoliday;
       cy.formController("calendar_year").type(hData.calendarYear).type("{enter}");
-      cy.imsId("btn-add-new").click();
-      cy.imsId("btn-reset").click();
-      cy.log("Successful clean displaying");
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      cy.log(messages.ui.submitSuccess);
     });
   }
 
   createSubmitButton() {
-    cy.imsId("btn-submit").click();
-    cy.imsId("btn-ok").click();
-    cy.log("Successful submit button working");
+    cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+    cy.imsId(COMMON.CONFIRMATION.OK).click();
+    cy.log(messages.ui.submitSuccess);
   }
 
   createGoBackButton() {
-    cy.imsId("btn-go-back").click();
-    cy.log("Successful go back button working");
+    cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+    cy.log(messages.ui.submitSuccess);
   }
 
   createHoliday() {
     cy.fixture(this.test_data).then((data) => {
-      // cy.imsId("btn-add-new").click();
-      var hData = data.mfiAdmin.createHoliday;
-      cy.imsId("btn-add-new").click();
+      // cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+      const hData = data.mfiAdmin.createHoliday;
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
       cy.formController("type").type(hData.holidayType).type("{enter}");
       cy.formController("end_date").click();
       cy.get(".ant-picker-dropdown:visible")
@@ -46,20 +46,20 @@ class HolidayCreation {
         .click({ force: true });
       cy.formController("holiday_title_en").type(hData.holidayTitleEn);
       cy.formController("holiday_title_bn").type(hData.holidayTitleBn);
-      cy.imsId("btn-submit").click();
-      cy.imsId("btn-yes").click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.YES).click();
       cy.get("app-confirmation-modal")
         .contains(hData.messageSaveHoliday)
         .and("be.visible");
-      cy.imsId("btn-ok").click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
 
-      cy.log("Successfully created Holiday ");
+      cy.log(messages.ui.submitSuccess);
     });
   }
 
   myTaskMenuHoliday() {
     cy.fixture(this.test_data).then((data) => {
-      var hData = data.mfiAdmin.createHoliday;
+      const hData = data.mfiAdmin.createHoliday;
       cy.imsId("menu-my-task").click();
       cy.imsId("submenu-awaiting-holiday-approval").click();
       cy.log("Successfully navigate to my task menu Holiday");
@@ -67,14 +67,14 @@ class HolidayCreation {
   }
 
   myTaskResetButtonCheck() {
-    cy.imsId("btn-reset").click();
+    cy.imsId(COMMON.BUTTONS.RESET).click();
     cy.log("Successful clean my task displaying.");
   }
 
   myTaskRefreshButtonCheck() {
-    cy.imsId("btn-refresh").click();
-    // cy.imsId("btn-reset").click();
-    // cy.imsId("btn-refresh").click();
+    cy.imsId(COMMON.BUTTONS.REFRESH).click();
+    // cy.imsId(COMMON.BUTTONS.RESET).click();
+    // cy.imsId(COMMON.BUTTONS.REFRESH).click();
     cy.log(
       "successfully refresh page  displayed the my task list of the holiday "
     );
@@ -82,12 +82,12 @@ class HolidayCreation {
 
   approveHoliday() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("toggle-action").first().click();
-      cy.imsId("btn-table-action-view").click();
+      cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+      cy.imsId(COMMON.GRID.ACTION_VIEW).click();
       cy.imsId("btn-lock").click();
-      cy.imsId("btn-approve").click();
-      cy.imsId("btn-yes").click();
-      cy.imsId("btn-ok").click();
+      cy.imsId(COMMON.BUTTONS.APPROVE).click();
+      cy.imsId(COMMON.CONFIRMATION.YES).click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
 
       cy.log("Successfully approve Holiday ");
     });
@@ -95,33 +95,33 @@ class HolidayCreation {
 
   searchHolidayTitle() {
     cy.fixture(this.test_data).then((data) => {
-      var hData = data.mfiAdmin.createHoliday;
+      const hData = data.mfiAdmin.createHoliday;
       cy.selectMenu("menu-calendar", "submenu-holiday");
-      cy.imsId("btn-reset").click();
-      cy.formController("search_text").type(hData.search);
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(hData.search);
       cy.log("Successfully search in the Holiday form");
     });
   }
 
   gridResetButtonCheck() {
-    cy.imsId("btn-reset").click();
-    cy.log("Successful clean displaying.");
+    cy.imsId(COMMON.BUTTONS.RESET).click();
+    cy.log(messages.ui.gridResetSuccess);
   }
 
   gridSearchButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
-      var hData = data.mfiAdmin.createHoliday;
-      cy.imsId("btn-reset").click();
-      cy.formController("search_text").type(hData.search);
-      cy.imsId("btn-search").click();
-      cy.log("Successful search button click.");
+      const hData = data.mfiAdmin.createHoliday;
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(hData.search);
+      cy.imsId(COMMON.BUTTONS.SEARCH).click();
+      cy.log(messages.ui.searchMessage);
     });
   }
 
   gridRefreshButtonCheck() {
-    cy.imsId("btn-refresh").click();
+    cy.imsId(COMMON.BUTTONS.REFRESH).click();
     cy.log(
-      "successfully refresh page  displayed the grid list of the Holiday form "
+      messages.ui.gridRefreshSuccess
     );
   }
   gridDraftButton() {
@@ -138,7 +138,7 @@ class HolidayCreation {
 
   selectofficeDropdown() {
     cy.fixture(this.test_data).then((data) => {
-      var hData = data.mfiAdmin.createHoliday;
+      const hData = data.mfiAdmin.createHoliday;
       cy.formController("office_id").type(hData.office).type("{enter}");
       cy.log("Successfully select office in the holiday");
     });
@@ -146,7 +146,7 @@ class HolidayCreation {
 
   selectCalendarYearDropdown() {
     cy.fixture(this.test_data).then((data) => {
-      var hData = data.mfiAdmin.createHoliday;
+      const hData = data.mfiAdmin.createHoliday;
       cy.formController("office_id").type(hData.office);
       cy.formController("calendar_year").type(hData.calendarYear).type("{enter}");
       cy.log("Successfully select calendar year in the holiday");
@@ -154,9 +154,9 @@ class HolidayCreation {
   }
 
   gridLanguageSwitchCheck() {
-    cy.imsId("profile-menu").click();
-    cy.imsId("btn-lang-bangla").click();
-    cy.log("Unsccessful switch bangla language check.");
+    cy.imsId(COMMON.BUTTONS.PROFILE).click();
+    cy.imsId(COMMON.BUTTONS.LANGUAGE_CHANGE).click();
+    cy.log(messages.ui.languageSwitchMessage);
   }
 }
 
