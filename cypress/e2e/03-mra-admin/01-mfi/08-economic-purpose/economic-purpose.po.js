@@ -17,8 +17,8 @@ class EconomicPurposeCreation {
 
       const ecoPurData = data.mraAdmin.createeconomicPurposeFrom;
       cy.formController("mra_code").type(ecoPurData.economicPurposeCode);
-      cy.formController("name_en").type(ecoPurData.nameEn);
-      cy.formController("name_bn").type(ecoPurData.nameBn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(ecoPurData.nameEn);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(ecoPurData.nameBn);
       cy.formController("sector").type(ecoPurData.economicSector);
       cy.formController("econ_activity").type(ecoPurData.economicActivity);
       cy.formController("lending_category_id")
@@ -42,8 +42,8 @@ class EconomicPurposeCreation {
       cy.imsId(COMMON.BUTTONS.SUBMIT).and("be.visible");
 
       const ecoPurData = data.mraAdmin.createeconomicPurposeFrom;
-      cy.formController("name_en").type(ecoPurData.nameEn);
-      cy.formController("name_bn").type(ecoPurData.nameBn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(ecoPurData.nameEn);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(ecoPurData.nameBn);
       cy.formController("sector").type(ecoPurData.economicSector);
       cy.formController("econ_activity").type(ecoPurData.economicActivity);
       cy.formController("lending_category_id")
@@ -66,7 +66,7 @@ class EconomicPurposeCreation {
 
       const ecoPurData = data.mraAdmin.createeconomicPurposeFrom;
       cy.formController("mra_code").type(ecoPurData.economicPurposeCode);
-      cy.formController("name_bn").type(ecoPurData.nameBn);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(ecoPurData.nameBn);
       cy.formController("sector").type(ecoPurData.economicSector);
       cy.formController("econ_activity").type(ecoPurData.economicActivity);
       cy.formController("lending_category_id")
@@ -89,7 +89,7 @@ class EconomicPurposeCreation {
 
       const ecoPurData = data.mraAdmin.createeconomicPurposeFrom;
       cy.formController("mra_code").type(ecoPurData.economicPurposeCode);
-      cy.formController("name_en").type(ecoPurData.nameEn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(ecoPurData.nameEn);
       cy.formController("sector").type(ecoPurData.economicSector);
       cy.formController("econ_activity").type(ecoPurData.economicActivity);
       cy.formController("lending_category_id")
@@ -112,8 +112,8 @@ class EconomicPurposeCreation {
 
       const ecoPurData = data.mraAdmin.createeconomicPurposeFrom;
       cy.formController("mra_code").type(ecoPurData.economicPurposeCode);
-      cy.formController("name_en").type(ecoPurData.nameEn);
-      cy.formController("name_bn").type(ecoPurData.nameBn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(ecoPurData.nameEn);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(ecoPurData.nameBn);
       cy.formController("econ_activity").type(ecoPurData.economicActivity);
       cy.formController("lending_category_id")
         .type(ecoPurData.lendingCategory)
@@ -135,8 +135,8 @@ class EconomicPurposeCreation {
 
       const ecoPurData = data.mraAdmin.createeconomicPurposeFrom;
       cy.formController("mra_code").type(ecoPurData.economicPurposeCode);
-      cy.formController("name_en").type(ecoPurData.nameEn);
-      cy.formController("name_bn").type(ecoPurData.nameBn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(ecoPurData.nameEn);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(ecoPurData.nameBn);
       cy.formController("sector").type(ecoPurData.economicSector);
       cy.formController("lending_category_id")
         .type(ecoPurData.lendingCategory)
@@ -158,8 +158,8 @@ class EconomicPurposeCreation {
 
       const ecoPurData = data.mraAdmin.createeconomicPurposeFrom;
       cy.formController("mra_code").type(ecoPurData.economicPurposeCode);
-      cy.formController("name_en").type(ecoPurData.nameEn);
-      cy.formController("name_bn").type(ecoPurData.nameBn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(ecoPurData.nameEn);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(ecoPurData.nameBn);
       cy.formController("sector").type(ecoPurData.economicSector);
       cy.formController("econ_activity").type(ecoPurData.economicActivity);
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
@@ -180,8 +180,8 @@ class EconomicPurposeCreation {
       const ecoPurData = data.mraAdmin.createeconomicPurposeFrom;
       cy.imsId(COMMON.BUTTONS.RESET).click();
       cy.formController("mra_code").type(ecoPurData.economicPurposeCode);
-      cy.formController("name_en").type(ecoPurData.nameEn);
-      cy.formController("name_bn").type(ecoPurData.nameBn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(ecoPurData.nameEn);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(ecoPurData.nameBn);
       cy.formController("sector").type(ecoPurData.economicSector);
       cy.formController("econ_activity").type(ecoPurData.economicActivity);
       cy.formController("lending_category_id")
@@ -204,7 +204,7 @@ class EconomicPurposeCreation {
 
       const ecoPurData = data.mraAdmin.createeconomicPurposeFrom;
       cy.formController("mra_code").type(ecoPurData.economicPurposeCode);
-      cy.formController("name_bn").type(ecoPurData.nameBn);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(ecoPurData.nameBn);
       cy.formController("sector").type(ecoPurData.economicSector);
       cy.formController("econ_activity").type(ecoPurData.economicActivity);
       cy.formController("lending_category_id")
@@ -295,14 +295,14 @@ class EconomicPurposeCreation {
 
       const ecoPurData = data.mraAdmin.createeconomicPurposeFrom;
       cy.formController("mra_code").type(ecoPurData.economicPurposeCode);
-      cy.formController("name_en").type(ecoPurData.nameEn);
-      cy.formController("name_bn").type(ecoPurData.nameBn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(ecoPurData.nameEn);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(ecoPurData.nameBn);
       cy.formController("sector").type(ecoPurData.economicSector);
       cy.formController("econ_activity").type(ecoPurData.economicActivity);
       cy.formController("lending_category_id")
         .type(ecoPurData.lendingCategory)
         .type("{enter}");
-      cy.formController("status").type(ecoPurData.status).type("{enter}");
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(ecoPurData.status).type("{enter}");
 
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
       cy.imsId(COMMON.CONFIRMATION.YES).click();
@@ -327,7 +327,7 @@ class EconomicPurposeCreation {
     cy.fixture(this.test_data).then((data) => {
       const ecoPurData = data.mraAdmin.createeconomicPurposeFrom;
       cy.imsId(COMMON.BUTTONS.RESET).click();
-      cy.formController("status").type(ecoPurData.selectStatus).type("{enter}");
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(ecoPurData.selectStatus).type("{enter}");
       cy.log(messages.ui.dropdownInactiveMessage);
     });
   }
@@ -335,7 +335,7 @@ class EconomicPurposeCreation {
   statusActiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       const ecoPurData = data.mraAdmin.createeconomicPurposeFrom;
-      cy.formController("status").type(ecoPurData.statusSelect).type("{enter}");
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(ecoPurData.statusSelect).type("{enter}");
       cy.log(messages.ui.dropdownActiveMessage);
     });
   }
@@ -370,7 +370,7 @@ class EconomicPurposeCreation {
     cy.fixture(this.test_data).then((data) => {
       const ecoPurData = data.mraAdmin.createeconomicPurposeFrom;
       cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
-      cy.formController("name_en").type(ecoPurData.nameEn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(ecoPurData.nameEn);
       cy.imsId(COMMON.BUTTONS.RESET).click();
       cy.imsId(COMMON.BUTTONS.GO_BACK).click();
       cy.log(messages.validation.requiredField);

@@ -12,7 +12,7 @@ class DepartmentCreation {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
       const depData = data.mfiAdmin.createDepartmentFrom;
-      cy.formController("name_en").type(depData.nameEn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(depData.nameEn);
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
       cy.imsId(COMMON.CONFIRMATION.YES).click();
       cy.imsId(COMMON.CONFIRMATION.OK).click();
@@ -24,7 +24,7 @@ class DepartmentCreation {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
       const depData = data.mfiAdmin.createDepartmentFrom;
-      cy.formController("name_bn").type(depData.nameBn);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(depData.nameBn);
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
       cy.imsId(COMMON.CONFIRMATION.OK).click();
       cy.imsId(COMMON.BUTTONS.GO_BACK).click();
@@ -36,7 +36,7 @@ class DepartmentCreation {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
       const depData = data.mfiAdmin.createDepartmentFrom;
-      cy.formController("name_en").type(depData.nameEn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(depData.nameEn);
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
       cy.imsId(COMMON.CONFIRMATION.YES).click();
       cy.imsId(COMMON.CONFIRMATION.OK).click();
@@ -49,8 +49,8 @@ class DepartmentCreation {
       cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
       cy.imsId(COMMON.BUTTONS.RESET).click();
       const depData = data.mfiAdmin.createDepartmentFrom;
-      cy.formController("name_en").type(depData.nameEn);
-      cy.formController("name_bn").type(depData.nameBn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(depData.nameEn);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(depData.nameBn);
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
       cy.imsId(COMMON.CONFIRMATION.OK).click();
       cy.imsId(COMMON.BUTTONS.GO_BACK).click();
@@ -114,7 +114,7 @@ class DepartmentCreation {
     cy.fixture(this.test_data).then((data) => {
       const depData = data.mfiAdmin.createDepartmentFrom;
       cy.imsId(COMMON.BUTTONS.RESET).click();
-      cy.formController("status").type(depData.selectStatus).type("{enter}");
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(depData.selectStatus).type("{enter}");
       cy.log(messages.ui.dropdownInactiveMessage);
     });
   }
@@ -122,7 +122,7 @@ class DepartmentCreation {
   statusActiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       const depData = data.mfiAdmin.createDepartmentFrom;
-      cy.formController("status").type(depData.statusSelect).type("{enter}");
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(depData.statusSelect).type("{enter}");
       cy.log(messages.ui.dropdownActiveMessage);
     });
   }
@@ -150,7 +150,7 @@ class DepartmentCreation {
     cy.fixture(this.test_data).then((data) => {
       const depData = data.mfiAdmin.createDepartmentFrom;
       cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
-      cy.formController("name_en").type(depData.nameEn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(depData.nameEn);
       cy.imsId(COMMON.BUTTONS.RESET).click();
       cy.log(messages.validation.requiredField);
     });

@@ -29,7 +29,7 @@ class MfiCreation {
       cy.formController("licence_no").type(licnceNo);
       cy.formController("institute_id").type(mfiId.toString());
       cy.formController("mnemonic").type(mfiData.mnemonic);
-      cy.formController("name_en").type(mfiData.userName);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(mfiData.userName);
       cy.formController("login_id").type(mfiData.loginId);
       cy.formController("password").type(mfiData.password);
       cy.formController("confirm_password").type(mfiData.confirmPassword);
@@ -70,8 +70,8 @@ class MfiCreation {
       cy.formController("contact_no").type(mfiData.contactNo);
       cy.formController("address_en").type(mfiData.adressEn);
       cy.formController("address_bn").type(mfiData.adressBn);
-      cy.formController("name_en").type(mfiData.userName);
-      cy.formController("name_bn").type(mfiData.userNameBn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(mfiData.userName);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(mfiData.userNameBn);
       cy.formController("user_email").type(mfiData.userEmail);
       cy.formController("user_contact_no").type(mfiData.userContractNo);
       cy.formController("login_id").type(mfiData.loginId);
@@ -113,8 +113,8 @@ class MfiCreation {
       cy.formController("contact_no").type(mfiData.contactNo);
       cy.formController("address_en").type(mfiData.adressEn);
       cy.formController("address_bn").type(mfiData.adressBn);
-      cy.formController("name_en").type(mfiData.userName);
-      cy.formController("name_bn").type(mfiData.userNameBn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(mfiData.userName);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(mfiData.userNameBn);
       cy.formController("user_email").type(mfiData.userEmail);
       cy.formController("user_contact_no").clear().type(mfiData.userContractNo);
       cy.formController("login_id").clear().type(mfiData.loginId);
@@ -155,8 +155,8 @@ class MfiCreation {
       cy.formController("contact_no").type(mfiData.contactNo);
       cy.formController("address_en").type(mfiData.adressEn);
       cy.formController("address_bn").type(mfiData.adressBn);
-      cy.formController("name_en").type(mfiData.userName);
-      cy.formController("name_bn").type(mfiData.userNameBn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(mfiData.userName);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(mfiData.userNameBn);
       cy.formController("user_email").type(mfiData.userEmail);
       cy.formController("user_contact_no").clear().type(mfiData.userContractNo);
       cy.formController("login_id").clear().type(mfiData.loginId);
@@ -198,8 +198,8 @@ class MfiCreation {
       cy.formController("contact_no").type(mfiData.contactNo);
       cy.formController("address_en").type(mfiData.adressEn);
       cy.formController("address_bn").type(mfiData.adressBn);
-      cy.formController("name_en").type(mfiData.userName);
-      cy.formController("name_bn").type(mfiData.userNameBn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(mfiData.userName);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(mfiData.userNameBn);
       cy.formController("user_email").type(mfiData.userEmail);
       cy.formController("user_contact_no").clear().type(mfiData.userContractNo);
       cy.formController("login_id").clear().type(mfiData.loginId);
@@ -238,8 +238,8 @@ class MfiCreation {
       cy.formController("contact_no").type(mfiData.contactNo);
       cy.formController("address_en").type(mfiData.adressEn);
       cy.formController("address_bn").type(mfiData.adressBn);
-      cy.formController("name_en").type(mfiData.userName);
-      cy.formController("name_bn").type(mfiData.userNameBn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(mfiData.userName);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(mfiData.userNameBn);
       cy.formController("user_email").type(mfiData.userEmail);
       cy.formController("user_contact_no").clear().type(mfiData.userContractNo);
       cy.formController("login_id").clear().type(mfiData.loginId);
@@ -279,8 +279,8 @@ class MfiCreation {
       cy.formController("contact_no").type(mfiData.contactNo);
       cy.formController("address_en").type(mfiData.adressEn);
       cy.formController("address_bn").type(mfiData.adressBn);
-      cy.formController("name_en").type(mfiData.userName);
-      cy.formController("name_bn").type(mfiData.userNameBn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(mfiData.userName);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(mfiData.userNameBn);
       cy.formController("user_email").type(mfiData.userEmail);
       cy.formController("user_contact_no").clear().type(mfiData.userContractNo);
       cy.formController("login_id").clear().type(mfiData.loginId);
@@ -320,8 +320,8 @@ class MfiCreation {
       cy.formController("contact_no").type(mfiData.contactNo);
       cy.formController("address_en").type(mfiData.adressEn);
       cy.formController("address_bn").type(mfiData.adressBn);
-      cy.formController("name_en").type(mfiData.userName);
-      cy.formController("name_bn").type(mfiData.userNameBn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(mfiData.userName);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(mfiData.userNameBn);
       cy.formController("user_email").type(mfiData.userEmail);
       cy.formController("user_contact_no").clear().type(mfiData.userContractNo);
       cy.formController("login_id").clear().type(mfiData.loginId);
@@ -363,8 +363,8 @@ class MfiCreation {
       cy.formController("contact_no").type(mfiData.contactNo);
       cy.formController("address_en").type(mfiData.adressEn);
       cy.formController("address_bn").type(mfiData.adressBn);
-      cy.formController("name_en").type(mfiData.userName);
-      cy.formController("name_bn").type(mfiData.userNameBn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(mfiData.userName);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(mfiData.userNameBn);
       cy.formController("user_email").type(mfiData.userEmail);
       cy.formController("user_contact_no").clear().type(mfiData.userContractNo);
       cy.formController("login_id").clear().type(mfiData.loginId);
@@ -406,8 +406,8 @@ class MfiCreation {
       cy.formController("contact_no").type(mfiData.contactNo);
       cy.formController("address_en").type(mfiData.adressEn);
       cy.formController("address_bn").type(mfiData.adressBn);
-      cy.formController("name_en").type(mfiData.userName);
-      cy.formController("name_bn").type(mfiData.userNameBn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(mfiData.userName);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(mfiData.userNameBn);
       cy.formController("user_email").type(mfiData.userEmail);
       cy.formController("user_contact_no").clear().type(mfiData.userContractNo);
       cy.formController("login_id").clear().type(mfiData.loginId);
@@ -449,8 +449,8 @@ class MfiCreation {
       cy.formController("email").type(mfiData.email);
       cy.formController("address_en").type(mfiData.adressEn);
       cy.formController("address_bn").type(mfiData.adressBn);
-      cy.formController("name_en").type(mfiData.userName);
-      cy.formController("name_bn").type(mfiData.userNameBn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(mfiData.userName);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(mfiData.userNameBn);
       cy.formController("user_email").type(mfiData.userEmail);
       cy.formController("user_contact_no").clear().type(mfiData.userContractNo);
       cy.formController("login_id").clear().type(mfiData.loginId);
@@ -492,8 +492,8 @@ class MfiCreation {
       cy.formController("email").type(mfiData.email);
       cy.formController("contact_no").type(mfiData.contactNo);
       cy.formController("address_bn").type(mfiData.adressBn);
-      cy.formController("name_en").type(mfiData.userName);
-      cy.formController("name_bn").type(mfiData.userNameBn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(mfiData.userName);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(mfiData.userNameBn);
       cy.formController("user_email").type(mfiData.userEmail);
       cy.formController("user_contact_no").clear().type(mfiData.userContractNo);
       cy.formController("login_id").clear().type(mfiData.loginId);
@@ -535,8 +535,8 @@ class MfiCreation {
       cy.formController("email").type(mfiData.email);
       cy.formController("contact_no").type(mfiData.contactNo);
       cy.formController("address_en").type(mfiData.adressEn);
-      cy.formController("name_en").type(mfiData.userName);
-      cy.formController("name_bn").type(mfiData.userNameBn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(mfiData.userName);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(mfiData.userNameBn);
       cy.formController("user_email").type(mfiData.userEmail);
       cy.formController("user_contact_no").clear().type(mfiData.userContractNo);
       cy.formController("login_id").clear().type(mfiData.loginId);
@@ -581,8 +581,8 @@ class MfiCreation {
       cy.formController("contact_no").type(mfiData.contactNo);
       cy.formController("address_en").type(mfiData.adressEn);
       cy.formController("address_bn").type(mfiData.adressBn);
-      cy.formController("name_en").type(mfiData.userName);
-      cy.formController("name_bn").type(mfiData.userNameBn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(mfiData.userName);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(mfiData.userNameBn);
       cy.formController("user_email").type(mfiData.userEmail);
       cy.formController("user_contact_no").clear().type(mfiData.userContractNo);
       cy.formController("login_id").clear().type(mfiData.loginId);
@@ -623,8 +623,8 @@ class MfiCreation {
       cy.formController("contact_no").type(mfiData.contactNo);
       cy.formController("address_en").type(mfiData.adressEn);
       cy.formController("address_bn").type(mfiData.adressBn);
-      cy.formController("name_en").type(mfiData.userName);
-      cy.formController("name_bn").type(mfiData.userNameBn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(mfiData.userName);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(mfiData.userNameBn);
       cy.formController("user_email").type(mfiData.userEmail);
       cy.formController("user_contact_no").clear().type(mfiData.userContractNo);
       cy.formController("login_id").clear().type(mfiData.loginId);
@@ -665,7 +665,7 @@ class MfiCreation {
       cy.formController("contact_no").type(mfiData.contactNo);
       cy.formController("address_en").type(mfiData.adressEn);
       cy.formController("address_bn").type(mfiData.adressBn);
-      cy.formController("name_bn").type(mfiData.userNameBn);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(mfiData.userNameBn);
       cy.formController("user_email").type(mfiData.userEmail);
       cy.formController("user_contact_no").clear().type(mfiData.userContractNo);
       cy.formController("login_id").clear().type(mfiData.loginId);
@@ -706,7 +706,7 @@ class MfiCreation {
       cy.formController("contact_no").type(mfiData.contactNo);
       cy.formController("address_en").type(mfiData.adressEn);
       cy.formController("address_bn").type(mfiData.adressBn);
-      cy.formController("name_en").type(mfiData.userName);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(mfiData.userName);
       cy.formController("user_email").type(mfiData.userEmail);
       cy.formController("user_contact_no").clear().type(mfiData.userContractNo);
       cy.formController("login_id").clear().type(mfiData.loginId);
@@ -750,8 +750,8 @@ class MfiCreation {
       cy.formController("contact_no").type(mfiData.contactNo);
       cy.formController("address_en").type(mfiData.adressEn);
       cy.formController("address_bn").type(mfiData.adressBn);
-      cy.formController("name_en").type(mfiData.userName);
-      cy.formController("name_bn").type(mfiData.userNameBn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(mfiData.userName);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(mfiData.userNameBn);
       cy.formController("user_contact_no").clear().type(mfiData.userContractNo);
       cy.formController("login_id").clear().type(mfiData.loginId);
       cy.formController("password").clear().type(mfiData.password);
@@ -794,8 +794,8 @@ class MfiCreation {
       cy.formController("contact_no").type(mfiData.contactNo);
       cy.formController("address_en").type(mfiData.adressEn);
       cy.formController("address_bn").type(mfiData.adressBn);
-      cy.formController("name_en").type(mfiData.userName);
-      cy.formController("name_bn").type(mfiData.userNameBn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(mfiData.userName);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(mfiData.userNameBn);
       cy.formController("user_email").type(mfiData.userEmail);
       cy.formController("login_id").clear().type(mfiData.loginId);
       cy.formController("password").clear().type(mfiData.password);
@@ -837,8 +837,8 @@ class MfiCreation {
       cy.formController("contact_no").type(mfiData.contactNo);
       cy.formController("address_en").type(mfiData.adressEn);
       cy.formController("address_bn").type(mfiData.adressBn);
-      cy.formController("name_en").type(mfiData.userName);
-      cy.formController("name_bn").type(mfiData.userNameBn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(mfiData.userName);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(mfiData.userNameBn);
       cy.formController("user_email").type(mfiData.userEmail);
       cy.formController("user_contact_no").clear().type(mfiData.userContractNo);
       cy.formController("password").clear().type(mfiData.password);
@@ -877,8 +877,8 @@ class MfiCreation {
       cy.formController("contact_no").type(mfiData.contactNo);
       cy.formController("address_en").type(mfiData.adressEn);
       cy.formController("address_bn").type(mfiData.adressBn);
-      cy.formController("name_en").type(mfiData.userName);
-      cy.formController("name_bn").type(mfiData.userNameBn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(mfiData.userName);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(mfiData.userNameBn);
       cy.formController("user_email").type(mfiData.userEmail);
       cy.formController("user_contact_no").clear().type(mfiData.userContractNo);
       cy.formController("login_id").clear().type(mfiData.loginId);
@@ -917,8 +917,8 @@ class MfiCreation {
       cy.formController("contact_no").type(mfiData.contactNo);
       cy.formController("address_en").type(mfiData.adressEn);
       cy.formController("address_bn").type(mfiData.adressBn);
-      cy.formController("name_en").type(mfiData.userName);
-      cy.formController("name_bn").type(mfiData.userNameBn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(mfiData.userName);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(mfiData.userNameBn);
       cy.formController("user_email").type(mfiData.userEmail);
       cy.formController("user_contact_no").clear().type(mfiData.userContractNo);
       cy.formController("login_id").clear().type(mfiData.loginId);
@@ -957,8 +957,8 @@ class MfiCreation {
       cy.formController("contact_no").type(mfiData.contactNo);
       cy.formController("address_en").type(mfiData.adressEn);
       cy.formController("address_bn").type(mfiData.adressBn);
-      cy.formController("name_en").type(mfiData.userName);
-      cy.formController("name_bn").type(mfiData.userNameBn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(mfiData.userName);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(mfiData.userNameBn);
       cy.formController("user_email").type(mfiData.userEmail);
       cy.formController("user_contact_no").clear().type(mfiData.userContractNo);
       cy.formController("login_id").clear().type(mfiData.loginId);
@@ -986,7 +986,7 @@ class MfiCreation {
       cy.formController("contact_no").type(mfiData.contactNo);
       cy.formController("address_en").type(mfiData.adressEn);
       cy.formController("address_bn").type(mfiData.adressBn);
-      cy.formController("name_bn").type(mfiData.userNameBn);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(mfiData.userNameBn);
       cy.formController("user_email").type(mfiData.userEmail);
       cy.formController("user_contact_no").type(mfiData.userContractNo);
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
@@ -1093,7 +1093,7 @@ class MfiCreation {
     cy.fixture(this.test_data).then((data) => {
       const mfiData = data.mraAdmin.createMfiManFrom;
       cy.imsId(COMMON.BUTTONS.RESET).click();
-      cy.formController("status").type(mfiData.selectStatus).type("{enter}");
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(mfiData.selectStatus).type("{enter}");
       cy.log(messages.ui.dropdownInactiveMessage);
     });
   }
@@ -1101,7 +1101,7 @@ class MfiCreation {
   statusActiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       const mfiData = data.mraAdmin.createMfiManFrom;
-      cy.formController("status").type(mfiData.statusSelect).type("{enter}");
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(mfiData.statusSelect).type("{enter}");
       cy.log(messages.ui.dropdownActiveMessage);
     });
   }
@@ -1160,7 +1160,7 @@ class MfiCreation {
     cy.fixture(this.test_data).then((data) => {
       const mfiData = data.mraAdmin.createMfiManFrom;
       cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
-      cy.formController("name_en").type(mfiData.mfiNameEn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(mfiData.mfiNameEn);
       cy.imsId(COMMON.BUTTONS.RESET).click();
       cy.log(messages.validation.requiredField);
     });

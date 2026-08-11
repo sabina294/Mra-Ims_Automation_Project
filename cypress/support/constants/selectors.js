@@ -64,6 +64,9 @@ export const COMMON = {
 
   INPUTS: {
     SEARCH_TEXT: "search_text",
+    STATUS_DROPDOWN: "status",
+    NAME_EN: "name_en",
+    NAME_BN: "name_bn",
   },
 
   TOGGLES: {

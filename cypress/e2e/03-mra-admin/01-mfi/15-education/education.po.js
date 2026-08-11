@@ -16,8 +16,8 @@ class EducationCreation {
       cy.imsId(COMMON.BUTTONS.SUBMIT).and("be.visible");
 
       const eduData = data.mraAdmin.createeducationFrom;
-      cy.formController("name_en").type(eduData.nameEn);
-      cy.formController("name_bn").type(eduData.nameBn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(eduData.nameEn);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(eduData.nameBn);
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
       cy.imsId(COMMON.CONFIRMATION.YES).click();
 
@@ -36,7 +36,7 @@ class EducationCreation {
       cy.imsId(COMMON.BUTTONS.SUBMIT).and("be.visible");
 
       const eduData = data.mraAdmin.createeducationFrom;
-      cy.formController("name_bn").type(eduData.nameBn);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(eduData.nameBn);
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
       cy.imsId(COMMON.CONFIRMATION.OK).click();
       cy.imsId(COMMON.BUTTONS.GO_BACK).click();
@@ -53,7 +53,7 @@ class EducationCreation {
       cy.imsId(COMMON.BUTTONS.SUBMIT).and("be.visible");
 
       const eduData = data.mraAdmin.createeducationFrom;
-      cy.formController("name_en").type(eduData.nameEn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(eduData.nameEn);
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
       cy.imsId(COMMON.CONFIRMATION.OK).click();
       cy.imsId(COMMON.BUTTONS.GO_BACK).click();
@@ -71,8 +71,8 @@ class EducationCreation {
       cy.imsId(COMMON.BUTTONS.RESET).click();
 
       const eduData = data.mraAdmin.createeducationFrom;
-      cy.formController("name_en").type(eduData.nameEn);
-      cy.formController("name_bn").type(eduData.nameBn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(eduData.nameEn);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(eduData.nameBn);
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
       cy.imsId(COMMON.CONFIRMATION.OK).click();
       cy.imsId(COMMON.BUTTONS.GO_BACK).click();
@@ -89,7 +89,7 @@ class EducationCreation {
       cy.imsId(COMMON.BUTTONS.SUBMIT).and("be.visible");
 
       const eduData = data.mraAdmin.createeducationFrom;
-      cy.formController("name_bn").type(eduData.nameBn);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(eduData.nameBn);
 
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
       cy.imsId(COMMON.CONFIRMATION.OK).click();
@@ -168,9 +168,9 @@ class EducationCreation {
       cy.imsId(COMMON.BUTTONS.RESET).click();
 
       const eduData = data.mraAdmin.createeducationFrom;
-      cy.formController("name_en").type(eduData.nameEn);
-      cy.formController("name_bn").type(eduData.nameBn);
-      cy.formController("status").type(eduData.status).type("{enter}");
+      cy.formController(COMMON.INPUTS.NAME_EN).type(eduData.nameEn);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(eduData.nameBn);
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(eduData.status).type("{enter}");
 
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
       cy.imsId(COMMON.CONFIRMATION.YES).click();
@@ -195,7 +195,7 @@ class EducationCreation {
     cy.fixture(this.test_data).then((data) => {
       const eduData = data.mraAdmin.createeducationFrom;
       cy.imsId(COMMON.BUTTONS.RESET).click();
-      cy.formController("status").type(eduData.selectStatus).type("{enter}");
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(eduData.selectStatus).type("{enter}");
       cy.log(messages.ui.dropdownInactiveMessage);
     });
   }
@@ -203,7 +203,7 @@ class EducationCreation {
   statusActiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       const eduData = data.mraAdmin.createeducationFrom;
-      cy.formController("status").type(eduData.statusSelect).type("{enter}");
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(eduData.statusSelect).type("{enter}");
       cy.log(messages.ui.dropdownActiveMessage);
     });
   }
@@ -233,7 +233,7 @@ class EducationCreation {
     cy.fixture(this.test_data).then((data) => {
       const eduData = data.mraAdmin.createeducationFrom;
       cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
-      cy.formController("name_en").type(eduData.nameEn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(eduData.nameEn);
       cy.imsId(COMMON.BUTTONS.RESET).click();
       cy.imsId(COMMON.BUTTONS.GO_BACK).click();
       cy.log(messages.validation.requiredField);

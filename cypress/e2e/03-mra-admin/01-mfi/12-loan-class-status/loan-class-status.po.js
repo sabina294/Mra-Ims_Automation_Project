@@ -20,7 +20,7 @@ class LoanClassStatusCreation {
       const loanClassId = loanClasStaData.loanClassId + "-" + randomNumber;
 
       cy.formController("loan_class_status_id").type(loanClassId);
-      cy.formController("name_en").type(loanClasStaData.loanClassNameEn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(loanClasStaData.loanClassNameEn);
       cy.formController("description").type(loanClasStaData.description);
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
       cy.imsId(COMMON.CONFIRMATION.YES).click();
@@ -43,8 +43,8 @@ class LoanClassStatusCreation {
       const loanClassId = loanClasStaData.loanClassId + "-" + randomNumber;
 
       cy.formController("loan_class_status_id").type(loanClassId);
-      cy.formController("name_en").type(loanClasStaData.loanClassNameEn);
-      cy.formController("name_bn").type(loanClasStaData.loanClassNameBn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(loanClasStaData.loanClassNameEn);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(loanClasStaData.loanClassNameBn);
       cy.formController("description").type(loanClasStaData.description);
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
       cy.imsId(COMMON.CONFIRMATION.YES).click();
@@ -66,8 +66,8 @@ class LoanClassStatusCreation {
       const randomNumber = Math.floor(1000 + Math.random() * 9000);
       const loanClassId = loanClasStaData.loanClassId + "-" + randomNumber;
 
-      cy.formController("name_en").type(loanClasStaData.loanClassNameEn);
-      cy.formController("name_bn").type(loanClasStaData.loanClassNameBn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(loanClasStaData.loanClassNameEn);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(loanClasStaData.loanClassNameBn);
       cy.formController("description").type(loanClasStaData.description);
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
       cy.imsId(COMMON.CONFIRMATION.OK).click();
@@ -89,7 +89,7 @@ class LoanClassStatusCreation {
       const loanClassId = loanClasStaData.loanClassId + "-" + randomNumber;
 
       cy.formController("loan_class_status_id").type(loanClassId);
-      cy.formController("name_bn").type(loanClasStaData.loanClassNameBn);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(loanClasStaData.loanClassNameBn);
       cy.formController("description").type(loanClasStaData.description);
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
       cy.imsId(COMMON.CONFIRMATION.OK).click();
@@ -109,7 +109,7 @@ class LoanClassStatusCreation {
       const loanClassId = loanClasStaData.loanClassId + "-" + randomNumber;
 
       cy.formController("loan_class_status_id").type(loanClassId);
-      cy.formController("name_en").type(loanClasStaData.loanClassNameEn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(loanClasStaData.loanClassNameEn);
       cy.formController("description").type(loanClasStaData.description);
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
       cy.imsId(COMMON.CONFIRMATION.YES).click();
@@ -133,8 +133,8 @@ class LoanClassStatusCreation {
       const loanClassId = loanClasStaData.loanClassId + "-" + randomNumber;
 
       cy.formController("loan_class_status_id").type(loanClassId);
-      cy.formController("name_en").type(loanClasStaData.loanClassNameEn);
-      cy.formController("name_bn").type(loanClasStaData.loanClassNameBn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(loanClasStaData.loanClassNameEn);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(loanClasStaData.loanClassNameBn);
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
       cy.imsId(COMMON.CONFIRMATION.OK).click();
       cy.imsId(COMMON.BUTTONS.GO_BACK).click();
@@ -155,8 +155,8 @@ class LoanClassStatusCreation {
       const loanClassId = loanClasStaData.loanClassId + "-" + randomNumber;
       cy.imsId(COMMON.BUTTONS.RESET).click();
       cy.formController("loan_class_status_id").type(loanClassId);
-      cy.formController("name_en").type(loanClasStaData.loanClassNameEn);
-      cy.formController("name_bn").type(loanClasStaData.loanClassNameBn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(loanClasStaData.loanClassNameEn);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(loanClasStaData.loanClassNameBn);
       cy.formController("description").type(loanClasStaData.description);
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
       cy.imsId(COMMON.CONFIRMATION.OK).click();
@@ -176,7 +176,7 @@ class LoanClassStatusCreation {
       const loanClassId = loanClasStaData.loanClassId + "-" + randomNumber;
 
       cy.formController("loan_class_status_id").type(loanClassId);
-      cy.formController("name_bn").type(loanClasStaData.loanClassNameBn);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(loanClasStaData.loanClassNameBn);
       cy.formController("description").type(loanClasStaData.description);
 
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
@@ -193,7 +193,7 @@ class LoanClassStatusCreation {
     cy.fixture(this.test_data).then((data) => {
       const loanClasStaData = data.mraAdmin.createloanClassStatusFrom;
       cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
-      cy.formController("name_bn").type(loanClasStaData.loanClassNameBn);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(loanClasStaData.loanClassNameBn);
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
       cy.imsId(COMMON.CONFIRMATION.OK).click();
       cy.imsId(COMMON.BUTTONS.GO_BACK).click();
@@ -272,10 +272,10 @@ class LoanClassStatusCreation {
       const loanClassId = loanClasStaData.loanClassId + "-" + randomNumber;
 
       cy.formController("loan_class_status_id").type(loanClassId);
-      cy.formController("name_en").type(loanClasStaData.loanClassNameEn);
-      cy.formController("name_bn").type(loanClasStaData.loanClassNameBn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(loanClasStaData.loanClassNameEn);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(loanClasStaData.loanClassNameBn);
       cy.formController("description").type(loanClasStaData.description);
-      cy.formController("status").type(loanClasStaData.status).type("{enter}");
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(loanClasStaData.status).type("{enter}");
 
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
       cy.imsId(COMMON.CONFIRMATION.YES).click();
@@ -299,7 +299,7 @@ class LoanClassStatusCreation {
     cy.fixture(this.test_data).then((data) => {
       const loanClasStaData = data.mraAdmin.createloanClassStatusFrom;
       cy.imsId(COMMON.BUTTONS.RESET).click();
-      cy.formController("status")
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN)
         .type(loanClasStaData.selectStatus)
         .type("{enter}");
       cy.log(messages.ui.dropdownInactiveMessage);
@@ -309,7 +309,7 @@ class LoanClassStatusCreation {
   statusActiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       const loanClasStaData = data.mraAdmin.createloanClassStatusFrom;
-      cy.formController("status")
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN)
         .type(loanClasStaData.statusSelect)
         .type("{enter}");
       cy.log(messages.ui.dropdownActiveMessage);
@@ -341,7 +341,7 @@ class LoanClassStatusCreation {
     cy.fixture(this.test_data).then((data) => {
       const loanClasStaData = data.mraAdmin.createloanClassStatusFrom;
       cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
-      cy.formController("name_en").type(loanClasStaData.loanClassNameEn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(loanClasStaData.loanClassNameEn);
       cy.imsId(COMMON.BUTTONS.RESET).click();
       cy.imsId(COMMON.BUTTONS.GO_BACK).click();
       cy.log(messages.validation.requiredField);

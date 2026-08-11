@@ -16,8 +16,8 @@ class ContractPhaseCreation {
       cy.imsId(COMMON.BUTTONS.SUBMIT).and("be.visible");
 
       const conPhaData = data.mraAdmin.createcontractPhaseFrom;
-      cy.formController("name_en").type(conPhaData.nameEn);
-      cy.formController("name_bn").type(conPhaData.nameBn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(conPhaData.nameEn);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(conPhaData.nameBn);
 
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
       cy.get("app-confirmation-modal")
@@ -35,7 +35,7 @@ class ContractPhaseCreation {
       cy.imsId(COMMON.BUTTONS.SUBMIT).and("be.visible");
 
       const conPhaData = data.mraAdmin.createcontractPhaseFrom;
-      cy.formController("name_bn").type(conPhaData.nameBn);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(conPhaData.nameBn);
 
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
       cy.imsId(COMMON.CONFIRMATION.OK).click();
@@ -53,7 +53,7 @@ class ContractPhaseCreation {
       cy.imsId(COMMON.BUTTONS.SUBMIT).and("be.visible");
 
       const conPhaData = data.mraAdmin.createcontractPhaseFrom;
-      cy.formController("name_en").type(conPhaData.nameEn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(conPhaData.nameEn);
 
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
       cy.imsId(COMMON.CONFIRMATION.OK).click();
@@ -72,8 +72,8 @@ class ContractPhaseCreation {
       cy.imsId(COMMON.BUTTONS.RESET).click();
 
       const conPhaData = data.mraAdmin.createcontractPhaseFrom;
-      cy.formController("name_en").type(conPhaData.nameEn);
-      cy.formController("name_bn").type(conPhaData.nameBn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(conPhaData.nameEn);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(conPhaData.nameBn);
 
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
       cy.imsId(COMMON.CONFIRMATION.OK).click();
@@ -91,7 +91,7 @@ class ContractPhaseCreation {
       cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
       cy.imsId(COMMON.BUTTONS.SUBMIT).and("be.visible");
       const conPhaData = data.mraAdmin.createcontractPhaseFrom;
-      cy.formController("name_bn").type(conPhaData.nameBn);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(conPhaData.nameBn);
 
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
       cy.imsId(COMMON.CONFIRMATION.OK).click();
@@ -171,9 +171,9 @@ class ContractPhaseCreation {
       cy.imsId(COMMON.BUTTONS.RESET).click();
 
       const conPhaData = data.mraAdmin.createcontractPhaseFrom;
-      cy.formController("name_en").type(conPhaData.nameEn);
-      cy.formController("name_bn").type(conPhaData.nameBn);
-      cy.formController("status").type(conPhaData.status).type("{enter}");
+      cy.formController(COMMON.INPUTS.NAME_EN).type(conPhaData.nameEn);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(conPhaData.nameBn);
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(conPhaData.status).type("{enter}");
 
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
       cy.get("app-confirmation-modal")
@@ -196,7 +196,7 @@ class ContractPhaseCreation {
     cy.fixture(this.test_data).then((data) => {
       const conPhaData = data.mraAdmin.createcontractPhaseFrom;
       cy.imsId(COMMON.BUTTONS.RESET).click();
-      cy.formController("status").type(conPhaData.selectStatus).type("{enter}");
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(conPhaData.selectStatus).type("{enter}");
       cy.log(messages.ui.dropdownInactiveMessage);
     });
   }
@@ -204,7 +204,7 @@ class ContractPhaseCreation {
   statusActiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       const conPhaData = data.mraAdmin.createcontractPhaseFrom;
-      cy.formController("status").type(conPhaData.statusSelect).type("{enter}");
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(conPhaData.statusSelect).type("{enter}");
       cy.log(messages.ui.dropdownActiveMessage);
     });
   }
@@ -234,7 +234,7 @@ class ContractPhaseCreation {
     cy.fixture(this.test_data).then((data) => {
       const conPhaData = data.mraAdmin.createcontractPhaseFrom;
       cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
-      cy.formController("name_en").type(conPhaData.nameEn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(conPhaData.nameEn);
       cy.imsId(COMMON.BUTTONS.RESET).click();
       cy.imsId(COMMON.BUTTONS.GO_BACK).click();
       cy.log(messages.validation.requiredField);

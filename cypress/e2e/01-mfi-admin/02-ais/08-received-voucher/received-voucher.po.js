@@ -517,7 +517,7 @@ class ReceivedVoucherCreation {
         cy.fixture(this.test_data).then((data) => {
             const rvData = data.mfiAdmin.receivedVoucher;
             cy.imsId(COMMON.BUTTONS.RESET).click();
-            cy.formController("status").type(rvData.selectStatus).type("{enter}");
+            cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(rvData.selectStatus).type("{enter}");
             cy.log(messages.ui.dropdownInactiveMessage);
         });
     }
@@ -525,7 +525,7 @@ class ReceivedVoucherCreation {
     statusActiveDropdownCheck() {
         cy.fixture(this.test_data).then((data) => {
             const rvData = data.mfiAdmin.receivedVoucher;
-            cy.formController("status").type(rvData.statusSelect).type("{enter}");
+            cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(rvData.statusSelect).type("{enter}");
             cy.log(messages.ui.dropdownActiveMessage);
         });
     }

@@ -16,8 +16,8 @@ class DivisionCreation {
       cy.imsId(COMMON.BUTTONS.SUBMIT).and("be.visible");
 
       const divData = data.mraAdmin.createdivisionFrom;
-      cy.formController("name_en").type(divData.nameEn);
-      cy.formController("name_bn").type(divData.nameBn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(divData.nameEn);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(divData.nameBn);
       cy.formController("division_code").type(divData.Code);
       cy.formController("establish_year").type(divData.establishedYear);
 
@@ -37,7 +37,7 @@ class DivisionCreation {
       cy.imsId(COMMON.BUTTONS.SUBMIT).and("be.visible");
 
       const divData = data.mraAdmin.createdivisionFrom;
-      cy.formController("name_bn").type(divData.nameBn);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(divData.nameBn);
       cy.formController("division_code").type(divData.Code);
       cy.formController("establish_year").type(divData.establishedYear);
 
@@ -57,7 +57,7 @@ class DivisionCreation {
       cy.imsId(COMMON.BUTTONS.SUBMIT).and("be.visible");
 
       const divData = data.mraAdmin.createdivisionFrom;
-      cy.formController("name_en").type(divData.nameEn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(divData.nameEn);
       cy.formController("division_code").type(divData.Code);
       cy.formController("establish_year").type(divData.establishedYear);
 
@@ -77,8 +77,8 @@ class DivisionCreation {
       cy.imsId(COMMON.BUTTONS.SUBMIT).and("be.visible");
 
       const divData = data.mraAdmin.createdivisionFrom;
-      cy.formController("name_en").type(divData.nameEn);
-      cy.formController("name_bn").type(divData.nameBn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(divData.nameEn);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(divData.nameBn);
       cy.formController("establish_year").type(divData.establishedYear);
 
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
@@ -97,8 +97,8 @@ class DivisionCreation {
       cy.imsId(COMMON.BUTTONS.SUBMIT).and("be.visible");
 
       const divData = data.mraAdmin.createdivisionFrom;
-      cy.formController("name_en").type(divData.nameEn);
-      cy.formController("name_bn").type(divData.nameBn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(divData.nameEn);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(divData.nameBn);
       cy.formController("division_code").type(divData.Code);
 
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
@@ -118,8 +118,8 @@ class DivisionCreation {
 
       const divData = data.mraAdmin.createdivisionFrom;
       cy.imsId(COMMON.BUTTONS.RESET).click();
-      cy.formController("name_en").type(divData.nameEn);
-      cy.formController("name_bn").type(divData.nameBn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(divData.nameEn);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(divData.nameBn);
       cy.formController("division_code").type(divData.Code);
       cy.formController("establish_year").type(divData.establishedYear);
 
@@ -197,11 +197,11 @@ class DivisionCreation {
       cy.imsId(COMMON.TOGGLES.ACTION).first().click();
       cy.imsId(COMMON.GRID.ACTION_EDIT).click();
       cy.imsId(COMMON.BUTTONS.RESET).click();
-      cy.formController("name_en").type(divData.nameEn);
-      cy.formController("name_bn").type(divData.nameBn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(divData.nameEn);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(divData.nameBn);
       cy.formController("division_code").type(divData.Code);
       cy.formController("establish_year").type(divData.establishedYear);
-      cy.formController("status").type(divData.status).type("{enter}");
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(divData.status).type("{enter}");
 
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
       cy.imsId(COMMON.CONFIRMATION.YES).click();
@@ -224,7 +224,7 @@ class DivisionCreation {
     cy.fixture(this.test_data).then((data) => {
       const divData = data.mraAdmin.createdivisionFrom;
       cy.imsId(COMMON.BUTTONS.RESET).click();
-      cy.formController("status").type(divData.selectStatus).type("{enter}");
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(divData.selectStatus).type("{enter}");
       cy.log(messages.ui.dropdownInactiveMessage);
     });
   }
@@ -232,7 +232,7 @@ class DivisionCreation {
   statusActiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       const divData = data.mraAdmin.createdivisionFrom;
-      cy.formController("status").type(divData.statusSelect).type("{enter}");
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(divData.statusSelect).type("{enter}");
       cy.log(messages.ui.dropdownActiveMessage);
     });
   }
@@ -272,7 +272,7 @@ class DivisionCreation {
     cy.fixture(this.test_data).then((data) => {
       const divData = data.mraAdmin.createdivisionFrom;
       cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
-      cy.formController("name_en").type(divData.nameEn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(divData.nameEn);
       cy.imsId(COMMON.BUTTONS.RESET).click();
       cy.imsId(COMMON.BUTTONS.GO_BACK).click();
       cy.log(messages.validation.requiredField);

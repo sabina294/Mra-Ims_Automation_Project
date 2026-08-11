@@ -14,8 +14,8 @@ class FinancialPeriodManagementCreation {
         cy.fixture(this.test_data).then((data) => {
             const fpmData = data.mfiAdmin.financialPeriodManagement;
             cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
-            cy.formController("name_en").type(fpmData.nameEn);
-            cy.formController("name_bn").type(fpmData.nameBn);
+            cy.formController(COMMON.INPUTS.NAME_EN).type(fpmData.nameEn);
+            cy.formController(COMMON.INPUTS.NAME_BN).type(fpmData.nameBn);
             cy.formController("period_type").type(fpmData.periodType).type("{enter}");
             cy.formController("start_date").click();
             cy.wait(1000);
@@ -34,7 +34,7 @@ class FinancialPeriodManagementCreation {
         cy.fixture(this.test_data).then((data) => {
             const fpmData = data.mfiAdmin.financialPeriodManagement;
             cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
-            cy.formController("name_bn").type(fpmData.nameBn);
+            cy.formController(COMMON.INPUTS.NAME_BN).type(fpmData.nameBn);
             cy.formController("period_type").type(fpmData.periodType).type("{enter}");
             cy.formController("start_date").click();
             cy.wait(1000);
@@ -51,7 +51,7 @@ class FinancialPeriodManagementCreation {
     createwithoutNameBangla() {
         cy.fixture(this.test_data).then((data) => {
             const fpmData = data.mfiAdmin.financialPeriodManagement;
-            cy.formController("name_en").type(fpmData.nameEn);
+            cy.formController(COMMON.INPUTS.NAME_EN).type(fpmData.nameEn);
             cy.formController("period_type").type(fpmData.periodType).type("{enter}");
             cy.formController("start_date").click();
             cy.wait(1000);
@@ -68,8 +68,8 @@ class FinancialPeriodManagementCreation {
     createwithoutPeriodType() {
         cy.fixture(this.test_data).then((data) => {
             const fpmData = data.mfiAdmin.financialPeriodManagement;
-            cy.formController("name_en").type(fpmData.nameEn);
-            cy.formController("name_bn").type(fpmData.nameBn);
+            cy.formController(COMMON.INPUTS.NAME_EN).type(fpmData.nameEn);
+            cy.formController(COMMON.INPUTS.NAME_BN).type(fpmData.nameBn);
             cy.formController("start_date").click();
             cy.wait(1000);
             cy.contains(15).click();
@@ -100,7 +100,7 @@ class FinancialPeriodManagementCreation {
         cy.fixture(this.test_data).then((data) => {
             const fpmData = data.mfiAdmin.financialPeriodManagement;
             cy.imsId(COMMON.BUTTONS.RESET).click();
-            cy.formController("status").type(fpmData.selectStatus).type("{enter}");
+            cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(fpmData.selectStatus).type("{enter}");
             cy.log(messages.ui.dropdownInactiveMessage);
         });
     }
@@ -109,7 +109,7 @@ class FinancialPeriodManagementCreation {
         cy.fixture(this.test_data).then((data) => {
             const fpmData = data.mfiAdmin.financialPeriodManagement;
             cy.imsId(COMMON.BUTTONS.RESET).click();
-            cy.formController("status").type(fpmData.statusSelect).type("{enter}");
+            cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(fpmData.statusSelect).type("{enter}");
             cy.log(messages.ui.dropdownActiveMessage);
         });
     }

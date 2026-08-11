@@ -64,7 +64,7 @@ class FeeConfiguration {
     cy.fixture(this.test_data).then((data) => {
       const fcData = data.branchManager.gridFeeConfigurationFrom;
       cy.imsId(COMMON.BUTTONS.RESET).click();
-      cy.formController("status").type(fcData.selectStatus).type("{enter}");
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(fcData.selectStatus).type("{enter}");
       cy.log(messages.ui.dropdownInactiveMessage);
     });
   }
@@ -72,7 +72,7 @@ class FeeConfiguration {
   statusActiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       const fcData = data.branchManager.gridFeeConfigurationFrom;
-      cy.formController("status").type(fcData.statusSelect).type("{enter}");
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(fcData.statusSelect).type("{enter}");
       cy.log(messages.ui.dropdownActiveMessage);
     });
   }

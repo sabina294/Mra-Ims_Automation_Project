@@ -120,7 +120,7 @@ class SamityDayChange {
     cy.fixture(this.test_data).then((data) => {
       const sdData = data.branchManager.samityDayChangeFrom;
       cy.imsId(COMMON.BUTTONS.RESET).click();
-      cy.formController("status").type(sdData.selectStatus).type("{enter}");
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(sdData.selectStatus).type("{enter}");
       cy.log(
         messages.ui.dropdownInactiveMessage
       );
@@ -129,7 +129,7 @@ class SamityDayChange {
   statusActiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       const sdData = data.branchManager.samityDayChangeFrom;
-      cy.formController("status").type(sdData.statusSelect).type("{enter}");
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(sdData.statusSelect).type("{enter}");
       cy.log(
         messages.ui.dropdownActiveMessage
       );

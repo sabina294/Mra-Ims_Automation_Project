@@ -63,7 +63,7 @@ class Designation {
       const desData = data.fieldOfficer.gridDesignationFrom;
 
       cy.imsId(COMMON.BUTTONS.RESET).click();
-      cy.formController("status").type(desData.selectStatus).type("{enter}");
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(desData.selectStatus).type("{enter}");
       cy.log(messages.ui.dropdownInactiveMessage);
     });
   }
@@ -72,7 +72,7 @@ class Designation {
     cy.fixture(this.test_data).then((data) => {
       const desData = data.fieldOfficer.gridDesignationFrom;
 
-      cy.formController("status").type(desData.statusSelect).type("{enter}");
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(desData.statusSelect).type("{enter}");
       cy.log(messages.ui.dropdownActiveMessage);
     });
   }

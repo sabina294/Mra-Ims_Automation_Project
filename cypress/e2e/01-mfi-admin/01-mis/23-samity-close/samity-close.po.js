@@ -55,7 +55,7 @@ class SamityClose {
   statusMyTaskDraftDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       const scData = data.mfiAdmin.approveSamityCloseFrom;
-      cy.formController("status").type(scData.taskStatus).type("{enter}");
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(scData.taskStatus).type("{enter}");
       cy.log(
         "Samity close form status draft dropdown check successfully"
       );
@@ -66,7 +66,7 @@ class SamityClose {
     cy.fixture(this.test_data).then((data) => {
       const scData = data.mfiAdmin.approveSamityCloseFrom;
       cy.imsId(COMMON.BUTTONS.RESET).click();
-      cy.formController("status").type(scData.myTaskStatus).type("{enter}");
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(scData.myTaskStatus).type("{enter}");
       cy.imsId(COMMON.BUTTONS.RESET).click();
       cy.log(
         "Samity close form status pending approval dropdown check successfully"
@@ -117,7 +117,7 @@ class SamityClose {
     cy.fixture(this.test_data).then((data) => {
       const scData = data.mfiAdmin.samityCloseFrom;
       cy.imsId(COMMON.BUTTONS.RESET).click();
-      cy.formController("status").type(scData.selectStatus).type("{enter}");
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(scData.selectStatus).type("{enter}");
       cy.log(messages.ui.dropdownInactiveMessage);
     });
   }
@@ -125,7 +125,7 @@ class SamityClose {
   statusActiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       const scData = data.mfiAdmin.samityCloseFrom;
-      cy.formController("status").type(scData.statusSelect).type("{enter}");
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(scData.statusSelect).type("{enter}");
       cy.log(messages.ui.dropdownActiveMessage);
     });
   }

@@ -42,7 +42,7 @@ class LoanAccountManagement {
       const laData = data.fieldOfficer.loanAccountManagementFrom;
       cy.imsId(COMMON.BUTTONS.RESET).click();
       cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(laData.samity);
-      cy.formController("status").type(laData.selectStatus).type("{enter}");
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(laData.selectStatus).type("{enter}");
       cy.log(
         messages.ui.dropdownInactiveMessage
       );
@@ -52,7 +52,7 @@ class LoanAccountManagement {
   statusActiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       const laData = data.fieldOfficer.loanAccountManagementFrom;
-      cy.formController("status").type(laData.statusSelect).type("{enter}");
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(laData.statusSelect).type("{enter}");
       cy.log(
         messages.ui.dropdownActiveMessage
       );

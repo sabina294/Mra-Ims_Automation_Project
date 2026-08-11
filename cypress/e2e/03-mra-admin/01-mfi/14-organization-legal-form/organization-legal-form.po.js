@@ -16,8 +16,8 @@ class OrganizationLegalFormCreation {
       cy.imsId(COMMON.BUTTONS.SUBMIT).and("be.visible");
 
       const orgLegalFormData = data.mraAdmin.createOrgLegForm;
-      cy.formController("name_en").type(orgLegalFormData.nameEn);
-      cy.formController("name_bn").type(orgLegalFormData.nameBn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(orgLegalFormData.nameEn);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(orgLegalFormData.nameBn);
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
 
       cy.get("app-confirmation-modal")
@@ -36,7 +36,7 @@ class OrganizationLegalFormCreation {
       cy.imsId(COMMON.BUTTONS.SUBMIT).and("be.visible");
 
       const orgLegalFormData = data.mraAdmin.createOrgLegForm;
-      cy.formController("name_bn").type(orgLegalFormData.nameBn);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(orgLegalFormData.nameBn);
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
       cy.imsId(COMMON.CONFIRMATION.OK).click();
       cy.imsId(COMMON.BUTTONS.GO_BACK).click();
@@ -53,7 +53,7 @@ class OrganizationLegalFormCreation {
       cy.imsId(COMMON.BUTTONS.SUBMIT).and("be.visible");
 
       const orgLegalFormData = data.mraAdmin.createOrgLegForm;
-      cy.formController("name_en").type(orgLegalFormData.nameEn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(orgLegalFormData.nameEn);
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
       cy.imsId(COMMON.CONFIRMATION.OK).click();
       cy.imsId(COMMON.BUTTONS.GO_BACK).click();
@@ -71,8 +71,8 @@ class OrganizationLegalFormCreation {
       cy.imsId(COMMON.BUTTONS.RESET).click();
 
       const orgLegalFormData = data.mraAdmin.createOrgLegForm;
-      cy.formController("name_en").type(orgLegalFormData.nameEn);
-      cy.formController("name_bn").type(orgLegalFormData.nameBn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(orgLegalFormData.nameEn);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(orgLegalFormData.nameBn);
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
       cy.imsId(COMMON.CONFIRMATION.OK).click();
       cy.imsId(COMMON.BUTTONS.GO_BACK).click();
@@ -89,7 +89,7 @@ class OrganizationLegalFormCreation {
       cy.imsId(COMMON.BUTTONS.SUBMIT).and("be.visible");
 
       const orgLegalFormData = data.mraAdmin.createOrgLegForm;
-      cy.formController("name_bn").type(orgLegalFormData.nameBn);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(orgLegalFormData.nameBn);
 
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
       cy.imsId(COMMON.CONFIRMATION.OK).click();
@@ -169,9 +169,9 @@ class OrganizationLegalFormCreation {
       cy.imsId(COMMON.BUTTONS.RESET).click();
 
       const orgLegalFormData = data.mraAdmin.createOrgLegForm;
-      cy.formController("name_en").type(orgLegalFormData.nameEn);
-      cy.formController("name_bn").type(orgLegalFormData.nameBn);
-      cy.formController("status").type(orgLegalFormData.status).type("{enter}");
+      cy.formController(COMMON.INPUTS.NAME_EN).type(orgLegalFormData.nameEn);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(orgLegalFormData.nameBn);
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(orgLegalFormData.status).type("{enter}");
 
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
 
@@ -196,7 +196,7 @@ class OrganizationLegalFormCreation {
     cy.fixture(this.test_data).then((data) => {
       const orgLegalFormData = data.mraAdmin.createOrgLegForm;
       cy.imsId(COMMON.BUTTONS.RESET).click();
-      cy.formController("status")
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN)
         .type(orgLegalFormData.selectStatus)
         .type("{enter}");
       cy.log(
@@ -208,7 +208,7 @@ class OrganizationLegalFormCreation {
   statusActiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       const orgLegalFormData = data.mraAdmin.createOrgLegForm;
-      cy.formController("status")
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN)
         .type(orgLegalFormData.statusSelect)
         .type("{enter}");
       cy.log(
@@ -242,7 +242,7 @@ class OrganizationLegalFormCreation {
     cy.fixture(this.test_data).then((data) => {
       const orgLegalFormData = data.mraAdmin.createOrgLegForm;
       cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
-      cy.formController("name_en").type(orgLegalFormData.nameEn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(orgLegalFormData.nameEn);
       cy.imsId(COMMON.BUTTONS.RESET).click();
       cy.imsId(COMMON.BUTTONS.GO_BACK).click();
       cy.log(messages.validation.requiredField);

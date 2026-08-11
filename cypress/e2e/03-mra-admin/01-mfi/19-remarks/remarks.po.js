@@ -42,8 +42,8 @@ class RemarksCreation {
       cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
       cy.imsId(COMMON.BUTTONS.SUBMIT).should("be.visible");
 
-      cy.formController("name_en").type(remarksData.nameEn);
-      cy.formController("name_bn").type(remarksData.nameBn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(remarksData.nameEn);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(remarksData.nameBn);
 
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
 
@@ -63,7 +63,7 @@ class RemarksCreation {
       const remarksData = data.mraAdmin.createremarksFrom;
 
       cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
-      cy.formController("name_bn").type(remarksData.nameBn);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(remarksData.nameBn);
 
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
       cy.imsId(COMMON.CONFIRMATION.OK).click();
@@ -78,7 +78,7 @@ class RemarksCreation {
       const remarksData = data.mraAdmin.createremarksFrom;
 
       cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
-      cy.formController("name_en").type(remarksData.nameEn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(remarksData.nameEn);
 
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
       cy.imsId(COMMON.CONFIRMATION.OK).click();
@@ -95,8 +95,8 @@ class RemarksCreation {
       cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
       cy.imsId(COMMON.BUTTONS.RESET).click();
 
-      cy.formController("name_en").type(remarksData.nameEn);
-      cy.formController("name_bn").type(remarksData.nameBn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(remarksData.nameEn);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(remarksData.nameBn);
 
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
       cy.imsId(COMMON.CONFIRMATION.OK).click();
@@ -111,7 +111,7 @@ class RemarksCreation {
       const remarksData = data.mraAdmin.createremarksFrom;
 
       cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
-      cy.formController("name_en").type(remarksData.nameEn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(remarksData.nameEn);
 
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
       cy.imsId(COMMON.CONFIRMATION.OK).click();
@@ -126,7 +126,7 @@ class RemarksCreation {
       const remarksData = data.mraAdmin.createremarksFrom;
 
       cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
-      cy.formController("name_en").type(remarksData.nameEn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(remarksData.nameEn);
       cy.imsId(COMMON.BUTTONS.RESET).click();
       cy.imsId(COMMON.BUTTONS.GO_BACK).click();
 
@@ -229,9 +229,9 @@ class RemarksCreation {
       cy.imsId(COMMON.GRID.ACTION_EDIT).click();
       cy.imsId(COMMON.BUTTONS.RESET).click();
 
-      cy.formController("name_en").type(remarksData.nameEn);
-      cy.formController("name_bn").type(remarksData.nameBn);
-      cy.formController("status").type(remarksData.status).type("{enter}");
+      cy.formController(COMMON.INPUTS.NAME_EN).type(remarksData.nameEn);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(remarksData.nameBn);
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(remarksData.status).type("{enter}");
 
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
 
@@ -261,7 +261,7 @@ class RemarksCreation {
       const remarksData = data.mraAdmin.createremarksFrom;
 
       cy.imsId(COMMON.BUTTONS.RESET).click();
-      cy.formController("status")
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN)
         .type(remarksData.selectStatus)
         .type("{enter}");
 
@@ -273,7 +273,7 @@ class RemarksCreation {
     cy.fixture(this.test_data).then((data) => {
       const remarksData = data.mraAdmin.createremarksFrom;
 
-      cy.formController("status")
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN)
         .type(remarksData.statusSelect)
         .type("{enter}");
 

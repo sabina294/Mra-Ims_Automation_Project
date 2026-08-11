@@ -41,7 +41,7 @@ class SavingsAccountManagementCreation {
     cy.fixture(this.test_data).then((data) => {
       const samData = data.mfiAdmin.createSavingsAccountManagement;
       cy.imsId(COMMON.BUTTONS.RESET).click();
-      cy.formController("status").type(samData.selectStatus).type("{enter}");
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(samData.selectStatus).type("{enter}");
       cy.log(
         "Savings account  management form status approved dropdown check successfully"
       );
@@ -52,7 +52,7 @@ class SavingsAccountManagementCreation {
     cy.fixture(this.test_data).then((data) => {
       const samData = data.mfiAdmin.createSavingsAccountManagement;
       cy.imsId(COMMON.BUTTONS.RESET).click();
-      cy.formController("status").type(samData.statusSelect).type("{enter}");
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(samData.statusSelect).type("{enter}");
       cy.log(
         "Savings account management form status rejected dropdown check successfully"
       );

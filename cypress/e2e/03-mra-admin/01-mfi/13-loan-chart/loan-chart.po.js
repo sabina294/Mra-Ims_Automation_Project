@@ -77,7 +77,7 @@ class LoanChartUpdate {
     cy.fixture(this.test_data).then((data) => {
       const loChart = data.mraAdmin.updateloanChartFrom;
       cy.imsId(COMMON.BUTTONS.RESET).click();
-      cy.formController("status").type(loChart.selectStatus).type("{enter}");
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(loChart.selectStatus).type("{enter}");
       cy.log(messages.ui.dropdownInactiveMessage);
     });
   }
@@ -85,7 +85,7 @@ class LoanChartUpdate {
   statusActiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       const loChart = data.mraAdmin.updateloanChartFrom;
-      cy.formController("status").type(loChart.statusSelect).type("{enter}");
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(loChart.statusSelect).type("{enter}");
       cy.log(messages.ui.dropdownActiveMessage);
     });
   }

@@ -201,7 +201,7 @@ class LoanPenalty {
     cy.fixture(this.test_data).then((data) => {
       const lpData = data.fieldOfficer.createLoanPenaltyForm;
       cy.imsId(COMMON.BUTTONS.RESET).click();
-      cy.formController("status").type(lpData.selectStatus).type("{enter}");
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(lpData.selectStatus).type("{enter}");
       cy.log("Loan penalty status submitted dropdown check successfully");
     });
   }
@@ -210,7 +210,7 @@ class LoanPenalty {
     cy.fixture(this.test_data).then((data) => {
       const lpData = data.fieldOfficer.createLoanPenaltyForm;
       cy.imsId(COMMON.BUTTONS.RESET).click();
-      cy.formController("status").type(lpData.statusSelect).type("{enter}");
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(lpData.statusSelect).type("{enter}");
       cy.log("Loan penalty status approved dropdown check successfully");
     });
   }

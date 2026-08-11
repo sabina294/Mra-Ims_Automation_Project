@@ -142,7 +142,7 @@ class RegionCreation {
     cy.fixture(this.test_data).then((data) => {
       const regData = data.mfiAdmin.createRegionFrom;
       cy.imsId(COMMON.BUTTONS.RESET).click();
-      cy.formController("status").type(regData.selectStatus).type("{enter}");
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(regData.selectStatus).type("{enter}");
       cy.log(messages.ui.dropdownInactiveMessage);
     });
   }
@@ -150,7 +150,7 @@ class RegionCreation {
   statusActiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       const regData = data.mfiAdmin.createRegionFrom;
-      cy.formController("status").type(regData.statusSelect).type("{enter}");
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(regData.statusSelect).type("{enter}");
       cy.log(messages.ui.dropdownActiveMessage);
     });
   }

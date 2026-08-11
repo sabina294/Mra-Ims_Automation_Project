@@ -130,7 +130,7 @@ class LoanRebate {
     cy.fixture(this.test_data).then((data) => {
       const lrData = data.mfiAdmin.createLoanRebateFrom;
       cy.imsId(COMMON.BUTTONS.RESET).click();
-      cy.formController("status").type(lrData.selectStatus).type("{enter}");
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(lrData.selectStatus).type("{enter}");
       cy.log(
         "loan rebate status submitted dropdown check successfully"
       );
@@ -139,7 +139,7 @@ class LoanRebate {
   statusApprovedDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       const lrData = data.mfiAdmin.createLoanRebateFrom;
-      cy.formController("status").type(lrData.statusSelect).type("{enter}");
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(lrData.statusSelect).type("{enter}");
       cy.log(
         "loan rebate status approved dropdown check successfully"
       );

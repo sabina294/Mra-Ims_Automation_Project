@@ -14,8 +14,8 @@ class EmployeeManagementCreation {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
       const emData = data.mraAdmin.createEmployeeFrom;
-      cy.formController("name_en").type(emData.employeeNameEn);
-      cy.formController("name_bn").type(emData.employeeNameBn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(emData.employeeNameEn);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(emData.employeeNameBn);
       cy.formController("date_of_birth").click();
       cy.get('.ant-picker-dropdown')
         .should('be.visible');
@@ -98,8 +98,8 @@ class EmployeeManagementCreation {
       cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
 
       const emData = data.mraAdmin.createEmployeeFrom;
-      cy.formController("name_en").type(emData.employeeNameEn);
-      cy.formController("name_bn").type(emData.employeeNameBn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(emData.employeeNameEn);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(emData.employeeNameBn);
       cy.formController("date_of_birth").click();
       cy.contains("24").click();
       cy.formController("blood_group").type(emData.bloodGroup).type("{enter}");
@@ -288,7 +288,7 @@ class EmployeeManagementCreation {
     cy.fixture(this.test_data).then((data) => {
       const emData = data.mraAdmin.createEmployeeFrom;
       cy.imsId(COMMON.BUTTONS.RESET).click();
-      cy.formController("status").type(emData.selectStatus).type("{enter}");
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(emData.selectStatus).type("{enter}");
       cy.log(
         messages.ui.dropdownInactiveMessage
       );
@@ -298,7 +298,7 @@ class EmployeeManagementCreation {
   statusActiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       const emData = data.mraAdmin.createEmployeeFrom;
-      cy.formController("status").type(emData.statusSelect).type("{enter}");
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(emData.statusSelect).type("{enter}");
       cy.log(
         messages.ui.dropdownActiveMessage
       );
@@ -359,7 +359,7 @@ class EmployeeManagementCreation {
     cy.fixture(this.test_data).then((data) => {
       const emData = data.mraAdmin.createEmployeeFrom;
       cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
-      cy.formController("name_en").type(emData.employeeNameEn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(emData.employeeNameEn);
       cy.imsId(COMMON.BUTTONS.RESET).click();
       cy.log(messages.validation.requiredField);
     });

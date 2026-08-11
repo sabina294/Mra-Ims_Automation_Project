@@ -88,7 +88,7 @@ class EmployeeManagement {
     cy.fixture(this.test_data).then((data) => {
       const emData = data.fieldOfficer.gridEmpMangFrom;
       cy.imsId(COMMON.BUTTONS.RESET).click();
-      cy.formController("status").type(emData.selectStatus).type("{enter}");
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(emData.selectStatus).type("{enter}");
       cy.log(
         messages.ui.dropdownInactiveMessage
       );
@@ -98,7 +98,7 @@ class EmployeeManagement {
   statusActiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       const emData = data.fieldOfficer.gridEmpMangFrom;
-      cy.formController("status").type(emData.statusSelect).type("{enter}");
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(emData.statusSelect).type("{enter}");
       cy.log(
         messages.ui.dropdownActiveMessage
       );

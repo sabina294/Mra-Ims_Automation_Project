@@ -123,7 +123,7 @@ class LoanWaiver {
     cy.fixture(this.test_data).then((data) => {
       const lwData = data.fieldOfficer.createLoanWaiverFrom;
       cy.imsId(COMMON.BUTTONS.RESET).click();
-      cy.formController("status").type(lwData.selectStatus).type("{enter}");
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(lwData.selectStatus).type("{enter}");
       cy.log("Loan waiver status submitted dropdown check successfully");
     });
   }
@@ -132,7 +132,7 @@ class LoanWaiver {
     cy.fixture(this.test_data).then((data) => {
       const lwData = data.fieldOfficer.createLoanWaiverFrom;
       cy.imsId(COMMON.BUTTONS.RESET).click();
-      cy.formController("status").type(lwData.statusSelect).type("{enter}");
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(lwData.statusSelect).type("{enter}");
       cy.log("Loan waiver  status approved dropdown check successfully");
     });
   }

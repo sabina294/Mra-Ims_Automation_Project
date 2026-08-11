@@ -203,7 +203,7 @@ class MemberManagementCreation {
     cy.fixture(this.test_data).then((data) => {
       const memData = data.mfiAdmin.createMemberFrom;
       cy.imsId(COMMON.BUTTONS.RESET).click();
-      cy.formController("status").type(memData.selectStatus).type("{enter}");
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(memData.selectStatus).type("{enter}");
       cy.log(messages.ui.dropdownInactiveMessage);
     });
   }
@@ -211,7 +211,7 @@ class MemberManagementCreation {
   statusActiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       const memData = data.mfiAdmin.createMemberFrom;
-      cy.formController("status").type(memData.statusSelect).type("{enter}");
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(memData.statusSelect).type("{enter}");
       cy.log(messages.ui.dropdownActiveMessage);
     });
   }

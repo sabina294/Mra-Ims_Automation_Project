@@ -19,7 +19,7 @@ class PaymentMethodCreation {
       const randomNumber = Math.floor(1000 + Math.random() * 9000);
       const payMethodId = payMetData.PaymentMethodId + "-" + randomNumber;
 
-      cy.formController("name_en").type(payMetData.nameEn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(payMetData.nameEn);
       cy.formController("description_en").type(payMetData.descriptionEn);
       cy.formController("pay_method_id").type(payMethodId);
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
@@ -43,7 +43,7 @@ class PaymentMethodCreation {
       const randomNumber = Math.floor(1000 + Math.random() * 9000);
       const payMethodId = payMetData.PaymentMethodId + "-" + randomNumber;
 
-      cy.formController("name_bn").type(payMetData.nameBn);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(payMetData.nameBn);
       cy.formController("description_en").type(payMetData.descriptionEn);
       cy.formController("description_bn").type(payMetData.descriptionBn);
       cy.formController("pay_method_id").type(payMethodId);
@@ -66,7 +66,7 @@ class PaymentMethodCreation {
       const randomNumber = Math.floor(1000 + Math.random() * 9000);
       const payMethodId = payMetData.PaymentMethodId + "-" + randomNumber;
 
-      cy.formController("name_en").type(payMetData.nameEn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(payMetData.nameEn);
       cy.formController("description_en").type(payMetData.descriptionEn);
       cy.formController("description_bn").type(payMetData.descriptionBn);
       cy.formController("pay_method_id").type(payMethodId);
@@ -91,8 +91,8 @@ class PaymentMethodCreation {
       const randomNumber = Math.floor(1000 + Math.random() * 9000);
       const payMethodId = payMetData.PaymentMethodId + "-" + randomNumber;
 
-      cy.formController("name_en").type(payMetData.nameEn);
-      cy.formController("name_bn").type(payMetData.nameBn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(payMetData.nameEn);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(payMetData.nameBn);
       cy.formController("description_bn").type(payMetData.descriptionBn);
       cy.formController("pay_method_id").type(payMethodId);
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
@@ -114,8 +114,8 @@ class PaymentMethodCreation {
       const randomNumber = Math.floor(1000 + Math.random() * 9000);
       const payMethodId = payMetData.PaymentMethodId + "-" + randomNumber;
 
-      cy.formController("name_en").type(payMetData.nameEn);
-      cy.formController("name_bn").type(payMetData.nameBn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(payMetData.nameEn);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(payMetData.nameBn);
       cy.formController("description_en").type(payMetData.descriptionEn);
       cy.formController("pay_method_id").type(payMethodId);
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
@@ -139,8 +139,8 @@ class PaymentMethodCreation {
       const randomNumber = Math.floor(1000 + Math.random() * 9000);
       const payMethodId = payMetData.PaymentMethodId + "-" + randomNumber;
 
-      cy.formController("name_en").type(payMetData.nameEn);
-      cy.formController("name_bn").type(payMetData.nameBn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(payMetData.nameEn);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(payMetData.nameBn);
       cy.formController("description_en").type(payMetData.descriptionEn);
       cy.formController("description_bn").type(payMetData.descriptionBn);
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
@@ -163,8 +163,8 @@ class PaymentMethodCreation {
       const randomNumber = Math.floor(1000 + Math.random() * 9000);
       const payMethodId = payMetData.PaymentMethodId + "-" + randomNumber;
 
-      cy.formController("name_en").type(payMetData.nameEn);
-      cy.formController("name_bn").type(payMetData.nameBn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(payMetData.nameEn);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(payMetData.nameBn);
       cy.formController("description_en").type(payMetData.descriptionEn);
       cy.formController("description_bn").type(payMetData.descriptionBn);
       cy.formController("pay_method_id").type(payMethodId);
@@ -187,8 +187,8 @@ class PaymentMethodCreation {
       const randomNumber = Math.floor(1000 + Math.random() * 9000);
       const payMethodId = payMetData.PaymentMethodId + "-" + randomNumber;
 
-      cy.formController("name_en").type(payMetData.nameEn);
-      cy.formController("name_bn").type(payMetData.nameBn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(payMetData.nameEn);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(payMetData.nameBn);
       cy.formController("description_en").type(payMetData.descriptionEn);
       cy.formController("description_bn").type(payMetData.descriptionBn);
       cy.formController("pay_method_id").type(payMethodId);
@@ -213,7 +213,7 @@ class PaymentMethodCreation {
       const randomNumber = Math.floor(1000 + Math.random() * 9000);
       const payMethodId = payMetData.PaymentMethodId + "-" + randomNumber;
 
-      cy.formController("name_bn").type(payMetData.nameBn);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(payMetData.nameBn);
       cy.formController("description_en").type(payMetData.descriptionEn);
       cy.formController("description_bn").type(payMetData.descriptionBn);
       cy.formController("pay_method_id").type(payMethodId);
@@ -232,7 +232,7 @@ class PaymentMethodCreation {
     cy.fixture(this.test_data).then((data) => {
       const payMetData = data.mraAdmin.createpaymentMethodFrom;
       cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
-      cy.formController("name_bn").type(payMetData.nameBn);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(payMetData.nameBn);
       cy.formController("description_bn").type(payMetData.descriptionBn);
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
       cy.imsId(COMMON.CONFIRMATION.OK).click();
@@ -317,10 +317,10 @@ class PaymentMethodCreation {
       const randomNumber = Math.floor(1000 + Math.random() * 9000);
       const payMethodId = payMetData.PaymentMethodId + "-" + randomNumber;
 
-      cy.formController("name_en").type(payMetData.nameEn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(payMetData.nameEn);
       cy.formController("description_en").type(payMetData.descriptionEn);
       cy.formController("pay_method_id").type(payMethodId);
-      cy.formController("status").type(payMetData.status).type("{enter}");
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(payMetData.status).type("{enter}");
 
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
       cy.imsId(COMMON.CONFIRMATION.YES).click();
@@ -345,7 +345,7 @@ class PaymentMethodCreation {
     cy.fixture(this.test_data).then((data) => {
       const payMetData = data.mraAdmin.createpaymentMethodFrom;
       cy.imsId(COMMON.BUTTONS.RESET).click();
-      cy.formController("status").type(payMetData.selectStatus).type("{enter}");
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(payMetData.selectStatus).type("{enter}");
       cy.log(messages.ui.dropdownInactiveMessage);
     });
   }
@@ -353,7 +353,7 @@ class PaymentMethodCreation {
   statusActiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       const payMetData = data.mraAdmin.createpaymentMethodFrom;
-      cy.formController("status").type(payMetData.statusSelect).type("{enter}");
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(payMetData.statusSelect).type("{enter}");
       cy.log(messages.ui.dropdownActiveMessage);
     });
   }
@@ -383,7 +383,7 @@ class PaymentMethodCreation {
     cy.fixture(this.test_data).then((data) => {
       const payMetData = data.mraAdmin.createpaymentMethodFrom;
       cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
-      cy.formController("name_en").type(payMetData.nameEn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(payMetData.nameEn);
       cy.imsId(COMMON.BUTTONS.RESET).click();
       cy.imsId(COMMON.BUTTONS.GO_BACK).click();
       cy.log(messages.validation.requiredField);

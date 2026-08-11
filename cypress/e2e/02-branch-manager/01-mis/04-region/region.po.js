@@ -58,14 +58,14 @@ class Region {
     cy.fixture(this.test_data).then((data) => {
       const regData = data.branchManager.gridRegionFrom;
       cy.imsId(COMMON.BUTTONS.RESET).click();
-      cy.formController("status").type(regData.selectStatus).type("{enter}");
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(regData.selectStatus).type("{enter}");
       cy.log(messages.ui.dropdownInactiveMessage);
     });
   }
   statusActiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       const regData = data.branchManager.gridRegionFrom;
-      cy.formController("status").type(regData.statusSelect).type("{enter}");
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(regData.statusSelect).type("{enter}");
       cy.log(messages.ui.dropdownActiveMessage);
     });
   }

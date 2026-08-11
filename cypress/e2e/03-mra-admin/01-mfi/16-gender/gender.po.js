@@ -16,8 +16,8 @@ class GenderCreation {
       cy.imsId(COMMON.BUTTONS.SUBMIT).and("be.visible");
 
       const genderData = data.mraAdmin.creategenderFrom;
-      cy.formController("name_en").type(genderData.nameEn);
-      cy.formController("name_bn").type(genderData.nameBn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(genderData.nameEn);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(genderData.nameBn);
       cy.formController("gender_id").type(genderData.genderId);
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
       cy.imsId(COMMON.CONFIRMATION.YES).click();
@@ -37,7 +37,7 @@ class GenderCreation {
       cy.imsId(COMMON.BUTTONS.SUBMIT).and("be.visible");
 
       const genderData = data.mraAdmin.creategenderFrom;
-      cy.formController("name_bn").type(genderData.nameBn);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(genderData.nameBn);
       cy.formController("gender_id").type(genderData.genderId);
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
       cy.imsId(COMMON.CONFIRMATION.OK).click();
@@ -53,7 +53,7 @@ class GenderCreation {
       cy.imsId(COMMON.BUTTONS.SUBMIT).and("be.visible");
 
       const genderData = data.mraAdmin.creategenderFrom;
-      cy.formController("name_en").type(genderData.nameEn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(genderData.nameEn);
       cy.formController("gender_id").type(genderData.genderId);
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
       cy.imsId(COMMON.CONFIRMATION.OK).click();
@@ -69,8 +69,8 @@ class GenderCreation {
       cy.imsId(COMMON.BUTTONS.SUBMIT).and("be.visible");
 
       const genderData = data.mraAdmin.creategenderFrom;
-      cy.formController("name_en").type(genderData.nameEn);
-      cy.formController("name_bn").type(genderData.nameBn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(genderData.nameEn);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(genderData.nameBn);
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
       cy.imsId(COMMON.CONFIRMATION.OK).click();
       cy.imsId(COMMON.BUTTONS.GO_BACK).click();
@@ -86,8 +86,8 @@ class GenderCreation {
       cy.imsId(COMMON.BUTTONS.RESET).click();
 
       const genderData = data.mraAdmin.creategenderFrom;
-      cy.formController("name_en").type(genderData.nameEn);
-      cy.formController("name_bn").type(genderData.nameBn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(genderData.nameEn);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(genderData.nameBn);
       cy.formController("gender_id").type(genderData.genderId);
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
       cy.imsId(COMMON.CONFIRMATION.OK).click();
@@ -103,7 +103,7 @@ class GenderCreation {
       cy.imsId(COMMON.BUTTONS.SUBMIT).and("be.visible");
 
       const genderData = data.mraAdmin.creategenderFrom;
-      cy.formController("name_en").type(genderData.nameEn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(genderData.nameEn);
       cy.formController("gender_id").type(genderData.genderId);
 
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
@@ -184,10 +184,10 @@ class GenderCreation {
       cy.imsId(COMMON.BUTTONS.RESET).click();
 
       const genderData = data.mraAdmin.creategenderFrom;
-      cy.formController("name_en").type(genderData.nameEn);
-      cy.formController("name_bn").type(genderData.nameBn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(genderData.nameEn);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(genderData.nameBn);
       cy.formController("gender_id").type(genderData.genderId);
-      cy.formController("status").type(genderData.status).type("{enter}");
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(genderData.status).type("{enter}");
 
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
       cy.imsId(COMMON.CONFIRMATION.YES).click();
@@ -212,7 +212,7 @@ class GenderCreation {
     cy.fixture(this.test_data).then((data) => {
       const genderData = data.mraAdmin.creategenderFrom;
       cy.imsId(COMMON.BUTTONS.RESET).click();
-      cy.formController("status").type(genderData.selectStatus).type("{enter}");
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(genderData.selectStatus).type("{enter}");
       cy.log(messages.ui.dropdownInactiveMessage);
     });
   }
@@ -220,7 +220,7 @@ class GenderCreation {
   statusActiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       const genderData = data.mraAdmin.creategenderFrom;
-      cy.formController("status").type(genderData.statusSelect).type("{enter}");
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(genderData.statusSelect).type("{enter}");
       cy.log(messages.ui.dropdownActiveMessage);
     });
   }
@@ -250,7 +250,7 @@ class GenderCreation {
     cy.fixture(this.test_data).then((data) => {
       const genderData = data.mraAdmin.creategenderFrom;
       cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
-      cy.formController("name_en").type(genderData.nameEn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(genderData.nameEn);
       cy.imsId(COMMON.BUTTONS.RESET).click();
       cy.imsId(COMMON.BUTTONS.GO_BACK).click();
       cy.log(messages.validation.requiredField);

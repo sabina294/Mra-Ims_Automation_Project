@@ -26,7 +26,7 @@ class PaymentPeriodCreation {
       const PaymentPeriodCode =
         payPerData.paymentPeriodCode + "-" + randomCode;
 
-      cy.formController("name_en").type(payPerData.nameEn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(payPerData.nameEn);
       cy.formController("description_en").type(payPerData.descriptionEn);
       cy.formController("payment_period_id").type(PaymentPeriodId);
       cy.formController("payment_period_code").type(PaymentPeriodCode);
@@ -61,7 +61,7 @@ class PaymentPeriodCreation {
         payPerData.paymentPeriodCode + "-" + randomCode;
 
 
-      cy.formController("name_bn").type(payPerData.nameBn);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(payPerData.nameBn);
       cy.formController("description_en").type(payPerData.descriptionEn);
       cy.formController("description_bn").type(payPerData.descriptionBn);
       cy.formController("payment_period_id").type(PaymentPeriodId);
@@ -92,7 +92,7 @@ class PaymentPeriodCreation {
       const PaymentPeriodCode =
         payPerData.paymentPeriodCode + "-" + randomCode;
 
-      cy.formController("name_en").type(payPerData.nameEn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(payPerData.nameEn);
       cy.formController("description_en").type(payPerData.descriptionEn);
       cy.formController("description_bn").type(payPerData.descriptionBn);
       cy.formController("payment_period_id").type(PaymentPeriodId);
@@ -126,8 +126,8 @@ class PaymentPeriodCreation {
       const PaymentPeriodCode =
         payPerData.paymentPeriodCode + "-" + randomCode;
 
-      cy.formController("name_en").type(payPerData.nameEn);
-      cy.formController("name_bn").type(payPerData.nameBn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(payPerData.nameEn);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(payPerData.nameBn);
       cy.formController("description_bn").type(payPerData.descriptionBn);
       cy.formController("payment_period_id").type(PaymentPeriodId);
       cy.formController("payment_period_code").type(PaymentPeriodCode);
@@ -157,8 +157,8 @@ class PaymentPeriodCreation {
       const PaymentPeriodCode =
         payPerData.paymentPeriodCode + "-" + randomCode;
 
-      cy.formController("name_en").type(payPerData.nameEn);
-      cy.formController("name_bn").type(payPerData.nameBn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(payPerData.nameEn);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(payPerData.nameBn);
       cy.formController("description_en").type(payPerData.descriptionEn);
       cy.formController("payment_period_id").type(PaymentPeriodId);
       cy.formController("payment_period_code").type(PaymentPeriodCode);
@@ -191,8 +191,8 @@ class PaymentPeriodCreation {
       const PaymentPeriodCode =
         payPerData.paymentPeriodCode + "-" + randomCode;
 
-      cy.formController("name_en").type(payPerData.nameEn);
-      cy.formController("name_bn").type(payPerData.nameBn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(payPerData.nameEn);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(payPerData.nameBn);
       cy.formController("description_en").type(payPerData.descriptionEn);
       cy.formController("description_bn").type(payPerData.descriptionBn);
       cy.formController("payment_period_code").type(PaymentPeriodCode);
@@ -223,8 +223,8 @@ class PaymentPeriodCreation {
       const PaymentPeriodCode =
         payPerData.paymentPeriodCode + "-" + randomCode;
 
-      cy.formController("name_en").type(payPerData.nameEn);
-      cy.formController("name_bn").type(payPerData.nameBn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(payPerData.nameEn);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(payPerData.nameBn);
       cy.formController("description_en").type(payPerData.descriptionEn);
       cy.formController("description_bn").type(payPerData.descriptionBn);
       cy.formController("payment_period_id").type(PaymentPeriodId);
@@ -255,7 +255,7 @@ class PaymentPeriodCreation {
       const PaymentPeriodCode =
         payPerData.paymentPeriodCode + "-" + randomCode;
 
-      cy.formController("name_en").type(payPerData.nameEn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(payPerData.nameEn);
       cy.formController("description_en").type(payPerData.descriptionEn);
       cy.formController("payment_period_id").type(PaymentPeriodId);
       cy.formController("payment_period_code").type(PaymentPeriodCode);
@@ -287,7 +287,7 @@ class PaymentPeriodCreation {
       const PaymentPeriodCode =
         payPerData.paymentPeriodCode + "-" + randomCode;
 
-      cy.formController("name_bn").type(payPerData.nameBn);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(payPerData.nameBn);
       cy.formController("description_en").type(payPerData.descriptionEn);
       cy.formController("description_bn").type(payPerData.descriptionBn);
       cy.formController("payment_period_id").type(PaymentPeriodId);
@@ -308,7 +308,7 @@ class PaymentPeriodCreation {
     cy.fixture(this.test_data).then((data) => {
       const payPerData = data.mraAdmin.createpaymentPeriodFrom;
       cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
-      cy.formController("name_bn").type(payPerData.nameBn);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(payPerData.nameBn);
       cy.formController("description_bn").type(payPerData.descriptionBn);
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
       cy.imsId(COMMON.CONFIRMATION.OK).click();
@@ -399,7 +399,7 @@ class PaymentPeriodCreation {
     cy.fixture(this.test_data).then((data) => {
       const payPerData = data.mraAdmin.createpaymentPeriodFrom;
       cy.imsId(COMMON.BUTTONS.RESET).click();
-      cy.formController("status").type(payPerData.selectStatus).type("{enter}");
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(payPerData.selectStatus).type("{enter}");
       cy.log(messages.ui.dropdownInactiveMessage);
     });
   }
@@ -407,7 +407,7 @@ class PaymentPeriodCreation {
   statusActiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       const payPerData = data.mraAdmin.createpaymentPeriodFrom;
-      cy.formController("status").type(payPerData.statusSelect).type("{enter}");
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(payPerData.statusSelect).type("{enter}");
       cy.log(messages.ui.dropdownActiveMessage);
     });
   }
@@ -442,7 +442,7 @@ class PaymentPeriodCreation {
     cy.fixture(this.test_data).then((data) => {
       const payPerData = data.mraAdmin.createpaymentPeriodFrom;
       cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
-      cy.formController("name_en").type(payPerData.nameEn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(payPerData.nameEn);
       cy.imsId(COMMON.BUTTONS.RESET).click();
       cy.imsId(COMMON.BUTTONS.GO_BACK).click();
       cy.log(messages.validation.requiredField);

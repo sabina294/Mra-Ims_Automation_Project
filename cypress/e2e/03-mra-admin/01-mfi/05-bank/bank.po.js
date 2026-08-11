@@ -14,8 +14,8 @@ class BankCreation {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
       const bankData = data.mraAdmin.createbankFrom;
-      cy.formController("name_en").type(bankData.nameEn);
-      cy.formController("name_bn").type(bankData.nameBn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(bankData.nameEn);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(bankData.nameBn);
       cy.formController("website").type(bankData.website);
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
       cy.imsId(COMMON.CONFIRMATION.YES).click();
@@ -32,8 +32,8 @@ class BankCreation {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
       const bankData = data.mraAdmin.createbankFrom;
-      cy.formController("name_en").type(bankData.nameEn);
-      cy.formController("name_bn").type(bankData.nameBn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(bankData.nameEn);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(bankData.nameBn);
       cy.formController("website").type(bankData.website);
       cy.formController("bank_code").type(bankData.bankCode);
       cy.formController("bank_short_code").type(bankData.bankShortCode);
@@ -53,7 +53,7 @@ class BankCreation {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
       const bankData = data.mraAdmin.createbankFrom;
-      cy.formController("name_bn").type(bankData.nameBn);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(bankData.nameBn);
       cy.formController("website").type(bankData.website);
       cy.formController("bank_code").type(bankData.bankCode);
       cy.formController("bank_short_code").type(bankData.bankShortCode);
@@ -70,7 +70,7 @@ class BankCreation {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
       const bankData = data.mraAdmin.createbankFrom;
-      cy.formController("name_en").type(bankData.nameEn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(bankData.nameEn);
       cy.formController("website").type(bankData.website);
       cy.formController("bank_code").type(bankData.bankCode);
       cy.formController("bank_short_code").type(bankData.bankShortCode);
@@ -85,8 +85,8 @@ class BankCreation {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
       const bankData = data.mraAdmin.createbankFrom;
-      cy.formController("name_en").type(bankData.nameEn);
-      cy.formController("name_bn").type(bankData.nameBn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(bankData.nameEn);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(bankData.nameBn);
       cy.formController("bank_code").type(bankData.bankCode);
       cy.formController("bank_short_code").type(bankData.bankShortCode);
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
@@ -100,8 +100,8 @@ class BankCreation {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
       const bankData = data.mraAdmin.createbankFrom;
-      cy.formController("name_en").type(bankData.nameEn);
-      cy.formController("name_bn").type(bankData.nameBn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(bankData.nameEn);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(bankData.nameBn);
       cy.formController("website").type(bankData.website);
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
       cy.imsId(COMMON.CONFIRMATION.YES).click();
@@ -118,8 +118,8 @@ class BankCreation {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
       const bankData = data.mraAdmin.createbankFrom;
-      cy.formController("name_en").type(bankData.nameEn);
-      cy.formController("name_bn").type(bankData.nameBn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(bankData.nameEn);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(bankData.nameBn);
       cy.formController("website").type(bankData.website);
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
       cy.imsId(COMMON.CONFIRMATION.YES).click();
@@ -136,8 +136,8 @@ class BankCreation {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
       const bankData = data.mraAdmin.createbankFrom;
-      cy.formController("name_en").type(bankData.nameEn);
-      cy.formController("name_bn").type(bankData.nameBn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(bankData.nameEn);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(bankData.nameBn);
       cy.formController("website").type(bankData.website);
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
       cy.imsId(COMMON.CONFIRMATION.YES).click();
@@ -236,7 +236,7 @@ class BankCreation {
     cy.fixture(this.test_data).then((data) => {
       const bankData = data.mraAdmin.createbankFrom;
       cy.imsId(COMMON.BUTTONS.RESET).click();
-      cy.formController("status").type(bankData.selectStatus).type("{enter}");
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(bankData.selectStatus).type("{enter}");
       cy.log(messages.ui.dropdownInactiveMessage);
     });
   }
@@ -244,7 +244,7 @@ class BankCreation {
   statusActiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       const bankData = data.mraAdmin.createbankFrom;
-      cy.formController("status").type(bankData.statusSelect).type("{enter}");
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(bankData.statusSelect).type("{enter}");
       cy.log(messages.ui.dropdownActiveMessage);
     });
   }
@@ -277,7 +277,7 @@ class BankCreation {
     cy.fixture(this.test_data).then((data) => {
       const bankData = data.mraAdmin.createbankFrom;
       cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
-      cy.formController("name_en").type(bankData.nameEn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(bankData.nameEn);
       cy.imsId(COMMON.BUTTONS.RESET).click();
       cy.imsId(COMMON.BUTTONS.GO_BACK).click();
       cy.log(messages.validation.requiredField);

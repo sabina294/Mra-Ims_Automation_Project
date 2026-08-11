@@ -734,7 +734,7 @@ class OfficeCreation {
     cy.fixture(this.test_data).then((data) => {
       const omData = data.mfiAdmin.createOfficeFrom;
       cy.imsId(COMMON.BUTTONS.RESET).click();
-      cy.formController("status").type(omData.selectStatus).type("{enter}");
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(omData.selectStatus).type("{enter}");
       cy.log(messages.ui.dropdownInactiveMessage);
     });
   }
@@ -742,7 +742,7 @@ class OfficeCreation {
   statusActiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       const omData = data.mfiAdmin.createOfficeFrom;
-      cy.formController("status").type(omData.statusSelect).type("{enter}");
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(omData.statusSelect).type("{enter}");
       cy.log(messages.ui.dropdownActiveMessage);
     });
   }

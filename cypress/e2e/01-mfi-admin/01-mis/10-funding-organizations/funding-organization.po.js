@@ -162,7 +162,7 @@ class FundingOrganizationCreation {
     cy.fixture(this.test_data).then((data) => {
       const foData = data.mfiAdmin.createFundingOrganizationFrom;
       cy.imsId(COMMON.BUTTONS.RESET).click();
-      cy.formController("status").type(foData.selectStatus).type("{enter}");
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(foData.selectStatus).type("{enter}");
       cy.log(messages.ui.dropdownInactiveMessage);
     });
   }
@@ -170,7 +170,7 @@ class FundingOrganizationCreation {
   statusActiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       const foData = data.mfiAdmin.createFundingOrganizationFrom;
-      cy.formController("status").type(foData.statusSelect).type("{enter}");
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(foData.statusSelect).type("{enter}");
       cy.log(messages.ui.dropdownActiveMessage);
     });
   }

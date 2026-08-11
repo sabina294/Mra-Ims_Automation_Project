@@ -110,7 +110,7 @@ verifyFundTransfer() {
         cy.fixture(this.test_data).then((data) => {
             const ftData = data.branchManager.fund;
             cy.imsId(COMMON.BUTTONS.RESET).click();
-            cy.formController("status").type(ftData.selectStatus).type("{enter}");
+            cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(ftData.selectStatus).type("{enter}");
             cy.log(messages.ui.dropdownInactiveMessage);
         });
     }
@@ -118,7 +118,7 @@ verifyFundTransfer() {
     statusActiveDropdownCheck() {
         cy.fixture(this.test_data).then((data) => {
             const ftData = data.branchManager.fund;
-            cy.formController("status").type(ftData.statusSelect).type("{enter}");
+            cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(ftData.statusSelect).type("{enter}");
             cy.log(messages.ui.dropdownActiveMessage);
         });
     }

@@ -125,7 +125,7 @@ class LoanWaiver {
     cy.fixture(this.test_data).then((data) => {
       const lwData = data.branchManager.createLoanWaiverFrom;
       cy.imsId(COMMON.BUTTONS.RESET).click();
-      cy.formController("status").type(lwData.selectStatus).type("{enter}");
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(lwData.selectStatus).type("{enter}");
       cy.log(messages.ui.dropdownInactiveMessage);
     });
   }
@@ -133,7 +133,7 @@ class LoanWaiver {
   statusActiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       const lwData = data.branchManager.createLoanWaiverFrom;
-      cy.formController("status").type(lwData.statusSelect).type("{enter}");
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(lwData.statusSelect).type("{enter}");
       cy.log(messages.ui.dropdownActiveMessage);
     });
   }

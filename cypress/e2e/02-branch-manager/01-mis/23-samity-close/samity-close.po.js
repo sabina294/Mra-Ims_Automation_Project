@@ -83,14 +83,14 @@ class SamityClose {
     cy.fixture(this.test_data).then((data) => {
       const scData = data.branchManager.samityCloseFrom;
       cy.imsId(COMMON.BUTTONS.RESET).click();
-      cy.formController("status").type(scData.selectStatus).type("{enter}");
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(scData.selectStatus).type("{enter}");
       cy.log(messages.ui.dropdownInactiveMessage);
     });
   }
   statusActiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       const scData = data.branchManager.samityCloseFrom;
-      cy.formController("status").type(scData.statusSelect).type("{enter}");
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(scData.statusSelect).type("{enter}");
       cy.log(messages.ui.dropdownActiveMessage);
     });
   }

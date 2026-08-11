@@ -321,7 +321,7 @@ class BankAccountCreation {
     cy.fixture(this.test_data).then((data) => {
       const baData = data.branchManager.createBankAccountFrom;
       cy.imsId(COMMON.BUTTONS.RESET).click();
-      cy.formController("status").type(baData.selectStatus).type("{enter}");
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(baData.selectStatus).type("{enter}");
       cy.log(messages.ui.dropdownInactiveMessage);
     });
   }
@@ -330,7 +330,7 @@ class BankAccountCreation {
     cy.fixture(this.test_data).then((data) => {
       const baData = data.branchManager.createBankAccountFrom;
       cy.imsId(COMMON.BUTTONS.RESET).click();
-      cy.formController("status").type(baData.statusSelect).type("{enter}");
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(baData.statusSelect).type("{enter}");
       cy.log(messages.ui.dropdownActiveMessage);
     });
   }

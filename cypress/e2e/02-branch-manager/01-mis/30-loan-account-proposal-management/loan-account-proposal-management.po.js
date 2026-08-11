@@ -367,7 +367,7 @@ viewSchedulesCancelButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
       const lapData = data.branchManager.createLoanAccountFrom;
       cy.imsId(COMMON.BUTTONS.RESET).click();
-      cy.formController("status").type(lapData.selectStatus).type("{enter}");
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(lapData.selectStatus).type("{enter}");
       cy.log(
         "Loan account proposal Management status approve dropdown check successfully"
       );
@@ -377,7 +377,7 @@ viewSchedulesCancelButtonCheck() {
   statusRejectedDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       const lapData = data.branchManager.createLoanAccountFrom;
-      cy.formController("status").type(lapData.statusSelect).type("{enter}");
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(lapData.statusSelect).type("{enter}");
       cy.log(
         "Loan account proposal Management status rejected dropdown check successfully"
       );

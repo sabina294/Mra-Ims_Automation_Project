@@ -16,7 +16,7 @@ class DistrictCreation {
       cy.imsId(COMMON.BUTTONS.SUBMIT).and("be.visible");
 
       const disData = data.mraAdmin.createdistrictFrom;
-      cy.formController("name_en").type(disData.nameEn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(disData.nameEn);
       cy.formController("district_code").type(disData.Code);
       cy.formController("establish_year").type(disData.establishedYear);
       cy.formController("division_oid").type(disData.division).type("{enter}");
@@ -37,8 +37,8 @@ class DistrictCreation {
       cy.imsId(COMMON.BUTTONS.SUBMIT).and("be.visible");
 
       const disData = data.mraAdmin.createdistrictFrom;
-      cy.formController("name_en").type(disData.nameEn);
-      cy.formController("name_bn").type(disData.nameBn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(disData.nameEn);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(disData.nameBn);
       cy.formController("district_code").type(disData.Code);
       cy.formController("establish_year").type(disData.establishedYear);
       cy.formController("division_oid").type(disData.division).type("{enter}");
@@ -59,7 +59,7 @@ class DistrictCreation {
       cy.imsId(COMMON.BUTTONS.SUBMIT).and("be.visible");
 
       const disData = data.mraAdmin.createdistrictFrom;
-      cy.formController("name_bn").type(disData.nameBn);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(disData.nameBn);
       cy.formController("district_code").type(disData.Code);
       cy.formController("establish_year").type(disData.establishedYear);
       cy.formController("division_oid").type(disData.division).type("{enter}");
@@ -80,7 +80,7 @@ class DistrictCreation {
       cy.imsId(COMMON.BUTTONS.SUBMIT).and("be.visible");
 
       const disData = data.mraAdmin.createdistrictFrom;
-      cy.formController("name_en").type(disData.nameEn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(disData.nameEn);
       cy.formController("district_code").type(disData.Code);
       cy.formController("establish_year").type(disData.establishedYear);
       cy.formController("division_oid").type(disData.division).type("{enter}");
@@ -101,8 +101,8 @@ class DistrictCreation {
       cy.imsId(COMMON.BUTTONS.SUBMIT).and("be.visible");
 
       const disData = data.mraAdmin.createdistrictFrom;
-      cy.formController("name_en").type(disData.nameEn);
-      cy.formController("name_bn").type(disData.nameBn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(disData.nameEn);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(disData.nameBn);
       cy.formController("establish_year").type(disData.establishedYear);
       cy.formController("division_oid").type(disData.division).type("{enter}");
 
@@ -122,8 +122,8 @@ class DistrictCreation {
       cy.imsId(COMMON.BUTTONS.SUBMIT).and("be.visible");
 
       const disData = data.mraAdmin.createdistrictFrom;
-      cy.formController("name_en").type(disData.nameEn);
-      cy.formController("name_bn").type(disData.nameBn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(disData.nameEn);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(disData.nameBn);
       cy.formController("district_code").type(disData.Code);
       cy.formController("division_oid").type(disData.division).type("{enter}");
 
@@ -143,8 +143,8 @@ class DistrictCreation {
       cy.imsId(COMMON.BUTTONS.SUBMIT).and("be.visible");
 
       const disData = data.mraAdmin.createdistrictFrom;
-      cy.formController("name_en").type(disData.nameEn);
-      cy.formController("name_bn").type(disData.nameBn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(disData.nameEn);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(disData.nameBn);
       cy.formController("district_code").type(disData.Code);
       cy.formController("establish_year").type(disData.establishedYear);
 
@@ -164,8 +164,8 @@ class DistrictCreation {
       cy.imsId(COMMON.BUTTONS.SUBMIT).and("be.visible");
       const disData = data.mraAdmin.createdistrictFrom;
       cy.imsId(COMMON.BUTTONS.RESET).click();
-      cy.formController("name_en").type(disData.nameEn);
-      cy.formController("name_bn").type(disData.nameBn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(disData.nameEn);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(disData.nameBn);
       cy.formController("district_code").type(disData.Code);
       cy.formController("establish_year").type(disData.establishedYear);
       cy.formController("division_oid").type(disData.division).type("{enter}");
@@ -181,7 +181,7 @@ class DistrictCreation {
     cy.fixture(this.test_data).then((data) => {
       const disData = data.mraAdmin.createdistrictFrom;
       cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
-      cy.formController("name_bn").type(disData.nameBn);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(disData.nameBn);
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
       cy.imsId(COMMON.CONFIRMATION.OK).click();
       cy.imsId(COMMON.BUTTONS.GO_BACK).click();
@@ -254,12 +254,12 @@ class DistrictCreation {
       cy.imsId(COMMON.TOGGLES.ACTION).first().click();
       cy.imsId(COMMON.GRID.ACTION_EDIT).click();
       cy.imsId(COMMON.BUTTONS.RESET).click();
-      cy.formController("name_en").type(disData.nameEn);
-      cy.formController("name_bn").type(disData.nameBn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(disData.nameEn);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(disData.nameBn);
       cy.formController("district_code").type(disData.Code);
       cy.formController("establish_year").type(disData.establishedYear);
       cy.formController("division_oid").type(disData.division).type("{enter}");
-      cy.formController("status").type(disData.status).type("{enter}");
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(disData.status).type("{enter}");
 
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
       cy.imsId(COMMON.CONFIRMATION.YES).click();
@@ -279,7 +279,7 @@ class DistrictCreation {
     cy.fixture(this.test_data).then((data) => {
       const disData = data.mraAdmin.createdistrictFrom;
       cy.imsId(COMMON.BUTTONS.RESET).click();
-      cy.formController("status").type(disData.selectStatus).type("{enter}");
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(disData.selectStatus).type("{enter}");
       cy.log(messages.ui.dropdownInactiveMessage);
     });
   }
@@ -287,7 +287,7 @@ class DistrictCreation {
   statusActiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       const disData = data.mraAdmin.createdistrictFrom;
-      cy.formController("status").type(disData.statusSelect).type("{enter}");
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(disData.statusSelect).type("{enter}");
       cy.log(messages.ui.dropdownActiveMessage);
     });
   }
@@ -322,7 +322,7 @@ class DistrictCreation {
     cy.fixture(this.test_data).then((data) => {
       const disData = data.mraAdmin.createdistrictFrom;
       cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
-      cy.formController("name_en").type(disData.nameEn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(disData.nameEn);
       cy.imsId(COMMON.BUTTONS.RESET).click();
       cy.imsId(COMMON.BUTTONS.GO_BACK).click();
       cy.log(messages.validation.requiredField);

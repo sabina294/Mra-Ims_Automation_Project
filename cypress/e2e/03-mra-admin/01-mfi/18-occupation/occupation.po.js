@@ -13,8 +13,8 @@ class OccupationCreation {
       const occupationData = data.mraAdmin.createoccupationFrom;
 
       cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
-      cy.formController("name_en").type(occupationData.nameEn);
-      cy.formController("name_bn").type(occupationData.nameBn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(occupationData.nameEn);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(occupationData.nameBn);
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
 
       cy.get("app-confirmation-modal")
@@ -32,7 +32,7 @@ class OccupationCreation {
       const occupationData = data.mraAdmin.createoccupationFrom;
 
       cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
-      cy.formController("name_bn").type(occupationData.nameBn);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(occupationData.nameBn);
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
       cy.imsId(COMMON.CONFIRMATION.OK).click();
       cy.imsId(COMMON.BUTTONS.GO_BACK).click();
@@ -46,7 +46,7 @@ class OccupationCreation {
       const occupationData = data.mraAdmin.createoccupationFrom;
 
       cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
-      cy.formController("name_en").type(occupationData.nameEn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(occupationData.nameEn);
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
       cy.imsId(COMMON.CONFIRMATION.OK).click();
       cy.imsId(COMMON.BUTTONS.GO_BACK).click();
@@ -61,8 +61,8 @@ class OccupationCreation {
 
       cy.imsId(COMMON.BUTTONS.ADD_NEW).click()
       cy.imsId(COMMON.BUTTONS.RESET).click();;
-      cy.formController("name_en").type(occupationData.nameEn);
-      cy.formController("name_bn").type(occupationData.nameBn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(occupationData.nameEn);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(occupationData.nameBn);
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
       cy.imsId(COMMON.CONFIRMATION.OK).click();
       cy.imsId(COMMON.BUTTONS.GO_BACK).click();
@@ -76,7 +76,7 @@ class OccupationCreation {
       const occupationData = data.mraAdmin.createoccupationFrom;
 
       cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
-      cy.formController("name_bn").type(occupationData.nameBn);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(occupationData.nameBn);
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
       cy.imsId(COMMON.CONFIRMATION.OK).click();
       cy.imsId(COMMON.BUTTONS.GO_BACK).click();
@@ -154,9 +154,9 @@ class OccupationCreation {
       cy.imsId(COMMON.GRID.ACTION_EDIT).click();
       cy.imsId(COMMON.BUTTONS.RESET).click();
 
-      cy.formController("name_en").type(occupationData.nameEn);
-      cy.formController("name_bn").type(occupationData.nameBn);
-      cy.formController("status").type(occupationData.status).type("{enter}");
+      cy.formController(COMMON.INPUTS.NAME_EN).type(occupationData.nameEn);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(occupationData.nameBn);
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(occupationData.status).type("{enter}");
 
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
 
@@ -183,7 +183,7 @@ class OccupationCreation {
       const occupationData = data.mraAdmin.createoccupationFrom;
 
       cy.imsId(COMMON.BUTTONS.RESET).click();
-      cy.formController("status").type(occupationData.selectStatus).type("{enter}");
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(occupationData.selectStatus).type("{enter}");
 
       cy.log(messages.ui.dropdownInactiveMessage);
     });
@@ -193,7 +193,7 @@ class OccupationCreation {
     cy.fixture(this.test_data).then((data) => {
       const occupationData = data.mraAdmin.createoccupationFrom;
 
-      cy.formController("status").type(occupationData.statusSelect).type("{enter}");
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(occupationData.statusSelect).type("{enter}");
 
       cy.log(messages.ui.dropdownActiveMessage);
     });
@@ -225,7 +225,7 @@ class OccupationCreation {
       const occupationData = data.mraAdmin.createoccupationFrom;
 
       cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
-      cy.formController("name_en").type(occupationData.nameEn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(occupationData.nameEn);
       cy.imsId(COMMON.BUTTONS.RESET).click();
       cy.imsId(COMMON.BUTTONS.GO_BACK).click();
 

@@ -45,7 +45,7 @@ class FinancialPeriodManagementCreation {
         cy.fixture(this.test_data).then((data) => {
             const fpmData = data.branchManager.financialPeriodManagement;
             cy.imsId(COMMON.BUTTONS.RESET).click();
-            cy.formController("status").type(fpmData.selectStatus).type("{enter}");
+            cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(fpmData.selectStatus).type("{enter}");
             cy.log(messages.ui.dropdownInactiveMessage);
         });
     }
@@ -53,7 +53,7 @@ class FinancialPeriodManagementCreation {
     statusActiveDropdownCheck() {
         cy.fixture(this.test_data).then((data) => {
             const fpmData = data.branchManager.financialPeriodManagement;
-            cy.formController("status").type(fpmData.statusSelect).type("{enter}");
+            cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(fpmData.statusSelect).type("{enter}");
             cy.log(messages.ui.dropdownActiveMessage);
         });
     }

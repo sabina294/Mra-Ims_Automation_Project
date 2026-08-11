@@ -250,14 +250,14 @@ class MfiProgramCreation {
     cy.fixture(this.test_data).then((data) => {
       const mpData = data.mfiAdmin.createMfiProgramFrom;
       cy.imsId(COMMON.BUTTONS.RESET).click();
-      cy.formController("status").type(mpData.selectStatus).type("{enter}");
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(mpData.selectStatus).type("{enter}");
       cy.log(messages.ui.dropdownInactiveMessage);
     });
   }
   statusActiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       const mpData = data.mfiAdmin.createMfiProgramFrom;
-      cy.formController("status").type(mpData.statusSelect).type("{enter}");
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(mpData.statusSelect).type("{enter}");
       cy.log(messages.ui.dropdownActiveMessage);
     });
   }

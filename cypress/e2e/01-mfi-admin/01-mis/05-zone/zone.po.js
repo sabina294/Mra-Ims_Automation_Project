@@ -162,7 +162,7 @@ class ZoneCreation {
     cy.fixture(this.test_data).then((data) => {
       const zoData = data.mfiAdmin.createZoneFrom;
       cy.imsId(COMMON.BUTTONS.RESET).click();
-      cy.formController("status").type(zoData.selectStatus).type("{enter}");
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(zoData.selectStatus).type("{enter}");
       cy.log(messages.ui.dropdownInactiveMessage);
     });
   }
@@ -170,7 +170,7 @@ class ZoneCreation {
   statusActiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       const zoData = data.mfiAdmin.createZoneFrom;
-      cy.formController("status").type(zoData.statusSelect).type("{enter}");
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(zoData.statusSelect).type("{enter}");
       cy.log(messages.ui.dropdownActiveMessage);
     });
   }

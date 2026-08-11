@@ -59,7 +59,7 @@ class SavingsProductCreation {
     cy.fixture(this.test_data).then((data) => {
       const spData = data.branchManager.gridSavingsProduct;
       cy.imsId(COMMON.BUTTONS.RESET).click();
-      cy.formController("status").type(spData.selectStatus).type("{enter}");
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(spData.selectStatus).type("{enter}");
       cy.log(messages.ui.dropdownInactiveMessage);
     });
   }
@@ -67,7 +67,7 @@ class SavingsProductCreation {
   statusActiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       const spData = data.branchManager.gridSavingsProduct;
-      cy.formController("status").type(spData.statusSelect).type("{enter}");
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(spData.statusSelect).type("{enter}");
       cy.log(messages.ui.dropdownActiveMessage);
     });
   }

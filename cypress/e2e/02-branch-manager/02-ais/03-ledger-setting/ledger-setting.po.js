@@ -36,7 +36,7 @@ class LedgerSetting {
         cy.fixture(this.test_data).then((data) => {
             const lsData = data.branchManager.ledgerSetting;
             cy.imsId(COMMON.BUTTONS.RESET).click();
-            cy.formController("status").type(lsData.selectStatus).type("{enter}");
+            cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(lsData.selectStatus).type("{enter}");
             cy.log(messages.ui.dropdownInactiveMessage);
         });
     }
@@ -44,7 +44,7 @@ class LedgerSetting {
     statusActiveDropdownCheck() {
         cy.fixture(this.test_data).then((data) => {
             const lsData = data.branchManager.ledgerSetting;
-            cy.formController("status").type(lsData.statusSelect).type("{enter}");
+            cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(lsData.statusSelect).type("{enter}");
             cy.log(messages.ui.dropdownActiveMessage);
         });
     }

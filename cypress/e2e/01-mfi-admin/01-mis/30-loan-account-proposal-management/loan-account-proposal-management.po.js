@@ -445,7 +445,7 @@ class LoanAccountProposalManagementCreation {
     cy.fixture(this.test_data).then((data) => {
       const lapData = data.mfiAdmin.createLoanAccountFrom;
       cy.imsId(COMMON.BUTTONS.RESET).click();
-      cy.formController("status").type(lapData.selectStatus).type("{enter}");
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(lapData.selectStatus).type("{enter}");
       cy.log(
         messages.ui.dropdownInactiveMessage
       );
@@ -455,7 +455,7 @@ class LoanAccountProposalManagementCreation {
     cy.fixture(this.test_data).then((data) => {
       const lapData = data.mfiAdmin.createLoanAccountFrom;
       cy.imsId(COMMON.BUTTONS.RESET).click();
-      cy.formController("status").type(lapData.statusSelect).type("{enter}");
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(lapData.statusSelect).type("{enter}");
       cy.log(
         messages.ui.dropdownActiveMessage
       );

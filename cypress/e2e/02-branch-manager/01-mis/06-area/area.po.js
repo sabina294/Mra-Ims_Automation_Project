@@ -59,14 +59,14 @@ class Area {
     cy.fixture(this.test_data).then((data) => {
       const arData = data.branchManager.gridAreaFrom;
       cy.imsId(COMMON.BUTTONS.RESET).click();
-      cy.formController("status").type(arData.selectStatus).type("{enter}");
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(arData.selectStatus).type("{enter}");
       cy.log(messages.ui.dropdownInactiveMessage);
     });
   }
   statusActiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       const arData = data.branchManager.gridAreaFrom;
-      cy.formController("status").type(arData.statusSelect).type("{enter}");
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(arData.statusSelect).type("{enter}");
       cy.log(messages.ui.dropdownActiveMessage);
     });
   }

@@ -208,7 +208,7 @@ class AmountBasedLoanProposalApprovalCreation {
       cy.formController("role_id").type(ablpaData.roleName).type("{enter}");
       cy.formController("min_loan_amount").type(ablpaData.minLoanAmount);
       cy.formController("max_loan_amount").type(ablpaData.maxLoanAmount);
-      cy.formController("status").type(ablpaData.status).type("{enter}");
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(ablpaData.status).type("{enter}");
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
       cy.imsId(COMMON.CONFIRMATION.YES).click();
       cy.imsId(COMMON.CONFIRMATION.OK).click();
@@ -227,7 +227,7 @@ class AmountBasedLoanProposalApprovalCreation {
     cy.fixture(this.test_data).then((data) => {
       var ablpaData = data.mfiAdmin.createAmountBasedLoanFrom;
       cy.imsId(COMMON.BUTTONS.RESET).click();
-      cy.formController("status").type(ablpaData.selectStatus).type("{enter}");
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(ablpaData.selectStatus).type("{enter}");
       cy.log(messages.ui.dropdownInactiveMessage);
     });
   }
@@ -235,7 +235,7 @@ class AmountBasedLoanProposalApprovalCreation {
   statusActiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       var ablpaData = data.mfiAdmin.createAmountBasedLoanFrom;
-      cy.formController("status").type(ablpaData.statusSelect).type("{enter}");
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(ablpaData.statusSelect).type("{enter}");
       cy.log(messages.ui.dropdownActiveMessage);
     });
   }

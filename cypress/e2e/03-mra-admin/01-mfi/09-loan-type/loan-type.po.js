@@ -16,8 +16,8 @@ class LoanTypeCreation {
       cy.imsId(COMMON.BUTTONS.SUBMIT).and("be.visible");
 
       const loanTData = data.mraAdmin.createloanTypeFrom;
-      cy.formController("name_en").type(loanTData.nameEn);
-      cy.formController("name_bn").type(loanTData.nameBn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(loanTData.nameEn);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(loanTData.nameBn);
       cy.formController("loan_type_id").type(loanTData.loanTypeId);
       cy.formController("product_nature_id").type(loanTData.productNatureId);
       cy.formController("description").type(loanTData.loanTypeDescription);
@@ -39,7 +39,7 @@ class LoanTypeCreation {
       cy.imsId(COMMON.BUTTONS.SUBMIT).and("be.visible");
 
       const loanTData = data.mraAdmin.createloanTypeFrom;
-      cy.formController("name_bn").type(loanTData.nameBn);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(loanTData.nameBn);
       cy.formController("loan_type_id").type(loanTData.loanTypeId);
       cy.formController("product_nature_id").type(loanTData.productNatureId);
       cy.formController("description").type(loanTData.loanTypeDescription);
@@ -59,7 +59,7 @@ class LoanTypeCreation {
       cy.imsId(COMMON.BUTTONS.SUBMIT).and("be.visible");
 
       const loanTData = data.mraAdmin.createloanTypeFrom;
-      cy.formController("name_en").type(loanTData.nameEn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(loanTData.nameEn);
       cy.formController("loan_type_id").type(loanTData.loanTypeId);
       cy.formController("product_nature_id").type(loanTData.productNatureId);
       cy.formController("description").type(loanTData.loanTypeDescription);
@@ -79,8 +79,8 @@ class LoanTypeCreation {
       cy.imsId(COMMON.BUTTONS.SUBMIT).and("be.visible");
 
       const loanTData = data.mraAdmin.createloanTypeFrom;
-      cy.formController("name_en").type(loanTData.nameEn);
-      cy.formController("name_bn").type(loanTData.nameBn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(loanTData.nameEn);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(loanTData.nameBn);
       cy.formController("product_nature_id").type(loanTData.productNatureId);
       cy.formController("description").type(loanTData.loanTypeDescription);
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
@@ -99,8 +99,8 @@ class LoanTypeCreation {
       cy.imsId(COMMON.BUTTONS.SUBMIT).and("be.visible");
 
       const loanTData = data.mraAdmin.createloanTypeFrom;
-      cy.formController("name_en").type(loanTData.nameEn);
-      cy.formController("name_bn").type(loanTData.nameBn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(loanTData.nameEn);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(loanTData.nameBn);
       cy.formController("loan_type_id").type(loanTData.loanTypeId);
       cy.formController("description").type(loanTData.loanTypeDescription);
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
@@ -119,8 +119,8 @@ class LoanTypeCreation {
       cy.imsId(COMMON.BUTTONS.SUBMIT).and("be.visible");
 
       const loanTData = data.mraAdmin.createloanTypeFrom;
-      cy.formController("name_en").type(loanTData.nameEn);
-      cy.formController("name_bn").type(loanTData.nameBn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(loanTData.nameEn);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(loanTData.nameBn);
       cy.formController("loan_type_id").type(loanTData.loanTypeId);
       cy.formController("product_nature_id").type(loanTData.productNatureId);
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
@@ -140,8 +140,8 @@ class LoanTypeCreation {
       cy.imsId(COMMON.BUTTONS.RESET).click();
 
       const loanTData = data.mraAdmin.createloanTypeFrom;
-      cy.formController("name_en").type(loanTData.nameEn);
-      cy.formController("name_bn").type(loanTData.nameBn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(loanTData.nameEn);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(loanTData.nameBn);
       cy.formController("loan_type_id").type(loanTData.loanTypeId);
       cy.formController("product_nature_id").type(loanTData.productNatureId);
       cy.formController("description").type(loanTData.loanTypeDescription);
@@ -161,7 +161,7 @@ class LoanTypeCreation {
       cy.imsId(COMMON.BUTTONS.SUBMIT).and("be.visible");
 
       const loanTData = data.mraAdmin.createloanTypeFrom;
-      cy.formController("name_bn").type(loanTData.nameBn);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(loanTData.nameBn);
       cy.formController("loan_type_id").type(loanTData.loanTypeId);
       cy.formController("product_nature_id").type(loanTData.productNatureId);
       cy.formController("description").type(loanTData.loanTypeDescription);
@@ -244,12 +244,12 @@ class LoanTypeCreation {
       cy.imsId(COMMON.BUTTONS.RESET).click();
 
       const loanTData = data.mraAdmin.createloanTypeFrom;
-      cy.formController("name_en").type(loanTData.nameEn);
-      cy.formController("name_bn").type(loanTData.nameBn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(loanTData.nameEn);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(loanTData.nameBn);
       cy.formController("loan_type_id").type(loanTData.loanTypeId);
       cy.formController("product_nature_id").type(loanTData.productNatureId);
       cy.formController("description").type(loanTData.loanTypeDescription);
-      cy.formController("status").type(loanTData.status).type("{enter}");
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(loanTData.status).type("{enter}");
 
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
       cy.imsId(COMMON.CONFIRMATION.YES).click();
@@ -274,7 +274,7 @@ class LoanTypeCreation {
     cy.fixture(this.test_data).then((data) => {
       const loanTData = data.mraAdmin.createloanTypeFrom;
       cy.imsId(COMMON.BUTTONS.RESET).click();
-      cy.formController("status").type(loanTData.selectStatus).type("{enter}");
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(loanTData.selectStatus).type("{enter}");
       cy.log(messages.ui.dropdownInactiveMessage);
     });
   }
@@ -282,7 +282,7 @@ class LoanTypeCreation {
   statusActiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       const loanTData = data.mraAdmin.createloanTypeFrom;
-      cy.formController("status").type(loanTData.statusSelect).type("{enter}");
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(loanTData.statusSelect).type("{enter}");
       cy.log(messages.ui.dropdownActiveMessage);
     });
   }
@@ -312,7 +312,7 @@ class LoanTypeCreation {
     cy.fixture(this.test_data).then((data) => {
       const loanTData = data.mraAdmin.createloanTypeFrom;
       cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
-      cy.formController("name_en").type(loanTData.nameEn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(loanTData.nameEn);
       cy.imsId(COMMON.BUTTONS.RESET).click();
       cy.imsId(COMMON.BUTTONS.GO_BACK).click();
       cy.log(messages.validation.requiredField);

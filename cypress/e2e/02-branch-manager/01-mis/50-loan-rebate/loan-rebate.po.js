@@ -145,7 +145,7 @@ class LoanRebate {
     cy.fixture(this.test_data).then((data) => {
       const lrData = data.branchManager.createLoanRebateFrom;
         cy.imsId(COMMON.BUTTONS.RESET).click();
-      cy.formController("status").type(lrData.selectStatus).type("{enter}");
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(lrData.selectStatus).type("{enter}");
       cy.log(messages.ui.dropdownInactiveMessage);
     });
   }
@@ -154,7 +154,7 @@ class LoanRebate {
     cy.fixture(this.test_data).then((data) => {
       const lrData = data.branchManager.createLoanRebateFrom;
       cy.imsId(COMMON.BUTTONS.RESET).click();
-      cy.formController("status").type(lrData.statusSelect).type("{enter}");
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(lrData.statusSelect).type("{enter}");
       cy.log(messages.ui.dropdownActiveMessage);
     });
   }

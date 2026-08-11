@@ -143,7 +143,7 @@ class SamityChange {
     cy.fixture(this.test_data).then((data) => {
       const sfcData = data.mfiAdmin.samityChangeFrom;
       cy.imsId(COMMON.BUTTONS.RESET).click();
-      cy.formController("status").type(sfcData.selectStatus).type("{enter}");
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(sfcData.selectStatus).type("{enter}");
       cy.log(
         messages.ui.dropdownInactiveMessage
       );
@@ -153,7 +153,7 @@ class SamityChange {
   statusActiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       const sfcData = data.mfiAdmin.samityChangeFrom;
-      cy.formController("status").type(sfcData.statusSelect).type("{enter}");
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(sfcData.statusSelect).type("{enter}");
       cy.log(
         messages.ui.dropdownActiveMessage
       );

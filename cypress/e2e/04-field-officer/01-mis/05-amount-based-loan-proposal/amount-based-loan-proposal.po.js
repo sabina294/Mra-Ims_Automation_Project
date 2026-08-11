@@ -69,14 +69,14 @@ class AmountBasedLoanProposalApproval {
     cy.fixture(this.test_data).then((data) => {
       const ablpaData = data.fieldOfficer.gridAmountBasedLoanFrom;
       cy.imsId(COMMON.BUTTONS.RESET).click();
-      cy.formController("status").type(ablpaData.selectStatus).type("{enter}");
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(ablpaData.selectStatus).type("{enter}");
       cy.log(messages.ui.dropdownInactiveMessage);
     });
   }
   statusActiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       const ablpaData = data.fieldOfficer.gridAmountBasedLoanFrom;
-      cy.formController("status").type(ablpaData.statusSelect).type("{enter}");
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(ablpaData.statusSelect).type("{enter}");
       cy.log(messages.ui.dropdownActiveMessage);
     });
   }

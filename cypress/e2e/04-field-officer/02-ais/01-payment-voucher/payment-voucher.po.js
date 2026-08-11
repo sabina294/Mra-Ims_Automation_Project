@@ -532,7 +532,7 @@ class PaymentVoucherCreation {
         cy.fixture(this.test_data).then((data) => {
             const pvData = data.fieldOfficer.paymentVoucher;
             cy.imsId(COMMON.BUTTONS.RESET).click();
-            cy.formController("status").type(pvData.selectStatus).type("{enter}");
+            cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(pvData.selectStatus).type("{enter}");
             cy.log(messages.ui.dropdownInactiveMessage);
         });
     }
@@ -540,7 +540,7 @@ class PaymentVoucherCreation {
     statusActiveDropdownCheck() {
         cy.fixture(this.test_data).then((data) => {
             const pvData = data.fieldOfficer.paymentVoucher;
-            cy.formController("status").type(pvData.statusSelect).type("{enter}");
+            cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(pvData.statusSelect).type("{enter}");
             cy.log(messages.ui.dropdownActiveMessage);
         });
     }

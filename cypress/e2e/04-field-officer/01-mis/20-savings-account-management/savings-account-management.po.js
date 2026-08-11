@@ -39,7 +39,7 @@ class SavingsAccountManagementCreation {
     cy.fixture(this.test_data).then((data) => {
       const samData = data.fieldOfficer.createSavingsAccountManagement;
       cy.imsId(COMMON.BUTTONS.RESET).click();
-      cy.formController("status").type(samData.selectStatus).type("{enter}");
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(samData.selectStatus).type("{enter}");
       cy.log(
         messages.ui.dropdownInactiveMessage
       );
@@ -49,7 +49,7 @@ class SavingsAccountManagementCreation {
   statusActiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       const samData = data.fieldOfficer.createSavingsAccountManagement;
-      cy.formController("status").type(samData.statusSelect).type("{enter}");
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(samData.statusSelect).type("{enter}");
       cy.log(
         messages.ui.dropdownActiveMessage
       );

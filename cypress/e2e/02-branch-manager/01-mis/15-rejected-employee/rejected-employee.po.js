@@ -176,7 +176,7 @@ class RejectedEmployee {
     cy.fixture(this.test_data).then((data) => {
       const emData = data.branchManager.rejectedEmployeeFrom;
       cy.imsId(COMMON.BUTTONS.RESET).click();
-      cy.formController("status").type(emData.selectStatus).type("{enter}");
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(emData.selectStatus).type("{enter}");
       cy.log(
         messages.ui.dropdownInactiveMessage
       );
@@ -187,7 +187,7 @@ class RejectedEmployee {
     cy.fixture(this.test_data).then((data) => {
       const emData = data.branchManager.rejectedEmployeeFrom;
       cy.imsId(COMMON.BUTTONS.RESET).click();
-      cy.formController("status").type(emData.statusSelect).type("{enter}");
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(emData.statusSelect).type("{enter}");
       cy.log(
         messages.ui.dropdownActiveMessage
       );

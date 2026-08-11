@@ -132,7 +132,7 @@ class LedgerSubGroupCreation {
         cy.fixture(this.test_data).then((data) => {
             const lsgData = data.mfiAdmin.ledgerSubGroup;
             cy.imsId(COMMON.BUTTONS.RESET).click();
-            cy.formController("status").type(lsgData.selectStatus).type("{enter}");
+            cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(lsgData.selectStatus).type("{enter}");
             cy.log(messages.ui.dropdownInactiveMessage);
         });
     }
@@ -140,7 +140,7 @@ class LedgerSubGroupCreation {
     statusActiveDropdownCheck() {
         cy.fixture(this.test_data).then((data) => {
             const lsgData = data.mfiAdmin.ledgerSubGroup;
-            cy.formController("status").type(lsgData.statusSelect).type("{enter}");
+            cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(lsgData.statusSelect).type("{enter}");
             cy.log(messages.ui.dropdownActiveMessage);
         });
     }

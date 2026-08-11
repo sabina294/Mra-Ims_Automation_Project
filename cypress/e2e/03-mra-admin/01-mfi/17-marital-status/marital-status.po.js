@@ -169,7 +169,7 @@ class MaritalStatusCreation {
 
       cy.formController("description_en").type(maritalStatusData.nameEn);
       cy.formController("description_bn").type(maritalStatusData.nameBn);
-      cy.formController("status")
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN)
         .type(maritalStatusData.status)
         .type("{enter}");
 
@@ -197,7 +197,7 @@ class MaritalStatusCreation {
     cy.fixture(this.test_data).then((data) => {
       const maritalStatusData = data.mraAdmin.createmaritalstatusFrom;
       cy.imsId(COMMON.BUTTONS.RESET).click();
-      cy.formController("status")
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN)
         .type(maritalStatusData.selectStatus)
         .type("{enter}");
       cy.log(messages.ui.dropdownInactiveMessage);
@@ -207,7 +207,7 @@ class MaritalStatusCreation {
   statusActiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       const maritalStatusData = data.mraAdmin.createmaritalstatusFrom;
-      cy.formController("status")
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN)
         .type(maritalStatusData.statusSelect)
         .type("{enter}");
       cy.log(messages.ui.dropdownActiveMessage);

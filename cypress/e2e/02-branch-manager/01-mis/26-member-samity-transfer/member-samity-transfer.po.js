@@ -147,7 +147,7 @@ class MemberSamityTransfer {
     cy.fixture(this.test_data).then((data) => {
       const mstData = data.branchManager.memberSamityTransferFrom;
       cy.imsId(COMMON.BUTTONS.RESET).click();
-      cy.formController("status").type(mstData.selectStatus).type("{enter}");
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(mstData.selectStatus).type("{enter}");
       cy.log(
         messages.ui.dropdownInactiveMessage
       );
@@ -156,7 +156,7 @@ class MemberSamityTransfer {
   statusActiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       const mstData = data.branchManager.memberSamityTransferFrom;
-      cy.formController("status").type(mstData.statusSelect).type("{enter}");
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(mstData.statusSelect).type("{enter}");
       cy.log(
         messages.ui.dropdownActiveMessage
       );

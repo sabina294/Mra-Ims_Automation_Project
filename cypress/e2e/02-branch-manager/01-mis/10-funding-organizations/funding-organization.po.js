@@ -63,7 +63,7 @@ class FundingOrganization {
     cy.fixture(this.test_data).then((data) => {
       const foData = data.branchManager.gridFundingOrganizationFrom;
       cy.imsId(COMMON.BUTTONS.RESET).click();
-      cy.formController("status").type(foData.selectStatus).type("{enter}");
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(foData.selectStatus).type("{enter}");
       cy.log(
         messages.ui.dropdownInactiveMessage
       );
@@ -72,7 +72,7 @@ class FundingOrganization {
   statusActiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       const foData = data.branchManager.gridFundingOrganizationFrom;
-      cy.formController("status").type(foData.statusSelect).type("{enter}");
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(foData.statusSelect).type("{enter}");
       cy.log(messages.ui.dropdownActiveMessage);
     });
   }

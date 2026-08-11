@@ -156,14 +156,14 @@ class LoanFundCreation {
     cy.fixture(this.test_data).then((data) => {
       const lfData = data.mfiAdmin.createLoanFundFrom;
       cy.imsId(COMMON.BUTTONS.RESET).click();
-      cy.formController("status").type(lfData.statusSelect).type("{enter}");
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(lfData.statusSelect).type("{enter}");
       cy.log(messages.ui.dropdownInactiveMessage);
     });
   }
   statusActiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       const lfData = data.mfiAdmin.createLoanFundFrom;
-      cy.formController("status").type(lfData.statusSelect).type("{enter}");
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(lfData.statusSelect).type("{enter}");
       cy.log(messages.ui.dropdownActiveMessage);
     });
   }

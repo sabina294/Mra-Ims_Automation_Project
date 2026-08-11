@@ -88,7 +88,7 @@ class SavingsAccApplicationManagementCreation {
     cy.fixture(this.test_data).then((data) => {
       const saamData = data.branchManager.createSavingsAccApplicationMang;
       cy.imsId(COMMON.BUTTONS.RESET).click();
-      cy.formController("status").type(saamData.selectStatus).type("{enter}");
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(saamData.selectStatus).type("{enter}");
       cy.log(
         messages.ui.dropdownInactiveMessage
       );
@@ -99,7 +99,7 @@ class SavingsAccApplicationManagementCreation {
     cy.fixture(this.test_data).then((data) => {
       const saamData = data.branchManager.createSavingsAccApplicationMang;
       cy.imsId(COMMON.BUTTONS.RESET).click();
-      cy.formController("status").type(saamData.statusSelect).type("{enter}");
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(saamData.statusSelect).type("{enter}");
       cy.log(
         messages.ui.dropdownActiveMessage
       );

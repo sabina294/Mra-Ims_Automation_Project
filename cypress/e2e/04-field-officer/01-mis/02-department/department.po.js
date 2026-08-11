@@ -59,7 +59,7 @@ class Department {
     cy.fixture(this.test_data).then((data) => {
       const depData = data.fieldOfficer.gridDepartmentFrom;
       cy.imsId(COMMON.BUTTONS.RESET).click();
-      cy.formController("status").type(depData.selectStatus).type("{enter}");
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(depData.selectStatus).type("{enter}");
       cy.log(messages.ui.dropdownInactiveMessage);
     });
   }
@@ -67,7 +67,7 @@ class Department {
   statusActiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       const depData = data.fieldOfficer.gridDepartmentFrom;
-      cy.formController("status").type(depData.statusSelect).type("{enter}");
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(depData.statusSelect).type("{enter}");
       cy.log(messages.ui.dropdownActiveMessage);
     });
   }

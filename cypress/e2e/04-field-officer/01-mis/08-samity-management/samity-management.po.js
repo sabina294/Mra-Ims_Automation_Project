@@ -80,14 +80,14 @@ class Samity {
     cy.fixture(this.test_data).then((data) => {
       const smData = data.fieldOfficer.gridSamityFrom;
       cy.imsId(COMMON.BUTTONS.RESET).click();
-      cy.formController("status").type(smData.selectStatus).type("{enter}");
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(smData.selectStatus).type("{enter}");
       cy.log(messages.ui.dropdownInactiveMessage);
     });
   }
   statusActiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       const smData = data.fieldOfficer.gridSamityFrom;
-      cy.formController("status").type(smData.statusSelect).type("{enter}");
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(smData.statusSelect).type("{enter}");
       cy.log(messages.ui.dropdownActiveMessage);
     });
   }

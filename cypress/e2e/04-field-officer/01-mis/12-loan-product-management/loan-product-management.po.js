@@ -66,7 +66,7 @@ class LoanProductManagement {
     cy.fixture(this.test_data).then((data) => {
       const lpData = data.fieldOfficer.loanProductFrom;
       cy.imsId(COMMON.BUTTONS.RESET).click();
-      cy.formController("status").type(lpData.selectStatus).type("{enter}");
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(lpData.selectStatus).type("{enter}");
       cy.log(
         messages.ui.dropdownInactiveMessage
       );
@@ -75,7 +75,7 @@ class LoanProductManagement {
   statusActiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       const lpData = data.fieldOfficer.loanProductFrom;
-      cy.formController("status").type(lpData.statusSelect).type("{enter}");
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(lpData.statusSelect).type("{enter}");
       cy.log(
         messages.ui.dropdownActiveMessage
       );

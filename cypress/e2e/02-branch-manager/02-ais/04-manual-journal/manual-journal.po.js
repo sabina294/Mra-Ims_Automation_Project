@@ -189,7 +189,7 @@ class ManualJournalCreation {
         cy.fixture(this.test_data).then((data) => {
             const mjData = data.branchManager.manualJournal;
             cy.imsId(COMMON.BUTTONS.RESET).click();
-            cy.formController("status").type(mjData.selectStatus).type("{enter}");
+            cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(mjData.selectStatus).type("{enter}");
             cy.log("ledger sub group status inactive dropdown check successfully");
         });
     }
@@ -197,7 +197,7 @@ class ManualJournalCreation {
     statusRejectedDropdownCheck() {
         cy.fixture(this.test_data).then((data) => {
             const mjData = data.branchManager.manualJournal;
-            cy.formController("status").type(mjData.statusSelect).type("{enter}");
+            cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(mjData.statusSelect).type("{enter}");
             cy.log("ledger sub group status active dropdown check successfully");
         });
     }

@@ -16,7 +16,7 @@ class ThanaCreation {
       cy.imsId(COMMON.BUTTONS.SUBMIT).and("be.visible");
 
       const upaData = data.mraAdmin.createthanaFrom;
-      cy.formController("name_en").type(upaData.nameEn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(upaData.nameEn);
       cy.formController("district_oid").type(upaData.district).type("{enter}");
 
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
@@ -35,7 +35,7 @@ class ThanaCreation {
       cy.imsId(COMMON.BUTTONS.SUBMIT).and("be.visible");
 
       const upaData = data.mraAdmin.createthanaFrom;
-      cy.formController("name_bn").type(upaData.nameBn);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(upaData.nameBn);
       cy.formController("upazila_code").type(upaData.upaCode);
       cy.formController("postal_code").type(upaData.postCode);
       cy.formController("website").type(upaData.webSite);
@@ -55,7 +55,7 @@ class ThanaCreation {
       cy.imsId(COMMON.BUTTONS.SUBMIT).and("be.visible");
 
       const upaData = data.mraAdmin.createthanaFrom;
-      cy.formController("name_en").type(upaData.nameEn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(upaData.nameEn);
       cy.formController("upazila_code").type(upaData.upaCode);
       cy.formController("postal_code").type(upaData.postCode);
       cy.formController("website").type(upaData.webSite);
@@ -77,8 +77,8 @@ class ThanaCreation {
       cy.imsId(COMMON.BUTTONS.SUBMIT).and("be.visible");
 
       const upaData = data.mraAdmin.createthanaFrom;
-      cy.formController("name_en").type(upaData.nameEn);
-      cy.formController("name_bn").type(upaData.nameBn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(upaData.nameEn);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(upaData.nameBn);
       cy.formController("postal_code").type(upaData.postCode);
       cy.formController("website").type(upaData.webSite);
       cy.formController("district_oid").type(upaData.district).type("{enter}");
@@ -99,8 +99,8 @@ class ThanaCreation {
       cy.imsId(COMMON.BUTTONS.SUBMIT).and("be.visible");
 
       const upaData = data.mraAdmin.createthanaFrom;
-      cy.formController("name_en").type(upaData.nameEn);
-      cy.formController("name_bn").type(upaData.nameBn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(upaData.nameEn);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(upaData.nameBn);
       cy.formController("upazila_code").type(upaData.upaCode);
       cy.formController("website").type(upaData.webSite);
       cy.formController("district_oid").type(upaData.district).type("{enter}");
@@ -121,8 +121,8 @@ class ThanaCreation {
       cy.imsId(COMMON.BUTTONS.SUBMIT).and("be.visible");
 
       const upaData = data.mraAdmin.createthanaFrom;
-      cy.formController("name_en").type(upaData.nameEn);
-      cy.formController("name_bn").type(upaData.nameBn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(upaData.nameEn);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(upaData.nameBn);
       cy.formController("upazila_code").type(upaData.upaCode);
       cy.formController("postal_code").type(upaData.postCode);
       cy.formController("district_oid").type(upaData.district).type("{enter}");
@@ -144,8 +144,8 @@ class ThanaCreation {
 
       const upaData = data.mraAdmin.createthanaFrom;
       cy.imsId(COMMON.BUTTONS.RESET).click();
-      cy.formController("name_en").type(upaData.nameEn);
-      cy.formController("name_bn").type(upaData.nameBn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(upaData.nameEn);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(upaData.nameBn);
       cy.formController("upazila_code").type(upaData.upaCode);
       cy.formController("postal_code").type(upaData.postCode);
       cy.formController("district_oid").type(upaData.district).type("{enter}");
@@ -164,8 +164,8 @@ class ThanaCreation {
       cy.imsId(COMMON.BUTTONS.SUBMIT).and("be.visible");
 
       const upaData = data.mraAdmin.createthanaFrom;
-      cy.formController("name_en").type(upaData.nameEn);
-      cy.formController("name_bn").type(upaData.nameBn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(upaData.nameEn);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(upaData.nameBn);
       cy.formController("upazila_code").type(upaData.upaCode);
       cy.formController("postal_code").type(upaData.postCode);
       cy.formController("website").type(upaData.webSite);
@@ -185,8 +185,8 @@ class ThanaCreation {
 
       const upaData = data.mraAdmin.createthanaFrom;
       cy.imsId(COMMON.BUTTONS.RESET).click();
-      cy.formController("name_en").type(upaData.nameEn);
-      cy.formController("name_bn").type(upaData.nameBn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(upaData.nameEn);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(upaData.nameBn);
       cy.formController("upazila_code").type(upaData.upaCode);
       cy.formController("postal_code").type(upaData.postCode);
       cy.formController("website").type(upaData.webSite);
@@ -205,8 +205,8 @@ class ThanaCreation {
       cy.imsId(COMMON.BUTTONS.SUBMIT).and("be.visible");
 
       const upaData = data.mraAdmin.createthanaFrom;
-      cy.formController("name_en").type(upaData.nameEn);
-      cy.formController("name_bn").type(upaData.nameBn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(upaData.nameEn);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(upaData.nameBn);
       cy.formController("upazila_code").type(upaData.upaCode);
       cy.formController("postal_code").type(upaData.postCode);
       cy.formController("website").type(upaData.webSite);
@@ -228,7 +228,7 @@ class ThanaCreation {
       cy.imsId(COMMON.BUTTONS.SUBMIT).and("be.visible");
 
       const upaData = data.mraAdmin.createthanaFrom;
-      cy.formController("name_bn").type(upaData.nameBn);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(upaData.nameBn);
       cy.formController("upazila_code").type(upaData.upaCode);
       cy.formController("postal_code").type(upaData.postCode);
       cy.formController("website").type(upaData.webSite);
@@ -246,7 +246,7 @@ class ThanaCreation {
     cy.fixture(this.test_data).then((data) => {
       const upaData = data.mraAdmin.createthanaFrom;
       cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
-      cy.formController("name_bn").type(upaData.nameBn);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(upaData.nameBn);
       cy.formController("upazila_code").type(upaData.upaCode);
       cy.formController("postal_code").type(upaData.postCode);
       cy.formController("website").type(upaData.webSite);
@@ -315,14 +315,14 @@ class ThanaCreation {
       cy.imsId(COMMON.BUTTONS.RESET).click();
 
       const upaData = data.mraAdmin.createthanaFrom;
-      cy.formController("name_en").type(upaData.nameEn);
-      cy.formController("name_bn").type(upaData.nameBn);
+      cy.formController(COMMON.INPUTS.NAME_EN).type(upaData.nameEn);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(upaData.nameBn);
       cy.formController("upazila_code").type(upaData.upaCode);
       cy.formController("postal_code").type(upaData.postCode);
       cy.formController("website").type(upaData.webSite);
       cy.formController("district_oid").type(upaData.district).type("{enter}");
       cy.formController("type").type(upaData.upaType).type("{enter}");
-      cy.formController("status").type(upaData.status).type("{enter}");
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(upaData.status).type("{enter}");
 
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
       cy.imsId(COMMON.CONFIRMATION.YES).click();
@@ -342,7 +342,7 @@ class ThanaCreation {
     cy.fixture(this.test_data).then((data) => {
       const upaData = data.mraAdmin.createthanaFrom;
       cy.imsId(COMMON.BUTTONS.RESET).click();
-      cy.formController("status").type(upaData.selectStatus).type("{enter}");
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(upaData.selectStatus).type("{enter}");
       cy.log(messages.ui.dropdownInactiveMessage);
     });
   }
@@ -350,7 +350,7 @@ class ThanaCreation {
   statusActiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       const upaData = data.mraAdmin.createthanaFrom;
-      cy.formController("status").type(upaData.statusSelect).type("{enter}");
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(upaData.statusSelect).type("{enter}");
       cy.log(messages.ui.dropdownActiveMessage);
     });
   }
@@ -383,7 +383,7 @@ class ThanaCreation {
     cy.fixture(this.test_data).then((data) => {
       const upaData = data.mraAdmin.createthanaFrom;
       cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
-      cy.formController("name_bn").type(upaData.nameBn);
+      cy.formController(COMMON.INPUTS.NAME_BN).type(upaData.nameBn);
       cy.imsId(COMMON.BUTTONS.RESET).click();
       cy.imsId(COMMON.BUTTONS.GO_BACK).click();
       cy.log(messages.validation.requiredField);
