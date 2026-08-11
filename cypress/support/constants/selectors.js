@@ -33,7 +33,7 @@ export const COMMON = {
     CANCEL_MULTIPLE: "btn-cancel-multiple",
     RESTORE_MULTIPLE: "btn-restore-multiple",
     RESTORE: "btn-restore-2",
-    CANCEL: "btn-cancel-2",
+    CANCEL_SAMITY: "btn-cancel-2",
     SELECT_ALLCHECKBOX: "check-select-all",
     CHECK_SAMITY: "check-samity-2",
     TURN_EDIT_MODE: "switch-button",
