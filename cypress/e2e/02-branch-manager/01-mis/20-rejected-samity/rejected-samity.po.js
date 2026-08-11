@@ -55,7 +55,7 @@ class RejectedSamity {
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
       cy.imsId(COMMON.CONFIRMATION.OK).click();
 
-      cy.log("Successfully approve samity management");
+      cy.log(messages.ui.approveSuccess);
     });
   }
 

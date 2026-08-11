@@ -30,7 +30,7 @@ class LoanDisbursement {
     GoBackButton() {
         cy.fixture(this.test_data).then((data) => {
             cy.imsId(COMMON.BUTTONS.GO_BACK).click();
-            cy.log("Successfully viewed Go Back button the Loan Disbursement list page");
+            cy.log(messages.ui.goBackSuccess);
         });
     }
 
@@ -46,9 +46,7 @@ class LoanDisbursement {
         cy.fixture(this.test_data).then((data) => {
             const laData = data.mfiAdmin.loanDisbursementFrom;
             cy.formController("office_id").type(laData.SelectOffice).type("{enter}");
-            cy.log(
-                "Loan Disbursement status office dropdown check successfully"
-            );
+            cy.log(messages.ui.officeDropdownMessage);
         });
     }
     gridResetButtonCheck() {

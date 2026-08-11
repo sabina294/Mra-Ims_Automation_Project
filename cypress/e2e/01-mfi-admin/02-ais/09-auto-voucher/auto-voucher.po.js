@@ -34,7 +34,7 @@ class AutoVoucher {
             cy.imsId(COMMON.BUTTONS.RESET).click();
             cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(avData.search);
             cy.imsId(COMMON.BUTTONS.SEARCH).click();
-            cy.log("Successfully search in the auto voucher");
+            cy.log(messages.ui.searchSuccess);
         });
     }
 

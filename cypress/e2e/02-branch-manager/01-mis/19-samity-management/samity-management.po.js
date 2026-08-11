@@ -51,20 +51,18 @@ class SamityCreation {
        const smData = data.branchManager.createSamityFrom;
       cy.imsId("menu-my-task").click();
       cy.imsId("submenu-awaiting-samity-management").click();
-      cy.log("Successfully navigate to my task menu samity management");
+      cy.log(messages.ui.actionMessage);
     });
   }
 
   myTaskResetButtonCheck() {
     cy.imsId(COMMON.BUTTONS.RESET).click();
-    cy.log("Successful clean my task displaying.");
+    cy.log(messages.ui.resetSuccess);
   }
 
   myTaskRefreshButtonCheck() {
     cy.imsId(COMMON.BUTTONS.REFRESH).click();
-    cy.log(
-      "successfully refresh page  displayed the my task list of the Samity Management form "
-    );
+    cy.log(messages.ui.refreshSuccess);
   }
 
   myTaskSearchButtonCheck() {
@@ -73,7 +71,7 @@ class SamityCreation {
       cy.imsId(COMMON.BUTTONS.RESET).click();
       cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(smData.samityNameEn);
       cy.imsId(COMMON.BUTTONS.SEARCH).click();
-      cy.log("Successful my task search button click.");
+      cy.log(messages.ui.searchSuccess);
     });
   }
 
@@ -86,7 +84,7 @@ class SamityCreation {
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
       cy.imsId(COMMON.CONFIRMATION.OK).click();
 
-      cy.log("Successfully approve samity management");
+      cy.log(messages.ui.approveSuccess);
     });
   }
 
@@ -591,18 +589,18 @@ class SamityCreation {
   gridCheckboxCheck() {
     cy.imsId("row-checkbox-2").click();
     // cy.imsId(COMMON.BUTTONS.RESET).click();
-    cy.log("Checkbox should be clickable and functional.");
+    cy.log(messages.ui.checkboxMessage);
   }
 
   gridCheckboxLockButtonCheck() {
     cy.imsId("btn-lock").click();
-    cy.log("Checkbox lock button should be clickable and functional.");
+    cy.log(messages.ui.lockSuccess);
   }
 
   gridCheckboxUnlockButtonCheck() {
     cy.imsId("row-checkbox-2").click();
     cy.imsId("btn-unlock").click();
-    cy.log("Checkbox unlock button should be clickable and functional.");
+    cy.log(messages.ui.unlockSuccess);
   }
 
   createResetButtonCheck() {

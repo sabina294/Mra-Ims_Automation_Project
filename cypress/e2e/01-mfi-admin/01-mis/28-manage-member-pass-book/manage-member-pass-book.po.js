@@ -19,7 +19,7 @@ class MemberPassbook {
       cy.formController("account_no").type(mmptData.account).type("{enter}");
       cy.wait(3000);
 
-      cy.log("Successfully member passbook details list");
+      cy.log(messages.ui.viewMessage);
     });
   }
 

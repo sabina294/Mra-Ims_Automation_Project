@@ -95,14 +95,14 @@ verifyFundTransfer() {
         cy.fixture(this.test_data).then((data) => {
             cy.imsId(COMMON.TOGGLES.ACTION).first().click();
             cy.imsId("btn-table-action-verify").click();
-            cy.log("Successfully viewed the fund  transfer page");
+            cy.log(messages.ui.viewMessage);
         });
     }
 
     verifyFundTransferGoBack() {
         cy.fixture(this.test_data).then((data) => {
             cy.imsId(COMMON.BUTTONS.GO_BACK).click();
-            cy.log("Successfully viewed the fund verify go back page");
+            cy.log(messages.ui.goBackSuccess);
         });
     }
 
@@ -128,7 +128,7 @@ verifyFundTransfer() {
             const ftData = data.branchManager.fund;
             cy.imsId(COMMON.BUTTONS.RESET).click();
             cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(ftData.search);
-            cy.log("Successfully search in the fund transfer");
+            cy.log(messages.ui.searchSuccess);
         });
     }
 

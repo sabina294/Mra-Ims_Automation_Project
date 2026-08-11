@@ -32,7 +32,7 @@ class Authorization {
         cy.fixture(this.test_data).then((data) => {
             const aData = data.mfiAdmin.authorizationFrom;
             cy.formController("office_id").type(aData.office).type("{enter}");
-            cy.log("Office dropdown should be clickable and functional.");
+            cy.log(messages.ui.officeDropdownMessage);
         })
     }
 
@@ -74,7 +74,7 @@ class Authorization {
         cy.fixture(this.test_data).then((data) => {
             const aData = data.mfiAdmin.authorizationFrom;
             cy.formController("office_id").type(aData.office).type("{enter}");
-            cy.log(" Office dropdown should be clickable and functional.");
+            cy.log(messages.ui.officeDropdownMessage);
         })
     }
 
@@ -82,7 +82,7 @@ class Authorization {
         cy.fixture(this.test_data).then((data) => {
             const aData = data.mfiAdmin.authorizationFrom;
             cy.formController("field_officer_id").type(aData.samity).type("{enter}");
-            cy.log(" Samity dropdown should be clickable and functional.");
+            cy.log(messages.ui.samityDropdownMessage);
         })
     }
 

@@ -154,13 +154,13 @@ class MemberManagementCreation {
       cy.imsId(COMMON.BUTTONS.RESET).click();
       cy.imsId(COMMON.TOGGLES.ACTION).first().click();
       cy.imsId("btn-mis-table-action-profile").click();
-      cy.log("Successfully profile viewed the member management list page");
+      cy.log(messages.ui.viewMessage);
     });
   }
 
   profileViewGoBackButton() {
     cy.imsId(COMMON.BUTTONS.GO_BACK).click();
-    cy.log("Successfully profile view go back the  member management list page");
+    cy.log(messages.ui.goBackSuccess);
   }
 
 
@@ -231,18 +231,18 @@ class MemberManagementCreation {
   gridCheckboxCheck() {
     cy.imsId("row-checkbox-7").click();
     // cy.imsId(COMMON.BUTTONS.RESET).click();
-    cy.log("Checkbox should be clickable and functional.");
+    cy.log(messages.ui.checkboxMessage);
   }
 
   gridCheckboxLockButtonCheck() {
     cy.imsId("btn-lock").click();
-    cy.log("Checkbox lock button should be clickable and functional.");
+    cy.log(messages.ui.lockSuccess);
   }
 
   gridCheckboxUnlockButtonCheck() {
     cy.imsId("row-checkbox-7").click();
     cy.imsId("btn-unlock").click();
-    cy.log("Checkbox unlock button should be clickable and functional.");
+    cy.log(messages.ui.unlockSuccess);
   }
 
   gridDraftButton() {

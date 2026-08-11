@@ -80,7 +80,7 @@ class LoanRebate {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
       cy.imsId(COMMON.BUTTONS.GO_BACK).click();
-      cy.log("Successfully go back button check.");
+      cy.log(messages.ui.goBackSuccess);
     });
   }
 
@@ -100,7 +100,7 @@ class LoanRebate {
         .contains(lrData.approveMessage)
         .and("be.visible");
       cy.imsId(COMMON.CONFIRMATION.OK).click();
-      cy.log("Successfully approved the loan rebate");
+      cy.log(messages.ui.approveSuccess);
     });
   }
 
@@ -131,18 +131,14 @@ class LoanRebate {
       const lrData = data.mfiAdmin.createLoanRebateFrom;
       cy.imsId(COMMON.BUTTONS.RESET).click();
       cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(lrData.selectStatus).type("{enter}");
-      cy.log(
-        "loan rebate status submitted dropdown check successfully"
-      );
+      cy.log(messages.ui.actionMessage);
     });
   }
   statusApprovedDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       const lrData = data.mfiAdmin.createLoanRebateFrom;
       cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(lrData.statusSelect).type("{enter}");
-      cy.log(
-        "loan rebate status approved dropdown check successfully"
-      );
+      cy.log(messages.ui.approveSuccess);
     });
   }
 
@@ -159,7 +155,7 @@ class LoanRebate {
     cy.fixture(this.test_data).then((data) => {
       const lrData = data.mfiAdmin.createLoanRebateFrom;
       cy.formController("office_id").type(lrData.office).type("{enter}");
-      cy.log("Successfully select office in the samity management");
+      cy.log(messages.ui.actionMessage);
     });
   }
 

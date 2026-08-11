@@ -315,7 +315,7 @@ class DistrictCreation {
 
   paginationCheck() {
     cy.get('[title="5"] > .ng-star-inserted').click();
-    cy.log("District pagination check successfully");
+    cy.log(messages.ui.actionMessage);
   }
 
   createResetButtonCheck() {

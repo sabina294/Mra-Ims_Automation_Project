@@ -23,7 +23,7 @@ class CurrentYearAndMonthIncomeAndExpenditureReport {
         cy.selectMenu("menu-report", "current-year-and-month-income-and-expenditure");
 
         cy.imsId(COMMON.BUTTONS.GO_BACK).click();
-        cy.log("Successful go back button check.");
+        cy.log(messages.ui.goBackSuccess);
     }
 
     gridLanguageSwitchCheck() {

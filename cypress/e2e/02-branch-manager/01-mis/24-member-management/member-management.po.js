@@ -75,20 +75,18 @@ class MemberManagementCreation {
       const memData = data.branchManager.createMemberFrom;
       cy.imsId("menu-my-task").click();
       cy.imsId("submenu-awaiting-member-management").click();
-      cy.log("Successfully navigate to my task menu member management");
+      cy.log(messages.ui.actionMessage);
     });
   }
 
   myTaskResetButtonCheck() {
     cy.imsId(COMMON.BUTTONS.RESET).click();
-    cy.log("Successful clean my task displaying.");
+    cy.log(messages.ui.resetSuccess);
   }
 
   myTaskRefreshButtonCheck() {
     cy.imsId(COMMON.BUTTONS.REFRESH).click();
-    cy.log(
-      "successfully refresh page  displayed the my task list of the Member Management form "
-    );
+    cy.log(messages.ui.refreshSuccess);
   }
 
   myTaskSearchButtonCheck() {
@@ -97,7 +95,7 @@ class MemberManagementCreation {
       cy.imsId(COMMON.BUTTONS.RESET).click();
       cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(memData.memberNameEn);
       cy.imsId(COMMON.BUTTONS.SEARCH).click();
-      cy.log("Successful my task search button click.");
+      cy.log(messages.ui.searchSuccess);
     });
   }
 
@@ -109,7 +107,7 @@ class MemberManagementCreation {
       cy.imsId(COMMON.BUTTONS.APPROVE).click();
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
       cy.imsId(COMMON.CONFIRMATION.OK).click();
-      cy.log("Successfully approved the member management ");
+      cy.log(messages.ui.approveSuccess);
     });
   }
 
@@ -141,14 +139,14 @@ class MemberManagementCreation {
       // cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(memData.memberNameEn);
       cy.imsId(COMMON.TOGGLES.ACTION).first().click();
       cy.imsId("btn-mis-table-action-profile").click();
-      cy.log("Successfully profile viewed the member management list page");
+      cy.log(messages.ui.viewMessage);
     });
   }
 
   profileViewGoBackButton() {
     cy.imsId(COMMON.BUTTONS.GO_BACK).click();
 
-    cy.log("Successfully profile view go back the  member management list page");
+    cy.log(messages.ui.goBackSuccess);
   }
 
   editResetButton() {
@@ -263,18 +261,18 @@ class MemberManagementCreation {
   gridCheckboxCheck() {
     cy.imsId("row-checkbox-9").click();
     // cy.imsId(COMMON.BUTTONS.RESET).click();
-    cy.log("Checkbox should be clickable and functional.");
+    cy.log(messages.ui.checkboxMessage);
   }
 
   gridCheckboxLockButtonCheck() {
     cy.imsId("btn-lock").click();
-    cy.log("Checkbox lock button should be clickable and functional.");
+    cy.log(messages.ui.lockSuccess);
   }
 
   gridCheckboxUnlockButtonCheck() {
     cy.imsId("row-checkbox-9").click();
     cy.imsId("btn-unlock").click();
-    cy.log("Checkbox unlock button should be clickable and functional.");
+    cy.log(messages.ui.unlockSuccess);
   }
 
   gridDraftButton() {

@@ -91,7 +91,7 @@ class RejectedEmployee {
       // ✅ Wait until modal is closed before moving on
       cy.get("nz-modal-container").should("not.exist");
 
-      cy.log("✅ Successfully rejected employee");
+      cy.log(messages.ui.rejectSuccess);
     });
   }
 

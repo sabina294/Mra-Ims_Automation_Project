@@ -19,7 +19,7 @@ class SamityClose {
       cy.imsId("btn-mis-table-action-close").click();
       cy.imsId(COMMON.CONFIRMATION.YES).click();
       cy.imsId(COMMON.CONFIRMATION.OK).click();
-      cy.log("Successfully Samity close");
+      cy.log(messages.ui.actionMessage);
     });
   }
 
@@ -28,20 +28,18 @@ class SamityClose {
       const scData = data.branchManager.samityCloseFrom;
       cy.imsId("menu-my-task").click();
       cy.imsId("submenu-awaiting-samity-close").click();
-      cy.log("Successfully navigate to my task menu samity close");
+      cy.log(messages.ui.actionMessage);
     });
   }
 
   myTaskResetButtonCheck() {
     cy.imsId(COMMON.BUTTONS.RESET).click();
-    cy.log("Successful clean my task displaying.");
+    cy.log(messages.ui.resetSuccess);
   }
 
   myTaskRefreshButtonCheck() {
     cy.imsId(COMMON.BUTTONS.REFRESH).click();
-    cy.log(
-      "successfully refresh page  displayed the my task list of the Samity day change form "
-    );
+    cy.log(messages.ui.refreshSuccess);
   }
 
   approveSamityClose() {
@@ -53,7 +51,7 @@ class SamityClose {
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
       cy.imsId(COMMON.CONFIRMATION.OK).click();
 
-      cy.log("Successfully approve samity close");
+      cy.log(messages.ui.approveSuccess);
     });
   }
 
@@ -106,7 +104,7 @@ class SamityClose {
     cy.fixture(this.test_data).then((data) => {
       const scData = data.branchManager.samityCloseFrom;
       cy.formController("office_id").type(scData.SelectOffice).type("{enter}");
-      cy.log("Samity close status office dropdown check successfully");
+      cy.log(messages.ui.officeDropdownMessage);
     });
   }
   gridResetButtonCheck() {

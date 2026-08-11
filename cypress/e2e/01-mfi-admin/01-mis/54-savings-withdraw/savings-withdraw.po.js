@@ -14,9 +14,7 @@ class SavingsWithdraw {
         cy.fixture(this.test_data).then((data) => {
             const swData = data.mfiAdmin.gridSavingsWithdraw;
             cy.formController("office_id").type(swData.selectOffice).type("{enter}");
-            cy.log(
-                "Savings Withdraw status office dropdown check successfully"
-            );
+            cy.log(messages.ui.officeDropdownMessage);
         });
     }
 

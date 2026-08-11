@@ -21,7 +21,7 @@ class TrialBalance {
         cy.fixture(this.test_data).then((data) => {
             const tbData = data.mfiAdmin.createTrialBalanceFrom;
             cy.formController("office_id").type(tbData.office);
-            cy.log("Successfully select office in the trial balance list page.");
+            cy.log(messages.ui.gridListMessage);
         });
     }
 
@@ -33,7 +33,7 @@ class TrialBalance {
 
     gridGoBackButtonCheck() {
         cy.imsId(COMMON.BUTTONS.GO_BACK).click();
-        cy.log("Successful go back button check.");
+        cy.log(messages.ui.goBackSuccess);
     }
 
 }

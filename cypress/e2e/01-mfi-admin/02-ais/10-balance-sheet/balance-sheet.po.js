@@ -21,7 +21,7 @@ class BalanceSheet {
         cy.fixture(this.test_data).then((data) => {
             const bsData = data.mfiAdmin.createBalanceSheetFrom;
             cy.formController("office_id").type(bsData.office);
-            cy.log("Successfully select office in the balance sheet list page.");
+            cy.log(messages.ui.gridListMessage);
         });
     }
 
@@ -33,7 +33,7 @@ class BalanceSheet {
 
     gridGoBackButtonCheck() {
         cy.imsId(COMMON.BUTTONS.GO_BACK).click();
-        cy.log("Successful go back button check.");
+        cy.log(messages.ui.goBackSuccess);
     }
 }
 

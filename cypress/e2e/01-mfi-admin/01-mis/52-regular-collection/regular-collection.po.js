@@ -23,9 +23,7 @@ class ReguralCollection {
         cy.fixture(this.test_data).then((data) => {
             const rcData = data.mfiAdmin.regularCollectionFrom;
             cy.formController("office_id").type(rcData.office).type("{enter}");
-            cy.log(
-                "Regular Collection status office dropdown check successfully"
-            );
+            cy.log(messages.ui.officeDropdownMessage);
         });
     }
 

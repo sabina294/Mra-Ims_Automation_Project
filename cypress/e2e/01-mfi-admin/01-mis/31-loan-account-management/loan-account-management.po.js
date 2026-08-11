@@ -64,9 +64,7 @@ class LoanAccountManagement {
     cy.fixture(this.test_data).then((data) => {
       const laData = data.mfiAdmin.loanAccountManagementFrom;
       cy.formController("samity_id").type(laData.search).type("{enter}");
-      cy.log(
-        "Loan account proposal Management status samity dropdown check successfully"
-      );
+      cy.log(messages.ui.samityDropdownMessage);
     });
   }
   gridResetButtonCheck() {

@@ -62,22 +62,20 @@ class HolidayCreation {
       const hData = data.mfiAdmin.createHoliday;
       cy.imsId("menu-my-task").click();
       cy.imsId("submenu-awaiting-holiday-approval").click();
-      cy.log("Successfully navigate to my task menu Holiday");
+      cy.log(messages.ui.actionMessage);
     });
   }
 
   myTaskResetButtonCheck() {
     cy.imsId(COMMON.BUTTONS.RESET).click();
-    cy.log("Successful clean my task displaying.");
+    cy.log(messages.ui.resetSuccess);
   }
 
   myTaskRefreshButtonCheck() {
     cy.imsId(COMMON.BUTTONS.REFRESH).click();
     // cy.imsId(COMMON.BUTTONS.RESET).click();
     // cy.imsId(COMMON.BUTTONS.REFRESH).click();
-    cy.log(
-      "successfully refresh page  displayed the my task list of the holiday "
-    );
+    cy.log(messages.ui.refreshSuccess);
   }
 
   approveHoliday() {
@@ -89,7 +87,7 @@ class HolidayCreation {
       cy.imsId(COMMON.CONFIRMATION.YES).click();
       cy.imsId(COMMON.CONFIRMATION.OK).click();
 
-      cy.log("Successfully approve Holiday ");
+      cy.log(messages.ui.approveSuccess);
     });
   }
 
@@ -99,7 +97,7 @@ class HolidayCreation {
       cy.selectMenu("menu-calendar", "submenu-holiday");
       cy.imsId(COMMON.BUTTONS.RESET).click();
       cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(hData.search);
-      cy.log("Successfully search in the Holiday form");
+      cy.log(messages.ui.searchSuccess);
     });
   }
 
@@ -140,7 +138,7 @@ class HolidayCreation {
     cy.fixture(this.test_data).then((data) => {
       const hData = data.mfiAdmin.createHoliday;
       cy.formController("office_id").type(hData.office).type("{enter}");
-      cy.log("Successfully select office in the holiday");
+      cy.log(messages.ui.actionMessage);
     });
   }
 
@@ -149,7 +147,7 @@ class HolidayCreation {
       const hData = data.mfiAdmin.createHoliday;
       cy.formController("office_id").type(hData.office);
       cy.formController("calendar_year").type(hData.calendarYear).type("{enter}");
-      cy.log("Successfully select calendar year in the holiday");
+      cy.log(messages.ui.actionMessage);
     });
   }
 

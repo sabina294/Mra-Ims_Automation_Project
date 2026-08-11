@@ -29,7 +29,7 @@ class LoanChartUpdate {
         .and("be.visible");
       cy.imsId(COMMON.CONFIRMATION.OK).click();
 
-      cy.log("Successfully updated loan classification chart");
+      cy.log(messages.ui.actionMessage);
     });
   }
 

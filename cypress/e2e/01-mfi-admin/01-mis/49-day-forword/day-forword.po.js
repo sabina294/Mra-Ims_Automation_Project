@@ -14,14 +14,14 @@ class DayForwardMis {
     cy.imsId("btn-forward").click();
     cy.imsId(COMMON.CONFIRMATION.YES).click();
     cy.imsId(COMMON.CONFIRMATION.OK).click();
-    cy.log("Successfully switch to day forward check.");
+    cy.log(messages.ui.actionMessage);
   }
 
   gridDeleteButtonCheck() {
     cy.imsId("delete-button").click();
     cy.imsId(COMMON.CONFIRMATION.YES).click();
     cy.imsId(COMMON.CONFIRMATION.OK).click();
-    cy.log("Successfully delete button check.");
+    cy.log(messages.ui.actionMessage);
   }
 
   gridLanguageSwitchCheck() {

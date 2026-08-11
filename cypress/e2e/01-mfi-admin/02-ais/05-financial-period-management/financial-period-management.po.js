@@ -93,7 +93,7 @@ class FinancialPeriodManagementCreation {
 
     goBackFinancialPeriodManagement() {
         cy.imsId(COMMON.BUTTONS.GO_BACK).click();
-        cy.log("Successfully go back the financial period management page");
+        cy.log(messages.ui.goBackSuccess);
     }
 
     statusInactiveDropdownCheck() {
@@ -119,7 +119,7 @@ class FinancialPeriodManagementCreation {
             const fpmData = data.mfiAdmin.financialPeriodManagement;
             cy.imsId(COMMON.BUTTONS.RESET).click();
             cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(fpmData.nameEn);
-            cy.log("Successfully search in the financial period management");
+            cy.log(messages.ui.searchSuccess);
         });
     }
 

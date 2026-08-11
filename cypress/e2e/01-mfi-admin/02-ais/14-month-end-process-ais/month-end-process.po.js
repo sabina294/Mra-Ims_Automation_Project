@@ -6,18 +6,18 @@ class MonthEndProcessAis {
     gridMonthEndProcessPage() {
         cy.fixture(this.test_data).then(() => {
             cy.selectMenu("menu-process", "submenu-month-end-process-ais");
-            cy.log("Successfully Month end process AIS page.");
+            cy.log(messages.ui.actionMessage);
         });
     }
 
     processPreviewButtonCheck() {
         cy.imsId("btn-preview").eq(0).click();
-        cy.log("Successful preview button check.");
+        cy.log(messages.ui.previewMessage);
     }
 
     processGoBackButtonCheck() {
         cy.imsId("go-back-button").click();
-        cy.log("Successful go back button check.");
+        cy.log(messages.ui.goBackSuccess);
     }
 
     gridLanguageSwitchCheck() {

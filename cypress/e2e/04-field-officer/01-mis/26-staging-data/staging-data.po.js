@@ -15,16 +15,14 @@ class StagingData {
         const sdData = data.fieldOfficer.gridStagingData;
         cy.formController("field_officer_id").type(sdData.selectFieldOfficer).type("{enter}");
       });
-    cy.log(
-      "successfully start process page  displayed the grid list of the select field officer form "
-    );
+    cy.log(messages.ui.gridListMessage);
   }
 
   selectSamity() {
     cy.fixture(this.test_data).then((data) => {
       const sdData = data.fieldOfficer.gridStagingData;
       cy.formController("samity_id").type(sdData.selectSamity).type("{enter}");
-      cy.log("successfully start process page  displayed the grid list of the select samity form ");
+      cy.log(messages.ui.gridListMessage);
     });
   }
 
@@ -35,7 +33,7 @@ class StagingData {
         cy.imsId(COMMON.BUTTONS.REFRESH).click();
         cy.wait(1000); // optional wait between clicks
       }
-      cy.log("Successfully clicked refresh button multiple times");
+      cy.log(messages.ui.refreshSuccess);
     });
   }
 

@@ -89,7 +89,7 @@ class RrejectedMember {
         .contains(rejmData.messageRejectedMember)
         .and("be.visible");
       cy.imsId(COMMON.CONFIRMATION.OK).click();
-      cy.log("Successfully reject the rejected member ");
+      cy.log(messages.ui.rejectSuccess);
     });
   }
 
@@ -134,7 +134,7 @@ class RrejectedMember {
       cy.formController("office_id")
         .type(rejmData.SelectOffice)
         .type("{enter}");
-      cy.log("Rejected member status office dropdown check successfully");
+      cy.log(messages.ui.rejectSuccess);
     });
   }
 
@@ -188,7 +188,7 @@ class RrejectedMember {
     cy.fixture(this.test_data).then((data) => {
       const rejmData = data.mfiAdmin.createRejectedMemberFrom;
       cy.formController("office_id").type(rejmData.office);
-      cy.log("Successfully select office in the rejected member");
+      cy.log(messages.ui.rejectSuccess);
     });
   }
 

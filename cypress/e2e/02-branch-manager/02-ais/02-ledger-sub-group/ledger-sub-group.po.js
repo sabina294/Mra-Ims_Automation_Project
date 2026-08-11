@@ -111,7 +111,7 @@ class LedgerSubGroupCreation {
 
     turnOffEditModeGoBackButtonCheck() {
         cy.imsId(COMMON.BUTTONS.GO_BACK).click();
-        cy.log("ledger sub group form Edit Mode toggled successfully");
+        cy.log(messages.ui.editMessage);
     }
 
     editButton() {
@@ -169,7 +169,7 @@ class LedgerSubGroupCreation {
             const lsgData = data.branchManager.ledgerSubGroup;
             cy.imsId(COMMON.BUTTONS.RESET).click();
             cy.formController("ledger_group").type(lsgData.ledgerGroupId);
-            cy.log("Successfully filter in the ledger sub group");
+            cy.log(messages.ui.searchSuccess);
         });
     }
 
@@ -178,7 +178,7 @@ class LedgerSubGroupCreation {
             const lsgData = data.branchManager.ledgerSubGroup;
             cy.imsId(COMMON.BUTTONS.RESET).click();
             cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(lsgData.ledgerSubGroupNameEn);
-            cy.log("Successfully search in the ledger sub group");
+            cy.log(messages.ui.searchSuccess);
         });
     }
 

@@ -61,7 +61,7 @@ class SavingsAccountManagementCreation {
       const samData = data.fieldOfficer.createSavingsAccountManagement;
       cy.imsId(COMMON.BUTTONS.RESET).click();
       cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(samData.search);
-      cy.log("Successfully search in the savings account  management form");
+      cy.log(messages.ui.searchSuccess);
     });
   }
 

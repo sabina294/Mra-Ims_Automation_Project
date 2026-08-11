@@ -435,7 +435,7 @@ class PaymentPeriodCreation {
 
   paginationCheck() {
     cy.get('[title="2"] > .ng-star-inserted').click();
-    cy.log("Payment period pagination check successfully");
+    cy.log(messages.ui.actionMessage);
   }
 
   createResetButtonCheck() {

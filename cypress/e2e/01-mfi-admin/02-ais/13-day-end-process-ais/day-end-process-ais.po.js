@@ -6,29 +6,29 @@ class DayEndProcessAis {
     gridDayEndProcessPage() {
         cy.fixture(this.test_data).then((data) => {
             cy.selectMenu("menu-process", "submenu-day-end-process-ais");
-            cy.log("Successfully Day end process AIS page.");
+            cy.log(messages.ui.actionMessage);
         });
     }
     processPreviewButtonCheck() {
         cy.imsId("btn-preview").eq(0).click();
-        cy.log("Successful preview button check.");
+        cy.log(messages.ui.previewMessage);
     }
 
     processGoBackButtonCheck() {
         cy.imsId("go-back-button").click();
-        cy.log("Successful go back button check.");
+        cy.log(messages.ui.goBackSuccess);
     }
 
     processPreviousButtonCheck() {
         cy.imsId("btn-draft-on")
             .should('exist')
             .click({ force: true });
-        cy.log("Successful previous button check.");
+        cy.log(messages.ui.previousSearchMessage);
     }
 
     processSearchButtonCheck() {
         cy.imsId("search-button").click();
-        cy.log("Successful search button check.");
+        cy.log(messages.ui.searchSuccess);
     }
 
     PreviousPreviewButtonCheck() {
@@ -37,20 +37,20 @@ class DayEndProcessAis {
             .first()
             .click();
 
-        cy.log("Successful preview button check.");
+        cy.log(messages.ui.previewMessage);
     }
 
      previousPreviewGoBackButton() {
         cy.fixture(this.test_data).then((data) => {
             cy.imsId(COMMON.BUTTONS.GO_BACK).click();
-            cy.log("Successfully day end process previous preview go back button clicked.");
+            cy.log(messages.ui.goBackSuccess);
         });
     }
 
     previousOff() {
         cy.fixture(this.test_data).then((data) => {
             cy.imsId("btn-draft-on").click();
-            cy.log("Successfully day end process previous off.");
+            cy.log(messages.ui.previousSearchMessage);
         });
     }
 

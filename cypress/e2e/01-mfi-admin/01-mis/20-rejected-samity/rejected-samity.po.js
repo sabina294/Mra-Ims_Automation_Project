@@ -57,7 +57,7 @@ class RejectedSamity {
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
       cy.imsId(COMMON.CONFIRMATION.OK).click();
 
-      cy.log("Successfully approve samity management");
+      cy.log(messages.ui.approveSuccess);
     });
   }
 
@@ -151,7 +151,7 @@ class RejectedSamity {
     cy.fixture(this.test_data).then((data) => {
       const rsData = data.mfiAdmin.rejectedSamityFrom;
       cy.formController("office_id").type(rsData.office);
-      cy.log("Successfully select office in the reject samity");
+      cy.log(messages.ui.rejectSuccess);
     });
   }
 

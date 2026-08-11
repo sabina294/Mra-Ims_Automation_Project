@@ -14,7 +14,7 @@ class StagingData {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId(COMMON.BUTTONS.REFRESH).click();
       cy.wait(2000);
-      cy.log("Successfully refresh button check");
+      cy.log(messages.ui.refreshSuccess);
     });
   }
 
@@ -23,7 +23,7 @@ class StagingData {
       const sData = data.mfiAdmin.gridStagingData;
       cy.formController("office_id").type(sData.selectOffice).type("{enter}");
       cy.wait(2000);
-      cy.log("Successfully select office dropdown check");
+      cy.log(messages.ui.officeDropdownMessage);
     });
   }
 
@@ -32,7 +32,7 @@ class StagingData {
       const sData = data.mfiAdmin.gridStagingData;
       cy.formController("samity_id").type(sData.selectSamity).type("{enter}");
       cy.wait(2000);
-      cy.log("Successfully select samity dropdown check");
+      cy.log(messages.ui.samityDropdownMessage);
     });
   }
 

@@ -472,7 +472,7 @@ class ReceivedVoucherCreation {
             cy.imsId(COMMON.BUTTONS.SUBMIT).click();
             cy.imsId(COMMON.CONFIRMATION.OK).click();
 
-            cy.log("Successfully approved received voucher");
+            cy.log(messages.ui.approveSuccess);
         });
     }
 
@@ -484,7 +484,7 @@ class ReceivedVoucherCreation {
 
     detailsViewCheck() {
         cy.imsId(COMMON.GRID.ACTION_VIEW).click();
-        cy.log("Details view button clicked successfully on the received voucher list page.");
+        cy.log(messages.ui.viewMessage);
     }
 
     viewGoBackReceivedVoucher() {
@@ -514,7 +514,7 @@ class ReceivedVoucherCreation {
             const rvData = data.branchManager.receivedVoucher;
             cy.imsId(COMMON.BUTTONS.RESET).click();
             cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(rvData.voucherNameBn);
-            cy.log("Successfully searched received voucher");
+            cy.log(messages.ui.searchSuccess);
         });
     }
 

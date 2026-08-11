@@ -23,7 +23,7 @@ class ConsolidatedFinancialStatementReport {
         cy.selectMenu("menu-report", "consolidated-financial-statement");
 
         cy.imsId(COMMON.BUTTONS.GO_BACK).click();
-        cy.log("Successful go back button check.");
+        cy.log(messages.ui.goBackSuccess);
     }
 
     gridLanguageSwitchCheck() {

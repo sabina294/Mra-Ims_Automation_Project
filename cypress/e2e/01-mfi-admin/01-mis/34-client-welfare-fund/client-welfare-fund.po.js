@@ -41,27 +41,25 @@ class ClientWelfareFund {
       const wfData = data.mfiAdmin.createClientWelfareFrom;
       cy.imsId("menu-my-task").click();
       cy.imsId("submenu-awaiting-client-welfare-fund").click();
-      cy.log("Successfully navigate to my task menu client welfare fund");
+      cy.log(messages.ui.actionMessage);
     });
   }
 
   myTaskResetButtonCheck() {
     cy.imsId(COMMON.BUTTONS.RESET).click();
-    cy.log("Successful clean my task displaying.");
+    cy.log(messages.ui.resetSuccess);
   }
 
   myTaskRefreshButtonCheck() {
     cy.imsId(COMMON.BUTTONS.REFRESH).click();
-    cy.log(
-      "successfully refresh page  displayed the my task list of the client welfare fund "
-    );
+    cy.log(messages.ui.refreshSuccess);
   }
 
    myTaskOfficeDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       const wfData = data.mfiAdmin.approveClientWelfareFundFrom;
       cy.formController("office_id").type(wfData.OfficeDropdown).type("{enter}");
-      cy.log("Successfully navigate to my task menu client welfare fund office dropdown");
+      cy.log(messages.ui.officeDropdownMessage);
     });
   }
 
@@ -75,7 +73,7 @@ class ClientWelfareFund {
       cy.imsId("btn-authorize").click();
       cy.imsId(COMMON.CONFIRMATION.YES).click();
       cy.imsId(COMMON.CONFIRMATION.OK).click();
-      cy.log("Successfully approved the loan welfare fund");
+      cy.log(messages.ui.approveSuccess);
     });
   }
 

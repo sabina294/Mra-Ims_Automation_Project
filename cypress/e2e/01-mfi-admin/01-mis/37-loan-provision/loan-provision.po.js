@@ -12,23 +12,23 @@ class LoanProvision {
 
   provisionSubmitButton() {
     cy.imsId(COMMON.BUTTONS.SUBMIT).click();
-    cy.log("Successful submit button working.");
+    cy.log(messages.form.submitSuccess);
   }
 
   provisionNoButton() {
     cy.imsId(COMMON.CONFIRMATION.NO).click();
-    cy.log("Successful no button working.");
+    cy.log(messages.ui.actionMessage);
   }
 
   provisionYesButton() {
     cy.imsId(COMMON.BUTTONS.SUBMIT).click();
     cy.imsId(COMMON.CONFIRMATION.YES).click();
-    cy.log("Successful yes button working.");
+    cy.log(messages.ui.actionMessage);
   }
 
   provisionOkButton() {
     cy.imsId(COMMON.CONFIRMATION.OK).click();
-    cy.log("Successful ok button working.");
+    cy.log(messages.ui.actionMessage);
   }
 
   gridLanguageSwitchCheck() {

@@ -31,9 +31,7 @@ class MemberAttendance {
             cy.formController("office_id").type(matData.SelectOffice).type("{enter}");
             cy.imsId(COMMON.BUTTONS.RESET).click();
 
-            cy.log(
-                "Member attendance status office dropdown check successfully"
-            );
+            cy.log(messages.ui.officeDropdownMessage);
         });
     }
     gridResetButtonCheck() {

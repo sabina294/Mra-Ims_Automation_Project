@@ -64,7 +64,7 @@ class HolidayCreation {
       cy.imsId(COMMON.CONFIRMATION.YES).click();
       cy.imsId(COMMON.CONFIRMATION.OK).click();
 
-      cy.log("Successfully approve Holiday ");
+      cy.log(messages.ui.approveSuccess);
     });
   }
 
@@ -75,7 +75,7 @@ class HolidayCreation {
       cy.selectMenu1("submenu-holiday");
       cy.imsId(COMMON.BUTTONS.RESET).click();
       cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(hData.search);
-      cy.log("Successfully search in the Holiday form");
+      cy.log(messages.ui.searchSuccess);
     });
   }
 
@@ -84,7 +84,7 @@ class HolidayCreation {
       const hData = data.branchManager.createHoliday;
       cy.imsId(COMMON.BUTTONS.RESET).click();
       cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(hData.calendarYear);
-      cy.log("Successfully search in the Holiday form");
+      cy.log(messages.ui.searchSuccess);
     });
   }
 

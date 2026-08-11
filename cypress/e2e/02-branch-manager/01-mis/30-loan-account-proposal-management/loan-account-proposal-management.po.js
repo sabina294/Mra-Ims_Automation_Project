@@ -297,7 +297,7 @@ viewSchedulesCancelButtonCheck() {
        const lapData = data.branchManager.createLoanAccountFrom;
       cy.imsId("menu-my-task").click();
       cy.imsId("submenu-awaiting-loan-account-proposal").click();
-      cy.log("Successfully navigate to my task menu loan account proposal management");
+      cy.log(messages.ui.actionMessage);
     });
   }
 
@@ -306,20 +306,18 @@ viewSchedulesCancelButtonCheck() {
        const lapData = data.branchManager.approveLoanAccountFrom;
       cy.formController("samity_id").type(lapData.SamityDropdown).type("{enter}");
 
-      cy.log("Successfully navigate to my task menu loan account proposal management samity dropdown");
+      cy.log(messages.ui.samityDropdownMessage);
     });
   }
 
   myTaskResetButtonCheck() {
     cy.imsId(COMMON.BUTTONS.RESET).click();
-    cy.log("Successful clean my task displaying.");
+    cy.log(messages.ui.resetSuccess);
   }
 
   myTaskRefreshButtonCheck() {
     cy.imsId(COMMON.BUTTONS.REFRESH).click();
-    cy.log(
-      "successfully refresh page  displayed the my task list of the loan account proposal management "
-    );
+    cy.log(messages.ui.refreshSuccess);
   }
 
   approveLoanAccountProposal() {
@@ -333,7 +331,7 @@ viewSchedulesCancelButtonCheck() {
       cy.imsId(COMMON.BUTTONS.APPROVE).eq(1).click();
       cy.imsId(COMMON.CONFIRMATION.YES).click();
       cy.imsId(COMMON.CONFIRMATION.OK).click();
-      cy.log("Successfully approve loan account proposal management");
+      cy.log(messages.ui.approveSuccess);
     });
   }
 
@@ -368,9 +366,7 @@ viewSchedulesCancelButtonCheck() {
       const lapData = data.branchManager.createLoanAccountFrom;
       cy.imsId(COMMON.BUTTONS.RESET).click();
       cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(lapData.selectStatus).type("{enter}");
-      cy.log(
-        "Loan account proposal Management status approve dropdown check successfully"
-      );
+      cy.log(messages.ui.approveSuccess);
     });
   }
 
@@ -378,9 +374,7 @@ viewSchedulesCancelButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
       const lapData = data.branchManager.createLoanAccountFrom;
       cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(lapData.statusSelect).type("{enter}");
-      cy.log(
-        "Loan account proposal Management status rejected dropdown check successfully"
-      );
+      cy.log(messages.ui.rejectSuccess);
     });
   }
   searchInLoanAccountProposalName() {

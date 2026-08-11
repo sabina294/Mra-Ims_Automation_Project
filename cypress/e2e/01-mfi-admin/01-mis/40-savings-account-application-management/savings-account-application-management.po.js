@@ -155,7 +155,7 @@ class SavingsAccApplicationManagementCreation {
       const saamData = data.mfiAdmin.createSavingsAccApplicationMang;
          cy.imsId("menu-my-task").click();
       cy.imsId("submenu-awaiting-savings-account-proposal").click();
-      cy.log("Successfully navigate to my task menu savings account application management");
+      cy.log(messages.ui.actionMessage);
     });
   }
 
@@ -163,20 +163,18 @@ class SavingsAccApplicationManagementCreation {
     cy.fixture(this.test_data).then((data) => {
       const saamData = data.mfiAdmin.approveSavingsAccountFrom;
       cy.formController("office_id").type(saamData.office).type("{enter}");
-      cy.log("Successfully navigate to my task menu savings account application management office dropdown");
+      cy.log(messages.ui.officeDropdownMessage);
     });
   }
 
   myTaskResetButtonCheck() {
     cy.imsId(COMMON.BUTTONS.RESET).click();
-    cy.log("Successful clean my task displaying.");
+    cy.log(messages.ui.resetSuccess);
   }
 
   myTaskRefreshButtonCheck() {
     cy.imsId(COMMON.BUTTONS.REFRESH).click();
-    cy.log(
-      "successfully refresh page  displayed the my task list of the savings account application management "
-    );
+    cy.log(messages.ui.refreshSuccess);
   }
 
   approvesavingsAccount() {
@@ -191,7 +189,7 @@ class SavingsAccApplicationManagementCreation {
       cy.imsId(COMMON.CONFIRMATION.YES).click();
       cy.imsId(COMMON.CONFIRMATION.OK).click();
 
-      cy.log("Successfully approve savings account application management");
+      cy.log(messages.ui.approveSuccess);
     });
   }
 
@@ -227,9 +225,7 @@ class SavingsAccApplicationManagementCreation {
       const saamData = data.mfiAdmin.createSavingsAccApplicationMang;
       cy.imsId(COMMON.BUTTONS.RESET).click();
       cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(saamData.selectStatus).type("{enter}");
-      cy.log(
-        "Savings account application management form status approved dropdown check successfully"
-      );
+      cy.log(messages.ui.approveSuccess);
     });
   }
 
@@ -238,9 +234,7 @@ class SavingsAccApplicationManagementCreation {
       const saamData = data.mfiAdmin.createSavingsAccApplicationMang;
       cy.imsId(COMMON.BUTTONS.RESET).click();
       cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(saamData.statusSelect).type("{enter}");
-      cy.log(
-        "Savings account application management form status rejected dropdown check successfully"
-      );
+      cy.log(messages.ui.rejectSuccess);
     });
   }
 
@@ -249,9 +243,7 @@ class SavingsAccApplicationManagementCreation {
       const saamData = data.mfiAdmin.createSavingsAccApplicationMang;
       cy.imsId(COMMON.BUTTONS.RESET).click();
       cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(saamData.search);
-      cy.log(
-        "Successfully search in the savings account application management form"
-      );
+      cy.log(messages.ui.searchSuccess);
     });
   }
 

@@ -42,9 +42,7 @@ class SavingsAccountManagementCreation {
       const samData = data.mfiAdmin.createSavingsAccountManagement;
       cy.imsId(COMMON.BUTTONS.RESET).click();
       cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(samData.selectStatus).type("{enter}");
-      cy.log(
-        "Savings account  management form status approved dropdown check successfully"
-      );
+      cy.log(messages.ui.approveSuccess);
     });
   }
 
@@ -53,9 +51,7 @@ class SavingsAccountManagementCreation {
       const samData = data.mfiAdmin.createSavingsAccountManagement;
       cy.imsId(COMMON.BUTTONS.RESET).click();
       cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(samData.statusSelect).type("{enter}");
-      cy.log(
-        "Savings account management form status rejected dropdown check successfully"
-      );
+      cy.log(messages.ui.rejectSuccess);
     });
   }
 
@@ -63,9 +59,7 @@ class SavingsAccountManagementCreation {
     cy.fixture(this.test_data).then((data) => {
       const samData = data.mfiAdmin.createSavingsAccountManagement;
       cy.formController("office_id").type(samData.selectOffice).type("{enter}");
-      cy.log(
-        "Savings account management status office dropdown check successfully"
-      );
+      cy.log(messages.ui.officeDropdownMessage);
     });
   }
 
@@ -74,7 +68,7 @@ class SavingsAccountManagementCreation {
       const samData = data.mfiAdmin.createSavingsAccountManagement;
       cy.imsId(COMMON.BUTTONS.RESET).click();
       cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(samData.search);
-      cy.log("Successfully search in the savings account  management form");
+      cy.log(messages.ui.searchSuccess);
     });
   }
 

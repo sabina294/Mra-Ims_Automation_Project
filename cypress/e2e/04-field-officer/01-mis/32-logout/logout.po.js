@@ -4,7 +4,7 @@ class LogoutPage {
   logout() {
     cy.imsId(COMMON.BUTTONS.PROFILE).click();
     cy.imsId("btn-logout").click();
-    cy.log("Successfully logged out");
+    cy.log(messages.ui.actionMessage);
   }
 
   gridLanguageSwitchCheck() {

@@ -92,7 +92,7 @@ class LoanAccountProposalManagementCreation {
       const lapData = data.mfiAdmin.createLoanAccountFrom;
       cy.imsId("menu-my-task").click();
       cy.imsId("submenu-awaiting-loan-account-proposal").click();
-      cy.log("Successfully navigate to my task menu loan account proposal management");
+      cy.log(messages.ui.actionMessage);
     });
   }
 
@@ -100,20 +100,18 @@ class LoanAccountProposalManagementCreation {
     cy.fixture(this.test_data).then((data) => {
       const lapData = data.mfiAdmin.approveLoanAccountFrom;
       cy.formController("office_id").type(lapData.OfficeDropdown).type("{enter}");
-      cy.log("Successfully navigate to my task menu loan account proposal management office dropdown");
+      cy.log(messages.ui.officeDropdownMessage);
     });
   }
 
   myTaskResetButtonCheck() {
     cy.imsId(COMMON.BUTTONS.RESET).click();
-    cy.log("Successful clean my task displaying.");
+    cy.log(messages.ui.resetSuccess);
   }
 
   myTaskRefreshButtonCheck() {
     cy.imsId(COMMON.BUTTONS.REFRESH).click();
-    cy.log(
-      "successfully refresh page  displayed the my task list of the loan account proposal management "
-    );
+    cy.log(messages.ui.refreshSuccess);
   }
 
   approveLoanAccountProposal() {
@@ -126,7 +124,7 @@ class LoanAccountProposalManagementCreation {
       cy.imsId(COMMON.BUTTONS.APPROVE).eq(1).click();
       cy.imsId(COMMON.CONFIRMATION.YES).first().click();
       cy.imsId(COMMON.CONFIRMATION.OK).click();
-      cy.log("Successfully approved loan account proposal");
+      cy.log(messages.ui.approveSuccess);
     });
   }
 
@@ -473,9 +471,7 @@ class LoanAccountProposalManagementCreation {
     cy.fixture(this.test_data).then((data) => {
       const lapData = data.mfiAdmin.createLoanAccountFrom;
       cy.formController("office_id").type(lapData.SelectOffice).type("{enter}");
-      cy.log(
-        "Loan account proposal Management status office dropdown check successfully"
-      );
+      cy.log(messages.ui.officeDropdownMessage);
     });
   }
 
@@ -527,7 +523,7 @@ class LoanAccountProposalManagementCreation {
       cy.wait(1000);
       cy.imsId(COMMON.CONFIRMATION.OK).click();
 
-      cy.log("Successfully draft loan account proposal management");
+      cy.log(messages.ui.actionMessage);
     });
   }
 

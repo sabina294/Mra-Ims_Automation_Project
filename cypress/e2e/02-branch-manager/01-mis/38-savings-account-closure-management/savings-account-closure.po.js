@@ -45,7 +45,7 @@ class SavingsAccountClosure {
             cy.imsId(COMMON.BUTTONS.RESET).click();
             cy.formController(COMMON.INPUTS.SEARCH_TEXT).clear().type(sacmData.search);
 
-            cy.log("Savings Account Closure search completed successfully.");
+            cy.log(messages.ui.searchSuccess);
         });
     }
 

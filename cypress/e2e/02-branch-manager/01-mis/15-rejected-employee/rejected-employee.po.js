@@ -100,7 +100,7 @@ class RejectedEmployee {
       // ✅ Wait until modal is closed before moving on
       cy.imsId(COMMON.CONFIRMATION.OK).click();
 
-      cy.log("✅ Successfully rejected employee");
+      cy.log(messages.ui.rejectSuccess);
     });
   }
 

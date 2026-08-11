@@ -23,9 +23,7 @@ class SpecialCollection {
         cy.fixture(this.test_data).then((data) => {
             const scData = data.mfiAdmin.specialCollectionFrom;
             cy.formController("office_id").type(scData.office).type("{enter}");
-            cy.log(
-                "Special Collection status office dropdown check successfully"
-            );
+            cy.log(messages.ui.officeDropdownMessage);
         });
     }
      gridHistoryButtonOnCheck() {

@@ -42,7 +42,7 @@ class ClientWelfareFund {
       cy.imsId("btn-authorize").click();
       cy.imsId(COMMON.CONFIRMATION.YES).click();
       cy.imsId(COMMON.CONFIRMATION.OK).click();
-      cy.log("Successfully approved the loan welfare fund");
+      cy.log(messages.ui.approveSuccess);
     });
   }
 

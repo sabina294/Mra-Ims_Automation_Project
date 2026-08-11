@@ -23,7 +23,7 @@ class CurrentYearAndMonthIncomeAndExpenditureReport {
         cy.contains('.ant-picker-cell-inner', 'Feb')
             .should('be.visible')
             .click({ force: true });
-        cy.log("Successful view report button check.");
+        cy.log(messages.ui.viewMessage);
     }
 
 
@@ -35,7 +35,7 @@ class CurrentYearAndMonthIncomeAndExpenditureReport {
 
     gridGoBackButtonCheck() {
         cy.imsId(COMMON.BUTTONS.GO_BACK).click();
-        cy.log("Successful go back button check.");
+        cy.log(messages.ui.goBackSuccess);
     }
 
     gridLanguageSwitchCheck() {

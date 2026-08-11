@@ -37,7 +37,7 @@ class EmployeeTermination {
 
         cy.imsId(COMMON.BUTTONS.GO_BACK).click();
 
-        cy.log("Successful termination go back button check.");
+        cy.log(messages.ui.goBackSuccess);
     }
 
     myTaskMenuEmployeeTermination() {
@@ -45,20 +45,18 @@ class EmployeeTermination {
             const etData = data.mfiAdmin.gridEmpTerminationFrom;
             cy.imsId("menu-my-task").click();
             cy.imsId("submenu-awaiting-employee-termination").click();
-            cy.log("Successfully navigate to my task menu employee termination");
+            cy.log(messages.ui.actionMessage);
         });
     }
 
     myTaskResetButtonCheck() {
         cy.imsId(COMMON.BUTTONS.RESET).click();
-        cy.log("Successful clean my task displaying.");
+        cy.log(messages.ui.resetSuccess);
     }
 
     myTaskRefreshButtonCheck() {
         cy.imsId(COMMON.BUTTONS.REFRESH).click();
-        cy.log(
-            "successfully refresh page  displayed the my task list of the Employee termination form "
-        );
+        cy.log(messages.ui.refreshSuccess);
     }
 
     myTaskOfficeDropdownCheck() {
@@ -66,9 +64,7 @@ class EmployeeTermination {
             const etData = data.mfiAdmin.approveEmployeeTerminationFrom;
             cy.formController("office_id").type(etData.OfficeDropdown).type("{enter}");
             cy.imsId(COMMON.BUTTONS.RESET).click();
-            cy.log(
-                "Employee Termination form office dropdown check successfully"
-            );
+            cy.log(messages.ui.officeDropdownMessage);
         });
     }
 
@@ -79,7 +75,7 @@ class EmployeeTermination {
         cy.imsId(COMMON.BUTTONS.APPROVE).click();
         cy.imsId(COMMON.BUTTONS.SUBMIT).click();
         cy.imsId(COMMON.CONFIRMATION.OK).click();
-        cy.log("Successfully approved employee termination");
+        cy.log(messages.ui.approveSuccess);
     }
 
      gridOfficeDropdownCheck() {
@@ -87,9 +83,7 @@ class EmployeeTermination {
             const etData = data.mfiAdmin.gridEmpTerminationFrom;
             cy.formController("office_id").type(etData.officeDropdown).type("{enter}");
             cy.imsId(COMMON.BUTTONS.RESET).click();
-            cy.log(
-                "Employee termination form office dropdown check successfully"
-            );
+            cy.log(messages.ui.officeDropdownMessage);
         });
     }
     

@@ -38,22 +38,20 @@ class CalendarYearCreation {
       const cyData = data.mfiAdmin.createCalendarYear;
       cy.imsId("menu-my-task").click();
       cy.imsId("submenu-awaiting-calendar-year").click();
-      cy.log("Successfully navigate to my task menu Calendar Year");
+      cy.log(messages.ui.actionMessage);
     });
   }
  
   myTaskResetButtonCheck() {
     cy.imsId(COMMON.BUTTONS.RESET).click();
-    cy.log("Successful clean my task displaying.");
+    cy.log(messages.ui.resetSuccess);
   }
 
    myTaskRefreshButtonCheck() {
     cy.imsId(COMMON.BUTTONS.REFRESH).click();
     // cy.imsId(COMMON.BUTTONS.RESET).click();
     // cy.imsId(COMMON.BUTTONS.REFRESH).click();
-    cy.log(
-      "successfully refresh page  displayed the my task list of the calendar year "
-    );
+    cy.log(messages.ui.refreshSuccess);
   }
 
   approveCalendare() {
@@ -64,7 +62,7 @@ class CalendarYearCreation {
     cy.imsId(COMMON.CONFIRMATION.YES).click();
     cy.wait(10000);
     cy.imsId(COMMON.CONFIRMATION.OK).click();
-    cy.log("Successfully approve Calendar Year ");
+    cy.log(messages.ui.approveSuccess);
   }
 
   actionButtonCheck() {
@@ -97,7 +95,7 @@ class CalendarYearCreation {
       const cyData = data.mfiAdmin.createCalendarYear;
       cy.imsId(COMMON.BUTTONS.RESET).click();
       cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(cyData.search);
-      cy.log("Successfully search in the Calendar Year form");
+      cy.log(messages.ui.searchSuccess);
     });
   }
 
@@ -129,9 +127,7 @@ class CalendarYearCreation {
     cy.fixture(this.test_data).then((data) => {
       const cyData = data.mfiAdmin.createCalendarYear;
       cy.formController("office_id").type(cyData.selectOffice).type("{enter}");
-      cy.log(
-        "Calendar year status office dropdown check successfully"
-      );
+      cy.log(messages.ui.officeDropdownMessage);
     });
   }
 

@@ -14,7 +14,7 @@ class CalendarManagementCreation {
     cy.fixture(this.test_data).then((data) => {
       const cmData = data.mfiAdmin.gridCalendarManagement;
       cy.formController("office_id").type(cmData.office).type("{enter}");
-      cy.log("Successfully Calendar management office dropdown page.");
+      cy.log(messages.ui.officeDropdownMessage);
     });
   }
 
@@ -22,7 +22,7 @@ class CalendarManagementCreation {
     cy.fixture(this.test_data).then((data) => {
       const cmData = data.mfiAdmin.gridCalendarManagement;
       cy.formController("calendar_year").clear().type(cmData.year);
-      cy.log("Successful year selected");
+      cy.log(messages.ui.actionMessage);
     });
   }
 

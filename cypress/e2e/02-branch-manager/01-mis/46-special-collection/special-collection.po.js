@@ -34,7 +34,7 @@ class specialCollection {
             cy.imsId(COMMON.CONFIRMATION.YES).click();
             cy.imsId(COMMON.CONFIRMATION.OK).click();
 
-            cy.log("Successfully deleted new special collection");
+            cy.log(messages.ui.actionMessage);
         });
     }
 
@@ -109,12 +109,12 @@ class specialCollection {
     actionSpecialSubmit() {
         cy.imsId(COMMON.TOGGLES.ACTION).first().click();
         cy.imsId("btn-table-action-submit").click();
-        cy.log("successfully on the action submit button check.");
+        cy.log(messages.form.submitSuccess);
     }
 
     actionSpecialGoBack() {
         cy.imsId(COMMON.BUTTONS.GO_BACK).click();
-        cy.log("successfully on the action submit button check.");
+        cy.log(messages.form.submitSuccess);
     }
 
     specialSubmit() {
@@ -123,7 +123,7 @@ class specialCollection {
         cy.imsId(COMMON.BUTTONS.SUBMIT).click();
         cy.imsId(COMMON.CONFIRMATION.YES).click();
         cy.imsId(COMMON.CONFIRMATION.OK).click();
-        cy.log("successfully on the action submit button check.");
+        cy.log(messages.form.submitSuccess);
     }
 
     viewUnsubmitted() {
@@ -143,7 +143,7 @@ class specialCollection {
             const scData = data.branchManager.specialCollection;
             cy.imsId(COMMON.TOGGLES.ACTION).first().click();
             cy.imsId("btn-table-action-unsubmit").click();
-            cy.log("Successfully grid unsubmitted the Special Collection list page");
+            cy.log(messages.form.submitSuccess);
         });
     }
 
@@ -151,7 +151,7 @@ class specialCollection {
         cy.fixture(this.test_data).then((data) => {
             const scData = data.branchManager.specialCollection;
             cy.imsId(COMMON.BUTTONS.GO_BACK).click();
-            cy.log("Successfully viewed go back the Special Collection list page");
+            cy.log(messages.ui.goBackSuccess);
         });
     }
 
@@ -163,7 +163,7 @@ class specialCollection {
             cy.imsId("btn-unsubmit").click();
             cy.imsId(COMMON.CONFIRMATION.YES).click();
             cy.imsId(COMMON.CONFIRMATION.OK).click();
-            cy.log("Successfully unsubmitted the Special Collection list page");
+            cy.log(messages.form.submitSuccess);
         });
     }
 
@@ -173,7 +173,7 @@ class specialCollection {
         cy.imsId(COMMON.BUTTONS.SUBMIT).click();
         cy.imsId(COMMON.CONFIRMATION.YES).click();
         cy.imsId(COMMON.CONFIRMATION.OK).click();
-        cy.log("successfully on the again submit special collection.");
+        cy.log(messages.form.submitSuccess);
     }
 
     
@@ -199,9 +199,7 @@ class specialCollection {
         cy.fixture(this.test_data).then((data) => {
             const scData = data.branchManager.specialCollection;
             cy.formController("field_officer_id").type(scData.fieldOfficer).type("{enter}");
-            cy.log(
-                "successfully field officer dropdown displayed the grid list of the special collection "
-            );
+            cy.log(messages.ui.fieldOfficerDropdownMessage);
         })
     }
 
@@ -215,9 +213,7 @@ class specialCollection {
         cy.fixture(this.test_data).then((data) => {
             const scData = data.branchManager.specialCollection;
             cy.formController("field_officer_id").type(scData.fieldOfficer).type("{enter}");
-            cy.log(
-                "successfully field officer dropdown displayed the grid list of the special collection "
-            );
+            cy.log(messages.ui.fieldOfficerDropdownMessage);
         })
     }
 
@@ -225,9 +221,7 @@ class specialCollection {
         cy.fixture(this.test_data).then((data) => {
             const scData = data.branchManager.specialCollection;
             cy.formController("staging_samity_id").type(scData.Samity).type("{enter}");
-            cy.log(
-                "successfully samity dropdown displayed the grid list of the special collection "
-            );
+            cy.log(messages.ui.samityDropdownMessage);
         })
     }
 

@@ -21,7 +21,7 @@ class GeneralLedger {
         cy.fixture(this.test_data).then((data) => {
             const glData = data.mfiAdmin.createGeneralLedgerFrom;
             cy.formController("office_id").type(glData.office);
-            cy.log("Successfully select office in the general ledger list page.");
+            cy.log(messages.ui.gridListMessage);
         });
     }
 
@@ -33,7 +33,7 @@ class GeneralLedger {
 
     gridGoBackButtonCheck() {
         cy.imsId(COMMON.BUTTONS.GO_BACK).click();
-        cy.log("Successful go back button check.");
+        cy.log(messages.ui.goBackSuccess);
     }
 
 

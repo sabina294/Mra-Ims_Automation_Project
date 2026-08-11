@@ -29,7 +29,7 @@ class MemberSamityTransfer {
         .contains(mstData.messagesamityTransfer)
         .and("be.visible");
       cy.imsId(COMMON.CONFIRMATION.OK).click();
-      cy.log("Successfully member samity transfer");
+      cy.log(messages.ui.actionMessage);
     });
   }
 
@@ -38,7 +38,7 @@ class MemberSamityTransfer {
       const mstData = data.mfiAdmin.memberSamityTransferFrom;
       cy.imsId("menu-my-task").click();
       cy.imsId("submenu-awaiting-member-samity-transfer").click();
-      cy.log("Successfully navigate to my task menu member samity transfer");
+      cy.log(messages.ui.actionMessage);
     });
   }
 
@@ -46,20 +46,18 @@ class MemberSamityTransfer {
     cy.fixture(this.test_data).then((data) => {
       const mstData = data.mfiAdmin.approveMemberSamityTransferFrom;
       cy.formController("office_id").type(mstData.OfficeDropdown).type("{enter}");
-      cy.log("Successfully navigate to my task menu member samity transfer office dropdown");
+      cy.log(messages.ui.officeDropdownMessage);
     });
   }
 
   myTaskResetButtonCheck() {
     cy.imsId(COMMON.BUTTONS.RESET).click();
-    cy.log("Successful clean my task displaying.");
+    cy.log(messages.ui.resetSuccess);
   }
 
   myTaskRefreshButtonCheck() {
     cy.imsId(COMMON.BUTTONS.REFRESH).click();
-    cy.log(
-      "successfully refresh page  displayed the my task list of the member samity transfer form "
-    );
+    cy.log(messages.ui.refreshSuccess);
   }
 
   transferApprove() {
@@ -71,7 +69,7 @@ class MemberSamityTransfer {
       cy.imsId(COMMON.BUTTONS.APPROVE).click();
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
       cy.imsId(COMMON.CONFIRMATION.OK).click();
-      cy.log("Successfully approved the member samity transfer ");
+      cy.log(messages.ui.approveSuccess);
     });
   }
 
@@ -98,33 +96,33 @@ class MemberSamityTransfer {
     cy.imsId(COMMON.TOGGLES.ACTION).first().click();
     cy.imsId("btn-mis-table-action-transfer").click();
     cy.imsId(COMMON.BUTTONS.RESET).click();
-    cy.log("Successfully member samity transfer reset button check");
+    cy.log(messages.ui.resetSuccess);
 
   }
 
   transferSubmitButtonCheck() {
     cy.imsId(COMMON.BUTTONS.SUBMIT).click();
     cy.imsId(COMMON.CONFIRMATION.OK).click();
-    cy.log("Successfully member samity transfer submit button check");
+    cy.log(messages.form.submitSuccess);
   }
 
   transferApproveButtonCheck() {
     cy.imsId(COMMON.BUTTONS.APPROVE).click();
     cy.imsId(COMMON.CONFIRMATION.OK).click();
-    cy.log("Successfully member samity transfer approve button check");
+    cy.log(messages.ui.approveSuccess);
 
   }
 
   newSamityChangeName() {
     cy.imsId(COMMON.BUTTONS.SUBMIT).click();
     cy.imsId(COMMON.CONFIRMATION.OK).click();
-    cy.log("Successfully member samity transfer approve button check");
+    cy.log(messages.ui.approveSuccess);
 
   }
 
   transferGoBackButtonCheck() {
     cy.imsId(COMMON.BUTTONS.GO_BACK).click();
-    cy.log("Successfully member samity transfer go back button check");
+    cy.log(messages.ui.goBackSuccess);
 
   }
 
@@ -159,9 +157,7 @@ class MemberSamityTransfer {
     cy.fixture(this.test_data).then((data) => {
       const mstData = data.mfiAdmin.memberSamityTransferFrom;
       cy.formController("office_id").type(mstData.SelectOffice).type("{enter}");
-      cy.log(
-        "samity field officer change status office dropdown check successfully"
-      );
+      cy.log(messages.ui.fieldOfficerDropdownMessage);
     });
   }
   gridResetButtonCheck() {

@@ -103,16 +103,14 @@ class RejectedEmployee {
       // ✅ Wait until modal is closed before moving on
       cy.imsId(COMMON.CONFIRMATION.OK).click();
 
-      cy.log("✅ Successfully rejected employee");
+      cy.log(messages.ui.rejectSuccess);
     });
   }
 
   actionButtonCheck() {
     cy.selectMenu("menu-employee", "submenu-rejected-employee");
     cy.imsId(COMMON.TOGGLES.ACTION).first().click();
-    cy.log(
-      messages.ui.actionMessage
-    );
+    cy.log(messages.ui.actionMessage);
   }
 
   viewEmployeeManagement() {
@@ -174,12 +172,11 @@ class RejectedEmployee {
       const reData = data.mfiAdmin.rejectedEmployeeFrom;
       cy.formController("office_id").type(reData.officeDropdown).type("{enter}");
       cy.imsId(COMMON.BUTTONS.RESET).click();
-      cy.log(
-        "Rejected Employee form office dropdown check successfully"
-      );
+      cy.log(messages.ui.gridOfficeDisplayed);
+
     });
   }
-  
+
   searchInEmployeeName() {
     cy.fixture(this.test_data).then((data) => {
       const reData = data.mfiAdmin.rejectedEmployeeFrom;

@@ -32,7 +32,7 @@ class FeeCollection {
             cy.imsId(COMMON.CONFIRMATION.YES).eq(0).click();
             cy.imsId(COMMON.CONFIRMATION.YES).eq(1).click();
             cy.imsId(COMMON.CONFIRMATION.OK).click();
-            cy.log("Successfully created new fee collection.");
+            cy.log(messages.ui.actionMessage);
         });
     }
 
@@ -61,7 +61,7 @@ class FeeCollection {
     actionEditMode() {
         cy.imsId(COMMON.TOGGLES.ACTION).first().click();
         cy.imsId(COMMON.GRID.ACTION_EDIT).click();
-        cy.log("Fee collection form Edit Mode successfully");
+        cy.log(messages.ui.editMessage);
     }
 
     editResetButton() {

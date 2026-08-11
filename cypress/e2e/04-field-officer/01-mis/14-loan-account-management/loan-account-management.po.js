@@ -73,7 +73,7 @@ class LoanAccountManagement {
       const laData = data.fieldOfficer.loanAccountManagementFrom;
       cy.imsId(COMMON.BUTTONS.RESET).click();
       cy.formController("samity_id").type(laData.samity);
-      cy.log("Successfully samity dropdown in the Loan account proposal Management");
+      cy.log(messages.ui.samityDropdownMessage);
     });
   }
 

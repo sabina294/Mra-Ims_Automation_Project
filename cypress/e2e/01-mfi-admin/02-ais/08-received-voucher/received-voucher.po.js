@@ -465,22 +465,20 @@ class ReceivedVoucherCreation {
             const rvData = data.mfiAdmin.receivedVoucher;
              cy.imsId("menu-my-task").click();
             cy.imsId("submenu-awaiting-received-voucher").click();
-            cy.log("Successfully navigate to my task menu Received voucher");
+            cy.log(messages.ui.actionMessage);
         });
     }
 
     myTaskResetButtonCheck() {
         cy.imsId(COMMON.BUTTONS.RESET).click();
-        cy.log("Successful clean my task displaying.");
+        cy.log(messages.ui.resetSuccess);
     }
 
     myTaskRefreshButtonCheck() {
         cy.imsId(COMMON.BUTTONS.REFRESH).click();
         // cy.imsId(COMMON.BUTTONS.RESET).click();
         // cy.imsId(COMMON.BUTTONS.REFRESH).click();
-        cy.log(
-            "successfully refresh page  displayed the my task list of the Received voucher "
-        );
+        cy.log(messages.ui.refreshSuccess);
     }
 
     approveReceivedVoucher() {
@@ -493,7 +491,7 @@ class ReceivedVoucherCreation {
             cy.imsId(COMMON.BUTTONS.SUBMIT).click();
             cy.imsId(COMMON.CONFIRMATION.OK).click();
 
-            cy.log("Successfully approved received voucher");
+            cy.log(messages.ui.approveSuccess);
         });
     }
 
@@ -505,7 +503,7 @@ class ReceivedVoucherCreation {
 
     detailsViewCheck() {
         cy.imsId(COMMON.GRID.ACTION_VIEW).click();
-        cy.log("Details view button clicked successfully on the received voucher list page.");
+        cy.log(messages.ui.viewMessage);
     }
 
     viewGoBackReceivedVoucher() {
@@ -535,7 +533,7 @@ class ReceivedVoucherCreation {
             const rvData = data.mfiAdmin.receivedVoucher;
             cy.imsId(COMMON.BUTTONS.RESET).click();
             cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(rvData.voucherNameBn);
-            cy.log("Successfully searched received voucher");
+            cy.log(messages.ui.searchSuccess);
         });
     }
 

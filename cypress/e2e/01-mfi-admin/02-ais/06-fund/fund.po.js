@@ -25,7 +25,7 @@ class fundTransferCreation {
             cy.imsId(COMMON.CONFIRMATION.YES).click();
             cy.imsId(COMMON.CONFIRMATION.OK).click();
 
-            cy.log("Successfully created fund transfer");
+            cy.log(messages.ui.actionMessage);
         });
     }
 
@@ -57,7 +57,7 @@ class fundTransferCreation {
             const ftData = data.mfiAdmin.fund;
             cy.imsId(COMMON.BUTTONS.RESET).click();
             cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(ftData.senderPayment);
-            cy.log("Successfully search in the fund transfer");
+            cy.log(messages.ui.searchSuccess);
         });
     }
 

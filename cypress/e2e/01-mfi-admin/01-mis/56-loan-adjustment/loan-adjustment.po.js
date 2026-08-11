@@ -22,9 +22,7 @@ class LoanAdjustment {
         cy.fixture(this.test_data).then((data) => {
             const laData = data.mfiAdmin.loanAdjustmentFrom;
             cy.formController("office_id").type(laData.office).type("{enter}");
-            cy.log(
-                "Loan Adjustment status office dropdown check successfully"
-            );
+            cy.log(messages.ui.officeDropdownMessage);
         });
     }
     gridResetButtonCheck() {

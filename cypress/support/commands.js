@@ -1,3 +1,5 @@
+import messages from "./constants/messages";
+
 Cypress.Commands.add("imsId", (id) => {
   return cy.get(`[data-ims-id='${id}']`);
 });
@@ -35,7 +37,7 @@ Cypress.Commands.add("loginAsMraAdmin", (url, data) => {
     .type(data.credential.mraAdminPassword);
   cy.get("#submit-button").click();
   cy.changeLanguage("english");
-  cy.log("Successfully logged in as MRA Admin");
+  cy.log(messages.auth.loginSuccess);
 });
 
 
@@ -67,7 +69,7 @@ Cypress.Commands.add("loginAsMfiAdmin", (url, data) => {
     .type(data.credential.mfiAdminPassword);
   cy.get("#submit-button").click();
   cy.changeLanguage("english");
-  cy.log("Successfully logged in as MFI Admin");
+  cy.log(messages.auth.loginSuccess);
 });
 
 
@@ -99,7 +101,7 @@ Cypress.Commands.add("loginAsBranchManager", (url, data) => {
     .type(data.credential.branchManagerPassword);
   cy.get("#submit-button").click();
   cy.changeLanguage("english");
-  cy.log("Successfully logged in as Branch Manager");
+  cy.log(messages.auth.loginSuccess);
 });
 
 
@@ -131,7 +133,7 @@ Cypress.Commands.add("loginAsFieldOfficer", (url, data) => {
     .type(data.credential.fieldOfficerPassword);
   cy.get("#submit-button").click();
   cy.changeLanguage("english");
-  cy.log("Successfully logged in as Field Officer");
+  cy.log(messages.auth.loginSuccess);
 });
 
 // Form Array
@@ -167,7 +169,7 @@ Cypress.Commands.add("login", (url, username, password) => {
   cy.formController("password").clear().type(password);
   cy.get("#submit-button").click();
 
-  cy.log(`Login as : ${username}`);
+  cy.log(messages.auth.loginAsUser(username));
 });
 
 
@@ -202,5 +204,5 @@ Cypress.Commands.add("selectMenu1", (menu) => {
 Cypress.Commands.add("logout", () => {
   cy.imsId("profile-menu").click();
   cy.imsId("btn-logout").click();
-  cy.log("Successfully logout");
+  cy.log(messages.auth.logoutSuccess);
 });

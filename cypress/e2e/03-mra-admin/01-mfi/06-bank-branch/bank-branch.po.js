@@ -555,14 +555,14 @@ class BankBranchCreation {
 
   paginationCheck() {
     cy.get('[title="5"] > .ng-star-inserted').click();
-    cy.log("Bank branch pagination check successfully");
+    cy.log(messages.ui.actionMessage);
   }
 
   selectBankDropdown() {
     cy.fixture(this.test_data).then((data) => {
       const bankBData = data.mraAdmin.createbankbranchFrom;
       cy.formController("bank_id").type(bankBData.bank);
-      cy.log("Successfully select bank in the Bank branch");
+      cy.log(messages.ui.actionMessage);
     });
   }
 

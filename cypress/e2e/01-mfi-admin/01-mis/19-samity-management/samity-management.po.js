@@ -50,7 +50,7 @@ class SamityCreation {
       const smData = data.mfiAdmin.createSamityFrom;
       cy.imsId("menu-my-task").click();
       cy.imsId("submenu-awaiting-samity-management").click();
-      cy.log("Successfully navigate to my task menu samity management");
+      cy.log(messages.ui.actionMessage);
     });
   }
 
@@ -58,20 +58,18 @@ class SamityCreation {
     cy.fixture(this.test_data).then((data) => {
       const smData = data.mfiAdmin.approveSamityFrom;
       cy.formController("office_id").type(smData.office).type("{enter}");
-      cy.log("Successfully navigate to my task menu samity management office dropdown");
+      cy.log(messages.ui.officeDropdownMessage);
     });
   }
 
   myTaskResetButtonCheck() {
     cy.imsId(COMMON.BUTTONS.RESET).click();
-    cy.log("Successful clean my task displaying.");
+    cy.log(messages.ui.resetSuccess);
   }
 
   myTaskRefreshButtonCheck() {
     cy.imsId(COMMON.BUTTONS.REFRESH).click();
-    cy.log(
-      "successfully refresh page  displayed the my task list of the Samity Management form "
-    );
+    cy.log(messages.ui.refreshSuccess);
   }
 
   myTaskSearchButtonCheck() {
@@ -80,7 +78,7 @@ class SamityCreation {
       cy.imsId(COMMON.BUTTONS.RESET).click();
       cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(smData.search);
       cy.imsId(COMMON.BUTTONS.SEARCH).click();
-      cy.log("Successful my task search button click.");
+      cy.log(messages.ui.searchSuccess);
     });
   }
 
@@ -94,7 +92,7 @@ class SamityCreation {
       cy.imsId(COMMON.BUTTONS.APPROVE).click();
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
       cy.imsId(COMMON.CONFIRMATION.OK).click();
-      cy.log("Successfully approve samity management");
+      cy.log(messages.ui.approveSuccess);
     });
   }
 
@@ -547,9 +545,7 @@ class SamityCreation {
       const smData = data.mfiAdmin.createSamityFrom;
       cy.formController("office_id").type(smData.officeDropdown).type("{enter}");
       cy.imsId(COMMON.BUTTONS.RESET).click();
-      cy.log(
-        "Samity Management form office dropdown check successfully"
-      );
+      cy.log(messages.ui.officeDropdownMessage);
     });
   }
 
@@ -663,7 +659,7 @@ class SamityCreation {
       .should('be.visible')
       .click({ force: true });
 
-    cy.log("Checkbox should be clickable and functional.");
+    cy.log(messages.ui.checkboxMessage);
   }
 
   gridCheckboxLockButtonCheck() {
@@ -688,7 +684,7 @@ class SamityCreation {
       .and('not.be.disabled')
       .click({ force: true });
 
-    cy.log("Checkbox lock button should be clickable and functional.");
+    cy.log(messages.ui.lockSuccess);
   }
 
   gridCheckboxUnlockButtonCheck() {
@@ -713,14 +709,14 @@ class SamityCreation {
       .and('not.be.disabled')
       .click({ force: true });
 
-    cy.log("Checkbox unlock button should be clickable and functional.");
+    cy.log(messages.ui.unlockSuccess);
   }
 
   selectofficeDropdown() {
     cy.fixture(this.test_data).then((data) => {
       const smData = data.mfiAdmin.createSamityFrom;
       cy.formController("office_id").type(smData.office);
-      cy.log("Successfully select office in the samity management");
+      cy.log(messages.ui.actionMessage);
     });
   }
 

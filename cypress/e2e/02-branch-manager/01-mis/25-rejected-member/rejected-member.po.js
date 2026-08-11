@@ -84,7 +84,7 @@ class RrejectedMember {
         .contains(rejmData.messageRejectedMember)
         .and("be.visible");
       cy.imsId(COMMON.CONFIRMATION.OK).click();
-      cy.log("Successfully reject the rejected member ");
+      cy.log(messages.ui.rejectSuccess);
     });
   }
 

@@ -150,22 +150,20 @@ class ManualJournalCreation {
             const mjData = data.mfiAdmin.manualJournal;
             cy.imsId("menu-my-task").click();
             cy.imsId("submenu-awaiting-manual-journal").click();
-            cy.log("Successfully navigate to my task menu manual journal");
+            cy.log(messages.ui.actionMessage);
         });
     }
 
     myTaskResetButtonCheck() {
         cy.imsId(COMMON.BUTTONS.RESET).click();
-        cy.log("Successful clean my task displaying.");
+        cy.log(messages.ui.resetSuccess);
     }
 
     myTaskRefreshButtonCheck() {
         cy.imsId(COMMON.BUTTONS.REFRESH).click();
         cy.imsId(COMMON.BUTTONS.RESET).click();
         cy.imsId(COMMON.BUTTONS.REFRESH).click()
-        cy.log(
-            "successfully refresh page  displayed the my task list of the manual journal "
-        );
+        cy.log(messages.ui.refreshSuccess);
     }
 
     approveManualJournal() {
@@ -179,7 +177,7 @@ class ManualJournalCreation {
             cy.imsId(COMMON.BUTTONS.SUBMIT).click();
             cy.imsId(COMMON.CONFIRMATION.OK).click();
 
-            cy.log("Successfully approve manual journal");
+            cy.log(messages.ui.approveSuccess);
         });
     }
 
@@ -202,7 +200,7 @@ class ManualJournalCreation {
 
     goBackManualJournal() {
         cy.imsId(COMMON.BUTTONS.GO_BACK).click();
-        cy.log("Successfully go back the manual journal page");
+        cy.log(messages.ui.goBackSuccess);
     }
 
     searchName() {
@@ -210,7 +208,7 @@ class ManualJournalCreation {
             const mjData = data.mfiAdmin.manualJournal;
             cy.imsId(COMMON.BUTTONS.RESET).click();
             cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(mjData.nameEn);
-            cy.log("Successfully search in the manual journal");
+            cy.log(messages.ui.searchSuccess);
         });
     }
 

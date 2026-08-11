@@ -363,7 +363,7 @@ class EconomicPurposeCreation {
 
   paginationCheck() {
     cy.get('[title="5"] > .ng-star-inserted').click();
-    cy.log("Economic purpose pagination check successfully");
+    cy.log(messages.ui.actionMessage);
   }
 
   createResetButtonCheck() {

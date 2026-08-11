@@ -624,9 +624,7 @@ class LoanProductManagementCreation {
     cy.fixture(this.test_data).then((data) => {
       const lpData = data.mfiAdmin.loanProductFrom;
       cy.formController("office_id").type(lpData.SelectOffice).type("{enter}");
-      cy.log(
-        "Loan Product Management status office dropdown check successfully"
-      );
+      cy.log(messages.ui.officeDropdownMessage);
     });
   }
   gridResetButtonCheck() {
@@ -654,7 +652,7 @@ class LoanProductManagementCreation {
     cy.fixture(this.test_data).then((data) => {
       const lpData = data.mfiAdmin.loanProductFrom;
       cy.formController("office_id").type(lpData.office);
-      cy.log("Successfully select office in the loan product management");
+      cy.log(messages.ui.actionMessage);
     });
   }
 

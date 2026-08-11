@@ -31,7 +31,7 @@ class savingsWithdraw {
             cy.imsId(COMMON.BUTTONS.SUBMIT).click();
             cy.imsId(COMMON.CONFIRMATION.YES).click();
             cy.imsId(COMMON.CONFIRMATION.OK).click();
-            cy.log("Successfully created new savings withdraw");
+            cy.log(messages.ui.actionMessage);
         });
     }
 
@@ -54,12 +54,12 @@ class savingsWithdraw {
     actionWithdrawUnsubmit() {
         cy.imsId(COMMON.TOGGLES.ACTION).first().click();
         cy.imsId("btn-table-action-unsubmit").click();
-        cy.log("successfully on the action unsubmit button check.");
+        cy.log(messages.form.submitSuccess);
     }
 
     actionWithdrawUnsubmitGoBack() {
         cy.imsId(COMMON.BUTTONS.GO_BACK).click();
-        cy.log("successfully on the action unsubmit go back button check.");
+        cy.log(messages.ui.goBackSuccess);
     }
 
     withdrawUnsubmit() {
@@ -68,13 +68,13 @@ class savingsWithdraw {
         cy.imsId("btn-unsubmit").click();
         cy.imsId(COMMON.CONFIRMATION.YES).click();
         cy.imsId(COMMON.CONFIRMATION.OK).click();
-        cy.log("successfully on the unsubmit savings withdraw.");
+        cy.log(messages.form.submitSuccess);
     }
 
     actionEditSavingsWithdraw() {
         cy.imsId(COMMON.TOGGLES.ACTION).first().click();
         cy.imsId("btn-mis-table-action-edit").click();
-        cy.log("successfully on the edit savings withdraw list page.");
+        cy.log(messages.ui.editMessage);
     }
 
     editDraftButton() {
@@ -94,12 +94,12 @@ class savingsWithdraw {
     actionWithdrawSubmit() {
         cy.imsId(COMMON.TOGGLES.ACTION).first().click();
         cy.imsId("btn-table-action-submit").click();
-        cy.log("successfully on the action submit button check.");
+        cy.log(messages.form.submitSuccess);
     }
 
     actionWithdrawGoBack() {
         cy.imsId(COMMON.BUTTONS.GO_BACK).click();
-        cy.log("successfully on the action submit button check.");
+        cy.log(messages.form.submitSuccess);
     }
 
     withdrawSubmit() {
@@ -108,7 +108,7 @@ class savingsWithdraw {
         cy.imsId(COMMON.BUTTONS.SUBMIT).click();
         cy.imsId(COMMON.CONFIRMATION.YES).click();
         cy.imsId(COMMON.CONFIRMATION.OK).click();
-        cy.log("successfully on the action submit button check.");
+        cy.log(messages.form.submitSuccess);
     }
 
 
@@ -118,13 +118,13 @@ class savingsWithdraw {
         cy.imsId("btn-unsubmit").click();
         cy.imsId(COMMON.CONFIRMATION.YES).click();
         cy.imsId(COMMON.CONFIRMATION.OK).click();
-        cy.log("successfully on the action submit button check.");
+        cy.log(messages.form.submitSuccess);
     }
 
     withdrawActionDelete() {
         cy.imsId(COMMON.TOGGLES.ACTION).first().click();
         cy.imsId(COMMON.GRID.ACTION_DELETE).click();
-        cy.log("successfully on the action submit button check.");
+        cy.log(messages.form.submitSuccess);
     }
 
 
@@ -132,7 +132,7 @@ class savingsWithdraw {
         cy.imsId("btn-delete").click();
         cy.imsId(COMMON.CONFIRMATION.YES).click();
         cy.imsId(COMMON.CONFIRMATION.OK).click();
-        cy.log("successfully on the action submit button check.");
+        cy.log(messages.form.submitSuccess);
     }
 
 
@@ -147,7 +147,7 @@ class savingsWithdraw {
             cy.formController("accountId").click();
             cy.contains(swData.selectAccount).click()
             cy.imsId("amount-input").clear().type(swData.inputAmount);
-            cy.log("Successfully created new savings withdraw");
+            cy.log(messages.ui.actionMessage);
         });
     }
 
@@ -157,7 +157,7 @@ class savingsWithdraw {
             cy.imsId(COMMON.BUTTONS.SUBMIT).click();
             cy.imsId(COMMON.CONFIRMATION.YES).click();
             cy.imsId(COMMON.CONFIRMATION.OK).click();
-            cy.log("Successfully created new savings withdraw");
+            cy.log(messages.ui.actionMessage);
         });
     }
 
@@ -177,7 +177,7 @@ class savingsWithdraw {
         cy.fixture(this.test_data).then((data) => {
             const swData = data.fieldOfficer.savingsWithdraw;
             cy.formController("samity_id").type(swData.samity).type("{enter}");
-            cy.log("Successfully selected samity for new savings withdraw");
+            cy.log(messages.ui.actionMessage);
         });
     }
 
@@ -191,9 +191,7 @@ class savingsWithdraw {
         cy.fixture(this.test_data).then((data) => {
             const swData = data.fieldOfficer.savingsWithdraw;
             cy.formController("samity_id").type(swData.samityDropdown).type("{enter}");
-            cy.log(
-                "successfully samity dropdown displayed the grid list of the savings withdraw "
-            );
+            cy.log(messages.ui.samityDropdownMessage);
         })
     }
 

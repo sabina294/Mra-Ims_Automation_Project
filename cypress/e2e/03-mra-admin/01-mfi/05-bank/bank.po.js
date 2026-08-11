@@ -270,7 +270,7 @@ class BankCreation {
 
   paginationCheck() {
     cy.get('[title="5"] > .ng-star-inserted').click();
-    cy.log("Bank pagination check successfully");
+    cy.log(messages.ui.actionMessage);
   }
 
   createResetButtonCheck() {

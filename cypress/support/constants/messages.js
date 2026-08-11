@@ -3,6 +3,7 @@
 const messages = {
   auth: {
     loginSuccess: "Login completed successfully.",
+    loginAsUser: (username) => `Login completed successfully for user: ${username}.`,
     loginError: "Login failed. Please verify your credentials and try again.",
     logoutSuccess: "Logout completed successfully.",
     sessionExpired: "Your session has expired. Please log in again.",
@@ -11,10 +12,11 @@ const messages = {
   ui: {
     draftOnMessage: "Draft mode has been enabled successfully.",
     draftOffMessage: "Draft mode has been disabled successfully.",
-
+    
     gridResetSuccess: "Grid fields have been reset successfully.",
     gridRefreshSuccess: "Grid data has been refreshed successfully.",
     paginationMessage: "Pagination functionality has been verified successfully.",
+
     submitSuccess: "Form submission completed successfully.",
     goBackSuccess: "Navigation to the previous page was completed successfully.",
     gridListMessage: "Grid list has been displayed successfully.",
@@ -71,6 +73,24 @@ const messages = {
     startProcessMessage: "Process has been started successfully.",
     confirmMessage: "Action has been confirmed successfully.",
     forwardDeleteMessage: "Day Forward record has been deleted successfully.",
+
+    resetSuccess: "Form has been reset successfully.",
+    refreshSuccess: "Data has been refreshed successfully.",
+    officeSelected: "Office has been selected successfully.",
+    searchSuccess: "Search completed successfully.",
+    approveSuccess: "Record has been approved successfully.",
+
+    gridOfficeDisplayed: "Office information is displayed correctly in the grid.",
+    gridCheckboxSelected: "Grid checkbox is selected successfully.",
+    profileViewSuccess: "Profile has been viewed successfully.",
+    profileGoBackSuccess: "Returned to the previous page successfully.",
+
+    lockSuccess: "Record has been locked successfully.",
+    unlockSuccess: "Record has been unlocked successfully.", 
+    
+    rejectSuccess: "Record has been rejected successfully.",
+
+
   },
 
   validation: {

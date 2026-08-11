@@ -83,20 +83,19 @@ class EmployeeManagementCreation {
       const emData = data.mfiAdmin.createEmpMangFrom;
       cy.imsId("menu-my-task").click();
       cy.imsId("submenu-awaiting-employee-management").click();
-      cy.log("Successfully navigate to my task menu employee management");
+      cy.log(messages.ui.taskCompleted);
     });
   }
 
   myTaskResetButtonCheck() {
     cy.imsId(COMMON.BUTTONS.RESET).click();
-    cy.log("Successful clean my task displaying.");
+    cy.log(messages.ui.resetSuccess);
   }
 
   myTaskRefreshButtonCheck() {
     cy.imsId(COMMON.BUTTONS.REFRESH).click();
-    cy.log(
-      "successfully refresh page  displayed the my task list of the Employee Management form "
-    );
+    cy.log(messages.ui.refreshSuccess);
+
   }
 
   myTaskOfficeDropdownCheck() {
@@ -104,9 +103,8 @@ class EmployeeManagementCreation {
       const emData = data.mfiAdmin.approveEmployeeFrom;
       cy.formController("office_id").type(emData.OfficeDropdown).type("{enter}");
       cy.imsId(COMMON.BUTTONS.RESET).click();
-      cy.log(
-        "Employee Management form office dropdown check successfully"
-      );
+      cy.log(messages.ui.officeSelected);
+
     });
   }
 
@@ -116,7 +114,7 @@ class EmployeeManagementCreation {
       cy.imsId(COMMON.BUTTONS.RESET).click();
       cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(emData.search);
       cy.imsId(COMMON.BUTTONS.SEARCH).click();
-      cy.log("Successful my task search button click.");
+      cy.log(messages.ui.searchSuccess);
     });
   }
 
@@ -131,7 +129,7 @@ class EmployeeManagementCreation {
       cy.imsId(COMMON.CONFIRMATION.YES).click();
       cy.imsId(COMMON.CONFIRMATION.OK).click();
 
-      cy.log("Successfully approve employee management");
+      cy.log(messages.ui.approveSuccess);
     });
   }
 
@@ -166,14 +164,14 @@ class EmployeeManagementCreation {
       // cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(emData.empNameEn);
       cy.imsId(COMMON.TOGGLES.ACTION).first().click();
       cy.imsId("btn-table-action-profile").click();
-      cy.log("Successfully profile viewed the employee management list page");
+      cy.log(messages.ui.profileViewSuccess);
     });
   }
 
   profileViewGoBackButton() {
     cy.imsId(COMMON.BUTTONS.GO_BACK).click();
 
-    cy.log("Successfully profile view go back the  employee management list page");
+    cy.log(messages.ui.profileGoBackSuccess);
   }
 
   editResetButton() {
@@ -232,9 +230,7 @@ class EmployeeManagementCreation {
       const emData = data.mfiAdmin.createEmpMangFrom;
       cy.formController("office_id").type(emData.office).type("{enter}");
       cy.imsId(COMMON.BUTTONS.RESET).click();
-      cy.log(
-        "Employee Management form office dropdown check successfully"
-      );
+      cy.log(messages.ui.officeDropdownMessage);
     });
   }
 
@@ -276,14 +272,12 @@ class EmployeeManagementCreation {
 
   gridRefreshButtonCheck() {
     cy.imsId(COMMON.BUTTONS.REFRESH).click();
-    cy.log(
-      messages.ui.gridRefreshSuccess
+    cy.log(messages.ui.gridRefreshSuccess
     );
   }
 
   gridDraftButton() {
-    cy.imsId(COMMON.GRID.DRAFT_TOGGLE)
-      .check({ force: true });
+    cy.imsId(COMMON.GRID.DRAFT_TOGGLE).check({ force: true });
     cy.log(messages.ui.draftOnMessage);
   }
 
@@ -296,18 +290,18 @@ class EmployeeManagementCreation {
   gridCheckboxCheck() {
     cy.imsId("row-checkbox-6").click();
     cy.imsId(COMMON.BUTTONS.RESET).click();
-    cy.log("Checkbox should be clickable and functional.");
+    cy.log(messages.ui.gridCheckboxSelected);
   }
 
   gridCheckboxLockButtonCheck() {
     cy.imsId("btn-lock").click();
-    cy.log("Checkbox lock button should be clickable and functional.");
+    cy.log(messages.ui.lockSuccess);
   }
 
   gridCheckboxUnlockButtonCheck() {
     cy.imsId("row-checkbox-6").click();
     cy.imsId("btn-unlock").click();
-    cy.log("Checkbox unlock button should be clickable and functional.");
+    cy.log(messages.ui.unlockSuccess);
   }
 
   createResetButtonCheck() {

@@ -6,52 +6,52 @@ class MonthEndProcessAis {
     gridMonthEndProcessPage() {
         cy.fixture(this.test_data).then(() => {
             cy.selectMenu("menu-process", "submenu-month-end-process-ais");
-            cy.log("Successfully Month end process AIS page.");
+            cy.log(messages.ui.actionMessage);
         });
     }
 
     processPreviewButtonCheck() {
         cy.imsId("btn-preview").eq(0).click();
-        cy.log("Successful preview button check.");
+        cy.log(messages.ui.previewMessage);
     }
 
     processGoBackButtonCheck() {
         cy.imsId("go-back-button").click();
-        cy.log("Successful go back button check.");
+        cy.log(messages.ui.goBackSuccess);
     }
 
     previousOn() {
         cy.fixture(this.test_data).then((data) => {
             cy.imsId("btn-draft-on").click();
-            cy.log("Successfully month end process previous on.");
+            cy.log(messages.ui.previousSearchMessage);
         });
     }
 
     previousSearchButton() {
         cy.fixture(this.test_data).then((data) => {
             cy.imsId("search-button").click();
-            cy.log("Successfully month end process previous search button clicked.");
+            cy.log(messages.ui.previousSearchMessage);
         });
     }
 
     previousPreviewButton() {
         cy.fixture(this.test_data).then((data) => {
             cy.imsId("btn-preview").click();
-            cy.log("Successfully month end process previous preview button clicked.");
+            cy.log(messages.ui.previousSearchMessage);
         });
     }
 
     previousPreviewGoBackButton() {
         cy.fixture(this.test_data).then((data) => {
             cy.imsId("go-back-button").click();
-            cy.log("Successfully month end process previous preview go back button clicked.");
+            cy.log(messages.ui.goBackSuccess);
         });
     }
 
     previousOff() {
         cy.fixture(this.test_data).then((data) => {
             cy.imsId("btn-draft-on").click();
-            cy.log("Successfully month end process previous off.");
+            cy.log(messages.ui.previousSearchMessage);
         });
     }
 

@@ -16,7 +16,7 @@ class RegularCollection {
     }
     openButtonCheck() {
         cy.imsId("btn-table-action-open").first().click();
-        cy.log("Open button clicked successfully on the regular collection list page.");
+        cy.log(messages.ui.viewMessage);
     }
 
     collectionProcess() {
@@ -35,7 +35,7 @@ class RegularCollection {
                 .clear()
                 .type(rcData.loanAmount2);
 
-            cy.log("Regular collection amount entered successfully");
+            cy.log(messages.ui.actionMessage);
         });
     }
 
@@ -44,7 +44,7 @@ class RegularCollection {
             cy.imsId("btn-save").click();
             cy.imsId(COMMON.CONFIRMATION.YES).click();
             cy.imsId(COMMON.CONFIRMATION.OK).click();
-            cy.log("successfully on the regular collection save.");
+            cy.log(messages.form.submitSuccess);
         });
     }
 
@@ -76,7 +76,7 @@ class RegularCollection {
         cy.imsId(COMMON.TOGGLES.ACTION).first().click();
         cy.imsId(COMMON.GRID.ACTION_VIEW).click();
         cy.imsId(COMMON.BUTTONS.GO_BACK).click();
-        cy.log("successfully on the go back regular collection.");
+        cy.log(messages.ui.goBackSuccess);
     }
 
     collectionSubmit() {
@@ -85,7 +85,7 @@ class RegularCollection {
         cy.imsId(COMMON.BUTTONS.SUBMIT).click();
         cy.imsId(COMMON.CONFIRMATION.YES).click();
         cy.imsId(COMMON.CONFIRMATION.OK).click();
-        cy.log("successfully on the submit regular collection.");
+        cy.log(messages.form.submitSuccess);
     }
 
     gridResetButtonCheck() {
@@ -110,9 +110,7 @@ class RegularCollection {
         cy.fixture(this.test_data).then((data) => {
             const rcData = data.branchManager.regularCollection;
             cy.formController("field_officer_id").type(rcData.fieldOfficer).type("{enter}");
-            cy.log(
-                "successfully field officer dropdown displayed the grid list of the regular collection "
-            );
+            cy.log(messages.ui.fieldOfficerDropdownMessage);
         })
     }
 
@@ -132,9 +130,7 @@ class RegularCollection {
         cy.fixture(this.test_data).then((data) => {
             const rcData = data.branchManager.regularCollection;
             cy.formController("field_officer_id").type(rcData.fieldOfficer).type("{enter}");
-            cy.log(
-                "successfully field officer dropdown displayed the grid list of the regular collection "
-            );
+            cy.log(messages.ui.fieldOfficerDropdownMessage);
         })
     }
 
@@ -142,9 +138,7 @@ class RegularCollection {
         cy.fixture(this.test_data).then((data) => {
             const rcData = data.branchManager.regularCollection;
             cy.formController("staging_samity_id").type(rcData.Samity).type("{enter}");
-            cy.log(
-                "successfully samity dropdown displayed the grid list of the regular collection "
-            );
+            cy.log(messages.ui.samityDropdownMessage);
         })
     }
 

@@ -150,7 +150,7 @@ class LedgerSubGroupCreation {
             const lsgData = data.mfiAdmin.ledgerSubGroup;
             cy.imsId(COMMON.BUTTONS.RESET).click();
             cy.formController("ledger_group").type(lsgData.ledgerGroupId).type("{enter}");
-            cy.log("ledger sub group status group id dropdown check successfully");
+            cy.log(messages.ui.actionMessage);
         });
     }
 
@@ -159,7 +159,7 @@ class LedgerSubGroupCreation {
             const lsgData = data.mfiAdmin.ledgerSubGroup;
             cy.imsId(COMMON.BUTTONS.RESET).click();
             cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(lsgData.nameEn);
-            cy.log("Successfully search in the ledger sub group");
+            cy.log(messages.ui.searchSuccess);
         });
     }
 

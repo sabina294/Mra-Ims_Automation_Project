@@ -50,7 +50,7 @@ class SavingsAccApplicationManagementCreation {
       cy.imsId(COMMON.CONFIRMATION.YES).click();
       cy.imsId(COMMON.CONFIRMATION.OK).click();
 
-      cy.log("Successfully approve savings account application management");
+      cy.log(messages.ui.approveSuccess);
     });
   }
 
@@ -111,9 +111,7 @@ class SavingsAccApplicationManagementCreation {
       const saamData = data.branchManager.createSavingsAccApplicationMang;
       cy.imsId(COMMON.BUTTONS.RESET).click();
       cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(saamData.search);
-      cy.log(
-        "Successfully search in the savings account application management form"
-      );
+      cy.log(messages.ui.searchSuccess);
     });
   }
 

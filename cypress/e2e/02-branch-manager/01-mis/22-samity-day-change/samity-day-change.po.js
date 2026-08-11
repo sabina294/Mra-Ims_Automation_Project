@@ -16,26 +16,26 @@ class SamityDayChange {
       cy.imsId(COMMON.TOGGLES.ACTION).first().click();
       cy.imsId("btn-mis-table-action-change").click();
       cy.imsId(COMMON.BUTTONS.RESET).click();
-      cy.log("Successfully field officer change reset button check");
+      cy.log(messages.ui.resetSuccess);
     });
   }
 
   dayChangeSubmitButtonCheck() {
     cy.imsId(COMMON.BUTTONS.SUBMIT).click();
     cy.imsId(COMMON.CONFIRMATION.OK).click();
-    cy.log("Successfully field officer change submit button check");
+    cy.log(messages.form.submitSuccess);
 
   }
 
   dayChangeApproveButtonCheck() {
     cy.imsId(COMMON.BUTTONS.APPROVE).click();
     cy.imsId(COMMON.CONFIRMATION.OK).click();
-    cy.log("Successfully field officer change approve button check");
+    cy.log(messages.ui.approveSuccess);
   }
 
   dayChangeGoBackButtonCheck() {
     cy.imsId(COMMON.BUTTONS.GO_BACK).click();
-    cy.log("Successfully field officer change go back button check");
+    cy.log(messages.ui.goBackSuccess);
   }
 
   samityDayChange() {
@@ -55,7 +55,7 @@ class SamityDayChange {
         .should("be.visible")
         .and("contain", sdData.messageSamityDayChange);
       cy.imsId(COMMON.CONFIRMATION.OK).click();
-      cy.log("Successfully samity day changed");
+      cy.log(messages.ui.actionMessage);
     });
   }
 
@@ -64,20 +64,18 @@ class SamityDayChange {
       const sdData = data.branchManager.samityDayChangeFrom;
       cy.imsId("menu-my-task").click();
       cy.imsId("submenu-awaiting-samity-day-change").click();
-      cy.log("Successfully navigate to my task menu samity day change");
+      cy.log(messages.ui.actionMessage);
     });
   }
 
   myTaskResetButtonCheck() {
     cy.imsId(COMMON.BUTTONS.RESET).click();
-    cy.log("Successful clean my task displaying.");
+    cy.log(messages.ui.resetSuccess);
   }
 
   myTaskRefreshButtonCheck() {
     cy.imsId(COMMON.BUTTONS.REFRESH).click();
-    cy.log(
-      "successfully refresh page  displayed the my task list of the Samity day change form "
-    );
+    cy.log(messages.ui.refreshSuccess);
   }
 
   approveSamityDayChange() {
@@ -89,7 +87,7 @@ class SamityDayChange {
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
       cy.imsId(COMMON.CONFIRMATION.OK).click();
 
-      cy.log("Successfully approve samity change");
+      cy.log(messages.ui.approveSuccess);
     });
   }
 
@@ -147,9 +145,7 @@ class SamityDayChange {
     cy.fixture(this.test_data).then((data) => {
       const sdData = data.branchManager.samityDayChangeFrom;
       cy.formController("office_id").type(sdData.SelectOffice).type("{enter}");
-      cy.log(
-        "Samity day change status office dropdown check successfully"
-      );
+      cy.log(messages.ui.officeDropdownMessage);
     });
   }
   gridResetButtonCheck() {

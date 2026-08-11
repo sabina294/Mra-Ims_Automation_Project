@@ -37,7 +37,7 @@ class CalendarYear {
       const cyData = data.fieldOfficer.gridCalendarYear;
       cy.imsId(COMMON.BUTTONS.RESET).click();
       cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(cyData.search);
-      cy.log("Successfully search in the Calendar Year form");
+      cy.log(messages.ui.searchSuccess);
     });
   }
 

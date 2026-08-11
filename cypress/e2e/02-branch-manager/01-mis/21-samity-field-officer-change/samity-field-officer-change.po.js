@@ -16,26 +16,26 @@ class SamityChange {
       cy.imsId(COMMON.TOGGLES.ACTION).first().click();
       cy.imsId("btn-mis-table-action-change").click();
       cy.imsId(COMMON.BUTTONS.RESET).click();
-      cy.log("Successfully samity day change reset button check");
+      cy.log(messages.ui.resetSuccess);
     });
   }
 
   changeSubmitButtonCheck() {
     cy.imsId(COMMON.BUTTONS.SUBMIT).click();
     cy.imsId(COMMON.CONFIRMATION.OK).click();
-    cy.log("Successfully samity day   change submit button check");
+    cy.log(messages.form.submitSuccess);
 
   }
 
   changeApproveButtonCheck() {
     cy.imsId(COMMON.BUTTONS.APPROVE).click();
     cy.imsId(COMMON.CONFIRMATION.OK).click();
-    cy.log("Successfully samity day  change approve button check");
+    cy.log(messages.ui.approveSuccess);
   }
 
   changeGoBackButtonCheck() {
     cy.imsId(COMMON.BUTTONS.GO_BACK).click();
-    cy.log("Successfully samity day change go back button check");
+    cy.log(messages.ui.goBackSuccess);
   }
 
   samityChange() {
@@ -57,7 +57,7 @@ class SamityChange {
         .should("be.visible")
         .and("contain", smData.messageSamityChange);
       cy.imsId(COMMON.CONFIRMATION.OK).click();
-      cy.log("Successfully field officer changed for samity");
+      cy.log(messages.ui.actionMessage);
     });
   }
 
@@ -66,20 +66,18 @@ class SamityChange {
       const smData = data.branchManager.samityChangeFrom;
       cy.imsId("menu-my-task").click();
       cy.imsId("submenu-awaiting-samity-field-officer-change").click();
-      cy.log("Successfully navigate to my task menu samity field officer change");
+      cy.log(messages.ui.actionMessage);
     });
   }
 
   myTaskResetButtonCheck() {
     cy.imsId(COMMON.BUTTONS.RESET).click();
-    cy.log("Successful clean my task displaying.");
+    cy.log(messages.ui.resetSuccess);
   }
 
   myTaskRefreshButtonCheck() {
     cy.imsId(COMMON.BUTTONS.REFRESH).click();
-    cy.log(
-      "successfully refresh page  displayed the my task list of the Samity field officer change form "
-    );
+    cy.log(messages.ui.refreshSuccess);
   }
 
   approveSamityChange() {
@@ -91,7 +89,7 @@ class SamityChange {
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
       cy.imsId(COMMON.CONFIRMATION.OK).click();
 
-      cy.log("Successfully approve samity change");
+      cy.log(messages.ui.approveSuccess);
     });
   }
 
@@ -153,9 +151,7 @@ class SamityChange {
     cy.fixture(this.test_data).then((data) => {
       const smData = data.branchManager.samityChangeFrom;
       cy.formController("office_id").type(smData.SelectOffice).type("{enter}");
-      cy.log(
-        "samity field officer change status office dropdown check successfully"
-      );
+      cy.log(messages.ui.fieldOfficerDropdownMessage);
     });
   }
   gridResetButtonCheck() {

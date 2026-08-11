@@ -19,13 +19,13 @@ class EmployeePromotion {
 
         cy.imsId(COMMON.BUTTONS.RESET).click();
 
-        cy.log("Successful clean displaying");
+        cy.log(messages.ui.resetSuccess);
     }
 
     promotionSubmitButton() {
         cy.imsId(COMMON.BUTTONS.SUBMIT).click();
         cy.imsId(COMMON.CONFIRMATION.OK).click();
-        cy.log("Successfully validation check promotion");
+        cy.log(messages.ui.actionMessage);
     }
 
     createEmployeePromotionWithoutEffectiveDate() {
@@ -77,7 +77,7 @@ class EmployeePromotion {
 
     promotionGoBackButton() {
         cy.imsId(COMMON.BUTTONS.GO_BACK).click();
-        cy.log("Successful promotion go back button check.");
+        cy.log(messages.ui.goBackSuccess);
     }
 
     createEmployeePromotion() {
@@ -109,20 +109,18 @@ class EmployeePromotion {
             const empData = data.branchManager.gridEmpPromotionFrom;
             cy.imsId("menu-my-task").click();
             cy.imsId("submenu-awaiting-employee-promotion").click();
-            cy.log("Successfully navigate to my task menu employee promotion");
+            cy.log(messages.ui.actionMessage);
         });
     }
 
     myTaskResetButtonCheck() {
         cy.imsId(COMMON.BUTTONS.RESET).click();
-        cy.log("Successful clean my task displaying.");
+        cy.log(messages.ui.resetSuccess);
     }
 
     myTaskRefreshButtonCheck() {
         cy.imsId(COMMON.BUTTONS.REFRESH).click();
-        cy.log(
-            "successfully refresh page  displayed the my task list of the Employee promotion form "
-        );
+        cy.log(messages.ui.refreshSuccess);
     }
 
     approveNewEmployeePromotion() {
@@ -132,7 +130,7 @@ class EmployeePromotion {
         cy.imsId(COMMON.BUTTONS.APPROVE).click();
         cy.imsId(COMMON.BUTTONS.SUBMIT).click();
         cy.imsId(COMMON.CONFIRMATION.OK).click();
-        cy.log("Successfully approved employee promotion");
+        cy.log(messages.ui.approveSuccess);
     }
 
     searchInEmployeeName() {

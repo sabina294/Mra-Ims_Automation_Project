@@ -6,7 +6,7 @@ class OfficeGrid {
   gridOfficePage() {
     cy.fixture(this.test_data).then((data) => {
       cy.selectMenu1("menu-office");
-      cy.log("Successfully office list page.");
+      cy.log(messages.ui.gridListMessage);
     });
   }
 
@@ -107,18 +107,18 @@ class OfficeGrid {
 
   gridCheckboxCheck() {
     cy.imsId("row-checkbox-4").click();
-    cy.log("Checkbox lock button should be clickable and functional.");
+    cy.log(messages.ui.lockSuccess);
   }
 
   gridCheckboxLockButtonCheck() {
     cy.imsId("btn-lock").click();
-    cy.log("Checkbox lock button should be clickable and functional.");
+    cy.log(messages.ui.lockSuccess);
   }
 
   gridCheckboxUnlockButtonCheck() {
     cy.imsId("row-checkbox-4").click();
     cy.imsId("btn-unlock").click();
-    cy.log("Checkbox unlock button should be clickable and functional.");
+    cy.log(messages.ui.unlockSuccess);
   }
 
 

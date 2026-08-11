@@ -37,7 +37,7 @@ class loanAdjustment {
             cy.imsId(COMMON.CONFIRMATION.YES).click();
             cy.imsId(COMMON.CONFIRMATION.OK).click();
 
-            cy.log("Successfully saved new loan adjustment.");
+            cy.log(messages.form.submitSuccess);
         });
     }
 
@@ -64,14 +64,14 @@ class loanAdjustment {
         cy.imsId(COMMON.TOGGLES.ACTION).first().click();
         cy.imsId("btn-table-action-unsubmit").click();
 
-        cy.log("Successfully opened loan adjustment unsubmit action.");
+        cy.log(messages.form.submitSuccess);
     }
 
 
     actionLoanAdjustmentUnsubmitGoBack() {
         cy.imsId(COMMON.BUTTONS.GO_BACK).click();
 
-        cy.log("Successfully back from unsubmit action page.");
+        cy.log(messages.ui.goBackSuccess);
     }
 
 
@@ -83,7 +83,7 @@ class loanAdjustment {
         cy.imsId(COMMON.CONFIRMATION.YES).click();
         cy.imsId(COMMON.CONFIRMATION.OK).click();
 
-        cy.log("Successfully unsubmitted loan adjustment.");
+        cy.log(messages.form.submitSuccess);
     }
 
 
@@ -91,7 +91,7 @@ class loanAdjustment {
         cy.imsId(COMMON.TOGGLES.ACTION).first().click();
         cy.imsId(COMMON.GRID.ACTION_EDIT).click();
 
-        cy.log("Successfully opened loan adjustment edit page.");
+        cy.log(messages.ui.editMessage);
     }
 
     editDraftButton() {
@@ -118,14 +118,14 @@ class loanAdjustment {
         cy.imsId(COMMON.TOGGLES.ACTION).first().click();
         cy.imsId("btn-table-action-submit").click();
 
-        cy.log("Successfully opened loan adjustment submit action.");
+        cy.log(messages.form.submitSuccess);
     }
 
 
     actionLoanAdjustmentGoBack() {
         cy.imsId(COMMON.BUTTONS.GO_BACK).click();
 
-        cy.log("Successfully back from loan adjustment submit page.");
+        cy.log(messages.ui.goBackSuccess);
     }
 
 
@@ -137,7 +137,7 @@ class loanAdjustment {
         cy.imsId(COMMON.CONFIRMATION.YES).click();
         cy.imsId(COMMON.CONFIRMATION.OK).click();
 
-        cy.log("Successfully submitted loan adjustment.");
+        cy.log(messages.form.submitSuccess);
     }
 
 
@@ -150,7 +150,7 @@ class loanAdjustment {
         cy.imsId(COMMON.CONFIRMATION.YES).click();
         cy.imsId(COMMON.CONFIRMATION.OK).click();
 
-        cy.log("Successfully prepared loan adjustment delete process.");
+        cy.log(messages.ui.actionMessage);
     }
 
 
@@ -159,12 +159,12 @@ class loanAdjustment {
         cy.imsId(COMMON.TOGGLES.ACTION).first().click();
         cy.imsId(COMMON.GRID.ACTION_DELETE).click();
 
-        cy.log("Successfully opened loan adjustment delete action.");
+        cy.log(messages.ui.viewMessage);
     }
 
     loanAdjustmentActionDeleteGoBack() {
         cy.imsId(COMMON.BUTTONS.GO_BACK).click();
-        cy.log("Successfully delete go back loan adjustment delete action.");
+        cy.log(messages.ui.goBackSuccess);
     }
 
 
@@ -175,7 +175,7 @@ class loanAdjustment {
         cy.imsId(COMMON.CONFIRMATION.YES).click();
         cy.imsId(COMMON.CONFIRMATION.OK).click();
 
-        cy.log("Successfully deleted loan adjustment.");
+        cy.log(messages.ui.actionMessage);
     }
 
 
@@ -196,7 +196,7 @@ class loanAdjustment {
             cy.imsId("checkbox-1").click();
             cy.imsId("input-1").clear().type(laData.inputAmount);
 
-            cy.log("Successfully created loan adjustment again.");
+            cy.log(messages.ui.actionMessage);
         });
     }
 
@@ -208,7 +208,7 @@ class loanAdjustment {
         cy.imsId(COMMON.CONFIRMATION.YES).click();
         cy.imsId(COMMON.CONFIRMATION.OK).click();
 
-        cy.log("Successfully saved loan adjustment again.");
+        cy.log(messages.form.submitSuccess);
     }
 
 

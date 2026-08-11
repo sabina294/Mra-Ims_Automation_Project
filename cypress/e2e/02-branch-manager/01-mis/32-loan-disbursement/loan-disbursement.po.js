@@ -72,13 +72,13 @@ class LoanDisbursement {
             cy.imsId(COMMON.TOGGLES.ACTION).first().click();
             cy.imsId("btn-table-action-disburse").click();
             cy.imsId("btn-loan-disburse").click({ force: true });
-            cy.log("Loan Disburse button clicked successfully");
+            cy.log(messages.ui.actionMessage);
         });
     }
     loanDisburseSubmitButtonCheck() {
         cy.imsId(COMMON.BUTTONS.SUBMIT).click();
         cy.imsId(COMMON.CONFIRMATION.OK).click();
-        cy.log("Loan Disburse submit button checked");
+        cy.log(messages.form.submitSuccess);
     }
 
      gridLanguageSwitchCheck() {

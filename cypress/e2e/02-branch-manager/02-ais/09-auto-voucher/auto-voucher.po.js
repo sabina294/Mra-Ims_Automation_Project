@@ -33,7 +33,7 @@ class AutoVoucher {
             const avData = data.branchManager.autoVoucherFrom;
             cy.imsId(COMMON.BUTTONS.RESET).click();
             cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(avData.preparedBy);
-            cy.log("Successfully search in the auto voucher");
+            cy.log(messages.ui.searchSuccess);
         });
     }
 
