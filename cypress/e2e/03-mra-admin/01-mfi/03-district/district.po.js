@@ -197,9 +197,9 @@ class DistrictCreation {
   viewDistrict() {
     cy.fixture(this.test_data).then((data) => {
       const disData = data.mraAdmin.createdistrictFrom;
-      cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(disData.nameEn);
-      cy.imsId(COMMON.BUTTONS.SEARCH).click();
-      cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+      // cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(disData.nameEn);
+      // cy.imsId(COMMON.BUTTONS.SEARCH).click();
+      // cy.imsId(COMMON.TOGGLES.ACTION).first().click();
       cy.imsId(COMMON.GRID.ACTION_VIEW).click();
 
       cy.get("app-mra-mfi").contains(disData.nameEn).and("be.visible");
@@ -209,7 +209,6 @@ class DistrictCreation {
 
   viewGoBackButton() {
     cy.imsId(COMMON.BUTTONS.GO_BACK).click();
-
     cy.log(messages.ui.goBackSuccess);
 
   }

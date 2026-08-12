@@ -136,8 +136,8 @@ class MemberManagementCreation {
     cy.fixture(this.test_data).then((data) => {
       const memData = data.fieldOfficer.createMemberFrom;
       cy.imsId(COMMON.BUTTONS.RESET).click();
-      cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(memData.search);
-      cy.imsId(COMMON.BUTTONS.SEARCH).click();
+      // cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(memData.search);
+      // cy.imsId(COMMON.BUTTONS.SEARCH).click();
       cy.imsId(COMMON.TOGGLES.ACTION).first().click();
       cy.imsId("btn-mis-table-action-edit").click();
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
@@ -235,13 +235,13 @@ class MemberManagementCreation {
   }
 
   gridCheckboxLockButtonCheck() {
-    cy.imsId("btn-lock").click();
+    cy.imsId(COMMON.BUTTONS.LOCK).click();
     cy.log(messages.ui.lockSuccess);
   }
 
   gridCheckboxUnlockButtonCheck() {
     cy.imsId("row-checkbox-7").click();
-    cy.imsId("btn-unlock").click();
+    cy.imsId(COMMON.BUTTONS.UNLOCK).click();
     cy.log(messages.ui.unlockSuccess);
   }
 

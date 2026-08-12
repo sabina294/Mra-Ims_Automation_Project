@@ -33,7 +33,7 @@ class cancelSamity {
         cy.fixture(this.test_data).then((data) => {
             const csData = data.branchManager.cancelSamity;
 
-            cy.imsId(COMMON.BUTTONS.CANCEL_SAMITY).click();
+            cy.imsId("btn-cancel-2").should("be.visible").click();
             cy.imsId(COMMON.CONFIRMATION.YES).click();
 
             cy.get('[formcontrolname="remarks"]')   // 🔥 use this first
