@@ -112,7 +112,67 @@ describe("02. Department Module Test Cases", function () {
     create_department.gridSearchButtonCheck();
   });
 
-  it("02.23. Verify that the grid content updates correctly when the language is switched from English to Bangla.", function () {
+  it("02.23. Verify that the Department List page displays all required table columns correctly.", function () {
+    create_department.gridColumnsCheck();
+  });
+
+  it("02.24. Verify that the Department Name column can be sorted in ascending order.", function () {
+    create_department.departmentNameAscendingSort();
+  });
+
+  it("02.25. Verify that the Department Name column can be sorted in descending order.", function () {
+    create_department.departmentNameDescendingSort();
+  });
+
+  it("02.26. Verify that searching with a non-existing department name displays no matching records.", function () {
+    create_department.searchNoResult();
+  });
+
+  it("02.27. Verify that partial department name search returns matching records.", function () {
+    create_department.partialSearch();
+  });
+
+  it("02.28. Verify that clearing the search text restores the complete department list.", function () {
+    create_department.clearSearch();
+  });
+
+  it("02.29. Verify that the pagination control works correctly for the Department grid.", function () {
+    create_department.paginationCheck();
+  });
+
+  it("02.30. Verify that the selected page size is applied correctly to the Department grid.", function () {
+    create_department.pageSizeCheck();
+  });
+
+  it("02.31. Verify that the Add Department button redirects the user to the Department Creation page.", function () {
+    create_department.addDepartmentNavigation();
+  });
+
+  it("02.32. Verify that the Department Creation page displays all required fields correctly.", function () {
+    create_department.createPageFieldCheck();
+  });
+
+  it("02.33. Verify that the Department Name field handles whitespace-only input correctly.", function () {
+    create_department.departmentNameSpaceValidation();
+  });
+
+  it("02.34. Verify that the Department Name (Bangla) field handles whitespace-only input correctly.", function () {
+    create_department.departmentNameBnSpaceValidation();
+  });
+
+  it("02.35. Verify that the default status is displayed correctly on the Department Creation page.", function () {
+    create_department.defaultStatusCheck();
+  });
+
+  it("02.36. Verify that all available status options are displayed in the status dropdown.", function () {
+    create_department.statusOptionsCheck();
+  });
+
+  it("02.37. Verify that duplicate department names cannot be created.", function () {
+    create_department.duplicateDepartmentCheck();
+  });
+
+  it("02.38. Verify that the grid content updates correctly when the language is switched from English to Bangla.", function () {
     create_department.gridLanguageSwitchCheck();
   });
 });

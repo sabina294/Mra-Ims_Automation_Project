@@ -18,7 +18,13 @@
       "status": "Active",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
-      "search": "Test Department"
+      "search": "Test Department",
+      "duplicateNameEn": "Board of Directors",
+      "duplicateNameBn": "পরিচালনা বোর্ড",
+      "partialSearch": "Finance",
+      "invalidSearch": "XYZ_NON_EXISTING_DEPARTMENT",
+      "spaceOnly": "     ",
+      "pageSize": "20"
     },
     "createDesignationFrom": {
       "nameEn": "Test Designation",

@@ -12,7 +12,7 @@ const messages = {
   ui: {
     draftOnMessage: "Draft mode has been enabled successfully.",
     draftOffMessage: "Draft mode has been disabled successfully.",
-    
+
     gridResetSuccess: "Grid fields have been reset successfully.",
     gridRefreshSuccess: "Grid data has been refreshed successfully.",
     paginationMessage: "Pagination functionality has been verified successfully.",
@@ -86,10 +86,24 @@ const messages = {
     profileGoBackSuccess: "Returned to the previous page successfully.",
 
     lockSuccess: "Record has been locked successfully.",
-    unlockSuccess: "Record has been unlocked successfully.", 
-    
+    unlockSuccess: "Record has been unlocked successfully.",
+
     rejectSuccess: "Record has been rejected successfully.",
 
+    gridColumnsMessage: "All required department grid columns are displayed correctly.",
+    departmentNameAscendingSortMessage: "Department Name column has been sorted in ascending order successfully.",
+    departmentNameDescendingSortMessage: "Department Name column has been sorted in descending order successfully.",
+    searchNoResultMessage: "No matching department records were found.",
+    partialSearchMessage: "Partial department name search returned matching records successfully.",
+    clearSearchMessage: "Search criteria have been cleared successfully.",
+    paginationMessage: "Department grid pagination is working correctly.",
+    pageSizeMessage: "Department grid page size has been applied successfully.",
+    addDepartmentNavigationMessage: "Add Department button navigated to the creation page successfully.",
+    createPageFieldMessage: "All required Department Creation fields are displayed correctly.",
+    spaceValidationMessage: "Whitespace-only input validation is working correctly.",
+    defaultStatusMessage: "Default department status is displayed correctly.",
+    statusOptionsMessage: "All available department status options are displayed correctly.",
+    duplicateDepartmentMessage: "Duplicate department validation is working correctly.",
 
   },
 
