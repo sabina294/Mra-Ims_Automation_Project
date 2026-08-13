@@ -105,6 +105,23 @@ const messages = {
     statusOptionsMessage: "All available department status options are displayed correctly.",
     duplicateDepartmentMessage: "Duplicate department validation is working correctly.",
 
+    
+    gridColumnsMessage: "Verified that all required columns are displayed correctly in the Designation grid.",
+    designationNameAscendingSortMessage: "Verified that the Designation Name column is sorted in ascending order successfully.",
+    designationNameDescendingSortMessage: "Verified that the Designation Name column is sorted in descending order successfully.",
+    searchNoResultMessage: "Verified that searching with a non-existing designation name displays no matching records.",
+    partialSearchMessage: "Verified that partial designation name search returns the expected matching records.",
+    clearSearchMessage: "Verified that clearing the search text restores the complete Designation list.",
+    paginationMessage: "Verified that the pagination control works correctly for the Designation grid.",
+    pageSizeMessage: "Verified that the selected page size is applied correctly to the Designation grid.",
+    addDesignationNavigationMessage: "Verified that the Add Designation button redirects the user to the Designation Creation page.",
+    createPageFieldMessage: "Verified that all required fields are displayed correctly on the Designation Creation page.",
+    spaceValidationMessage: "Verified that whitespace-only input is handled correctly for the Designation Name field.",
+    defaultStatusMessage: "Verified that the default status is displayed correctly on the Designation Creation page.",
+    statusOptionsMessage: "Verified that all available status options are displayed correctly in the status dropdown.",
+    duplicateDesignationMessage: "Verified that duplicate designation names cannot be created.",
+    languageSwitchMessage: "Verified that the Designation grid content updates correctly after switching the language."
+
   },
 
   validation: {

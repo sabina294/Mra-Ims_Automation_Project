@@ -67,6 +67,10 @@ export const COMMON = {
     STATUS_DROPDOWN: "status",
     NAME_EN: "name_en",
     NAME_BN: "name_bn",
+    SHORT_NAME: "short_name",
+    DESCRIPTION_EN: "descriptionEn",
+    DESCRIPTION_BN: "descriptionBn",
+
   },
 
   TOGGLES: {

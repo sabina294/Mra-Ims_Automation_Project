@@ -276,19 +276,25 @@ class EmployeeManagementCreation {
   }
 
   gridCheckboxCheck() {
-    cy.imsId("row-checkbox-6").click();
-    cy.imsId(COMMON.BUTTONS.RESET).click();
+    cy.imsId("row-checkbox-1").click();
+    // cy.imsId(COMMON.BUTTONS.RESET).click();
     cy.log(messages.ui.checkboxMessage);
   }
 
   gridCheckboxLockButtonCheck() {
-    cy.imsId("btn-lock").click();
+    cy.imsId(COMMON.BUTTONS.LOCK)
+      .should("be.visible")
+      .and("not.be.disabled")
+      .click();
     cy.log(messages.ui.lockSuccess);
   }
 
   gridCheckboxUnlockButtonCheck() {
-    cy.imsId("row-checkbox-6").click();
-    cy.imsId("btn-unlock").click();
+    cy.imsId("row-checkbox-1").click();
+    cy.imsId(COMMON.BUTTONS.UNLOCK)
+      .should("be.visible")
+      .and("not.be.disabled")
+      .click();
     cy.log(messages.ui.unlockSuccess);
   }
 

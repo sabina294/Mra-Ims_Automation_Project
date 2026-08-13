@@ -33,7 +33,14 @@
       "status": "Active",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
-      "search": "Test Designation"
+      "search": "Test Designation",
+      "duplicateNameEn": "Test Designation",
+      "duplicateNameBn": "পরীক্ষার পদবী",
+      "duplicateShortName": "TP",
+      "invalidSearch": "XYZ_NON_EXISTING_DESIGNATION",
+      "partialSearch": "Test",
+      "spaceOnly": "   ",
+      "pageSize": "20"
     },
     "createRegionFrom": {
       "nameEn": "Test Region",

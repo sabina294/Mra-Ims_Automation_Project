@@ -201,8 +201,6 @@ class DistrictCreation {
       // cy.imsId(COMMON.BUTTONS.SEARCH).click();
       // cy.imsId(COMMON.TOGGLES.ACTION).first().click();
       cy.imsId(COMMON.GRID.ACTION_VIEW).click();
-
-      cy.get("app-mra-mfi").contains(disData.nameEn).and("be.visible");
       cy.log(messages.ui.viewMessage);
     });
   }

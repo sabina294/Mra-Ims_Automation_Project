@@ -239,11 +239,14 @@ class MemberManagementCreation {
     cy.log(messages.ui.lockSuccess);
   }
 
-  gridCheckboxUnlockButtonCheck() {
+ gridCheckboxUnlockButtonCheck() {
     cy.imsId("row-checkbox-7").click();
-    cy.imsId(COMMON.BUTTONS.UNLOCK).click();
+    cy.imsId(COMMON.BUTTONS.UNLOCK)
+        .should("be.visible")
+        .and("not.be.disabled")
+        .click();
     cy.log(messages.ui.unlockSuccess);
-  }
+}
 
   gridDraftButton() {
     cy.imsId(COMMON.GRID.DRAFT_TOGGLE)

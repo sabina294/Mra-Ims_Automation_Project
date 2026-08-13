@@ -116,7 +116,69 @@ describe("03. Designation Module Test Cases", function () {
     create_designation.gridSearchButtonCheck();
   });
 
-  it("03.24. Verify that the designation list content changes correctly from English to Bangla after switching the language.", function () {
+  it("03.24. Verify that the Designation List page displays all required table columns correctly.", function () {
+    create_designation.gridColumnsCheck();
+  });
+
+  it("03.25. Verify that the Designation Name column can be sorted in ascending order.", function () {
+    create_designation.designationNameAscendingSort();
+  });
+
+  it("03.26. Verify that the Designation Name column can be sorted in descending order.", function () {
+    create_designation.designationNameDescendingSort();
+  });
+
+  it("03.27. Verify that searching with a non-existing designation name displays no matching records.", function () {
+    create_designation.searchNoResult();
+  });
+
+  it("03.28. Verify that partial designation name search returns matching records.", function () {
+    create_designation.partialSearch();
+  });
+
+  it("03.29. Verify that clearing the search text restores the complete designation list.", function () {
+    create_designation.clearSearch();
+  });
+
+  it("03.30. Verify that the pagination control works correctly for the Designation grid.", function () {
+    create_designation.paginationCheck();
+  });
+
+  it("03.31. Verify that the selected page size is applied correctly to the Designation grid.", function () {
+    create_designation.pageSizeCheck();
+  });
+
+  it("03.32. Verify that the Add Designation button redirects the user to the Designation Creation page.", function () {
+    create_designation.addDesignationNavigation();
+  });
+
+  it("03.33. Verify that the Designation Creation page displays all required fields correctly.", function () {
+    create_designation.createPageFieldCheck();
+  });
+
+  it("03.34. Verify that the Designation Name field handles whitespace-only input correctly.", function () {
+    create_designation.designationNameSpaceValidation();
+  });
+
+  it("03.35. Verify that the Designation Name (Bangla) field handles whitespace-only input correctly.", function () {
+    create_designation.designationNameBnSpaceValidation();
+  });
+
+  it("03.36. Verify that the default status is displayed correctly on the Designation Creation page.", function () {
+    create_designation.defaultStatusCheck();
+  });
+
+  it("03.37. Verify that all available status options are displayed in the status dropdown.", function () {
+    create_designation.statusOptionsCheck();
+  });
+
+  it("03.38. Verify that duplicate designation names cannot be created.", function () {
+    create_designation.duplicateDesignationCheck();
+  });
+
+  it("03.39. Verify that the grid content updates correctly when the language is switched from English to Bangla.", function () {
     create_designation.gridLanguageSwitchCheck();
   });
+
+
 });

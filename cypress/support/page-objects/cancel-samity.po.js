@@ -29,20 +29,38 @@ class cancelSamity {
         cy.imsId(COMMON.CONFIRMATION.OK).click();
         cy.log(messages.ui.restoreSamityMessage);
     }
+
     cancelSamity() {
-        cy.fixture(this.test_data).then((data) => {
-            const csData = data.branchManager.cancelSamity;
+    cy.fixture(this.test_data).then((data) => {
+        const csData = data.branchManager.cancelSamity;
+        // Wait for the target Samity row to be available
+        cy.contains("td", "Samity Staging Data Generated", {
+            timeout: 15000,
+        })
+            .should("be.visible")
+            .closest("tr")
+            .within(() => {
+                // Click Cancel only inside the target row
+                cy.get("[data-ims-id^='btn-cancel-']")
+                    .filter(":visible")
+                    .first()
+                    .should("be.visible")
+                    .click();
+            });
+            
+        // Confirmation
+        cy.imsId(COMMON.CONFIRMATION.YES)
+            .should("be.visible")
+            .click();
 
-            cy.imsId("btn-cancel-2").should("be.visible").click();
-            cy.imsId(COMMON.CONFIRMATION.YES).click();
-
-            cy.get('[formcontrolname="remarks"]')   // 🔥 use this first
-                .should("be.visible")
-                .and("not.be.disabled")
-                .clear()
-                .type(csData.remarksCancel);
-        });
-    }
+        // Remarks
+        cy.get('[formcontrolname="remarks"]')
+            .should("be.visible")
+            .and("not.be.disabled")
+            .clear()
+            .type(csData.remarksCancel);
+    });
+}
 
     submitCancelSamity() {
         cy.imsId("btn-submit").should("be.visible").click();
