@@ -86,40 +86,40 @@ describe("24. Member Management Module Test Cases", function () {
     create_member_management.editGoBackButton();
   });
 
-  it("24.17. Verify the editing functionality of a Member Management record by the MFI Admin role.", function () {
-    create_member_management.editMemberManagement();
-  });
-
-  it("24.18. Verify that inactive records can be filtered successfully using the status dropdown on the Member Management list page.", function () {
+  it("24.17. Verify that inactive records can be filtered successfully using the status dropdown on the Member Management list page.", function () {
     create_member_management.statusInactiveDropdownCheck();
   });
 
-  it("24.19. Verify that active records can be filtered successfully using the status dropdown on the Member Management list page.", function () {
+  it("24.18. Verify that active records can be filtered successfully using the status dropdown on the Member Management list page.", function () {
     create_member_management.statusActiveDropdownCheck();
   });
 
-  it("24.20. Verify that the correct search results are displayed when searching by Member Management name.", function () {
+  it("24.19. Verify that the correct search results are displayed when searching by Member Management name.", function () {
     create_member_management.searchInMemberManagementName();
   });
 
-  it("24.21. Verify that the grid list resets successfully when the Reset button is clicked on the Member Management page.", function () {
+  it("24.20. Verify that the grid list resets successfully when the Reset button is clicked on the Member Management page.", function () {
     create_member_management.gridResetButtonCheck();
   });
 
-  it("24.22. Verify that the grid list refreshes successfully when the Refresh button is clicked on the Member Management page.", function () {
+  it("24.21. Verify that the grid list refreshes successfully when the Refresh button is clicked on the Member Management page.", function () {
     create_member_management.gridRefreshButtonCheck();
   });
 
-  it("24.23. Verify that the checkbox functions correctly on the Member Management grid page.", function () {
+  it("24.22. Verify that the checkbox functions correctly on the Member Management grid page.", function () {
     create_member_management.gridCheckboxCheck();
   });
 
-  it("24.24. Verify that the Lock button functions correctly when records are selected using the checkbox.", function () {
+  it("24.23. Verify that the Lock button functions correctly when records are selected using the checkbox.", function () {
     create_member_management.gridCheckboxLockButtonCheck();
   });
 
-  it("24.25. Verify that the Unlock button functions correctly when records are selected using the checkbox.", function () {
+  it("24.24. Verify that the Unlock button functions correctly when records are selected using the checkbox.", function () {
     create_member_management.gridCheckboxUnlockButtonCheck();
+  });
+
+  it("24.25. Verify the editing functionality of a Member Management record by the MFI Admin role.", function () {
+    create_member_management.editMemberManagement();
   });
 
   it("24.26. Verify that the grid list is displayed successfully when the Draft button is enabled on the Member Management page.", function () {

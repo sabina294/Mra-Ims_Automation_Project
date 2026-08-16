@@ -199,6 +199,36 @@ Cypress.Commands.add("selectMenu1", (menu) => {
   cy.imsId(menu).click();
 });
 
+Cypress.Commands.add("selectFirstUnlockedCheckbox", () => {
+  cy.get("tbody tr")
+    .filter(":visible")
+    .each(($row) => {
+      const lockedBy = $row.find("td").eq(9).text().trim();
+      const checkbox = $row.find('[data-ims-id^="row-checkbox-"]');
+
+      if (!lockedBy && checkbox.length && !checkbox.is(":disabled")) {
+        cy.wrap($row).find('[data-ims-id^="row-checkbox-"]').click();
+
+        return false;
+      }
+    });
+});
+
+Cypress.Commands.add("selectFirstEnabledGridCheckbox", () => {
+  cy.get('[data-ims-id^="row-checkbox-"]')
+    .filter(":visible")
+    .filter(":not(:disabled)")
+    .filter(":not(:checked)")
+    .first()
+    .click();
+});
+
+Cypress.Commands.add("imsClickWhenEnabled", (imsId) => {
+  cy.imsId(imsId)
+    .should("be.visible")
+    .and("not.be.disabled")
+    .click();
+});
 
 // Logout
 Cypress.Commands.add("logout", () => {

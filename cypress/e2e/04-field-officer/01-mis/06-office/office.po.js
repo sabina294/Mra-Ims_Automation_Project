@@ -169,4 +169,3 @@ class OfficeGrid {
 }
 
 export const grid_office = new OfficeGrid();
-

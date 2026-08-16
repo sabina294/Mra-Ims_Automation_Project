@@ -138,87 +138,95 @@ describe("20. MFI Management Module Test Cases.", function () {
     create_mfi_management.viewGoBackButton();
   });
 
-  it("20.29. Verify that edit mode can be toggled on and off and fields behave accordingly.", function () {
-    create_mfi_management.turnOffOnEditMode();
-  });
-
-  it("20.30. Verify that the MFI Management edit reset button functions correctly.", function () {
-    create_mfi_management.editResetButton();
-  });
-
-  it("20.31. Verify that the MFI Management edit draft button functions correctly.", function () {
-    create_mfi_management.editDraftButton();
-  });
-
-  it("20.32. Verify that the MFI Management edit submit button functions correctly.", function () {
-    create_mfi_management.editSubmitButton();
-  });
-
-  it("20.33. Verify that the MFI Management edit approve button functions correctly.", function () {
-    create_mfi_management.editApproveButton();
-  });
-
-  it("20.34. Verify that clicking the Go Back button from the edit page redirects to the MFI Management list page.", function () {
-    create_mfi_management.editGoBackButton();
-  });
-
-  it("20.35. Verify that inactive MFI Management records can be filtered using the status dropdown.", function () {
+  it("20.29. Verify that inactive MFI Management records can be filtered using the status dropdown.", function () {
     create_mfi_management.statusInactiveDropdownCheck();
   });
 
-  it("20.36. Verify that active MFI Management records are filtered correctly using the status dropdown.", function () {
+  it("20.30. Verify that active MFI Management records are filtered correctly using the status dropdown.", function () {
     create_mfi_management.statusActiveDropdownCheck();
   });
 
-  it("20.37. Verify that searching by MFI Management name returns correct results.", function () {
+  it("20.31. Verify that searching by MFI Management name returns correct results.", function () {
     create_mfi_management.searchInMfiManagementName();
   });
 
-  it("20.38. Verify that the grid list resets successfully when the reset button is clicked.", function () {
+  it("20.32. Verify that the grid list resets successfully when the reset button is clicked.", function () {
     create_mfi_management.gridResetButtonCheck();
   });
 
-  it("20.39. Verify that the grid list refreshes successfully when the refresh button is clicked.", function () {
+  it("20.33. Verify that the grid list refreshes successfully when the refresh button is clicked.", function () {
     create_mfi_management.gridRefreshButtonCheck();
   });
 
-  it("20.40. Verify that grid checkbox selection functions correctly.", function () {
+  it("20.34. Verify that grid checkbox selection functions correctly.", function () {
     create_mfi_management.gridCheckboxCheck();
   });
 
-  it("20.41. Verify that draft records are displayed when the Draft toggle is enabled.", function () {
+  it("20.35. Verify that the Lock button functions correctly when records are selected using the checkbox.", function () {
+    create_mfi_management.gridCheckboxLockButtonCheck();
+  });
+
+  it("20.36. Verify that the Unlock button functions correctly when records are selected using the checkbox.", function () {
+    create_mfi_management.gridCheckboxUnlockButtonCheck();
+  });
+
+  it("20.37. Verify that edit mode can be toggled on and off and fields behave accordingly.", function () {
+    create_mfi_management.turnOffOnEditMode();
+  });
+
+  it("20.38. Verify that the MFI Management edit reset button functions correctly.", function () {
+    create_mfi_management.editResetButton();
+  });
+
+  it("20.39. Verify that the MFI Management edit draft button functions correctly.", function () {
+    create_mfi_management.editDraftButton();
+  });
+
+  it("20.40. Verify that the MFI Management edit submit button functions correctly.", function () {
+    create_mfi_management.editSubmitButton();
+  });
+
+  it("20.41. Verify that the MFI Management edit approve button functions correctly.", function () {
+    create_mfi_management.editApproveButton();
+  });
+
+  it("20.42. Verify that clicking the Go Back button from the edit page redirects to the MFI Management list page.", function () {
+    create_mfi_management.editGoBackButton();
+  });
+
+  it("20.43. Verify that draft records are displayed when the Draft toggle is enabled.", function () {
     create_mfi_management.gridDraftButton();
   });
 
-  it("20.42. Verify that draft records are hidden when the Draft toggle is disabled.", function () {
+  it("20.44. Verify that draft records are hidden when the Draft toggle is disabled.", function () {
     create_mfi_management.gridDraftButtonOff();
   });
 
-  it("20.43. Verify that the create form reset button clears all entered input values.", function () {
+  it("20.45. Verify that the create form reset button clears all entered input values.", function () {
     create_mfi_management.createResetButtonCheck();
   });
 
-  it("20.44. Verify that the create form draft button functions correctly.", function () {
+  it("20.46. Verify that the create form draft button functions correctly.", function () {
     create_mfi_management.createDraftButtonCheck();
   });
 
-  it("20.45. Verify that validation messages are displayed for required fields when submitting empty form.", function () {
+  it("20.47. Verify that validation messages are displayed for required fields when submitting empty form.", function () {
     create_mfi_management.createValidationMessageCheck();
   });
 
-  it("20.46. Verify that approve button functions correctly.", function () {
+  it("20.48. Verify that approve button functions correctly.", function () {
     create_mfi_management.createApproveButtonCheck();
   });
 
-  it("20.47. Verify that clicking the Go Back button from the create page redirects to the MFI Management list page.", function () {
+  it("20.49. Verify that clicking the Go Back button from the create page redirects to the MFI Management list page.", function () {
     create_mfi_management.createGoBackButtonCheck();
   });
 
-  it("20.48. Verify that when the user clicks the Search button on the MFI Management grid page, the system redirects to the MFI Management List page..", function () {
+  it("20.50. Verify that when the user clicks the Search button on the MFI Management grid page, the system redirects to the MFI Management List page..", function () {
     create_mfi_management.gridSearchButtonCheck();
   });
 
-  it("20.49. Verify that the grid list content switches correctly between English and Bangla languages.", function () {
+  it("20.51. Verify that the grid list content switches correctly between English and Bangla languages.", function () {
     create_mfi_management.gridLanguageSwitchCheck();
   });
 
