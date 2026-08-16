@@ -230,6 +230,7 @@ Cypress.Commands.add("imsClickWhenEnabled", (imsId) => {
     .click();
 });
 
+
 // Logout
 Cypress.Commands.add("logout", () => {
   cy.imsId("profile-menu").click();

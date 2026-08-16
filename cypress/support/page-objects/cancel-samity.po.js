@@ -31,36 +31,19 @@ class cancelSamity {
     }
 
     cancelSamity() {
-    cy.fixture(this.test_data).then((data) => {
-        const csData = data.branchManager.cancelSamity;
-        // Wait for the target Samity row to be available
-        cy.contains("td", "Samity Staging Data Generated", {
-            timeout: 15000,
-        })
-            .should("be.visible")
-            .closest("tr")
-            .within(() => {
-                // Click Cancel only inside the target row
-                cy.get("[data-ims-id^='btn-cancel-']")
-                    .filter(":visible")
-                    .first()
-                    .should("be.visible")
-                    .click();
-            });
-            
-        // Confirmation
-        cy.imsId(COMMON.CONFIRMATION.YES)
-            .should("be.visible")
-            .click();
-
-        // Remarks
-        cy.get('[formcontrolname="remarks"]')
-            .should("be.visible")
-            .and("not.be.disabled")
-            .clear()
-            .type(csData.remarksCancel);
-    });
-}
+        cy.fixture(this.test_data).then((data) => {
+            const csData = data.branchManager.cancelSamity;
+            cy.imsId(COMMON.BUTTONS.CANCEL_SAMITY).click();
+            cy.imsId(COMMON.CONFIRMATION.YES)
+                .should("be.visible")
+                .click();
+            cy.get('[formcontrolname="remarks"]')
+                .should("be.visible")
+                .and("not.be.disabled")
+                .clear()
+                .type(csData.remarksCancel);
+        });
+    }
 
     submitCancelSamity() {
         cy.imsId("btn-submit").should("be.visible").click();

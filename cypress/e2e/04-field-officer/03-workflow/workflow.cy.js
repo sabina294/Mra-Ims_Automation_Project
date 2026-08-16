@@ -30,7 +30,7 @@ describe("03. Branch Manager Complete Workflow", function () {
     cy.logout();
   });
 
-  it("Run Branch Manager End to End Workflow", () => {
+  it("Verify Run Branch Manager End to End Workflow.", () => {
     // ==========================
     // Cancel Samity
     // ==========================
