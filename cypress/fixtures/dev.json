@@ -66,7 +66,14 @@
       "status": "Active",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
-      "search": "Test Zone"
+      "search": "Test Zone",
+      "duplicateNameEn": "Test Zone",
+      "duplicateNameBn": "পরীক্ষা জোন",
+      "duplicateCode": "65",
+      "invalidSearch": "XYZ_NON_EXISTING_ZONE",
+      "partialSearch": "Test",
+      "spaceOnly": "   ",
+      "pageSize": "20"
     },
     "createAreaFrom": {
       "nameEn": "Test Area ",
@@ -76,7 +83,14 @@
       "status": "Active",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
-      "search": "Test Area"
+      "search": "Test Area",
+      "duplicateNameEn": "Test Area",
+      "duplicateNameBn": "পরীক্ষা এলাকা",
+      "duplicateCode": "65",
+      "invalidSearch": "XYZ_NON_EXISTING_AREA",
+      "partialSearch": "Test",
+      "spaceOnly": "   ",
+      "pageSize": "20"
     },
     "createBankAccountFrom": {
       "bankName": "AGRANI BANK LTD.",

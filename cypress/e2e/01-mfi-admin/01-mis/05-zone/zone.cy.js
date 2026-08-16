@@ -121,7 +121,67 @@ describe("05. Zone Module Test Cases", function () {
     create_zone.gridSearchButtonCheck();
   });
 
-  it("05.25. Verify that the grid list content updates correctly when switching the language from English to Bangla.", function () {
+  it("05.25. Verify that the Zone List page displays all required table columns correctly.", function () {
+    create_zone.gridColumnsCheck();
+  });
+
+  it("05.26. Verify that the Zone Name column can be sorted in ascending order.", function () {
+    create_zone.zoneNameAscendingSort();
+  });
+
+  it("05.27. Verify that the Zone Name column can be sorted in descending order.", function () {
+    create_zone.zoneNameDescendingSort();
+  });
+
+  it("05.28. Verify that searching with a non-existing zone name displays no matching records.", function () {
+    create_zone.searchNoResult();
+  });
+
+  it("05.29. Verify that partial zone name search returns matching records.", function () {
+    create_zone.partialSearch();
+  });
+
+  it("05.30. Verify that clearing the search text restores the complete zone list.", function () {
+    create_zone.clearSearch();
+  });
+
+  it("05.31. Verify that the pagination control works correctly for the Zone grid.", function () {
+    create_zone.paginationCheck();
+  });
+
+  it("05.32. Verify that the selected page size is applied correctly to the Zone grid.", function () {
+    create_zone.pageSizeCheck();
+  });
+
+  it("05.33. Verify that the Add Zone button redirects the user to the Zone Creation page.", function () {
+    create_zone.addZoneNavigation();
+  });
+
+  it("05.34. Verify that the Zone Creation page displays all required fields correctly.", function () {
+    create_zone.createPageFieldCheck();
+  });
+
+  it("05.35. Verify that the Zone Name field handles whitespace-only input correctly.", function () {
+    create_zone.zoneNameSpaceValidation();
+  });
+
+  it("05.36. Verify that the Zone Name (Bangla) field handles whitespace-only input correctly.", function () {
+    create_zone.zoneNameBnSpaceValidation();
+  });
+
+  it("05.37. Verify that the default status is displayed correctly on the Zone Creation page.", function () {
+    create_zone.defaultStatusCheck();
+  });
+
+  it("05.38. Verify that all available status options are displayed in the status dropdown.", function () {
+    create_zone.statusOptionsCheck();
+  });
+
+  it("05.39. Verify that duplicate zone names cannot be created.", function () {
+    create_zone.duplicateZoneCheck();
+  });
+
+  it("05.40. Verify that the grid list content updates correctly when switching the language from English to Bangla.", function () {
     create_zone.gridLanguageSwitchCheck();
   });
 });
