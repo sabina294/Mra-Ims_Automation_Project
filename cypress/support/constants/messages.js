@@ -105,6 +105,15 @@ const messages = {
     statusOptions: "Verified that all available status options are displayed correctly.",
     duplicate: "Verified that duplicate records cannot be created.",
     languageSwitch: "Verified that the grid content updates correctly after switching the language.",
+
+    dropdownOptions: "Verified that the dropdown displays the available options correctly.",
+    dropdownSelection: "Verified that an option can be selected from the dropdown.",
+    dependentDropdown: "Verified that the dependent dropdown loads the correct options.",
+    validInput: "Verified that the field accepts valid input.",
+    invalidInput: "Verified that the field rejects invalid input.",
+    trimValidation: "Verified that leading and trailing spaces are handled correctly.",
+    viewField: "Verified that the field is displayed correctly on the view page.",
+    editField: "Verified that the field is available correctly on the edit page.",
   },
 
   validation: {
