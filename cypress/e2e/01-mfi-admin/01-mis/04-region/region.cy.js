@@ -116,7 +116,67 @@ describe("04. Region Module Test Cases", function () {
     create_region.gridSearchButtonCheck();
   });
 
-  it("04.24. Verify that the grid list content updates correctly when switching the language from English to Bangla.", function () {
+  it("04.24. Verify that the Region List page displays all required table columns correctly.", function () {
+    create_region.gridColumnsCheck();
+  });
+
+  it("04.25. Verify that the Region Name column can be sorted in ascending order.", function () {
+    create_region.regionNameAscendingSort();
+  });
+
+  it("04.26. Verify that the Region Name column can be sorted in descending order.", function () {
+    create_region.regionNameDescendingSort();
+  });
+
+  it("04.27. Verify that searching with a non-existing region name displays no matching records.", function () {
+    create_region.searchNoResult();
+  });
+
+  it("04.28. Verify that partial region name search returns matching records.", function () {
+    create_region.partialSearch();
+  });
+
+  it("04.29. Verify that clearing the search text restores the complete region list.", function () {
+    create_region.clearSearch();
+  });
+
+  it("04.30. Verify that the pagination control works correctly for the Region grid.", function () {
+    create_region.paginationCheck();
+  });
+
+  it("04.31. Verify that the selected page size is applied correctly to the Region grid.", function () {
+    create_region.pageSizeCheck();
+  });
+
+  it("04.32. Verify that the Add Region button redirects the user to the Region Creation page.", function () {
+    create_region.addRegionNavigation();
+  });
+
+  it("04.33. Verify that the Region Creation page displays all required fields correctly.", function () {
+    create_region.createPageFieldCheck();
+  });
+
+  it("04.34. Verify that the Region Name field handles whitespace-only input correctly.", function () {
+    create_region.regionNameSpaceValidation();
+  });
+
+  it("04.35. Verify that the Region Name (Bangla) field handles whitespace-only input correctly.", function () {
+    create_region.regionNameBnSpaceValidation();
+  });
+
+  it("04.36. Verify that the default status is displayed correctly on the Region Creation page.", function () {
+    create_region.defaultStatusCheck();
+  });
+
+  it("04.37. Verify that all available status options are displayed in the status dropdown.", function () {
+    create_region.statusOptionsCheck();
+  });
+
+  it("04.38. Verify that duplicate region names cannot be created.", function () {
+    create_region.duplicateRegionCheck();
+  });
+
+  it("04.39. Verify that the grid list content updates correctly when switching the language from English to Bangla.", function () {
     create_region.gridLanguageSwitchCheck();
   });
 });

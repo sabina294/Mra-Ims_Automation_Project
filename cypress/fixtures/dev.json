@@ -49,7 +49,14 @@
       "status": "Active",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
-      "search": "Test Region"
+      "search": "Test Region",
+      "duplicateNameEn": "Test Region",
+      "duplicateNameBn": "পরীক্ষার অঞ্চল",
+      "duplicateCode": "TR",
+      "invalidSearch": "XYZ_NON_EXISTING_REGION",
+      "partialSearch": "Test",
+      "spaceOnly": "   ",
+      "pageSize": "20"
     },
     "createZoneFrom": {
       "nameEn": "Test Zone ",

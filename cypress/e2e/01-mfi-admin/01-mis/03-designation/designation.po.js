@@ -205,18 +205,20 @@ class DesignationCreation {
   }
 
   gridColumnsCheck() {
-    cy.log(messages.ui.gridColumnsMessage);
+    cy.log(messages.ui.gridColumns);
   }
 
   designationNameAscendingSort() {
     cy.contains("Designation Name").click();
-    cy.log(messages.ui.designationNameAscendingSortMessage);
+
+    cy.log(messages.ui.ascendingSort);
   }
 
   designationNameDescendingSort() {
     cy.contains("Designation Name").click();
     cy.contains("Designation Name").click();
-    cy.log(messages.ui.designationNameDescendingSortMessage);
+
+    cy.log(messages.ui.descendingSort);
   }
 
   searchNoResult() {
@@ -224,11 +226,13 @@ class DesignationCreation {
       const designationData = data.mfiAdmin.createDesignationFrom;
 
       cy.imsId(COMMON.BUTTONS.RESET).click();
+
       cy.formController(COMMON.INPUTS.SEARCH_TEXT)
         .type(designationData.invalidSearch);
+
       cy.imsId(COMMON.BUTTONS.SEARCH).click();
 
-      cy.log(messages.ui.searchNoResultMessage);
+      cy.log(messages.ui.searchNoResult);
     });
   }
 
@@ -237,11 +241,13 @@ class DesignationCreation {
       const designationData = data.mfiAdmin.createDesignationFrom;
 
       cy.imsId(COMMON.BUTTONS.RESET).click();
+
       cy.formController(COMMON.INPUTS.SEARCH_TEXT)
         .type(designationData.partialSearch);
+
       cy.imsId(COMMON.BUTTONS.SEARCH).click();
 
-      cy.log(messages.ui.partialSearchMessage);
+      cy.log(messages.ui.partialSearch);
     });
   }
 
@@ -250,134 +256,196 @@ class DesignationCreation {
       const designationData = data.mfiAdmin.createDesignationFrom;
 
       cy.imsId(COMMON.BUTTONS.RESET).click();
+
       cy.formController(COMMON.INPUTS.SEARCH_TEXT)
         .type(designationData.partialSearch);
+
       cy.imsId(COMMON.BUTTONS.SEARCH).click();
-      cy.formController(COMMON.INPUTS.SEARCH_TEXT).clear();
-      cy.log(messages.ui.clearSearchMessage);
+
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT)
+        .clear();
+
+      cy.log(messages.ui.clearSearch);
     });
   }
 
   paginationCheck() {
-    cy.get(".ant-pagination").should("be.visible");
-    cy.log(messages.ui.paginationMessage);
+    cy.get(".ant-pagination")
+      .should("be.visible");
+
+    cy.log(messages.ui.pagination);
   }
 
   pageSizeCheck() {
     cy.fixture(this.test_data).then((data) => {
       const designationData = data.mfiAdmin.createDesignationFrom;
-      cy.get(".ant-pagination-options").should("be.visible");
-      cy.get(".ant-pagination-options .ant-select").click();
+
+      cy.get(".ant-pagination-options")
+        .should("be.visible");
+
+      cy.get(".ant-pagination-options .ant-select")
+        .click();
+
       cy.contains(
         ".ant-select-item-option",
         designationData.pageSize
       ).click();
 
-      cy.log(messages.ui.pageSizeMessage);
+      cy.log(messages.ui.pageSize);
     });
   }
 
   addDesignationNavigation() {
     cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
-    cy.log(messages.ui.addDesignationNavigationMessage);
+
+    cy.log(messages.ui.addNavigation);
   }
 
   createPageFieldCheck() {
     cy.fixture(this.test_data).then((data) => {
       const designationData = data.mfiAdmin.createDesignationFrom;
+
       cy.imsId(COMMON.BUTTONS.RESET).click();
-      cy.formController("emp_designation_en").type(designationData.nameEn);
-      cy.formController("emp_designation_bn").type(designationData.nameBn);
-      cy.formController("emp_designation_short_name").type(designationData.shortName);
+
+      cy.formController("emp_designation_en")
+        .type(designationData.nameEn);
+
+      cy.formController("emp_designation_bn")
+        .type(designationData.nameBn);
+
+      cy.formController("emp_designation_short_name")
+        .type(designationData.shortName);
+
       cy.formController(COMMON.INPUTS.STATUS_DROPDOWN)
         .type(designationData.selectStatus)
         .type("{enter}");
+
       cy.imsId(COMMON.BUTTONS.GO_BACK).click();
-      cy.log(messages.ui.createPageFieldMessage);
+
+      cy.log(messages.ui.createPageFields);
     });
   }
 
   designationNameSpaceValidation() {
     cy.fixture(this.test_data).then((data) => {
       const designationData = data.mfiAdmin.createDesignationFrom;
+
       cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+
       cy.formController("emp_designation_en")
         .type(designationData.spaceOnly);
+
       cy.formController("emp_designation_bn")
         .type(designationData.nameBn);
+
       cy.formController("emp_designation_short_name")
         .type(designationData.shortName);
+
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+
       cy.imsId(COMMON.CONFIRMATION.YES).click();
+
       cy.imsId(COMMON.CONFIRMATION.OK).click();
+
       cy.imsId(COMMON.BUTTONS.GO_BACK).click();
-      cy.log(messages.ui.spaceValidationMessage);
+
+      cy.log(messages.ui.spaceValidation);
     });
   }
 
   designationNameBnSpaceValidation() {
     cy.fixture(this.test_data).then((data) => {
       const designationData = data.mfiAdmin.createDesignationFrom;
+
       cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+
       cy.formController("emp_designation_en")
         .type(designationData.nameEn);
+
       cy.formController("emp_designation_bn")
         .type(designationData.spaceOnly);
+
       cy.formController("emp_designation_short_name")
         .type(designationData.shortName);
+
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+
       cy.imsId(COMMON.CONFIRMATION.YES).click();
+
       cy.imsId(COMMON.CONFIRMATION.OK).click();
-      cy.log(messages.ui.spaceValidationMessage);
+      cy.log(messages.ui.spaceValidation);
     });
   }
 
   defaultStatusCheck() {
     cy.fixture(this.test_data).then((data) => {
       const designationData = data.mfiAdmin.createDesignationFrom;
+
       cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+
       cy.formController(COMMON.INPUTS.STATUS_DROPDOWN)
         .should("be.visible");
+
       cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+
       cy.log(designationData.status);
-      cy.log(messages.ui.defaultStatusMessage);
+
+      cy.log(messages.ui.defaultStatus);
     });
   }
 
   statusOptionsCheck() {
     cy.fixture(this.test_data).then((data) => {
       const designationData = data.mfiAdmin.createDesignationFrom;
+
       cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
-      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).click();
+
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN)
+        .click();
+
       cy.contains(designationData.status)
         .should("be.visible");
+
       cy.contains(designationData.selectStatus)
         .should("be.visible");
+
       cy.imsId(COMMON.BUTTONS.GO_BACK).click();
-      cy.log(messages.ui.statusOptionsMessage);
+
+      cy.log(messages.ui.statusOptions);
     });
   }
 
   duplicateDesignationCheck() {
     cy.fixture(this.test_data).then((data) => {
       const designationData = data.mfiAdmin.createDesignationFrom;
+
       cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+
       cy.formController("emp_designation_en")
         .type(designationData.duplicateNameEn);
+
       cy.formController("emp_designation_bn")
         .type(designationData.duplicateNameBn);
+
       cy.formController("emp_designation_short_name")
         .type(designationData.duplicateShortName);
+
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+
       cy.imsId(COMMON.CONFIRMATION.YES).click();
+
       cy.imsId(COMMON.CONFIRMATION.OK).click();
-      cy.log(messages.ui.duplicateDesignationMessage);
+
+      cy.log(messages.ui.duplicate);
     });
   }
+
   gridLanguageSwitchCheck() {
     cy.imsId(COMMON.BUTTONS.PROFILE).click();
+
     cy.imsId(COMMON.BUTTONS.LANGUAGE_CHANGE).click();
-    cy.log(messages.ui.languageSwitchMessage);
+
+    cy.log(messages.ui.languageSwitch);
   }
 }
 
