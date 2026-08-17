@@ -2,6 +2,7 @@ export const COMMON = {
   MENUS: {
     CONFIGURATION: "menu-configuration",
     DEPARTMENT: "submenu-department",
+    DESIGNATION: "submenu-designation",
   },
 
   KEYS: {
@@ -79,6 +80,9 @@ export const COMMON = {
     SHORT_NAME: "short_name",
     DESCRIPTION_EN: "descriptionEn",
     DESCRIPTION_BN: "descriptionBn",
+    DESIGNATION_NAME_EN: "emp_designation_en",
+    DESIGNATION_NAME_BN: "emp_designation_bn",
+    DESIGNATION_SHORT_NAME: "emp_designation_short_name",
 
   },
 
@@ -97,34 +101,54 @@ export const COMMON = {
   TABLE: {
     ROW: "table-row",
     FIRST_ROW: "table-row-first",
-  },
-
-  DEPARTMENT: {
-    CREATE_PATH: "/department/create",
-    TABLE_HEAD: "thead",
+    HEAD: "thead",
     HEADER_CELL: "th",
-    TABLE_BODY: "tbody",
+    BODY: "tbody",
+    VISIBLE_ROW: "tr:not(.ant-table-placeholder):visible",
     VISIBLE_ROWS: "tbody tr:not(.ant-table-placeholder):visible",
     VISIBLE_CELLS: "td",
-    PAGINATION: ".ant-pagination",
-    PAGINATION_OPTIONS: ".ant-pagination-options",
+    ACTION_TOGGLE: "[data-ims-id='toggle-action']",
+  },
+
+  PAGINATION: {
+    CONTAINER: ".ant-pagination",
+    OPTIONS: ".ant-pagination-options",
     PAGE_SIZE_SELECT: ".ant-pagination-options .ant-select",
+    TOTAL_TEXT: ".ant-pagination-total-text",
     ACTIVE_PAGE: ".ant-pagination-item-active",
     PAGE_ITEMS: ".ant-pagination-item",
     NEXT_PAGE: ".ant-pagination-next",
     PREVIOUS_PAGE: ".ant-pagination-prev",
-    DISABLED_PAGE_CLASS: "ant-pagination-disabled",
-    SELECT_OPTION: ".ant-select-item-option",
-    SELECT_DROPDOWN: ".ant-select-dropdown:visible",
-    PAGE_BODY: "body",
-    VISIBLE_ELEMENT: ":visible",
+    DISABLED_CLASS: "ant-pagination-disabled",
+  },
+
+  SELECT: {
+    OPTION: ".ant-select-item-option",
+    VISIBLE_DROPDOWN: ".ant-select-dropdown:visible",
+  },
+
+  SORT: {
+    ATTRIBUTE: "aria-sort",
+    ASCENDING: "ascending",
+    DESCENDING: "descending",
+    ACTIVE_CLASS: "ant-table-column-sort",
+  },
+
+  FORM: {
+    ITEM: ".ant-form-item",
+    LABEL: "label",
+    REQUIRED_LABEL_CLASS: "ant-form-item-required",
     INVALID_CONTROL_CLASS: "ng-invalid",
-    SORT_ATTRIBUTE: "aria-sort",
-    SORT_ASCENDING: "ascending",
-    SORT_DESCENDING: "descending",
-    ACTIVE_SORT_CLASS: "ant-table-column-sort",
-    ACTION_TOGGLE: "[data-ims-id='toggle-action']",
     VIEW_FIELDS: "input:visible, textarea:visible",
+  },
+
+  PAGE: {
+    BODY: "body",
+    VISIBLE_ELEMENT: ":visible",
+  },
+
+  DEPARTMENT: {
+    CREATE_PATH: "/department/create",
     COLUMNS: {
       NUMBER: 0,
       NAME_EN: 1,
@@ -133,4 +157,5 @@ export const COMMON = {
       STATUS: 4,
     },
   },
+
 };

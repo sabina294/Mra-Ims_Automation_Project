@@ -176,9 +176,256 @@ describe("03. Designation Module Test Cases", function () {
     create_designation.duplicateDesignationCheck();
   });
 
-  it("03.39. Verify that the grid content updates correctly when the language is switched from English to Bangla.", function () {
-    create_designation.gridLanguageSwitchCheck();
+  it("03.39. Verify that the Designation ID column can be sorted in ascending order.", function () {
+    create_designation.designationIdAscendingSort();
   });
 
+  it("03.40. Verify that the Designation ID column can be sorted in descending order.", function () {
+    create_designation.designationIdDescendingSort();
+  });
+
+  it("03.41. Verify that the Designation Name (Bangla) column can be sorted in ascending order.", function () {
+    create_designation.designationNameBnAscendingSort();
+  });
+
+  it("03.42. Verify that the Designation Name (Bangla) column can be sorted in descending order.", function () {
+    create_designation.designationNameBnDescendingSort();
+  });
+
+  it("03.43. Verify that the Designation Short Name column can be sorted in ascending order.", function () {
+    create_designation.designationShortNameAscendingSort();
+  });
+
+  it("03.44. Verify that the Designation Short Name column can be sorted in descending order.", function () {
+    create_designation.designationShortNameDescendingSort();
+  });
+
+  it("03.45. Verify that the Status column can be sorted in ascending order.", function () {
+    create_designation.statusAscendingSort();
+  });
+
+  it("03.46. Verify that the Status column can be sorted in descending order.", function () {
+    create_designation.statusDescendingSort();
+  });
+
+  it("03.47. Verify that the Designation Name (English) field is displayed as a required field on the creation page.", function () {
+    create_designation.designationNameRequiredCheck();
+  });
+
+  it("03.48. Verify that the Status field is displayed as a required field on the creation page.", function () {
+    create_designation.statusRequiredCheck();
+  });
+
+  it("03.49. Verify that the Designation Name (Bangla) field is displayed correctly as an optional field.", function () {
+    create_designation.designationNameBnOptionalCheck();
+  });
+
+  it("03.50. Verify that the Designation Short Name field is displayed correctly as an optional field.", function () {
+    create_designation.designationShortNameOptionalCheck();
+  });
+
+  it("03.51. Verify that the Designation List displays the correct total number of records.", function () {
+    create_designation.totalRecordCountCheck();
+  });
+
+  it("03.52. Verify that the Previous page button is disabled on the first page of the Designation List.", function () {
+    create_designation.previousButtonCheck();
+  });
+
+  it("03.53. Verify that the Next page button navigates to the next page of the Designation List successfully.", function () {
+    create_designation.nextButtonCheck();
+  });
+
+  it("03.54. Verify that the selected page number is highlighted correctly in the Designation List pagination.", function () {
+    create_designation.selectedPageCheck();
+  });
+
+  it("03.55. Verify that the Designation List page displays the correct title and breadcrumb navigation.", function () {
+    create_designation.listPageTitleAndBreadcrumbCheck();
+  });
+
+  it("03.56. Verify that the Designation List grid displays the # column correctly.", function () {
+    create_designation.gridNumberColumnCheck();
+  });
+
+  it("03.57. Verify that the Designation List grid displays the Designation Name column correctly.", function () {
+    create_designation.gridDesignationNameColumnCheck();
+  });
+
+  it("03.58. Verify that the Designation List grid displays the Designation Name (Bangla) column correctly.", function () {
+    create_designation.gridDesignationNameBnColumnCheck();
+  });
+
+  it("03.59. Verify that the Designation List grid displays the Designation Short Name column correctly.", function () {
+    create_designation.gridShortNameColumnCheck();
+  });
+
+  it("03.60. Verify that the Designation List grid displays the Designation Id column correctly.", function () {
+    create_designation.gridDesignationIdColumnCheck();
+  });
+
+  it("03.61. Verify that the Designation List grid displays the Status column correctly.", function () {
+    create_designation.gridStatusColumnCheck();
+  });
+
+  it("03.62. Verify that the Designation List grid displays the Actions column correctly.", function () {
+    create_designation.gridActionsColumnCheck();
+  });
+
+  it("03.63. Verify that each designation record displays a valid designation ID.", function () {
+    create_designation.designationIdDataCheck();
+  });
+
+  it("03.64. Verify that each designation record displays a valid status.", function () {
+    create_designation.designationStatusDataCheck();
+  });
+
+  it("03.65. Verify that the designation action menu opens successfully.", function () {
+    create_designation.actionMenuOpenCheck();
+  });
+
+  it("03.66. Verify that the designation action menu closes when dismissed.", function () {
+    create_designation.actionMenuCloseCheck();
+  });
+
+  it("03.67. Verify that an exact existing Designation Name search returns the matching record.", function () {
+    create_designation.exactDesignationNameSearch();
+  });
+
+  it("03.68. Verify searching with leading and trailing spaces does not return an incorrect result.", function () {
+    create_designation.searchWithLeadingTrailingSpaces();
+  });
+
+  it("03.69. Verify clearing the status filter restores the designation list.", function () {
+    create_designation.clearStatusFilter();
+  });
+
+  it("03.70. Verify applying status and name filters together returns matching records.", function () {
+    create_designation.statusAndNameCombinedSearch();
+  });
+
+  it("03.71. Verify changing the status after a search updates the designation grid.", function () {
+    create_designation.changeStatusAfterSearch();
+  });
+
+  it("03.72. Verify changing search text after applying status updates the result.", function () {
+    create_designation.changeSearchAfterStatusFilter();
+  });
+
+  it("03.73. Verify sorting does not remove designation records.", function () {
+    create_designation.sortingDataIntegrityCheck();
+  });
+
+  it("03.74. Verify Previous returns the designation grid to the previous page.", function () {
+    create_designation.previousPageNavigationCheck();
+  });
+
+  it("03.75. Verify Next is disabled on the last designation page.", function () {
+    create_designation.nextPageDisabledCheck();
+  });
+
+  it("03.76. Verify changing page size updates the displayed designation record count.", function () {
+    create_designation.pageSizeRecordCountCheck();
+  });
+
+  it("03.77. Verify changing page size preserves designation grid data.", function () {
+    create_designation.pageSizeDataIntegrityCheck();
+  });
+
+  it("03.78. Verify the Designation Creation page title and breadcrumb navigation.", function () {
+    create_designation.createPageTitleAndBreadcrumbCheck();
+  });
+
+  it("03.79. Verify the English designation-name field accepts valid input.", function () {
+    create_designation.validEnglishNameCheck();
+  });
+
+  it("03.80. Verify the Bangla designation-name field accepts valid input.", function () {
+    create_designation.validBanglaNameCheck();
+  });
+
+  it("03.81. Verify clearing the required English name triggers validation.", function () {
+    create_designation.clearEnglishNameValidation();
+  });
+
+  it("03.82. Verify the optional Bangla name can be cleared before submission.", function () {
+    create_designation.clearOptionalBanglaNameCheck();
+  });
+
+  it("03.83. Verify status can be changed before designation submission.", function () {
+    create_designation.changeStatusBeforeSubmit();
+  });
+
+  it("03.84. Verify the selected status is submitted correctly.", function () {
+    create_designation.selectedStatusSubmissionCheck();
+  });
+
+  it("03.85. Verify valid designation submission opens a confirmation dialog.", function () {
+    create_designation.submitConfirmationDialogCheck();
+  });
+
+  it("03.86. Verify cancelling confirmation does not create a designation.", function () {
+    create_designation.cancelSubmissionCheck();
+  });
+
+  it("03.87. Verify confirming creation successfully creates a designation.", function () {
+    create_designation.confirmSuccessfulCreationCheck();
+  });
+
+  it("03.88. Verify English designation names handle leading and trailing spaces.", function () {
+    create_designation.englishNameLeadingTrailingSpacesCheck();
+  });
+
+  it("03.89. Verify Bangla designation names handle leading and trailing spaces.", function () {
+    create_designation.banglaNameLeadingTrailingSpacesCheck();
+  });
+
+  it("03.90. Verify special characters in the English designation name follow validation rules.", function () {
+    create_designation.englishNameSpecialCharacterValidation();
+  });
+
+  it("03.91. Verify special characters in the Bangla designation name follow validation rules.", function () {
+    create_designation.banglaNameSpecialCharacterValidation();
+  });
+
+  it("03.92. Verify a very long English designation name follows maximum-length rules.", function () {
+    create_designation.englishNameMaximumLengthCheck();
+  });
+
+  it("03.93. Verify a very long Bangla designation name follows maximum-length rules.", function () {
+    create_designation.banglaNameMaximumLengthCheck();
+  });
+
+  it("03.94. Verify the View page displays the saved English designation name.", function () {
+    create_designation.viewEnglishNameDataCheck();
+  });
+
+  it("03.95. Verify the View page displays the saved Bangla designation name.", function () {
+    create_designation.viewBanglaNameDataCheck();
+  });
+
+  it("03.96. Verify the View page displays the correct designation ID.", function () {
+    create_designation.viewDesignationIdCheck();
+  });
+
+  it("03.97. Verify the View page displays the current designation status.", function () {
+    create_designation.viewDesignationStatusCheck();
+  });
+
+  it("03.98. Verify cancelling edit does not modify designation data.", function () {
+    create_designation.editWithoutSubmitDataIntegrityCheck();
+  });
+
+  it("03.99. Verify updated designation information appears in the list.", function () {
+    create_designation.updatedDesignationListDataCheck();
+  });
+
+  it("03.100. Verify Active and Inactive status changes are displayed correctly after creation and edit.", function () {
+    create_designation.designationStatusLifecycleCheck();
+  });
+
+  it("03.101. Verify that the grid content updates correctly when the language is switched from English to Bangla.", function () {
+    create_designation.gridLanguageSwitchCheck();
+  });
 
 });

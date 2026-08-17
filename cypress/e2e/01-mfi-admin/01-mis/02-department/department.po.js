@@ -188,7 +188,7 @@ class DepartmentCreation {
     cy.fixture(this.test_data).then((data) => {
       const depData = data.mfiAdmin.createDepartmentFrom;
       cy.contains(depData.nameEnColumn).click();
-      cy.get(COMMON.DEPARTMENT.VISIBLE_ROWS).find(COMMON.DEPARTMENT.VISIBLE_CELLS)
+      cy.get(COMMON.TABLE.VISIBLE_ROWS).find(COMMON.TABLE.VISIBLE_CELLS)
         .filter(`:nth-child(${COMMON.DEPARTMENT.COLUMNS.NAME_EN + 1})`).then(($cells) => {
           const values = [...$cells].map((cell) => cell.innerText.trim());
           expect(values).to.deep.equal([...values].sort((a, b) => a.localeCompare(b)));
@@ -201,7 +201,7 @@ class DepartmentCreation {
     cy.fixture(this.test_data).then((data) => {
       const depData = data.mfiAdmin.createDepartmentFrom;
       cy.contains(depData.nameEnColumn).click();
-      cy.get(COMMON.DEPARTMENT.VISIBLE_ROWS).find(COMMON.DEPARTMENT.VISIBLE_CELLS)
+      cy.get(COMMON.TABLE.VISIBLE_ROWS).find(COMMON.TABLE.VISIBLE_CELLS)
         .filter(`:nth-child(${COMMON.DEPARTMENT.COLUMNS.NAME_EN + 1})`).then(($cells) => {
           const values = [...$cells].map((cell) => cell.innerText.trim());
           expect(values).to.deep.equal([...values].sort((a, b) => b.localeCompare(a)));
@@ -246,7 +246,7 @@ class DepartmentCreation {
   }
 
   paginationCheck() {
-    cy.get(COMMON.DEPARTMENT.PAGINATION)
+    cy.get(COMMON.PAGINATION.CONTAINER)
       .should("be.visible");
     cy.log(messages.ui.pagination);
   }
@@ -254,12 +254,12 @@ class DepartmentCreation {
   pageSizeCheck() {
     cy.fixture(this.test_data).then((data) => {
       const depData = data.mfiAdmin.createDepartmentFrom;
-      cy.get(COMMON.DEPARTMENT.PAGINATION_OPTIONS)
+      cy.get(COMMON.PAGINATION.OPTIONS)
         .should("be.visible");
-      cy.get(COMMON.DEPARTMENT.PAGE_SIZE_SELECT)
+      cy.get(COMMON.PAGINATION.PAGE_SIZE_SELECT)
         .click();
       cy.contains(
-        COMMON.DEPARTMENT.SELECT_OPTION,
+        COMMON.SELECT.OPTION,
         depData.pageSize
       ).click();
 
@@ -351,14 +351,14 @@ class DepartmentCreation {
       const depData = data.mfiAdmin.createDepartmentFrom;
       cy.location("pathname").should("not.include", COMMON.DEPARTMENT.CREATE_PATH);
       cy.imsId(COMMON.BUTTONS.ADD_NEW).should("be.visible");
-      cy.get(COMMON.DEPARTMENT.TABLE_HEAD).should("be.visible");
-      cy.contains(COMMON.DEPARTMENT.VISIBLE_ELEMENT, depData.breadcrumbHome)
+      cy.get(COMMON.TABLE.HEAD).should("be.visible");
+      cy.contains(COMMON.PAGE.VISIBLE_ELEMENT, depData.breadcrumbHome)
         .should("be.visible");
-      cy.contains(COMMON.DEPARTMENT.VISIBLE_ELEMENT, depData.breadcrumbConfiguration)
+      cy.contains(COMMON.PAGE.VISIBLE_ELEMENT, depData.breadcrumbConfiguration)
         .should("be.visible");
-      cy.contains(COMMON.DEPARTMENT.VISIBLE_ELEMENT, depData.breadcrumbDepartment)
+      cy.contains(COMMON.PAGE.VISIBLE_ELEMENT, depData.breadcrumbDepartment)
         .should("be.visible");
-      cy.contains(COMMON.DEPARTMENT.VISIBLE_ELEMENT, depData.breadcrumbList)
+      cy.contains(COMMON.PAGE.VISIBLE_ELEMENT, depData.breadcrumbList)
         .should("be.visible");
       cy.log(messages.ui.listPageNavigationCheck);
     });
@@ -367,12 +367,12 @@ class DepartmentCreation {
   gridNumberColumnCheck() {
     cy.fixture(this.test_data).then((data) => {
       const depData = data.mfiAdmin.createDepartmentFrom;
-      cy.get(COMMON.DEPARTMENT.TABLE_HEAD)
-        .find(COMMON.DEPARTMENT.HEADER_CELL)
+      cy.get(COMMON.TABLE.HEAD)
+        .find(COMMON.TABLE.HEADER_CELL)
         .eq(COMMON.DEPARTMENT.COLUMNS.NUMBER)
         .should("be.visible");
-      cy.get(COMMON.DEPARTMENT.VISIBLE_ROWS).first()
-        .find(COMMON.DEPARTMENT.VISIBLE_CELLS)
+      cy.get(COMMON.TABLE.VISIBLE_ROWS).first()
+        .find(COMMON.TABLE.VISIBLE_CELLS)
         .eq(COMMON.DEPARTMENT.COLUMNS.NUMBER)
         .invoke("text")
         .then((serialNumber) => {
@@ -385,7 +385,7 @@ class DepartmentCreation {
   gridDepartmentNameColumnCheck() {
     cy.fixture(this.test_data).then((data) => {
       const depData = data.mfiAdmin.createDepartmentFrom;
-      cy.get(COMMON.DEPARTMENT.TABLE_HEAD).contains(COMMON.DEPARTMENT.HEADER_CELL, depData.nameEnColumn)
+      cy.get(COMMON.TABLE.HEAD).contains(COMMON.TABLE.HEADER_CELL, depData.nameEnColumn)
         .should("be.visible");
       cy.log(messages.ui.gridColumnCheck);
     });
@@ -394,7 +394,7 @@ class DepartmentCreation {
   gridDepartmentNameBnColumnCheck() {
     cy.fixture(this.test_data).then((data) => {
       const depData = data.mfiAdmin.createDepartmentFrom;
-      cy.get(COMMON.DEPARTMENT.TABLE_HEAD).contains(COMMON.DEPARTMENT.HEADER_CELL, depData.nameBnColumn)
+      cy.get(COMMON.TABLE.HEAD).contains(COMMON.TABLE.HEADER_CELL, depData.nameBnColumn)
         .should("be.visible");
       cy.log(messages.ui.gridColumnCheck);
     });
@@ -403,7 +403,7 @@ class DepartmentCreation {
   gridDepartmentIdColumnCheck() {
     cy.fixture(this.test_data).then((data) => {
       const depData = data.mfiAdmin.createDepartmentFrom;
-      cy.get(COMMON.DEPARTMENT.TABLE_HEAD).contains(COMMON.DEPARTMENT.HEADER_CELL, depData.departmentIdColumn)
+      cy.get(COMMON.TABLE.HEAD).contains(COMMON.TABLE.HEADER_CELL, depData.departmentIdColumn)
         .should("be.visible");
       cy.log(messages.ui.gridColumnCheck);
     });
@@ -412,7 +412,7 @@ class DepartmentCreation {
   gridStatusColumnCheck() {
     cy.fixture(this.test_data).then((data) => {
       const depData = data.mfiAdmin.createDepartmentFrom;
-      cy.get(COMMON.DEPARTMENT.TABLE_HEAD).contains(COMMON.DEPARTMENT.HEADER_CELL, depData.statusColumn)
+      cy.get(COMMON.TABLE.HEAD).contains(COMMON.TABLE.HEADER_CELL, depData.statusColumn)
         .should("be.visible");
       cy.log(messages.ui.gridColumnCheck);
     });
@@ -421,18 +421,18 @@ class DepartmentCreation {
   gridActionsColumnCheck() {
     cy.fixture(this.test_data).then((data) => {
       const depData = data.mfiAdmin.createDepartmentFrom;
-      cy.get(COMMON.DEPARTMENT.TABLE_HEAD).contains(COMMON.DEPARTMENT.HEADER_CELL, depData.actionsColumn)
+      cy.get(COMMON.TABLE.HEAD).contains(COMMON.TABLE.HEADER_CELL, depData.actionsColumn)
         .should("be.visible");
       cy.log(messages.ui.gridColumnCheck);
     });
   }
 
   departmentIdDataCheck() {
-    cy.get(COMMON.DEPARTMENT.VISIBLE_ROWS)
-      .filter(COMMON.DEPARTMENT.VISIBLE_ELEMENT)
+    cy.get(COMMON.TABLE.VISIBLE_ROWS)
+      .filter(COMMON.PAGE.VISIBLE_ELEMENT)
       .first()
       .within(() => {
-        cy.get(COMMON.DEPARTMENT.VISIBLE_CELLS).eq(COMMON.DEPARTMENT.COLUMNS.DEPARTMENT_ID)
+        cy.get(COMMON.TABLE.VISIBLE_CELLS).eq(COMMON.DEPARTMENT.COLUMNS.DEPARTMENT_ID)
           .invoke("text")
           .then((departmentId) => {
             expect(departmentId.trim()).to.not.equal("");
@@ -444,8 +444,8 @@ class DepartmentCreation {
   departmentStatusDataCheck() {
     cy.fixture(this.test_data).then((data) => {
       const depData = data.mfiAdmin.createDepartmentFrom;
-      cy.get(COMMON.DEPARTMENT.VISIBLE_ROWS).first().within(() => {
-        cy.get(COMMON.DEPARTMENT.VISIBLE_CELLS).eq(COMMON.DEPARTMENT.COLUMNS.STATUS)
+      cy.get(COMMON.TABLE.VISIBLE_ROWS).first().within(() => {
+        cy.get(COMMON.TABLE.VISIBLE_CELLS).eq(COMMON.DEPARTMENT.COLUMNS.STATUS)
           .invoke("text").then((status) => {
             expect(depData.validStatuses).to.include(status.trim());
           });
@@ -468,7 +468,7 @@ class DepartmentCreation {
   }
 
   actionMenuCloseCheck() {
-    cy.get(COMMON.DEPARTMENT.PAGE_BODY).click(0, 0);
+    cy.get(COMMON.PAGE.BODY).click(0, 0);
 
     cy.imsId(COMMON.GRID.ACTION_VIEW)
       .should("not.be.visible");
@@ -488,9 +488,9 @@ class DepartmentCreation {
       cy.imsId(COMMON.BUTTONS.SEARCH)
         .click();
 
-      cy.get(COMMON.DEPARTMENT.VISIBLE_ROWS).should("have.length.greaterThan", 0);
-      cy.get(COMMON.DEPARTMENT.VISIBLE_ROWS).each(($row) => {
-        cy.wrap($row).find(COMMON.DEPARTMENT.VISIBLE_CELLS)
+      cy.get(COMMON.TABLE.VISIBLE_ROWS).should("have.length.greaterThan", 0);
+      cy.get(COMMON.TABLE.VISIBLE_ROWS).each(($row) => {
+        cy.wrap($row).find(COMMON.TABLE.VISIBLE_CELLS)
           .eq(COMMON.DEPARTMENT.COLUMNS.NAME_EN)
           .should("contain.text", depData.nameEn);
       });
@@ -512,10 +512,10 @@ class DepartmentCreation {
       cy.imsId(COMMON.BUTTONS.SEARCH)
         .click();
 
-      cy.get(COMMON.DEPARTMENT.TABLE_BODY).should("be.visible");
-      cy.get(COMMON.DEPARTMENT.VISIBLE_ROWS).should("have.length.greaterThan", 0);
-      cy.get(COMMON.DEPARTMENT.VISIBLE_ROWS).each(($row) => {
-        cy.wrap($row).find(COMMON.DEPARTMENT.VISIBLE_CELLS)
+      cy.get(COMMON.TABLE.BODY).should("be.visible");
+      cy.get(COMMON.TABLE.VISIBLE_ROWS).should("have.length.greaterThan", 0);
+      cy.get(COMMON.TABLE.VISIBLE_ROWS).each(($row) => {
+        cy.wrap($row).find(COMMON.TABLE.VISIBLE_CELLS)
           .eq(COMMON.DEPARTMENT.COLUMNS.NAME_EN)
           .should("contain.text", depData.nameEn);
       });
@@ -529,7 +529,7 @@ class DepartmentCreation {
       .click();
 
     cy.formController(COMMON.INPUTS.SEARCH_TEXT).should("have.value", "");
-    cy.get(COMMON.DEPARTMENT.VISIBLE_ROWS).should("have.length.greaterThan", 0);
+    cy.get(COMMON.TABLE.VISIBLE_ROWS).should("have.length.greaterThan", 0);
 
     cy.log(messages.ui.statusFilterClearCheck);
   }
@@ -551,8 +551,8 @@ class DepartmentCreation {
       cy.imsId(COMMON.BUTTONS.SEARCH)
         .click();
 
-      cy.get(COMMON.DEPARTMENT.VISIBLE_ROWS).should("have.length.greaterThan", 0);
-      cy.get(COMMON.DEPARTMENT.VISIBLE_ROWS).each(($row) => {
+      cy.get(COMMON.TABLE.VISIBLE_ROWS).should("have.length.greaterThan", 0);
+      cy.get(COMMON.TABLE.VISIBLE_ROWS).each(($row) => {
         cy.wrap($row).should("contain.text", depData.nameEn);
         cy.wrap($row).should("contain.text", depData.statusSelect);
       });
@@ -580,7 +580,7 @@ class DepartmentCreation {
 
       cy.imsId(COMMON.BUTTONS.SEARCH).click();
 
-      cy.get(COMMON.DEPARTMENT.TABLE_BODY).should("be.visible");
+      cy.get(COMMON.TABLE.BODY).should("be.visible");
 
       cy.formController(COMMON.INPUTS.STATUS_DROPDOWN)
         .should("contain.text", depData.selectStatus);
@@ -606,8 +606,8 @@ class DepartmentCreation {
       cy.imsId(COMMON.BUTTONS.SEARCH)
         .click();
 
-      cy.get(COMMON.DEPARTMENT.VISIBLE_ROWS).should("have.length.greaterThan", 0);
-      cy.get(COMMON.DEPARTMENT.VISIBLE_ROWS).each(($row) => {
+      cy.get(COMMON.TABLE.VISIBLE_ROWS).should("have.length.greaterThan", 0);
+      cy.get(COMMON.TABLE.VISIBLE_ROWS).each(($row) => {
         cy.wrap($row).should("contain.text", depData.nameEn);
         cy.wrap($row).should("contain.text", depData.statusSelect);
       });
@@ -620,15 +620,15 @@ class DepartmentCreation {
     cy.fixture(this.test_data).then((data) => {
       const depData = data.mfiAdmin.createDepartmentFrom;
       cy.imsId(COMMON.BUTTONS.RESET).click();
-      cy.get(COMMON.DEPARTMENT.TABLE_HEAD)
-        .contains(COMMON.DEPARTMENT.HEADER_CELL, depData.nameBnColumn)
+      cy.get(COMMON.TABLE.HEAD)
+        .contains(COMMON.TABLE.HEADER_CELL, depData.nameBnColumn)
         .click()
         .should(($header) => {
-          const ariaSort = $header.attr(COMMON.DEPARTMENT.SORT_ATTRIBUTE);
-          const hasActiveSortClass = $header.hasClass(COMMON.DEPARTMENT.ACTIVE_SORT_CLASS);
-          expect(ariaSort === COMMON.DEPARTMENT.SORT_ASCENDING || hasActiveSortClass).to.equal(true);
+          const ariaSort = $header.attr(COMMON.SORT.ATTRIBUTE);
+          const hasActiveSortClass = $header.hasClass(COMMON.SORT.ACTIVE_CLASS);
+          expect(ariaSort === COMMON.SORT.ASCENDING || hasActiveSortClass).to.equal(true);
         });
-      cy.get(COMMON.DEPARTMENT.VISIBLE_ROWS)
+      cy.get(COMMON.TABLE.VISIBLE_ROWS)
         .should("have.length.greaterThan", 0);
       cy.log(messages.ui.banglaAscendingSortCheck);
     });
@@ -637,15 +637,15 @@ class DepartmentCreation {
   departmentNameBnDescendingSort() {
     cy.fixture(this.test_data).then((data) => {
       const depData = data.mfiAdmin.createDepartmentFrom;
-      cy.get(COMMON.DEPARTMENT.TABLE_HEAD)
-        .contains(COMMON.DEPARTMENT.HEADER_CELL, depData.nameBnColumn)
+      cy.get(COMMON.TABLE.HEAD)
+        .contains(COMMON.TABLE.HEADER_CELL, depData.nameBnColumn)
         .click()
         .should(($header) => {
-          const ariaSort = $header.attr(COMMON.DEPARTMENT.SORT_ATTRIBUTE);
-          const hasActiveSortClass = $header.hasClass(COMMON.DEPARTMENT.ACTIVE_SORT_CLASS);
-          expect(ariaSort === COMMON.DEPARTMENT.SORT_DESCENDING || hasActiveSortClass).to.equal(true);
+          const ariaSort = $header.attr(COMMON.SORT.ATTRIBUTE);
+          const hasActiveSortClass = $header.hasClass(COMMON.SORT.ACTIVE_CLASS);
+          expect(ariaSort === COMMON.SORT.DESCENDING || hasActiveSortClass).to.equal(true);
         });
-      cy.get(COMMON.DEPARTMENT.VISIBLE_ROWS)
+      cy.get(COMMON.TABLE.VISIBLE_ROWS)
         .should("have.length.greaterThan", 0);
       cy.log(messages.ui.banglaDescendingSortCheck);
     });
@@ -655,7 +655,7 @@ class DepartmentCreation {
     cy.fixture(this.test_data).then((data) => {
       const depData = data.mfiAdmin.createDepartmentFrom;
       cy.contains(depData.departmentIdColumn).click();
-      cy.get(COMMON.DEPARTMENT.VISIBLE_ROWS).find(COMMON.DEPARTMENT.VISIBLE_CELLS)
+      cy.get(COMMON.TABLE.VISIBLE_ROWS).find(COMMON.TABLE.VISIBLE_CELLS)
         .filter(`:nth-child(${COMMON.DEPARTMENT.COLUMNS.DEPARTMENT_ID + 1})`).then(($cells) => {
           const values = [...$cells].map((cell) => cell.innerText.trim());
           expect(values).to.deep.equal([...values].sort((a, b) => a.localeCompare(b, undefined, { numeric: true })));
@@ -668,7 +668,7 @@ class DepartmentCreation {
     cy.fixture(this.test_data).then((data) => {
       const depData = data.mfiAdmin.createDepartmentFrom;
       cy.contains(depData.departmentIdColumn).click();
-      cy.get(COMMON.DEPARTMENT.VISIBLE_ROWS).find(COMMON.DEPARTMENT.VISIBLE_CELLS)
+      cy.get(COMMON.TABLE.VISIBLE_ROWS).find(COMMON.TABLE.VISIBLE_CELLS)
         .filter(`:nth-child(${COMMON.DEPARTMENT.COLUMNS.DEPARTMENT_ID + 1})`).then(($cells) => {
           const values = [...$cells].map((cell) => cell.innerText.trim());
           expect(values).to.deep.equal([...values].sort((a, b) => b.localeCompare(a, undefined, { numeric: true })));
@@ -678,16 +678,16 @@ class DepartmentCreation {
   }
 
   sortingDataIntegrityCheck() {
-    cy.get(COMMON.DEPARTMENT.VISIBLE_ROWS).then(($rowsBefore) => {
+    cy.get(COMMON.TABLE.VISIBLE_ROWS).then(($rowsBefore) => {
       const rowCountBefore = $rowsBefore.length;
       cy.fixture(this.test_data).then((data) => {
         cy.contains(data.mfiAdmin.createDepartmentFrom.nameEnColumn).click();
       });
-      cy.get(COMMON.DEPARTMENT.VISIBLE_ROWS)
+      cy.get(COMMON.TABLE.VISIBLE_ROWS)
         .should("have.length", rowCountBefore)
         .each(($row) => {
           cy.wrap($row)
-            .find(COMMON.DEPARTMENT.VISIBLE_CELLS)
+            .find(COMMON.TABLE.VISIBLE_CELLS)
             .eq(COMMON.DEPARTMENT.COLUMNS.DEPARTMENT_ID)
             .invoke("text")
             .should("not.be.empty");
@@ -698,12 +698,12 @@ class DepartmentCreation {
   }
 
   nextPageCheck() {
-    cy.get(COMMON.DEPARTMENT.ACTIVE_PAGE).invoke("text").then((currentPage) => {
-      cy.get(COMMON.DEPARTMENT.NEXT_PAGE)
+    cy.get(COMMON.PAGINATION.ACTIVE_PAGE).invoke("text").then((currentPage) => {
+      cy.get(COMMON.PAGINATION.NEXT_PAGE)
         .should("be.visible")
-        .and("not.have.class", COMMON.DEPARTMENT.DISABLED_PAGE_CLASS)
+        .and("not.have.class", COMMON.PAGINATION.DISABLED_CLASS)
         .click();
-      cy.get(COMMON.DEPARTMENT.ACTIVE_PAGE)
+      cy.get(COMMON.PAGINATION.ACTIVE_PAGE)
         .should("have.text", String(Number(currentPage.trim()) + 1));
     });
 
@@ -711,12 +711,12 @@ class DepartmentCreation {
   }
 
   previousPageCheck() {
-    cy.get(COMMON.DEPARTMENT.ACTIVE_PAGE).invoke("text").then((currentPage) => {
-      cy.get(COMMON.DEPARTMENT.PREVIOUS_PAGE)
+    cy.get(COMMON.PAGINATION.ACTIVE_PAGE).invoke("text").then((currentPage) => {
+      cy.get(COMMON.PAGINATION.PREVIOUS_PAGE)
         .should("be.visible")
-        .and("not.have.class", COMMON.DEPARTMENT.DISABLED_PAGE_CLASS)
+        .and("not.have.class", COMMON.PAGINATION.DISABLED_CLASS)
         .click();
-      cy.get(COMMON.DEPARTMENT.ACTIVE_PAGE)
+      cy.get(COMMON.PAGINATION.ACTIVE_PAGE)
         .should("have.text", String(Number(currentPage.trim()) - 1));
     });
 
@@ -724,19 +724,19 @@ class DepartmentCreation {
   }
 
   previousPageDisabledCheck() {
-    cy.get(COMMON.DEPARTMENT.PAGE_ITEMS).first().click();
-    cy.get(COMMON.DEPARTMENT.PREVIOUS_PAGE)
+    cy.get(COMMON.PAGINATION.PAGE_ITEMS).first().click();
+    cy.get(COMMON.PAGINATION.PREVIOUS_PAGE)
       .should("be.visible")
-      .and("have.class", COMMON.DEPARTMENT.DISABLED_PAGE_CLASS);
+      .and("have.class", COMMON.PAGINATION.DISABLED_CLASS);
 
     cy.log(messages.ui.previousPageDisabledCheck);
   }
 
   nextPageDisabledCheck() {
-    cy.get(COMMON.DEPARTMENT.PAGE_ITEMS).last().click();
+    cy.get(COMMON.PAGINATION.PAGE_ITEMS).last().click();
 
-    cy.get(COMMON.DEPARTMENT.NEXT_PAGE)
-      .should("have.class", COMMON.DEPARTMENT.DISABLED_PAGE_CLASS);
+    cy.get(COMMON.PAGINATION.NEXT_PAGE)
+      .should("have.class", COMMON.PAGINATION.DISABLED_CLASS);
 
     cy.log(messages.ui.nextPageDisabledCheck);
   }
@@ -745,18 +745,18 @@ class DepartmentCreation {
     cy.fixture(this.test_data).then((data) => {
       const depData = data.mfiAdmin.createDepartmentFrom;
 
-      cy.get(COMMON.DEPARTMENT.PAGE_SIZE_SELECT)
+      cy.get(COMMON.PAGINATION.PAGE_SIZE_SELECT)
         .click();
       cy.contains(
-        COMMON.DEPARTMENT.SELECT_OPTION,
+        COMMON.SELECT.OPTION,
         depData.pageSize
       ).click();
-      cy.get(COMMON.DEPARTMENT.VISIBLE_ROWS)
+      cy.get(COMMON.TABLE.VISIBLE_ROWS)
         .its("length")
         .should("be.greaterThan", 0)
         .and("be.at.most", Number(depData.pageSize));
 
-      cy.get(COMMON.DEPARTMENT.VISIBLE_ROWS).then(($rows) => {
+      cy.get(COMMON.TABLE.VISIBLE_ROWS).then(($rows) => {
         this.pageSizeDepartmentIds = [...$rows].map((row) =>
           row.cells[COMMON.DEPARTMENT.COLUMNS.DEPARTMENT_ID].innerText.trim()
         );
@@ -767,7 +767,7 @@ class DepartmentCreation {
   }
 
   pageSizeDataIntegrityCheck() {
-    cy.get(COMMON.DEPARTMENT.VISIBLE_ROWS).then(($rows) => {
+    cy.get(COMMON.TABLE.VISIBLE_ROWS).then(($rows) => {
       const currentDepartmentIds = [...$rows].map((row) =>
         row.cells[COMMON.DEPARTMENT.COLUMNS.DEPARTMENT_ID].innerText.trim()
       );
@@ -782,13 +782,13 @@ class DepartmentCreation {
       const depData = data.mfiAdmin.createDepartmentFrom;
       cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
       cy.location("pathname").should("include", COMMON.DEPARTMENT.CREATE_PATH);
-      cy.contains(COMMON.DEPARTMENT.VISIBLE_ELEMENT, depData.breadcrumbHome)
+      cy.contains(COMMON.PAGE.VISIBLE_ELEMENT, depData.breadcrumbHome)
         .should("be.visible");
-      cy.contains(COMMON.DEPARTMENT.VISIBLE_ELEMENT, depData.breadcrumbConfiguration)
+      cy.contains(COMMON.PAGE.VISIBLE_ELEMENT, depData.breadcrumbConfiguration)
         .should("be.visible");
-      cy.contains(COMMON.DEPARTMENT.VISIBLE_ELEMENT, depData.breadcrumbDepartment)
+      cy.contains(COMMON.PAGE.VISIBLE_ELEMENT, depData.breadcrumbDepartment)
         .should("be.visible");
-      cy.contains(COMMON.DEPARTMENT.VISIBLE_ELEMENT, depData.breadcrumbCreate)
+      cy.contains(COMMON.PAGE.VISIBLE_ELEMENT, depData.breadcrumbCreate)
         .should("be.visible");
       cy.formController(COMMON.INPUTS.NAME_EN).should("be.visible");
       cy.formController(COMMON.INPUTS.NAME_BN).should("be.visible");
@@ -842,7 +842,7 @@ class DepartmentCreation {
         .click();
       cy.imsId(COMMON.CONFIRMATION.OK).click();
       cy.formController(COMMON.INPUTS.NAME_EN)
-        .should("have.class", COMMON.DEPARTMENT.INVALID_CONTROL_CLASS);
+        .should("have.class", COMMON.FORM.INVALID_CONTROL_CLASS);
       cy.imsId(COMMON.BUTTONS.GO_BACK).click();
       cy.log(messages.ui.clearedEnglishValidationCheck);
     });
@@ -912,7 +912,7 @@ class DepartmentCreation {
         .clear()
         .type(selectedStatusDepartmentName);
       cy.imsId(COMMON.BUTTONS.SEARCH).click();
-      cy.get(COMMON.DEPARTMENT.VISIBLE_ROWS).should("have.length", 1)
+      cy.get(COMMON.TABLE.VISIBLE_ROWS).should("have.length", 1)
         .first()
         .should("contain.text", selectedStatusDepartmentName)
         .and("contain.text", depData.statusSelect);
@@ -1065,13 +1065,13 @@ class DepartmentCreation {
   }
 
   viewEnglishNameDataCheck() {
-    cy.get(COMMON.DEPARTMENT.VISIBLE_ROWS).first()
-      .find(COMMON.DEPARTMENT.VISIBLE_CELLS)
+    cy.get(COMMON.TABLE.VISIBLE_ROWS).first()
+      .find(COMMON.TABLE.VISIBLE_CELLS)
       .eq(COMMON.DEPARTMENT.COLUMNS.NAME_EN).invoke("text")
       .then((nameEn) => {
         cy.imsId(COMMON.TOGGLES.ACTION).first().click();
         cy.imsId(COMMON.GRID.ACTION_VIEW).click();
-        cy.contains(COMMON.DEPARTMENT.VISIBLE_ELEMENT, nameEn.trim())
+        cy.contains(COMMON.PAGE.VISIBLE_ELEMENT, nameEn.trim())
           .should("be.visible");
         cy.imsId(COMMON.BUTTONS.GO_BACK).click();
       });
@@ -1080,7 +1080,7 @@ class DepartmentCreation {
   }
 
   viewBanglaNameDataCheck() {
-    cy.get(COMMON.DEPARTMENT.VISIBLE_ROWS)
+    cy.get(COMMON.TABLE.VISIBLE_ROWS)
       .filter((_, row) =>
         row.cells[COMMON.DEPARTMENT.COLUMNS.NAME_BN].innerText.trim().length > 0
       )
@@ -1088,10 +1088,10 @@ class DepartmentCreation {
       .then(($row) => {
         const nameBn = $row[0].cells[COMMON.DEPARTMENT.COLUMNS.NAME_BN].innerText.trim();
         cy.wrap($row)
-          .find(COMMON.DEPARTMENT.ACTION_TOGGLE)
+          .find(COMMON.TABLE.ACTION_TOGGLE)
           .click();
         cy.imsId(COMMON.GRID.ACTION_VIEW).click();
-        cy.contains(COMMON.DEPARTMENT.VISIBLE_ELEMENT, nameBn)
+        cy.contains(COMMON.PAGE.VISIBLE_ELEMENT, nameBn)
           .should("be.visible");
         cy.imsId(COMMON.BUTTONS.GO_BACK).click();
       });
@@ -1100,8 +1100,8 @@ class DepartmentCreation {
   }
 
   viewDepartmentIdCheck() {
-    cy.get(COMMON.DEPARTMENT.VISIBLE_ROWS).first()
-      .find(COMMON.DEPARTMENT.VISIBLE_CELLS)
+    cy.get(COMMON.TABLE.VISIBLE_ROWS).first()
+      .find(COMMON.TABLE.VISIBLE_CELLS)
       .eq(COMMON.DEPARTMENT.COLUMNS.DEPARTMENT_ID).invoke("text")
       .then((departmentId) => {
         cy.imsId(COMMON.TOGGLES.ACTION).first().click();
@@ -1113,13 +1113,13 @@ class DepartmentCreation {
   }
 
   viewDepartmentStatusCheck() {
-    cy.get(COMMON.DEPARTMENT.VISIBLE_ROWS).first()
-      .find(COMMON.DEPARTMENT.VISIBLE_CELLS)
+    cy.get(COMMON.TABLE.VISIBLE_ROWS).first()
+      .find(COMMON.TABLE.VISIBLE_CELLS)
       .eq(COMMON.DEPARTMENT.COLUMNS.STATUS).invoke("text")
       .then((status) => {
         cy.imsId(COMMON.TOGGLES.ACTION).first().click();
         cy.imsId(COMMON.GRID.ACTION_VIEW).click();
-        cy.contains(COMMON.DEPARTMENT.VISIBLE_ELEMENT, status.trim())
+        cy.contains(COMMON.PAGE.VISIBLE_ELEMENT, status.trim())
           .should("be.visible");
         cy.imsId(COMMON.BUTTONS.GO_BACK).click();
       });
@@ -1129,15 +1129,15 @@ class DepartmentCreation {
   editWithoutSubmitDataIntegrityCheck() {
     cy.fixture(this.test_data).then((data) => {
       const depData = data.mfiAdmin.createDepartmentFrom;
-      cy.get(COMMON.DEPARTMENT.VISIBLE_ROWS).first()
-        .find(COMMON.DEPARTMENT.VISIBLE_CELLS)
+      cy.get(COMMON.TABLE.VISIBLE_ROWS).first()
+        .find(COMMON.TABLE.VISIBLE_CELLS)
         .eq(COMMON.DEPARTMENT.COLUMNS.NAME_EN).invoke("text").then((originalName) => {
           cy.imsId(COMMON.TOGGLES.ACTION).first().click();
           cy.imsId(COMMON.GRID.ACTION_EDIT).click();
           cy.formController(COMMON.INPUTS.NAME_EN).clear().type(depData.unsavedNameEn);
           cy.imsId(COMMON.BUTTONS.GO_BACK).click();
-          cy.get(COMMON.DEPARTMENT.VISIBLE_ROWS).first()
-            .find(COMMON.DEPARTMENT.VISIBLE_CELLS)
+          cy.get(COMMON.TABLE.VISIBLE_ROWS).first()
+            .find(COMMON.TABLE.VISIBLE_CELLS)
             .eq(COMMON.DEPARTMENT.COLUMNS.NAME_EN)
             .should("contain.text", originalName.trim());
         });
@@ -1158,7 +1158,7 @@ class DepartmentCreation {
       cy.imsId(COMMON.CONFIRMATION.OK).click();
       cy.formController(COMMON.INPUTS.SEARCH_TEXT).clear().type(updatedDepartmentName);
       cy.imsId(COMMON.BUTTONS.SEARCH).click();
-      cy.get(COMMON.DEPARTMENT.VISIBLE_ROWS).should("have.length", 1)
+      cy.get(COMMON.TABLE.VISIBLE_ROWS).should("have.length", 1)
         .first().should("contain.text", updatedDepartmentName);
       cy.log(messages.ui.editUpdatedCheck);
     });
@@ -1187,7 +1187,7 @@ class DepartmentCreation {
         .clear()
         .type(activeDepartmentName);
       cy.imsId(COMMON.BUTTONS.SEARCH).click();
-      cy.get(COMMON.DEPARTMENT.VISIBLE_ROWS).should("have.length", 1)
+      cy.get(COMMON.TABLE.VISIBLE_ROWS).should("have.length", 1)
         .first()
         .should("contain.text", activeDepartmentName)
         .and("contain.text", depData.statusSelect);
@@ -1218,7 +1218,7 @@ class DepartmentCreation {
         .clear()
         .type(this.inactiveDepartmentName);
       cy.imsId(COMMON.BUTTONS.SEARCH).click();
-      cy.get(COMMON.DEPARTMENT.VISIBLE_ROWS).should("have.length", 1)
+      cy.get(COMMON.TABLE.VISIBLE_ROWS).should("have.length", 1)
         .first()
         .should("contain.text", this.inactiveDepartmentName)
         .and("contain.text", depData.selectStatus);
@@ -1234,8 +1234,8 @@ class DepartmentCreation {
       cy.imsId(COMMON.GRID.ACTION_EDIT).click();
       cy.formController(COMMON.INPUTS.STATUS_DROPDOWN)
         .click();
-      cy.get(COMMON.DEPARTMENT.SELECT_DROPDOWN)
-        .contains(COMMON.DEPARTMENT.SELECT_OPTION, depData.statusSelect)
+      cy.get(COMMON.SELECT.VISIBLE_DROPDOWN)
+        .contains(COMMON.SELECT.OPTION, depData.statusSelect)
         .click();
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
       cy.imsId(COMMON.CONFIRMATION.YES).click();
@@ -1244,7 +1244,7 @@ class DepartmentCreation {
         .clear()
         .type(this.inactiveDepartmentName);
       cy.imsId(COMMON.BUTTONS.SEARCH).click();
-      cy.get(COMMON.DEPARTMENT.VISIBLE_ROWS).should("have.length", 1)
+      cy.get(COMMON.TABLE.VISIBLE_ROWS).should("have.length", 1)
         .first()
         .should("contain.text", this.inactiveDepartmentName)
         .and("contain.text", depData.statusSelect);
@@ -1257,7 +1257,7 @@ class DepartmentCreation {
       const depData = data.mfiAdmin.createDepartmentFrom;
       cy.imsId(COMMON.BUTTONS.PROFILE).click();
       cy.imsId(COMMON.BUTTONS.LANGUAGE_CHANGE).click();
-      cy.get(COMMON.DEPARTMENT.TABLE_BODY).should("be.visible");
+      cy.get(COMMON.TABLE.BODY).should("be.visible");
       cy.log(messages.ui.languageSwitch);
       cy.changeLanguage(depData.defaultLanguage);
     });

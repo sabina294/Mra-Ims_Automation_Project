@@ -162,6 +162,15 @@ const messages = {
     createdActiveCheck: "Verified a newly created Active record in the grid.",
     createdInactiveCheck: "Verified a newly created Inactive record in the grid.",
     editStatusUpdatedCheck: "Verified the updated record status in the grid.",
+
+    requiredFieldIndicatorCheck: "Verified that the required-field indicator is displayed.",
+    optionalFieldIndicatorCheck: "Verified that the optional field has no required-field indicator.",
+    totalRecordCountCheck: "Verified that the displayed total record count matches the grid data.",
+    selectedPageHighlightCheck: "Verified that the selected pagination page is highlighted.",
+    shortNameAscendingSortCheck: "Verified ascending sorting for the short-name column.",
+    shortNameDescendingSortCheck: "Verified descending sorting for the short-name column.",
+    statusAscendingSortCheck: "Verified ascending sorting for the status column.",
+    statusDescendingSortCheck: "Verified descending sorting for the status column.",
   },
 
   validation: {
