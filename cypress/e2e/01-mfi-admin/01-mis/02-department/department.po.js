@@ -2,9 +2,12 @@ import messages from "../../../../support/constants/messages";
 import { COMMON } from "../../../../support/constants/selectors";
 class DepartmentCreation {
   test_data = Cypress.env("TEST_DATA");
+  runId = Date.now();
+  inactiveDepartmentName = "";
+  pageSizeDepartmentIds = [];
 
   gridDepartmentListPage() {
-    cy.selectMenu("menu-configuration", "submenu-department");
+    cy.selectMenu(COMMON.MENUS.CONFIGURATION, COMMON.MENUS.DEPARTMENT);
     cy.log(messages.ui.gridListMessage);
   }
 
@@ -114,7 +117,7 @@ class DepartmentCreation {
     cy.fixture(this.test_data).then((data) => {
       const depData = data.mfiAdmin.createDepartmentFrom;
       cy.imsId(COMMON.BUTTONS.RESET).click();
-      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(depData.selectStatus).type("{enter}");
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(depData.selectStatus).type(COMMON.KEYS.ENTER);
       cy.log(messages.ui.dropdownInactiveMessage);
     });
   }
@@ -122,7 +125,7 @@ class DepartmentCreation {
   statusActiveDropdownCheck() {
     cy.fixture(this.test_data).then((data) => {
       const depData = data.mfiAdmin.createDepartmentFrom;
-      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(depData.statusSelect).type("{enter}");
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(depData.statusSelect).type(COMMON.KEYS.ENTER);
       cy.log(messages.ui.dropdownActiveMessage);
     });
   }
@@ -182,14 +185,29 @@ class DepartmentCreation {
   }
 
   departmentNameAscendingSort() {
-    cy.contains("Department Name").click();
-    cy.log(messages.ui.ascendingSort);
+    cy.fixture(this.test_data).then((data) => {
+      const depData = data.mfiAdmin.createDepartmentFrom;
+      cy.contains(depData.nameEnColumn).click();
+      cy.get(COMMON.DEPARTMENT.VISIBLE_ROWS).find(COMMON.DEPARTMENT.VISIBLE_CELLS)
+        .filter(`:nth-child(${COMMON.DEPARTMENT.COLUMNS.NAME_EN + 1})`).then(($cells) => {
+          const values = [...$cells].map((cell) => cell.innerText.trim());
+          expect(values).to.deep.equal([...values].sort((a, b) => a.localeCompare(b)));
+        });
+      cy.log(messages.ui.ascendingSort);
+    });
   }
 
   departmentNameDescendingSort() {
-    cy.contains("Department Name").click();
-    cy.contains("Department Name").click();
-    cy.log(messages.ui.descendingSort);
+    cy.fixture(this.test_data).then((data) => {
+      const depData = data.mfiAdmin.createDepartmentFrom;
+      cy.contains(depData.nameEnColumn).click();
+      cy.get(COMMON.DEPARTMENT.VISIBLE_ROWS).find(COMMON.DEPARTMENT.VISIBLE_CELLS)
+        .filter(`:nth-child(${COMMON.DEPARTMENT.COLUMNS.NAME_EN + 1})`).then(($cells) => {
+          const values = [...$cells].map((cell) => cell.innerText.trim());
+          expect(values).to.deep.equal([...values].sort((a, b) => b.localeCompare(a)));
+        });
+      cy.log(messages.ui.descendingSort);
+    });
   }
 
   searchNoResult() {
@@ -228,7 +246,7 @@ class DepartmentCreation {
   }
 
   paginationCheck() {
-    cy.get(".ant-pagination")
+    cy.get(COMMON.DEPARTMENT.PAGINATION)
       .should("be.visible");
     cy.log(messages.ui.pagination);
   }
@@ -236,12 +254,12 @@ class DepartmentCreation {
   pageSizeCheck() {
     cy.fixture(this.test_data).then((data) => {
       const depData = data.mfiAdmin.createDepartmentFrom;
-      cy.get(".ant-pagination-options")
+      cy.get(COMMON.DEPARTMENT.PAGINATION_OPTIONS)
         .should("be.visible");
-      cy.get(".ant-pagination-options .ant-select")
+      cy.get(COMMON.DEPARTMENT.PAGE_SIZE_SELECT)
         .click();
       cy.contains(
-        ".ant-select-item-option",
+        COMMON.DEPARTMENT.SELECT_OPTION,
         depData.pageSize
       ).click();
 
@@ -264,7 +282,7 @@ class DepartmentCreation {
         .should("be.visible");
       cy.formController(COMMON.INPUTS.STATUS_DROPDOWN)
         .type(depData.selectStatus)
-        .type("{enter}");
+        .type(COMMON.KEYS.ENTER);
       cy.imsId(COMMON.BUTTONS.GO_BACK).click();
       cy.log(messages.ui.createPageFields);
     });
@@ -328,25 +346,921 @@ class DepartmentCreation {
     });
   }
 
-  duplicateDepartmentCheck() {
+  listPageTitleAndBreadcrumbCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      const depData = data.mfiAdmin.createDepartmentFrom;
+      cy.location("pathname").should("not.include", COMMON.DEPARTMENT.CREATE_PATH);
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).should("be.visible");
+      cy.get(COMMON.DEPARTMENT.TABLE_HEAD).should("be.visible");
+      cy.contains(COMMON.DEPARTMENT.VISIBLE_ELEMENT, depData.breadcrumbHome)
+        .should("be.visible");
+      cy.contains(COMMON.DEPARTMENT.VISIBLE_ELEMENT, depData.breadcrumbConfiguration)
+        .should("be.visible");
+      cy.contains(COMMON.DEPARTMENT.VISIBLE_ELEMENT, depData.breadcrumbDepartment)
+        .should("be.visible");
+      cy.contains(COMMON.DEPARTMENT.VISIBLE_ELEMENT, depData.breadcrumbList)
+        .should("be.visible");
+      cy.log(messages.ui.listPageNavigationCheck);
+    });
+  }
+
+  gridNumberColumnCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      const depData = data.mfiAdmin.createDepartmentFrom;
+      cy.get(COMMON.DEPARTMENT.TABLE_HEAD)
+        .find(COMMON.DEPARTMENT.HEADER_CELL)
+        .eq(COMMON.DEPARTMENT.COLUMNS.NUMBER)
+        .should("be.visible");
+      cy.get(COMMON.DEPARTMENT.VISIBLE_ROWS).first()
+        .find(COMMON.DEPARTMENT.VISIBLE_CELLS)
+        .eq(COMMON.DEPARTMENT.COLUMNS.NUMBER)
+        .invoke("text")
+        .then((serialNumber) => {
+          expect(serialNumber.trim()).to.match(/^\d+$/);
+        });
+      cy.log(messages.ui.gridColumnCheck);
+    });
+  }
+
+  gridDepartmentNameColumnCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      const depData = data.mfiAdmin.createDepartmentFrom;
+      cy.get(COMMON.DEPARTMENT.TABLE_HEAD).contains(COMMON.DEPARTMENT.HEADER_CELL, depData.nameEnColumn)
+        .should("be.visible");
+      cy.log(messages.ui.gridColumnCheck);
+    });
+  }
+
+  gridDepartmentNameBnColumnCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      const depData = data.mfiAdmin.createDepartmentFrom;
+      cy.get(COMMON.DEPARTMENT.TABLE_HEAD).contains(COMMON.DEPARTMENT.HEADER_CELL, depData.nameBnColumn)
+        .should("be.visible");
+      cy.log(messages.ui.gridColumnCheck);
+    });
+  }
+
+  gridDepartmentIdColumnCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      const depData = data.mfiAdmin.createDepartmentFrom;
+      cy.get(COMMON.DEPARTMENT.TABLE_HEAD).contains(COMMON.DEPARTMENT.HEADER_CELL, depData.departmentIdColumn)
+        .should("be.visible");
+      cy.log(messages.ui.gridColumnCheck);
+    });
+  }
+
+  gridStatusColumnCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      const depData = data.mfiAdmin.createDepartmentFrom;
+      cy.get(COMMON.DEPARTMENT.TABLE_HEAD).contains(COMMON.DEPARTMENT.HEADER_CELL, depData.statusColumn)
+        .should("be.visible");
+      cy.log(messages.ui.gridColumnCheck);
+    });
+  }
+
+  gridActionsColumnCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      const depData = data.mfiAdmin.createDepartmentFrom;
+      cy.get(COMMON.DEPARTMENT.TABLE_HEAD).contains(COMMON.DEPARTMENT.HEADER_CELL, depData.actionsColumn)
+        .should("be.visible");
+      cy.log(messages.ui.gridColumnCheck);
+    });
+  }
+
+  departmentIdDataCheck() {
+    cy.get(COMMON.DEPARTMENT.VISIBLE_ROWS)
+      .filter(COMMON.DEPARTMENT.VISIBLE_ELEMENT)
+      .first()
+      .within(() => {
+        cy.get(COMMON.DEPARTMENT.VISIBLE_CELLS).eq(COMMON.DEPARTMENT.COLUMNS.DEPARTMENT_ID)
+          .invoke("text")
+          .then((departmentId) => {
+            expect(departmentId.trim()).to.not.equal("");
+          });
+      });
+    cy.log(messages.ui.recordIdCheck);
+  }
+
+  departmentStatusDataCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      const depData = data.mfiAdmin.createDepartmentFrom;
+      cy.get(COMMON.DEPARTMENT.VISIBLE_ROWS).first().within(() => {
+        cy.get(COMMON.DEPARTMENT.VISIBLE_CELLS).eq(COMMON.DEPARTMENT.COLUMNS.STATUS)
+          .invoke("text").then((status) => {
+            expect(depData.validStatuses).to.include(status.trim());
+          });
+      });
+      cy.log(messages.ui.recordStatusCheck);
+    });
+  }
+
+  actionMenuOpenCheck() {
+    cy.imsId(COMMON.TOGGLES.ACTION)
+      .first()
+      .click();
+
+    cy.imsId(COMMON.GRID.ACTION_VIEW)
+      .should("be.visible");
+
+    cy.imsId(COMMON.GRID.ACTION_EDIT)
+      .should("be.visible");
+    cy.log(messages.ui.actionMenuOpenCheck);
+  }
+
+  actionMenuCloseCheck() {
+    cy.get(COMMON.DEPARTMENT.PAGE_BODY).click(0, 0);
+
+    cy.imsId(COMMON.GRID.ACTION_VIEW)
+      .should("not.be.visible");
+    cy.log(messages.ui.actionMenuCloseCheck);
+  }
+
+  exactDepartmentNameSearch() {
+    cy.fixture(this.test_data).then((data) => {
+      const depData = data.mfiAdmin.createDepartmentFrom;
+
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT)
+        .clear()
+        .type(depData.nameEn);
+
+      cy.imsId(COMMON.BUTTONS.SEARCH)
+        .click();
+
+      cy.get(COMMON.DEPARTMENT.VISIBLE_ROWS).should("have.length.greaterThan", 0);
+      cy.get(COMMON.DEPARTMENT.VISIBLE_ROWS).each(($row) => {
+        cy.wrap($row).find(COMMON.DEPARTMENT.VISIBLE_CELLS)
+          .eq(COMMON.DEPARTMENT.COLUMNS.NAME_EN)
+          .should("contain.text", depData.nameEn);
+      });
+
+      cy.log(messages.ui.exactSearchCheck);
+    });
+  }
+
+  searchWithLeadingTrailingSpaces() {
+    cy.fixture(this.test_data).then((data) => {
+      const depData = data.mfiAdmin.createDepartmentFrom;
+
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT)
+        .clear()
+        .type(`  ${depData.nameEn}  `);
+
+      cy.imsId(COMMON.BUTTONS.SEARCH)
+        .click();
+
+      cy.get(COMMON.DEPARTMENT.TABLE_BODY).should("be.visible");
+      cy.get(COMMON.DEPARTMENT.VISIBLE_ROWS).should("have.length.greaterThan", 0);
+      cy.get(COMMON.DEPARTMENT.VISIBLE_ROWS).each(($row) => {
+        cy.wrap($row).find(COMMON.DEPARTMENT.VISIBLE_CELLS)
+          .eq(COMMON.DEPARTMENT.COLUMNS.NAME_EN)
+          .should("contain.text", depData.nameEn);
+      });
+
+      cy.log(messages.ui.trimmedSearchCheck);
+    });
+  }
+
+  clearStatusFilter() {
+    cy.imsId(COMMON.BUTTONS.RESET)
+      .click();
+
+    cy.formController(COMMON.INPUTS.SEARCH_TEXT).should("have.value", "");
+    cy.get(COMMON.DEPARTMENT.VISIBLE_ROWS).should("have.length.greaterThan", 0);
+
+    cy.log(messages.ui.statusFilterClearCheck);
+  }
+
+  statusAndNameCombinedSearch() {
+    cy.fixture(this.test_data).then((data) => {
+      const depData = data.mfiAdmin.createDepartmentFrom;
+
+      cy.imsId(COMMON.BUTTONS.RESET)
+        .click();
+
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN)
+        .type(depData.statusSelect)
+        .type(COMMON.KEYS.ENTER);
+
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT)
+        .type(depData.nameEn);
+
+      cy.imsId(COMMON.BUTTONS.SEARCH)
+        .click();
+
+      cy.get(COMMON.DEPARTMENT.VISIBLE_ROWS).should("have.length.greaterThan", 0);
+      cy.get(COMMON.DEPARTMENT.VISIBLE_ROWS).each(($row) => {
+        cy.wrap($row).should("contain.text", depData.nameEn);
+        cy.wrap($row).should("contain.text", depData.statusSelect);
+      });
+
+      cy.log(messages.ui.combinedFilterCheck);
+    });
+  }
+
+  changeStatusAfterSearch() {
+    cy.fixture(this.test_data).then((data) => {
+      const depData = data.mfiAdmin.createDepartmentFrom;
+
+      cy.imsId(COMMON.BUTTONS.RESET)
+        .click();
+
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT)
+        .type(depData.nameEn);
+
+      cy.imsId(COMMON.BUTTONS.SEARCH)
+        .click();
+
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN)
+        .type(depData.selectStatus)
+        .type(COMMON.KEYS.ENTER);
+
+      cy.imsId(COMMON.BUTTONS.SEARCH).click();
+
+      cy.get(COMMON.DEPARTMENT.TABLE_BODY).should("be.visible");
+
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN)
+        .should("contain.text", depData.selectStatus);
+
+      cy.log(messages.ui.filterUpdateCheck);
+    });
+  }
+
+  changeSearchAfterStatusFilter() {
+    cy.fixture(this.test_data).then((data) => {
+      const depData = data.mfiAdmin.createDepartmentFrom;
+
+      cy.imsId(COMMON.BUTTONS.RESET)
+        .click();
+
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN)
+        .type(depData.statusSelect)
+        .type(COMMON.KEYS.ENTER);
+
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT)
+        .type(depData.nameEn);
+
+      cy.imsId(COMMON.BUTTONS.SEARCH)
+        .click();
+
+      cy.get(COMMON.DEPARTMENT.VISIBLE_ROWS).should("have.length.greaterThan", 0);
+      cy.get(COMMON.DEPARTMENT.VISIBLE_ROWS).each(($row) => {
+        cy.wrap($row).should("contain.text", depData.nameEn);
+        cy.wrap($row).should("contain.text", depData.statusSelect);
+      });
+
+      cy.log(messages.ui.filterUpdateCheck);
+    });
+  }
+
+  departmentNameBnAscendingSort() {
+    cy.fixture(this.test_data).then((data) => {
+      const depData = data.mfiAdmin.createDepartmentFrom;
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      cy.get(COMMON.DEPARTMENT.TABLE_HEAD)
+        .contains(COMMON.DEPARTMENT.HEADER_CELL, depData.nameBnColumn)
+        .click()
+        .should(($header) => {
+          const ariaSort = $header.attr(COMMON.DEPARTMENT.SORT_ATTRIBUTE);
+          const hasActiveSortClass = $header.hasClass(COMMON.DEPARTMENT.ACTIVE_SORT_CLASS);
+          expect(ariaSort === COMMON.DEPARTMENT.SORT_ASCENDING || hasActiveSortClass).to.equal(true);
+        });
+      cy.get(COMMON.DEPARTMENT.VISIBLE_ROWS)
+        .should("have.length.greaterThan", 0);
+      cy.log(messages.ui.banglaAscendingSortCheck);
+    });
+  }
+
+  departmentNameBnDescendingSort() {
+    cy.fixture(this.test_data).then((data) => {
+      const depData = data.mfiAdmin.createDepartmentFrom;
+      cy.get(COMMON.DEPARTMENT.TABLE_HEAD)
+        .contains(COMMON.DEPARTMENT.HEADER_CELL, depData.nameBnColumn)
+        .click()
+        .should(($header) => {
+          const ariaSort = $header.attr(COMMON.DEPARTMENT.SORT_ATTRIBUTE);
+          const hasActiveSortClass = $header.hasClass(COMMON.DEPARTMENT.ACTIVE_SORT_CLASS);
+          expect(ariaSort === COMMON.DEPARTMENT.SORT_DESCENDING || hasActiveSortClass).to.equal(true);
+        });
+      cy.get(COMMON.DEPARTMENT.VISIBLE_ROWS)
+        .should("have.length.greaterThan", 0);
+      cy.log(messages.ui.banglaDescendingSortCheck);
+    });
+  }
+
+  departmentIdAscendingSort() {
+    cy.fixture(this.test_data).then((data) => {
+      const depData = data.mfiAdmin.createDepartmentFrom;
+      cy.contains(depData.departmentIdColumn).click();
+      cy.get(COMMON.DEPARTMENT.VISIBLE_ROWS).find(COMMON.DEPARTMENT.VISIBLE_CELLS)
+        .filter(`:nth-child(${COMMON.DEPARTMENT.COLUMNS.DEPARTMENT_ID + 1})`).then(($cells) => {
+          const values = [...$cells].map((cell) => cell.innerText.trim());
+          expect(values).to.deep.equal([...values].sort((a, b) => a.localeCompare(b, undefined, { numeric: true })));
+        });
+      cy.log(messages.ui.idAscendingSortCheck);
+    });
+  }
+
+  departmentIdDescendingSort() {
+    cy.fixture(this.test_data).then((data) => {
+      const depData = data.mfiAdmin.createDepartmentFrom;
+      cy.contains(depData.departmentIdColumn).click();
+      cy.get(COMMON.DEPARTMENT.VISIBLE_ROWS).find(COMMON.DEPARTMENT.VISIBLE_CELLS)
+        .filter(`:nth-child(${COMMON.DEPARTMENT.COLUMNS.DEPARTMENT_ID + 1})`).then(($cells) => {
+          const values = [...$cells].map((cell) => cell.innerText.trim());
+          expect(values).to.deep.equal([...values].sort((a, b) => b.localeCompare(a, undefined, { numeric: true })));
+        });
+      cy.log(messages.ui.idDescendingSortCheck);
+    });
+  }
+
+  sortingDataIntegrityCheck() {
+    cy.get(COMMON.DEPARTMENT.VISIBLE_ROWS).then(($rowsBefore) => {
+      const rowCountBefore = $rowsBefore.length;
+      cy.fixture(this.test_data).then((data) => {
+        cy.contains(data.mfiAdmin.createDepartmentFrom.nameEnColumn).click();
+      });
+      cy.get(COMMON.DEPARTMENT.VISIBLE_ROWS)
+        .should("have.length", rowCountBefore)
+        .each(($row) => {
+          cy.wrap($row)
+            .find(COMMON.DEPARTMENT.VISIBLE_CELLS)
+            .eq(COMMON.DEPARTMENT.COLUMNS.DEPARTMENT_ID)
+            .invoke("text")
+            .should("not.be.empty");
+        });
+    });
+
+    cy.log(messages.ui.sortingIntegrityCheck);
+  }
+
+  nextPageCheck() {
+    cy.get(COMMON.DEPARTMENT.ACTIVE_PAGE).invoke("text").then((currentPage) => {
+      cy.get(COMMON.DEPARTMENT.NEXT_PAGE)
+        .should("be.visible")
+        .and("not.have.class", COMMON.DEPARTMENT.DISABLED_PAGE_CLASS)
+        .click();
+      cy.get(COMMON.DEPARTMENT.ACTIVE_PAGE)
+        .should("have.text", String(Number(currentPage.trim()) + 1));
+    });
+
+    cy.log(messages.ui.nextPageNavigationCheck);
+  }
+
+  previousPageCheck() {
+    cy.get(COMMON.DEPARTMENT.ACTIVE_PAGE).invoke("text").then((currentPage) => {
+      cy.get(COMMON.DEPARTMENT.PREVIOUS_PAGE)
+        .should("be.visible")
+        .and("not.have.class", COMMON.DEPARTMENT.DISABLED_PAGE_CLASS)
+        .click();
+      cy.get(COMMON.DEPARTMENT.ACTIVE_PAGE)
+        .should("have.text", String(Number(currentPage.trim()) - 1));
+    });
+
+    cy.log(messages.ui.previousPageNavigationCheck);
+  }
+
+  previousPageDisabledCheck() {
+    cy.get(COMMON.DEPARTMENT.PAGE_ITEMS).first().click();
+    cy.get(COMMON.DEPARTMENT.PREVIOUS_PAGE)
+      .should("be.visible")
+      .and("have.class", COMMON.DEPARTMENT.DISABLED_PAGE_CLASS);
+
+    cy.log(messages.ui.previousPageDisabledCheck);
+  }
+
+  nextPageDisabledCheck() {
+    cy.get(COMMON.DEPARTMENT.PAGE_ITEMS).last().click();
+
+    cy.get(COMMON.DEPARTMENT.NEXT_PAGE)
+      .should("have.class", COMMON.DEPARTMENT.DISABLED_PAGE_CLASS);
+
+    cy.log(messages.ui.nextPageDisabledCheck);
+  }
+
+  pageSizeRecordCountCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      const depData = data.mfiAdmin.createDepartmentFrom;
+
+      cy.get(COMMON.DEPARTMENT.PAGE_SIZE_SELECT)
+        .click();
+      cy.contains(
+        COMMON.DEPARTMENT.SELECT_OPTION,
+        depData.pageSize
+      ).click();
+      cy.get(COMMON.DEPARTMENT.VISIBLE_ROWS)
+        .its("length")
+        .should("be.greaterThan", 0)
+        .and("be.at.most", Number(depData.pageSize));
+
+      cy.get(COMMON.DEPARTMENT.VISIBLE_ROWS).then(($rows) => {
+        this.pageSizeDepartmentIds = [...$rows].map((row) =>
+          row.cells[COMMON.DEPARTMENT.COLUMNS.DEPARTMENT_ID].innerText.trim()
+        );
+      });
+
+      cy.log(messages.ui.pageSizeRecordCountCheck);
+    });
+  }
+
+  pageSizeDataIntegrityCheck() {
+    cy.get(COMMON.DEPARTMENT.VISIBLE_ROWS).then(($rows) => {
+      const currentDepartmentIds = [...$rows].map((row) =>
+        row.cells[COMMON.DEPARTMENT.COLUMNS.DEPARTMENT_ID].innerText.trim()
+      );
+      expect(currentDepartmentIds).to.deep.equal(this.pageSizeDepartmentIds);
+    });
+
+    cy.log(messages.ui.pageSizeDataIntegrityCheck);
+  }
+
+  createPageTitleAndBreadcrumbCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      const depData = data.mfiAdmin.createDepartmentFrom;
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+      cy.location("pathname").should("include", COMMON.DEPARTMENT.CREATE_PATH);
+      cy.contains(COMMON.DEPARTMENT.VISIBLE_ELEMENT, depData.breadcrumbHome)
+        .should("be.visible");
+      cy.contains(COMMON.DEPARTMENT.VISIBLE_ELEMENT, depData.breadcrumbConfiguration)
+        .should("be.visible");
+      cy.contains(COMMON.DEPARTMENT.VISIBLE_ELEMENT, depData.breadcrumbDepartment)
+        .should("be.visible");
+      cy.contains(COMMON.DEPARTMENT.VISIBLE_ELEMENT, depData.breadcrumbCreate)
+        .should("be.visible");
+      cy.formController(COMMON.INPUTS.NAME_EN).should("be.visible");
+      cy.formController(COMMON.INPUTS.NAME_BN).should("be.visible");
+      cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+      cy.location("pathname").should("not.include", COMMON.DEPARTMENT.CREATE_PATH);
+      cy.log(messages.ui.createPageNavigationCheck);
+    });
+  }
+
+  validEnglishNameCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      const depData = data.mfiAdmin.createDepartmentFrom;
+      cy.imsId(COMMON.BUTTONS.ADD_NEW)
+        .click();
+      cy.formController(COMMON.INPUTS.NAME_EN)
+        .clear()
+        .type(depData.nameEn)
+        .should("have.value", depData.nameEn);
+      cy.imsId(COMMON.BUTTONS.GO_BACK)
+        .click();
+      cy.log(messages.ui.validEnglishInputCheck);
+    });
+  }
+
+  validBanglaNameCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      const depData = data.mfiAdmin.createDepartmentFrom;
+      cy.imsId(COMMON.BUTTONS.ADD_NEW)
+        .click();
+      cy.formController(COMMON.INPUTS.NAME_BN)
+        .clear()
+        .type(depData.nameBn)
+        .should("have.value", depData.nameBn);
+      cy.imsId(COMMON.BUTTONS.GO_BACK)
+        .click();
+      cy.log(messages.ui.validBanglaInputCheck);
+    });
+  }
+
+  clearEnglishNameValidation() {
+    cy.fixture(this.test_data).then((data) => {
+      const depData = data.mfiAdmin.createDepartmentFrom;
+      cy.imsId(COMMON.BUTTONS.ADD_NEW)
+        .click();
+      cy.formController(COMMON.INPUTS.NAME_EN)
+        .type(depData.nameEn)
+        .clear();
+      cy.formController(COMMON.INPUTS.NAME_BN)
+        .type(depData.nameBn);
+      cy.imsId(COMMON.BUTTONS.SUBMIT)
+        .click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
+      cy.formController(COMMON.INPUTS.NAME_EN)
+        .should("have.class", COMMON.DEPARTMENT.INVALID_CONTROL_CLASS);
+      cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+      cy.log(messages.ui.clearedEnglishValidationCheck);
+    });
+  }
+
+  clearOptionalBanglaNameCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      const depData = data.mfiAdmin.createDepartmentFrom;
+      cy.imsId(COMMON.BUTTONS.ADD_NEW)
+        .click();
+      cy.formController(COMMON.INPUTS.NAME_EN)
+        .type(depData.nameEn);
+      cy.formController(COMMON.INPUTS.NAME_BN)
+        .type(depData.nameBn)
+        .clear();
+      cy.imsId(COMMON.BUTTONS.SUBMIT)
+        .click();
+      cy.imsId(COMMON.CONFIRMATION.YES).should("be.visible");
+      cy.imsId(COMMON.CONFIRMATION.NO).click();
+      cy.formController(COMMON.INPUTS.NAME_BN)
+        .should("have.value", "");
+      cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+      cy.log(messages.ui.optionalBanglaClearedCheck);
+    });
+  }
+
+  changeStatusBeforeSubmit() {
+    cy.fixture(this.test_data).then((data) => {
+      const depData = data.mfiAdmin.createDepartmentFrom;
+
+      cy.imsId(COMMON.BUTTONS.ADD_NEW)
+        .click();
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN)
+        .click();
+      cy.contains(depData.selectStatus)
+        .click();
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN)
+        .should("be.visible")
+        .and("contain.text", depData.selectStatus);
+      cy.imsId(COMMON.BUTTONS.GO_BACK)
+        .click();
+      cy.log(messages.ui.statusChangeBeforeSubmitCheck);
+    });
+  }
+
+  selectedStatusSubmissionCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      const depData = data.mfiAdmin.createDepartmentFrom;
+      cy.imsId(COMMON.BUTTONS.ADD_NEW)
+        .click();
+      const selectedStatusDepartmentName = `${depData.selectedStatusNamePrefix} ${this.runId}`;
+      cy.formController(COMMON.INPUTS.NAME_EN)
+        .type(selectedStatusDepartmentName);
+      cy.formController(COMMON.INPUTS.NAME_BN)
+        .type(`${depData.selectedStatusNameBn} ${this.runId}`);
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN)
+        .type(depData.statusSelect)
+        .type(COMMON.KEYS.ENTER);
+      cy.imsId(COMMON.BUTTONS.SUBMIT)
+        .click();
+      cy.imsId(COMMON.CONFIRMATION.YES)
+        .click();
+      cy.imsId(COMMON.CONFIRMATION.OK)
+        .click();
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).should("be.visible");
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT)
+        .clear()
+        .type(selectedStatusDepartmentName);
+      cy.imsId(COMMON.BUTTONS.SEARCH).click();
+      cy.get(COMMON.DEPARTMENT.VISIBLE_ROWS).should("have.length", 1)
+        .first()
+        .should("contain.text", selectedStatusDepartmentName)
+        .and("contain.text", depData.statusSelect);
+      cy.log(messages.ui.selectedStatusSubmissionCheck);
+    });
+  }
+
+  submitConfirmationDialogCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      const depData = data.mfiAdmin.createDepartmentFrom;
+      cy.imsId(COMMON.BUTTONS.ADD_NEW)
+        .click();
+      cy.formController(COMMON.INPUTS.NAME_EN)
+        .type(depData.nameEn);
+      cy.formController(COMMON.INPUTS.NAME_BN)
+        .type(depData.nameBn);
+      cy.imsId(COMMON.BUTTONS.SUBMIT)
+        .click();
+      cy.imsId(COMMON.CONFIRMATION.YES)
+        .should("be.visible");
+      cy.imsId(COMMON.CONFIRMATION.NO)
+        .should("be.visible")
+        .click();
+      cy.formController(COMMON.INPUTS.NAME_EN)
+        .should("have.value", depData.nameEn);
+      cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+      cy.log(messages.ui.confirmationDialogCheck);
+    });
+  }
+
+  cancelSubmissionCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      const depData = data.mfiAdmin.createDepartmentFrom;
+      cy.imsId(COMMON.BUTTONS.ADD_NEW)
+        .click();
+      cy.formController(COMMON.INPUTS.NAME_EN)
+        .type(depData.nameEn);
+      cy.formController(COMMON.INPUTS.NAME_BN)
+        .type(depData.nameBn);
+      cy.imsId(COMMON.BUTTONS.SUBMIT)
+        .click();
+      cy.imsId(COMMON.CONFIRMATION.NO)
+        .click();
+      cy.formController(COMMON.INPUTS.NAME_EN)
+        .should("have.value", depData.nameEn);
+      cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+      cy.log(messages.ui.submissionCancelledCheck);
+    });
+  }
+
+  confirmSuccessfulCreationCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      const depData = data.mfiAdmin.createDepartmentFrom;
+      const uniqueName = `${depData.confirmationNamePrefix} ${this.runId}`;
+
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+      cy.formController(COMMON.INPUTS.NAME_EN).type(uniqueName);
+      cy.formController(COMMON.INPUTS.NAME_BN)
+        .type(`${depData.confirmationNameBn} ${this.runId}`);
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.YES).click();
+      cy.imsId(COMMON.CONFIRMATION.OK).should("be.visible").click();
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).should("be.visible");
+      cy.log(messages.ui.creationConfirmedCheck);
+    });
+  }
+
+  englishNameLeadingTrailingSpacesCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      const depData = data.mfiAdmin.createDepartmentFrom;
+      cy.imsId(COMMON.BUTTONS.ADD_NEW)
+        .click();
+      cy.formController(COMMON.INPUTS.NAME_EN)
+        .type(`  ${depData.nameEn}  `)
+        .should("have.value", `  ${depData.nameEn}  `);
+      cy.imsId(COMMON.BUTTONS.GO_BACK)
+        .click();
+      cy.log(messages.ui.englishTrimInputCheck);
+    });
+  }
+
+  banglaNameLeadingTrailingSpacesCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      const depData = data.mfiAdmin.createDepartmentFrom;
+      cy.imsId(COMMON.BUTTONS.ADD_NEW)
+        .click();
+      cy.formController(COMMON.INPUTS.NAME_BN)
+        .type(`  ${depData.nameBn}  `)
+        .should("have.value", `  ${depData.nameBn}  `);
+      cy.imsId(COMMON.BUTTONS.GO_BACK)
+        .click();
+      cy.log(messages.ui.banglaTrimInputCheck);
+    });
+  }
+
+  englishNameSpecialCharacterValidation() {
     cy.fixture(this.test_data).then((data) => {
       const depData = data.mfiAdmin.createDepartmentFrom;
       cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
       cy.formController(COMMON.INPUTS.NAME_EN)
-        .type(depData.duplicateNameEn);
+        .type(depData.specialCharacterNameEn)
+        .should("have.value", depData.specialCharacterNameEn);
+      cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+      cy.log(messages.ui.englishSpecialCharacterCheck);
+    });
+  }
+
+  banglaNameSpecialCharacterValidation() {
+    cy.fixture(this.test_data).then((data) => {
+      const depData = data.mfiAdmin.createDepartmentFrom;
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
       cy.formController(COMMON.INPUTS.NAME_BN)
-        .type(depData.duplicateNameBn);
+        .type(depData.specialCharacterNameBn)
+        .should("have.value", depData.specialCharacterNameBn);
+      cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+      cy.log(messages.ui.banglaSpecialCharacterCheck);
+    });
+  }
+
+  englishNameMaximumLengthCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      const depData = data.mfiAdmin.createDepartmentFrom;
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+      cy.formController(COMMON.INPUTS.NAME_EN)
+        .type(depData.longNameEn, { delay: 0 })
+        .then(($input) => {
+          const enteredLength = String($input.val()).length;
+          expect(enteredLength).to.be.greaterThan(0);
+          expect(enteredLength).to.be.at.most(depData.longNameEn.length);
+        });
+      cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+      cy.log(messages.ui.englishMaximumLengthCheck);
+    });
+  }
+
+  banglaNameMaximumLengthCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      const depData = data.mfiAdmin.createDepartmentFrom;
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+      cy.formController(COMMON.INPUTS.NAME_BN)
+        .type(depData.longNameBn, { delay: 0 })
+        .then(($input) => {
+          const enteredLength = String($input.val()).length;
+          expect(enteredLength).to.be.greaterThan(0);
+          expect(enteredLength).to.be.at.most(depData.longNameBn.length);
+        });
+      cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+      cy.log(messages.ui.banglaMaximumLengthCheck);
+    });
+  }
+
+  viewEnglishNameDataCheck() {
+    cy.get(COMMON.DEPARTMENT.VISIBLE_ROWS).first()
+      .find(COMMON.DEPARTMENT.VISIBLE_CELLS)
+      .eq(COMMON.DEPARTMENT.COLUMNS.NAME_EN).invoke("text")
+      .then((nameEn) => {
+        cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+        cy.imsId(COMMON.GRID.ACTION_VIEW).click();
+        cy.contains(COMMON.DEPARTMENT.VISIBLE_ELEMENT, nameEn.trim())
+          .should("be.visible");
+        cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+      });
+
+    cy.log(messages.ui.viewEnglishNameCheck);
+  }
+
+  viewBanglaNameDataCheck() {
+    cy.get(COMMON.DEPARTMENT.VISIBLE_ROWS)
+      .filter((_, row) =>
+        row.cells[COMMON.DEPARTMENT.COLUMNS.NAME_BN].innerText.trim().length > 0
+      )
+      .first()
+      .then(($row) => {
+        const nameBn = $row[0].cells[COMMON.DEPARTMENT.COLUMNS.NAME_BN].innerText.trim();
+        cy.wrap($row)
+          .find(COMMON.DEPARTMENT.ACTION_TOGGLE)
+          .click();
+        cy.imsId(COMMON.GRID.ACTION_VIEW).click();
+        cy.contains(COMMON.DEPARTMENT.VISIBLE_ELEMENT, nameBn)
+          .should("be.visible");
+        cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+      });
+
+    cy.log(messages.ui.viewBanglaNameCheck);
+  }
+
+  viewDepartmentIdCheck() {
+    cy.get(COMMON.DEPARTMENT.VISIBLE_ROWS).first()
+      .find(COMMON.DEPARTMENT.VISIBLE_CELLS)
+      .eq(COMMON.DEPARTMENT.COLUMNS.DEPARTMENT_ID).invoke("text")
+      .then((departmentId) => {
+        cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+        cy.imsId(COMMON.GRID.ACTION_VIEW).click();
+        cy.contains(departmentId.trim()).should("be.visible");
+        cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+      });
+    cy.log(messages.ui.viewRecordIdCheck);
+  }
+
+  viewDepartmentStatusCheck() {
+    cy.get(COMMON.DEPARTMENT.VISIBLE_ROWS).first()
+      .find(COMMON.DEPARTMENT.VISIBLE_CELLS)
+      .eq(COMMON.DEPARTMENT.COLUMNS.STATUS).invoke("text")
+      .then((status) => {
+        cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+        cy.imsId(COMMON.GRID.ACTION_VIEW).click();
+        cy.contains(COMMON.DEPARTMENT.VISIBLE_ELEMENT, status.trim())
+          .should("be.visible");
+        cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+      });
+    cy.log(messages.ui.viewRecordStatusCheck);
+  }
+
+  editWithoutSubmitDataIntegrityCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      const depData = data.mfiAdmin.createDepartmentFrom;
+      cy.get(COMMON.DEPARTMENT.VISIBLE_ROWS).first()
+        .find(COMMON.DEPARTMENT.VISIBLE_CELLS)
+        .eq(COMMON.DEPARTMENT.COLUMNS.NAME_EN).invoke("text").then((originalName) => {
+          cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+          cy.imsId(COMMON.GRID.ACTION_EDIT).click();
+          cy.formController(COMMON.INPUTS.NAME_EN).clear().type(depData.unsavedNameEn);
+          cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+          cy.get(COMMON.DEPARTMENT.VISIBLE_ROWS).first()
+            .find(COMMON.DEPARTMENT.VISIBLE_CELLS)
+            .eq(COMMON.DEPARTMENT.COLUMNS.NAME_EN)
+            .should("contain.text", originalName.trim());
+        });
+    });
+
+    cy.log(messages.ui.editCancelledCheck);
+  }
+
+  updatedDepartmentListDataCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      const depData = data.mfiAdmin.createDepartmentFrom;
+      const updatedDepartmentName = `${depData.updatedNamePrefix} ${this.runId}`;
+      cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+      cy.imsId(COMMON.GRID.ACTION_EDIT).click();
+      cy.formController(COMMON.INPUTS.NAME_EN).clear().type(updatedDepartmentName);
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
       cy.imsId(COMMON.CONFIRMATION.YES).click();
       cy.imsId(COMMON.CONFIRMATION.OK).click();
-      cy.log(messages.ui.duplicate);
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT).clear().type(updatedDepartmentName);
+      cy.imsId(COMMON.BUTTONS.SEARCH).click();
+      cy.get(COMMON.DEPARTMENT.VISIBLE_ROWS).should("have.length", 1)
+        .first().should("contain.text", updatedDepartmentName);
+      cy.log(messages.ui.editUpdatedCheck);
+    });
+  }
+
+  createdActiveStatusCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      const depData = data.mfiAdmin.createDepartmentFrom;
+      const activeDepartmentName = `${depData.activeNamePrefix} ${this.runId}`;
+      cy.imsId(COMMON.BUTTONS.ADD_NEW)
+        .click();
+      cy.formController(COMMON.INPUTS.NAME_EN)
+        .type(activeDepartmentName);
+      cy.formController(COMMON.INPUTS.NAME_BN)
+        .type(`${depData.activeNameBn} ${this.runId}`);
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN)
+        .type(depData.statusSelect)
+        .type(COMMON.KEYS.ENTER);
+      cy.imsId(COMMON.BUTTONS.SUBMIT)
+        .click();
+      cy.imsId(COMMON.CONFIRMATION.YES)
+        .click();
+      cy.imsId(COMMON.CONFIRMATION.OK)
+        .click();
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT)
+        .clear()
+        .type(activeDepartmentName);
+      cy.imsId(COMMON.BUTTONS.SEARCH).click();
+      cy.get(COMMON.DEPARTMENT.VISIBLE_ROWS).should("have.length", 1)
+        .first()
+        .should("contain.text", activeDepartmentName)
+        .and("contain.text", depData.statusSelect);
+      cy.log(messages.ui.createdActiveCheck);
+    });
+  }
+
+  createdInactiveStatusCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      const depData = data.mfiAdmin.createDepartmentFrom;
+      this.inactiveDepartmentName = `${depData.inactiveNamePrefix} ${this.runId}`;
+      cy.imsId(COMMON.BUTTONS.ADD_NEW)
+        .click();
+      cy.formController(COMMON.INPUTS.NAME_EN)
+        .type(this.inactiveDepartmentName);
+      cy.formController(COMMON.INPUTS.NAME_BN)
+        .type(`${depData.inactiveNameBn} ${this.runId}`);
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN)
+        .type(depData.selectStatus)
+        .type(COMMON.KEYS.ENTER);
+      cy.imsId(COMMON.BUTTONS.SUBMIT)
+        .click();
+      cy.imsId(COMMON.CONFIRMATION.YES)
+        .click();
+      cy.imsId(COMMON.CONFIRMATION.OK)
+        .click();
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT)
+        .clear()
+        .type(this.inactiveDepartmentName);
+      cy.imsId(COMMON.BUTTONS.SEARCH).click();
+      cy.get(COMMON.DEPARTMENT.VISIBLE_ROWS).should("have.length", 1)
+        .first()
+        .should("contain.text", this.inactiveDepartmentName)
+        .and("contain.text", depData.selectStatus);
+      cy.log(messages.ui.createdInactiveCheck);
+    });
+  }
+
+  editStatusUpdateCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      const depData = data.mfiAdmin.createDepartmentFrom;
+
+      cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+      cy.imsId(COMMON.GRID.ACTION_EDIT).click();
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN)
+        .click();
+      cy.get(COMMON.DEPARTMENT.SELECT_DROPDOWN)
+        .contains(COMMON.DEPARTMENT.SELECT_OPTION, depData.statusSelect)
+        .click();
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.YES).click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT)
+        .clear()
+        .type(this.inactiveDepartmentName);
+      cy.imsId(COMMON.BUTTONS.SEARCH).click();
+      cy.get(COMMON.DEPARTMENT.VISIBLE_ROWS).should("have.length", 1)
+        .first()
+        .should("contain.text", this.inactiveDepartmentName)
+        .and("contain.text", depData.statusSelect);
+      cy.log(messages.ui.editStatusUpdatedCheck);
     });
   }
 
   gridLanguageSwitchCheck() {
-    cy.imsId(COMMON.BUTTONS.PROFILE).click();
-    cy.imsId(COMMON.BUTTONS.LANGUAGE_CHANGE).click();
-    cy.log(messages.ui.languageSwitch);
+    cy.fixture(this.test_data).then((data) => {
+      const depData = data.mfiAdmin.createDepartmentFrom;
+      cy.imsId(COMMON.BUTTONS.PROFILE).click();
+      cy.imsId(COMMON.BUTTONS.LANGUAGE_CHANGE).click();
+      cy.get(COMMON.DEPARTMENT.TABLE_BODY).should("be.visible");
+      cy.log(messages.ui.languageSwitch);
+      cy.changeLanguage(depData.defaultLanguage);
+    });
   }
 }
 

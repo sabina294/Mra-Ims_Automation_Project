@@ -1,4 +1,13 @@
 export const COMMON = {
+  MENUS: {
+    CONFIGURATION: "menu-configuration",
+    DEPARTMENT: "submenu-department",
+  },
+
+  KEYS: {
+    ENTER: "{enter}",
+  },
+
   BUTTONS: {
     ADD_NEW: "btn-add-new",
     RESET: "btn-reset",
@@ -88,5 +97,40 @@ export const COMMON = {
   TABLE: {
     ROW: "table-row",
     FIRST_ROW: "table-row-first",
+  },
+
+  DEPARTMENT: {
+    CREATE_PATH: "/department/create",
+    TABLE_HEAD: "thead",
+    HEADER_CELL: "th",
+    TABLE_BODY: "tbody",
+    VISIBLE_ROWS: "tbody tr:not(.ant-table-placeholder):visible",
+    VISIBLE_CELLS: "td",
+    PAGINATION: ".ant-pagination",
+    PAGINATION_OPTIONS: ".ant-pagination-options",
+    PAGE_SIZE_SELECT: ".ant-pagination-options .ant-select",
+    ACTIVE_PAGE: ".ant-pagination-item-active",
+    PAGE_ITEMS: ".ant-pagination-item",
+    NEXT_PAGE: ".ant-pagination-next",
+    PREVIOUS_PAGE: ".ant-pagination-prev",
+    DISABLED_PAGE_CLASS: "ant-pagination-disabled",
+    SELECT_OPTION: ".ant-select-item-option",
+    SELECT_DROPDOWN: ".ant-select-dropdown:visible",
+    PAGE_BODY: "body",
+    VISIBLE_ELEMENT: ":visible",
+    INVALID_CONTROL_CLASS: "ng-invalid",
+    SORT_ATTRIBUTE: "aria-sort",
+    SORT_ASCENDING: "ascending",
+    SORT_DESCENDING: "descending",
+    ACTIVE_SORT_CLASS: "ant-table-column-sort",
+    ACTION_TOGGLE: "[data-ims-id='toggle-action']",
+    VIEW_FIELDS: "input:visible, textarea:visible",
+    COLUMNS: {
+      NUMBER: 0,
+      NAME_EN: 1,
+      NAME_BN: 2,
+      DEPARTMENT_ID: 3,
+      STATUS: 4,
+    },
   },
 };
