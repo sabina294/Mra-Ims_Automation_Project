@@ -3,6 +3,30 @@ import { COMMON } from "../../../../support/constants/selectors";
 
 class RegionCreation {
   test_data = Cypress.env("TEST_DATA");
+  regionListPath = "/mfi-mis/configuration/region/list";
+
+  resetRegionTestState() {
+    cy.visit(this.regionListPath);
+    cy.url().should("include", this.regionListPath);
+    cy.imsId(COMMON.BUTTONS.ADD_NEW).should("be.visible");
+  }
+
+  verifyMaximumLength(controlName, value) {
+    cy.formController(controlName).then(($input) => {
+      const maximumLength = Number($input.attr("maxlength"));
+
+      cy.wrap($input).clear().type(value);
+
+      if (Number.isInteger(maximumLength) && maximumLength > 0) {
+        cy.wrap($input)
+          .invoke("val")
+          .its("length")
+          .should("be.lte", maximumLength);
+      } else {
+        cy.wrap($input).should("have.value", value);
+      }
+    });
+  }
 
   gridRegionListPage() {
     cy.fixture(this.test_data).then((data) => {
@@ -448,13 +472,227 @@ class RegionCreation {
     });
   }
 
-  gridLanguageSwitchCheck() {
+  regionCodeValidInputCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      const regionData = data.mfiAdmin.createRegionFrom;
+
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+
+      cy.formController("region_code")
+        .type(regionData.code);
+
+      cy.formController("region_code")
+        .should("have.value", regionData.code);
+
+      cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+
+      cy.log(messages.ui.validInput);
+    });
+  }
+
+
+  duplicateRegionCodeCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      const regionData = data.mfiAdmin.createRegionFrom;
+
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+
+      cy.formController("region_name_en")
+        .type(regionData.nameEn);
+
+      cy.formController("region_name_bn")
+        .type(regionData.nameBn);
+
+      cy.formController("region_code")
+        .type(regionData.duplicateCode);
+
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+
+      cy.imsId(COMMON.CONFIRMATION.YES).click();
+
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
+
+      cy.log(messages.ui.duplicate);
+    });
+  }
+
+
+  regionCodeSpaceValidation() {
+    cy.fixture(this.test_data).then((data) => {
+      const regionData = data.mfiAdmin.createRegionFrom;
+
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+
+      cy.formController("region_name_en")
+        .type(regionData.nameEn);
+
+      cy.formController("region_name_bn")
+        .type(regionData.nameBn);
+
+      cy.formController("region_code")
+        .type(regionData.spaceOnly);
+
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+       cy.imsId(COMMON.CONFIRMATION.YES).click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
+      cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+
+
+      cy.log(messages.ui.spaceValidation);
+    });
+  }
+
+
+  regionCodeSpecialCharacterValidation() {
+    cy.fixture(this.test_data).then((data) => {
+      const regionData = data.mfiAdmin.createRegionFrom;
+
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+
+      cy.formController("region_name_en")
+        .type(regionData.nameEn);
+
+      cy.formController("region_name_bn")
+        .type(regionData.nameBn);
+
+      cy.formController("region_code")
+        .type(regionData.specialCharacterCode);
+
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.YES).click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
+      cy.log(messages.ui.invalidInput);
+    });
+  }
+
+
+  regionNameEnMaxLengthCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      const regionData = data.mfiAdmin.createRegionFrom;
+
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+
+      this.verifyMaximumLength(
+        "region_name_en",
+        regionData.maxLengthNameEn
+      );
+
+      cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+
+      cy.log(messages.ui.invalidInput);
+    });
+  }
+
+
+  regionNameBnMaxLengthCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      const regionData = data.mfiAdmin.createRegionFrom;
+
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+
+      this.verifyMaximumLength(
+        "region_name_bn",
+        regionData.maxLengthNameBn
+      );
+
+      cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+
+      cy.log(messages.ui.invalidInput);
+    });
+  }
+
+
+  regionCodeMaxLengthCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      const regionData = data.mfiAdmin.createRegionFrom;
+
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+
+      this.verifyMaximumLength(
+        "region_code",
+        regionData.maxLengthCode
+      );
+
+      cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+
+      cy.log(messages.ui.invalidInput);
+    });
+  }
+
+
+  regionNameTrimValidation() {
+    cy.fixture(this.test_data).then((data) => {
+      const regionData = data.mfiAdmin.createRegionFrom;
+
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+
+      cy.formController("region_name_en")
+        .type(regionData.nameEnWithSpaces);
+
+      cy.formController("region_name_bn")
+        .type(regionData.nameBn);
+
+      cy.formController("region_code")
+        .type(regionData.code);
+
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.YES).click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
+
+      cy.log(messages.ui.trimValidation);
+    });
+  }
+
+
+  multipleInvalidFieldValidation() {
+    cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+
+    cy.formController("region_name_en")
+      .type(" ");
+
+    cy.formController("region_name_bn")
+      .type(" ");
+
+    cy.formController("region_code")
+      .type(" ");
+
+    cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+    cy.imsId(COMMON.CONFIRMATION.YES).click();
+    cy.imsId(COMMON.CONFIRMATION.OK).click();
+    cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+
+    cy.log(messages.validation.requiredField);
+  }
+
+
+  changeStatusCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      const regionData = data.mfiAdmin.createRegionFrom;
+
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN)
+        .click();
+
+      cy.contains(regionData.selectStatus)
+        .click();
+
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN)
+        .should("contain", regionData.selectStatus);
+
+      cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+
+      cy.log(messages.ui.dropdownSelection);
+    });
+  }
+   gridLanguageSwitchCheck() {
     cy.imsId(COMMON.BUTTONS.PROFILE).click();
 
     cy.imsId(COMMON.BUTTONS.LANGUAGE_CHANGE).click();
 
     cy.log(messages.ui.languageSwitch);
   }
+
 }
 
 export const create_region = new RegionCreation();

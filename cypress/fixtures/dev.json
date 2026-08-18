@@ -94,10 +94,11 @@
       "activeNamePrefix": "Active Designation",
       "inactiveNamePrefix": "Inactive Designation"
     },
-    "createRegionFrom": {
+     "createRegionFrom": {
       "nameEn": "Test Region",
       "nameBn": "পরীক্ষা অঞ্চল",
       "regionCode": "65",
+      "code": "TR65",
       "status": "Active",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
@@ -108,7 +109,12 @@
       "invalidSearch": "XYZ_NON_EXISTING_REGION",
       "partialSearch": "Test",
       "spaceOnly": "   ",
-      "pageSize": "20"
+      "pageSize": "20",
+      "specialCharacterCode": "REG@#$",
+      "maxLengthNameEn": "Region Region Region Region Region Region Region Region Region Region Region Region Region Region Region Region Region Region Region Region",
+      "maxLengthNameBn": "অঞ্চল অঞ্চল অঞ্চল অঞ্চল অঞ্চল অঞ্চল অঞ্চল অঞ্চল অঞ্চল অঞ্চল অঞ্চল অঞ্চল অঞ্চল অঞ্চল অঞ্চল অঞ্চল অঞ্চল অঞ্চল অঞ্চল অঞ্চল",
+      "maxLengthCode": "REGION-CODE-OVER-MAXIMUM-LENGTH-1234567890",
+      "nameEnWithSpaces": "  Test Region  "
     },
     "createZoneFrom": {
       "nameEn": "Test Zone ",
