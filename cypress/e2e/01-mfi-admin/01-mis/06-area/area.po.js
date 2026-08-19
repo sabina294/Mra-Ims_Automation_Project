@@ -4,9 +4,25 @@ import { COMMON } from "../../../../support/constants/selectors";
 class AreaCreation {
   test_data = Cypress.env("TEST_DATA");
 
+  verifyMaximumLength(controlName, value) {
+    cy.formController(controlName).then(($input) => {
+      const maximumLength = Number($input.attr("maxlength"));
+      cy.wrap($input).clear().type(value);
+
+      if (Number.isInteger(maximumLength) && maximumLength > 0) {
+        cy.wrap($input)
+          .invoke("val")
+          .its("length")
+          .should("be.lte", maximumLength);
+      } else {
+        cy.wrap($input).should("have.value", value);
+      }
+    });
+  }
+
   gridAreaListPage() {
     cy.fixture(this.test_data).then((data) => {
-      cy.selectMenu("menu-configuration", "submenu-area");
+    cy.selectMenu(COMMON.MENUS.CONFIGURATION, COMMON.MENUS.AREA);
       cy.log(messages.ui.gridListMessage);
     });
   }
@@ -381,6 +397,148 @@ class AreaCreation {
       cy.imsId(COMMON.CONFIRMATION.YES).click();
       cy.imsId(COMMON.CONFIRMATION.OK).click();
       cy.log(messages.ui.duplicate);
+    });
+  }
+
+  areaCodeValidInputCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      const areaData = data.mfiAdmin.createAreaFrom;
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+      cy.formController("area_code").type(areaData.code);
+      cy.formController("area_code").should("have.value", areaData.code);
+      cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+      cy.log(messages.ui.validInput);
+    });
+  }
+
+  duplicateAreaCodeCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      const areaData = data.mfiAdmin.createAreaFrom;
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+      cy.formController("area_name_en").type(areaData.nameEn);
+      cy.formController("area_name_bn").type(areaData.nameBn);
+      cy.formController("zone_id").type(areaData.zoneName).type("{enter}");
+      cy.formController("area_code").type(areaData.duplicateCode);
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.YES).click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
+      cy.log(messages.ui.duplicate);
+    });
+  }
+
+  areaCodeSpaceValidation() {
+    cy.fixture(this.test_data).then((data) => {
+      const areaData = data.mfiAdmin.createAreaFrom;
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+      cy.formController("area_name_en").type(areaData.nameEn);
+      cy.formController("area_name_bn").type(areaData.nameBn);
+      cy.formController("zone_id").type(areaData.zoneName).type("{enter}");
+      cy.formController("area_code").type(areaData.spaceOnly);
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.YES).click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
+      cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+      cy.log(messages.ui.spaceValidation);
+    });
+  }
+
+  areaCodeSpecialCharacterValidation() {
+    cy.fixture(this.test_data).then((data) => {
+      const areaData = data.mfiAdmin.createAreaFrom;
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+      cy.formController("area_name_en").type(areaData.nameEn);
+      cy.formController("area_name_bn").type(areaData.nameBn);
+      cy.formController("zone_id").type(areaData.zoneName).type("{enter}");
+      cy.formController("area_code").type(areaData.specialCharacterCode);
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.YES).click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
+      cy.log(messages.ui.invalidInput);
+    });
+  }
+
+  areaNameEnMaxLengthCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      const areaData = data.mfiAdmin.createAreaFrom;
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+      this.verifyMaximumLength("area_name_en", areaData.maxLengthNameEn);
+      cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+      cy.log(messages.ui.invalidInput);
+    });
+  }
+
+  areaNameBnMaxLengthCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      const areaData = data.mfiAdmin.createAreaFrom;
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+      this.verifyMaximumLength("area_name_bn", areaData.maxLengthNameBn);
+      cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+      cy.log(messages.ui.invalidInput);
+    });
+  }
+
+  areaCodeMaxLengthCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      const areaData = data.mfiAdmin.createAreaFrom;
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+      this.verifyMaximumLength("area_code", areaData.maxLengthCode);
+      cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+      cy.log(messages.ui.invalidInput);
+    });
+  }
+
+  areaNameTrimValidation() {
+    cy.fixture(this.test_data).then((data) => {
+      const areaData = data.mfiAdmin.createAreaFrom;
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+      cy.formController("area_name_en").type(areaData.nameEnWithSpaces);
+      cy.formController("area_name_bn").type(areaData.nameBn);
+      cy.formController("zone_id").type(areaData.zoneName).type("{enter}");
+      cy.formController("area_code").type(areaData.code);
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.YES).click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
+      cy.log(messages.ui.trimValidation);
+    });
+  }
+
+  multipleInvalidFieldValidation() {
+    cy.fixture(this.test_data).then((data) => {
+      const areaData = data.mfiAdmin.createAreaFrom;
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+      cy.formController("area_name_en").type(" ");
+      cy.formController("area_name_bn").type(" ");
+      cy.formController("zone_id").type(areaData.zoneName).type("{enter}");
+      cy.formController("area_code").type(" ");
+      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.YES).click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
+      cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+      cy.log(messages.validation.requiredField);
+    });
+  }
+
+  changeStatusCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      const areaData = data.mfiAdmin.createAreaFrom;
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).click();
+      cy.contains(areaData.selectStatus).click();
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN)
+        .should("contain", areaData.selectStatus);
+      cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+      cy.log(messages.ui.dropdownSelection);
+    });
+  }
+
+  zoneSelectionCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      const areaData = data.mfiAdmin.createAreaFrom;
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+      cy.formController("zone_id").type(areaData.zoneName).type("{enter}");
+      cy.formController("zone_id").should("contain", areaData.zoneName);
+      cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+      cy.log(messages.ui.dropdownSelection);
     });
   }
 

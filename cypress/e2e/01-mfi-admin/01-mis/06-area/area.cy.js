@@ -180,7 +180,51 @@ describe("06. Area Module Test Cases", function () {
     create_area.duplicateAreaCheck();
   });
 
-  it("06.40. Verify that the grid list content updates correctly when switching the language from English to Bangla.", function () {
+  it("06.40. Verify that the Area Code field accepts valid alphanumeric values.", function () {
+    create_area.areaCodeValidInputCheck();
+  });
+
+  it("06.41. Verify that the Area Code field does not accept duplicate area codes.", function () {
+    create_area.duplicateAreaCodeCheck();
+  });
+
+  it("06.42. Verify that the Area Code field handles whitespace-only input correctly.", function () {
+    create_area.areaCodeSpaceValidation();
+  });
+
+  it("06.43. Verify that the Area Code field rejects invalid special character input.", function () {
+    create_area.areaCodeSpecialCharacterValidation();
+  });
+
+  it("06.44. Verify that the Area Name (English) field rejects input exceeding the maximum allowed character length.", function () {
+    create_area.areaNameEnMaxLengthCheck();
+  });
+
+  it("06.45. Verify that the Area Name (Bangla) field rejects input exceeding the maximum allowed character length.", function () {
+    create_area.areaNameBnMaxLengthCheck();
+  });
+
+  it("06.46. Verify that the Area Code field rejects input exceeding the maximum allowed character length.", function () {
+    create_area.areaCodeMaxLengthCheck();
+  });
+
+  it("06.47. Verify that leading and trailing spaces are handled correctly in Area Name fields.", function () {
+    create_area.areaNameTrimValidation();
+  });
+
+  it("06.48. Verify that the Area Creation form prevents submission when invalid data is entered in multiple required fields.", function () {
+    create_area.multipleInvalidFieldValidation();
+  });
+
+  it("06.49. Verify that changing the selected status on the Area Creation page updates the status value correctly.", function () {
+    create_area.changeStatusCheck();
+  });
+
+  it("06.50. Verify that selecting a zone on the Area Creation page updates the Zone field correctly.", function () {
+    create_area.zoneSelectionCheck();
+  });
+
+  it("06.51. Verify that the grid list content updates correctly when switching the language from English to Bangla.", function () {
     create_area.gridLanguageSwitchCheck();
   });
 });

@@ -82,7 +82,10 @@
       "breadcrumbDesignation": "Designation",
       "breadcrumbList": "List",
       "breadcrumbCreate": "Create",
-      "validStatuses": ["Active", "Inactive"],
+      "validStatuses": [
+        "Active",
+        "Inactive"
+      ],
       "specialCharacterNameEn": "Designation @#$%",
       "specialCharacterNameBn": "পদবী @#$%",
       "longNameEn": "Designation Designation Designation Designation Designation Designation Designation Designation Designation Designation Designation Designation Designation Designation Designation Designation Designation Designation Designation Designation",
@@ -117,27 +120,34 @@
       "nameEnWithSpaces": "  Test Region  "
     },
     "createZoneFrom": {
-      "nameEn": "Test Zone ",
-      "nameBn": "পরীক্ষা জোন ",
+      "nameEn": "Test Zone",
+      "nameBn": "পরীক্ষা অঞ্চল",
       "regionName": "Dhaka",
       "zoneCode": "65",
+      "code": "TZ65",
       "status": "Active",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
       "search": "Test Zone",
       "duplicateNameEn": "Test Zone",
-      "duplicateNameBn": "পরীক্ষা জোন",
-      "duplicateCode": "65",
+      "duplicateNameBn": "পরীক্ষার অঞ্চল",
+      "duplicateCode": "TZ",
       "invalidSearch": "XYZ_NON_EXISTING_ZONE",
       "partialSearch": "Test",
       "spaceOnly": "   ",
-      "pageSize": "20"
+      "pageSize": "20",
+      "specialCharacterCode": "ZON@#$",
+      "maxLengthNameEn": "Zone Zone Zone Zone Zone Zone Zone Zone Zone Zone Zone Zone Zone Zone Zone Zone Zone Zone Zone Zone",
+      "maxLengthNameBn": "অঞ্চল অঞ্চল অঞ্চল অঞ্চল অঞ্চল অঞ্চল অঞ্চল অঞ্চল অঞ্চল অঞ্চল অঞ্চল অঞ্চল অঞ্চল অঞ্চল অঞ্চল অঞ্চল অঞ্চল অঞ্চল অঞ্চল",
+      "maxLengthCode": "ZONE-CODE-OVER-MAXIMUM-LENGTH-1234567890",
+      "nameEnWithSpaces": "  Test Zone  "
     },
     "createAreaFrom": {
       "nameEn": "Test Area ",
       "nameBn": "পরীক্ষা এলাকা ",
       "zoneName": "Dhaka",
       "areaCode": "65",
+      "code": "TA65",
       "status": "Active",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
@@ -148,7 +158,12 @@
       "invalidSearch": "XYZ_NON_EXISTING_AREA",
       "partialSearch": "Test",
       "spaceOnly": "   ",
-      "pageSize": "20"
+      "pageSize": "20",
+      "specialCharacterCode": "ARE@#$",
+      "maxLengthNameEn": "Area Area Area Area Area Area Area Area Area Area Area Area Area Area Area Area Area Area Area Area",
+      "maxLengthNameBn": "এলাকা এলাকা এলাকা এলাকা এলাকা এলাকা এলাকা এলাকা এলাকা এলাকা এলাকা এলাকা এলাকা এলাকা এলাকা এলাকা এলাকা এলাকা এলাকা এলাকা",
+      "maxLengthCode": "AREA-CODE-OVER-MAXIMUM-LENGTH-1234567890",
+      "nameEnWithSpaces": "  Test Area  "
     },
     "createBankAccountFrom": {
       "bankName": "AGRANI BANK LTD.",

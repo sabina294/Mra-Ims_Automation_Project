@@ -3,6 +3,10 @@ export const COMMON = {
     CONFIGURATION: "menu-configuration",
     DEPARTMENT: "submenu-department",
     DESIGNATION: "submenu-designation",
+    REGION: "submenu-region",
+    ZONE: "submenu-zone",
+    AREA: "submenu-area",
+
   },
 
   KEYS: {

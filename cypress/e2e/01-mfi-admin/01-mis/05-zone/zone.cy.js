@@ -181,7 +181,51 @@ describe("05. Zone Module Test Cases", function () {
     create_zone.duplicateZoneCheck();
   });
 
-  it("05.40. Verify that the grid list content updates correctly when switching the language from English to Bangla.", function () {
+  it("05.40. Verify that the Zone Code field accepts valid alphanumeric values.", function () {
+    create_zone.zoneCodeValidInputCheck();
+  });
+
+  it("05.41. Verify that the Zone Code field does not accept duplicate zone codes.", function () {
+    create_zone.duplicateZoneCodeCheck();
+  });
+
+  it("05.42. Verify that the Zone Code field handles whitespace-only input correctly.", function () {
+    create_zone.zoneCodeSpaceValidation();
+  });
+
+  it("05.43. Verify that the Zone Code field rejects invalid special character input.", function () {
+    create_zone.zoneCodeSpecialCharacterValidation();
+  });
+
+  it("05.44. Verify that the Zone Name (English) field rejects input exceeding the maximum allowed character length.", function () {
+    create_zone.zoneNameEnMaxLengthCheck();
+  });
+
+  it("05.45. Verify that the Zone Name (Bangla) field rejects input exceeding the maximum allowed character length.", function () {
+    create_zone.zoneNameBnMaxLengthCheck();
+  });
+
+  it("05.46. Verify that the Zone Code field rejects input exceeding the maximum allowed character length.", function () {
+    create_zone.zoneCodeMaxLengthCheck();
+  });
+
+  it("05.47. Verify that leading and trailing spaces are handled correctly in Zone Name fields.", function () {
+    create_zone.zoneNameTrimValidation();
+  });
+
+  it("05.48. Verify that the Zone Creation form prevents submission when invalid data is entered in multiple required fields.", function () {
+    create_zone.multipleInvalidFieldValidation();
+  });
+
+  it("05.49. Verify that changing the selected status on the Zone Creation page updates the status value correctly.", function () {
+    create_zone.changeStatusCheck();
+  });
+
+  it("05.50. Verify that selecting a region on the Zone Creation page updates the Region field correctly.", function () {
+    create_zone.regionSelectionCheck();
+  });
+
+  it("05.51. Verify that the grid list content updates correctly when switching the language from English to Bangla.", function () {
     create_zone.gridLanguageSwitchCheck();
   });
 });
