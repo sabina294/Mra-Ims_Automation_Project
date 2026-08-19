@@ -26,9 +26,7 @@ class EmployeeManagementCreation {
         .first()
         .click({ force: true });
       cy.formController("gender").click();
-      cy.get(
-        ".ant-form-item-control-input-content > .ant-radio-group > :nth-child(1) > .ant-radio > .ant-radio-input"
-      ).click();
+      cy.get(':nth-child(2) > .ant-radio > .ant-radio-input').click();
       cy.formController("contactNo").type(emData.empMobileNo);
       cy.formController("emailAddress").first().clear().type(emData.email);
       cy.get('#nz-tabs-1-tab-1').click();
