@@ -5,10 +5,12 @@ class cancelSamity {
     test_data = Cypress.env("TEST_DATA");
 
     gridCancelSamityListPage() {
-        cy.fixture(this.test_data).then((data) => {
-            cy.selectMenu("menu-process", "submenu-cancel-samity");
-            cy.log(messages.ui.gridListMessage);
-        });
+        cy.selectMenu("menu-process", "submenu-cancel-samity");
+        cy.location("pathname", { timeout: 30000 })
+            .should("include", "/process/cancel-samity");
+        cy.get(COMMON.TABLE.BODY, { timeout: 30000 })
+            .should("be.visible");
+        cy.log(messages.ui.gridListMessage);
     }
 
     gridCheckboxCheck() {
@@ -30,31 +32,44 @@ class cancelSamity {
         cy.log(messages.ui.restoreSamityMessage);
     }
 
-     cancelSamity() {
-    cy.fixture(this.test_data).then((data) => {
-    const csData = data.branchManager.cancelSamity;
+    cancelSamity() {
+        cy.fixture(this.test_data).then((data) => {
+            const csData = data.branchManager.cancelSamity;
+            const cancelButton = `[data-ims-id='${COMMON.BUTTONS.CANCEL_SAMITY}']`;
 
-    cy.imsId(COMMON.BUTTONS.CANCEL_SAMITY)
-      .should("exist")
-      .should("be.visible")
-      .and("not.be.disabled")
-      .click();
+            cy.get(COMMON.TABLE.BODY, { timeout: 30000 })
+                .should("be.visible")
+                .find(cancelButton, { timeout: 30000 })
+                .filter(":visible")
+                .first()
+                .scrollIntoView()
+                .should("be.visible")
+                .and("not.be.disabled")
+                .click();
 
-    cy.imsId(COMMON.CONFIRMATION.YES)
-      .should("be.visible")
-      .click();
+            cy.imsId(COMMON.CONFIRMATION.YES)
+                .should("be.visible")
+                .and("not.be.disabled")
+                .click();
 
-    cy.get('[formcontrolname="remarks"]')
-      .should("be.visible")
-      .and("not.be.disabled")
-      .clear()
-      .type(csData.remarksCancel);
-  });
-}
+            cy.formController("remarks")
+                .should("be.visible")
+                .and("not.be.disabled")
+                .clear()
+                .type(csData.remarksCancel);
+        });
+    }
 
     submitCancelSamity() {
-        cy.imsId("btn-submit").should("be.visible").click();
-        cy.imsId(COMMON.CONFIRMATION.OK).click();
+        cy.imsId(COMMON.BUTTONS.SUBMIT)
+            .should("be.visible")
+            .and("not.be.disabled")
+            .click();
+        cy.imsId(COMMON.CONFIRMATION.OK)
+            .should("be.visible")
+            .click();
+        cy.get(COMMON.TABLE.BODY, { timeout: 30000 })
+            .should("be.visible");
     }
 
     gridLanguageSwitchCheck() {
