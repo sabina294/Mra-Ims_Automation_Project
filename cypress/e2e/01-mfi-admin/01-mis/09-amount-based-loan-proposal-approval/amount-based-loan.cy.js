@@ -124,7 +124,67 @@ describe("09. Amount Based Loan Proposal Approval Module Test Cases", function (
     create_amount_based_loan.gridSearchButtonCheck();
   });
 
-  it("09.26. Verify that the grid list content updates correctly when switching the language from English to Bangla.", function () {
+  it("09.26. Verify that the list page displays the correct breadcrumb navigation.", function () {
+    create_amount_based_loan.listBreadcrumbCheck();
+  });
+
+  it("09.27. Verify that the grid displays all required Amount Based Loan Proposal Approval columns.", function () {
+    create_amount_based_loan.gridColumnsCheck();
+  });
+
+  it("09.28. Verify that each displayed record contains valid loan ranges and status.", function () {
+    create_amount_based_loan.gridRecordDataCheck();
+  });
+
+  it("09.29. Verify that pagination is displayed and Previous is disabled on the first page.", function () {
+    create_amount_based_loan.firstPagePaginationCheck();
+  });
+
+  it("09.30. Verify that Add Loan Approval Range navigates to the creation page.", function () {
+    create_amount_based_loan.addNavigationCheck();
+  });
+
+  it("09.31. Verify that the creation page displays its breadcrumb and all form fields.", function () {
+    create_amount_based_loan.createPageFieldsCheck();
+  });
+
+  it("09.32. Verify that required fields and the optional Remarks field are marked correctly.", function () {
+    create_amount_based_loan.requiredAndOptionalFieldsCheck();
+  });
+
+  it("09.33. Verify that Active is selected as the default status.", function () {
+    create_amount_based_loan.defaultStatusCheck();
+  });
+
+  it("09.34. Verify that the Status dropdown displays Active and Inactive options.", function () {
+    create_amount_based_loan.statusOptionsCheck();
+  });
+
+  it("09.35. Verify that selecting an Office Type loads and allows selection of a corresponding Role.", function () {
+    create_amount_based_loan.officeTypeAndRoleSelectionCheck();
+  });
+
+  it("09.36. Verify that searching with a non-existing role displays no records.", function () {
+    create_amount_based_loan.searchNoResultCheck();
+  });
+
+  it("09.37. Verify that an exact role search returns only matching records.", function () {
+    create_amount_based_loan.exactSearchCheck();
+  });
+
+  it("09.38. Verify that clearing a role search restores the complete list.", function () {
+    create_amount_based_loan.clearSearchCheck();
+  });
+
+  it("09.39. Verify that the View page displays all saved approval-range details.", function () {
+    create_amount_based_loan.viewDetailsCheck();
+  });
+
+  it("09.40. Verify that turning on Edit mode displays all editable approval-range fields.", function () {
+    create_amount_based_loan.editModeFieldsCheck();
+  });
+
+  it("09.41. Verify that the grid list content updates correctly when switching the language from English to Bangla.", function () {
     create_amount_based_loan.gridLanguageSwitchCheck();
   });
 });

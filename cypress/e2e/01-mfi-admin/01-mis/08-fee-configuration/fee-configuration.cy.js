@@ -128,7 +128,67 @@ describe("08. Fee Configuration Module Test Cases", function () {
     create_fee_configuration.gridSearchButtonCheck();
   });
 
-  it("08.27. Verify that the grid list content updates correctly when switching the language from English to Bangla.", function () {
+  it("08.27. Verify that the Fee Configuration List page displays the correct breadcrumb navigation.", function () {
+    create_fee_configuration.listBreadcrumbCheck();
+  });
+
+  it("08.28. Verify that the Fee Configuration grid displays all required columns.", function () {
+    create_fee_configuration.gridColumnsCheck();
+  });
+
+  it("08.29. Verify that displayed fee configuration records contain valid code, amount, and status values.", function () {
+    create_fee_configuration.gridRecordDataCheck();
+  });
+
+  it("08.30. Verify that pagination is displayed and Previous is disabled on the first page.", function () {
+    create_fee_configuration.firstPagePaginationCheck();
+  });
+
+  it("08.31. Verify that Add Fee Configuration navigates to the creation page.", function () {
+    create_fee_configuration.addFeeConfigurationNavigationCheck();
+  });
+
+  it("08.32. Verify that the Fee Configuration Creation page displays its breadcrumb and all form fields.", function () {
+    create_fee_configuration.createPageFieldsCheck();
+  });
+
+  it("08.33. Verify that required and optional Fee Configuration fields are marked correctly.", function () {
+    create_fee_configuration.requiredAndOptionalFieldsCheck();
+  });
+
+  it("08.34. Verify that Active is selected as the default status on the creation page.", function () {
+    create_fee_configuration.defaultStatusCheck();
+  });
+
+  it("08.35. Verify that the Status dropdown displays Active and Inactive options.", function () {
+    create_fee_configuration.statusOptionsCheck();
+  });
+
+  it("08.36. Verify that a ledger can be selected on the Fee Configuration Creation page.", function () {
+    create_fee_configuration.ledgerSelectionCheck();
+  });
+
+  it("08.37. Verify that searching with a non-existing fee name displays no records.", function () {
+    create_fee_configuration.searchNoResultCheck();
+  });
+
+  it("08.38. Verify that an exact fee-name search returns only matching records.", function () {
+    create_fee_configuration.exactSearchCheck();
+  });
+
+  it("08.39. Verify that clearing a fee-name search restores the Fee Configuration list.", function () {
+    create_fee_configuration.clearSearchCheck();
+  });
+
+  it("08.40. Verify that the View page displays all saved Fee Configuration details.", function () {
+    create_fee_configuration.viewDetailsCheck();
+  });
+
+  it("08.41. Verify that turning on Edit mode displays editable Fee Configuration fields.", function () {
+    create_fee_configuration.editModeFieldsCheck();
+  });
+
+  it("08.42. Verify that the grid list content updates correctly when switching the language from English to Bangla.", function () {
     create_fee_configuration.gridLanguageSwitchCheck();
   });
 });

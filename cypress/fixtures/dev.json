@@ -212,7 +212,20 @@
       "status": "Active",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
-      "search": "Test Fee"
+      "search": "Test Fee",
+      "existingFeeName": "Member Admission Fee",
+      "invalidSearch": "XYZ_NON_EXISTING_FEE_CONFIGURATION",
+      "gridColumns": [
+        "#",
+        "Fee Collection Code",
+        "Fee Type Name (English)",
+        "Ledger ID",
+        "Subledger ID",
+        "Amount",
+        "Remarks",
+        "Status",
+        "Actions"
+      ]
     },
     "createAmountBasedLoanFrom": {
       "officeTypeId": "Branch Office",
@@ -222,7 +235,20 @@
       "status": "Active",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
-      "search": "Branch Manager"
+      "search": "Branch Manager",
+      "existingRole": "Branch Accountant",
+      "invalidSearch": "XYZ_NON_EXISTING_LOAN_APPROVAL_ROLE",
+      "gridColumns": [
+        "#",
+        "Role ID",
+        "Role",
+        "Office Type ID",
+        "Office Type",
+        "Minimum Loan Amount",
+        "Maximum Loan Amount",
+        "Status",
+        "Actions"
+      ]
     },
     "createFundingOrganizationFrom": {
       "FundingNameEn": "Test",
