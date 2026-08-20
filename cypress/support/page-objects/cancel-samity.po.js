@@ -78,6 +78,7 @@ class cancelSamity {
         cy.log(messages.ui.languageSwitchMessage);
     }
 
+    
 }
 
 export const cancel_samity = new cancelSamity();

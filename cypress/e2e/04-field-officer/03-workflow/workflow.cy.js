@@ -74,5 +74,6 @@ describe("03. Branch Manager Complete Workflow", function () {
     grid_day_forward.gridDayForwardDayRoutine();
     grid_day_forward.startProccess();
     grid_day_forward.dayForwardConfirm();
+    
   });
 });
