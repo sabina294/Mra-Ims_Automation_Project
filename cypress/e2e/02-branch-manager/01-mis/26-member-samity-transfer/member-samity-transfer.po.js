@@ -128,7 +128,7 @@ class MemberSamityTransfer {
       cy.imsId(COMMON.TOGGLES.ACTION).first().click();
       cy.imsId("btn-mis-table-action-transfer").click();
       cy.formController("new_samity_id")
-        .type(mstData.newSamityTransfer)
+        .type(mstData.againSamityTransfer)
         .type("{enter}");
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
       cy.imsId(COMMON.CONFIRMATION.YES).click();

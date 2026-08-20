@@ -30,20 +30,27 @@ class cancelSamity {
         cy.log(messages.ui.restoreSamityMessage);
     }
 
-    cancelSamity() {
-        cy.fixture(this.test_data).then((data) => {
-            const csData = data.branchManager.cancelSamity;
-            cy.imsId(COMMON.BUTTONS.CANCEL_SAMITY).click();
-            cy.imsId(COMMON.CONFIRMATION.YES)
-                .should("be.visible")
-                .click();
-            cy.get('[formcontrolname="remarks"]')
-                .should("be.visible")
-                .and("not.be.disabled")
-                .clear()
-                .type(csData.remarksCancel);
-        });
-    }
+     cancelSamity() {
+    cy.fixture(this.test_data).then((data) => {
+    const csData = data.branchManager.cancelSamity;
+
+    cy.imsId(COMMON.BUTTONS.CANCEL_SAMITY)
+      .should("exist")
+      .should("be.visible")
+      .and("not.be.disabled")
+      .click();
+
+    cy.imsId(COMMON.CONFIRMATION.YES)
+      .should("be.visible")
+      .click();
+
+    cy.get('[formcontrolname="remarks"]')
+      .should("be.visible")
+      .and("not.be.disabled")
+      .clear()
+      .type(csData.remarksCancel);
+  });
+}
 
     submitCancelSamity() {
         cy.imsId("btn-submit").should("be.visible").click();

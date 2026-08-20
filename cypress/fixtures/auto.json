@@ -1130,6 +1130,7 @@
     "memberSamityTransferFrom": {
       "memberNameEn": "Misti Akter",
       "newSamityTransfer": "1020-102 (Dholpur Mohila Samity)",
+      "againSamityTransfer": "1020-106 (Belma Mohila Samity)",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
       "SelectOffice": "1020 (Ashulia)",
@@ -1789,7 +1790,7 @@
     },
     "createMemberFrom": {
       "smity": "1020-101 (Ashulia Mohila Samity)",
-      "memberNameEn": "Sabina Yeasmin",
+      "memberNameEn": "Suborna",
       "mfiProgram": "Jagoron",
       "savingsId": "General Savings",
       "occupation": "Business",
