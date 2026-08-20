@@ -8,10 +8,10 @@ class RejectedSamity {
       cy.selectMenu("menu-samity", "submenu-samity-management");
       cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
       const rsData = data.branchManager.rejectedSamityFrom;
+      cy.formController("office_id").type(rsData.office).type("{enter}");
       cy.formController("samity_name_en").first().type(rsData.samityNameEn);
       cy.formController("samity_name_bn").type(rsData.samityNameBn);
       cy.formController("samity_type").type(rsData.samityType).type("{enter}");
-      cy.formController("office_id").type(rsData.office).type("{enter}");
       cy.wait(2000);
       cy.formController("field_officer_id")
         .type(rsData.fieldOfficer)
@@ -46,7 +46,7 @@ class RejectedSamity {
       const rsData = data.branchManager.rejectedSamityFrom;
       cy.imsId("menu-my-task").click();
       cy.imsId("submenu-awaiting-samity-management").click();
-      // cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(rsData.samityNameEn);
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(rsData.samityNameEn);
       cy.imsId(COMMON.TOGGLES.ACTION).first().click();
       cy.imsId(COMMON.GRID.ACTION_VIEW).click();
       cy.imsId("btn-lock").click();

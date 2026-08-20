@@ -770,15 +770,19 @@ class DesignationCreation {
   }
 
   previousPageNavigationCheck() {
-    cy.get(COMMON.PAGINATION.PREVIOUS_PAGE).then(($previous) => {
-      if ($previous.hasClass(COMMON.PAGINATION.DISABLED_CLASS)) {
-        cy.get(COMMON.PAGINATION.NEXT_PAGE).click();
-      }
-      cy.get(COMMON.PAGINATION.ACTIVE_PAGE).invoke("text").then((page) => {
-        cy.get(COMMON.PAGINATION.PREVIOUS_PAGE).click();
-        cy.get(COMMON.PAGINATION.ACTIVE_PAGE).should("have.text", String(Number(page.trim()) - 1));
-      });
-    });
+    cy.imsId(COMMON.BUTTONS.RESET).click();
+    cy.get(COMMON.PAGINATION.PAGE_ITEMS).first().click();
+    cy.get(COMMON.PAGINATION.ACTIVE_PAGE).should("have.text", "1");
+    cy.get(COMMON.PAGINATION.NEXT_PAGE)
+      .should("be.visible")
+      .and("not.have.class", COMMON.PAGINATION.DISABLED_CLASS)
+      .click();
+    cy.get(COMMON.PAGINATION.ACTIVE_PAGE).should("have.text", "2");
+    cy.get(COMMON.PAGINATION.PREVIOUS_PAGE)
+      .should("be.visible")
+      .and("not.have.class", COMMON.PAGINATION.DISABLED_CLASS)
+      .click();
+    cy.get(COMMON.PAGINATION.ACTIVE_PAGE).should("have.text", "1");
     cy.log(messages.ui.previousPageNavigationCheck);
   }
 

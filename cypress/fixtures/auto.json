@@ -31,7 +31,6 @@
       "numberColumn": "#",
       "nameEnColumn": "Department Name",
       "nameBnColumn": "Department Name (Bangla)",
-      "departmentIdColumn": "Department Id",
       "statusColumn": "Status",
       "actionsColumn": "Actions",
       "specialCharacterNameEn": "Department @#$%",
@@ -394,10 +393,10 @@
       "search": "Test Samity"
     },
     "rejectedSamityFrom": {
-      "samityNameEn": "Feni Samity",
-      "samityNameBn": "ফেনী সমিতি",
-      "draftName": "Test",
-      "draftNameBn": "পরীক্ষা",
+      "samityNameEn": "Dhaka Samity",
+      "samityNameBn": "ঢাকা সমিতি",
+      "draftName": "Dhaka",
+      "draftNameBn": "ঢাকা",
       "samityType": "Female",
       "office": "1020 (Ashulia)",
       "fieldOfficer": "EMP-0121 - MD.ABDUR RAHAMAN",

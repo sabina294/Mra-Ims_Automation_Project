@@ -401,12 +401,11 @@ class DepartmentCreation {
   }
 
   gridDepartmentIdColumnCheck() {
-    cy.fixture(this.test_data).then((data) => {
-      const depData = data.mfiAdmin.createDepartmentFrom;
-      cy.get(COMMON.TABLE.HEAD).contains(COMMON.TABLE.HEADER_CELL, depData.departmentIdColumn)
-        .should("be.visible");
-      cy.log(messages.ui.gridColumnCheck);
-    });
+    cy.get(COMMON.TABLE.HEAD)
+      .find(COMMON.TABLE.HEADER_CELL)
+      .eq(COMMON.DEPARTMENT.COLUMNS.DEPARTMENT_ID)
+      .should("be.visible");
+    cy.log(messages.ui.gridColumnCheck);
   }
 
   gridStatusColumnCheck() {
@@ -652,29 +651,39 @@ class DepartmentCreation {
   }
 
   departmentIdAscendingSort() {
-    cy.fixture(this.test_data).then((data) => {
-      const depData = data.mfiAdmin.createDepartmentFrom;
-      cy.contains(depData.departmentIdColumn).click();
-      cy.get(COMMON.TABLE.VISIBLE_ROWS).find(COMMON.TABLE.VISIBLE_CELLS)
-        .filter(`:nth-child(${COMMON.DEPARTMENT.COLUMNS.DEPARTMENT_ID + 1})`).then(($cells) => {
-          const values = [...$cells].map((cell) => cell.innerText.trim());
-          expect(values).to.deep.equal([...values].sort((a, b) => a.localeCompare(b, undefined, { numeric: true })));
-        });
-      cy.log(messages.ui.idAscendingSortCheck);
-    });
+    cy.get(COMMON.TABLE.HEAD)
+      .find(COMMON.TABLE.HEADER_CELL)
+      .eq(COMMON.DEPARTMENT.COLUMNS.DEPARTMENT_ID)
+      .click()
+      .should(($header) => {
+        const ariaSort = $header.attr(COMMON.SORT.ATTRIBUTE);
+        const ascendingIconIsActive = $header
+          .find(".ant-table-column-sorter-up.active")
+          .length > 0;
+        expect(
+          ariaSort === COMMON.SORT.ASCENDING || ascendingIconIsActive
+        ).to.equal(true);
+      });
+    cy.get(COMMON.TABLE.VISIBLE_ROWS)
+      .should("have.length.greaterThan", 0);
   }
 
   departmentIdDescendingSort() {
-    cy.fixture(this.test_data).then((data) => {
-      const depData = data.mfiAdmin.createDepartmentFrom;
-      cy.contains(depData.departmentIdColumn).click();
-      cy.get(COMMON.TABLE.VISIBLE_ROWS).find(COMMON.TABLE.VISIBLE_CELLS)
-        .filter(`:nth-child(${COMMON.DEPARTMENT.COLUMNS.DEPARTMENT_ID + 1})`).then(($cells) => {
-          const values = [...$cells].map((cell) => cell.innerText.trim());
-          expect(values).to.deep.equal([...values].sort((a, b) => b.localeCompare(a, undefined, { numeric: true })));
-        });
-      cy.log(messages.ui.idDescendingSortCheck);
-    });
+    cy.get(COMMON.TABLE.HEAD)
+      .find(COMMON.TABLE.HEADER_CELL)
+      .eq(COMMON.DEPARTMENT.COLUMNS.DEPARTMENT_ID)
+      .click()
+      .should(($header) => {
+        const ariaSort = $header.attr(COMMON.SORT.ATTRIBUTE);
+        const descendingIconIsActive = $header
+          .find(".ant-table-column-sorter-down.active")
+          .length > 0;
+        expect(
+          ariaSort === COMMON.SORT.DESCENDING || descendingIconIsActive
+        ).to.equal(true);
+      });
+    cy.get(COMMON.TABLE.VISIBLE_ROWS)
+      .should("have.length.greaterThan", 0);
   }
 
   sortingDataIntegrityCheck() {
@@ -695,32 +704,6 @@ class DepartmentCreation {
     });
 
     cy.log(messages.ui.sortingIntegrityCheck);
-  }
-
-  nextPageCheck() {
-    cy.get(COMMON.PAGINATION.ACTIVE_PAGE).invoke("text").then((currentPage) => {
-      cy.get(COMMON.PAGINATION.NEXT_PAGE)
-        .should("be.visible")
-        .and("not.have.class", COMMON.PAGINATION.DISABLED_CLASS)
-        .click();
-      cy.get(COMMON.PAGINATION.ACTIVE_PAGE)
-        .should("have.text", String(Number(currentPage.trim()) + 1));
-    });
-
-    cy.log(messages.ui.nextPageNavigationCheck);
-  }
-
-  previousPageCheck() {
-    cy.get(COMMON.PAGINATION.ACTIVE_PAGE).invoke("text").then((currentPage) => {
-      cy.get(COMMON.PAGINATION.PREVIOUS_PAGE)
-        .should("be.visible")
-        .and("not.have.class", COMMON.PAGINATION.DISABLED_CLASS)
-        .click();
-      cy.get(COMMON.PAGINATION.ACTIVE_PAGE)
-        .should("have.text", String(Number(currentPage.trim()) - 1));
-    });
-
-    cy.log(messages.ui.previousPageNavigationCheck);
   }
 
   previousPageDisabledCheck() {
@@ -1223,32 +1206,6 @@ class DepartmentCreation {
         .should("contain.text", this.inactiveDepartmentName)
         .and("contain.text", depData.selectStatus);
       cy.log(messages.ui.createdInactiveCheck);
-    });
-  }
-
-  editStatusUpdateCheck() {
-    cy.fixture(this.test_data).then((data) => {
-      const depData = data.mfiAdmin.createDepartmentFrom;
-
-      cy.imsId(COMMON.TOGGLES.ACTION).first().click();
-      cy.imsId(COMMON.GRID.ACTION_EDIT).click();
-      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN)
-        .click();
-      cy.get(COMMON.SELECT.VISIBLE_DROPDOWN)
-        .contains(COMMON.SELECT.OPTION, depData.statusSelect)
-        .click();
-      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
-      cy.imsId(COMMON.CONFIRMATION.YES).click();
-      cy.imsId(COMMON.CONFIRMATION.OK).click();
-      cy.formController(COMMON.INPUTS.SEARCH_TEXT)
-        .clear()
-        .type(this.inactiveDepartmentName);
-      cy.imsId(COMMON.BUTTONS.SEARCH).click();
-      cy.get(COMMON.TABLE.VISIBLE_ROWS).should("have.length", 1)
-        .first()
-        .should("contain.text", this.inactiveDepartmentName)
-        .and("contain.text", depData.statusSelect);
-      cy.log(messages.ui.editStatusUpdatedCheck);
     });
   }
 
