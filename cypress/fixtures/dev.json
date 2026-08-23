@@ -257,7 +257,10 @@
       "status": "Active",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
-      "search": "Test"
+      "search": "Test",
+      "existingOrganizationName": "BRAC",
+      "invalidSearch": "NO_SUCH_FUNDING_ORG_987654321",
+      "gridColumns": ["#", "ID/Short Code", "Funding Organization Name", "Funding Organization Type", "Status", "Actions"]
     },
     "createLoanFundFrom": {
       "bankAccount": "Dhaka Zonal Office",
@@ -266,7 +269,10 @@
       "status": "Active",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
-      "search": "Dhaka Zonal Office"
+      "search": "Dhaka Zonal Office",
+      "existingLoanFundId": "PKSF-1001",
+      "invalidSearch": "NO_SUCH_LOAN_FUND_987654321",
+      "gridColumns": ["#", "Loan Fund Id", "Bank Account", "Funding Organization", "Funding Notes", "Amount", "Loan Availability Date", "Status", "Actions"]
     },
     "createMfiProgramFrom": {
       "programNameEn": "Sahosh",
@@ -278,7 +284,10 @@
       "statusSelect": "Active",
       "search": "Sahosh",
       "messageSaveMfiProgram": "Mfi program has been saved",
-      "messageUpdateMfiProgram": "Mfi program has been updated"
+      "messageUpdateMfiProgram": "Mfi program has been updated",
+      "existingProgramName": "Sahosh",
+      "invalidSearch": "NO_SUCH_MFI_PROGRAM_987654321",
+      "gridColumns": ["#", "MFI Program Id", "Name English", "Name Bangla", "Short Name", "Funding Category", "Status", "Actions"]
     },
     "createOfficeFrom": {
       "officeNameEn": "Test Office",

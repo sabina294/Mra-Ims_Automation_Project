@@ -115,7 +115,71 @@ describe("11. Loan Fund Module Test Cases", function () {
     create_loan_fund.gridSearchButtonCheck();
   });
 
-  it("11.24. Verify that the grid list content successfully switches between English and Bangla languages.", function () {
+  it("11.24. Verify that the Loan Fund list page displays the correct breadcrumb navigation.", function () {
+    create_loan_fund.listBreadcrumbCheck();
+  });
+
+  it("11.25. Verify that the Loan Fund grid displays all required columns.", function () {
+    create_loan_fund.gridColumnsCheck();
+  });
+
+  it("11.26. Verify that displayed Loan Fund records contain valid ID, funding organization, amount, and status values.", function () {
+    create_loan_fund.gridRecordDataCheck();
+  });
+
+  it("11.27. Verify that pagination is displayed and Previous is disabled on the first page.", function () {
+    create_loan_fund.firstPagePaginationCheck();
+  });
+
+  it("11.28. Verify that Add Loan Fund navigates to the creation page.", function () {
+    create_loan_fund.addNavigationCheck();
+  });
+
+  it("11.29. Verify that the Loan Fund creation page displays its breadcrumb, fields, and action buttons.", function () {
+    create_loan_fund.createPageFieldsCheck();
+  });
+
+  it("11.30. Verify that required and optional Loan Fund fields are marked correctly.", function () {
+    create_loan_fund.requiredAndOptionalFieldsCheck();
+  });
+
+  it("11.31. Verify that Active is selected as the default status on the creation page.", function () {
+    create_loan_fund.defaultStatusCheck();
+  });
+
+  it("11.32. Verify that the Status dropdown displays Active and Inactive options.", function () {
+    create_loan_fund.statusOptionsCheck();
+  });
+
+  it("11.33. Verify that a Bank Account can be selected on the creation page.", function () {
+    create_loan_fund.bankAccountSelectionCheck();
+  });
+
+  it("11.34. Verify that a Funding Organization can be selected on the creation page.", function () {
+    create_loan_fund.fundingOrganizationSelectionCheck();
+  });
+
+  it("11.35. Verify that searching with a non-existing Loan Fund displays no records.", function () {
+    create_loan_fund.searchNoResultCheck();
+  });
+
+  it("11.36. Verify that an exact Loan Fund ID search returns only matching records.", function () {
+    create_loan_fund.exactSearchCheck();
+  });
+
+  it("11.37. Verify that clearing a search restores the Loan Fund list.", function () {
+    create_loan_fund.clearSearchCheck();
+  });
+
+  it("11.38. Verify that the View page displays all saved Loan Fund details.", function () {
+    create_loan_fund.viewDetailsCheck();
+  });
+
+  it("11.39. Verify that turning on Edit mode displays all editable Loan Fund fields.", function () {
+    create_loan_fund.editModeFieldsCheck();
+  });
+
+  it("11.40. Verify that the grid list content successfully switches between English and Bangla languages.", function () {
     create_loan_fund.gridLanguageSwitchCheck();
   });
 });

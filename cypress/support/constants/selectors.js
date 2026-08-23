@@ -8,7 +8,8 @@ export const COMMON = {
     AREA: "submenu-area",
     BANK_ACCOUNT: "submenu-bank-account",
     FEE_CONFIGURATION: "submenu-fee-configuration",
-    FOUNDING_ORGANIZATION: "submenu-founding-organization",
+    AMOUNT_BASED_LOAN_PROPOSAL_APPROVAL: "submenu-amount-based-loan-proposal-approval",
+    FUNDING_ORGANIZATION: "submenu-funding-organizations",
     LOAN_FUND: "submenu-loan-fund",
     MFI_PROGRAM: "submenu-mfi-program"
 
