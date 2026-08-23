@@ -52,12 +52,12 @@ class RrejectedMember {
         .type("{enter}");
       cy.formController("res_upazila_id").type(rejmData.thana).type("{enter}");
       cy.formController("res_address_line_1").type(rejmData.adressEn);
-      cy.imsId("ck-box").click();
+      cy.imsId(COMMON.CHECKBOXES.GENERIC).click();
       cy.get("#nz-tabs-1-tab-4").click();
       cy.get("#nz-tabs-1-tab-5").click();
-      cy.imsId("btn_photo_image_id").attachFile("employeePhoto1.jpg");
+      cy.imsId(COMMON.UPLOADS.PHOTO).attachFile("employeePhoto1.jpg");
       cy.wait(3000);
-      cy.imsId("btn_nid_front_doc_id").attachFile("nidPront1.jpg");
+      cy.imsId(COMMON.UPLOADS.NID_FRONT).attachFile("nidPront1.jpg");
       cy.wait(3000);
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
       cy.imsId(COMMON.CONFIRMATION.YES).click();
@@ -73,15 +73,15 @@ class RrejectedMember {
   myTaskRejectedMember() {
     cy.fixture(this.test_data).then((data) => {
       const rejmData = data.mfiAdmin.createRejectedMemberFrom;
-      cy.imsId("menu-my-task").click();
-      cy.imsId("submenu-awaiting-member-management").click();
+      cy.imsId(COMMON.MENUS.MY_TASK).click();
+      cy.imsId(COMMON.MENUS.AWAITING_MEMBER_MANAGEMENT).click();
       cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(rejmData.memberNameEn);
       cy.wait(2000);
 
       cy.imsId(COMMON.TOGGLES.ACTION).first().click();
       cy.imsId(COMMON.GRID.ACTION_VIEW).click();
-      cy.imsId("btn-lock").click();
-      cy.imsId("btn-reject").click();
+      cy.imsId(COMMON.BUTTONS.LOCK).click();
+      cy.imsId(COMMON.BUTTONS.REJECT_LOWERCASE).click();
       cy.formController("approver_remarks").type(rejmData.rejectRemarks);
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
 
@@ -140,7 +140,7 @@ class RrejectedMember {
 
   editResetButton() {
     cy.imsId(COMMON.TOGGLES.ACTION).first().click();
-    cy.imsId("btn-mis-table-action-edit").click();
+    cy.imsId(COMMON.GRID.ACTION_MIS_EDIT).click();
     cy.imsId(COMMON.BUTTONS.RESET).click();
 
     cy.log(messages.ui.editResetMessage);
@@ -154,7 +154,7 @@ class RrejectedMember {
   editRrejectedMember() {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId(COMMON.TOGGLES.ACTION).first().click();
-      cy.imsId("btn-mis-table-action-edit").click();
+      cy.imsId(COMMON.GRID.ACTION_MIS_EDIT).click();
       // cy.imsId(COMMON.BUTTONS.SUBMIT).click();
       // cy.imsId(COMMON.CONFIRMATION.OK).click();
       cy.imsId(COMMON.BUTTONS.GO_BACK).click();

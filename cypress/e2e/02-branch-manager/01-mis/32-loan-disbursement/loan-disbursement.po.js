@@ -70,8 +70,8 @@ class LoanDisbursement {
         cy.fixture(this.test_data).then(() => {
 
             cy.imsId(COMMON.TOGGLES.ACTION).first().click();
-            cy.imsId("btn-table-action-disburse").click();
-            cy.imsId("btn-loan-disburse").click({ force: true });
+            cy.imsId(COMMON.GRID.ACTION_DISBURSE).click();
+            cy.imsId(COMMON.BUTTONS.LOAN_DISBURSE).click({ force: true });
             cy.log(messages.ui.actionMessage);
         });
     }

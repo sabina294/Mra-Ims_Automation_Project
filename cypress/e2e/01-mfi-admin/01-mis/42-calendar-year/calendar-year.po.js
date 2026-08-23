@@ -16,7 +16,7 @@ class CalendarYearCreation {
       // cy.imsId(COMMON.BUTTONS.SUBMIT).and("be.visible");
 
       const cyData = data.mfiAdmin.createCalendarYear;
-      cy.imsId("btn-add").click();
+      cy.imsId(COMMON.BUTTONS.ADD).click();
       cy.formController("holiday_title_bn").type(cyData.holidayTitleBn);
       cy.formController("holiday_title_en").type(cyData.holidayTitleEn);
       cy.formController("day_of_month").type(cyData.dayOfMonth).type("{enter}");
@@ -24,7 +24,7 @@ class CalendarYearCreation {
         .type(cyData.monthOfYear)
         .type("{enter}");
 
-      cy.imsId("btn-modal-submit").click();
+      cy.imsId(COMMON.BUTTONS.MODAL_SUBMIT).click();
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
       cy.imsId(COMMON.CONFIRMATION.YES).click();
       cy.imsId(COMMON.CONFIRMATION.OK).click();
@@ -36,8 +36,8 @@ class CalendarYearCreation {
   myTaskMenuCalendarYear() {
     cy.fixture(this.test_data).then((data) => {
       const cyData = data.mfiAdmin.createCalendarYear;
-      cy.imsId("menu-my-task").click();
-      cy.imsId("submenu-awaiting-calendar-year").click();
+      cy.imsId(COMMON.MENUS.MY_TASK).click();
+      cy.imsId(COMMON.MENUS.AWAITING_CALENDAR_YEAR).click();
       cy.log(messages.ui.actionMessage);
     });
   }
@@ -57,8 +57,8 @@ class CalendarYearCreation {
   approveCalendare() {
     cy.imsId(COMMON.TOGGLES.ACTION).first().click();
     cy.imsId(COMMON.GRID.ACTION_VIEW).click();
-    cy.imsId("btn-lock").click();
-    cy.imsId("btn-add").click();
+    cy.imsId(COMMON.BUTTONS.LOCK).click();
+    cy.imsId(COMMON.BUTTONS.ADD).click();
     cy.imsId(COMMON.CONFIRMATION.YES).click();
     cy.wait(10000);
     cy.imsId(COMMON.CONFIRMATION.OK).click();

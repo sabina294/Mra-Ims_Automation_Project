@@ -52,17 +52,17 @@ class LoanPenalty {
         .type(lpData.selectLoanAccount)
         .type("{enter}");
       cy.wait(2000);
-      cy.imsId("loan-input-0").clear().type(lpData.inputLoanAccount);
+      cy.imsId(COMMON.INPUTS.LOAN_FIRST).clear().type(lpData.inputLoanAccount);
       cy.wait(2000);
       cy.get('body').click(0, 0);
-      cy.imsId("add-icon-button").click();
+      cy.imsId(COMMON.BUTTONS.ADD_ICON_BUTTON_KEBAB).click();
       cy.log(messages.ui.submitSuccess);
     });
   }
 
   createRemoveIconPenalty() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("remove-icon-button").first().click();
+      cy.imsId(COMMON.BUTTONS.REMOVE_ICON_BUTTON_KEBAB).first().click();
       cy.imsId(COMMON.BUTTONS.GO_BACK).click();
     });
   }
@@ -78,7 +78,7 @@ class LoanPenalty {
         .type(lpData.selectLoanAccount)
         .type("{enter}");
       cy.wait(2000);
-      cy.imsId("loan-input-0").clear().type(lpData.inputLoanAccount).type("{enter}");
+      cy.imsId(COMMON.INPUTS.LOAN_FIRST).clear().type(lpData.inputLoanAccount).type("{enter}");
       cy.wait(2000);
       cy.get('body').click(0, 0);
       cy.formController("amount").type(lpData.inputAmount);
@@ -113,7 +113,7 @@ class LoanPenalty {
     cy.fixture(this.test_data).then((data) => {
       const lpData = data.fieldOfficer.createLoanPenaltyForm;
       cy.imsId(COMMON.TOGGLES.ACTION).first().click();
-      cy.imsId("btn-table-action-unsubmit").click();
+      cy.imsId(COMMON.GRID.ACTION_UNSUBMIT).click();
       cy.log(messages.form.submitSuccess);
     });
   }
@@ -130,8 +130,8 @@ class LoanPenalty {
     cy.fixture(this.test_data).then((data) => {
       const lpData = data.fieldOfficer.createLoanPenaltyForm;
       cy.imsId(COMMON.TOGGLES.ACTION).first().click();
-      cy.imsId("btn-table-action-unsubmit").click();
-      cy.imsId("btn-unsubmit").click();
+      cy.imsId(COMMON.GRID.ACTION_UNSUBMIT).click();
+      cy.imsId(COMMON.BUTTONS.UNSUBMIT).click();
       cy.imsId(COMMON.CONFIRMATION.YES).click();
       cy.imsId(COMMON.CONFIRMATION.OK).click();
       cy.log(messages.form.submitSuccess);
@@ -165,7 +165,7 @@ class LoanPenalty {
       const lpData = data.fieldOfficer.createLoanPenaltyForm;
       cy.imsId(COMMON.TOGGLES.ACTION).first().click();
       cy.imsId(COMMON.GRID.ACTION_EDIT).click();
-      cy.imsId("btn-save").click();
+      cy.imsId(COMMON.BUTTONS.SAVE).click();
       cy.imsId(COMMON.CONFIRMATION.YES).click();
       cy.imsId(COMMON.CONFIRMATION.OK).click();
       cy.log(messages.ui.editMessage);
@@ -176,12 +176,12 @@ class LoanPenalty {
     cy.fixture(this.test_data).then((data) => {
       const lpData = data.fieldOfficer.createLoanPenaltyForm;
       cy.imsId(COMMON.TOGGLES.ACTION).first().click();
-      cy.imsId("btn-table-action-unsubmit").click();
-      cy.imsId("btn-unsubmit").click();
+      cy.imsId(COMMON.GRID.ACTION_UNSUBMIT).click();
+      cy.imsId(COMMON.BUTTONS.UNSUBMIT).click();
       cy.imsId(COMMON.CONFIRMATION.YES).click();
       cy.imsId(COMMON.CONFIRMATION.OK).click();
       cy.imsId(COMMON.TOGGLES.ACTION).first().click();
-      cy.imsId("btn-table-action-submit").click();
+      cy.imsId(COMMON.GRID.ACTION_SUBMIT).click();
       cy.log(messages.form.submitSuccess);
     });
   }
@@ -189,7 +189,7 @@ class LoanPenalty {
   submittedButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
       const lpData = data.fieldOfficer.createLoanPenaltyForm;
-      cy.imsId("btn-save").click();
+      cy.imsId(COMMON.BUTTONS.SAVE).click();
       cy.imsId(COMMON.CONFIRMATION.YES).click();
       cy.imsId(COMMON.CONFIRMATION.OK).click();
       cy.log(messages.form.submitSuccess);

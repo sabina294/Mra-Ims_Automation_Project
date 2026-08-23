@@ -10,29 +10,29 @@ class DayEndProcessAis {
         });
     }
     processPreviewButtonCheck() {
-        cy.imsId("btn-preview").eq(0).click();
+        cy.imsId(COMMON.BUTTONS.PREVIEW).eq(0).click();
         cy.log(messages.ui.previewMessage);
     }
 
     processGoBackButtonCheck() {
-        cy.imsId("go-back-button").click();
+        cy.imsId(COMMON.BUTTONS.AIS_GOBACK).click();
         cy.log(messages.ui.goBackSuccess);
     }
 
     processPreviousButtonCheck() {
-        cy.imsId("btn-draft-on")
+        cy.imsId(COMMON.BUTTONS.PREVIOUS)
             .should('exist')
             .click({ force: true });
         cy.log(messages.ui.previousSearchMessage);
     }
 
     processSearchButtonCheck() {
-        cy.imsId("search-button").click();
+        cy.imsId(COMMON.BUTTONS.AIS_SEARCH).click();
         cy.log(messages.ui.searchSuccess);
     }
 
     PreviousPreviewButtonCheck() {
-        cy.imsId("btn-preview")
+        cy.imsId(COMMON.BUTTONS.PREVIEW)
             .should("be.visible")
             .first()
             .click();
@@ -49,7 +49,7 @@ class DayEndProcessAis {
 
     previousOff() {
         cy.fixture(this.test_data).then((data) => {
-            cy.imsId("btn-draft-on").click();
+            cy.imsId(COMMON.BUTTONS.PREVIOUS).click();
             cy.log(messages.ui.previousSearchMessage);
         });
     }

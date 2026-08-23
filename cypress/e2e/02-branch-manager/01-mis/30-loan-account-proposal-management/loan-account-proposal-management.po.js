@@ -60,7 +60,7 @@ class LoanAccountProposalManagementCreation {
       .type(lapData.appliedLoanAmount);
     cy.wait(5000);
     cy.get('body').click(0, 0);
-    cy.imsId("btn-preview-repay-schedule").click();
+    cy.imsId(COMMON.BUTTONS.PREVIEW_REPAYMENT_SCHEDULE).click();
     cy.get("nz-modal-container")
       .should("be.visible");
     cy.log(messages.ui.viewMessage);
@@ -295,8 +295,8 @@ viewSchedulesCancelButtonCheck() {
   myTaskMenuLoanAccountProposalManagement() {
     cy.fixture(this.test_data).then((data) => {
        const lapData = data.branchManager.createLoanAccountFrom;
-      cy.imsId("menu-my-task").click();
-      cy.imsId("submenu-awaiting-loan-account-proposal").click();
+      cy.imsId(COMMON.MENUS.MY_TASK).click();
+      cy.imsId(COMMON.MENUS.AWAITING_LOAN_ACCOUNT_PROPOSAL).click();
       cy.log(messages.ui.actionMessage);
     });
   }
@@ -326,7 +326,7 @@ viewSchedulesCancelButtonCheck() {
       // cy.imsId(COMMON.BUTTONS.SEARCH).click();
       cy.imsId(COMMON.TOGGLES.ACTION).first().click();
       cy.imsId(COMMON.GRID.ACTION_VIEW).click();
-      cy.imsId("btn-lock").click();
+      cy.imsId(COMMON.BUTTONS.LOCK).click();
       cy.imsId(COMMON.BUTTONS.APPROVE).eq(0).click();
       cy.imsId(COMMON.BUTTONS.APPROVE).eq(1).click();
       cy.imsId(COMMON.CONFIRMATION.YES).click();
@@ -411,7 +411,7 @@ viewSchedulesCancelButtonCheck() {
 
   createAddGuarantorButtonCheck() {
     cy.imsId(COMMON.BUTTONS.ADD_NEW).should("be.visible").click();
-    cy.imsId("btn-add-guarantor")
+    cy.imsId(COMMON.BUTTONS.ADD_GUARANTOR)
       .should("be.visible")
       .first()
       .click();
@@ -420,7 +420,7 @@ viewSchedulesCancelButtonCheck() {
   }
 
   createRemoveButtonCheck() {
-    cy.imsId("btn-remove-guarantor")
+    cy.imsId(COMMON.BUTTONS.REMOVE_GUARANTOR)
       .should("be.visible")
       .first()
       .click();

@@ -153,8 +153,8 @@ class SavingsAccApplicationManagementCreation {
    myTaskMenuSavingsAccountApplicationManagement() {
     cy.fixture(this.test_data).then((data) => {
       const saamData = data.mfiAdmin.createSavingsAccApplicationMang;
-         cy.imsId("menu-my-task").click();
-      cy.imsId("submenu-awaiting-savings-account-proposal").click();
+         cy.imsId(COMMON.MENUS.MY_TASK).click();
+      cy.imsId(COMMON.MENUS.AWAITING_SAVINGS_ACCOUNT_PROPOSAL).click();
       cy.log(messages.ui.actionMessage);
     });
   }
@@ -183,9 +183,9 @@ class SavingsAccApplicationManagementCreation {
       // cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(saamData.search);
       cy.imsId(COMMON.TOGGLES.ACTION).first().click();
       cy.imsId(COMMON.GRID.ACTION_VIEW).click();
-      cy.imsId("btn-lock").click();
+      cy.imsId(COMMON.BUTTONS.LOCK).click();
       cy.imsId(COMMON.BUTTONS.APPROVE).click();
-      cy.imsId("btn-Approve").click();
+      cy.imsId(COMMON.BUTTONS.APPROVE_CAPITALIZED).click();
       cy.imsId(COMMON.CONFIRMATION.YES).click();
       cy.imsId(COMMON.CONFIRMATION.OK).click();
 

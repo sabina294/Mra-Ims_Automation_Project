@@ -15,7 +15,7 @@ class ManualJournalCreation {
             const mjData = data.mfiAdmin.manualJournal;
             cy.imsId(COMMON.BUTTONS.ADD_NEW)
                 .click();
-            cy.imsId("btn-delete")
+            cy.imsId(COMMON.BUTTONS.DELETE)
                 .first()
                 .click();
             cy.formController("reference_no")
@@ -54,7 +54,7 @@ class ManualJournalCreation {
         cy.fixture(this.test_data).then((data) => {
             const mjData = data.mfiAdmin.manualJournal;
             cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
-            cy.imsId("btn-delete").first().click();
+            cy.imsId(COMMON.BUTTONS.DELETE).first().click();
             cy.formController("description").eq(0).type(mjData.description);
             cy.formController("ledger_id").type(mjData.ledger).type("{enter}");
             cy.formController("description").eq(1).type(mjData.description1);
@@ -148,8 +148,8 @@ class ManualJournalCreation {
     myTaskMenuManualJournal() {
         cy.fixture(this.test_data).then((data) => {
             const mjData = data.mfiAdmin.manualJournal;
-            cy.imsId("menu-my-task").click();
-            cy.imsId("submenu-awaiting-manual-journal").click();
+            cy.imsId(COMMON.MENUS.MY_TASK).click();
+            cy.imsId(COMMON.MENUS.AWAITING_MANUAL_JOURNAL).click();
             cy.log(messages.ui.actionMessage);
         });
     }
@@ -172,7 +172,7 @@ class ManualJournalCreation {
             // cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(mjData.journalNameEn);
             cy.imsId(COMMON.TOGGLES.ACTION).first().click();
             cy.imsId(COMMON.GRID.ACTION_VIEW).click();
-            cy.imsId("btn-lock").click();
+            cy.imsId(COMMON.BUTTONS.LOCK).click();
             cy.imsId(COMMON.BUTTONS.APPROVE).click();
             cy.imsId(COMMON.BUTTONS.SUBMIT).click();
             cy.imsId(COMMON.CONFIRMATION.OK).click();
@@ -277,14 +277,14 @@ class ManualJournalCreation {
 
     createDeleteButtonCheck() {
         cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
-        cy.imsId("btn-delete").eq(1).click();
+        cy.imsId(COMMON.BUTTONS.DELETE).eq(1).click();
         cy.imsId(COMMON.BUTTONS.GO_BACK).click();
         cy.log(messages.ui.submitSuccess);
     }
 
     createNewJournalDetailsButtonCheck() {
         cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
-        cy.imsId("btn-add").eq(1).click();
+        cy.imsId(COMMON.BUTTONS.ADD).eq(1).click();
         cy.imsId(COMMON.BUTTONS.GO_BACK).click();
         cy.log(messages.ui.submitSuccess);
     }

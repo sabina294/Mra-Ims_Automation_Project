@@ -34,7 +34,7 @@ class OfficeCreation {
       cy.formController("address_line_1").type(omData.adressEn);
       cy.formController("latitude").type(omData.latitude);
       cy.formController("longitude").type(omData.longitude);
-      cy.imsId("btn-add").click();
+      cy.imsId(COMMON.BUTTONS.ADD).click();
       cy.formController("working_area_name_en").first().type(omData.areaNameEn);
       cy.formArrayController("working_area", 0, "division_id")
         .first()
@@ -653,7 +653,7 @@ class OfficeCreation {
 
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
       cy.imsId(COMMON.CONFIRMATION.OK).click();
-      cy.imsId("btn-back").click();
+      cy.imsId(COMMON.BUTTONS.BACK).click();
       cy.log(messages.ui.withoutDataMessage);
     });
   }
@@ -718,7 +718,7 @@ class OfficeCreation {
     cy.imsId(COMMON.TOGGLES.ACTION).first().click();
     cy.imsId(COMMON.GRID.ACTION_EDIT).click();
     cy.imsId(COMMON.BUTTONS.RESET).click();
-    cy.imsId("btn-back").click();
+    cy.imsId(COMMON.BUTTONS.BACK).click();
 
     cy.log(messages.ui.editResetMessage);
   }
@@ -726,7 +726,7 @@ class OfficeCreation {
   editGoBackButton() {
     cy.imsId(COMMON.TOGGLES.ACTION).first().click();
     cy.imsId(COMMON.GRID.ACTION_EDIT).click();
-    cy.imsId("btn-back").click();
+    cy.imsId(COMMON.BUTTONS.BACK).click();
     cy.log(messages.ui.editGoBackMessage);
   }
 
@@ -781,19 +781,19 @@ class OfficeCreation {
   }
 
   gridCheckboxCheck() {
-    cy.imsId("row-checkbox-2").click();
+    cy.imsId(COMMON.CHECKBOXES.ROW_2).click();
     cy.imsId(COMMON.BUTTONS.RESET).click();
     cy.log(messages.ui.checkboxMessage);
   }
 
   gridCheckboxLockButtonCheck() {
-    // cy.imsId("btn-lock").click();
+    // cy.imsId(COMMON.BUTTONS.LOCK).click();
     // cy.log(messages.ui.lockSuccess);
   }
 
   gridCheckboxUnlockButtonCheck() {
-    // cy.imsId("row-checkbox-2").click();
-    // cy.imsId("btn-unlock").click();
+    // cy.imsId(COMMON.CHECKBOXES.ROW_2).click();
+    // cy.imsId(COMMON.BUTTONS.UNLOCK).click();
     // cy.log(messages.ui.unlockSuccess);
   }
 
@@ -803,7 +803,7 @@ class OfficeCreation {
       cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
       cy.formController("office_name_en").first().type(omData.officeNameEn);
       cy.imsId(COMMON.BUTTONS.RESET).click();
-      cy.imsId("btn-back").click();
+      cy.imsId(COMMON.BUTTONS.BACK).click();
       cy.log(messages.validation.requiredField);
     });
   }
@@ -812,13 +812,13 @@ class OfficeCreation {
     cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
     cy.imsId(COMMON.BUTTONS.SUBMIT).click();
     cy.imsId(COMMON.CONFIRMATION.OK).click();
-    cy.imsId("btn-back").click();
+    cy.imsId(COMMON.BUTTONS.BACK).click();
     cy.log(messages.validation.requiredField);
   }
 
   createGoBackButtonCheck() {
     cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
-    cy.imsId("btn-back").click();
+    cy.imsId(COMMON.BUTTONS.BACK).click();
     cy.log(messages.ui.createGoBackMessage);
   }
 
@@ -857,7 +857,7 @@ class OfficeCreation {
       cy.formController("address_line_1").type(omData.adressEn);
       cy.formController("latitude").type(omData.latitude);
       cy.formController("longitude").type(omData.longitude);
-      cy.imsId("btn-add").click();
+      cy.imsId(COMMON.BUTTONS.ADD).click();
       cy.formController("working_area_name_en").first().type(omData.areaNameEn);
       cy.formArrayController("working_area", 0, "division_id")
         .first()
@@ -886,17 +886,17 @@ class OfficeCreation {
   approveOffice(d) {
     cy.switchModule("MFI");
     cy.wait(1000);
-    cy.imsId("menu-my-task")
+    cy.imsId(COMMON.MENUS.MY_TASK)
       .should("be.visible")
       .click();
-    cy.imsId("submenu-pending-office-approval")
+    cy.imsId(COMMON.MENUS.PENDING_OFFICE_APPROVAL)
       .should("be.visible")
       .click();
     cy.imsId(COMMON.TOGGLES.ACTION).first().click();
     cy.imsId(COMMON.GRID.ACTION_VIEW).click();
-    cy.imsId("btn-lock").click();
+    cy.imsId(COMMON.BUTTONS.LOCK).click();
     cy.imsId(COMMON.BUTTONS.APPROVE).click();
-    cy.imsId("btn-Approve").click();
+    cy.imsId(COMMON.BUTTONS.APPROVE_CAPITALIZED).click();
     cy.imsId(COMMON.CONFIRMATION.YES).click();
     cy.imsId(COMMON.CONFIRMATION.OK).click();
     cy.log(messages.ui.approveSuccess);

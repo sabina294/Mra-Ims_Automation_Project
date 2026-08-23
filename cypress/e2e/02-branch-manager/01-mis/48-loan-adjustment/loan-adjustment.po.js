@@ -23,8 +23,8 @@ class loanAdjustment {
             cy.contains(laData.selectMember).click()
             cy.formController("loan_account_id").click();
             cy.contains(laData.selectAccount).click()
-            cy.imsId("checkbox-1").click();
-            cy.imsId("input-1").clear().type(laData.inputAmount);
+            cy.imsId(COMMON.CHECKBOXES.FIRST).click();
+            cy.imsId(COMMON.INPUTS.AMOUNT_FIRST).clear().type(laData.inputAmount);
             cy.log(messages.ui.submitSuccess);
         });
     }
@@ -62,7 +62,7 @@ class loanAdjustment {
 
     actionLoanAdjustmentUnsubmit() {
         cy.imsId(COMMON.TOGGLES.ACTION).first().click();
-        cy.imsId("btn-table-action-unsubmit").click();
+        cy.imsId(COMMON.GRID.ACTION_UNSUBMIT).click();
 
         cy.log(messages.form.submitSuccess);
     }
@@ -77,9 +77,9 @@ class loanAdjustment {
 
     loanAdjustmentUnsubmit() {
         cy.imsId(COMMON.TOGGLES.ACTION).first().click();
-        cy.imsId("btn-table-action-unsubmit").click();
+        cy.imsId(COMMON.GRID.ACTION_UNSUBMIT).click();
 
-        cy.imsId("btn-unsubmit").click();
+        cy.imsId(COMMON.BUTTONS.UNSUBMIT).click();
         cy.imsId(COMMON.CONFIRMATION.YES).click();
         cy.imsId(COMMON.CONFIRMATION.OK).click();
 
@@ -116,7 +116,7 @@ class loanAdjustment {
 
     actionLoanAdjustmentSubmit() {
         cy.imsId(COMMON.TOGGLES.ACTION).first().click();
-        cy.imsId("btn-table-action-submit").click();
+        cy.imsId(COMMON.GRID.ACTION_SUBMIT).click();
 
         cy.log(messages.form.submitSuccess);
     }
@@ -131,7 +131,7 @@ class loanAdjustment {
 
     loanAdjustmentSubmit() {
         cy.imsId(COMMON.TOGGLES.ACTION).first().click();
-        cy.imsId("btn-table-action-submit").click();
+        cy.imsId(COMMON.GRID.ACTION_SUBMIT).click();
 
         cy.imsId(COMMON.BUTTONS.SUBMIT).click();
         cy.imsId(COMMON.CONFIRMATION.YES).click();
@@ -144,9 +144,9 @@ class loanAdjustment {
     loanAdjustmentDeleteProcess() {
 
         cy.imsId(COMMON.TOGGLES.ACTION).first().click();
-        cy.imsId("btn-table-action-unsubmit").click();
+        cy.imsId(COMMON.GRID.ACTION_UNSUBMIT).click();
 
-        cy.imsId("btn-unsubmit").click();
+        cy.imsId(COMMON.BUTTONS.UNSUBMIT).click();
         cy.imsId(COMMON.CONFIRMATION.YES).click();
         cy.imsId(COMMON.CONFIRMATION.OK).click();
 
@@ -171,7 +171,7 @@ class loanAdjustment {
     loanAdjustmentDelete() {
         cy.imsId(COMMON.TOGGLES.ACTION).first().click();
         cy.imsId(COMMON.GRID.ACTION_DELETE).click();
-        cy.imsId("btn-delete").click();
+        cy.imsId(COMMON.BUTTONS.DELETE).click();
         cy.imsId(COMMON.CONFIRMATION.YES).click();
         cy.imsId(COMMON.CONFIRMATION.OK).click();
 
@@ -193,8 +193,8 @@ class loanAdjustment {
             cy.contains(laData.selectMember).click()
             cy.formController("loan_account_id").click();
             cy.contains(laData.selectAccount).click()
-            cy.imsId("checkbox-1").click();
-            cy.imsId("input-1").clear().type(laData.inputAmount);
+            cy.imsId(COMMON.CHECKBOXES.FIRST).click();
+            cy.imsId(COMMON.INPUTS.AMOUNT_FIRST).clear().type(laData.inputAmount);
 
             cy.log(messages.ui.actionMessage);
         });
@@ -214,8 +214,8 @@ class loanAdjustment {
 
     editDraftButton() {
         cy.imsId(COMMON.TOGGLES.ACTION).first().click();
-        cy.imsId("btn-table-action-unsubmit").click();
-        cy.imsId("btn-unsubmit").click();
+        cy.imsId(COMMON.GRID.ACTION_UNSUBMIT).click();
+        cy.imsId(COMMON.BUTTONS.UNSUBMIT).click();
         cy.imsId(COMMON.CONFIRMATION.YES).click();
         cy.imsId(COMMON.CONFIRMATION.OK).click();
         cy.imsId(COMMON.TOGGLES.ACTION).first().click();

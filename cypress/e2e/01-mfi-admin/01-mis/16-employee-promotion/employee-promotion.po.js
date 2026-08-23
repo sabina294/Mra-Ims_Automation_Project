@@ -12,7 +12,7 @@ class EmployeePromotion {
 
     promotionResetButton() {
 
-        cy.imsId("btn-table-action-promotion")
+        cy.imsId(COMMON.GRID.ACTION_PROMOTION)
             .not(":disabled")
             .first()
             .click();
@@ -83,7 +83,7 @@ class EmployeePromotion {
     createEmployeePromotion() {
         cy.fixture(this.test_data).then((data) => {
             const empData = data.mfiAdmin.gridEmpPromotionFrom;
-            cy.imsId("btn-table-action-promotion")
+            cy.imsId(COMMON.GRID.ACTION_PROMOTION)
                 .not(":disabled")
                 .first()
                 .click();
@@ -106,8 +106,8 @@ class EmployeePromotion {
     myTaskMenuEmployeePromotion() {
         cy.fixture(this.test_data).then((data) => {
             const empData = data.mfiAdmin.gridEmpPromotionFrom;
-            cy.imsId("menu-my-task").click();
-            cy.imsId("submenu-awaiting-employee-promotion").click();
+            cy.imsId(COMMON.MENUS.MY_TASK).click();
+            cy.imsId(COMMON.MENUS.AWAITING_EMPLOYEE_PROMOTION).click();
             cy.log(messages.ui.actionMessage);
         });
     }
@@ -134,7 +134,7 @@ class EmployeePromotion {
     approveNewEmployeePromotion() {
         cy.imsId(COMMON.TOGGLES.ACTION).first().click();
         cy.imsId(COMMON.GRID.ACTION_VIEW).first().click();
-        cy.imsId("btn-lock").click();
+        cy.imsId(COMMON.BUTTONS.LOCK).click();
         cy.imsId(COMMON.BUTTONS.APPROVE).click();
         cy.imsId(COMMON.BUTTONS.SUBMIT).click();
         cy.imsId(COMMON.CONFIRMATION.OK).click();

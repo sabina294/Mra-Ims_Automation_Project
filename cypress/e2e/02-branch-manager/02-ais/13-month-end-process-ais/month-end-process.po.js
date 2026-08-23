@@ -11,46 +11,46 @@ class MonthEndProcessAis {
     }
 
     processPreviewButtonCheck() {
-        cy.imsId("btn-preview").eq(0).click();
+        cy.imsId(COMMON.BUTTONS.PREVIEW).eq(0).click();
         cy.log(messages.ui.previewMessage);
     }
 
     processGoBackButtonCheck() {
-        cy.imsId("go-back-button").click();
+        cy.imsId(COMMON.BUTTONS.AIS_GOBACK).click();
         cy.log(messages.ui.goBackSuccess);
     }
 
     previousOn() {
         cy.fixture(this.test_data).then((data) => {
-            cy.imsId("btn-draft-on").click();
+            cy.imsId(COMMON.BUTTONS.PREVIOUS).click();
             cy.log(messages.ui.previousSearchMessage);
         });
     }
 
     previousSearchButton() {
         cy.fixture(this.test_data).then((data) => {
-            cy.imsId("search-button").click();
+            cy.imsId(COMMON.BUTTONS.AIS_SEARCH).click();
             cy.log(messages.ui.previousSearchMessage);
         });
     }
 
     previousPreviewButton() {
         cy.fixture(this.test_data).then((data) => {
-            cy.imsId("btn-preview").click();
+            cy.imsId(COMMON.BUTTONS.PREVIEW).click();
             cy.log(messages.ui.previousSearchMessage);
         });
     }
 
     previousPreviewGoBackButton() {
         cy.fixture(this.test_data).then((data) => {
-            cy.imsId("go-back-button").click();
+            cy.imsId(COMMON.BUTTONS.AIS_GOBACK).click();
             cy.log(messages.ui.goBackSuccess);
         });
     }
 
     previousOff() {
         cy.fixture(this.test_data).then((data) => {
-            cy.imsId("btn-draft-on").click();
+            cy.imsId(COMMON.BUTTONS.PREVIOUS).click();
             cy.log(messages.ui.previousSearchMessage);
         });
     }

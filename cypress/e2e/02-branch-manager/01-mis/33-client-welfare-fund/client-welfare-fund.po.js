@@ -35,11 +35,11 @@ class ClientWelfareFund {
   approveClientWelfareFund() {
     cy.fixture(this.test_data).then((data) => {
       const wfData = data.branchManager.createClientWelfareFrom;
-      cy.imsId("menu-my-task").click();
-      cy.imsId("submenu-awaiting-client-welfare-fund").click();
+      cy.imsId(COMMON.MENUS.MY_TASK).click();
+      cy.imsId(COMMON.MENUS.AWAITING_CLIENT_WELFARE_FUND).click();
       cy.imsId(COMMON.TOGGLES.ACTION).first().click();
       cy.imsId(COMMON.GRID.ACTION_VIEW).click();
-      cy.imsId("btn-authorize").click();
+      cy.imsId(COMMON.BUTTONS.AUTHORIZE_SHORT).click();
       cy.imsId(COMMON.CONFIRMATION.YES).click();
       cy.imsId(COMMON.CONFIRMATION.OK).click();
       cy.log(messages.ui.approveSuccess);

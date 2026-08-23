@@ -18,7 +18,7 @@ class MemberSamityTransfer {
       cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(mstData.memberNameEn);
       cy.imsId(COMMON.BUTTONS.SEARCH).first().click();
       cy.imsId(COMMON.TOGGLES.ACTION).first().click();
-      cy.imsId("btn-mis-table-action-transfer").click();
+      cy.imsId(COMMON.GRID.ACTION_MIS_TRANSFER).click();
       cy.formController("new_samity_id")
         .type(mstData.newSamityTransfer)
         .type("{enter}");
@@ -36,8 +36,8 @@ class MemberSamityTransfer {
   myTaskMenuMemberSamityTransfer() {
     cy.fixture(this.test_data).then((data) => {
       const mstData = data.mfiAdmin.memberSamityTransferFrom;
-      cy.imsId("menu-my-task").click();
-      cy.imsId("submenu-awaiting-member-samity-transfer").click();
+      cy.imsId(COMMON.MENUS.MY_TASK).click();
+      cy.imsId(COMMON.MENUS.AWAITING_MEMBER_SAMITY_TRANSFER).click();
       cy.log(messages.ui.actionMessage);
     });
   }
@@ -65,7 +65,7 @@ class MemberSamityTransfer {
       const mstData = data.mfiAdmin.memberSamityTransferFrom;
       cy.imsId(COMMON.TOGGLES.ACTION).first().click();
       cy.imsId(COMMON.GRID.ACTION_VIEW).click();
-      cy.imsId("btn-lock").click();
+      cy.imsId(COMMON.BUTTONS.LOCK).click();
       cy.imsId(COMMON.BUTTONS.APPROVE).click();
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
       cy.imsId(COMMON.CONFIRMATION.OK).click();
@@ -94,7 +94,7 @@ class MemberSamityTransfer {
 
   transferResetButtonCheck() {
     cy.imsId(COMMON.TOGGLES.ACTION).first().click();
-    cy.imsId("btn-mis-table-action-transfer").click();
+    cy.imsId(COMMON.GRID.ACTION_MIS_TRANSFER).click();
     cy.imsId(COMMON.BUTTONS.RESET).click();
     cy.log(messages.ui.resetSuccess);
 

@@ -66,13 +66,13 @@ class LoanWaiver {
         .type(lwData.selectLoanAccount)
         .type("{enter}");
       cy.wait(2000);
-      cy.imsId("btn-add-method-0").click();
+      cy.imsId(COMMON.BUTTONS.ADD_METHOD_FIRST).click();
       cy.log(messages.ui.submitSuccess);
     });
   }
 
   createRemoveIconWaiver() {
-    cy.imsId("btn-remove-method-0").click();
+    cy.imsId(COMMON.BUTTONS.REMOVE_METHOD_FIRST).click();
     cy.imsId(COMMON.BUTTONS.GO_BACK).click();
     cy.log(messages.ui.submitSuccess);
 

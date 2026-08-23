@@ -11,12 +11,12 @@ class MonthEndProcessAis {
     }
 
     processPreviewButtonCheck() {
-        cy.imsId("btn-preview").eq(0).click();
+        cy.imsId(COMMON.BUTTONS.PREVIEW).eq(0).click();
         cy.log(messages.ui.previewMessage);
     }
 
     processGoBackButtonCheck() {
-        cy.imsId("go-back-button").click();
+        cy.imsId(COMMON.BUTTONS.AIS_GOBACK).click();
         cy.log(messages.ui.goBackSuccess);
     }
 

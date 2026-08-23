@@ -55,12 +55,12 @@ class MemberManagementCreation {
         .type("{enter}");
       cy.formController("res_upazila_id").type(memData.thana).type("{enter}");
       cy.formController("res_address_line_1").type(memData.adressEn);
-      cy.imsId("ck-box").click();
+      cy.imsId(COMMON.CHECKBOXES.GENERIC).click();
       cy.get("#nz-tabs-1-tab-4").click();
       cy.get("#nz-tabs-1-tab-5").click();
-      cy.imsId("btn_photo_image_id").attachFile("employeePhoto1.jpg");
+      cy.imsId(COMMON.UPLOADS.PHOTO).attachFile("employeePhoto1.jpg");
       cy.wait(3000);
-      cy.imsId("btn_nid_front_doc_id").attachFile("nidPront1.jpg");
+      cy.imsId(COMMON.UPLOADS.NID_FRONT).attachFile("nidPront1.jpg");
       cy.wait(3000);
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
       cy.imsId(COMMON.CONFIRMATION.YES).click();
@@ -99,7 +99,7 @@ class MemberManagementCreation {
       cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(memData.memberNameEn);
       cy.imsId(COMMON.BUTTONS.SEARCH).click();
       cy.imsId(COMMON.TOGGLES.ACTION).first().click();
-      cy.imsId("btn-mis-table-action-edit").click();
+      cy.imsId(COMMON.GRID.ACTION_MIS_EDIT).click();
       cy.imsId(COMMON.BUTTONS.RESET).click();
       cy.log(messages.ui.editResetMessage);
     });
@@ -139,7 +139,7 @@ class MemberManagementCreation {
       // cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(memData.search);
       // cy.imsId(COMMON.BUTTONS.SEARCH).click();
       cy.imsId(COMMON.TOGGLES.ACTION).first().click();
-      cy.imsId("btn-mis-table-action-edit").click();
+      cy.imsId(COMMON.GRID.ACTION_MIS_EDIT).click();
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
       cy.imsId(COMMON.CONFIRMATION.OK).click();
       cy.imsId(COMMON.BUTTONS.GO_BACK).click();
@@ -153,7 +153,7 @@ class MemberManagementCreation {
       // cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(memData.memberNameEn);
       cy.imsId(COMMON.BUTTONS.RESET).click();
       cy.imsId(COMMON.TOGGLES.ACTION).first().click();
-      cy.imsId("btn-mis-table-action-profile").click();
+      cy.imsId(COMMON.GRID.ACTION_MIS_PROFILE).click();
       cy.log(messages.ui.viewMessage);
     });
   }
@@ -229,7 +229,7 @@ class MemberManagementCreation {
   }
 
   gridCheckboxCheck() {
-    cy.imsId("row-checkbox-7").click();
+    cy.imsId(COMMON.CHECKBOXES.ROW_7).click();
     // cy.imsId(COMMON.BUTTONS.RESET).click();
     cy.log(messages.ui.checkboxMessage);
   }
@@ -240,7 +240,7 @@ class MemberManagementCreation {
   }
 
  gridCheckboxUnlockButtonCheck() {
-    cy.imsId("row-checkbox-7").click();
+    cy.imsId(COMMON.CHECKBOXES.ROW_7).click();
     cy.imsId(COMMON.BUTTONS.UNLOCK)
         .should("be.visible")
         .and("not.be.disabled")

@@ -1,4 +1,5 @@
 import messages from "./constants/messages";
+import { COMMON } from "./constants/selectors";
 
 Cypress.Commands.add("imsId", (id) => {
   return cy.get(`[data-ims-id='${id}']`);
@@ -175,14 +176,14 @@ Cypress.Commands.add("login", (url, username, password) => {
 
 // Language
 Cypress.Commands.add("changeLanguage", (language) => {
-  cy.imsId("profile-menu").click();
+  cy.imsId(COMMON.BUTTONS.PROFILE).click();
   cy.imsId(`btn-lang-${language}`).click();
 });
 
 
 // Module Switch
 Cypress.Commands.add("switchModule", (module) => {
-  cy.imsId("module-switcher").click();
+  cy.imsId(COMMON.BUTTONS.MODULE_SWITCHER).click();
   cy.imsId(`module-${module}`).click();
 });
 
@@ -233,7 +234,7 @@ Cypress.Commands.add("imsClickWhenEnabled", (imsId) => {
 
 // Logout
 Cypress.Commands.add("logout", () => {
-  cy.imsId("profile-menu").click();
-  cy.imsId("btn-logout").click();
+  cy.imsId(COMMON.BUTTONS.PROFILE).click();
+  cy.imsId(COMMON.BUTTONS.LOGOUT).click();
   cy.log(messages.auth.logoutSuccess);
 });

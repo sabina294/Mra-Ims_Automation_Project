@@ -31,7 +31,7 @@ class FinancialPeriodManagementCreation {
     closeFinancialPeriod() {
         cy.fixture(this.test_data).then((data) => {
             cy.imsId(COMMON.TOGGLES.ACTION).first().click();
-            cy.imsId("btn-table-action-close").click();
+            cy.imsId(COMMON.GRID.ACTION_CLOSE).click();
             cy.log(messages.ui.actionMessage);
         });
     }

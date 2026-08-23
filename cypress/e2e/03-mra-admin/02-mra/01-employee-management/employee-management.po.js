@@ -53,15 +53,15 @@ class EmployeeManagementCreation {
       cy.formController("res_upazila_id").type(emData.thana).type("{enter}");
       cy.wait(1000);
       cy.formController("res_address_line_1").type(emData.adressEn);
-      cy.imsId("ck-box").click();
+      cy.imsId(COMMON.CHECKBOXES.GENERIC).click();
       cy.get("#nz-tabs-0-tab-5").click();
-      cy.imsId("btn_photo_image_id").attachFile("employeePhoto1.jpg");
+      cy.imsId(COMMON.UPLOADS.PHOTO).attachFile("employeePhoto1.jpg");
       cy.wait(1000);
-      cy.imsId("btn_nid_front_doc_id").attachFile("nidPront1.jpg");
+      cy.imsId(COMMON.UPLOADS.NID_FRONT).attachFile("nidPront1.jpg");
       cy.wait(1000);
-      cy.imsId("btn_nid_back_doc_id").attachFile("nidBack1.jpg");
+      cy.imsId(COMMON.UPLOADS.NID_BACK).attachFile("nidBack1.jpg");
       cy.wait(1000);
-      cy.imsId("btn_tin_doc_id").attachFile("tinDocImg1.jpg");
+      cy.imsId(COMMON.UPLOADS.TIN).attachFile("tinDocImg1.jpg");
       cy.wait(1000);
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
       cy.imsId(COMMON.CONFIRMATION.YES).click();
@@ -77,13 +77,13 @@ class EmployeeManagementCreation {
   approveEmployee() {
     cy.fixture(this.test_data).then((data) => {
       const emData = data.mraAdmin.createEmployeeFrom;
-      cy.imsId("menu-my-task").click();
-      cy.imsId("submenu-awaiting-employee-management").click();
+      cy.imsId(COMMON.MENUS.MY_TASK).click();
+      cy.imsId(COMMON.MENUS.AWAITING_EMPLOYEE_MANAGEMENT).click();
       cy.imsId(COMMON.TOGGLES.ACTION).first().click();
       cy.imsId(COMMON.GRID.ACTION_VIEW).click();
-      cy.imsId("btn-lock").click();
+      cy.imsId(COMMON.BUTTONS.LOCK).click();
       cy.imsId(COMMON.BUTTONS.APPROVE).click();
-      cy.imsId("btn-Approve").click();
+      cy.imsId(COMMON.BUTTONS.APPROVE_CAPITALIZED).click();
       cy.imsId(COMMON.CONFIRMATION.YES).click();
       cy.imsId(COMMON.CONFIRMATION.OK).click();
 
@@ -160,23 +160,23 @@ class EmployeeManagementCreation {
       cy.formController("res_union_id").type(emData.union).type("{enter}");
       cy.formController("res_address_line_1").type(emData.adressEn);
       cy.formController("res_address_line_2").type(emData.adressBn);
-      cy.imsId("ck-box").click();
+      cy.imsId(COMMON.CHECKBOXES.GENERIC).click();
       cy.get("#nz-tabs-0-tab-5").click();
-      cy.imsId("btn_photo_image_id").attachFile("employeePhoto1.jpg");
+      cy.imsId(COMMON.UPLOADS.PHOTO).attachFile("employeePhoto1.jpg");
       cy.wait(1000);
-      cy.imsId("btn_nid_front_doc_id").attachFile("nidPront1.jpg");
+      cy.imsId(COMMON.UPLOADS.NID_FRONT).attachFile("nidPront1.jpg");
       cy.wait(1000);
-      cy.imsId("btn_nid_back_doc_id").attachFile("nidBack1.jpg");
+      cy.imsId(COMMON.UPLOADS.NID_BACK).attachFile("nidBack1.jpg");
       cy.wait(1000);
-      cy.imsId("btn_birth_reg_doc_id").attachFile("birthRegPart1.jpg");
+      cy.imsId(COMMON.UPLOADS.BIRTH_REGISTRATION).attachFile("birthRegPart1.jpg");
       cy.wait(1000);
-      cy.imsId("btn_passport_doc_id").attachFile("passportImg1.jpg");
+      cy.imsId(COMMON.UPLOADS.PASSPORT).attachFile("passportImg1.jpg");
       cy.wait(1000);
-      cy.imsId("btn_driving_license_doc_id").attachFile("drivingLicence1.jpg");
+      cy.imsId(COMMON.UPLOADS.DRIVING_LICENSE).attachFile("drivingLicence1.jpg");
       cy.wait(1000);
-      cy.imsId("btn_other_id_doc_id").attachFile("otherDoc1.jpg");
+      cy.imsId(COMMON.UPLOADS.OTHER_ID).attachFile("otherDoc1.jpg");
       cy.wait(1000);
-      cy.imsId("btn_tin_doc_id").attachFile("tinDocImg1.jpg");
+      cy.imsId(COMMON.UPLOADS.TIN).attachFile("tinDocImg1.jpg");
       cy.wait(1000);
 
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
@@ -325,19 +325,19 @@ class EmployeeManagementCreation {
   }
 
   gridCheckboxCheck() {
-    cy.imsId("row-checkbox-3").click();
+    cy.imsId(COMMON.CHECKBOXES.ROW_3).click();
     cy.imsId(COMMON.BUTTONS.RESET).click();
     cy.log(messages.ui.checkboxMessage);
   }
 
   gridCheckboxLockButtonCheck() {
-    cy.imsId("btn-lock").click();
+    cy.imsId(COMMON.BUTTONS.LOCK).click();
     cy.log(messages.ui.lockSuccess);
   }
 
   gridCheckboxUnlockButtonCheck() {
-    cy.imsId("row-checkbox-3").click();
-    cy.imsId("btn-unlock").click();
+    cy.imsId(COMMON.CHECKBOXES.ROW_3).click();
+    cy.imsId(COMMON.BUTTONS.UNLOCK).click();
     cy.log(messages.ui.unlockSuccess);
   }
 

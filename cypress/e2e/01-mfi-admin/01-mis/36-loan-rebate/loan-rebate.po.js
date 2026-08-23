@@ -88,12 +88,12 @@ class LoanRebate {
   approveLoanRebate() {
     cy.fixture(this.test_data).then((data) => {
       const lrData = data.mfiAdmin.createLoanRebateFrom;
-      cy.imsId("menu-my-task").click();
-      cy.imsId("submenu-awaiting-loan-rebate").click();
+      cy.imsId(COMMON.MENUS.MY_TASK).click();
+      cy.imsId(COMMON.MENUS.AWAITING_LOAN_REBATE).click();
       cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(lrData.search);
       cy.imsId(COMMON.TOGGLES.ACTION).first().click();
       cy.imsId(COMMON.GRID.ACTION_VIEW).click();
-      cy.imsId("btn-authorize").click();
+      cy.imsId(COMMON.BUTTONS.AUTHORIZE_SHORT).click();
       cy.imsId(COMMON.CONFIRMATION.YES).click();
 
       cy.get("app-confirmation-modal")
@@ -182,7 +182,7 @@ class LoanRebate {
         .type(lrData.selectLoanAccount)
         .type("{enter}");
       cy.wait(2000);
-      cy.imsId("addIconButton").click();
+      cy.imsId(COMMON.BUTTONS.ADD_ICON_BUTTON_CAMEL).click();
       cy.imsId(COMMON.BUTTONS.GO_BACK).click();
     });
   }
@@ -200,9 +200,9 @@ class LoanRebate {
         .type(lrData.selectLoanAccount)
         .type("{enter}");
       cy.wait(2000);
-      cy.imsId("addIconButton").click({ multiple: true });
+      cy.imsId(COMMON.BUTTONS.ADD_ICON_BUTTON_CAMEL).click({ multiple: true });
       // ✅ click first remove icon
-      cy.imsId("removeIconButton").first().click();
+      cy.imsId(COMMON.BUTTONS.REMOVE_ICON_BUTTON_CAMEL).first().click();
       cy.imsId(COMMON.BUTTONS.GO_BACK).click();
     });
   }

@@ -13,16 +13,16 @@ class LoanChartUpdate {
   updateloanchart() {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
-      cy.imsId("btn-update").and("be.visible");
+      cy.imsId(COMMON.BUTTONS.UPDATE).and("be.visible");
 
       const loChart = data.mraAdmin.updateloanChartFrom;
-      cy.imsId("min-over-due-day-6").type(loChart.minOverDays);
-      cy.imsId("max-over-due-day-6").type(loChart.maxOverDays);
-      cy.imsId("accumulation-rate-6").type(loChart.accRate);
-      cy.imsId("min-over-due-day-7").type(loChart.minOver1Days);
-      cy.imsId("max-over-due-day-7").type(loChart.maxOver1Days);
-      cy.imsId("accumulation-rate-7").type(loChart.acc1Rate);
-      cy.imsId("btn-update").click();
+      cy.imsId(COMMON.LOAN_CHART.MIN_OVERDUE_DAY_6).type(loChart.minOverDays);
+      cy.imsId(COMMON.LOAN_CHART.MAX_OVERDUE_DAY_6).type(loChart.maxOverDays);
+      cy.imsId(COMMON.LOAN_CHART.ACCUMULATION_RATE_6).type(loChart.accRate);
+      cy.imsId(COMMON.LOAN_CHART.MIN_OVERDUE_DAY_7).type(loChart.minOver1Days);
+      cy.imsId(COMMON.LOAN_CHART.MAX_OVERDUE_DAY_7).type(loChart.maxOver1Days);
+      cy.imsId(COMMON.LOAN_CHART.ACCUMULATION_RATE_7).type(loChart.acc1Rate);
+      cy.imsId(COMMON.BUTTONS.UPDATE).click();
       cy.imsId(COMMON.CONFIRMATION.YES).click();
       cy.get("app-confirmation-modal")
         .contains(loChart.messageUpdateLoCh)

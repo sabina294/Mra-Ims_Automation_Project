@@ -114,19 +114,19 @@ class Samity {
   }
 
   gridCheckboxCheck() {
-    cy.imsId("row-checkbox-2").click();
+    cy.imsId(COMMON.CHECKBOXES.ROW_2).click();
     cy.imsId(COMMON.BUTTONS.RESET).click();
     cy.log(messages.ui.checkboxMessage);
   }
 
   gridCheckboxLockButtonCheck() {
-    cy.imsId("btn-lock").click();
+    cy.imsId(COMMON.BUTTONS.LOCK).click();
     cy.log(messages.ui.lockSuccess);
   }
 
   gridCheckboxUnlockButtonCheck() {
-    cy.imsId("row-checkbox-2").click();
-    cy.imsId("btn-unlock").click();
+    cy.imsId(COMMON.CHECKBOXES.ROW_2).click();
+    cy.imsId(COMMON.BUTTONS.UNLOCK).click();
     cy.log(messages.ui.unlockSuccess);
   }
 

@@ -11,7 +11,7 @@ class BalanceSheet {
     }
 
     gridRefreshButtonCheck() {
-        cy.imsId("btn-reload").click();
+        cy.imsId(COMMON.BUTTONS.RELOAD).click();
         cy.log(messages.ui.gridRefreshSuccess);
     }
 

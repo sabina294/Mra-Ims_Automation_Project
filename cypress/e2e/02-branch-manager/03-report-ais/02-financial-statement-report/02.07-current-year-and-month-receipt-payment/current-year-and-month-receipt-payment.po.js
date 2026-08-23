@@ -27,7 +27,7 @@ class CurrentYearAndMonthReceiptPaymentReport {
     }
 
     viewReportButtonCheck() {
-        cy.imsId("btn-view-report").click();
+        cy.imsId(COMMON.BUTTONS.VIEW_REPORT).click();
         cy.wait(3000);
         cy.log(messages.ui.viewMessage);
     }

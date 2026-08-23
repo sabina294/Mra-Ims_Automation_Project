@@ -14,7 +14,7 @@ class SamityDayChange {
     cy.fixture(this.test_data).then((data) => {
       const sdData = data.branchManager.samityDayChangeFrom;
       cy.imsId(COMMON.TOGGLES.ACTION).first().click();
-      cy.imsId("btn-mis-table-action-change").click();
+      cy.imsId(COMMON.GRID.ACTION_MIS_CHANGE).click();
       cy.imsId(COMMON.BUTTONS.RESET).click();
       cy.log(messages.ui.resetSuccess);
     });
@@ -42,7 +42,7 @@ class SamityDayChange {
     cy.fixture(this.test_data).then((data) => {
       const sdData = data.branchManager.samityDayChangeFrom;
       cy.imsId(COMMON.TOGGLES.ACTION).first().click();
-      cy.imsId("btn-mis-table-action-change").click();
+      cy.imsId(COMMON.GRID.ACTION_MIS_CHANGE).click();
       cy.formController("new_samity_day").click();
       cy.get('.ant-select-item-option')
         .should('have.length.greaterThan', 0);
@@ -62,8 +62,8 @@ class SamityDayChange {
   myTaskMenuSamityDayChange() {
     cy.fixture(this.test_data).then((data) => {
       const sdData = data.branchManager.samityDayChangeFrom;
-      cy.imsId("menu-my-task").click();
-      cy.imsId("submenu-awaiting-samity-day-change").click();
+      cy.imsId(COMMON.MENUS.MY_TASK).click();
+      cy.imsId(COMMON.MENUS.AWAITING_SAMITY_DAY_CHANGE).click();
       cy.log(messages.ui.actionMessage);
     });
   }
@@ -82,7 +82,7 @@ class SamityDayChange {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId(COMMON.TOGGLES.ACTION).first().click();
       cy.imsId(COMMON.GRID.ACTION_VIEW).click();
-      cy.imsId("btn-lock").click();
+      cy.imsId(COMMON.BUTTONS.LOCK).click();
       cy.imsId(COMMON.BUTTONS.APPROVE).click();
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
       cy.imsId(COMMON.CONFIRMATION.OK).click();

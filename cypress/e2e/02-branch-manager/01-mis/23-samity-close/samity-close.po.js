@@ -16,7 +16,7 @@ class SamityClose {
       cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(scData.samityNameEn);
       cy.imsId(COMMON.BUTTONS.SEARCH).click();
       cy.imsId(COMMON.TOGGLES.ACTION).first().click();
-      cy.imsId("btn-mis-table-action-close").click();
+      cy.imsId(COMMON.GRID.ACTION_MIS_CLOSE).click();
       cy.imsId(COMMON.CONFIRMATION.YES).click();
       cy.imsId(COMMON.CONFIRMATION.OK).click();
       cy.log(messages.ui.actionMessage);
@@ -26,8 +26,8 @@ class SamityClose {
   myTaskMenuSamityClose() {
     cy.fixture(this.test_data).then((data) => {
       const scData = data.branchManager.samityCloseFrom;
-      cy.imsId("menu-my-task").click();
-      cy.imsId("submenu-awaiting-samity-close").click();
+      cy.imsId(COMMON.MENUS.MY_TASK).click();
+      cy.imsId(COMMON.MENUS.AWAITING_SAMITY_CLOSE).click();
       cy.log(messages.ui.actionMessage);
     });
   }
@@ -46,7 +46,7 @@ class SamityClose {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId(COMMON.TOGGLES.ACTION).first().click();
       cy.imsId(COMMON.GRID.ACTION_VIEW).click();
-      cy.imsId("btn-lock").click();
+      cy.imsId(COMMON.BUTTONS.LOCK).click();
       cy.imsId(COMMON.BUTTONS.APPROVE).click();
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
       cy.imsId(COMMON.CONFIRMATION.OK).click();

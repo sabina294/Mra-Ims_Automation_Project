@@ -25,12 +25,12 @@ class specialCollection {
                 .should('be.visible')
                 .clear()
                 .type(scData.inputAmount);
-            cy.imsId("btn-save").click();
+            cy.imsId(COMMON.BUTTONS.SAVE).click();
             cy.imsId(COMMON.CONFIRMATION.YES).click();
             cy.imsId(COMMON.CONFIRMATION.OK).click();
             cy.imsId(COMMON.TOGGLES.ACTION).first().click();
             cy.imsId(COMMON.GRID.ACTION_DELETE).click();
-            cy.imsId("btn-delete").click();
+            cy.imsId(COMMON.BUTTONS.DELETE).click();
             cy.imsId(COMMON.CONFIRMATION.YES).click();
             cy.imsId(COMMON.CONFIRMATION.OK).click();
 
@@ -53,7 +53,7 @@ class specialCollection {
                 .should('be.visible')
                 .clear()
                 .type(scData.inputAmount);
-            cy.imsId("btn-save").click();
+            cy.imsId(COMMON.BUTTONS.SAVE).click();
             cy.imsId(COMMON.CONFIRMATION.YES).click();
             cy.imsId(COMMON.CONFIRMATION.OK).click();
             cy.log(messages.ui.submitSuccess);
@@ -89,7 +89,7 @@ class specialCollection {
 
     submitCollection() {
         cy.imsId(COMMON.TOGGLES.ACTION).first().click();
-        cy.imsId("btn-table-action-submit").click();
+        cy.imsId(COMMON.GRID.ACTION_SUBMIT).click();
         cy.imsId(COMMON.BUTTONS.SUBMIT).click();
         cy.imsId(COMMON.CONFIRMATION.YES).click();
         cy.imsId(COMMON.CONFIRMATION.OK).click();
@@ -112,7 +112,7 @@ class specialCollection {
         cy.fixture(this.test_data).then((data) => {
             const scData = data.fieldOfficer.createSpecialCollectionForm;
             cy.imsId(COMMON.TOGGLES.ACTION).first().click();
-            cy.imsId("btn-table-action-unsubmit").click();
+            cy.imsId(COMMON.GRID.ACTION_UNSUBMIT).click();
             cy.log(messages.form.submitSuccess);
         });
     }
@@ -129,12 +129,12 @@ class specialCollection {
         cy.fixture(this.test_data).then((data) => {
             const scData = data.fieldOfficer.createSpecialCollectionForm;
             cy.imsId(COMMON.TOGGLES.ACTION).first().click();
-            cy.imsId("btn-table-action-unsubmit").click();
-            cy.imsId("btn-unsubmit").click();
+            cy.imsId(COMMON.GRID.ACTION_UNSUBMIT).click();
+            cy.imsId(COMMON.BUTTONS.UNSUBMIT).click();
             cy.imsId(COMMON.CONFIRMATION.YES).click();
             cy.imsId(COMMON.CONFIRMATION.OK).click();
             cy.imsId(COMMON.TOGGLES.ACTION).first().click();
-            cy.imsId("btn-table-action-submit").click();
+            cy.imsId(COMMON.GRID.ACTION_SUBMIT).click();
             cy.imsId(COMMON.BUTTONS.SUBMIT).click();
             cy.imsId(COMMON.CONFIRMATION.YES).click();
             cy.imsId(COMMON.CONFIRMATION.OK).click();

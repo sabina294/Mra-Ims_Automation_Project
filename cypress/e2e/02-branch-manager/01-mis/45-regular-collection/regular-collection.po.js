@@ -15,7 +15,7 @@ class RegularCollection {
         cy.log(messages.ui.actionMessage);
     }
     openButtonCheck() {
-        cy.imsId("btn-table-action-open").first().click();
+        cy.imsId(COMMON.GRID.ACTION_OPEN).first().click();
         cy.log(messages.ui.viewMessage);
     }
 
@@ -41,7 +41,7 @@ class RegularCollection {
 
     collectionSave() {
         cy.fixture(this.test_data).then((data) => {
-            cy.imsId("btn-save").click();
+            cy.imsId(COMMON.BUTTONS.SAVE).click();
             cy.imsId(COMMON.CONFIRMATION.YES).click();
             cy.imsId(COMMON.CONFIRMATION.OK).click();
             cy.log(messages.form.submitSuccess);
@@ -66,7 +66,7 @@ class RegularCollection {
     }
 
     editSaveButton() {
-        cy.imsId("btn-save").click();
+        cy.imsId(COMMON.BUTTONS.SAVE).click();
         cy.imsId(COMMON.CONFIRMATION.YES).click();
         cy.imsId(COMMON.CONFIRMATION.OK).click();
         cy.log(messages.ui.editMessage);
@@ -81,7 +81,7 @@ class RegularCollection {
 
     collectionSubmit() {
         cy.imsId(COMMON.TOGGLES.ACTION).first().click();
-        cy.imsId("btn-table-action-submit").click();
+        cy.imsId(COMMON.GRID.ACTION_SUBMIT).click();
         cy.imsId(COMMON.BUTTONS.SUBMIT).click();
         cy.imsId(COMMON.CONFIRMATION.YES).click();
         cy.imsId(COMMON.CONFIRMATION.OK).click();

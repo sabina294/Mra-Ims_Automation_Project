@@ -13,7 +13,7 @@ class LoanAccountManagement {
   actionButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
     const laData = data.fieldOfficer.loanAccountManagementFrom;
-    // cy.imsId("input-search").type(laData.member);
+    // cy.imsId(COMMON.INPUTS.SEARCH_IMS).type(laData.member);
     // cy.imsId(COMMON.BUTTONS.SEARCH).click();
     cy.imsId(COMMON.TOGGLES.ACTION).first().click();
     cy.log(

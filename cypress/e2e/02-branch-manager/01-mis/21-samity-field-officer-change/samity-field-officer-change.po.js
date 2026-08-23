@@ -14,7 +14,7 @@ class SamityChange {
     cy.fixture(this.test_data).then((data) => {
       const smData = data.branchManager.samityChangeFrom;
       cy.imsId(COMMON.TOGGLES.ACTION).first().click();
-      cy.imsId("btn-mis-table-action-change").click();
+      cy.imsId(COMMON.GRID.ACTION_MIS_CHANGE).click();
       cy.imsId(COMMON.BUTTONS.RESET).click();
       cy.log(messages.ui.resetSuccess);
     });
@@ -45,7 +45,7 @@ class SamityChange {
       cy.formController(COMMON.INPUTS.SEARCH_TEXT).clear().type(smData.samityNameEn);
       cy.imsId(COMMON.BUTTONS.SEARCH).click();
       cy.imsId(COMMON.TOGGLES.ACTION).first().click();
-      cy.imsId("btn-mis-table-action-change").click();
+      cy.imsId(COMMON.GRID.ACTION_MIS_CHANGE).click();
       cy.formController("field_officer_id").click();
       cy.wait(500);
       cy.get('.ant-select-item-option')
@@ -64,8 +64,8 @@ class SamityChange {
   myTaskMenuSamityChange() {
     cy.fixture(this.test_data).then((data) => {
       const smData = data.branchManager.samityChangeFrom;
-      cy.imsId("menu-my-task").click();
-      cy.imsId("submenu-awaiting-samity-field-officer-change").click();
+      cy.imsId(COMMON.MENUS.MY_TASK).click();
+      cy.imsId(COMMON.MENUS.AWAITING_SAMITY_FIELD_OFFICER_CHANGE).click();
       cy.log(messages.ui.actionMessage);
     });
   }
@@ -84,7 +84,7 @@ class SamityChange {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId(COMMON.TOGGLES.ACTION).first().click();
       cy.imsId(COMMON.GRID.ACTION_VIEW).click();
-      cy.imsId("btn-lock").click();
+      cy.imsId(COMMON.BUTTONS.LOCK).click();
       cy.imsId(COMMON.BUTTONS.APPROVE).click();
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
       cy.imsId(COMMON.CONFIRMATION.OK).click();

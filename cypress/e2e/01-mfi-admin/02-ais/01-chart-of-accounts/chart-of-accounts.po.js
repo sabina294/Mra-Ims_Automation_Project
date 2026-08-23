@@ -13,7 +13,7 @@ class ChartOfAccountsCreation {
     createChartOfAccounts() {
         cy.fixture(this.test_data).then((data) => {
             const coaData = data.mfiAdmin.chartOfAccounts;
-            cy.imsId("btn-add").click();
+            cy.imsId(COMMON.BUTTONS.ADD).click();
             cy.formController("ledger_group_id").type(coaData.ledgergroup).type("{enter}");
             cy.formController("ledger_subgroup_oid").type(coaData.ledgerSubGroup).type("{enter}");
             cy.formController(COMMON.INPUTS.NAME_EN).type(coaData.nameEn);
@@ -30,7 +30,7 @@ class ChartOfAccountsCreation {
     createwithoutLedgerId() {
         cy.fixture(this.test_data).then((data) => {
             const coaData = data.mfiAdmin.chartOfAccounts;
-            cy.imsId("btn-add").click();
+            cy.imsId(COMMON.BUTTONS.ADD).click();
             cy.formController(COMMON.INPUTS.NAME_EN).type(coaData.nameEn);
             cy.formController(COMMON.INPUTS.NAME_BN).type(coaData.nameBn);
             cy.formController("mnemonic").type(coaData.mnemonicEn);
@@ -119,7 +119,7 @@ class ChartOfAccountsCreation {
     createResetButtonCheck() {
         cy.fixture(this.test_data).then((data) => {
             const coaData = data.mfiAdmin.chartOfAccounts;
-            cy.imsId("btn-add").click();
+            cy.imsId(COMMON.BUTTONS.ADD).click();
             cy.formController(COMMON.INPUTS.NAME_EN).type(coaData.nameEn);
             cy.imsId(COMMON.BUTTONS.RESET).click();
             cy.log(messages.validation.requiredField);

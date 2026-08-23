@@ -10,11 +10,11 @@ class LoginTest {
       cy.loginAsMraAdmin(baseURL, data);
 
       cy.imsId(COMMON.BUTTONS.PROFILE).click();
-      cy.imsId("user-name-container")
+      cy.imsId(COMMON.AUTH.USER_NAME)
         .contains(data.credential.mraAdminName)
         .and("be.visible");
 
-      cy.imsId("user-name-container")
+      cy.imsId(COMMON.AUTH.USER_NAME)
         .contains(data.credential.mraAdminUserId)
         .and("be.visible");
     });

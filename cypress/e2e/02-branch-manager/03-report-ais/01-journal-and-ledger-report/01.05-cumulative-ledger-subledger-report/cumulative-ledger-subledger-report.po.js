@@ -11,7 +11,7 @@ class CumulativeLedgerSubledgerReport {
     }
 
     viewReportButtonCheck() {
-        cy.imsId("btn-view-report").click();
+        cy.imsId(COMMON.BUTTONS.VIEW_REPORT).click();
         cy.log(messages.ui.viewMessage);
     }
 

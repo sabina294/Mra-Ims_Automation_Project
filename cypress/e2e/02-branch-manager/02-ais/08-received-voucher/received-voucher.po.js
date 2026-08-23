@@ -462,12 +462,12 @@ class ReceivedVoucherCreation {
 
     approveReceivedVoucher() {
         cy.fixture(this.test_data).then(() => {
-            cy.imsId("menu-my-task").click();
-            cy.imsId("submenu-awaiting-received-voucher").click();
+            cy.imsId(COMMON.MENUS.MY_TASK).click();
+            cy.imsId(COMMON.MENUS.AWAITING_RECEIVED_VOUCHER).click();
 
             cy.imsId(COMMON.TOGGLES.ACTION).first().click();
             cy.imsId(COMMON.GRID.ACTION_VIEW).click();
-            cy.imsId("btn-lock").click();
+            cy.imsId(COMMON.BUTTONS.LOCK).click();
             cy.imsId(COMMON.BUTTONS.APPROVE).click();
             cy.imsId(COMMON.BUTTONS.SUBMIT).click();
             cy.imsId(COMMON.CONFIRMATION.OK).click();
@@ -575,12 +575,12 @@ class ReceivedVoucherCreation {
     }
 
     createPaymentAddIconButtonCheck() {
-        cy.imsId("btn-add-icon").click();
+        cy.imsId(COMMON.BUTTONS.ADD_ICON).click();
         cy.log(messages.ui.submitSuccess);
     }
 
     createPaymentRemoveIconButtonCheck() {
-        cy.imsId("btn-remove-icon").first().click();
+        cy.imsId(COMMON.BUTTONS.REMOVE_ICON).first().click();
         cy.log(messages.ui.submitSuccess);
     }
 
@@ -591,12 +591,12 @@ class ReceivedVoucherCreation {
 
     createNewJournalDetailsButtonCheck() {
         cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
-        cy.imsId("btn-add-icon-0").click();
+        cy.imsId(COMMON.BUTTONS.ADD_ICON_FIRST).click();
         cy.log(messages.ui.submitSuccess);
     }
 
     createDeleteButtonCheck() {
-        cy.imsId("btn-remove-icon-1").click();
+        cy.imsId(COMMON.BUTTONS.REMOVE_ICON_SECOND).click();
         cy.imsId(COMMON.BUTTONS.GO_BACK).click();
         cy.log(messages.ui.submitSuccess);
     }

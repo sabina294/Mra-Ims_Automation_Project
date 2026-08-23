@@ -11,14 +11,14 @@ class DayForwardMis {
   }
 
   gridDayForwardDayRoutine() {
-    cy.imsId("btn-forward").click();
+    cy.imsId(COMMON.BUTTONS.FORWARD).click();
     cy.imsId(COMMON.CONFIRMATION.YES).click();
     cy.imsId(COMMON.CONFIRMATION.OK).click();
     cy.log(messages.ui.actionMessage);
   }
 
   gridDeleteButtonCheck() {
-    cy.imsId("delete-button").click();
+    cy.imsId(COMMON.BUTTONS.FORWARD_DELETE).click();
     cy.imsId(COMMON.CONFIRMATION.YES).click();
     cy.imsId(COMMON.CONFIRMATION.OK).click();
     cy.log(messages.ui.actionMessage);

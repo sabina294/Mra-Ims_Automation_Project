@@ -20,7 +20,7 @@ class savingsWithdraw {
             cy.contains(swData.selectMember).click()
             cy.formController("accountId").click();
             cy.contains(swData.selectAccount).click()
-            cy.imsId("amount-input").clear().type(swData.inputAmount);
+            cy.imsId(COMMON.INPUTS.AMOUNT_IMS).clear().type(swData.inputAmount);
             cy.log(messages.ui.submitSuccess);
         });
     }
@@ -53,7 +53,7 @@ class savingsWithdraw {
 
     actionWithdrawUnsubmit() {
         cy.imsId(COMMON.TOGGLES.ACTION).first().click();
-        cy.imsId("btn-table-action-unsubmit").click();
+        cy.imsId(COMMON.GRID.ACTION_UNSUBMIT).click();
         cy.log(messages.form.submitSuccess);
     }
 
@@ -64,8 +64,8 @@ class savingsWithdraw {
 
     withdrawUnsubmit() {
         cy.imsId(COMMON.TOGGLES.ACTION).first().click();
-        cy.imsId("btn-table-action-unsubmit").click();
-        cy.imsId("btn-unsubmit").click();
+        cy.imsId(COMMON.GRID.ACTION_UNSUBMIT).click();
+        cy.imsId(COMMON.BUTTONS.UNSUBMIT).click();
         cy.imsId(COMMON.CONFIRMATION.YES).click();
         cy.imsId(COMMON.CONFIRMATION.OK).click();
         cy.log(messages.form.submitSuccess);
@@ -73,7 +73,7 @@ class savingsWithdraw {
 
     actionEditSavingsWithdraw() {
         cy.imsId(COMMON.TOGGLES.ACTION).first().click();
-        cy.imsId("btn-mis-table-action-edit").click();
+        cy.imsId(COMMON.GRID.ACTION_MIS_EDIT).click();
         cy.log(messages.ui.editMessage);
     }
 
@@ -86,14 +86,14 @@ class savingsWithdraw {
 
     editGoBack() {
         cy.imsId(COMMON.TOGGLES.ACTION).first().click();
-        cy.imsId("btn-mis-table-action-edit").click();
+        cy.imsId(COMMON.GRID.ACTION_MIS_EDIT).click();
         cy.imsId(COMMON.BUTTONS.GO_BACK).click();
         cy.log(messages.ui.editMessage);
     }
 
     actionWithdrawSubmit() {
         cy.imsId(COMMON.TOGGLES.ACTION).first().click();
-        cy.imsId("btn-table-action-submit").click();
+        cy.imsId(COMMON.GRID.ACTION_SUBMIT).click();
         cy.log(messages.form.submitSuccess);
     }
 
@@ -104,7 +104,7 @@ class savingsWithdraw {
 
     withdrawSubmit() {
         cy.imsId(COMMON.TOGGLES.ACTION).first().click();
-        cy.imsId("btn-table-action-submit").click();
+        cy.imsId(COMMON.GRID.ACTION_SUBMIT).click();
         cy.imsId(COMMON.BUTTONS.SUBMIT).click();
         cy.imsId(COMMON.CONFIRMATION.YES).click();
         cy.imsId(COMMON.CONFIRMATION.OK).click();
@@ -114,8 +114,8 @@ class savingsWithdraw {
 
     withdrawDeleteProcess() {
         cy.imsId(COMMON.TOGGLES.ACTION).first().click();
-        cy.imsId("btn-table-action-unsubmit").click();
-        cy.imsId("btn-unsubmit").click();
+        cy.imsId(COMMON.GRID.ACTION_UNSUBMIT).click();
+        cy.imsId(COMMON.BUTTONS.UNSUBMIT).click();
         cy.imsId(COMMON.CONFIRMATION.YES).click();
         cy.imsId(COMMON.CONFIRMATION.OK).click();
         cy.log(messages.form.submitSuccess);
@@ -129,7 +129,7 @@ class savingsWithdraw {
 
 
     withdrawDelete() {
-        cy.imsId("btn-delete").click();
+        cy.imsId(COMMON.BUTTONS.DELETE).click();
         cy.imsId(COMMON.CONFIRMATION.YES).click();
         cy.imsId(COMMON.CONFIRMATION.OK).click();
         cy.log(messages.form.submitSuccess);
@@ -146,7 +146,7 @@ class savingsWithdraw {
             cy.contains(swData.selectMember).click()
             cy.formController("accountId").click();
             cy.contains(swData.selectAccount).click()
-            cy.imsId("amount-input").clear().type(swData.inputAmount);
+            cy.imsId(COMMON.INPUTS.AMOUNT_IMS).clear().type(swData.inputAmount);
             cy.log(messages.ui.actionMessage);
         });
     }

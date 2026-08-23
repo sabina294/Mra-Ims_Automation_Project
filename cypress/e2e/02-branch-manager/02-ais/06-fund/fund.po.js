@@ -94,7 +94,7 @@ class FundTransferCreation {
 verifyFundTransfer() {
         cy.fixture(this.test_data).then((data) => {
             cy.imsId(COMMON.TOGGLES.ACTION).first().click();
-            cy.imsId("btn-table-action-verify").click();
+            cy.imsId(COMMON.GRID.ACTION_VERIFY).click();
             cy.log(messages.ui.viewMessage);
         });
     }

@@ -81,13 +81,13 @@ class LoanRebate {
         .type(lrData.selectLoanAccount)
         .type("{enter}");
       cy.wait(2000);
-      cy.imsId("addIconButton").click();
+      cy.imsId(COMMON.BUTTONS.ADD_ICON_BUTTON_CAMEL).click();
     });
   }
 
   createRemoveIconButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
-      cy.imsId("removeIconButton").first().click();
+      cy.imsId(COMMON.BUTTONS.REMOVE_ICON_BUTTON_CAMEL).first().click();
       cy.imsId(COMMON.BUTTONS.GO_BACK).click();
     });
   }

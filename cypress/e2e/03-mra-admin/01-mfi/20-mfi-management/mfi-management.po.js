@@ -1001,12 +1001,12 @@ class MfiCreation {
   approveMfi() {
     cy.fixture(this.test_data).then((data) => {
       const mfiData = data.mraAdmin.createMfiManFrom;
-      cy.imsId("menu-my-task").click();
-      cy.imsId("submenu-awaiting-mfi-management").click();
+      cy.imsId(COMMON.MENUS.MY_TASK).click();
+      cy.imsId(COMMON.MENUS.AWAITING_MFI_MANAGEMENT).click();
       cy.imsId(COMMON.TOGGLES.ACTION).first().click();
       cy.imsId(COMMON.GRID.ACTION_VIEW).click();
-      cy.imsId("btn-lock").click();
-      cy.imsId("btn-Approve").click();
+      cy.imsId(COMMON.BUTTONS.LOCK).click();
+      cy.imsId(COMMON.BUTTONS.APPROVE_CAPITALIZED).click();
       cy.imsId(COMMON.CONFIRMATION.YES).click();
       cy.imsId(COMMON.CONFIRMATION.OK).click();
 
@@ -1128,19 +1128,19 @@ class MfiCreation {
   }
 
   gridCheckboxCheck() {
-    cy.imsId("row-checkbox-0").click();
+    cy.imsId(COMMON.CHECKBOXES.ROW_0).click();
     cy.imsId(COMMON.BUTTONS.RESET).click();
     cy.log(messages.ui.checkboxMessage);
   }
 
   gridCheckboxLockButtonCheck() {
-    cy.imsId("btn-lock").click();
+    cy.imsId(COMMON.BUTTONS.LOCK).click();
     cy.log(messages.ui.lockSuccess);
   }
 
   gridCheckboxUnlockButtonCheck() {
-    cy.imsId("row-checkbox-0").click();
-    cy.imsId("btn-unlock").click();
+    cy.imsId(COMMON.CHECKBOXES.ROW_0).click();
+    cy.imsId(COMMON.BUTTONS.UNLOCK).click();
     cy.log(messages.ui.unlockSuccess);
   }
 

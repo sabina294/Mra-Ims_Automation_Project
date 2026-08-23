@@ -40,13 +40,13 @@ class SavingsAccApplicationManagementCreation {
       const saamData = data.branchManager.createSavingsAccApplicationMang;
       cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(saamData.search);
       cy.imsId(COMMON.BUTTONS.SEARCH).click();
-      cy.imsId("menu-my-task").click();
-      cy.imsId("submenu-awaiting-savings-account-proposal").click();
+      cy.imsId(COMMON.MENUS.MY_TASK).click();
+      cy.imsId(COMMON.MENUS.AWAITING_SAVINGS_ACCOUNT_PROPOSAL).click();
       cy.imsId(COMMON.TOGGLES.ACTION).first().click();
       cy.imsId(COMMON.GRID.ACTION_VIEW).click();
-      cy.imsId("btn-lock").click();
+      cy.imsId(COMMON.BUTTONS.LOCK).click();
       cy.imsId(COMMON.BUTTONS.APPROVE).click();
-      cy.imsId("btn-Approve").click();
+      cy.imsId(COMMON.BUTTONS.APPROVE_CAPITALIZED).click();
       cy.imsId(COMMON.CONFIRMATION.YES).click();
       cy.imsId(COMMON.CONFIRMATION.OK).click();
 

@@ -11,7 +11,7 @@ class EmployeeTermination {
     }
 
     createEmployeeTermination() {
-        cy.imsId("btn-table-action-termination")
+        cy.imsId(COMMON.GRID.ACTION_TERMINATION)
             .not(":disabled")
             .first()
             .click();
@@ -27,7 +27,7 @@ class EmployeeTermination {
     }
 
     terminationGoBackButton() {
-        cy.imsId("btn-table-action-termination")
+        cy.imsId(COMMON.GRID.ACTION_TERMINATION)
             .not(":disabled")
             .first()
             .click();
@@ -43,8 +43,8 @@ class EmployeeTermination {
     myTaskMenuEmployeeTermination() {
         cy.fixture(this.test_data).then((data) => {
             const etData = data.branchManager.gridEmpTerminationFrom;
-            cy.imsId("menu-my-task").click();
-            cy.imsId("submenu-awaiting-employee-termination").click();
+            cy.imsId(COMMON.MENUS.MY_TASK).click();
+            cy.imsId(COMMON.MENUS.AWAITING_EMPLOYEE_TERMINATION).click();
             cy.log(messages.ui.actionMessage);
         });
     }
@@ -62,7 +62,7 @@ class EmployeeTermination {
     approveNewEmployeeTermination() {
         cy.imsId(COMMON.TOGGLES.ACTION).first().click();
         cy.imsId(COMMON.GRID.ACTION_VIEW).first().click();
-        cy.imsId("btn-lock").click();
+        cy.imsId(COMMON.BUTTONS.LOCK).click();
         cy.imsId(COMMON.BUTTONS.APPROVE).click();
         cy.imsId(COMMON.BUTTONS.SUBMIT).click();
         cy.imsId(COMMON.CONFIRMATION.OK).click();

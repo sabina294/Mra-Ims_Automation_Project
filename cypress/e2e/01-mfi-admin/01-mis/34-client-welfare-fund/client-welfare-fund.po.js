@@ -39,8 +39,8 @@ class ClientWelfareFund {
   myTaskMenuClientWelfareFund() {
     cy.fixture(this.test_data).then((data) => {
       const wfData = data.mfiAdmin.createClientWelfareFrom;
-      cy.imsId("menu-my-task").click();
-      cy.imsId("submenu-awaiting-client-welfare-fund").click();
+      cy.imsId(COMMON.MENUS.MY_TASK).click();
+      cy.imsId(COMMON.MENUS.AWAITING_CLIENT_WELFARE_FUND).click();
       cy.log(messages.ui.actionMessage);
     });
   }
@@ -67,10 +67,10 @@ class ClientWelfareFund {
     cy.fixture(this.test_data).then((data) => {
       const wfData = data.mfiAdmin.createClientWelfareFrom;
       // cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(wfData.search);
-      // cy.imsId("search-button").click();
+      // cy.imsId(COMMON.BUTTONS.AIS_SEARCH).click();
       cy.imsId(COMMON.TOGGLES.ACTION).first().click();
       cy.imsId(COMMON.GRID.ACTION_VIEW).click();
-      cy.imsId("btn-authorize").click();
+      cy.imsId(COMMON.BUTTONS.AUTHORIZE_SHORT).click();
       cy.imsId(COMMON.CONFIRMATION.YES).click();
       cy.imsId(COMMON.CONFIRMATION.OK).click();
       cy.log(messages.ui.approveSuccess);
@@ -138,11 +138,11 @@ class ClientWelfareFund {
   }
 
   createAddIconButtonCheck() {
-    cy.imsId("btn-add-icon").click();
+    cy.imsId(COMMON.BUTTONS.ADD_ICON).click();
     cy.log(messages.ui.submitSuccess);
   }
   createRemoveIconButtonCheck() {
-    cy.imsId("btn-remove-icon").eq(0).click();
+    cy.imsId(COMMON.BUTTONS.REMOVE_ICON).eq(0).click();
     cy.log(messages.ui.submitSuccess);
   }
 

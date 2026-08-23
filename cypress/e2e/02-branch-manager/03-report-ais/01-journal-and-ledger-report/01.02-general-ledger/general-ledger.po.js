@@ -11,7 +11,7 @@ class GeneralLedgerReport {
     }
 
     viewReportButtonCheck() {
-        cy.imsId("btn-view-report").click();
+        cy.imsId(COMMON.BUTTONS.VIEW_REPORT).click();
         cy.wait(3000);
         cy.log(messages.ui.viewMessage);
     }
@@ -20,7 +20,7 @@ class GeneralLedgerReport {
         cy.fixture(this.test_data).then((data) => {
             const glData = data.branchManager.gridGeneralLedgerFrom;
             cy.formController("ledger_id").type(glData.selectLedger).type("{enter}");
-            cy.imsId("btn-view-report").click();
+            cy.imsId(COMMON.BUTTONS.VIEW_REPORT).click();
             cy.wait(3000);
             cy.log(messages.ui.viewMessage);
         });

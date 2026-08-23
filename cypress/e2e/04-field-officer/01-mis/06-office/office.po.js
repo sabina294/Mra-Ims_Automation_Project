@@ -55,7 +55,7 @@ class OfficeGrid {
   }
 
   editGoBackButton() {
-    cy.imsId("btn-back").click();
+    cy.imsId(COMMON.BUTTONS.BACK).click();
     cy.log(messages.ui.editGoBackMessage);
   }
 
@@ -116,19 +116,19 @@ class OfficeGrid {
   }
 
   gridCheckboxCheck() {
-    cy.imsId("row-checkbox-2").click();
+    cy.imsId(COMMON.CHECKBOXES.ROW_2).click();
     cy.imsId(COMMON.BUTTONS.RESET).click();
     cy.log(messages.ui.checkboxMessage);
   }
 
   gridCheckboxLockButtonCheck() {
-    cy.imsId("btn-lock").click();
+    cy.imsId(COMMON.BUTTONS.LOCK).click();
     cy.log(messages.ui.lockSuccess);
   }
 
   gridCheckboxUnlockButtonCheck() {
-    cy.imsId("row-checkbox-2").click();
-    cy.imsId("btn-unlock").click();
+    cy.imsId(COMMON.CHECKBOXES.ROW_2).click();
+    cy.imsId(COMMON.BUTTONS.UNLOCK).click();
     cy.log(messages.ui.unlockSuccess);
   }
 
@@ -147,7 +147,7 @@ class OfficeGrid {
 
   createGoBackButtonCheck() {
     cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
-    cy.imsId("btn-back").click();
+    cy.imsId(COMMON.BUTTONS.BACK).click();
     cy.log(messages.ui.createGoBackMessage);
   }
 

@@ -11,7 +11,7 @@ class LogoutPage {
 
   logout() {
     cy.imsId(COMMON.BUTTONS.PROFILE).click();
-    cy.imsId("btn-logout").click();
+    cy.imsId(COMMON.BUTTONS.LOGOUT).click();
     cy.log(messages.auth.logoutSuccess);
   }
 }

@@ -48,8 +48,8 @@ class SamityCreation {
   myTaskMenuSamity() {
     cy.fixture(this.test_data).then((data) => {
       const smData = data.mfiAdmin.createSamityFrom;
-      cy.imsId("menu-my-task").click();
-      cy.imsId("submenu-awaiting-samity-management").click();
+      cy.imsId(COMMON.MENUS.MY_TASK).click();
+      cy.imsId(COMMON.MENUS.AWAITING_SAMITY_MANAGEMENT).click();
       cy.log(messages.ui.actionMessage);
     });
   }
@@ -88,7 +88,7 @@ class SamityCreation {
       const smData = data.mfiAdmin.createSamityFrom;
       cy.imsId(COMMON.TOGGLES.ACTION).first().click();
       cy.imsId(COMMON.GRID.ACTION_VIEW).click();
-      cy.imsId("btn-lock").click();
+      cy.imsId(COMMON.BUTTONS.LOCK).click();
       cy.imsId(COMMON.BUTTONS.APPROVE).click();
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
       cy.imsId(COMMON.CONFIRMATION.OK).click();
@@ -679,7 +679,7 @@ class SamityCreation {
       .should('have.class', 'ant-checkbox-wrapper-checked');
 
     // click lock button
-    cy.imsId("btn-lock")
+    cy.imsId(COMMON.BUTTONS.LOCK)
       .should('be.visible')
       .and('not.be.disabled')
       .click({ force: true });
@@ -704,7 +704,7 @@ class SamityCreation {
       .should('have.class', 'ant-checkbox-wrapper-checked');
 
     // click unlock button
-    cy.imsId("btn-unlock")
+    cy.imsId(COMMON.BUTTONS.UNLOCK)
       .should('be.visible')
       .and('not.be.disabled')
       .click({ force: true });

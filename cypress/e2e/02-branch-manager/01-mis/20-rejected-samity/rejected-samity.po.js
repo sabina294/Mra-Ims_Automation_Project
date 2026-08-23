@@ -44,13 +44,13 @@ class RejectedSamity {
   approveRejectedSamity() {
     cy.fixture(this.test_data).then((data) => {
       const rsData = data.branchManager.rejectedSamityFrom;
-      cy.imsId("menu-my-task").click();
-      cy.imsId("submenu-awaiting-samity-management").click();
+      cy.imsId(COMMON.MENUS.MY_TASK).click();
+      cy.imsId(COMMON.MENUS.AWAITING_SAMITY_MANAGEMENT).click();
       cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(rsData.samityNameEn);
       cy.imsId(COMMON.TOGGLES.ACTION).first().click();
       cy.imsId(COMMON.GRID.ACTION_VIEW).click();
-      cy.imsId("btn-lock").click();
-      cy.imsId("btn-reject").click();
+      cy.imsId(COMMON.BUTTONS.LOCK).click();
+      cy.imsId(COMMON.BUTTONS.REJECT_LOWERCASE).click();
       cy.formController("approver_remarks").first().type(rsData.rejectRemarks);
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
       cy.imsId(COMMON.CONFIRMATION.OK).click();
@@ -92,10 +92,10 @@ class RejectedSamity {
   editResetButton() {
     cy.fixture(this.test_data).then((data) => {
       const rsData = data.branchManager.rejectedSamityFrom;
-      // cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(rsData.samityNameEn);
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(rsData.samityNameEn);
       cy.imsId(COMMON.TOGGLES.ACTION).first().click();
       cy.wait(1000);
-      cy.imsId("btn-mis-table-action-edit").click();
+      cy.imsId(COMMON.GRID.ACTION_MIS_EDIT).click();
       cy.imsId(COMMON.BUTTONS.RESET).click();
       cy.log(messages.ui.editResetMessage);
     });

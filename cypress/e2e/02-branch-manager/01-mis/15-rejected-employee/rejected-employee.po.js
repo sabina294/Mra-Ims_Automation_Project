@@ -53,15 +53,15 @@ class RejectedEmployee {
         .type("{enter}");
       cy.formController("res_upazila_id").type(emData.thana).type("{enter}");
       cy.formController("res_address_line_1").type(emData.adressEn);
-      cy.imsId("ck-box").click();
+      cy.imsId(COMMON.CHECKBOXES.GENERIC).click();
       cy.get('#nz-tabs-1-tab-5').click();
-      cy.imsId("btn_photo_image_id").attachFile("employeePhoto1.jpg");
+      cy.imsId(COMMON.UPLOADS.PHOTO).attachFile("employeePhoto1.jpg");
       cy.wait(1000);
-      cy.imsId("btn_nid_front_doc_id").attachFile("nidPront1.jpg");
+      cy.imsId(COMMON.UPLOADS.NID_FRONT).attachFile("nidPront1.jpg");
       cy.wait(1000);
-      cy.imsId("btn_nid_back_doc_id").attachFile("nidBack1.jpg");
+      cy.imsId(COMMON.UPLOADS.NID_BACK).attachFile("nidBack1.jpg");
       cy.wait(1000);
-      cy.imsId("btn_tin_doc_id").attachFile("tinDocImg1.jpg");
+      cy.imsId(COMMON.UPLOADS.TIN).attachFile("tinDocImg1.jpg");
       cy.wait(1000);
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
       cy.imsId(COMMON.CONFIRMATION.YES).click();
@@ -78,23 +78,23 @@ class RejectedEmployee {
     cy.fixture(this.test_data).then((data) => {
       const emData = data.branchManager.rejectedEmployeeFrom;
 
-      cy.imsId("menu-my-task").click();
-      cy.imsId("submenu-awaiting-employee-management").click();
+      cy.imsId(COMMON.MENUS.MY_TASK).click();
+      cy.imsId(COMMON.MENUS.AWAITING_EMPLOYEE_MANAGEMENT).click();
       cy.imsId(COMMON.TOGGLES.ACTION).first().click();
       cy.imsId(COMMON.GRID.ACTION_VIEW).click();
 
-      cy.imsId("btn-lock").click();
-      cy.imsId("btn-reject").click();
+      cy.imsId(COMMON.BUTTONS.LOCK).click();
+      cy.imsId(COMMON.BUTTONS.REJECT_LOWERCASE).click();
 
       // ✅ Wait for modal and textarea to appear and be ready
       cy.get("nz-modal-container").should("be.visible");
-      cy.imsId("approver-remarks-textarea")
+      cy.imsId(COMMON.INPUTS.APPROVER_REMARKS)
         .should("be.visible")
         .and("not.be.disabled")
         .clear()
         .type(emData.rejectRemarks);
 
-      cy.imsId("btn-Reject").click();
+      cy.imsId(COMMON.BUTTONS.REJECT_CAPITALIZED).click();
       cy.imsId(COMMON.CONFIRMATION.YES).click();
 
       // ✅ Wait until modal is closed before moving on

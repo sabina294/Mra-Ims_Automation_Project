@@ -14,7 +14,7 @@ class ManualJournalCreation {
         cy.fixture(this.test_data).then((data) => {
             const mjData = data.branchManager.manualJournal;
             cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
-            cy.imsId("btn-delete").first().click();
+            cy.imsId(COMMON.BUTTONS.DELETE).first().click();
 
             cy.formController("reference_no").type(mjData.reference);
             // First description field
@@ -40,7 +40,7 @@ class ManualJournalCreation {
         cy.fixture(this.test_data).then((data) => {
             const mjData = data.branchManager.manualJournal;
             cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
-            cy.imsId("btn-delete").first().click();
+            cy.imsId(COMMON.BUTTONS.DELETE).first().click();
 
             cy.formController("description").eq(0).type(mjData.description);
 
@@ -270,14 +270,14 @@ class ManualJournalCreation {
 
     createDeleteButtonCheck() {
         cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
-        cy.imsId("btn-delete").eq(1).click();
+        cy.imsId(COMMON.BUTTONS.DELETE).eq(1).click();
         cy.imsId(COMMON.BUTTONS.GO_BACK).click();
         cy.log(messages.ui.submitSuccess);
     }
 
     createNewJournalDetailsButtonCheck() {
         cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
-        cy.imsId("btn-add").eq(1).click();
+        cy.imsId(COMMON.BUTTONS.ADD).eq(1).click();
         cy.imsId(COMMON.BUTTONS.GO_BACK).click();
         cy.log(messages.ui.submitSuccess);
     }

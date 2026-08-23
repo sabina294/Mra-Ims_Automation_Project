@@ -54,15 +54,15 @@ class EmployeeManagementCreation {
         .type("{enter}");
       cy.formController("res_upazila_id").type(emData.thana).type("{enter}");
       cy.formController("res_address_line_1").type(emData.adressEn);
-      cy.imsId("ck-box").click();
+      cy.imsId(COMMON.CHECKBOXES.GENERIC).click();
       cy.get("#nz-tabs-1-tab-5").click();
-      cy.imsId("btn_photo_image_id").attachFile("employeePhoto1.jpg");
+      cy.imsId(COMMON.UPLOADS.PHOTO).attachFile("employeePhoto1.jpg");
       cy.wait(1000);
-      cy.imsId("btn_nid_front_doc_id").attachFile("nidPront1.jpg");
+      cy.imsId(COMMON.UPLOADS.NID_FRONT).attachFile("nidPront1.jpg");
       cy.wait(1000);
-      cy.imsId("btn_nid_back_doc_id").attachFile("nidBack1.jpg");
+      cy.imsId(COMMON.UPLOADS.NID_BACK).attachFile("nidBack1.jpg");
       cy.wait(1000);
-      cy.imsId("btn_tin_doc_id").attachFile("tinDocImg1.jpg");
+      cy.imsId(COMMON.UPLOADS.TIN).attachFile("tinDocImg1.jpg");
       cy.wait(1000);
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
       cy.imsId(COMMON.CONFIRMATION.YES).click();
@@ -78,8 +78,8 @@ class EmployeeManagementCreation {
   myTaskMenuEmployee() {
     cy.fixture(this.test_data).then((data) => {
       const emData = data.branchManager.createEmpMangFrom;
-      cy.imsId("menu-my-task").click();
-      cy.imsId("submenu-awaiting-employee-management").click();
+      cy.imsId(COMMON.MENUS.MY_TASK).click();
+      cy.imsId(COMMON.MENUS.AWAITING_EMPLOYEE_MANAGEMENT).click();
       cy.log(messages.ui.actionMessage);
     });
   }
@@ -118,9 +118,9 @@ class EmployeeManagementCreation {
       const emData = data.branchManager.createEmpMangFrom;
       cy.imsId(COMMON.TOGGLES.ACTION).first().click();
       cy.imsId(COMMON.GRID.ACTION_VIEW).click();
-      cy.imsId("btn-lock").click();
+      cy.imsId(COMMON.BUTTONS.LOCK).click();
       cy.imsId(COMMON.BUTTONS.APPROVE).click();
-      cy.imsId("btn-Approve").click();
+      cy.imsId(COMMON.BUTTONS.APPROVE_CAPITALIZED).click();
       cy.imsId(COMMON.CONFIRMATION.YES).click();
       cy.imsId(COMMON.CONFIRMATION.OK).click();
 
@@ -155,7 +155,7 @@ class EmployeeManagementCreation {
       const emData = data.branchManager.createEmpMangFrom;
       // cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(emData.empNameEn);
       cy.imsId(COMMON.TOGGLES.ACTION).first().click();
-      cy.imsId("btn-table-action-profile").click();
+      cy.imsId(COMMON.GRID.ACTION_PROFILE).click();
       cy.log(messages.ui.viewMessage);
     });
   }
@@ -274,7 +274,7 @@ class EmployeeManagementCreation {
   }
 
   gridCheckboxCheck() {
-    cy.imsId("row-checkbox-1").click();
+    cy.imsId(COMMON.CHECKBOXES.ROW_1).click();
     // cy.imsId(COMMON.BUTTONS.RESET).click();
     cy.log(messages.ui.checkboxMessage);
   }
@@ -288,7 +288,7 @@ class EmployeeManagementCreation {
   }
 
   gridCheckboxUnlockButtonCheck() {
-    cy.imsId("row-checkbox-1").click();
+    cy.imsId(COMMON.CHECKBOXES.ROW_1).click();
     cy.imsId(COMMON.BUTTONS.UNLOCK)
       .should("be.visible")
       .and("not.be.disabled")

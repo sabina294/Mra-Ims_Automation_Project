@@ -41,12 +41,12 @@ class LoanPenalty {
   approveLoanPenalty() {
     cy.fixture(this.test_data).then((data) => {
       const lpData = data.mfiAdmin.createLoanPenaltyFrom;
-      cy.imsId("menu-my-task").click();
-      cy.imsId("submenu-awaiting-loan-penalty").click();
+      cy.imsId(COMMON.MENUS.MY_TASK).click();
+      cy.imsId(COMMON.MENUS.AWAITING_LOAN_PENALTY).click();
       cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(lpData.search);
       cy.imsId(COMMON.TOGGLES.ACTION).first().click();
       cy.imsId(COMMON.GRID.ACTION_VIEW).click();
-      cy.imsId("btn-authorize").click();
+      cy.imsId(COMMON.BUTTONS.AUTHORIZE_SHORT).click();
       cy.imsId(COMMON.CONFIRMATION.YES).click();
 
       cy.get("app-confirmation-modal")

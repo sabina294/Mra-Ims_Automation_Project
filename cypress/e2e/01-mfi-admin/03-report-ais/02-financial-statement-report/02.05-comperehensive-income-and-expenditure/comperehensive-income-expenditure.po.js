@@ -13,7 +13,7 @@ class ComprehensiveIncomeAndExpenditureReport {
 
     viewReportButtonCheck() {
         cy.selectMenu("menu-report", "comprehensive-income-and-expenditure");
-        // cy.imsId("btn-view-report").click();
+        // cy.imsId(COMMON.BUTTONS.VIEW_REPORT).click();
         // cy.wait(5000);
         cy.imsId(COMMON.BUTTONS.GO_BACK).click();
         cy.log(messages.ui.viewMessage);
