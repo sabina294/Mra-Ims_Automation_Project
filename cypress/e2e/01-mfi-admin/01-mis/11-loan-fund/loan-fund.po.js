@@ -5,7 +5,7 @@ class LoanFundCreation {
 
   gridLoanFundListPage() {
     cy.fixture(this.test_data).then((data) => {
-      cy.selectMenu("menu-configuration", "submenu-loan-fund");
+      cy.selectMenu(COMMON.MENUS.CONFIGURATION, COMMON.MENUS.LOAN_FUND);
       cy.log(messages.ui.gridListMessage);
     });
   }

@@ -6,7 +6,7 @@ class FeeConfigurationCreation {
 
   gridFeeConfigurationListPage() {
     cy.fixture(this.test_data).then((data) => {
-      cy.selectMenu("menu-configuration", "submenu-fee-configuration");
+      cy.selectMenu(COMMON.MENUS.CONFIGURATION, COMMON.MENUS.FEE_CONFIGURATION);
       cy.log(messages.ui.gridListMessage);
     });
   }

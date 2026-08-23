@@ -6,14 +6,10 @@ class AmountBasedLoanProposalApprovalCreation {
 
   gridAmountBasedLoanListPage() {
     cy.fixture(this.test_data).then((data) => {
-      cy.selectMenu(
-        "menu-configuration",
-        "submenu-amount-based-loan-proposal-approval"
-      );
+      cy.selectMenu("menu-configuration", "submenu-amount-based-loan-proposal-approval");
       cy.log(messages.ui.gridListMessage);
     });
   }
-
   createAmountBasedLoanProposal() {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
