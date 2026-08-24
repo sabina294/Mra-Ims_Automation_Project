@@ -14,7 +14,14 @@ class cancelSamity {
     }
 
     gridCheckboxCheck() {
-        cy.imsId(COMMON.BUTTONS.CHECK_SAMITY).click();
+        cy.contains(
+            `${COMMON.TABLE.BODY} tr`,
+            "Samity Staging Data Generate",
+            { timeout: 30000 }
+        )
+            .should("be.visible")
+            .find("input[type='checkbox']:not(:disabled)")
+            .check({ force: true });
         cy.log(messages.ui.checkboxMessage);
     }
 
