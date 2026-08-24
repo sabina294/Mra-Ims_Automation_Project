@@ -12,6 +12,8 @@ export const COMMON = {
     FUNDING_ORGANIZATION: "submenu-funding-organizations",
     LOAN_FUND: "submenu-loan-fund",
     MFI_PROGRAM: "submenu-mfi-program",
+    OFFICE: "menu-office",
+    OFFICE_MANAGEMENT: "submenu-office-management",
     MY_TASK: "menu-my-task",
     AWAITING_CALENDAR_YEAR: "submenu-awaiting-calendar-year",
     AWAITING_CLIENT_WELFARE_FUND: "submenu-awaiting-client-welfare-fund",

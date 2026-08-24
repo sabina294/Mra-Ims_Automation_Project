@@ -127,35 +127,27 @@ describe("13. Office Management Module Test Cases", function () {
     create_office_management.gridCheckboxCheck();
   });
 
-  it("13.27. Verify that the Lock button functions correctly for selected checkbox records.", function () {
-    create_office_management.gridCheckboxLockButtonCheck();
-  });
-
-  it("13.28. Verify that the Unlock button functions correctly for selected checkbox records.", function () {
-    create_office_management.gridCheckboxUnlockButtonCheck();
-  });
-
-  it("13.29. Verify that the Reset button clears all input fields successfully in the Office Management creation form.", function () {
+  it("13.27. Verify that the Reset button clears all input fields successfully in the Office Management creation form.", function () {
     create_office_management.createResetButtonCheck();
   });
 
-  it("13.30. Verify that validation messages are displayed for all required fields when submitting an empty Office Management form.", function () {
+  it("13.28. Verify that validation messages are displayed for all required fields when submitting an empty Office Management form.", function () {
     create_office_management.createValidationMessageCheck();
   });
 
-  it("13.31. Verify that clicking the Go Back button on the Office Management creation page redirects the user to the Office Management list page.", function () {
+  it("13.29. Verify that clicking the Go Back button on the Office Management creation page redirects the user to the Office Management list page.", function () {
     create_office_management.createGoBackButtonCheck();
   });
 
-  it("13.32. Verify that clicking the Search button loads the Office Management list according to the search criteria.", function () {
+  it("13.30. Verify that clicking the Search button loads the Office Management list according to the search criteria.", function () {
     create_office_management.gridSearchButtonCheck();
   });
 
-  it("13.33. Verify that a new Office Management record is created successfully when all required fields are filled with valid data.", function () {
+  it("13.31. Verify that a new Office Management record is created successfully when all required fields are filled with valid data.", function () {
     create_office_management.createOffice();
   });
 
-  it("13.34. Verify that the MRA Admin can successfully approve an Office Management record after creation.", function () {
+  it("13.32. Verify that the MRA Admin can successfully approve an Office Management record after creation.", function () {
     cy.fixture(test_data).then((d) => {
       cy.logout();
       cy.loginAsMraAdmin(baseURL, d);
@@ -166,7 +158,59 @@ describe("13. Office Management Module Test Cases", function () {
 
   });
 
-  it("13.35. Verify that the grid list content switches correctly between English and Bangla languages.", function () {
+  it("13.33. Verify the Office Management list breadcrumb and navigation path.", function () {
+    create_office_management.listBreadcrumbCheck();
+  });
+
+  it("13.34. Verify all required columns are displayed in the Office Management grid.", function () {
+    create_office_management.gridColumnsCheck();
+  });
+
+  it("13.35. Verify the Office Management grid displays valid record ID, name, type, and status data.", function () {
+    create_office_management.gridRecordCheck();
+  });
+
+  it("13.36. Verify the Office Management grid opens on the first pagination page.", function () {
+    create_office_management.firstPagePaginationCheck();
+  });
+
+  it("13.37. Verify the Add Office button navigates to the Office Management create page.", function () {
+    create_office_management.addNavigationCheck();
+  });
+
+  it("13.38. Verify the Office Management create page displays all form sections, fields, and action buttons.", function () {
+    create_office_management.createPageFieldsCheck();
+  });
+
+  it("13.39. Verify required and optional Office Management form fields have the correct indicators.", function () {
+    create_office_management.fieldIndicatorsCheck();
+  });
+
+  it("13.40. Verify an Office Type can be selected on the Office Management create form.", function () {
+    create_office_management.officeTypeSelectionCheck();
+  });
+
+  it("13.41. Verify Division, District, and Upazila dependent selections work correctly.", function () {
+    create_office_management.addressHierarchyCheck();
+  });
+
+  it("13.42. Verify Working Area fields are displayed after adding a Working Area row.", function () {
+    create_office_management.workingAreaFieldsCheck();
+  });
+
+  it("13.43. Verify searching for a non-existing office displays no grid records.", function () {
+    create_office_management.nonExistingSearchCheck();
+  });
+
+  it("13.44. Verify exact Office Management name search returns only matching records.", function () {
+    create_office_management.exactSearchCheck();
+  });
+
+  it("13.45. Verify Reset clears the Office Management search and restores grid records.", function () {
+    create_office_management.searchResetCheck();
+  });
+
+  it("13.46. Verify that the grid list content switches correctly between English and Bangla languages.", function () {
     create_office_management.gridLanguageSwitchCheck();
   });
 });

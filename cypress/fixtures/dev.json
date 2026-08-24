@@ -309,7 +309,10 @@
       "statusSelect": "Active",
       "search": "Test Office",
       "messageSaveOffice": "Office has been saved",
-      "messageUpdateOffice": "Office has been updated"
+      "messageUpdateOffice": "Office has been updated",
+      "existingOfficeName": "Head Office",
+      "invalidSearch": "OFFICE-NOT-FOUND-987654",
+      "gridColumns": ["#", "Office ID", "Company Office ID", "Name", "Type", "Program", "Locked by", "Status", "Actions"]
     },
     "approveOfficeFrom": {
       "officeNameEn": "Test Office",
