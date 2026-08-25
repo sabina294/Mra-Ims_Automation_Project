@@ -14,10 +14,10 @@ class SamityCreation {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
       const smData = data.mfiAdmin.createSamityFrom;
+      cy.formController("office_id").type(smData.office).type("{enter}");
       cy.formController("samity_name_en").first().type(smData.samityNameEn);
       cy.formController("samity_name_bn").type(smData.samityNameBn);
       cy.formController("samity_type").type(smData.samityType).type("{enter}");
-      cy.formController("office_id").type(smData.office).type("{enter}");
       cy.wait(2000);
       cy.formController("field_officer_id")
         .type(smData.fieldOfficer)
@@ -759,6 +759,148 @@ class SamityCreation {
     cy.imsId(COMMON.CONFIRMATION.OK).click();
     cy.imsId(COMMON.BUTTONS.GO_BACK).click();
     cy.log(messages.ui.draftOnMessage);
+  }
+
+  openListPage() {
+    cy.visit("/mfi-mis/samity/samity-management/list");
+    cy.url().should("include", "/samity/samity-management/list");
+    cy.imsId(COMMON.BUTTONS.ADD_NEW).should("be.visible");
+  }
+
+  openCreatePage() {
+    cy.visit("/mfi-mis/samity/samity-management/create");
+    cy.url().should("include", "/samity/samity-management/create");
+    cy.formController("samity_name_en").should("exist");
+  }
+
+  exactLabel(text) {
+    return cy.get(COMMON.FORM.LABEL)
+      .filter((_, label) => label.textContent.trim() === text)
+      .first();
+  }
+
+  listBreadcrumbCheck() {
+    this.openListPage();
+    cy.get("nz-breadcrumb, .ant-breadcrumb")
+      .should("contain.text", "Home")
+      .and("contain.text", "Samity")
+      .and("contain.text", "Samity Management")
+      .and("contain.text", "List");
+    cy.log(messages.ui.listPageNavigationCheck);
+  }
+
+  gridColumnsCheck() {
+    this.openListPage();
+    cy.fixture(this.test_data).then((data) => {
+      data.mfiAdmin.createSamityFrom.gridColumns.forEach((heading) => {
+        cy.get(COMMON.TABLE.HEAD)
+          .contains(COMMON.TABLE.HEADER_CELL, heading)
+          .should("be.visible");
+      });
+    });
+    cy.log(messages.ui.gridColumns);
+  }
+
+  gridRecordCheck() {
+    this.openListPage();
+    cy.get(COMMON.TABLE.VISIBLE_ROWS).first().within(() => {
+      cy.get(COMMON.TABLE.VISIBLE_CELLS).eq(2).invoke("text").should("not.be.empty");
+      cy.get(COMMON.TABLE.VISIBLE_CELLS).eq(3).invoke("text").should("not.be.empty");
+      cy.get(COMMON.TABLE.VISIBLE_CELLS).eq(4).invoke("text").should("not.be.empty");
+      cy.get(COMMON.TABLE.VISIBLE_CELLS).eq(10).invoke("text").then((status) => {
+        expect(["Active", "Inactive"]).to.include(status.trim());
+      });
+    });
+    cy.log(messages.ui.recordStatusCheck);
+  }
+
+  firstPagePaginationCheck() {
+    this.openListPage();
+    cy.get(COMMON.PAGINATION.ACTIVE_PAGE).should("contain.text", "1");
+    cy.get(COMMON.PAGINATION.PREVIOUS_PAGE).should(
+      "have.class",
+      COMMON.PAGINATION.DISABLED_CLASS
+    );
+    cy.get(COMMON.PAGINATION.TOTAL_TEXT).should("be.visible");
+    cy.log(messages.ui.pagination);
+  }
+
+  addNavigationCheck() {
+    this.openListPage();
+    cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+    cy.url().should("include", "/samity/samity-management/create");
+    cy.contains("Create").should("be.visible");
+    cy.log(messages.ui.addNavigation);
+  }
+
+  createPageFieldsCheck() {
+    this.openCreatePage();
+    const labels = [
+      "Office", "Samity Name (English)", "Samity Name (Bangla)",
+      "Samity Type", "Field Officer", "MFI Program", "Company Samity Id",
+      "Samity Day", "Samity Time", "Samity Frequency", "First Meeting Date",
+      "Maximum Members", "Registration No.", "Working Area", "Division",
+      "District", "Upazila", "Post Office", "Postal Code", "Union",
+      "Ward/Village/Street", "Address Line 1", "Address Line 2",
+      "Geo Area Type", "Latitude", "Longitude",
+    ];
+    labels.forEach((label) => {
+      this.exactLabel(label).scrollIntoView().should("be.visible");
+    });
+    [COMMON.BUTTONS.GO_BACK, COMMON.BUTTONS.RESET, COMMON.BUTTONS.DRAFT,
+      COMMON.BUTTONS.SUBMIT, COMMON.BUTTONS.APPROVE]
+      .forEach((button) => {
+        cy.imsId(button).scrollIntoView().should("be.visible");
+      });
+    cy.log(messages.ui.createPageFields);
+  }
+
+  fieldIndicatorsCheck() {
+    this.openCreatePage();
+    const required = [
+      "Office", "Samity Name (English)", "Samity Name (Bangla)", "Samity Type",
+      "Field Officer", "MFI Program", "Samity Day", "Samity Frequency",
+      "Maximum Members", "Working Area", "Division", "District", "Upazila",
+      "Address Line 1", "Geo Area Type",
+    ];
+    const optional = [
+      "Company Samity Id", "Samity Time", "First Meeting Date", "Registration No.",
+      "Post Office", "Postal Code", "Union", "Ward/Village/Street",
+      "Address Line 2", "Latitude", "Longitude",
+    ];
+    required.forEach((label) => {
+      this.exactLabel(label).should("have.class", COMMON.FORM.REQUIRED_LABEL_CLASS);
+    });
+    optional.forEach((label) => {
+      this.exactLabel(label).should("not.have.class", COMMON.FORM.REQUIRED_LABEL_CLASS);
+    });
+    cy.log(messages.ui.requiredFieldIndicatorCheck);
+    cy.log(messages.ui.optionalFieldIndicatorCheck);
+  }
+
+  nonExistingSearchCheck() {
+    this.openListPage();
+    cy.fixture(this.test_data).then((data) => {
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT)
+        .type(data.mfiAdmin.createSamityFrom.invalidSearch);
+      cy.imsId(COMMON.BUTTONS.SEARCH).click();
+      cy.get(COMMON.TABLE.BODY)
+        .find("tr:not(.ant-table-placeholder):visible")
+        .should("have.length", 0);
+      cy.log(messages.ui.searchNoResult);
+    });
+  }
+
+  searchResetCheck() {
+    this.openListPage();
+    cy.fixture(this.test_data).then((data) => {
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT)
+        .type(data.mfiAdmin.createSamityFrom.invalidSearch);
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT).should("have.value", "");
+      cy.get(COMMON.TABLE.VISIBLE_ROWS).should("have.length.greaterThan", 0);
+      cy.log(messages.ui.clearSearch);
+    });
   }
 
   gridLanguageSwitchCheck() {

@@ -211,7 +211,43 @@ describe("19. Samity management Module Test Cases", function () {
     create_samity_management.createDraftButtonCheck();
   });
 
-  it("19.48. Verify that the Samity Management list is displayed correctly after switching the language from English to Bangla.", function () {
+  it("19.48. Verify the Samity Management list breadcrumb and navigation path.", function () {
+    create_samity_management.listBreadcrumbCheck();
+  });
+
+  it("19.49. Verify that all required columns are displayed in the Samity Management grid.", function () {
+    create_samity_management.gridColumnsCheck();
+  });
+
+  it("19.50. Verify that the Samity Management grid displays valid record information.", function () {
+    create_samity_management.gridRecordCheck();
+  });
+
+  it("19.51. Verify that the Samity Management grid opens on the first pagination page.", function () {
+    create_samity_management.firstPagePaginationCheck();
+  });
+
+  it("19.52. Verify that the Add Samity button redirects the user to the Samity Management creation page.", function () {
+    create_samity_management.addNavigationCheck();
+  });
+
+  it("19.53. Verify that the Samity Management creation page displays all fields and action buttons.", function () {
+    create_samity_management.createPageFieldsCheck();
+  });
+
+  it("19.54. Verify required and optional Samity Management fields have the correct indicators.", function () {
+    create_samity_management.fieldIndicatorsCheck();
+  });
+
+  it("19.55. Verify searching for a non-existing Samity displays no grid records.", function () {
+    create_samity_management.nonExistingSearchCheck();
+  });
+
+  it("19.56. Verify Reset clears the Samity search and restores grid records.", function () {
+    create_samity_management.searchResetCheck();
+  });
+
+  it("19.57. Verify that the Samity Management list is displayed correctly after switching the language from English to Bangla.", function () {
     create_samity_management.gridLanguageSwitchCheck();
   });
 });
