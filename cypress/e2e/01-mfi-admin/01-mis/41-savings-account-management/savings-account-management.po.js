@@ -5,10 +5,7 @@ class SavingsAccountManagementCreation {
 
   gridSavingsAccountManagementListPage() {
     cy.fixture(this.test_data).then((data) => {
-      cy.selectMenu(
-        "menu-savings-account",
-        "submenu-savings-account-management"
-      );
+      cy.selectMenu(COMMON.MENUS.SAVINGS_ACCOUNT, COMMON.MENUS.SAVINGS_ACCOUNT_MANAGEMENT);
       cy.log(messages.ui.gridListMessage);
     });
   }

@@ -5,7 +5,7 @@ class PaymentVoucherCreation {
 
     gridPaymentVoucherListPage() {
         cy.fixture(this.test_data).then((data) => {
-            cy.selectMenu("menu-voucher", "submenu-payment-voucher");
+            cy.selectMenu(COMMON.MENUS.VOUCHER, COMMON.MENUS.PAYMENT_VOUCHER);
             cy.log(messages.ui.gridListMessage);
         });
     }
@@ -530,7 +530,7 @@ class PaymentVoucherCreation {
     }
 
     actionButtonCheck() {
-        cy.selectMenu("menu-voucher", "submenu-payment-voucher");
+        cy.selectMenu(COMMON.MENUS.VOUCHER, COMMON.MENUS.PAYMENT_VOUCHER);
         cy.imsId(COMMON.TOGGLES.ACTION).first().click();
         cy.log(messages.ui.actionMessage);
     }

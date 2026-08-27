@@ -5,7 +5,7 @@ class EmployeePromotion {
 
     gridEmployeePromotionListPage() {
         cy.fixture(this.test_data).then((data) => {
-            cy.selectMenu("menu-employee", "submenu-employee-promotion");
+            cy.selectMenu(COMMON.MENUS.EMPLOYEE, COMMON.MENUS.EMPLOYEE_PROMOTION);
             cy.log(messages.ui.gridListMessage);
         });
     }
@@ -153,7 +153,7 @@ class EmployeePromotion {
     searchInEmployeeName() {
         cy.fixture(this.test_data).then((data) => {
             const empData = data.mfiAdmin.gridEmpPromotionFrom;
-            cy.selectMenu("menu-employee", "submenu-employee-promotion");
+            cy.selectMenu(COMMON.MENUS.EMPLOYEE, COMMON.MENUS.EMPLOYEE_PROMOTION);
             cy.imsId(COMMON.BUTTONS.RESET).click();
             cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(empData.search);
             cy.log(messages.ui.searchMessage);

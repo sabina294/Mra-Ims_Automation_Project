@@ -5,7 +5,7 @@ class ConsolidatedFinancialStatementReport {
 
     gridConsolidatedFinancialStatementListPage() {
         cy.fixture(this.test_data).then((data) => {
-            cy.selectMenu("menu-report", "consolidated-financial-statement");
+            cy.selectMenu(COMMON.MENUS.REPORT, COMMON.MENUS.CONSOLIDATED_FINANCIAL_STATEMENT_REPORT);
             cy.log(messages.ui.gridListMessage);
         });
     }

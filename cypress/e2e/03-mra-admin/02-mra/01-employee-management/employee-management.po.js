@@ -5,7 +5,7 @@ class EmployeeManagementCreation {
 
   gridEmployeeListPage() {
     cy.fixture(this.test_data).then((data) => {
-      cy.selectMenu("menu-employee", "submenu-employee-management");
+      cy.selectMenu(COMMON.MENUS.EMPLOYEE, COMMON.MENUS.EMPLOYEE_MANAGEMENT);
       cy.log(messages.ui.gridListMessage);
     });
   }
@@ -191,7 +191,7 @@ class EmployeeManagementCreation {
   }
 
   actionButtonCheck() {
-    cy.selectMenu("menu-employee", "submenu-employee-management");
+    cy.selectMenu(COMMON.MENUS.EMPLOYEE, COMMON.MENUS.EMPLOYEE_MANAGEMENT);
     cy.imsId(COMMON.TOGGLES.ACTION).first().click();
     cy.log(
       messages.ui.actionMessage

@@ -5,10 +5,7 @@ class LoanAccountProposalManagementCreation {
 
   gridLoanAccountProposalManagementListPage() {
     cy.fixture(this.test_data).then((data) => {
-      cy.selectMenu(
-        "menu-loan-account",
-        "submenu-loan-account-proposal-management"
-      );
+      cy.selectMenu(COMMON.MENUS.LOAN_ACCOUNT, COMMON.MENUS.LOAN_ACCOUNT_PROPOSAL_MANAGEMENT);
       cy.log(messages.ui.gridListMessage);
     });
   }

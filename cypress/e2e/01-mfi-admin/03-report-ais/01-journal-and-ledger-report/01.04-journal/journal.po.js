@@ -5,21 +5,21 @@ class JournalReport {
 
     gridJournalReportListPage() {
         cy.fixture(this.test_data).then((data) => {
-            cy.selectMenu("menu-report", "journal");
+            cy.selectMenu(COMMON.MENUS.REPORT, COMMON.MENUS.JOURNAL_REPORT);
             // cy.wait(3000);
             cy.log(messages.ui.gridListMessage);
         });
     }
 
     viewReportButtonCheck() {
-        cy.selectMenu("menu-report", "journal");
+        cy.selectMenu(COMMON.MENUS.REPORT, COMMON.MENUS.JOURNAL_REPORT);
         // cy.imsId(COMMON.BUTTONS.VIEW_REPORT).click();
         cy.imsId(COMMON.BUTTONS.GO_BACK).click();
         cy.log(messages.ui.viewMessage);
     }
 
     gridGoBackButtonCheck() {
-        cy.selectMenu("menu-report", "journal");
+        cy.selectMenu(COMMON.MENUS.REPORT, COMMON.MENUS.JOURNAL_REPORT);
         cy.imsId(COMMON.BUTTONS.GO_BACK).click();
         cy.log(messages.ui.goBackSuccess);
     }

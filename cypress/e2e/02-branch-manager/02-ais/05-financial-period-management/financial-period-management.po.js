@@ -5,7 +5,7 @@ class FinancialPeriodManagementCreation {
 
     gridFinancialPeriodListPage() {
         cy.fixture(this.test_data).then((data) => {
-            cy.selectMenu("menu-accounting", "submenu-financial-period-management");
+            cy.selectMenu(COMMON.MENUS.ACCOUNTING, COMMON.MENUS.FINANCIAL_PERIOD_MANAGEMENT);
             cy.log(messages.ui.gridListMessage);
         });
     }

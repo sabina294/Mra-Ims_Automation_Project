@@ -5,7 +5,7 @@ class EducationCreation {
 
   gridEducationListPage() {
     cy.fixture(this.test_data).then((data) => {
-      cy.selectMenu("menu-configuration", "submenu-education");
+      cy.selectMenu(COMMON.MENUS.CONFIGURATION, COMMON.MENUS.EDUCATION);
       cy.log(messages.ui.gridListMessage);
     });
   }

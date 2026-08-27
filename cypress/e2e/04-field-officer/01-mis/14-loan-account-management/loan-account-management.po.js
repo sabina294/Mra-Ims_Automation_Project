@@ -5,7 +5,7 @@ class LoanAccountManagement {
 
   gridLoanAccountManagementListPage() {
     cy.fixture(this.test_data).then((data) => {
-      cy.selectMenu("menu-loan-account", "submenu-loan-account-management");
+      cy.selectMenu(COMMON.MENUS.LOAN_ACCOUNT, COMMON.MENUS.LOAN_ACCOUNT_MANAGEMENT);
       cy.log(messages.ui.gridListMessage);
     });
   }
@@ -26,7 +26,7 @@ class LoanAccountManagement {
     cy.fixture(this.test_data).then((data) => {
       const laData = data.fieldOfficer.loanAccountManagementFrom;
       cy.imsId(COMMON.GRID.ACTION_VIEW).click();
-      cy.selectMenu1("submenu-loan-account-management");
+      cy.selectMenu1(COMMON.MENUS.LOAN_ACCOUNT_MANAGEMENT);
       cy.log(messages.ui.viewMessage);
     });
   }

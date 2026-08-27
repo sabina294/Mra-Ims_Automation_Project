@@ -5,7 +5,7 @@ class ContractPhaseCreation {
 
   gridContractPhaseListPage() {
     cy.fixture(this.test_data).then((data) => {
-      cy.selectMenu("menu-configuration", "submenu-contract-phase");
+      cy.selectMenu(COMMON.MENUS.CONFIGURATION, COMMON.MENUS.CONTRACT_PHASE);
       cy.log(messages.ui.gridListMessage);
     });
   }

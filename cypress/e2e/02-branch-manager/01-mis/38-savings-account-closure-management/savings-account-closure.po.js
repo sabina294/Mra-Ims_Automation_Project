@@ -5,10 +5,7 @@ class SavingsAccountClosure {
     test_data = Cypress.env("TEST_DATA");
 
     gridSavingsAccountClosureListPage() {
-        cy.selectMenu(
-            "menu-savings-account",
-            "submenu-savings-account-closure-management"
-        );
+        cy.selectMenu(COMMON.MENUS.SAVINGS_ACCOUNT, COMMON.MENUS.SAVINGS_ACCOUNT_CLOSURE_MANAGEMENT);
         cy.log(messages.ui.gridListMessage);
     }
 

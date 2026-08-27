@@ -6,7 +6,7 @@ class MaritalStatusCreation {
   // ---------------- List Page ----------------
   gridMaritalStatusListPage() {
     cy.fixture(this.test_data).then(() => {
-      cy.selectMenu("menu-configuration", "submenu-marital-status");
+      cy.selectMenu(COMMON.MENUS.CONFIGURATION, COMMON.MENUS.MARITAL_STATUS);
       cy.log(messages.ui.gridListMessage);
     });
   }

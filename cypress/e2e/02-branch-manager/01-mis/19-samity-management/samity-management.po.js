@@ -5,7 +5,7 @@ class SamityCreation {
 
   gridSamityManagementListPage() {
     cy.fixture(this.test_data).then((data) => {
-      cy.selectMenu("menu-samity", "submenu-samity-management");
+      cy.selectMenu(COMMON.MENUS.SAMITY, COMMON.MENUS.SAMITY_MANAGEMENT);
       cy.log(messages.ui.gridListMessage);
     });
   }
@@ -90,7 +90,7 @@ class SamityCreation {
 
   createWithoutNameEn() {
     cy.fixture(this.test_data).then((data) => {
-      cy.selectMenu("menu-samity", "submenu-samity-management");
+      cy.selectMenu(COMMON.MENUS.SAMITY, COMMON.MENUS.SAMITY_MANAGEMENT);
       cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
       const smData = data.branchManager.createSamityFrom;
       cy.formController("samity_name_bn").type(smData.samityNameBn);

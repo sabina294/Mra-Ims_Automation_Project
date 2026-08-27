@@ -5,7 +5,7 @@ class CumulativeLedgerSubledgerReport {
 
     gridCumulativeLedgerSubledgerReportListPage() {
         cy.fixture(this.test_data).then((data) => {
-            cy.selectMenu("menu-report", "cumulative-ledger-subledger-report");
+            cy.selectMenu(COMMON.MENUS.REPORT, COMMON.MENUS.CUMULATIVE_LEDGER_SUBLEDGER_REPORT);
             cy.log(messages.ui.gridListMessage);
         });
     }

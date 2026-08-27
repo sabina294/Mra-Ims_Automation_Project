@@ -6,7 +6,7 @@ class Authorization {
 
     gridAuthorizationListPage() {
         cy.fixture(this.test_data).then((data) => {
-            cy.selectMenu("menu-transaction", "submenu-authorization");
+            cy.selectMenu(COMMON.MENUS.TRANSACTION, COMMON.MENUS.AUTHORIZATION);
             cy.log(messages.ui.gridListMessage);
         });
     }

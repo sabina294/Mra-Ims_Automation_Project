@@ -5,7 +5,7 @@ class ReguralCollection {
 
     gridRegularCollectionListPage() {
         cy.fixture(this.test_data).then((data) => {
-            cy.selectMenu("menu-transaction", "submenu-regular-collection");
+            cy.selectMenu(COMMON.MENUS.TRANSACTION, COMMON.MENUS.REGULAR_COLLECTION);
             cy.log(messages.ui.gridListMessage);
         });
     }

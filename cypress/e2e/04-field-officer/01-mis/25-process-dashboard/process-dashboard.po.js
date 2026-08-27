@@ -5,7 +5,7 @@ class ProcessDashboard {
 
   gridProcessDashboardListPage() {
     cy.fixture(this.test_data).then((data) => {
-      cy.selectMenu("menu-process", "submenu-process-dashboard");
+      cy.selectMenu(COMMON.MENUS.PROCESS, COMMON.MENUS.PROCESS_DASHBOARD);
       cy.log(messages.ui.gridListMessage);
     });
   }

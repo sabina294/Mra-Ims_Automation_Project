@@ -83,7 +83,51 @@ describe("20. Rejected Samity Module Test Cases", function () {
     create_rejected_samity.selectofficeDropdown();
   });
 
-  it("20.16. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("20.16. Verify that the Rejected Samity grid displays all required columns correctly.", function () {
+    create_rejected_samity.gridColumnsCheck();
+  });
+
+  it("20.17. Verify that the Rejected Samity grid displays valid record information in each required column.", function () {
+    create_rejected_samity.gridRecordDataCheck();
+  });
+
+  it("20.18. Verify that an exact Samity Name search displays the matching rejected Samity record.", function () {
+    create_rejected_samity.exactSamityNameSearchCheck();
+  });
+
+  it("20.19. Verify that clearing the Samity Name search restores the rejected Samity grid.", function () {
+    create_rejected_samity.clearSearchCheck();
+  });
+
+  it("20.20. Verify that the Samity Name column can be sorted in ascending order.", function () {
+    create_rejected_samity.samityNameAscendingSortCheck();
+  });
+
+  it("20.21. Verify that the Samity Name column can be sorted in descending order.", function () {
+    create_rejected_samity.samityNameDescendingSortCheck();
+  });
+
+  it("20.22. Verify that the Rejected Samity pagination and total-record information are displayed correctly.", function () {
+    create_rejected_samity.paginationAndTotalCheck();
+  });
+
+  it("20.23. Verify that the Previous pagination button is disabled on the first page.", function () {
+    create_rejected_samity.previousPageDisabledCheck();
+  });
+
+  it("20.24. Verify that the Next pagination button is disabled when the grid has only one page.", function () {
+    create_rejected_samity.nextPageBoundaryCheck();
+  });
+
+  it("20.25. Verify the rejected Samity View page URL and breadcrumb navigation.", function () {
+    create_rejected_samity.viewPageNavigationCheck();
+  });
+
+  it("20.26. Verify that all rejected Samity information sections and important values are displayed on the View page.", function () {
+    create_rejected_samity.viewInformationCheck();
+  });
+
+  it("20.27. Verify check that the grid list content changes correctly from english to bangla.", function () {
     create_rejected_samity.gridLanguageSwitchCheck();
   });
 });

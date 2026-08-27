@@ -5,7 +5,7 @@ class Designation {
 
   gridDesignationListPage() {
     cy.fixture(this.test_data).then((data) => {
-      cy.selectMenu("menu-configuration", "submenu-designation");
+      cy.selectMenu(COMMON.MENUS.CONFIGURATION, COMMON.MENUS.DESIGNATION);
       cy.log(messages.ui.gridListMessage);
     });
   }

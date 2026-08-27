@@ -5,7 +5,7 @@ class RejectedSamity {
 
   createRejectSamity() {
     cy.fixture(this.test_data).then((data) => {
-      cy.selectMenu("menu-samity", "submenu-samity-management");
+      cy.selectMenu(COMMON.MENUS.SAMITY, COMMON.MENUS.SAMITY_MANAGEMENT);
       cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
       const rsData = data.branchManager.rejectedSamityFrom;
       cy.formController("office_id").type(rsData.office).type("{enter}");
@@ -61,7 +61,7 @@ class RejectedSamity {
 
   gridRejectedSamityListPage() {
     cy.fixture(this.test_data).then((data) => {
-      cy.selectMenu("menu-samity", "submenu-rejected-samity");
+      cy.selectMenu(COMMON.MENUS.SAMITY, COMMON.MENUS.REJECTED_SAMITY);
       cy.log(messages.ui.gridListMessage);
     });
   }

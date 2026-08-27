@@ -7,7 +7,7 @@ class RemarksCreation {
 
   gridRemarksListPage() {
     cy.fixture(this.test_data).then(() => {
-      cy.selectMenu("menu-configuration", "submenu-remarks");
+      cy.selectMenu(COMMON.MENUS.CONFIGURATION, COMMON.MENUS.REMARKS);
       cy.log(messages.ui.gridListMessage);
     });
   }

@@ -5,7 +5,7 @@ class DayForwardMis {
 
   gridDayForwardListPage() {
     cy.fixture(this.test_data).then((data) => {
-      cy.selectMenu("menu-process", "submenu-day-forward");
+      cy.selectMenu(COMMON.MENUS.PROCESS, COMMON.MENUS.DAY_FORWARD);
       cy.log(messages.ui.gridListMessage);
     });
   }

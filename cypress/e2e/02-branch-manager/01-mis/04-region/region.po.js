@@ -5,7 +5,7 @@ class Region {
 
   gridRegionListPage() {
     cy.fixture(this.test_data).then((data) => {
-      cy.selectMenu("menu-configuration", "submenu-region");
+      cy.selectMenu(COMMON.MENUS.CONFIGURATION, COMMON.MENUS.REGION);
       cy.log(messages.ui.gridListMessage);
     });
   }

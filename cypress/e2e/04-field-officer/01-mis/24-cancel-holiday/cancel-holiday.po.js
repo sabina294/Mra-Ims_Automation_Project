@@ -5,7 +5,7 @@ class CancelHoliday {
 
     gridCancelHolidayListPage() {
         cy.fixture(this.test_data).then((data) => {
-            cy.selectMenu("menu-calendar", "submenu-cancel-holiday");
+            cy.selectMenu(COMMON.MENUS.CALENDAR, COMMON.MENUS.CANCEL_HOLIDAY);
             cy.log(messages.ui.gridListMessage);
         });
     }

@@ -5,7 +5,7 @@ class EmployeeManagement {
 
   gridEmployeeListPage() {
     cy.fixture(this.test_data).then((data) => {
-      cy.selectMenu1("menu-employee");
+      cy.selectMenu1(COMMON.MENUS.EMPLOYEE);
       cy.log(messages.ui.gridListMessage);
     });
   }

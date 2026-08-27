@@ -5,7 +5,7 @@ class LoanProvisionWriteOff {
 
     gridLoanProvisionWriteOffListPage() {
         cy.fixture(this.test_data).then((data) => {
-            cy.selectMenu("menu-loan-account", "submenu-loan-provision-write-off");
+            cy.selectMenu(COMMON.MENUS.LOAN_ACCOUNT, COMMON.MENUS.LOAN_PROVISION_WRITE_OFF);
             cy.log(messages.ui.gridListMessage);
         });
     }

@@ -5,7 +5,7 @@ class LoanDisbursement {
 
     gridLoanDisbursementListPage() {
         cy.fixture(this.test_data).then((data) => {
-            cy.selectMenu("menu-loan-account", "submenu-loan-disbursement");
+            cy.selectMenu(COMMON.MENUS.LOAN_ACCOUNT, COMMON.MENUS.LOAN_DISBURSEMENT);
             cy.log(messages.ui.gridListMessage);
         });
     }

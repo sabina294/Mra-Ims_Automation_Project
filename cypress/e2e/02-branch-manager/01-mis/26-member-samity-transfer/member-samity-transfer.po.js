@@ -5,7 +5,7 @@ class MemberSamityTransfer {
 
   gridMemberSamityTransferListPage() {
     cy.fixture(this.test_data).then((data) => {
-      cy.selectMenu("menu-member", "submenu-member-samity-transfer");
+      cy.selectMenu(COMMON.MENUS.MEMBER, COMMON.MENUS.MEMBER_SAMITY_TRANSFER);
       cy.log(messages.ui.gridListMessage);
     });
   }
@@ -110,7 +110,7 @@ class MemberSamityTransfer {
 
   withoutNewSamity() {
     cy.fixture(this.test_data).then((data) => {
-      cy.selectMenu("menu-member", "submenu-member-samity-transfer");
+      cy.selectMenu(COMMON.MENUS.MEMBER, COMMON.MENUS.MEMBER_SAMITY_TRANSFER);
       const mstData = data.branchManager.memberSamityTransferFrom;
       cy.imsId(COMMON.TOGGLES.ACTION).first().click();
       cy.imsId(COMMON.GRID.ACTION_MIS_TRANSFER).click();

@@ -5,7 +5,7 @@ class Zone {
 
   gridZoneListPage() {
     cy.fixture(this.test_data).then((data) => {
-      cy.selectMenu("menu-configuration", "submenu-zone");
+      cy.selectMenu(COMMON.MENUS.CONFIGURATION, COMMON.MENUS.ZONE);
       cy.log(messages.ui.gridListMessage);
     });
   }

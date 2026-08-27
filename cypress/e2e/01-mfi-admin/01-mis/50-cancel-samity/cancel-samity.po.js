@@ -5,7 +5,7 @@ class CancelSamity {
 
   gridCancelSamityListPage() {
     cy.fixture(this.test_data).then((data) => {
-      cy.selectMenu("menu-process", "submenu-cancel-samity");
+      cy.selectMenu(COMMON.MENUS.PROCESS, COMMON.MENUS.CANCEL_SAMITY);
       cy.log(messages.ui.gridListMessage);
     });
   }

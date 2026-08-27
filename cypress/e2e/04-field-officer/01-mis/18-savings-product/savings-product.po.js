@@ -5,7 +5,7 @@ class SavingsProductCreation {
 
   gridSavingsProductListPage() {
     cy.fixture(this.test_data).then((data) => {
-      cy.selectMenu1("menu-savings-product");
+      cy.selectMenu1(COMMON.MENUS.SAVINGS_PRODUCT);
       cy.log(messages.ui.gridListMessage);
     });
   }

@@ -5,7 +5,7 @@ class SavingsWithdraw {
 
     gridSavingsWithdrawListPage() {
         cy.fixture(this.test_data).then((data) => {
-            cy.selectMenu("menu-transaction", "submenu-savings-withdraw");
+            cy.selectMenu(COMMON.MENUS.TRANSACTION, COMMON.MENUS.SAVINGS_WITHDRAW);
             cy.log(messages.ui.gridListMessage);
         });
     }

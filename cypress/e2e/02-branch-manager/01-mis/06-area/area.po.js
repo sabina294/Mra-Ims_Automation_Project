@@ -5,7 +5,7 @@ class Area {
 
   gridAreaListPage() {
     cy.fixture(this.test_data).then((data) => {
-      cy.selectMenu("menu-configuration", "submenu-area");
+      cy.selectMenu(COMMON.MENUS.CONFIGURATION, COMMON.MENUS.AREA);
       cy.log(messages.ui.gridListMessage);
     });
   }

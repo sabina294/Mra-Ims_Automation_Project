@@ -5,7 +5,7 @@ class StagingData {
 
   gridStagingDataListPage() {
     cy.fixture(this.test_data).then((data) => {
-      cy.selectMenu("menu-process", "submenu-staging-data");
+      cy.selectMenu(COMMON.MENUS.PROCESS, COMMON.MENUS.STAGING_DATA);
       cy.log(messages.ui.gridListMessage);
     });
   }

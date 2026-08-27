@@ -5,7 +5,7 @@ class LoanProvision {
 
   gridLoanProvisionListPage() {
     cy.fixture(this.test_data).then((data) => {
-      cy.selectMenu("menu-loan-account", "submenu-loan-provision");
+      cy.selectMenu(COMMON.MENUS.LOAN_ACCOUNT, COMMON.MENUS.LOAN_PROVISION);
       cy.log(messages.ui.gridListMessage);
     });
   }

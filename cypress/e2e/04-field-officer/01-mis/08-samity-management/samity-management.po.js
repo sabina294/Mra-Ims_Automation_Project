@@ -5,7 +5,7 @@ class Samity {
 
   gridSamityManagementListPage() {
     cy.fixture(this.test_data).then((data) => {
-      cy.selectMenu1("menu-samity");
+      cy.selectMenu1(COMMON.MENUS.SAMITY);
       cy.log(messages.ui.gridListMessage);
     });
   }
@@ -21,7 +21,7 @@ class Samity {
     cy.fixture(this.test_data).then((data) => {
       const smData = data.fieldOfficer.gridSamityFrom;
       // cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(smData.search);
-      cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+      // cy.imsId(COMMON.TOGGLES.ACTION).first().click();
       cy.imsId(COMMON.GRID.ACTION_VIEW).click();
       cy.log(messages.ui.viewMessage);
     });

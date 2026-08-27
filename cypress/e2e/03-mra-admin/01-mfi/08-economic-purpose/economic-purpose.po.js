@@ -5,7 +5,7 @@ class EconomicPurposeCreation {
 
   gridEconomicPurposeListPage() {
     cy.fixture(this.test_data).then((data) => {
-      cy.selectMenu("menu-configuration", "submenu-economic-purpose");
+      cy.selectMenu(COMMON.MENUS.CONFIGURATION, COMMON.MENUS.ECONOMIC_PURPOSE);
       cy.log(messages.ui.gridListMessage);
     });
   }

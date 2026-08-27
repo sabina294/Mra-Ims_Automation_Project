@@ -5,14 +5,14 @@ class CurrentYearAndMonthReceiptPaymentReport {
 
     gridCurrentYearAndMonthReceiptPaymentListPage() {
         cy.fixture(this.test_data).then((data) => {
-            cy.selectMenu("menu-report", "current-year-and-month-receipt-payment");
+            cy.selectMenu(COMMON.MENUS.REPORT, COMMON.MENUS.CURRENT_YEAR_AND_MONTH_RECEIPT_PAYMENT_REPORT);
             // cy.wait(3000);
             cy.log(messages.ui.gridListMessage);
         });
     }
 
     viewReportButtonCheck() {
-        cy.selectMenu("menu-report", "current-year-and-month-receipt-payment");
+        cy.selectMenu(COMMON.MENUS.REPORT, COMMON.MENUS.CURRENT_YEAR_AND_MONTH_RECEIPT_PAYMENT_REPORT);
         // cy.imsId(COMMON.BUTTONS.VIEW_REPORT).click();
         // cy.wait(5000);
         cy.imsId(COMMON.BUTTONS.GO_BACK).click();
@@ -20,7 +20,7 @@ class CurrentYearAndMonthReceiptPaymentReport {
     }
 
     gridGoBackButtonCheck() {
-        cy.selectMenu("menu-report", "current-year-and-month-receipt-payment");
+        cy.selectMenu(COMMON.MENUS.REPORT, COMMON.MENUS.CURRENT_YEAR_AND_MONTH_RECEIPT_PAYMENT_REPORT);
 
         cy.imsId(COMMON.BUTTONS.GO_BACK).click();
         cy.log(messages.ui.goBackSuccess);

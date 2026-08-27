@@ -5,7 +5,7 @@ class CashBookReport {
 
     gridCashBookListPage() {
         cy.fixture(this.test_data).then((data) => {
-            cy.selectMenu("menu-report", "cash-book");
+            cy.selectMenu(COMMON.MENUS.REPORT, COMMON.MENUS.CASH_BOOK_REPORT);
             cy.log(messages.ui.gridListMessage);
         });
     }

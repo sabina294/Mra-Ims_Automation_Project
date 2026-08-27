@@ -5,7 +5,7 @@ class LoanProductManagementCreation {
 
   gridLoanProductManagementListPage() {
     cy.fixture(this.test_data).then((data) => {
-      cy.selectMenu("menu-loan-product", "submenu-loan-product-management");
+      cy.selectMenu(COMMON.MENUS.LOAN_PRODUCT, COMMON.MENUS.LOAN_PRODUCT_MANAGEMENT);
       cy.log(messages.ui.gridListMessage);
     });
   }

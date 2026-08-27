@@ -5,7 +5,7 @@ class OfficeGrid {
 
   gridOfficePage() {
     cy.fixture(this.test_data).then((data) => {
-      cy.selectMenu1("menu-office");
+      cy.selectMenu1(COMMON.MENUS.OFFICE);
       cy.log(messages.ui.gridListMessage);
     });
   }

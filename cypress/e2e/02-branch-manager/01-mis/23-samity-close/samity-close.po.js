@@ -5,7 +5,7 @@ class SamityClose {
 
   gridSamityCloseListPage() {
     cy.fixture(this.test_data).then((data) => {
-      cy.selectMenu("menu-samity", "submenu-samity-close");
+      cy.selectMenu(COMMON.MENUS.SAMITY, COMMON.MENUS.SAMITY_CLOSE);
       cy.log(messages.ui.gridListMessage);
     });
   }
@@ -56,7 +56,7 @@ class SamityClose {
   }
 
   actionButtonCheck() {
-    cy.selectMenu("menu-samity", "submenu-samity-close");
+    cy.selectMenu(COMMON.MENUS.SAMITY, COMMON.MENUS.SAMITY_CLOSE);
     cy.imsId(COMMON.TOGGLES.ACTION).first().click();
     cy.log(messages.ui.actionMessage);
   }

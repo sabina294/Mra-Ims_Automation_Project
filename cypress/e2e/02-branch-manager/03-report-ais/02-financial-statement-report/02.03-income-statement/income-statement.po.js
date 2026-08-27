@@ -5,7 +5,7 @@ class IncomeStatementReport {
 
     gridIncomeStatementListPage() {
         cy.fixture(this.test_data).then((data) => {
-            cy.selectMenu("menu-report", "income-statement");
+            cy.selectMenu(COMMON.MENUS.REPORT, COMMON.MENUS.INCOME_STATEMENT_REPORT);
             cy.log(messages.ui.gridListMessage);
         });
     }

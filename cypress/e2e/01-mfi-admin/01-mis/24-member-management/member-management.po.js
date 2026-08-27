@@ -5,7 +5,7 @@ class MemberManagementCreation {
 
   gridMemberManagementListPage() {
     cy.fixture(this.test_data).then((data) => {
-      cy.selectMenu("menu-member", "submenu-member-management");
+      cy.selectMenu(COMMON.MENUS.MEMBER, COMMON.MENUS.MEMBER_MANAGEMENT);
       cy.log(messages.ui.gridListMessage);
     });
   }
@@ -130,7 +130,7 @@ class MemberManagementCreation {
   }
 
   actionButtonCheck() {
-    cy.selectMenu("menu-member", "submenu-member-management");
+    cy.selectMenu(COMMON.MENUS.MEMBER, COMMON.MENUS.MEMBER_MANAGEMENT);
     cy.imsId(COMMON.TOGGLES.ACTION).first().click();
     cy.log(
       messages.ui.actionMessage

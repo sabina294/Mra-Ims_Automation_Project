@@ -5,7 +5,7 @@ class DivisionCreation {
 
   gridDivisionListPage() {
     cy.fixture(this.test_data).then((data) => {
-      cy.selectMenu("menu-configuration", "submenu-division");
+      cy.selectMenu(COMMON.MENUS.CONFIGURATION, COMMON.MENUS.DIVISION);
       cy.log(messages.ui.gridListMessage);
     });
   }

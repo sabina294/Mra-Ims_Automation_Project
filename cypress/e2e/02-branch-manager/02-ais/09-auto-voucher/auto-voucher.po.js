@@ -5,7 +5,7 @@ class AutoVoucher {
 
     gridAutoVoucherListPage() {
         cy.fixture(this.test_data).then((data) => {
-            cy.selectMenu("menu-voucher", "submenu-auto-voucher");
+            cy.selectMenu(COMMON.MENUS.VOUCHER, COMMON.MENUS.AUTO_VOUCHER);
             cy.log(messages.ui.gridListMessage);
         });
     }

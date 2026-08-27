@@ -5,7 +5,7 @@ class FundingOrganization {
 
   gridFundingOrganizationListPage() {
     cy.fixture(this.test_data).then((data) => {
-      cy.selectMenu("menu-configuration", "submenu-funding-organizations");
+      cy.selectMenu(COMMON.MENUS.CONFIGURATION, COMMON.MENUS.FUNDING_ORGANIZATION);
       cy.log(messages.ui.gridListMessage);
     });
   }

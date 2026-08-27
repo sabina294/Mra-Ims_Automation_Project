@@ -4,7 +4,7 @@ class OccupationCreation {
   test_data = Cypress.env("TEST_DATA");
 
   gridOccupationListPage() {
-    cy.selectMenu("menu-configuration", "submenu-occupation");
+    cy.selectMenu(COMMON.MENUS.CONFIGURATION, COMMON.MENUS.OCCUPATION);
     cy.log(messages.ui.gridListMessage);
   }
 

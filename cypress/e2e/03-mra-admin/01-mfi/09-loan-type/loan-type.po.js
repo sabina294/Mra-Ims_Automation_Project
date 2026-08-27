@@ -5,7 +5,7 @@ class LoanTypeCreation {
 
   gridLoanTypeListPage() {
     cy.fixture(this.test_data).then((data) => {
-      cy.selectMenu("menu-configuration", "submenu-loan-type");
+      cy.selectMenu(COMMON.MENUS.CONFIGURATION, COMMON.MENUS.LOAN_TYPE);
       cy.log(messages.ui.gridListMessage);
     });
   }

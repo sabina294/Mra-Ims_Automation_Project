@@ -5,7 +5,7 @@ class GenderCreation {
 
   gridGenderListPage() {
     cy.fixture(this.test_data).then((data) => {
-      cy.selectMenu("menu-configuration", "submenu-gender");
+      cy.selectMenu(COMMON.MENUS.CONFIGURATION, COMMON.MENUS.GENDER);
       cy.log(messages.ui.gridListMessage);
     });
   }

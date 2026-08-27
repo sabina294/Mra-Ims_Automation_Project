@@ -5,7 +5,7 @@ class PaymentMethodCreation {
 
   gridPaymentMethodListPage() {
     cy.fixture(this.test_data).then((data) => {
-      cy.selectMenu("menu-configuration", "submenu-payment-method");
+      cy.selectMenu(COMMON.MENUS.CONFIGURATION, COMMON.MENUS.PAYMENT_METHOD);
       cy.log(messages.ui.gridListMessage);
     });
   }

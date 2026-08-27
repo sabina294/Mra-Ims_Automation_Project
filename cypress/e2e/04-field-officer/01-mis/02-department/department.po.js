@@ -5,7 +5,7 @@ class Department {
 
   gridDepartmentListPage() {
     cy.fixture(this.test_data).then((data) => {
-      cy.selectMenu("menu-configuration", "submenu-department");
+      cy.selectMenu(COMMON.MENUS.CONFIGURATION, COMMON.MENUS.DEPARTMENT);
       cy.log(messages.ui.gridListMessage);
     });
   }

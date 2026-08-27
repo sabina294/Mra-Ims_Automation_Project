@@ -5,7 +5,7 @@ class MfiProgram {
 
   gridMfiProgramListPage() {
     cy.fixture(this.test_data).then((data) => {
-      cy.selectMenu("menu-configuration", "submenu-mfi-program");
+      cy.selectMenu(COMMON.MENUS.CONFIGURATION, COMMON.MENUS.MFI_PROGRAM);
       cy.log(messages.ui.gridListMessage);
     });
   }

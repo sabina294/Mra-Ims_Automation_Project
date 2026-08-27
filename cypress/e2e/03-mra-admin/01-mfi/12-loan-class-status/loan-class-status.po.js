@@ -5,7 +5,7 @@ class LoanClassStatusCreation {
 
   gridLoanClassStatusListPage() {
     cy.fixture(this.test_data).then((data) => {
-      cy.selectMenu("menu-configuration", "submenu-loan-class-status");
+      cy.selectMenu(COMMON.MENUS.CONFIGURATION, COMMON.MENUS.LOAN_CLASS_STATUS);
       cy.log(messages.ui.gridListMessage);
     });
   }

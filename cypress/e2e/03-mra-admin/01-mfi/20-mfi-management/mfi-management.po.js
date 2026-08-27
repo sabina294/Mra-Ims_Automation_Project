@@ -5,7 +5,7 @@ class MfiCreation {
 
   gridMfiManagementListPage() {
     cy.fixture(this.test_data).then((data) => {
-      cy.selectMenu("menu-mfi-management", "menu-mfi-management");
+      cy.selectMenu(COMMON.MENUS.MFI_MANAGEMENT, COMMON.MENUS.MFI_MANAGEMENT);
       cy.log(messages.ui.gridListMessage);
     });
   }
@@ -1015,7 +1015,7 @@ class MfiCreation {
   }
 
   actionButtonCheck() {
-    // cy.selectMenu("menu-mfi-management", "menu-mfi-management");
+    // cy.selectMenu(COMMON.MENUS.MFI_MANAGEMENT, COMMON.MENUS.MFI_MANAGEMENT);
     cy.imsId(COMMON.TOGGLES.ACTION).first().click();
     cy.log(
       messages.ui.actionMessage

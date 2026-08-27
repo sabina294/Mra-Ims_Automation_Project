@@ -5,7 +5,7 @@ class GeneralLedger {
 
     gridGeneralLedgerListPage() {
         cy.fixture(this.test_data).then((data) => {
-            cy.selectMenu("menu-financial-statement", "submenu-general-ledger");
+            cy.selectMenu(COMMON.MENUS.FINANCIAL_STATEMENT, COMMON.MENUS.GENERAL_LEDGER);
             cy.log(messages.ui.gridListMessage);
         });
     }

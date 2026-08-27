@@ -5,7 +5,7 @@ class JournalReport {
 
     gridJournalReportListPage() {
         cy.fixture(this.test_data).then((data) => {
-            cy.selectMenu("menu-report", "journal");
+            cy.selectMenu(COMMON.MENUS.REPORT, COMMON.MENUS.JOURNAL_REPORT);
             cy.log(messages.ui.gridListMessage);
         });
     }

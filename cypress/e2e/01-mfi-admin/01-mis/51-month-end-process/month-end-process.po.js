@@ -5,7 +5,7 @@ class MonthEndProcess {
 
   gridMonthEndProcessListPage() {
     cy.fixture(this.test_data).then((data) => {
-      cy.selectMenu("menu-process", "submenu-month-end-process-mis");
+      cy.selectMenu(COMMON.MENUS.PROCESS, COMMON.MENUS.MONTH_END_PROCESS_MIS);
       cy.log(messages.ui.gridListMessage);
     });
   }

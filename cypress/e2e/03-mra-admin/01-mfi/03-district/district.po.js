@@ -5,7 +5,7 @@ class DistrictCreation {
 
   gridDistrictListPage() {
     cy.fixture(this.test_data).then((data) => {
-      cy.selectMenu("menu-configuration", "submenu-district");
+      cy.selectMenu(COMMON.MENUS.CONFIGURATION, COMMON.MENUS.DISTRICT);
       cy.log(messages.ui.gridListMessage);
     });
   }

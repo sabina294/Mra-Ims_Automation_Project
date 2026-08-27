@@ -677,7 +677,7 @@ class OfficeCreation {
   }
 
   actionButtonCheck() {
-    // cy.selectMenu("menu-office", "submenu-office-management");
+    // cy.selectMenu(COMMON.MENUS.OFFICE, COMMON.MENUS.OFFICE_MANAGEMENT);
     cy.imsId(COMMON.TOGGLES.ACTION).first().click();
     cy.log(
       messages.ui.actionMessage

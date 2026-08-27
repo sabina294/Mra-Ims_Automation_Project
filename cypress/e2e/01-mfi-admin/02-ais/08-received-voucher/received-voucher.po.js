@@ -6,7 +6,7 @@ class ReceivedVoucherCreation {
     // ---------------- Page actions ----------------
     gridReceivedVoucherListPage() {
         cy.fixture(this.test_data).then(() => {
-            cy.selectMenu("menu-voucher", "submenu-received-voucher");
+            cy.selectMenu(COMMON.MENUS.VOUCHER, COMMON.MENUS.RECEIVED_VOUCHER);
             cy.log(messages.ui.gridListMessage);
         });
     }
@@ -496,7 +496,7 @@ class ReceivedVoucherCreation {
     }
 
     actionButtonCheck() {
-        cy.selectMenu("menu-voucher", "submenu-received-voucher");
+        cy.selectMenu(COMMON.MENUS.VOUCHER, COMMON.MENUS.RECEIVED_VOUCHER);
         cy.imsId(COMMON.TOGGLES.ACTION).first().click();
         cy.log(messages.ui.actionMessage);
     }

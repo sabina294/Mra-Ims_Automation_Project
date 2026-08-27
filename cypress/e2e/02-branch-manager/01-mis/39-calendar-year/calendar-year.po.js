@@ -5,7 +5,7 @@ class CalendarYear {
 
   gridCalendarListPage() {
     cy.fixture(this.test_data).then((data) => {
-      cy.selectMenu("menu-calendar", "submenu-calendar-year");
+      cy.selectMenu(COMMON.MENUS.CALENDAR, COMMON.MENUS.CALENDAR_YEAR);
       cy.log(messages.ui.gridListMessage);
     });
   }

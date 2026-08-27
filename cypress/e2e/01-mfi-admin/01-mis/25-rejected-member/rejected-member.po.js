@@ -6,7 +6,7 @@ class RrejectedMember {
   createRejectedMember() {
     cy.fixture(this.test_data).then((data) => {
       const rejmData = data.mfiAdmin.createRejectedMemberFrom;
-      cy.selectMenu("menu-member", "submenu-member-management");
+      cy.selectMenu(COMMON.MENUS.MEMBER, COMMON.MENUS.MEMBER_MANAGEMENT);
       cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
       cy.imsId(COMMON.BUTTONS.SUBMIT).and("be.visible");
 
@@ -94,7 +94,7 @@ class RrejectedMember {
   }
 
   actionButtonCheck() {
-    cy.selectMenu("menu-member", "submenu-rejected-member");
+    cy.selectMenu(COMMON.MENUS.MEMBER, COMMON.MENUS.REJECTED_MEMBER);
     cy.imsId(COMMON.TOGGLES.ACTION).first().click();
     cy.log(
       messages.ui.actionMessage

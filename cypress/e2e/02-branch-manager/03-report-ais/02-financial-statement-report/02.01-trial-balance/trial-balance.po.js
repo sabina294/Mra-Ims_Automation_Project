@@ -5,7 +5,7 @@ class TrialBalanceReport {
 
     gridTrialBalanceListPage() {
         cy.fixture(this.test_data).then((data) => {
-            cy.selectMenu("menu-report", "trial-balance");
+            cy.selectMenu(COMMON.MENUS.REPORT, COMMON.MENUS.TRIAL_BALANCE_REPORT);
             cy.log(messages.ui.gridListMessage);
         });
     }

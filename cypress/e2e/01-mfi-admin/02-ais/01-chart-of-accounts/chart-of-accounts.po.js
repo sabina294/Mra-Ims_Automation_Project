@@ -5,7 +5,7 @@ class ChartOfAccountsCreation {
 
     gridChartOfAccountsListPage() {
         cy.fixture(this.test_data).then((data) => {
-            cy.selectMenu("menu-accounting", "submenu-chart-of-accounts");
+            cy.selectMenu(COMMON.MENUS.ACCOUNTING, COMMON.MENUS.CHART_OF_ACCOUNTS);
             cy.log(messages.ui.gridListMessage);
         });
     }

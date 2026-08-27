@@ -5,14 +5,14 @@ class GeneralLedgerReport {
 
     gridGeneralLedgerListPage() {
         cy.fixture(this.test_data).then((data) => {
-            cy.selectMenu("menu-report", "general-ledger");
+            cy.selectMenu(COMMON.MENUS.REPORT, COMMON.MENUS.GENERAL_LEDGER_REPORT);
             // cy.wait(3000);
             cy.log(messages.ui.gridListMessage);
         });
     }
 
     viewReportButtonCheck() {
-        cy.selectMenu("menu-report", "general-ledger");
+        cy.selectMenu(COMMON.MENUS.REPORT, COMMON.MENUS.GENERAL_LEDGER_REPORT);
         cy.imsId(COMMON.BUTTONS.VIEW_REPORT).click();
         // cy.wait(5000);
         cy.imsId(COMMON.BUTTONS.GO_BACK).click();
@@ -20,7 +20,7 @@ class GeneralLedgerReport {
     }
 
     gridGoBackButtonCheck() {
-        cy.selectMenu("menu-report", "general-ledger");
+        cy.selectMenu(COMMON.MENUS.REPORT, COMMON.MENUS.GENERAL_LEDGER_REPORT);
         cy.imsId(COMMON.BUTTONS.GO_BACK).click();
         cy.log(messages.ui.goBackSuccess);
     }

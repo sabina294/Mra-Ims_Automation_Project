@@ -5,7 +5,7 @@ class ManualJournalCreation {
 
     gridManualJournalListPage() {
         cy.fixture(this.test_data).then((data) => {
-            cy.selectMenu("menu-accounting", "submenu-manual-journal");
+            cy.selectMenu(COMMON.MENUS.ACCOUNTING, COMMON.MENUS.MANUAL_JOURNAL);
             cy.log(messages.ui.gridListMessage);
         });
     }
@@ -183,7 +183,7 @@ class ManualJournalCreation {
 
 
     actionButtonCheck() {
-        cy.selectMenu("menu-accounting", "submenu-manual-journal");
+        cy.selectMenu(COMMON.MENUS.ACCOUNTING, COMMON.MENUS.MANUAL_JOURNAL);
         cy.imsId(COMMON.TOGGLES.ACTION).first().click();
         cy.log(messages.ui.actionMessage);
     }

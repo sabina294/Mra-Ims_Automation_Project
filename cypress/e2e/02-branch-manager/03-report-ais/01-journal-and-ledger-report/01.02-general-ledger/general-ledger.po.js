@@ -5,7 +5,7 @@ class GeneralLedgerReport {
 
     gridGeneralLedgerListPage() {
         cy.fixture(this.test_data).then((data) => {
-            cy.selectMenu("menu-report", "general-ledger");
+            cy.selectMenu(COMMON.MENUS.REPORT, COMMON.MENUS.GENERAL_LEDGER_REPORT);
             cy.log(messages.ui.gridListMessage);
         });
     }
@@ -27,7 +27,7 @@ class GeneralLedgerReport {
     }
 
     gridGoBackButtonCheck() {
-        cy.selectMenu("menu-report", "general-ledger");
+        cy.selectMenu(COMMON.MENUS.REPORT, COMMON.MENUS.GENERAL_LEDGER_REPORT);
         cy.imsId(COMMON.BUTTONS.GO_BACK).click();
         cy.log(messages.ui.goBackSuccess);
     }

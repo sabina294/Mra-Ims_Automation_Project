@@ -5,7 +5,7 @@ class LedgerSetting {
 
     gridLedgerSubGroupListPage() {
         cy.fixture(this.test_data).then((data) => {
-            cy.selectMenu("menu-accounting", "submenu-ledger-setting");
+            cy.selectMenu(COMMON.MENUS.ACCOUNTING, COMMON.MENUS.LEDGER_SETTING);
             cy.log(messages.ui.gridListMessage);
         });
     }

@@ -5,7 +5,7 @@ class ThanaCreation {
 
   gridThanaListPage() {
     cy.fixture(this.test_data).then((data) => {
-      cy.selectMenu("menu-configuration", "submenu-thana");
+      cy.selectMenu(COMMON.MENUS.CONFIGURATION, COMMON.MENUS.THANA);
       cy.log(messages.ui.gridListMessage);
     });
   }

@@ -5,7 +5,7 @@ class LoanPenalty {
 
   gridLoanPenaltyListPage() {
     cy.fixture(this.test_data).then((data) => {
-      cy.selectMenu("menu-loan-account", "submenu-loan-penalty");
+      cy.selectMenu(COMMON.MENUS.LOAN_ACCOUNT, COMMON.MENUS.LOAN_PENALTY);
       cy.log(messages.ui.gridListMessage);
     });
   }

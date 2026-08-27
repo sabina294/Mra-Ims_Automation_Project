@@ -5,7 +5,7 @@ class LoanChartUpdate {
 
   gridLoanChartListPage() {
     cy.fixture(this.test_data).then((data) => {
-      cy.selectMenu("menu-configuration", "submenu-loan-classification-chart");
+      cy.selectMenu(COMMON.MENUS.CONFIGURATION, COMMON.MENUS.LOAN_CLASSIFICATION_CHART);
       cy.log(messages.ui.gridListMessage);
     });
   }

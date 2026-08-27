@@ -5,7 +5,7 @@ class ClientWelfareFund {
 
   gridClientWelfareFundListPage() {
     cy.fixture(this.test_data).then((data) => {
-      cy.selectMenu("menu-loan-account", "submenu-client-welfare-fund");
+      cy.selectMenu(COMMON.MENUS.LOAN_ACCOUNT, COMMON.MENUS.CLIENT_WELFARE_FUND);
       cy.log(messages.ui.gridListMessage);
     });
   }
@@ -78,7 +78,7 @@ class ClientWelfareFund {
   }
 
   actionButtonCheck() {
-    cy.selectMenu("menu-loan-account", "submenu-client-welfare-fund");
+    cy.selectMenu(COMMON.MENUS.LOAN_ACCOUNT, COMMON.MENUS.CLIENT_WELFARE_FUND);
     cy.imsId(COMMON.TOGGLES.ACTION).first().click();
     cy.log(messages.ui.actionMessage);
   }

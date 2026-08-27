@@ -5,7 +5,7 @@ class PaymentPeriodCreation {
 
   gridPaymentPeriodListPage() {
     cy.fixture(this.test_data).then((data) => {
-      cy.selectMenu("menu-configuration", "submenu-payment-period");
+      cy.selectMenu(COMMON.MENUS.CONFIGURATION, COMMON.MENUS.PAYMENT_PERIOD);
       cy.log(messages.ui.gridListMessage);
     });
   }

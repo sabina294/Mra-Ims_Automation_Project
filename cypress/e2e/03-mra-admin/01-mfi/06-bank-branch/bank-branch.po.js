@@ -5,7 +5,7 @@ class BankBranchCreation {
 
   gridBankBranchListPage() {
     cy.fixture(this.test_data).then((data) => {
-      cy.selectMenu("menu-configuration", "submenu-bank-branch");
+      cy.selectMenu(COMMON.MENUS.CONFIGURATION, COMMON.MENUS.BANK_BRANCH);
       cy.log(messages.ui.gridListMessage);
     });
   }

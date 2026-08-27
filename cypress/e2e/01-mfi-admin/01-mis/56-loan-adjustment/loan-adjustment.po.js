@@ -5,7 +5,7 @@ class LoanAdjustment {
 
     gridLoanAdjustmentListPage() {
         cy.fixture(this.test_data).then((data) => {
-            cy.selectMenu("menu-transaction", "submenu-loan-adjustment");
+            cy.selectMenu(COMMON.MENUS.TRANSACTION, COMMON.MENUS.LOAN_ADJUSTMENT);
             cy.log(messages.ui.gridListMessage);
         });
     }

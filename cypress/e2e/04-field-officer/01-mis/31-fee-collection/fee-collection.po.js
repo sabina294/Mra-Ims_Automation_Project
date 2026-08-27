@@ -7,7 +7,7 @@ class FeeCollection {
 
     gridFeeCollectionListPage() {
         cy.fixture(this.test_data).then((data) => {
-            cy.selectMenu1("menu-fee-collection");
+            cy.selectMenu1(COMMON.MENUS.FEE_COLLECTION);
             cy.log(messages.ui.gridListMessage);
         });
     }

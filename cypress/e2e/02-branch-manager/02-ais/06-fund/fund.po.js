@@ -5,7 +5,7 @@ class FundTransferCreation {
 
     gridFundListPage() {
         cy.fixture(this.test_data).then((data) => {
-            cy.selectMenu1("menu-fund");
+            cy.selectMenu1(COMMON.MENUS.FUND);
             cy.log(messages.ui.gridListMessage);
         });
     }

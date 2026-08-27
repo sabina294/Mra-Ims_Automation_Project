@@ -5,7 +5,7 @@ class SamityChange {
 
   gridSamityChangeListPage() {
     cy.fixture(this.test_data).then((data) => {
-      cy.selectMenu("menu-samity", "submenu-samity-field-officer-change");
+      cy.selectMenu(COMMON.MENUS.SAMITY, COMMON.MENUS.SAMITY_FIELD_OFFICER_CHANGE);
       cy.log(messages.ui.gridListMessage);
     });
   }
@@ -94,7 +94,7 @@ class SamityChange {
   }
 
   actionButtonCheck() {
-    cy.selectMenu("menu-samity", "submenu-samity-field-officer-change");
+    cy.selectMenu(COMMON.MENUS.SAMITY, COMMON.MENUS.SAMITY_FIELD_OFFICER_CHANGE);
     cy.imsId(COMMON.TOGGLES.ACTION).first().click();
     cy.log(
       messages.ui.actionMessage

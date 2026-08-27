@@ -6,7 +6,7 @@ class DayEndProcessAis {
 
   gridDayEndProcessAisListPage() {
     cy.fixture(this.test_data).then((data) => {
-      cy.selectMenu("menu-process", "submenu-day-end-process-ais");
+      cy.selectMenu(COMMON.MENUS.PROCESS, COMMON.MENUS.DAY_END_PROCESS_AIS);
       cy.log(messages.ui.gridListMessage);
     });
   }

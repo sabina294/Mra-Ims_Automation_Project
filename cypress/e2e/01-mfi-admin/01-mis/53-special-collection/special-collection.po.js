@@ -5,7 +5,7 @@ class SpecialCollection {
 
     gridSpecialCollectionListPage() {
         cy.fixture(this.test_data).then((data) => {
-            cy.selectMenu("menu-transaction", "submenu-special-collection");
+            cy.selectMenu(COMMON.MENUS.TRANSACTION, COMMON.MENUS.SPECIAL_COLLECTION);
             cy.log(messages.ui.gridListMessage);
         });
     }

@@ -5,7 +5,7 @@ class cancelSamity {
     test_data = Cypress.env("TEST_DATA");
 
     gridCancelSamityListPage() {
-        cy.selectMenu("menu-process", "submenu-cancel-samity");
+        cy.selectMenu(COMMON.MENUS.PROCESS, COMMON.MENUS.CANCEL_SAMITY);
         cy.location("pathname", { timeout: 30000 })
             .should("include", "/process/cancel-samity");
         cy.get(COMMON.TABLE.BODY, { timeout: 30000 })

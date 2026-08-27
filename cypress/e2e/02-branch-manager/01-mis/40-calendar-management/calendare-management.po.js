@@ -5,7 +5,7 @@ class CalendarManagement {
 
   gridCalendarManagListPage() {
     cy.fixture(this.test_data).then((data) => {
-      cy.selectMenu("menu-calendar", "submenu-calendar-management");
+      cy.selectMenu(COMMON.MENUS.CALENDAR, COMMON.MENUS.CALENDAR_MANAGEMENT);
       cy.log(messages.ui.gridListMessage);
     });
   }

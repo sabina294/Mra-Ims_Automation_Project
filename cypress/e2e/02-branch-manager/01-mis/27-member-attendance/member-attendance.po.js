@@ -5,7 +5,7 @@ class MemberAttendance {
 
   gridMemberAttendanceListPage() {
     cy.fixture(this.test_data).then((data) => {
-      cy.selectMenu("menu-member", "submenu-member-attendance");
+      cy.selectMenu(COMMON.MENUS.MEMBER, COMMON.MENUS.MEMBER_ATTENDANCE);
       cy.log(messages.ui.gridListMessage);
     });
   }

@@ -5,7 +5,7 @@ class OrganizationLegalFormCreation {
 
   gridOrganizationLegalFromListPage() {
     cy.fixture(this.test_data).then((data) => {
-      cy.selectMenu("menu-configuration", "submenu-organization-legal-form");
+      cy.selectMenu(COMMON.MENUS.CONFIGURATION, COMMON.MENUS.ORGANIZATION_LEGAL_FORM);
       cy.log(messages.ui.gridListMessage);
     });
   }

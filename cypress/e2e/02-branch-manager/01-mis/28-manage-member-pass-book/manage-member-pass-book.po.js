@@ -5,7 +5,7 @@ class MemberPassbook {
 
   gridMemberPassbookListPage() {
     cy.fixture(this.test_data).then((data) => {
-      cy.selectMenu("menu-member", "submenu-manage-member-pass-book");
+      cy.selectMenu(COMMON.MENUS.MEMBER, COMMON.MENUS.MANAGE_MEMBER_PASS_BOOK);
       cy.log(messages.ui.gridListMessage);
     });
   }

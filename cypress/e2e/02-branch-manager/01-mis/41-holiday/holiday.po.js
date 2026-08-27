@@ -5,7 +5,7 @@ class HolidayCreation {
 
   gridHolidayListPage() {
     cy.fixture(this.test_data).then((data) => {
-      cy.selectMenu("menu-calendar", "submenu-holiday");
+      cy.selectMenu(COMMON.MENUS.CALENDAR, COMMON.MENUS.HOLIDAY);
       cy.log(messages.ui.gridListMessage);
     });
   }
@@ -71,8 +71,8 @@ class HolidayCreation {
   searchHolidayTitle() {
     cy.fixture(this.test_data).then((data) => {
       const hData = data.branchManager.createHoliday;
-      cy.selectMenu("menu-calendar", "submenu-holiday");
-      cy.selectMenu1("submenu-holiday");
+      cy.selectMenu(COMMON.MENUS.CALENDAR, COMMON.MENUS.HOLIDAY);
+      cy.selectMenu1(COMMON.MENUS.HOLIDAY);
       cy.imsId(COMMON.BUTTONS.RESET).click();
       cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(hData.search);
       cy.log(messages.ui.searchSuccess);

@@ -5,7 +5,7 @@ class EmployeeTermination {
 
     gridEmployeeTerminationListPage() {
         cy.fixture(this.test_data).then((data) => {
-            cy.selectMenu("menu-employee", "submenu-employee-termination");
+            cy.selectMenu(COMMON.MENUS.EMPLOYEE, COMMON.MENUS.EMPLOYEE_TERMINATION);
             cy.log(messages.ui.gridListMessage);
         });
     }
@@ -72,7 +72,7 @@ class EmployeeTermination {
     searchInEmployeeName() {
         cy.fixture(this.test_data).then((data) => {
             const etData = data.branchManager.gridEmpTerminationFrom;
-            cy.selectMenu("menu-employee", "submenu-employee-termination");
+            cy.selectMenu(COMMON.MENUS.EMPLOYEE, COMMON.MENUS.EMPLOYEE_TERMINATION);
             cy.imsId(COMMON.BUTTONS.RESET).click();
             cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(etData.search);
             cy.log(messages.ui.searchMessage);

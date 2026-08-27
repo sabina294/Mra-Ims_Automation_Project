@@ -5,21 +5,21 @@ class CashBookReport {
 
     gridCashBookListPage() {
         cy.fixture(this.test_data).then((data) => {
-            cy.selectMenu("menu-report", "cash-book");
+            cy.selectMenu(COMMON.MENUS.REPORT, COMMON.MENUS.CASH_BOOK_REPORT);
             // cy.wait(3000);
             cy.log(messages.ui.gridListMessage);
         });
     }
 
     viewReportButtonCheck() {
-        cy.selectMenu("menu-report", "cash-book");
+        cy.selectMenu(COMMON.MENUS.REPORT, COMMON.MENUS.CASH_BOOK_REPORT);
         // cy.imsId(COMMON.BUTTONS.VIEW_REPORT).click();
         cy.imsId(COMMON.BUTTONS.GO_BACK).click();
         cy.log(messages.ui.viewMessage);
     }
 
     gridGoBackButtonCheck() {
-        cy.selectMenu("menu-report", "cash-book");
+        cy.selectMenu(COMMON.MENUS.REPORT, COMMON.MENUS.CASH_BOOK_REPORT);
         cy.imsId(COMMON.BUTTONS.GO_BACK).click();
         cy.log(messages.ui.goBackSuccess);
     }

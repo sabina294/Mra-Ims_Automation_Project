@@ -5,10 +5,7 @@ class SavingsAccApplicationManagementCreation {
 
   gridSavingsAccApplicationListPage() {
     cy.fixture(this.test_data).then((data) => {
-      cy.selectMenu(
-        "menu-savings-account",
-        "submenu-savings-account-application-management"
-      );
+      cy.selectMenu(COMMON.MENUS.SAVINGS_ACCOUNT, COMMON.MENUS.SAVINGS_ACCOUNT_APPLICATION_MANAGEMENT);
       cy.log(messages.ui.gridListMessage);
     });
   }
@@ -55,10 +52,7 @@ class SavingsAccApplicationManagementCreation {
   }
 
   actionButtonCheck() {
-    cy.selectMenu(
-      "menu-savings-account",
-      "submenu-savings-account-application-management"
-    );
+    cy.selectMenu(COMMON.MENUS.SAVINGS_ACCOUNT, COMMON.MENUS.SAVINGS_ACCOUNT_APPLICATION_MANAGEMENT);
     cy.imsId(COMMON.TOGGLES.ACTION).first().click();
     cy.log(
       messages.ui.actionMessage

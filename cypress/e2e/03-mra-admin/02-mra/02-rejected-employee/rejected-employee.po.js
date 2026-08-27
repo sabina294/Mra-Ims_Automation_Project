@@ -5,7 +5,7 @@ class RejectedEmployee {
 
   createRejectedEmployee() {
     cy.fixture(this.test_data).then((data) => {
-      cy.selectMenu("menu-employee", "submenu-employee-management");
+      cy.selectMenu(COMMON.MENUS.EMPLOYEE, COMMON.MENUS.EMPLOYEE_MANAGEMENT);
       cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
       // cy.imsId(COMMON.BUTTONS.SUBMIT).and("be.visible");
 
@@ -97,7 +97,7 @@ class RejectedEmployee {
 
   gridEmployeeListPage() {
     cy.fixture(this.test_data).then((data) => {
-      cy.selectMenu("menu-employee", "submenu-rejected-employee");
+      cy.selectMenu(COMMON.MENUS.EMPLOYEE, COMMON.MENUS.REJECTED_EMPLOYEE);
       cy.log(messages.ui.gridListMessage);
     });
   }

@@ -465,7 +465,8 @@
       "search": "Dhaka Samity",
       "messageSaveSamity": "Unauth samity has been saved",
       "messageUpdateSamity": "Samity has been updated",
-      "rejectRemarks": "Reject"
+      "rejectRemarks": "Reject",
+      "turnOnEditModeLabel": "Turn On Edit Mode"
     },
     "samityChangeFrom": {
       "samityNameEn": "Test Samity",

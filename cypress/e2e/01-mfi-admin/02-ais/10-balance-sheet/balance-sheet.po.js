@@ -5,7 +5,7 @@ class BalanceSheet {
 
     gridBalanceSheetListPage() {
         cy.fixture(this.test_data).then((data) => {
-            cy.selectMenu("menu-financial-statement", "submenu-balance-sheet");
+            cy.selectMenu(COMMON.MENUS.FINANCIAL_STATEMENT, COMMON.MENUS.BALANCE_SHEET);
             cy.log(messages.ui.gridListMessage);
         });
     }

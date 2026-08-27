@@ -5,7 +5,7 @@ class EmployeeTransfer {
 
     gridEmployeeTransferListPage() {
         cy.fixture(this.test_data).then((data) => {
-            cy.selectMenu("menu-employee", "submenu-employee-transfer");
+            cy.selectMenu(COMMON.MENUS.EMPLOYEE, COMMON.MENUS.EMPLOYEE_TRANSFER);
             cy.log(messages.ui.gridListMessage);
         });
     }
@@ -144,7 +144,7 @@ class EmployeeTransfer {
     searchInEmployeeName() {
         cy.fixture(this.test_data).then((data) => {
             const emtData = data.branchManager.gridEmpTransferFrom;
-            cy.selectMenu("menu-employee", "submenu-employee-transfer");
+            cy.selectMenu(COMMON.MENUS.EMPLOYEE, COMMON.MENUS.EMPLOYEE_TRANSFER);
             cy.imsId(COMMON.BUTTONS.RESET).click();
             cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(emtData.search);
             cy.log(messages.ui.searchMessage);

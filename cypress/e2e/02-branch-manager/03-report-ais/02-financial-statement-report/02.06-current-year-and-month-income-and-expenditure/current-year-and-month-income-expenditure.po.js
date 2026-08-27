@@ -5,7 +5,7 @@ class CurrentYearAndMonthIncomeAndExpenditureReport {
 
     gridCurrentYearAndMonthIncomeAndExpenditureListPage() {
         cy.fixture(this.test_data).then((data) => {
-            cy.selectMenu("menu-report", "current-year-and-month-income-and-expenditure");
+            cy.selectMenu(COMMON.MENUS.REPORT, COMMON.MENUS.CURRENT_YEAR_AND_MONTH_INCOME_AND_EXPENDITURE_REPORT);
             cy.log(messages.ui.gridListMessage);
         });
     }

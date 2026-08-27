@@ -5,7 +5,7 @@ class SamityDayChange {
 
   gridSamityChangeListPage() {
     cy.fixture(this.test_data).then((data) => {
-      cy.selectMenu("menu-samity", "submenu-samity-day-change");
+      cy.selectMenu(COMMON.MENUS.SAMITY, COMMON.MENUS.SAMITY_DAY_CHANGE);
       cy.log(messages.ui.gridListMessage);
     });
   }
@@ -75,7 +75,7 @@ class SamityDayChange {
   }
 
   actionButtonCheck() {
-    cy.selectMenu("menu-samity", "submenu-samity-day-change");
+    cy.selectMenu(COMMON.MENUS.SAMITY, COMMON.MENUS.SAMITY_DAY_CHANGE);
     cy.imsId(COMMON.TOGGLES.ACTION).first().click();
     cy.log(
       messages.ui.actionMessage
