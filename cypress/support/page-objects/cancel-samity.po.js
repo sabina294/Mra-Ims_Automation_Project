@@ -15,14 +15,16 @@ class cancelSamity {
 
     gridCheckboxCheck() {
         cy.imsId(COMMON.BUTTONS.CHECK_SAMITY).click();
-        cy.imsId(COMMON.BUTTONS.SAMITY_CHECK).click();
+        // cy.imsId(COMMON.BUTTONS.SAMITY_CHECK).click();
         cy.log(messages.ui.checkboxMessage);
     }
 
     cancelMultipleSamity() {
         cy.imsId(COMMON.BUTTONS.CANCEL_MULTIPLE).click();
         cy.imsId(COMMON.CONFIRMATION.YES).click();
-        cy.imsId(COMMON.CONFIRMATION.OK).click();
+        cy.imsId(COMMON.CONFIRMATION.OK).click(
+            
+        );
         cy.log(messages.ui.cancelMultipleSamityMessage);
     }
 
