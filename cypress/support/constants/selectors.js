@@ -82,6 +82,7 @@ export const COMMON = {
     CANCEL_SAMITY: "btn-cancel-2",
     SELECT_ALLCHECKBOX: "check-select-all",
     CHECK_SAMITY: "check-samity-2",
+    SAMITY_CHECK:"check-samity-3",
     TURN_EDIT_MODE: "switch-button",
     PROFILE: "profile-menu",
     LANGUAGE_CHANGE: "btn-lang-bangla",
