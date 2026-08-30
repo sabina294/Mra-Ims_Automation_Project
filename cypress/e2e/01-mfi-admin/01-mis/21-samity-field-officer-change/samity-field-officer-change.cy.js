@@ -119,7 +119,43 @@ describe("21. Samity Field Officer Change Module Test Cases", function () {
     samity_field_officer_change.selectofficeDropdown();
   });
 
-  it("21.25. Verify that the grid list content changes correctly when switching the language from English to Bangla.", function () {
+  it("21.25. Verify that the Samity Field Officer Change grid displays all required columns correctly.", function () {
+    samity_field_officer_change.gridRequiredColumnsCheck();
+  });
+
+  it("21.26. Verify that clicking the Action button displays both View and Change options.", function () {
+    samity_field_officer_change.actionMenuOptionsCheck();
+  });
+
+  it("21.27. Verify that grid records can be sorted by Samity ID.", function () {
+    samity_field_officer_change.samityIdSortCheck();
+  });
+
+  it("21.28. Verify that grid records can be sorted by Samity Name.", function () {
+    samity_field_officer_change.samityNameSortCheck();
+  });
+
+  it("21.29. Verify that grid records can be sorted by Samity Type, Field Officer, and Samity Day.", function () {
+    samity_field_officer_change.otherSortableColumnsCheck();
+  });
+
+  it("21.30. Verify that the Next and Previous pagination buttons navigate between grid pages correctly.", function () {
+    samity_field_officer_change.nextPreviousPaginationCheck();
+  });
+
+  it("21.31. Verify that selecting a different page size updates the number of records displayed in the grid.", function () {
+    samity_field_officer_change.pageSizeChangeCheck();
+  });
+
+  it("21.32. Verify that an appropriate empty-state result is displayed when no record matches the search criteria.", function () {
+    samity_field_officer_change.emptySearchResultCheck();
+  });
+
+  it("21.33. Verify that multiple filters such as Office, Status, Draft, and Search work correctly when applied together.", function () {
+    samity_field_officer_change.combinedFiltersCheck();
+  });
+
+  it("21.34. Verify that the grid list content changes correctly when switching the language from English to Bangla.", function () {
     samity_field_officer_change.gridLanguageSwitchCheck();
   });
 }); 

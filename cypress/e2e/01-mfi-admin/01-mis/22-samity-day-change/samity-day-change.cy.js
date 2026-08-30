@@ -119,7 +119,43 @@ describe("22. Samity Day Change Module Test Cases", function () {
     samity_day_change.selectofficeDropdown();
   });
 
-  it("22.25. Verify that the grid list content changes correctly from English to Bangla.", function () {
+  it("22.25. Verify that the Samity Day Change grid displays all required columns correctly.", function () {
+    samity_day_change.gridRequiredColumnsCheck();
+  });
+
+  it("22.26. Verify that clicking the Action button displays both View and Change options.", function () {
+    samity_day_change.actionMenuOptionsCheck();
+  });
+
+  it("22.27. Verify that grid records can be sorted by Samity ID.", function () {
+    samity_day_change.samityIdSortCheck();
+  });
+
+  it("22.28. Verify that grid records can be sorted by Samity Name.", function () {
+    samity_day_change.samityNameSortCheck();
+  });
+
+  it("22.29. Verify that grid records can be sorted by Samity Type, Field Officer, and Samity Day.", function () {
+    samity_day_change.otherSortableColumnsCheck();
+  });
+
+  it("22.30. Verify that the Next and Previous pagination buttons work correctly.", function () {
+    samity_day_change.nextPreviousPaginationCheck();
+  });
+
+  it("22.31. Verify that selecting a different page size updates the number of grid records.", function () {
+    samity_day_change.pageSizeChangeCheck();
+  });
+
+  it("22.32. Verify that an empty result is displayed when no Samity matches the search criteria.", function () {
+    samity_day_change.emptySearchResultCheck();
+  });
+
+  it("22.33. Verify that Status, Draft, and Search filters work correctly when applied together.", function () {
+    samity_day_change.combinedFiltersCheck();
+  });
+
+  it("22.34. Verify that the grid list content changes correctly from English to Bangla.", function () {
     samity_day_change.gridLanguageSwitchCheck();
   });
 });

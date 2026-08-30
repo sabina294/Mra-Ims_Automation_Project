@@ -144,7 +144,43 @@ describe("29. Loan Product Management Module Test Cases", function () {
     create_loan_product_management.selectofficeDropdown();
   });
 
-  it("29.31. Verify that the grid list content changes correctly when switching the language from English to Bangla.", function () {
+  it("29.31. Verify that the Loan Product Management grid displays all required columns correctly.", function () {
+    create_loan_product_management.gridRequiredColumnsCheck();
+  });
+
+  it("29.32. Verify that clicking the Action button displays both View and Edit options.", function () {
+    create_loan_product_management.actionMenuOptionsCheck();
+  });
+
+  it("29.33. Verify that grid records can be sorted by Loan Product ID.", function () {
+    create_loan_product_management.loanProductIdSortCheck();
+  });
+
+  it("29.34. Verify that grid records can be sorted by Loan Product Name.", function () {
+    create_loan_product_management.loanProductNameSortCheck();
+  });
+
+  it("29.35. Verify that the remaining sortable Loan Product grid columns work correctly.", function () {
+    create_loan_product_management.otherSortableColumnsCheck();
+  });
+
+  it("29.36. Verify that the Next and Previous pagination buttons work correctly.", function () {
+    create_loan_product_management.nextPreviousPaginationCheck();
+  });
+
+  it("29.37. Verify that selecting a different page size updates the number of grid records.", function () {
+    create_loan_product_management.pageSizeChangeCheck();
+  });
+
+  it("29.38. Verify that an empty result is displayed when no Loan Product matches the search criteria.", function () {
+    create_loan_product_management.emptySearchResultCheck();
+  });
+
+  it("29.39. Verify that Status and Search filters work correctly when applied together.", function () {
+    create_loan_product_management.combinedFiltersCheck();
+  });
+
+  it("29.40. Verify that the grid list content changes correctly when switching the language from English to Bangla.", function () {
     create_loan_product_management.gridLanguageSwitchCheck();
   });
 });

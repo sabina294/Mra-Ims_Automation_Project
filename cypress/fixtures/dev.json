@@ -475,7 +475,28 @@
       "fieldOfficer": "EMP-0122 - GAIS UDDIN KHAN,",
       "selectOffice": "1020 (Ashulia)",
       "search": "Bamonkhali Mohila Samity",
-      "messageSamityChange": "Samity has been updated"
+      "messageSamityChange": "Samity has been updated",
+      "gridColumns": [
+        "#",
+        "Samity Id",
+        "Samity Name",
+        "Samity Type",
+        "Field Officer",
+        "Samity Day",
+        "Status",
+        "Actions"
+      ],
+      "sortColumns": {
+        "samityId": "Samity Id",
+        "samityName": "Samity Name",
+        "other": [
+          "Samity Type",
+          "Field Officer",
+          "Samity Day"
+        ]
+      },
+      "pageSize": "20",
+      "invalidSearch": "NO_MATCHING_SAMITY_987654321"
     },
     "approveSamityChangeFrom": {
       "OfficeDropdown": "1020 (Ashulia)"
@@ -487,7 +508,28 @@
       "SelectOffice": "1020 (Ashulia)",
       "newSamityDay": "Monday",
       "search": "Majhail Mohila Samity",
-      "messageSamityDayChange": "Samity day has been updated"
+      "messageSamityDayChange": "Samity day has been updated",
+      "gridColumns": [
+        "#",
+        "Samity Id",
+        "Samity Name",
+        "Samity Type",
+        "Field Officer",
+        "Samity Day",
+        "Status",
+        "Actions"
+      ],
+      "sortColumns": {
+        "samityId": "Samity Id",
+        "samityName": "Samity Name",
+        "other": [
+          "Samity Type",
+          "Field Officer",
+          "Samity Day"
+        ]
+      },
+      "pageSize": "20",
+      "invalidSearch": "NO_MATCHING_SAMITY_DAY_987654321"
     },
     "approveSamityDayChangeFrom": {
       "OfficeDropdown": "1020 (Ashulia)"
@@ -498,7 +540,28 @@
       "statusSelect": "Active",
       "SelectOffice": "1019 (Amin Bazar)",
       "search": "Abdullapur Mohila Samity",
-      "messageSamityClose": "Samity has been closed successfully."
+      "messageSamityClose": "Samity has been closed successfully.",
+      "gridColumns": [
+        "#",
+        "Samity Id",
+        "Samity Name",
+        "Samity Type",
+        "Field Officer",
+        "Samity Day",
+        "Status",
+        "Actions"
+      ],
+      "sortColumns": {
+        "samityId": "Samity Id",
+        "samityName": "Samity Name",
+        "other": [
+          "Samity Type",
+          "Field Officer",
+          "Samity Day"
+        ]
+      },
+      "pageSize": "20",
+      "invalidSearch": "NO_MATCHING_SAMITY_CLOSE_987654321"
     },
     "approveSamityCloseFrom": {
       "OfficeDropdown": "1020 (Ashulia)"
@@ -600,7 +663,30 @@
       "SelectOffice": "1020 (Ashulia)",
       "search": "Cooperative Farming Credit",
       "messageSaveLoanProduct": "Loan product has been saved",
-      "messageUpdateLoanProduct": "Do you want to update this loan product?"
+      "messageUpdateLoanProduct": "Do you want to update this loan product?",
+      "gridColumns": [
+        "#",
+        "Loan Product ID",
+        "Loan Product Name",
+        "Product Display Name",
+        "MFI Program ID",
+        "Product Nature",
+        "Repayment Frequency",
+        "Status",
+        "Actions"
+      ],
+      "sortColumns": {
+        "loanProductId": "Loan Product ID",
+        "loanProductName": "Loan Product Name",
+        "other": [
+          "Product Display Name",
+          "MFI Program ID",
+          "Product Nature",
+          "Repayment Frequency"
+        ]
+      },
+      "pageSize": "20",
+      "invalidSearch": "NO_MATCHING_LOAN_PRODUCT_987654321"
     },
     "createLoanAccountFrom": {
       "office": "1020 (Ashulia)",

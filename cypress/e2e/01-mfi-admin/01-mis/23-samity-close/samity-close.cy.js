@@ -99,7 +99,43 @@ describe("23. Samity Close Module Test Cases", function () {
     Samity_close.selectofficeDropdown();
   });
 
-  it("23.20. Verify that the grid list content changes successfully from English to Bangla.", function () {
+  it("23.20. Verify that the Samity Close grid displays all required columns correctly.", function () {
+    Samity_close.gridRequiredColumnsCheck();
+  });
+
+  it("23.21. Verify that clicking the Action button displays both View and Close options.", function () {
+    Samity_close.actionMenuOptionsCheck();
+  });
+
+  it("23.22. Verify that grid records can be sorted by Samity ID.", function () {
+    Samity_close.samityIdSortCheck();
+  });
+
+  it("23.23. Verify that grid records can be sorted by Samity Name.", function () {
+    Samity_close.samityNameSortCheck();
+  });
+
+  it("23.24. Verify that grid records can be sorted by Samity Type, Field Officer, and Samity Day.", function () {
+    Samity_close.otherSortableColumnsCheck();
+  });
+
+  it("23.25. Verify that the Next and Previous pagination buttons work correctly.", function () {
+    Samity_close.nextPreviousPaginationCheck();
+  });
+
+  it("23.26. Verify that selecting a different page size updates the number of grid records.", function () {
+    Samity_close.pageSizeChangeCheck();
+  });
+
+  it("23.27. Verify that an empty result is displayed when no Samity matches the search criteria.", function () {
+    Samity_close.emptySearchResultCheck();
+  });
+
+  it("23.28. Verify that Status, Draft, and Search filters work correctly when applied together.", function () {
+    Samity_close.combinedFiltersCheck();
+  });
+
+  it("23.29. Verify that the grid list content changes successfully from English to Bangla.", function () {
     Samity_close.gridLanguageSwitchCheck();
   });
 });
