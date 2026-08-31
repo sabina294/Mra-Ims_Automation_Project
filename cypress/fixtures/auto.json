@@ -804,6 +804,14 @@
       "selectStatus": "Inactive",
       "statusSelect": "Active",
       "search": "General Savings",
+      "gridColumns": ["#", "Savings Product ID", "Company Product ID", "Savings Product Name", "MFI Program ID", "Interest Rate Terms", "Interest Rate Frequency", "Status", "Actions"],
+      "sortColumns": {
+        "savingsProductId": "Savings Product ID",
+        "savingsProductName": "Savings Product Name",
+        "other": ["Company Product ID", "MFI Program ID", "Interest Rate Terms", "Interest Rate Frequency"]
+      },
+      "pageSize": "20",
+      "invalidSearch": "NO_MATCHING_SAVINGS_PRODUCT_987654321",
       "saveSavingsMessage": "Savings product has been saved",
       "updateSavingsMessage": "Savings product has been updated"
     },

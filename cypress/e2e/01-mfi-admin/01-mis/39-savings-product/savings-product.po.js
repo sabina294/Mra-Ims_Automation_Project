@@ -3,6 +3,45 @@ import { COMMON } from "../../../../support/constants/selectors";
 class SavingsProductCreation {
   test_data = Cypress.env("TEST_DATA");
 
+  openListPage() {
+    cy.get("body").type("{esc}", { force: true });
+    cy.location("pathname").then((pathname) => {
+      if (pathname.includes("/savings-product/list")) {
+        return;
+      }
+
+      if (
+        pathname.includes("/savings-product/view/") ||
+        pathname.includes("/savings-product/create")
+      ) {
+        cy.imsId(COMMON.BUTTONS.GO_BACK)
+          .scrollIntoView()
+          .click({ force: true });
+        cy.location("pathname").should("include", "/savings-product/list");
+        return;
+      }
+
+      cy.selectMenu1(COMMON.MENUS.SAVINGS_PRODUCT);
+    });
+    cy.imsId(COMMON.BUTTONS.RESET).should("be.visible").click();
+    cy.get(COMMON.TABLE.VISIBLE_ROWS).should("have.length.greaterThan", 0);
+  }
+
+  assertSortableColumn(columnName) {
+    cy.get(COMMON.TABLE.HEAD)
+      .contains(COMMON.TABLE.HEADER_CELL, columnName)
+      .click()
+      .should(($header) => {
+        const ariaSort = $header.attr(COMMON.SORT.ATTRIBUTE);
+        const ascendingIconIsActive =
+          $header.find(COMMON.SORT.ASCENDING_ICON).length > 0;
+        expect(
+          ariaSort === COMMON.SORT.ASCENDING || ascendingIconIsActive
+        ).to.equal(true);
+      });
+    cy.get(COMMON.TABLE.VISIBLE_ROWS).should("have.length.greaterThan", 0);
+  }
+
   gridSavingsProductListPage() {
     cy.fixture(this.test_data).then((data) => {
       cy.selectMenu1(COMMON.MENUS.SAVINGS_PRODUCT);
@@ -664,6 +703,110 @@ class SavingsProductCreation {
       cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(spData.search);
       cy.imsId(COMMON.BUTTONS.SEARCH).click();
       cy.log(messages.ui.searchMessage);
+    });
+  }
+
+  gridRequiredColumnsCheck() {
+    this.openListPage();
+    cy.fixture(this.test_data).then((data) => {
+      data.mfiAdmin.createSavingsProduct.gridColumns.forEach((columnName) => {
+        cy.get(COMMON.TABLE.HEAD)
+          .contains(COMMON.TABLE.HEADER_CELL, columnName)
+          .should("be.visible");
+      });
+      cy.log(messages.ui.gridColumns);
+    });
+  }
+
+  actionMenuOptionsCheck() {
+    this.openListPage();
+    cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+    cy.imsId(COMMON.GRID.ACTION_VIEW).should("be.visible");
+    cy.imsId(COMMON.GRID.ACTION_EDIT).should("be.visible");
+    cy.log(messages.ui.actionMenuOpenCheck);
+  }
+
+  savingsProductIdSortCheck() {
+    this.openListPage();
+    cy.fixture(this.test_data).then((data) => {
+      this.assertSortableColumn(
+        data.mfiAdmin.createSavingsProduct.sortColumns.savingsProductId
+      );
+      cy.log(messages.ui.ascendingSort);
+    });
+  }
+
+  savingsProductNameSortCheck() {
+    this.openListPage();
+    cy.fixture(this.test_data).then((data) => {
+      this.assertSortableColumn(
+        data.mfiAdmin.createSavingsProduct.sortColumns.savingsProductName
+      );
+      cy.log(messages.ui.ascendingSort);
+    });
+  }
+
+  otherSortableColumnsCheck() {
+    this.openListPage();
+    cy.fixture(this.test_data).then((data) => {
+      data.mfiAdmin.createSavingsProduct.sortColumns.other.forEach(
+        (columnName) => this.assertSortableColumn(columnName)
+      );
+      cy.log(messages.ui.ascendingSort);
+    });
+  }
+
+  nextPreviousPaginationCheck() {
+    this.openListPage();
+    cy.get(COMMON.PAGINATION.CONTAINER).should("be.visible");
+    cy.get(COMMON.PAGINATION.NEXT_PAGE).then(($nextButton) => {
+      if ($nextButton.hasClass(COMMON.PAGINATION.DISABLED_CLASS)) {
+        cy.wrap($nextButton).should("have.class", COMMON.PAGINATION.DISABLED_CLASS);
+        cy.get(COMMON.PAGINATION.PREVIOUS_PAGE).should(
+          "have.class",
+          COMMON.PAGINATION.DISABLED_CLASS
+        );
+        cy.get(COMMON.PAGINATION.ACTIVE_PAGE).should("contain.text", "1");
+        return;
+      }
+
+      cy.wrap($nextButton).click();
+      cy.get(COMMON.PAGINATION.ACTIVE_PAGE).should("contain.text", "2");
+      cy.get(COMMON.PAGINATION.PREVIOUS_PAGE)
+        .should("not.have.class", COMMON.PAGINATION.DISABLED_CLASS)
+        .click();
+      cy.get(COMMON.PAGINATION.ACTIVE_PAGE).should("contain.text", "1");
+    });
+    cy.log(messages.ui.pagination);
+  }
+
+  pageSizeChangeCheck() {
+    this.openListPage();
+    cy.fixture(this.test_data).then((data) => {
+      const pageSize = Number(data.mfiAdmin.createSavingsProduct.pageSize);
+      cy.get(COMMON.PAGINATION.PAGE_SIZE_SELECT).should("be.visible").click();
+      cy.get(COMMON.SELECT.VISIBLE_DROPDOWN)
+        .contains(COMMON.SELECT.OPTION, `${pageSize} / page`)
+        .click();
+      cy.get(COMMON.TABLE.VISIBLE_ROWS)
+        .its("length")
+        .should("be.greaterThan", 0)
+        .and("be.at.most", pageSize);
+      cy.get(COMMON.PAGINATION.PAGE_SIZE_SELECT).should("contain.text", pageSize);
+      cy.log(messages.ui.pageSize);
+    });
+  }
+
+  emptySearchResultCheck() {
+    this.openListPage();
+    cy.fixture(this.test_data).then((data) => {
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT)
+        .clear()
+        .type(data.mfiAdmin.createSavingsProduct.invalidSearch);
+      cy.imsId(COMMON.BUTTONS.SEARCH).click();
+      cy.get(".ant-empty").should("be.visible");
+      cy.get(COMMON.TABLE.VISIBLE_ROWS).should("have.length", 0);
+      cy.log(messages.ui.searchNoResult);
     });
   }
 

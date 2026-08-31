@@ -108,9 +108,9 @@ describe("39. Savings Product Module Test Cases", function () {
     create_savings_product.editGoBackButton();
   });
 
-  // it("39.22. Verify that the Savings Product information can be edited successfully by the MFI Admin role.", function () {
-  //   create_savings_product.editSavingsProduct();
-  // });
+  it("39.22. Verify that the Savings Product information can be edited successfully by the MFI Admin role.", function () {
+    create_savings_product.editSavingsProduct();
+  });
 
   it("39.23. Verify that the user can filter inactive Savings Products using the Status dropdown from the Savings Product list page.", function () {
     create_savings_product.statusInactiveDropdownCheck();
@@ -148,7 +148,39 @@ describe("39. Savings Product Module Test Cases", function () {
     create_savings_product.gridSearchButtonCheck();
   });
 
-  it("39.32. Verify that the grid list content changes correctly when switching the language from English to Bangla.", function () {
+  it("39.32. Verify that the Savings Product grid displays all required columns correctly.", function () {
+    create_savings_product.gridRequiredColumnsCheck();
+  });
+
+  it("39.33. Verify that clicking the Action button displays both View and Edit options.", function () {
+    create_savings_product.actionMenuOptionsCheck();
+  });
+
+  it("39.34. Verify that grid records can be sorted by Savings Product ID.", function () {
+    create_savings_product.savingsProductIdSortCheck();
+  });
+
+  it("39.35. Verify that grid records can be sorted by Savings Product Name.", function () {
+    create_savings_product.savingsProductNameSortCheck();
+  });
+
+  it("39.36. Verify that the remaining sortable Savings Product grid columns work correctly.", function () {
+    create_savings_product.otherSortableColumnsCheck();
+  });
+
+  it("39.37. Verify that the Next and Previous pagination buttons work correctly.", function () {
+    create_savings_product.nextPreviousPaginationCheck();
+  });
+
+  it("39.38. Verify that selecting a different page size updates the number of grid records.", function () {
+    create_savings_product.pageSizeChangeCheck();
+  });
+
+  it("39.39. Verify that an empty result is displayed when no Savings Product matches the search criteria.", function () {
+    create_savings_product.emptySearchResultCheck();
+  });
+
+  it("39.40. Verify that the grid list content changes correctly when switching the language from English to Bangla.", function () {
     create_savings_product.gridLanguageSwitchCheck();
   });
 });
