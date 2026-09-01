@@ -30,12 +30,12 @@ describe("42. Calendar Year Module Test Cases", function () {
   it("42.02. Verify a new calendar year record is created successfully when all required fields are filled with valid data.", function () {
     create_calendar_year.createCalendar();
   });
-  
+
   it("42.03. Verify that the created calendar year record appears in My Tasks.", function () {
     create_calendar_year.myTaskMenuCalendarYear();
   });
 
-   it("42.04. Verify that the Reset button clears all applied filters on the My Tasks page.", function () {
+  it("42.04. Verify that the Reset button clears all applied filters on the My Tasks page.", function () {
     create_calendar_year.myTaskResetButtonCheck();
   });
 
@@ -99,7 +99,23 @@ describe("42. Calendar Year Module Test Cases", function () {
     create_calendar_year.gridSearchButtonCheck();
   });
 
-  it("42.20. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("42.20. Verify that the holiday cannot be submitted without entering the required Holiday Title (Bangla).", function () {
+    create_calendar_year.submitHolidayWithoutBanglaTitleCheck();
+  });
+
+  it("42.21. Verify that the holiday cannot be submitted without entering the required Holiday Title (English).", function () {
+    create_calendar_year.submitHolidayWithoutEnglishTitleCheck();
+  });
+
+  it("42.22. Verify that the holiday cannot be submitted without selecting the required Day of the Month.", function () {
+    create_calendar_year.submitHolidayWithoutDayOfMonthCheck();
+  });
+
+  it("42.23. Verify that the holiday cannot be submitted without selecting the required Month of the Year.", function () {
+    create_calendar_year.submitHolidayWithoutMonthOfYearCheck();
+  });
+
+  it("42.24. Verify check that the grid list content changes correctly from english to bangla.", function () {
     create_calendar_year.gridLanguageSwitchCheck();
   });
 });

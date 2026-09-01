@@ -41,13 +41,13 @@ class CalendarYearCreation {
       cy.log(messages.ui.actionMessage);
     });
   }
- 
+
   myTaskResetButtonCheck() {
     cy.imsId(COMMON.BUTTONS.RESET).click();
     cy.log(messages.ui.resetSuccess);
   }
 
-   myTaskRefreshButtonCheck() {
+  myTaskRefreshButtonCheck() {
     cy.imsId(COMMON.BUTTONS.REFRESH).click();
     // cy.imsId(COMMON.BUTTONS.RESET).click();
     // cy.imsId(COMMON.BUTTONS.REFRESH).click();
@@ -163,6 +163,74 @@ class CalendarYearCreation {
       cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(cyData.search);
       cy.imsId(COMMON.BUTTONS.SEARCH).click();
       cy.log(messages.ui.searchMessage);
+    });
+  }
+
+
+  submitHolidayWithoutBanglaTitleCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
+      const cyData = data.mfiAdmin.createCalendarYear;
+      cy.imsId(COMMON.BUTTONS.ADD).click();
+      cy.formController("holiday_title_en").type(cyData.holidayTitleEn);
+      cy.formController("day_of_month").type(cyData.dayOfMonth).type("{enter}");
+      cy.formController("month_of_year")
+        .type(cyData.monthOfYear)
+        .type("{enter}");
+      cy.imsId(COMMON.BUTTONS.MODAL_SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
+      cy.get('.tertiary-button').click();
+      cy.log(messages.ui.submitSuccess);
+    });
+  }
+
+
+  submitHolidayWithoutEnglishTitleCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      const cyData = data.mfiAdmin.createCalendarYear;
+      cy.imsId(COMMON.BUTTONS.ADD).click();
+      cy.formController("holiday_title_bn").type(cyData.holidayTitleBn);
+      cy.formController("day_of_month").type(cyData.dayOfMonth).type("{enter}");
+      cy.formController("month_of_year")
+        .type(cyData.monthOfYear)
+        .type("{enter}");
+      cy.imsId(COMMON.BUTTONS.MODAL_SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
+      cy.get('.tertiary-button').click();
+      cy.log(messages.ui.submitSuccess);
+    });
+  }
+
+
+  submitHolidayWithoutDayOfMonthCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      const cyData = data.mfiAdmin.createCalendarYear;
+      cy.imsId(COMMON.BUTTONS.ADD).click();
+      cy.formController("holiday_title_bn").type(cyData.holidayTitleBn);
+      cy.formController("holiday_title_en").type(cyData.holidayTitleEn);
+      cy.formController("month_of_year")
+        .type(cyData.monthOfYear)
+        .type("{enter}");
+      cy.imsId(COMMON.BUTTONS.MODAL_SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
+      cy.get('.tertiary-button').click();
+
+      cy.log(messages.ui.submitSuccess);
+    });
+  }
+
+
+  submitHolidayWithoutMonthOfYearCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      const cyData = data.mfiAdmin.createCalendarYear;
+      cy.imsId(COMMON.BUTTONS.ADD).click();
+      cy.formController("holiday_title_bn").type(cyData.holidayTitleBn);
+      cy.formController("holiday_title_en").type(cyData.holidayTitleEn);
+      cy.formController("day_of_month").type(cyData.dayOfMonth).type("{enter}");
+      cy.imsId(COMMON.BUTTONS.MODAL_SUBMIT).click();
+      cy.imsId(COMMON.CONFIRMATION.OK).click();
+      cy.get('.tertiary-button').click();
+      cy.log(messages.ui.submitSuccess);
     });
   }
 
