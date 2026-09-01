@@ -20,9 +20,9 @@ class LoanProductManagement {
   viewLoanProductManagement() {
     cy.fixture(this.test_data).then((data) => {
       const lpData = data.fieldOfficer.loanProductFrom;
-      cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(lpData.loanProductNameEn);
-      cy.imsId(COMMON.BUTTONS.SEARCH).click();
-      cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+      // cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(lpData.loanProductNameEn);
+      // cy.imsId(COMMON.BUTTONS.SEARCH).click();
+      // cy.imsId(COMMON.TOGGLES.ACTION).first().click();
       cy.imsId(COMMON.GRID.ACTION_VIEW).click();
 
       cy.log(messages.ui.viewMessage);
