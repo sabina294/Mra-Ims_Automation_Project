@@ -14,8 +14,17 @@ class cancelSamity {
     }
 
     gridCheckboxCheck() {
-        cy.imsId(COMMON.BUTTONS.CHECK_SAMITY).click();
-        // cy.imsId(COMMON.BUTTONS.SAMITY_CHECK).click();
+        // Select the checkbox from the second visible data row. Do not depend on
+        // a generated row id such as `check-samity-2`.
+        cy.get(`${COMMON.TABLE.BODY} tr`, { timeout: 30000 })
+            .filter(":visible")
+            .should("have.length.at.least", 2)
+            .eq(1)
+            .find('input[type="checkbox"], [data-ims-id^="check-samity-"]')
+            .filter(":visible")
+            .first()
+            .should("not.be.disabled")
+            .click();
         cy.log(messages.ui.checkboxMessage);
     }
 
