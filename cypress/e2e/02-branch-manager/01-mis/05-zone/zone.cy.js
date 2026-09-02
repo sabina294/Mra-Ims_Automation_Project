@@ -78,7 +78,59 @@ describe("05. Zone Module Test Cases", function () {
     grid_zone.gridSearchButtonCheck();
   });
 
-  it("05.15. Verify that the grid list content correctly switches between English and Bangla languages.", function () {
+  it("05.15. Verify the Zone list breadcrumb.", function () {
+    grid_zone.listBreadcrumbCheck();
+  });
+
+  it("05.16. Verify the required Zone grid columns.", function () {
+    grid_zone.requiredGridColumnsCheck();
+  });
+
+  it("05.17. Verify valid Zone grid row data.", function () {
+    grid_zone.gridRecordDataCheck();
+  });
+
+  it("05.18. Verify exact Zone name search.", function () {
+    grid_zone.exactNameSearchCheck();
+  });
+
+  it("05.19. Verify partial Zone name search.", function () {
+    grid_zone.partialNameSearchCheck();
+  });
+
+  it("05.20. Verify non-existing Zone search shows no records.", function () {
+    grid_zone.noResultSearchCheck();
+  });
+
+  it("05.21. Verify Reset restores the Zone grid.", function () {
+    grid_zone.resetRestoresGridCheck();
+  });
+
+  it("05.22. Verify Active filter results.", function () {
+    grid_zone.activeStatusResultCheck();
+  });
+
+  it("05.23. Verify Zone Name ascending sorting.", function () {
+    grid_zone.nameAscendingSortCheck();
+  });
+
+  it("05.24. Verify Zone Name descending sorting.", function () {
+    grid_zone.nameDescendingSortCheck();
+  });
+  it("05.25. Verify Zone first-page pagination state.", function () {
+    grid_zone.firstPagePaginationCheck();
+  });
+
+  it("05.26. Verify Zone View breadcrumb and grid-to-view data.", function () {
+    grid_zone.viewPageDataAndBreadcrumbCheck();
+  });
+
+  it("05.27. Verify Zone Edit Mode fields and Reset behavior.", function () {
+    grid_zone.editModeFieldsAndResetCheck();
+  });
+
+  it("05.28. Verify that the grid list content correctly switches between English and Bangla languages.", function () {
     grid_zone.gridLanguageSwitchCheck();
   });
+  
 });

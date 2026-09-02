@@ -1,5 +1,6 @@
 import messages from "../../../../support/constants/messages";
 import { COMMON } from "../../../../support/constants/selectors";
+import { configurationGridChecks } from "../../../../support/page-objects/configuration-grid-checks";
 class Zone {
   test_data = Cypress.env("TEST_DATA");
 
@@ -107,7 +108,66 @@ class Zone {
   gridLanguageSwitchCheck() {
     cy.imsId(COMMON.BUTTONS.PROFILE).click();
     cy.imsId(COMMON.BUTTONS.LANGUAGE_CHANGE).click();
+    cy.get(COMMON.TABLE.BODY).should("be.visible");
     cy.log(messages.ui.languageSwitchMessage);
+  }
+
+  listBreadcrumbCheck() {
+    configurationGridChecks.breadcrumb("Zone");
+  }
+
+  requiredGridColumnsCheck() {
+    configurationGridChecks.columns(["#","Zone Name (English)","Zone Name (Bangla)","Region","Zone ID","Zone Code","Status","Actions"]);
+  }
+
+  gridRecordDataCheck() {
+    configurationGridChecks.records(6, [1,3,4,5]);
+  }
+
+  exactNameSearchCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      configurationGridChecks.exactSearch(data.branchManager.gridZoneFrom.nameEn, 1);
+    });
+  }
+
+  partialNameSearchCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      configurationGridChecks.partialSearch(data.branchManager.gridZoneFrom.nameEn);
+    });
+  }
+
+  noResultSearchCheck() {
+    configurationGridChecks.noResult("ZONE");
+  }
+
+  resetRestoresGridCheck() {
+    configurationGridChecks.reset();
+  }
+
+  activeStatusResultCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      configurationGridChecks.activeFilter(data.branchManager.gridZoneFrom.statusSelect, 6);
+    });
+  }
+
+  nameAscendingSortCheck() {
+    configurationGridChecks.sort("Zone Name (English)", COMMON.SORT.ASCENDING);
+  }
+
+  nameDescendingSortCheck() {
+    configurationGridChecks.sort("Zone Name (English)", COMMON.SORT.DESCENDING);
+  }
+
+  firstPagePaginationCheck() {
+    configurationGridChecks.pagination();
+  }
+
+  viewPageDataAndBreadcrumbCheck() {
+    configurationGridChecks.view("Zone", [1,2,3,4,5,6]);
+  }
+
+  editModeFieldsAndResetCheck() {
+    configurationGridChecks.editReset("zone_name_en", "zone_name_bn", ["region_id","zone_code"]);
   }
 }
 

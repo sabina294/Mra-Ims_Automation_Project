@@ -81,9 +81,59 @@ describe("02. Department Module Test Cases", function () {
     grid_department.gridSearchButtonCheck();
   });
 
-  it("02.15. Verify that the grid content language switches correctly between English and Bangla.", function () {
+  it("02.15. Verify that the Department List page displays the correct breadcrumb navigation.", function () {
+    grid_department.listBreadcrumbCheck();
+  });
+
+  it("02.16. Verify that the Department grid displays all required columns.", function () {
+    grid_department.requiredGridColumnsCheck();
+  });
+
+  it("02.17. Verify that each displayed department row contains valid department data.", function () {
+    grid_department.gridRecordDataCheck();
+  });
+
+  it("02.18. Verify that an exact department-name search returns the matching department.", function () {
+    grid_department.exactDepartmentSearchCheck();
+  });
+
+  it("02.19. Verify that a partial department-name search returns matching departments.", function () {
+    grid_department.partialDepartmentSearchCheck();
+  });
+
+  it("02.20. Verify that searching for a non-existing department displays no records.", function () {
+    grid_department.noResultSearchCheck();
+  });
+
+  it("02.21. Verify that Reset clears the search criteria and restores the department list.", function () {
+    grid_department.resetRestoresGridCheck();
+  });
+
+  it("02.22. Verify that the Active status filter displays only active departments.", function () {
+    grid_department.activeStatusResultCheck();
+  });
+
+  it("02.23. Verify that the Department Name column supports ascending sorting.", function () {
+    grid_department.departmentNameAscendingSortCheck();
+  });
+
+  it("02.24. Verify that the Department Name column supports descending sorting.", function () {
+    grid_department.departmentNameDescendingSortCheck();
+  });
+
+  it("02.25. Verify that the Department grid pagination is in the correct first-page state.", function () {
+    grid_department.firstPagePaginationCheck();
+  });
+
+  it("02.26. Verify that the Department View page breadcrumb and displayed data match the selected grid record.", function () {
+    grid_department.viewPageDataAndBreadcrumbCheck();
+  });
+
+  it("02.27. Verify that Edit Mode exposes the editable department fields and Reset clears unsaved input values.", function () {
+    grid_department.editModeFieldsAndResetCheck();
+  });
+
+  it("02.28. Verify that the grid content language switches correctly between English and Bangla.", function () {
     grid_department.gridLanguageSwitchCheck();
   });
 });
-
-

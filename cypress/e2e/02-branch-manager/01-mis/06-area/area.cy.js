@@ -79,7 +79,59 @@ describe("06. Area Module Test Cases", function () {
     grid_area.gridSearchButtonCheck();
   });
 
-  it("06.15. Verify that the grid list content successfully switches between English and Bangla.", function () {
+  it("06.15. Verify the Area list breadcrumb.", function () {
+    grid_area.listBreadcrumbCheck();
+  });
+
+  it("06.16. Verify the required Area grid columns.", function () {
+    grid_area.requiredGridColumnsCheck();
+  });
+
+  it("06.17. Verify valid Area grid row data.", function () {
+    grid_area.gridRecordDataCheck();
+  });
+
+  it("06.18. Verify exact Area name search.", function () {
+    grid_area.exactNameSearchCheck();
+  });
+
+  it("06.19. Verify partial Area name search.", function () {
+    grid_area.partialNameSearchCheck();
+  });
+  it("06.20. Verify non-existing Area search shows no records.", function () {
+    grid_area.noResultSearchCheck();
+  });
+
+  it("06.21. Verify Reset restores the Area grid.", function () {
+    grid_area.resetRestoresGridCheck();
+  });
+
+  it("06.22. Verify Active filter results.", function () {
+    grid_area.activeStatusResultCheck();
+  });
+
+  it("06.23. Verify Area Name ascending sorting.", function () {
+    grid_area.nameAscendingSortCheck();
+  });
+  
+  it("06.24. Verify Area Name descending sorting.", function () {
+    grid_area.nameDescendingSortCheck();
+  });
+
+  it("06.25. Verify Area first-page pagination state.", function () {
+    grid_area.firstPagePaginationCheck();
+  });
+
+  it("06.26. Verify Area View breadcrumb and grid-to-view data.", function () {
+    grid_area.viewPageDataAndBreadcrumbCheck();
+  });
+
+  it("06.27. Verify Area Edit Mode fields and Reset behavior.", function () {
+    grid_area.editModeFieldsAndResetCheck();
+  });
+
+  it("06.28. Verify that the grid list content successfully switches between English and Bangla.", function () {
     grid_area.gridLanguageSwitchCheck();
   });
+  
 });

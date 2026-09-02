@@ -151,6 +151,47 @@ class HolidayCreation {
     });
   }
 
+  listBreadcrumbCheck() {
+    cy.get("nz-breadcrumb, .ant-breadcrumb")
+      .should("be.visible")
+      .and("contain.text", "Home")
+      .and("contain.text", "Calendar")
+      .and("contain.text", "Holiday")
+      .and("contain.text", "List");
+    cy.log(messages.ui.listPageNavigationCheck);
+  }
+
+  requiredGridColumnsCheck() {
+    const requiredColumns = [
+      "#",
+      "Year",
+      "Date",
+      "Holiday Type",
+      "Holiday Title",
+      "Office",
+      "Status",
+    ];
+
+    requiredColumns.forEach((column) => {
+      cy.get(COMMON.TABLE.HEAD)
+        .contains(COMMON.TABLE.HEADER_CELL, column)
+        .should("be.visible");
+    });
+    cy.log(messages.ui.gridColumns);
+  }
+
+  firstPagePaginationCheck() {
+    cy.get(COMMON.PAGINATION.CONTAINER).should("be.visible");
+    cy.get(COMMON.PAGINATION.ACTIVE_PAGE)
+      .should("be.visible")
+      .and("contain.text", "1");
+    cy.get(COMMON.PAGINATION.PREVIOUS_PAGE)
+      .should("have.class", COMMON.PAGINATION.DISABLED_CLASS);
+    cy.get(COMMON.PAGINATION.TOTAL_TEXT).should("be.visible");
+    cy.get(COMMON.PAGINATION.PAGE_SIZE_SELECT).should("be.visible");
+    cy.log(messages.ui.pagination);
+  }
+
   gridLanguageSwitchCheck() {
     cy.imsId(COMMON.BUTTONS.PROFILE).click();
     cy.imsId(COMMON.BUTTONS.LANGUAGE_CHANGE).click();

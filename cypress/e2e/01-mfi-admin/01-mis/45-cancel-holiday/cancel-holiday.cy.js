@@ -76,7 +76,19 @@ describe("24. Cancel Holiday Module Test Cases", function () {
         create_cancel_holiday.gridSearchButtonCheck();
     });
 
-    it("45.14. Verify that the grid list content changes successfully from English to Bangla.", function () {
+    it("45.14. Verify that the Cancel Holiday list page displays the correct breadcrumb navigation.", function () {
+        create_cancel_holiday.listBreadcrumbCheck();
+    });
+
+    it("45.15. Verify that the Cancel Holiday list displays all required grid columns.", function () {
+        create_cancel_holiday.requiredGridColumnsCheck();
+    });
+
+    it("45.16. Verify that the Cancel Holiday list pagination is on the first-page state.", function () {
+        create_cancel_holiday.firstPagePaginationCheck();
+    });
+
+    it("45.17. Verify that the grid list content changes successfully from English to Bangla.", function () {
         create_cancel_holiday.gridLanguageSwitchCheck();
     });
 });

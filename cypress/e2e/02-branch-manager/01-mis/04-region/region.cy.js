@@ -79,7 +79,59 @@ describe("04. Region Module Test Cases", function () {
     grid_region.gridSearchButtonCheck();
   });
 
-  it("04.15. Verify that the Region grid language switches correctly between English and Bangla.", function () {
+  it("04.15. Verify the Region list breadcrumb.", function () {
+    grid_region.listBreadcrumbCheck();
+  });
+
+  it("04.16. Verify the required Region grid columns.", function () {
+    grid_region.requiredGridColumnsCheck();
+  });
+
+  it("04.17. Verify valid Region grid row data.", function () {
+    grid_region.gridRecordDataCheck();
+  });
+
+  it("04.18. Verify exact Region name search.", function () {
+    grid_region.exactNameSearchCheck();
+  });
+
+  it("04.19. Verify partial Region name search.", function () {
+    grid_region.partialNameSearchCheck();
+  });
+
+  it("04.20. Verify non-existing Region search shows no records.", function () {
+    grid_region.noResultSearchCheck();
+  });
+
+  it("04.21. Verify Reset restores the Region grid.", function () {
+    grid_region.resetRestoresGridCheck();
+  });
+
+  it("04.22. Verify Active filter results.", function () {
+    grid_region.activeStatusResultCheck();
+  });
+
+  it("04.23. Verify Region Name ascending sorting.", function () {
+    grid_region.nameAscendingSortCheck();
+  });
+
+  it("04.24. Verify Region Name descending sorting.", function () {
+    grid_region.nameDescendingSortCheck();
+  });
+
+  it("04.25. Verify Region first-page pagination state.", function () {
+    grid_region.firstPagePaginationCheck();
+  });
+
+  it("04.26. Verify Region View breadcrumb and grid-to-view data.", function () {
+    grid_region.viewPageDataAndBreadcrumbCheck();
+  });
+  
+  it("04.27. Verify Region Edit Mode fields and Reset behavior.", function () {
+    grid_region.editModeFieldsAndResetCheck();
+  });
+
+  it("04.28. Verify that the Region grid language switches correctly between English and Bangla.", function () {
     grid_region.gridLanguageSwitchCheck();
   });
 

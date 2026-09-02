@@ -79,7 +79,59 @@ describe("03. Designation Module Test Cases", function () {
     grid_designation.gridSearchButtonCheck();
   });
 
-  it("03.15. Verify that the grid content language switches correctly between English and Bangla.", function () {
+  it("03.15. Verify that the Designation List page displays the correct breadcrumb navigation.", function () {
+    grid_designation.listBreadcrumbCheck();
+  });
+
+  it("03.16. Verify that the Designation grid displays all required columns.", function () {
+    grid_designation.requiredGridColumnsCheck();
+  });
+
+  it("03.17. Verify that each displayed designation row contains valid data.", function () {
+    grid_designation.gridRecordDataCheck();
+  });
+
+  it("03.18. Verify that an exact designation-name search returns the matching designation.", function () {
+    grid_designation.exactDesignationSearchCheck();
+  });
+
+  it("03.19. Verify that a partial designation-name search returns matching designations.", function () {
+    grid_designation.partialDesignationSearchCheck();
+  });
+
+  it("03.20. Verify that searching for a non-existing designation displays no records.", function () {
+    grid_designation.noResultSearchCheck();
+  });
+
+  it("03.21. Verify that Reset clears the search criteria and restores the designation list.", function () {
+    grid_designation.resetRestoresGridCheck();
+  });
+
+  it("03.22. Verify that the Active status filter displays only active designations.", function () {
+    grid_designation.activeStatusResultCheck();
+  });
+
+  it("03.23. Verify that the Designation Name column supports ascending sorting.", function () {
+    grid_designation.designationNameAscendingSortCheck();
+  });
+
+  it("03.24. Verify that the Designation Name column supports descending sorting.", function () {
+    grid_designation.designationNameDescendingSortCheck();
+  });
+
+  it("03.25. Verify that the Designation grid pagination is in the correct first-page state.", function () {
+    grid_designation.firstPagePaginationCheck();
+  });
+
+  it("03.26. Verify that the Designation View page breadcrumb and displayed data match the selected grid record.", function () {
+    grid_designation.viewPageDataAndBreadcrumbCheck();
+  });
+
+  it("03.27. Verify that Edit Mode exposes the editable designation fields and Reset clears unsaved input values.", function () {
+    grid_designation.editModeFieldsAndResetCheck();
+  });
+
+  it("03.28. Verify that the grid content language switches correctly between English and Bangla.", function () {
     grid_designation.gridLanguageSwitchCheck();
   });
 });

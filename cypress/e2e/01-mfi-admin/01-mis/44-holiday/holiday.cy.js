@@ -91,7 +91,19 @@ describe("44. Holiday Module Test Cases", function () {
     create_holiday.selectCalendarYearDropdown();
   });
 
-  it("44.18. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("44.18. Verify that the Holiday list page displays the correct breadcrumb navigation.", function () {
+    create_holiday.listBreadcrumbCheck();
+  });
+
+  it("44.19. Verify that the Holiday list displays all required grid columns.", function () {
+    create_holiday.requiredGridColumnsCheck();
+  });
+
+  it("44.20. Verify that the Holiday list pagination is on the first-page state.", function () {
+    create_holiday.firstPagePaginationCheck();
+  });
+
+  it("44.21. Verify check that the grid list content changes correctly from english to bangla.", function () {
     create_holiday.gridLanguageSwitchCheck();
   });
 });
