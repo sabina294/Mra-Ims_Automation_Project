@@ -1047,18 +1047,44 @@
       "search": "Test Area"
     },
     "createBankAccountFrom": {
-      "bankName": "AGRANI BANK LTD.",
+     "bankName": "AGRANI BANK LTD.",
       "branchName": "BHANDARIA",
-      "accNameEn": "Farjana",
-      "accNameBn": "ফারজানা",
+      "accNameEn": "Sabina Yeasmin",
+      "accNameBn": "সাবিনা ইয়াসমিন",
       "accountType": "Savings Account",
       "accNumber": "0020672606",
       "status": "Active",
-      "search": "Farjana",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
-      "messageSaveBankAccount": "Mfi bank account has been saved",
-      "messageUpdateBankAccount": "Mfi bank account has been updated"
+      "search": "Sabina Yeasmin",
+      "duplicateAccountNumber": "0020672606",
+      "invalidAccountNumber": "INVALID_ACCOUNT_NUMBER",
+      "updatedAccNameEn": "Updated Account Name",
+      "invalidSearch": "XYZ_NON_EXISTING_BANK_ACCOUNT",
+      "partialSearch": "Sabina",
+      "spaceOnly": "   ",
+      "pageSize": "20",
+      "addButtonText": "Add Bank Account",
+      "searchPlaceholder": "Search Here",
+      "listPath": "/bank-account/list",
+      "viewPath": "/bank-account/view/",
+      "gridColumns": [
+        "Bank",
+        "Bank Branch",
+        "Account Name",
+        "Account Name (Bangla)",
+        "Account Number",
+        "Status"
+      ],
+      "viewLabels": {
+        "bank": "Bank",
+        "bankBranch": "Bank Branch",
+        "accountNameEn": "Account Name (English)",
+        "accountNameBn": "Account Name (Bangla)",
+        "accountType": "Account Type",
+        "accountNumber": "Account Number",
+        "status": "Status"
+      }
     },
     "gridFeeConfigurationFrom": {
       "feeTypeNameEn": "Member Admission Fee",

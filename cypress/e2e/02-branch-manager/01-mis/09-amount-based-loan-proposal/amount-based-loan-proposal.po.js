@@ -1,5 +1,6 @@
 import messages from "../../../../support/constants/messages";
 import { COMMON } from "../../../../support/constants/selectors";
+import { configurationGridChecks } from "../../../../support/page-objects/configuration-grid-checks";
 class AmountBasedLoanProposalApproval {
   test_data = Cypress.env("TEST_DATA");
 
@@ -111,6 +112,108 @@ class AmountBasedLoanProposalApproval {
     cy.imsId(COMMON.BUTTONS.PROFILE).click();
     cy.imsId(COMMON.BUTTONS.LANGUAGE_CHANGE).click();
     cy.log(messages.ui.languageSwitchMessage);
+  }
+
+  listBreadcrumbCheck() {
+    cy.changeLanguage("english");
+    configurationGridChecks.breadcrumb("Amount Based Loan Proposal Approval");
+  }
+
+  requiredGridColumnsCheck() {
+    configurationGridChecks.columns([
+      "#", "Role ID", "Role", "Office Type ID", "Office Type",
+      "Minimum Loan Amount", "Maximum Loan Amount", "Status", "Actions",
+    ]);
+  }
+
+  gridRecordDataCheck() {
+    cy.imsId(COMMON.BUTTONS.RESET).click();
+    cy.get(COMMON.TABLE.VISIBLE_ROWS).should("have.length.greaterThan", 0)
+      .each(($row) => {
+        cy.wrap($row).find(COMMON.TABLE.VISIBLE_CELLS).then(($cells) => {
+          const minimumText = $cells.eq(5).text().trim();
+          const maximumText = $cells.eq(6).text().trim();
+          const minimum = Number(minimumText);
+          const maximum = Number(maximumText);
+
+          expect(minimumText).to.not.equal("");
+          expect(maximumText).to.not.equal("");
+          expect(minimum).to.be.at.least(0);
+          expect(maximum).to.be.at.least(minimum);
+          expect(["Active", "Inactive"]).to.include($cells.eq(7).text().trim());
+        });
+      });
+    cy.log(messages.ui.recordStatusCheck);
+  }
+
+  exactNameSearchCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      configurationGridChecks.exactSearch(
+        data.branchManager.gridAmountBasedLoanFrom.roleName,
+        2
+      );
+    });
+  }
+
+  partialNameSearchCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      configurationGridChecks.partialSearch(
+        data.branchManager.gridAmountBasedLoanFrom.roleName
+      );
+    });
+  }
+
+  noResultSearchCheck() {
+    configurationGridChecks.noResult("LOAN_APPROVAL_ROLE");
+  }
+
+  resetRestoresGridCheck() {
+    configurationGridChecks.reset();
+  }
+
+  activeStatusResultCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      configurationGridChecks.activeFilter(
+        data.branchManager.gridAmountBasedLoanFrom.statusSelect,
+        7
+      );
+    });
+  }
+
+  nameAscendingSortCheck() {
+    configurationGridChecks.sort("Role", COMMON.SORT.ASCENDING);
+  }
+
+  nameDescendingSortCheck() {
+    configurationGridChecks.sort("Role", COMMON.SORT.DESCENDING);
+  }
+
+  firstPagePaginationCheck() {
+    configurationGridChecks.pagination();
+  }
+
+  viewPageDataAndBreadcrumbCheck() {
+    configurationGridChecks.view(
+      "Amount Based Loan Proposal Approval",
+      [1, 2, 3, 4, 5, 6, 7]
+    );
+  }
+
+  editModeFieldsAndResetCheck() {
+    cy.imsId(COMMON.BUTTONS.RESET).click();
+    cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+    cy.imsId(COMMON.GRID.ACTION_VIEW).click();
+    cy.imsId(COMMON.BUTTONS.TURN_EDIT_MODE).click();
+    [
+      "office_type_id", "role_id", "min_loan_amount", "max_loan_amount",
+      "remarks", COMMON.INPUTS.STATUS_DROPDOWN,
+    ].forEach((control) => cy.formController(control).should("be.visible"));
+    cy.formController("remarks").clear().type("Unsaved approval remarks");
+    cy.imsId(COMMON.BUTTONS.RESET).click();
+    cy.formController("remarks").should("have.value", "");
+    cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+    cy.get(COMMON.TABLE.BODY).should("be.visible");
+    cy.log(messages.ui.editResetMessage);
   }
 }
 

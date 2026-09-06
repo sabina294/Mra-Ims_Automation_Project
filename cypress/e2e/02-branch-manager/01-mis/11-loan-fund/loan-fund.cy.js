@@ -79,7 +79,59 @@ describe("11. Loan Fund Module Test Cases", function () {
     grid_loan_fund.gridSearchButtonCheck();
   });
 
-  it("11.15. Verify that the Loan Fund grid language switch updates content between English and Bangla correctly", function () {
+  it("11.15. Verify the Loan Fund list breadcrumb.", function () {
+    grid_loan_fund.listBreadcrumbCheck();
+  });
+
+  it("11.16. Verify the required Loan Fund grid columns.", function () {
+    grid_loan_fund.requiredGridColumnsCheck();
+  });
+
+  it("11.17. Verify that each Loan Fund row has a valid ID, amount, and status.", function () {
+    grid_loan_fund.gridRecordDataCheck();
+  });
+
+  it("11.18. Verify exact Bank Account search.", function () {
+    grid_loan_fund.exactNameSearchCheck();
+  });
+
+  it("11.19. Verify partial Bank Account search.", function () {
+    grid_loan_fund.partialNameSearchCheck();
+  });
+
+  it("11.20. Verify non-existing Loan Fund search shows no records.", function () {
+    grid_loan_fund.noResultSearchCheck();
+  });
+
+  it("11.21. Verify Reset restores the Loan Fund grid.", function () {
+    grid_loan_fund.resetRestoresGridCheck();
+  });
+
+  it("11.22. Verify Active filter results.", function () {
+    grid_loan_fund.activeStatusResultCheck();
+  });
+
+  it("11.23. Verify Loan Fund ID ascending sorting.", function () {
+    grid_loan_fund.nameAscendingSortCheck();
+  });
+
+  it("11.24. Verify Loan Fund ID descending sorting.", function () {
+    grid_loan_fund.nameDescendingSortCheck();
+  });
+
+  it("11.25. Verify Loan Fund first-page pagination state.", function () {
+    grid_loan_fund.firstPagePaginationCheck();
+  });
+
+  it("11.26. Verify Loan Fund View breadcrumb and grid-to-view data.", function () {
+    grid_loan_fund.viewPageDataAndBreadcrumbCheck();
+  });
+
+  it("11.27. Verify Loan Fund Edit Mode fields and Reset behavior.", function () {
+    grid_loan_fund.editModeFieldsAndResetCheck();
+  });
+
+  it("11.28. Verify that the Loan Fund grid language switch updates content between English and Bangla correctly.", function () {
     grid_loan_fund.gridLanguageSwitchCheck();
   });
 });

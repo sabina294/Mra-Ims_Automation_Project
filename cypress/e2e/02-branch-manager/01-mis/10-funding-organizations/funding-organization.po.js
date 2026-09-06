@@ -1,5 +1,6 @@
 import messages from "../../../../support/constants/messages";
 import { COMMON } from "../../../../support/constants/selectors";
+import { configurationGridChecks } from "../../../../support/page-objects/configuration-grid-checks";
 class FundingOrganization {
   test_data = Cypress.env("TEST_DATA");
 
@@ -111,6 +112,92 @@ class FundingOrganization {
     cy.imsId(COMMON.BUTTONS.PROFILE).click();
     cy.imsId(COMMON.BUTTONS.LANGUAGE_CHANGE).click();
     cy.log(messages.ui.languageSwitchMessage);
+  }
+
+  listBreadcrumbCheck() {
+    cy.changeLanguage("english");
+    configurationGridChecks.breadcrumb("Funding Organizations");
+  }
+
+  requiredGridColumnsCheck() {
+    configurationGridChecks.columns([
+      "#", "ID/Short Code", "Funding Organization Name",
+      "Funding Organization Type", "Status", "Actions",
+    ]);
+  }
+
+  gridRecordDataCheck() {
+    configurationGridChecks.records(4, [1, 2]);
+  }
+
+  exactNameSearchCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      configurationGridChecks.exactSearch(
+        data.branchManager.gridFundingOrganizationFrom.FundingNameEn,
+        2
+      );
+    });
+  }
+
+  partialNameSearchCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      configurationGridChecks.partialSearch(
+        data.branchManager.gridFundingOrganizationFrom.FundingNameEn
+      );
+    });
+  }
+
+  noResultSearchCheck() {
+    configurationGridChecks.noResult("FUNDING_ORGANIZATION");
+  }
+
+  resetRestoresGridCheck() {
+    configurationGridChecks.reset();
+  }
+
+  activeStatusResultCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      configurationGridChecks.activeFilter(
+        data.branchManager.gridFundingOrganizationFrom.statusSelect,
+        4
+      );
+    });
+  }
+
+  nameAscendingSortCheck() {
+    configurationGridChecks.sort("Funding Organization Name", COMMON.SORT.ASCENDING);
+  }
+
+  nameDescendingSortCheck() {
+    configurationGridChecks.sort("Funding Organization Name", COMMON.SORT.DESCENDING);
+  }
+
+  firstPagePaginationCheck() {
+    configurationGridChecks.pagination();
+  }
+
+  viewPageDataAndBreadcrumbCheck() {
+    configurationGridChecks.view("Funding Organizations", [1, 2, 4]);
+  }
+
+  editModeFieldsAndResetCheck() {
+    cy.imsId(COMMON.BUTTONS.RESET).click();
+    cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+    cy.imsId(COMMON.GRID.ACTION_VIEW).click();
+    cy.imsId(COMMON.BUTTONS.TURN_EDIT_MODE).click();
+    [
+      "funding_org_name", "loan_funding_organization_id",
+      "funding_organization_type", COMMON.INPUTS.STATUS_DROPDOWN,
+    ].forEach((control) => cy.formController(control).should("be.visible"));
+    cy.formController("funding_org_name")
+      .should("not.be.disabled")
+      .clear()
+      .type("Unsaved Funding Organization");
+    cy.imsId(COMMON.BUTTONS.RESET).click();
+    cy.formController("funding_org_name").should("have.value", "");
+    cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+    cy.get(COMMON.TABLE.BODY).should("be.visible");
+    cy.log(messages.ui.editResetMessage);
   }
 }
 

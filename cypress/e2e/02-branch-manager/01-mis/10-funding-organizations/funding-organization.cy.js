@@ -79,7 +79,59 @@ describe("10. Funding-organizations Module Test Cases ", function () {
     grid_funding_organization.gridSearchButtonCheck();
   });
 
-  it("10.15. Verify that switching language correctly updates the grid content from English to Bangla.", function () {
+  it("10.15. Verify the Funding Organizations list breadcrumb.", function () {
+    grid_funding_organization.listBreadcrumbCheck();
+  });
+
+  it("10.16. Verify the required Funding Organizations grid columns.", function () {
+    grid_funding_organization.requiredGridColumnsCheck();
+  });
+
+  it("10.17. Verify valid Funding Organization grid row data.", function () {
+    grid_funding_organization.gridRecordDataCheck();
+  });
+
+  it("10.18. Verify exact Funding Organization name search.", function () {
+    grid_funding_organization.exactNameSearchCheck();
+  });
+
+  it("10.19. Verify partial Funding Organization name search.", function () {
+    grid_funding_organization.partialNameSearchCheck();
+  });
+
+  it("10.20. Verify non-existing Funding Organization search shows no records.", function () {
+    grid_funding_organization.noResultSearchCheck();
+  });
+
+  it("10.21. Verify Reset restores the Funding Organizations grid.", function () {
+    grid_funding_organization.resetRestoresGridCheck();
+  });
+
+  it("10.22. Verify Active filter results.", function () {
+    grid_funding_organization.activeStatusResultCheck();
+  });
+
+  it("10.23. Verify Funding Organization Name ascending sorting.", function () {
+    grid_funding_organization.nameAscendingSortCheck();
+  });
+
+  it("10.24. Verify Funding Organization Name descending sorting.", function () {
+    grid_funding_organization.nameDescendingSortCheck();
+  });
+
+  it("10.25. Verify Funding Organizations first-page pagination state.", function () {
+    grid_funding_organization.firstPagePaginationCheck();
+  });
+
+  it("10.26. Verify Funding Organization View breadcrumb and grid-to-view data.", function () {
+    grid_funding_organization.viewPageDataAndBreadcrumbCheck();
+  });
+
+  it("10.27. Verify Funding Organization Edit Mode fields and Reset behavior.", function () {
+    grid_funding_organization.editModeFieldsAndResetCheck();
+  });
+
+  it("10.28. Verify that switching language correctly updates the grid content from English to Bangla.", function () {
     grid_funding_organization.gridLanguageSwitchCheck();
   });
 });

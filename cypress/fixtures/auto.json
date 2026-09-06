@@ -260,7 +260,14 @@
       "search": "Test",
       "existingOrganizationName": "BRAC",
       "invalidSearch": "NO_SUCH_FUNDING_ORG_987654321",
-      "gridColumns": ["#", "ID/Short Code", "Funding Organization Name", "Funding Organization Type", "Status", "Actions"]
+      "gridColumns": [
+        "#",
+        "ID/Short Code",
+        "Funding Organization Name",
+        "Funding Organization Type",
+        "Status",
+        "Actions"
+      ]
     },
     "createLoanFundFrom": {
       "bankAccount": "Dhaka Zonal Office",
@@ -272,7 +279,17 @@
       "search": "Dhaka Zonal Office",
       "existingLoanFundId": "PKSF-1001",
       "invalidSearch": "NO_SUCH_LOAN_FUND_987654321",
-      "gridColumns": ["#", "Loan Fund Id", "Bank Account", "Funding Organization", "Funding Notes", "Amount", "Loan Availability Date", "Status", "Actions"]
+      "gridColumns": [
+        "#",
+        "Loan Fund Id",
+        "Bank Account",
+        "Funding Organization",
+        "Funding Notes",
+        "Amount",
+        "Loan Availability Date",
+        "Status",
+        "Actions"
+      ]
     },
     "createMfiProgramFrom": {
       "programNameEn": "Sahosh",
@@ -287,7 +304,16 @@
       "messageUpdateMfiProgram": "Mfi program has been updated",
       "existingProgramName": "Sahosh",
       "invalidSearch": "NO_SUCH_MFI_PROGRAM_987654321",
-      "gridColumns": ["#", "MFI Program Id", "Name English", "Name Bangla", "Short Name", "Funding Category", "Status", "Actions"]
+      "gridColumns": [
+        "#",
+        "MFI Program Id",
+        "Name English",
+        "Name Bangla",
+        "Short Name",
+        "Funding Category",
+        "Status",
+        "Actions"
+      ]
     },
     "createOfficeFrom": {
       "officeNameEn": "Test Office",
@@ -312,7 +338,17 @@
       "messageUpdateOffice": "Office has been updated",
       "existingOfficeName": "Head Office",
       "invalidSearch": "OFFICE-NOT-FOUND-987654",
-      "gridColumns": ["#", "Office ID", "Company Office ID", "Name", "Type", "Program", "Locked by", "Status", "Actions"]
+      "gridColumns": [
+        "#",
+        "Office ID",
+        "Company Office ID",
+        "Name",
+        "Type",
+        "Program",
+        "Locked by",
+        "Status",
+        "Actions"
+      ]
     },
     "approveOfficeFrom": {
       "officeNameEn": "Test Office",
@@ -401,7 +437,7 @@
     "approveEmployeeTerminationFrom": {
       "OfficeDropdown": "1020 (Ashulia)"
     },
-      "createSamityFrom": {
+    "createSamityFrom": {
       "samityNameEn": "Test Samity",
       "samityNameBn": "পরীক্ষা সমিতি",
       "draftName": "Test",
@@ -467,7 +503,6 @@
       "messageUpdateSamity": "Samity has been updated",
       "rejectRemarks": "Reject",
       "turnOnEditModeLabel": "Turn On Edit Mode"
-
     },
     "samityChangeFrom": {
       "samityNameEn": "Test Samity",
@@ -804,11 +839,26 @@
       "selectStatus": "Inactive",
       "statusSelect": "Active",
       "search": "General Savings",
-      "gridColumns": ["#", "Savings Product ID", "Company Product ID", "Savings Product Name", "MFI Program ID", "Interest Rate Terms", "Interest Rate Frequency", "Status", "Actions"],
+      "gridColumns": [
+        "#",
+        "Savings Product ID",
+        "Company Product ID",
+        "Savings Product Name",
+        "MFI Program ID",
+        "Interest Rate Terms",
+        "Interest Rate Frequency",
+        "Status",
+        "Actions"
+      ],
       "sortColumns": {
         "savingsProductId": "Savings Product ID",
         "savingsProductName": "Savings Product Name",
-        "other": ["Company Product ID", "MFI Program ID", "Interest Rate Terms", "Interest Rate Frequency"]
+        "other": [
+          "Company Product ID",
+          "MFI Program ID",
+          "Interest Rate Terms",
+          "Interest Rate Frequency"
+        ]
       },
       "pageSize": "20",
       "invalidSearch": "NO_MATCHING_SAVINGS_PRODUCT_987654321",
@@ -1050,16 +1100,42 @@
     "createBankAccountFrom": {
       "bankName": "AGRANI BANK LTD.",
       "branchName": "BHANDARIA",
-      "accNameEn": "Farjana",
-      "accNameBn": "ফারজানা",
+      "accNameEn": "Sabina Yeasmin",
+      "accNameBn": "সাবিনা ইয়াসমিন",
       "accountType": "Savings Account",
       "accNumber": "0020672606",
       "status": "Active",
-      "search": "Farjana",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
-      "messageSaveBankAccount": "Mfi bank account has been saved",
-      "messageUpdateBankAccount": "Mfi bank account has been updated"
+      "search": "Sabina Yeasmin",
+      "duplicateAccountNumber": "0020672606",
+      "invalidAccountNumber": "INVALID_ACCOUNT_NUMBER",
+      "updatedAccNameEn": "Updated Account Name",
+      "invalidSearch": "XYZ_NON_EXISTING_BANK_ACCOUNT",
+      "partialSearch": "Sabina",
+      "spaceOnly": "   ",
+      "pageSize": "20",
+      "addButtonText": "Add Bank Account",
+      "searchPlaceholder": "Search Here",
+      "listPath": "/bank-account/list",
+      "viewPath": "/bank-account/view/",
+      "gridColumns": [
+        "Bank",
+        "Bank Branch",
+        "Account Name",
+        "Account Name (Bangla)",
+        "Account Number",
+        "Status"
+      ],
+      "viewLabels": {
+        "bank": "Bank",
+        "bankBranch": "Bank Branch",
+        "accountNameEn": "Account Name (English)",
+        "accountNameBn": "Account Name (Bangla)",
+        "accountType": "Account Type",
+        "accountNumber": "Account Number",
+        "status": "Status"
+      }
     },
     "gridFeeConfigurationFrom": {
       "feeTypeNameEn": "Member Admission Fee",

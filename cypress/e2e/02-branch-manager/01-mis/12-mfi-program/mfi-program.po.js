@@ -1,5 +1,6 @@
 import messages from "../../../../support/constants/messages";
 import { COMMON } from "../../../../support/constants/selectors";
+import { configurationGridChecks } from "../../../../support/page-objects/configuration-grid-checks";
 class MfiProgram {
   test_data = Cypress.env("TEST_DATA");
 
@@ -105,6 +106,97 @@ class MfiProgram {
     cy.imsId(COMMON.BUTTONS.PROFILE).click();
     cy.imsId(COMMON.BUTTONS.LANGUAGE_CHANGE).click();
     cy.log(messages.ui.languageSwitchMessage);
+  }
+
+  listBreadcrumbCheck() {
+    configurationGridChecks.breadcrumb("MFI Program");
+  }
+
+  requiredGridColumnsCheck() {
+    configurationGridChecks.columns([
+      "#", "MFI Program Id", "Name English", "Name Bangla", "Short Name",
+      "Funding Category", "Status", "Actions",
+    ]);
+  }
+
+  gridRecordDataCheck() {
+    cy.imsId(COMMON.BUTTONS.RESET).click();
+    cy.get(COMMON.TABLE.VISIBLE_ROWS)
+      .should("have.length.greaterThan", 0)
+      .first()
+      .within(() => {
+        [1, 2, 4, 5].forEach((index) => {
+          cy.get(COMMON.TABLE.VISIBLE_CELLS)
+            .eq(index)
+            .invoke("text")
+            .then((value) => expect(value.trim()).to.not.equal(""));
+        });
+        cy.get(COMMON.TABLE.VISIBLE_CELLS)
+          .eq(6)
+          .invoke("text")
+          .then((status) => {
+            expect(["Active", "Inactive"]).to.include(status.trim());
+          });
+      });
+    cy.log(messages.ui.recordStatusCheck);
+  }
+
+  exactNameSearchCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      configurationGridChecks.exactSearch(
+        data.branchManager.gridMfiProgramFrom.programNameEn,
+        2
+      );
+    });
+  }
+
+  partialNameSearchCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      configurationGridChecks.partialSearch(
+        data.branchManager.gridMfiProgramFrom.programNameEn
+      );
+    });
+  }
+
+  noResultSearchCheck() {
+    configurationGridChecks.noResult("MFI_PROGRAM");
+  }
+
+  resetRestoresGridCheck() {
+    configurationGridChecks.reset();
+  }
+
+  activeStatusResultCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      configurationGridChecks.activeFilter(
+        data.branchManager.gridMfiProgramFrom.statusSelect,
+        6
+      );
+    });
+  }
+
+  nameAscendingSortCheck() {
+    configurationGridChecks.sort("Name English", COMMON.SORT.ASCENDING);
+  }
+
+  nameDescendingSortCheck() {
+    configurationGridChecks.sort("Name English", COMMON.SORT.DESCENDING);
+  }
+
+  firstPagePaginationCheck() {
+    configurationGridChecks.pagination();
+  }
+
+  viewPageDataAndBreadcrumbCheck() {
+    configurationGridChecks.view("MFI Program", [1, 2, 3, 4, 5, 6]);
+  }
+
+  editModeFieldsAndResetCheck() {
+    configurationGridChecks.editReset(
+      "mfi_program_name_en",
+      "mfi_program_name_bn",
+      ["mfi_program_short_name", "funding_category", "loan_fund_ids"]
+    );
   }
 }
 

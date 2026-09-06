@@ -79,7 +79,59 @@ describe("12. MFI program Module Test Cases", function () {
     grid_mfi_program.gridSearchButtonCheck();
   });
 
-  it("12.15. Verify that the grid content language switches correctly between English and Bangla.", function () {
+  it("12.15. Verify the MFI Program list breadcrumb.", function () {
+    grid_mfi_program.listBreadcrumbCheck();
+  });
+
+  it("12.16. Verify the required MFI Program grid columns.", function () {
+    grid_mfi_program.requiredGridColumnsCheck();
+  });
+
+  it("12.17. Verify that a displayed MFI Program has required data and a valid status.", function () {
+    grid_mfi_program.gridRecordDataCheck();
+  });
+
+  it("12.18. Verify exact MFI Program name search.", function () {
+    grid_mfi_program.exactNameSearchCheck();
+  });
+
+  it("12.19. Verify partial MFI Program name search.", function () {
+    grid_mfi_program.partialNameSearchCheck();
+  });
+
+  it("12.20. Verify non-existing MFI Program search shows no records.", function () {
+    grid_mfi_program.noResultSearchCheck();
+  });
+
+  it("12.21. Verify Reset restores the MFI Program grid.", function () {
+    grid_mfi_program.resetRestoresGridCheck();
+  });
+
+  it("12.22. Verify Active filter results.", function () {
+    grid_mfi_program.activeStatusResultCheck();
+  });
+
+  it("12.23. Verify MFI Program Name ascending sorting.", function () {
+    grid_mfi_program.nameAscendingSortCheck();
+  });
+
+  it("12.24. Verify MFI Program Name descending sorting.", function () {
+    grid_mfi_program.nameDescendingSortCheck();
+  });
+
+  it("12.25. Verify MFI Program first-page pagination state.", function () {
+    grid_mfi_program.firstPagePaginationCheck();
+  });
+
+  it("12.26. Verify MFI Program View breadcrumb and grid-to-view data.", function () {
+    grid_mfi_program.viewPageDataAndBreadcrumbCheck();
+  });
+
+  it("12.27. Verify MFI Program Edit Mode fields and Reset behavior.", function () {
+    grid_mfi_program.editModeFieldsAndResetCheck();
+  });
+
+  it("12.28. Verify that the grid content language switches correctly between English and Bangla.", function () {
     grid_mfi_program.gridLanguageSwitchCheck();
   });
 });
