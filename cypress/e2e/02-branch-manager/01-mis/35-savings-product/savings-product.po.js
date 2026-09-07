@@ -1,5 +1,6 @@
 import messages from "../../../../support/constants/messages";
 import { COMMON } from "../../../../support/constants/selectors";
+import { configurationGridChecks } from "../../../../support/page-objects/configuration-grid-checks";
 class SavingsProductCreation {
   test_data = Cypress.env("TEST_DATA");
 
@@ -101,6 +102,109 @@ class SavingsProductCreation {
       cy.imsId(COMMON.BUTTONS.SEARCH).click();
 
       cy.log(messages.ui.searchMessage);
+    });
+  }
+
+  listBreadcrumbCheck() {
+    cy.imsId(COMMON.BUTTONS.RESET).click();
+    cy.get("nz-breadcrumb, .ant-breadcrumb").should("be.visible")
+      .and("contain.text", "Home").and("contain.text", "Savings Product")
+      .and("contain.text", "List");
+  }
+
+  requiredGridColumnsCheck() {
+    configurationGridChecks.columns([
+      "#", "Savings Product ID", "Company Product ID", "Savings Product Name",
+      "MFI Program ID", "Interest Rate Terms", "Interest Rate Frequency", "Status", "Actions",
+    ]);
+  }
+
+  gridRecordDataCheck() {
+    configurationGridChecks.records(7, [1, 3, 5, 6]);
+  }
+
+  nameSearchResultsCheck(partial = false) {
+    cy.imsId(COMMON.BUTTONS.RESET).click();
+    // Use a product available to this branch rather than assume a seeded name.
+    cy.get(COMMON.TABLE.VISIBLE_ROWS).first().find(COMMON.TABLE.VISIBLE_CELLS)
+      .eq(3).invoke("text").then((text) => {
+        const name = text.trim();
+        expect(name, "existing savings product name").not.to.equal("");
+        const term = partial ? name.split(/\s+/)[0] : name;
+        cy.formController(COMMON.INPUTS.SEARCH_TEXT).clear().type(term);
+        cy.imsId(COMMON.BUTTONS.SEARCH).click();
+        // Re-query all rows on retry while asynchronous search replaces the grid.
+        cy.get(COMMON.TABLE.VISIBLE_ROWS).should(($rows) => {
+          expect($rows.length, "matching savings products").to.be.greaterThan(0);
+          $rows.each((_, row) => {
+            const actual = Cypress.$(row).find(COMMON.TABLE.VISIBLE_CELLS).eq(3).text().trim();
+            expect(actual.toLowerCase()).to.contain(term.toLowerCase());
+          });
+        });
+      });
+  }
+
+  exactNameSearchCheck() {
+    this.nameSearchResultsCheck();
+  }
+
+  partialNameSearchCheck() {
+    this.nameSearchResultsCheck(true);
+  }
+
+  noResultSearchCheck() {
+    configurationGridChecks.noResult("SAVINGS_PRODUCT");
+  }
+
+  resetRestoresGridCheck() {
+    configurationGridChecks.reset();
+  }
+
+  activeStatusResultCheck() {
+    cy.imsId(COMMON.BUTTONS.RESET).click();
+    cy.fixture(this.test_data).then((data) => {
+      const status = data.branchManager.gridSavingsProduct.statusSelect;
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(status).type(COMMON.KEYS.ENTER);
+      cy.imsId(COMMON.BUTTONS.SEARCH).click();
+      cy.get(COMMON.TABLE.VISIBLE_ROWS).should(($rows) => {
+        expect($rows.length).to.be.greaterThan(0);
+        $rows.each((_, row) => {
+          expect(Cypress.$(row).find(COMMON.TABLE.VISIBLE_CELLS).eq(7).text().trim())
+            .to.equal(status);
+        });
+      });
+    });
+  }
+
+  nameAscendingSortCheck() {
+    configurationGridChecks.sort("Savings Product Name", COMMON.SORT.ASCENDING);
+  }
+
+  nameDescendingSortCheck() {
+    configurationGridChecks.sort("Savings Product Name", COMMON.SORT.DESCENDING);
+  }
+
+  firstPagePaginationCheck() {
+    cy.imsId(COMMON.BUTTONS.RESET).click();
+    configurationGridChecks.pagination();
+  }
+
+  viewPageDataAndBreadcrumbCheck() {
+    cy.imsId(COMMON.BUTTONS.RESET).click();
+    cy.get(COMMON.TABLE.VISIBLE_ROWS).first().then(($row) => {
+      const cells = $row.find(COMMON.TABLE.VISIBLE_CELLS);
+      const values = [1, 3, 5, 6, 7].map((index) => cells.eq(index).text().trim());
+      cy.wrap($row).find(COMMON.TABLE.ACTION_TOGGLE).click();
+      cy.imsId(COMMON.GRID.ACTION_VIEW).click();
+      cy.url().should("include", "/savings-product/savings-product-management/view/");
+      cy.get("nz-breadcrumb, .ant-breadcrumb").should("contain.text", "Home")
+        .and("contain.text", "Savings Product").and("contain.text", "View");
+      values.forEach((value) => {
+        expect(value, "grid value to compare with details").not.to.equal("");
+        cy.contains(COMMON.PAGE.VISIBLE_ELEMENT, value).should("be.visible");
+      });
+      cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+      cy.url().should("include", "/savings-product/savings-product-management/list");
     });
   }
 

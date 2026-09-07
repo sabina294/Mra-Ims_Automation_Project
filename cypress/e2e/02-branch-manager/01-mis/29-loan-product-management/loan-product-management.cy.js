@@ -79,7 +79,59 @@ describe("29. Loan Product Management Module Test Cases", function () {
     create_loan_product_management.searchInLoanProductName();
   });
 
-  it("29.15. Verify that the grid list language switches correctly between English and Bangla.", function () {
+  it("29.15. Verify the Loan Product list breadcrumb.", function () {
+    create_loan_product_management.listBreadcrumbCheck();
+  });
+
+  it("29.16. Verify the required Loan Product grid columns.", function () {
+    create_loan_product_management.requiredGridColumnsCheck();
+  });
+
+  it("29.17. Verify valid Loan Product grid row data.", function () {
+    create_loan_product_management.gridRecordDataCheck();
+  });
+
+  it("29.18. Verify full Loan Product name search results.", function () {
+    create_loan_product_management.exactNameSearchCheck();
+  });
+
+  it("29.19. Verify partial Loan Product name search results.", function () {
+    create_loan_product_management.partialNameSearchCheck();
+  });
+
+  it("29.20. Verify non-existing Loan Product search shows no records.", function () {
+    create_loan_product_management.noResultSearchCheck();
+  });
+
+  it("29.21. Verify Reset restores the Loan Product grid.", function () {
+    create_loan_product_management.resetRestoresGridCheck();
+  });
+
+  it("29.22. Verify Active filter results.", function () {
+    create_loan_product_management.activeStatusResultCheck();
+  });
+
+  it("29.23. Verify Loan Product Name ascending sorting.", function () {
+    create_loan_product_management.nameAscendingSortCheck();
+  });
+
+  it("29.24. Verify Loan Product Name descending sorting.", function () {
+    create_loan_product_management.nameDescendingSortCheck();
+  });
+
+  it("29.25. Verify Loan Product first-page pagination state.", function () {
+    create_loan_product_management.firstPagePaginationCheck();
+  });
+
+  it("29.26. Verify Loan Product View breadcrumb and grid-to-view data.", function () {
+    create_loan_product_management.viewPageDataAndBreadcrumbCheck();
+  });
+
+  it("29.27. Verify Loan Product detail sections, fields and navigation controls.", function () {
+    create_loan_product_management.viewSectionsCheck();
+  });
+
+  it("29.28. Verify that the grid list language switches correctly between English and Bangla.", function () {
     create_loan_product_management.gridLanguageSwitchCheck();
   });
 

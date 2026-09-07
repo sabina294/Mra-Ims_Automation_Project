@@ -79,9 +79,56 @@ describe("35. Savings Product Module Test Cases", function () {
     create_savings_product.gridSearchButtonCheck();
   });
 
-  it("35.15. Verify that the Savings Product grid content switches correctly between English and Bangla.", function () {
+  it("35.15. Verify the Savings Product list breadcrumb.", function () {
+    create_savings_product.listBreadcrumbCheck();
+  });
+
+  it("35.16. Verify the required Savings Product grid columns.", function () {
+    create_savings_product.requiredGridColumnsCheck();
+  });
+
+  it("35.17. Verify valid Savings Product grid row data.", function () {
+    create_savings_product.gridRecordDataCheck();
+  });
+
+  it("35.18. Verify full Savings Product name search results.", function () {
+    create_savings_product.exactNameSearchCheck();
+  });
+
+  it("35.19. Verify partial Savings Product name search results.", function () {
+    create_savings_product.partialNameSearchCheck();
+  });
+
+  it("35.20. Verify non-existing Savings Product search shows no records.", function () {
+    create_savings_product.noResultSearchCheck();
+  });
+
+  it("35.21. Verify Reset restores the Savings Product grid.", function () {
+    create_savings_product.resetRestoresGridCheck();
+  });
+
+  it("35.22. Verify Active filter results.", function () {
+    create_savings_product.activeStatusResultCheck();
+  });
+
+  it("35.23. Verify Savings Product Name ascending sorting.", function () {
+    create_savings_product.nameAscendingSortCheck();
+  });
+
+  it("35.24. Verify Savings Product Name descending sorting.", function () {
+    create_savings_product.nameDescendingSortCheck();
+  });
+
+  it("35.25. Verify Savings Product first-page pagination state.", function () {
+    create_savings_product.firstPagePaginationCheck();
+  });
+
+  it("35.26. Verify Savings Product View breadcrumb and grid-to-view data.", function () {
+    create_savings_product.viewPageDataAndBreadcrumbCheck();
+  });
+
+  it("35.27. Verify that the grid list language switches correctly between English and Bangla.", function () {
     create_savings_product.gridLanguageSwitchCheck();
   });
 
 });
-
