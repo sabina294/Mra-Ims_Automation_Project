@@ -1,5 +1,6 @@
 import messages from "../../../../support/constants/messages";
 import { COMMON } from "../../../../support/constants/selectors";
+import { configurationGridChecks } from "../../../../support/page-objects/configuration-grid-checks";
 class OfficeGrid {
   test_data = Cypress.env("TEST_DATA");
 
@@ -89,11 +90,6 @@ class OfficeGrid {
   }
 
   gridDraftButton() {
-    cy.imsId(COMMON.BUTTONS.PREVIOUS).click();
-    cy.log(messages.ui.draftOnMessage);
-  }
-
-  gridDraftButton() {
     cy.imsId(COMMON.GRID.DRAFT_TOGGLE)
       .check({ force: true });
     cy.log(messages.ui.draftOnMessage);
@@ -121,6 +117,81 @@ class OfficeGrid {
     cy.log(messages.ui.unlockSuccess);
   }
 
+
+  listBreadcrumbCheck() {
+    cy.imsId(COMMON.BUTTONS.RESET).click();
+    cy.get("nz-breadcrumb, .ant-breadcrumb").should("be.visible")
+      .and("contain.text", "Home").and("contain.text", "Office")
+      .and("contain.text", "List");
+    cy.log(messages.ui.listPageNavigationCheck);
+  }
+
+  requiredGridColumnsCheck() {
+    configurationGridChecks.columns([
+      "#", "Office ID", "Company Office ID", "Name", "Type", "Program",
+      "Locked by", "Status", "Actions",
+    ]);
+  }
+
+  gridRecordDataCheck() {
+    cy.imsId(COMMON.BUTTONS.RESET).click();
+    // Office has a leading checkbox column before the row number.
+    cy.get(COMMON.TABLE.VISIBLE_ROWS).should("have.length.greaterThan", 0)
+      .should(($rows) => {
+        $rows.each((_, row) => {
+          const cells = Cypress.$(row).find(COMMON.TABLE.VISIBLE_CELLS);
+          expect(cells.eq(1).text().trim()).to.match(/^\d+$/);
+          [2, 4, 5].forEach((index) =>
+            expect(cells.eq(index).text().trim()).not.to.equal(""));
+          expect(["Active", "Inactive"]).to.include(cells.eq(8).text().trim());
+        });
+      });
+    cy.log(messages.ui.recordStatusCheck);
+  }
+
+  resetRestoresGridCheck() {
+    configurationGridChecks.reset();
+  }
+
+  activeStatusResultCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      configurationGridChecks.activeFilter(data.branchManager.gridOfficeFrom.statusSelect, 8);
+    });
+  }
+
+  nameAscendingSortCheck() {
+    configurationGridChecks.sort("Name", COMMON.SORT.ASCENDING);
+  }
+
+  nameDescendingSortCheck() {
+    configurationGridChecks.sort("Name", COMMON.SORT.DESCENDING);
+  }
+
+  firstPagePaginationCheck() {
+    cy.imsId(COMMON.BUTTONS.RESET).click();
+    configurationGridChecks.pagination();
+  }
+
+  viewPageDataCheck() {
+    cy.imsId(COMMON.BUTTONS.RESET).click();
+    cy.get(COMMON.TABLE.VISIBLE_ROWS).first().then(($row) => {
+      const cells = $row.find(COMMON.TABLE.VISIBLE_CELLS);
+      const values = [4, 5, 8].map((index) => cells.eq(index).text().trim());
+      cy.wrap($row).find(COMMON.TABLE.ACTION_TOGGLE).click();
+      cy.imsId(COMMON.GRID.ACTION_VIEW).click();
+      // Office uses a detail page without the Configuration View breadcrumb.
+      cy.url().should("include", "/office/office-management/view/");
+      cy.contains("Basic Information").should("be.visible");
+      values.forEach((value) => {
+        expect(value, "grid value to verify in Office details").not.to.equal("");
+        cy.contains(COMMON.PAGE.VISIBLE_ELEMENT, value).should("be.visible");
+      });
+      cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+      cy.url().should("include", "/office/office-management/list");
+      cy.get(COMMON.TABLE.BODY).should("be.visible");
+    });
+    cy.log(messages.ui.viewMessage);
+  }
 
   gridLanguageSwitchCheck() {
     cy.imsId(COMMON.BUTTONS.PROFILE).click();

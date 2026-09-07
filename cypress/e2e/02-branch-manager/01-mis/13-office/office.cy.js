@@ -82,7 +82,44 @@ describe("13. Office Module Test Cases", function () {
     grid_office.gridCheckboxUnlockButtonCheck();
   });
 
-  it("13.16. Verify that the grid list content switches correctly between English and Bangla.", function () {
+  it("13.16. Verify the Office list breadcrumb.", function () {
+    grid_office.listBreadcrumbCheck();
+  });
+
+  it("13.17. Verify the required Office grid columns.", function () {
+    grid_office.requiredGridColumnsCheck();
+  });
+
+  it("13.18. Verify valid Office grid row data.", function () {
+    grid_office.gridRecordDataCheck();
+  });
+
+  it("13.19. Verify Reset restores the Office grid.", function () {
+    grid_office.resetRestoresGridCheck();
+  });
+
+  it("13.20. Verify Active filter results.", function () {
+    grid_office.activeStatusResultCheck();
+  });
+
+  it("13.21. Verify Office Name ascending sorting.", function () {
+    grid_office.nameAscendingSortCheck();
+  });
+
+  it("13.22. Verify Office Name descending sorting.", function () {
+    grid_office.nameDescendingSortCheck();
+  });
+
+  it("13.23. Verify Office first-page pagination state.", function () {
+    grid_office.firstPagePaginationCheck();
+  });
+
+  it("13.24. Verify Office grid-to-view data and Go Back navigation.", function () {
+    grid_office.viewPageDataCheck();
+  });
+
+  it("13.25. Verify that the grid list content switches correctly between English and Bangla.", function () {
     grid_office.gridLanguageSwitchCheck();
   });
+
 });

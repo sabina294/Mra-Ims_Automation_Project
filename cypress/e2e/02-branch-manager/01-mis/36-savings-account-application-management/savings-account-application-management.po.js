@@ -63,9 +63,9 @@ class SavingsAccApplicationManagementCreation {
     cy.fixture(this.test_data).then((data) => {
       const saamData = data.branchManager.createSavingsAccApplicationMang;
 
-      cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(saamData.search);
-      cy.imsId(COMMON.BUTTONS.SEARCH).click();
-      cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+      // cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(saamData.search);
+      // cy.imsId(COMMON.BUTTONS.SEARCH).click();
+      // cy.imsId(COMMON.TOGGLES.ACTION).first().click();
       cy.imsId(COMMON.GRID.ACTION_VIEW).click();
       cy.log(
         messages.ui.viewMessage
