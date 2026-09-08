@@ -75,7 +75,43 @@ describe("41. holiday Module Test Cases", function () {
     create_holiday.gridDraftButtonOff();
   });
 
-  it("41.14. Verify that the grid list content is correctly translated when switching the language from English to Bangla.", function () {
+  it("41.14. Verify the Holiday list breadcrumb.", function () {
+    create_holiday.listBreadcrumbCheck();
+  });
+
+  it("41.15. Verify the required Holiday grid columns.", function () {
+    create_holiday.requiredGridColumnsCheck();
+  });
+
+  it("41.16. Verify exact Holiday Title search results.", function () {
+    create_holiday.exactTitleSearchCheck();
+  });
+
+  it("41.17. Verify partial Holiday Title search results.", function () {
+    create_holiday.partialTitleSearchCheck();
+  });
+
+  it("41.18. Verify a non-existing Holiday search shows no records.", function () {
+    create_holiday.noResultSearchCheck();
+  });
+
+  it("41.19. Verify Reset clears search and restores Holiday records.", function () {
+    create_holiday.resetRestoresGridCheck();
+  });
+
+  it("41.20. Verify Holiday Title ascending sorting.", function () {
+    create_holiday.titleAscendingSortCheck();
+  });
+
+  it("41.21. Verify Holiday Title descending sorting.", function () {
+    create_holiday.titleDescendingSortCheck();
+  });
+
+  it("41.22. Verify the Holiday first-page pagination state.", function () {
+    create_holiday.firstPagePaginationCheck();
+  });
+
+  it("41.23. Verify that the grid list content is correctly translated when switching the language from English to Bangla.", function () {
     create_holiday.gridLanguageSwitchCheck();
   });
 });

@@ -75,11 +75,11 @@ describe("57. Fee Collection Module Test Cases ", function () {
         grid_fee_collection.gridRefreshButtonCheck();
     });
 
-    it("57.14. Verify that enabling the Draft filter displays the correct grid list data.", function () {
+    it("57.14. Verify that enabling the All filter displays the correct grid list data.", function () {
         grid_fee_collection.gridDraftButton();
     });
 
-    it("57.15. Verify that disabling the Draft filter updates the grid list correctly.", function () {
+    it("57.15. Verify that disabling the All filter updates the grid list correctly.", function () {
         grid_fee_collection.gridDraftButtonOff();
     });
 
@@ -99,7 +99,39 @@ describe("57. Fee Collection Module Test Cases ", function () {
         grid_fee_collection.gridSearchButtonCheck();
     });
 
-    it("57.20. Verify that the grid list content changes correctly when switching the language from English to Bangla.", function () {
+    it("57.20. Verify the Fee Collection list breadcrumb.", function () {
+        grid_fee_collection.listBreadcrumbCheck();
+    });
+
+    it("57.21. Verify the required Fee Collection columns.", function () {
+        grid_fee_collection.requiredGridColumnsCheck();
+    });
+
+    it("57.22. Verify exact member name search results.", function () {
+        grid_fee_collection.exactMemberSearchCheck();
+    });
+
+    it("57.23. Verify partial member name search results.", function () {
+        grid_fee_collection.partialMemberSearchCheck();
+    });
+
+    it("57.24. Verify a non-existing search shows no records.", function () {
+        grid_fee_collection.noResultSearchCheck();
+    });
+
+    it("57.25. Verify Reset restores Fee Collection records.", function () {
+        grid_fee_collection.resetRestoresGridCheck();
+    });
+
+    it("57.26. Verify Member Name ascending sorting.", function () {
+        grid_fee_collection.memberAscendingSortCheck();
+    });
+
+    it("57.27. Verify Member Name descending sorting.", function () {
+        grid_fee_collection.memberDescendingSortCheck();
+    });
+
+    it("57.28. Verify that the grid list content changes correctly when switching the language from English to Bangla.", function () {
         grid_fee_collection.gridLanguageSwitchCheck();
     });
 });

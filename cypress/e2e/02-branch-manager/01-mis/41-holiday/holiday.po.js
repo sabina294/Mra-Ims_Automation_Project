@@ -1,5 +1,7 @@
 import messages from "../../../../support/constants/messages";
 import { COMMON } from "../../../../support/constants/selectors";
+import { configurationGridChecks } from "../../../../support/page-objects/configuration-grid-checks";
+
 class HolidayCreation {
   test_data = Cypress.env("TEST_DATA");
 
@@ -121,6 +123,66 @@ class HolidayCreation {
     cy.imsId(COMMON.GRID.DRAFT_TOGGLE)
       .uncheck({ force: true });
     cy.log(messages.ui.draftOffMessage);
+  }
+
+  listBreadcrumbCheck() {
+    cy.imsId(COMMON.BUTTONS.RESET).click();
+    cy.location("pathname").should("include", "/calendar/holiday/list");
+    cy.get("nz-breadcrumb, .ant-breadcrumb").should("be.visible")
+      .and("contain.text", "Home").and("contain.text", "Calendar")
+      .and("contain.text", "Holiday").and("contain.text", "List");
+  }
+
+  requiredGridColumnsCheck() {
+    configurationGridChecks.columns([
+      "#", "Year", "Date", "Holiday Type", "Holiday Title", "Office", "Status",
+    ]);
+  }
+
+  searchTitleCheck(partial = false) {
+    cy.imsId(COMMON.BUTTONS.RESET).click();
+    cy.get(COMMON.TABLE.VISIBLE_ROWS).first().find("td").eq(4).invoke("text").then((text) => {
+      const title = text.trim();
+      expect(title).not.to.equal("");
+      const search = partial ? title.slice(0, Math.max(1, Math.floor(title.length / 2))) : title;
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT).clear().type(search, { parseSpecialCharSequences: false });
+      cy.imsId(COMMON.BUTTONS.SEARCH).click();
+      cy.get(COMMON.TABLE.VISIBLE_ROWS).should("have.length.greaterThan", 0).each(($row) => {
+        cy.wrap($row).find("td").eq(4).invoke("text").should((value) => {
+          if (partial) expect(value.trim()).to.include(search);
+          else expect(value.trim()).to.equal(title);
+        });
+      });
+    });
+  }
+
+  exactTitleSearchCheck() {
+    this.searchTitleCheck();
+  }
+
+  partialTitleSearchCheck() {
+    this.searchTitleCheck(true);
+  }
+
+  noResultSearchCheck() {
+    configurationGridChecks.noResult("HOLIDAY");
+  }
+
+  resetRestoresGridCheck() {
+    configurationGridChecks.reset();
+  }
+
+  titleAscendingSortCheck() {
+    configurationGridChecks.sort("Holiday Title", COMMON.SORT.ASCENDING);
+  }
+
+  titleDescendingSortCheck() {
+    configurationGridChecks.sort("Holiday Title", COMMON.SORT.DESCENDING);
+  }
+
+  firstPagePaginationCheck() {
+    cy.imsId(COMMON.BUTTONS.RESET).click();
+    configurationGridChecks.pagination();
   }
 
   gridLanguageSwitchCheck() {

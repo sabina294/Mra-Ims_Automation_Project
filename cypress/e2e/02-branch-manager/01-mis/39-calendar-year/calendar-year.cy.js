@@ -31,7 +31,7 @@ describe("39. Calendar Year Module Test Cases", function () {
     grid_calendar_year.actionButtonCheck();
   });
 
-  it("39.03. Verify that the user can view Calendar Year details including name and description.", function () {
+  it("39.03. Verify that the user can view Calendar Year details including calendar and holiday details.", function () {
     grid_calendar_year.viewCalendar();
   });
 
@@ -39,7 +39,7 @@ describe("39. Calendar Year Module Test Cases", function () {
     grid_calendar_year.viewGoBackButton();
   });
 
-  it("39.05. Verify that searching by Calendar Year name returns correct results.", function () {
+  it("39.05. Verify that searching by year returns correct results.", function () {
     grid_calendar_year.searchCalendarStatus();
   });
 
@@ -63,7 +63,44 @@ describe("39. Calendar Year Module Test Cases", function () {
     grid_calendar_year.gridDraftButtonOff();
   });
 
-  it("39.11. Verify that the grid content switches correctly between English and Bangla languages.", function () {
+  it("39.11. Verify the Calendar Year list breadcrumb.", function () {
+    grid_calendar_year.listBreadcrumbCheck();
+  });
+
+  it("39.12. Verify the required Calendar Year grid columns.", function () {
+    grid_calendar_year.requiredGridColumnsCheck();
+  });
+
+  it("39.13. Verify exact year search results.", function () {
+    grid_calendar_year.exactYearSearchCheck();
+  });
+
+  it("39.14. Verify partial year search results.", function () {
+    grid_calendar_year.partialYearSearchCheck();
+  });
+
+  it("39.15. Verify a non-existing search shows no records.", function () {
+    grid_calendar_year.noResultSearchCheck();
+  });
+
+  it("39.16. Verify Reset clears search and restores Calendar Year records.", function () {
+    grid_calendar_year.resetRestoresGridCheck();
+  });
+
+  it("39.17. Verify Year ascending sorting.", function () {
+    grid_calendar_year.yearAscendingSortCheck();
+  });
+
+  it("39.18. Verify Year descending sorting.", function () {
+    grid_calendar_year.yearDescendingSortCheck();
+  });
+
+  it("39.19. Verify the Calendar Year first-page pagination state.", function () {
+    grid_calendar_year.firstPagePaginationCheck();
+  });
+
+  it("39.20. Verify the grid content switches between English and Bangla.", function () {
     grid_calendar_year.gridLanguageSwitchCheck();
   });
+
 });
