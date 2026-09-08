@@ -77,7 +77,7 @@ class RejectedSamity {
     cy.fixture(this.test_data).then((data) => {
       const rsData = data.branchManager.rejectedSamityFrom;
       // cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(rsData.samityNameEn);
-      cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+      // cy.imsId(COMMON.TOGGLES.ACTION).first().click();
       cy.imsId(COMMON.GRID.ACTION_VIEW).click();
       cy.log(messages.ui.viewMessage);
     });
@@ -92,7 +92,7 @@ class RejectedSamity {
   editResetButton() {
     cy.fixture(this.test_data).then((data) => {
       const rsData = data.branchManager.rejectedSamityFrom;
-      cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(rsData.samityNameEn);
+      // cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(rsData.samityNameEn);
       cy.imsId(COMMON.TOGGLES.ACTION).first().click();
       cy.wait(1000);
       cy.imsId(COMMON.GRID.ACTION_MIS_EDIT).click();

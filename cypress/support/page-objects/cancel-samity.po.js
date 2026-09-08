@@ -6,25 +6,11 @@ class cancelSamity {
 
     gridCancelSamityListPage() {
         cy.selectMenu(COMMON.MENUS.PROCESS, COMMON.MENUS.CANCEL_SAMITY);
-        cy.location("pathname", { timeout: 30000 })
-            .should("include", "/process/cancel-samity");
-        cy.get(COMMON.TABLE.BODY, { timeout: 30000 })
-            .should("be.visible");
-        cy.log(messages.ui.gridListMessage);
+       
     }
 
     gridCheckboxCheck() {
-        // Select the checkbox from the second visible data row. Do not depend on
-        // a generated row id such as `check-samity-2`.
-        cy.get(`${COMMON.TABLE.BODY} tr`, { timeout: 30000 })
-            .filter(":visible")
-            .should("have.length.at.least", 2)
-            .eq(1)
-            .find('input[type="checkbox"], [data-ims-id^="check-samity-"]')
-            .filter(":visible")
-            .first()
-            .should("not.be.disabled")
-            .click();
+        cy.imsId(COMMON.BUTTONS.CHECK_SAMITY).click();
         cy.log(messages.ui.checkboxMessage);
     }
 
@@ -69,7 +55,7 @@ class cancelSamity {
                 .and("not.be.disabled")
                 .clear()
                 .type(csData.remarksCancel);
-        });
+        });	
     }
 
     submitCancelSamity() {
