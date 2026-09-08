@@ -102,8 +102,13 @@ class OfficeGrid {
   }
 
   gridCheckboxCheck() {
-    cy.imsId(COMMON.CHECKBOXES.ROW_4).click();
-    cy.log(messages.ui.lockSuccess);
+    cy.fixture(this.test_data).then((data) => {
+      const omData = data.branchManager.gridOfficeFrom;
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(omData.lockedBy);
+      cy.imsId(COMMON.BUTTONS.SEARCH).click();
+      cy.imsId(COMMON.CHECKBOXES.ROW_0).click();
+      cy.log(messages.ui.lockSuccess);
+    })
   }
 
   gridCheckboxLockButtonCheck() {
@@ -112,7 +117,7 @@ class OfficeGrid {
   }
 
   gridCheckboxUnlockButtonCheck() {
-    cy.imsId(COMMON.CHECKBOXES.ROW_4).click();
+    cy.imsId(COMMON.CHECKBOXES.ROW_0).click();
     cy.imsId(COMMON.BUTTONS.UNLOCK).click();
     cy.log(messages.ui.unlockSuccess);
   }

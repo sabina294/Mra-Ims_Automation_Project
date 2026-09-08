@@ -1180,7 +1180,8 @@
       "officeType": "Regional Office",
       "selectStatus": "Inactive",
       "statusSelect": "Active",
-      "search": "Dhaka Regional Office"
+      "search": "Dhaka Regional Office",
+      "lockedBy": "Ashulia"
     },
     "createEmpMangFrom": {
       "empNameEn": "Sabina Yeasmin",
