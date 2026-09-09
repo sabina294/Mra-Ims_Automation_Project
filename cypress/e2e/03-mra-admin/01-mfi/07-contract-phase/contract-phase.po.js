@@ -1,5 +1,7 @@
 import messages from "../../../../support/constants/messages";
 import { COMMON } from "../../../../support/constants/selectors";
+import { configurationGridChecks } from "../../../../support/page-objects/configuration-grid-checks";
+
 class ContractPhaseCreation {
   test_data = Cypress.env("TEST_DATA");
 
@@ -263,6 +265,62 @@ class ContractPhaseCreation {
       cy.imsId(COMMON.BUTTONS.SEARCH).click();
       cy.log(messages.ui.searchMessage);
     });
+  }
+
+  listBreadcrumbCheck() {
+    configurationGridChecks.breadcrumb("Contract Phase");
+  }
+
+  requiredGridColumnsCheck() {
+    configurationGridChecks.columns([
+      "#", "Contract Phase Name", "Contract Phase Name (bangla)", "Status", "Actions",
+    ]);
+  }
+
+  gridRecordDataCheck() {
+    configurationGridChecks.records(3, [1, 2]);
+  }
+
+  exactNameSearchCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      configurationGridChecks.exactSearch(data.mraAdmin.createcontractPhaseFrom.nameEn, 1);
+    });
+  }
+
+  partialNameSearchCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      configurationGridChecks.partialSearch(data.mraAdmin.createcontractPhaseFrom.nameEn);
+    });
+  }
+
+  noResultSearchCheck() {
+    configurationGridChecks.noResult("CONTRACT_PHASE");
+  }
+
+  resetRestoresGridCheck() {
+    configurationGridChecks.reset();
+  }
+
+  activeStatusResultCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      configurationGridChecks.activeFilter(data.mraAdmin.createcontractPhaseFrom.statusSelect, 3);
+    });
+  }
+
+  nameAscendingSortCheck() {
+    configurationGridChecks.sort("Contract Phase Name", COMMON.SORT.ASCENDING);
+  }
+
+  nameDescendingSortCheck() {
+    configurationGridChecks.sort("Contract Phase Name", COMMON.SORT.DESCENDING);
+  }
+
+  viewPageDataAndBreadcrumbCheck() {
+    configurationGridChecks.view("Contract Phase", [1, 2, 3]);
+  }
+
+  editModeFieldsAndResetCheck() {
+    configurationGridChecks.editReset(COMMON.INPUTS.NAME_EN, COMMON.INPUTS.NAME_BN);
   }
 
   gridLanguageSwitchCheck() {

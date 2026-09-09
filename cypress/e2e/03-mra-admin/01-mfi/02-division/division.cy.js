@@ -121,7 +121,59 @@ describe("02. Division Module Test Cases.", function () {
     create_division.createGoBackButtonCheck();
   });
 
-  it("02.25. Verify that the division grid content updates correctly when switching the language from English to Bangla.", function () {
+  it("02.25. Verify the Division list breadcrumb.", function () {
+    create_division.listBreadcrumbCheck();
+  });
+
+  it("02.26. Verify the required Division grid columns.", function () {
+    create_division.requiredGridColumnsCheck();
+  });
+
+  it("02.27. Verify valid Division grid row data.", function () {
+    create_division.gridRecordDataCheck();
+  });
+
+  it("02.28. Verify exact Division name search.", function () {
+    create_division.exactNameSearchCheck();
+  });
+
+  it("02.29. Verify partial Division name search.", function () {
+    create_division.partialNameSearchCheck();
+  });
+
+  it("02.30. Verify non-existing Division search shows no records.", function () {
+    create_division.noResultSearchCheck();
+  });
+
+  it("02.31. Verify Reset restores the Division grid.", function () {
+    create_division.resetRestoresGridCheck();
+  });
+
+  it("02.32. Verify Active filter results.", function () {
+    create_division.activeStatusResultCheck();
+  });
+
+  it("02.33. Verify Division Name ascending sorting.", function () {
+    create_division.nameAscendingSortCheck();
+  });
+
+  it("02.34. Verify Division Name descending sorting.", function () {
+    create_division.nameDescendingSortCheck();
+  });
+
+  it("02.35. Verify Division first-page pagination state.", function () {
+    create_division.firstPagePaginationCheck();
+  });
+
+  it("02.36. Verify Division View breadcrumb and grid-to-view data.", function () {
+    create_division.viewPageDataAndBreadcrumbCheck();
+  });
+
+  it("02.37. Verify Division Edit Mode fields and Reset behavior.", function () {
+    create_division.editModeFieldsAndResetCheck();
+  });
+
+  it("02.38. Verify that the division grid content updates correctly when switching the language from English to Bangla.", function () {
     create_division.gridLanguageSwitchCheck();
   });
 

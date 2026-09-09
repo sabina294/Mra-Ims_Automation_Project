@@ -149,7 +149,59 @@ describe("04. Thana Module Test Cases.", function () {
     create_thana.gridSearchButtonCheck();
   });
 
-  it("04.32. Verify that the grid list content updates correctly when switching the language from English to Bangla.", function () {
+  it("04.32. Verify the Thana list breadcrumb.", function () {
+    create_thana.listBreadcrumbCheck();
+  });
+
+  it("04.33. Verify the required Thana grid columns.", function () {
+    create_thana.requiredGridColumnsCheck();
+  });
+
+  it("04.34. Verify valid Thana grid row data.", function () {
+    create_thana.gridRecordDataCheck();
+  });
+
+  it("04.35. Verify exact Thana name search.", function () {
+    create_thana.exactNameSearchCheck();
+  });
+
+  it("04.36. Verify partial Thana name search.", function () {
+    create_thana.partialNameSearchCheck();
+  });
+
+  it("04.37. Verify non-existing Thana search shows no records.", function () {
+    create_thana.noResultSearchCheck();
+  });
+
+  it("04.38. Verify Reset restores the Thana grid.", function () {
+    create_thana.resetRestoresGridCheck();
+  });
+
+  it("04.39. Verify Active filter results.", function () {
+    create_thana.activeStatusResultCheck();
+  });
+
+  it("04.40. Verify Thana Name ascending sorting.", function () {
+    create_thana.nameAscendingSortCheck();
+  });
+
+  it("04.41. Verify Thana Name descending sorting.", function () {
+    create_thana.nameDescendingSortCheck();
+  });
+
+  it("04.42. Verify Thana first-page pagination state.", function () {
+    create_thana.firstPagePaginationCheck();
+  });
+
+  it("04.43. Verify Thana View breadcrumb and grid-to-view data.", function () {
+    create_thana.viewPageDataAndBreadcrumbCheck();
+  });
+
+  it("04.44. Verify Thana Edit Mode fields and Reset behavior.", function () {
+    create_thana.editModeFieldsAndResetCheck();
+  });
+
+  it("04.45. Verify that the grid list content updates correctly when switching the language from English to Bangla.", function () {
     create_thana.gridLanguageSwitchCheck();
   });
 

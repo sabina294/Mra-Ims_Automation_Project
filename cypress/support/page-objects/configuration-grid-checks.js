@@ -33,8 +33,15 @@ export const configurationGridChecks = {
     cy.imsId(COMMON.BUTTONS.RESET).click();
     cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(name);
     cy.imsId(COMMON.BUTTONS.SEARCH).click();
-    cy.get(COMMON.TABLE.VISIBLE_ROWS).should("have.length.greaterThan", 0).each(($row) => {
-      cy.wrap($row).find(COMMON.TABLE.VISIBLE_CELLS).eq(nameIndex).should("contain.text", name);
+    // Requery the rows on retry while search results replace the grid DOM.
+    cy.get(COMMON.TABLE.VISIBLE_ROWS).should(($rows) => {
+      expect($rows.length, "matching rows").to.be.greaterThan(0);
+      $rows.each((index, row) => {
+        expect(
+          Cypress.$(row).find(COMMON.TABLE.VISIBLE_CELLS).eq(nameIndex).text().trim(),
+          `row ${index + 1} name`
+        ).to.contain(name);
+      });
     });
     cy.log(messages.ui.exactSearchCheck);
   },
@@ -44,8 +51,14 @@ export const configurationGridChecks = {
     cy.imsId(COMMON.BUTTONS.RESET).click();
     cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(partialName);
     cy.imsId(COMMON.BUTTONS.SEARCH).click();
-    cy.get(COMMON.TABLE.VISIBLE_ROWS).should("have.length.greaterThan", 0)
-      .each(($row) => cy.wrap($row).should("contain.text", partialName));
+    // Requery all rows on retry when search replaces the grid DOM.
+    cy.get(COMMON.TABLE.VISIBLE_ROWS).should(($rows) => {
+      expect($rows.length, "matching rows").to.be.greaterThan(0);
+      $rows.each((index, row) => {
+        expect(Cypress.$(row).text(), `row ${index + 1} search result`)
+          .to.contain(partialName);
+      });
+    });
     cy.log(messages.ui.partialSearch);
   },
 
@@ -98,7 +111,15 @@ export const configurationGridChecks = {
     cy.get(COMMON.TABLE.VISIBLE_ROWS).first().then(($row) => {
       const cells = $row.find(COMMON.TABLE.VISIBLE_CELLS);
       const values = valueIndexes.map((index) => cells.eq(index).text().trim()).filter(Boolean);
-      cy.wrap($row).find(COMMON.TABLE.ACTION_TOGGLE).click();
+      const recordKey = cells.eq(valueIndexes[0]).text().trim();
+      expect(recordKey, "record identifier for View navigation").to.not.equal("");
+      // Reset can replace the captured row. Requery the same record so both
+      // the click and the expected View values refer to that record.
+      cy.get(COMMON.TABLE.VISIBLE_ROWS)
+        .contains(COMMON.TABLE.VISIBLE_CELLS, new RegExp(`^\\s*${Cypress._.escapeRegExp(recordKey)}\\s*$`))
+        .closest("tr")
+        .find(COMMON.TABLE.ACTION_TOGGLE)
+        .click();
       cy.imsId(COMMON.GRID.ACTION_VIEW).click();
       cy.get("nz-breadcrumb, .ant-breadcrumb").should("contain.text", "Home")
         .and("contain.text", "Configuration").and("contain.text", label).and("contain.text", "View");

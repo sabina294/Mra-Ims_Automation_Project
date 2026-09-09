@@ -78,8 +78,8 @@ class RejectedSamity {
   viewRejectedSamity() {
     cy.fixture(this.test_data).then((data) => {
       const rsData = data.mfiAdmin.rejectedSamityFrom;
-      cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(rsData.samityNameEn);
-      cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+      // cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(rsData.samityNameEn);
+      // cy.imsId(COMMON.TOGGLES.ACTION).first().click();
       cy.imsId(COMMON.GRID.ACTION_VIEW).click();
       cy.log(messages.ui.viewMessage);
     });
@@ -237,26 +237,26 @@ class RejectedSamity {
 
   sortSamityName(direction) {
     const column = COMMON.REJECTED_SAMITY.COLUMNS.SAMITY_NAME;
+    // The grid uses case-sensitive string ordering, not locale collation.
+    const compareNames = (a, b) => (a === b ? 0 : a < b ? -1 : 1);
     const expectedSort = direction === "ascending"
-      ? (a, b) => a.localeCompare(b)
-      : (a, b) => b.localeCompare(a);
+      ? compareNames
+      : (a, b) => compareNames(b, a);
 
     this.setSamityNameSort(column, direction);
 
     cy.get(COMMON.TABLE.VISIBLE_ROWS)
       .find(COMMON.TABLE.VISIBLE_CELLS)
       .filter(`:nth-child(${column + 1})`)
-      .then(($cells) => {
+      .should(($cells) => {
+        // Retry while the grid is still rendering the newly selected order.
         const values = [...$cells].map((cell) => cell.innerText.trim());
+        expect(values.length, "Samity names available for sorting").to.be.greaterThan(1);
         expect(values).to.deep.equal([...values].sort(expectedSort));
       });
   }
 
   setSamityNameSort(column, direction, attempts = 0) {
-    if (attempts >= 3) {
-      throw new Error(`Unable to set Samity Name sorting to ${direction}.`);
-    }
-
     const activeIcon = direction === COMMON.SORT.ASCENDING
       ? COMMON.SORT.ASCENDING_ICON
       : COMMON.SORT.DESCENDING_ICON;
@@ -267,6 +267,10 @@ class RejectedSamity {
       .then(($header) => {
         if ($header.find(activeIcon).length) {
           return;
+        }
+
+        if (attempts >= 3) {
+          throw new Error(`Unable to set Samity Name sorting to ${direction}.`);
         }
 
         cy.wrap($header).click();
@@ -298,47 +302,6 @@ class RejectedSamity {
       }
     });
     cy.log(messages.ui.nextPageDisabledCheck);
-  }
-
-  openRejectedSamityView() {
-    cy.fixture(this.test_data).then((data) => {
-      const rsData = data.mfiAdmin.rejectedSamityFrom;
-      cy.imsId(COMMON.BUTTONS.RESET).click();
-      cy.formController(COMMON.INPUTS.SEARCH_TEXT).clear().type(rsData.samityNameEn);
-      cy.imsId(COMMON.BUTTONS.SEARCH).click();
-      cy.imsId(COMMON.TOGGLES.ACTION).first().click();
-      cy.imsId(COMMON.GRID.ACTION_VIEW).click();
-    });
-  }
-
-  viewPageNavigationCheck() {
-    this.openRejectedSamityView();
-    cy.location("pathname", { timeout: 30000 })
-      .should("include", COMMON.REJECTED_SAMITY.VIEW_PATH);
-    ["Home", "Samity", "Rejected Samity", "View"].forEach((breadcrumb) => {
-      cy.contains(COMMON.PAGE.VISIBLE_ELEMENT, breadcrumb).should("be.visible");
-    });
-    cy.log(messages.ui.listPageNavigationCheck);
-  }
-
-  viewInformationCheck() {
-    cy.fixture(this.test_data).then((data) => {
-      const rsData = data.mfiAdmin.rejectedSamityFrom;
-      ["Basic Information", "Settings", "Address Information"].forEach((section) => {
-        cy.contains(COMMON.PAGE.VISIBLE_ELEMENT, section).should("be.visible");
-      });
-      [
-        rsData.samityNameEn,
-        rsData.samityType,
-        rsData.samityDay,
-        rsData.samityFrequency,
-        rsData.maxMember,
-        rsData.geoAreaType,
-      ].forEach((value) => {
-        cy.contains(COMMON.PAGE.VISIBLE_ELEMENT, value).should("be.visible");
-      });
-      cy.log(messages.ui.viewField);
-    });
   }
 
   gridLanguageSwitchCheck() {

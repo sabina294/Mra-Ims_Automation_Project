@@ -1,5 +1,7 @@
 import messages from "../../../../support/constants/messages";
 import { COMMON } from "../../../../support/constants/selectors";
+import { configurationGridChecks } from "../../../../support/page-objects/configuration-grid-checks";
+
 class BankBranchCreation {
   test_data = Cypress.env("TEST_DATA");
 
@@ -599,6 +601,54 @@ class BankBranchCreation {
       cy.imsId(COMMON.BUTTONS.SEARCH).click();
       cy.log(messages.ui.searchMessage);
     });
+  }
+
+  listBreadcrumbCheck() {
+    configurationGridChecks.breadcrumb("Bank Branch");
+  }
+
+  requiredGridColumnsCheck() {
+    configurationGridChecks.columns([
+      "#", "Bank Branch Name (English)", "Bank Branch Name (Bangla)", "Routing Number", "Address", "Status", "Actions",
+    ]);
+  }
+
+  gridRecordDataCheck() {
+    configurationGridChecks.records(5, [1]);
+  }
+
+  exactNameSearchCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      configurationGridChecks.exactSearch(data.mraAdmin.createbankbranchFrom.nameEn, 1);
+    });
+  }
+
+  partialNameSearchCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      configurationGridChecks.partialSearch(data.mraAdmin.createbankbranchFrom.nameEn);
+    });
+  }
+
+  noResultSearchCheck() {
+    configurationGridChecks.noResult("BANK_BRANCH");
+  }
+
+  resetRestoresGridCheck() {
+    configurationGridChecks.reset();
+  }
+
+  activeStatusResultCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      configurationGridChecks.activeFilter(data.mraAdmin.createbankbranchFrom.statusSelect, 5);
+    });
+  }
+
+  nameAscendingSortCheck() {
+    configurationGridChecks.sort("Bank Branch Name (English)", COMMON.SORT.ASCENDING);
+  }
+
+  nameDescendingSortCheck() {
+    configurationGridChecks.sort("Bank Branch Name (English)", COMMON.SORT.DESCENDING);
   }
 
   gridLanguageSwitchCheck() {

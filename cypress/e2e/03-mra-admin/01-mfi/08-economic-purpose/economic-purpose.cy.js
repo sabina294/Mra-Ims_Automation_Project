@@ -133,7 +133,59 @@ describe("08. Economic Purpose Module Test Cases.", function () {
     create_economic_purpose.gridSearchButtonCheck();
   });
 
-  it("08.28. Verify that the grid list content switches correctly between English and Bangla languages.", function () {
+  it("08.28. Verify the Economic Purpose list breadcrumb.", function () {
+    create_economic_purpose.listBreadcrumbCheck();
+  });
+
+  it("08.29. Verify the required Economic Purpose grid columns.", function () {
+    create_economic_purpose.requiredGridColumnsCheck();
+  });
+
+  it("08.30. Verify valid Economic Purpose grid row data.", function () {
+    create_economic_purpose.gridRecordDataCheck();
+  });
+
+  it("08.31. Verify exact Economic Purpose name search.", function () {
+    create_economic_purpose.exactNameSearchCheck();
+  });
+
+  it("08.32. Verify partial Economic Purpose name search.", function () {
+    create_economic_purpose.partialNameSearchCheck();
+  });
+
+  it("08.33. Verify non-existing Economic Purpose search shows no records.", function () {
+    create_economic_purpose.noResultSearchCheck();
+  });
+
+  it("08.34. Verify Reset restores the Economic Purpose grid.", function () {
+    create_economic_purpose.resetRestoresGridCheck();
+  });
+
+  it("08.35. Verify Active filter results.", function () {
+    create_economic_purpose.activeStatusResultCheck();
+  });
+
+  it("08.36. Verify Economic Purpose Name ascending sorting.", function () {
+    create_economic_purpose.nameAscendingSortCheck();
+  });
+
+  it("08.37. Verify Economic Purpose Name descending sorting.", function () {
+    create_economic_purpose.nameDescendingSortCheck();
+  });
+
+  it("08.38. Verify Economic Purpose first-page pagination state.", function () {
+    create_economic_purpose.firstPagePaginationCheck();
+  });
+
+  it("08.39. Verify Economic Purpose View breadcrumb and grid-to-view data.", function () {
+    create_economic_purpose.viewPageDataAndBreadcrumbCheck();
+  });
+
+  it("08.40. Verify Economic Purpose Edit Mode fields and Reset behavior.", function () {
+    create_economic_purpose.editModeFieldsAndResetCheck();
+  });
+
+  it("08.41. Verify that the grid list content switches correctly between English and Bangla languages.", function () {
     create_economic_purpose.gridLanguageSwitchCheck();
   });
 });

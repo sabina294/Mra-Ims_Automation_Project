@@ -117,7 +117,55 @@ describe("07. Contract Phase Module Test Cases.", function () {
     create_contract_phase.gridSearchButtonCheck();
   });
 
-  it("07.23. Verify that the Contract Phase grid list content switches correctly between English and Bangla.", function () {
+  it("07.24. Verify the Contract Phase list breadcrumb.", function () {
+    create_contract_phase.listBreadcrumbCheck();
+  });
+
+  it("07.25. Verify the required Contract Phase grid columns.", function () {
+    create_contract_phase.requiredGridColumnsCheck();
+  });
+
+  it("07.26. Verify valid Contract Phase grid row data.", function () {
+    create_contract_phase.gridRecordDataCheck();
+  });
+
+  it("07.27. Verify exact Contract Phase name search.", function () {
+    create_contract_phase.exactNameSearchCheck();
+  });
+
+  it("07.28. Verify partial Contract Phase name search.", function () {
+    create_contract_phase.partialNameSearchCheck();
+  });
+
+  it("07.29. Verify non-existing Contract Phase search shows no records.", function () {
+    create_contract_phase.noResultSearchCheck();
+  });
+
+  it("07.30. Verify Reset restores the Contract Phase grid.", function () {
+    create_contract_phase.resetRestoresGridCheck();
+  });
+
+  it("07.31. Verify Active filter results.", function () {
+    create_contract_phase.activeStatusResultCheck();
+  });
+
+  it("07.32. Verify Contract Phase Name ascending sorting.", function () {
+    create_contract_phase.nameAscendingSortCheck();
+  });
+
+  it("07.33. Verify Contract Phase Name descending sorting.", function () {
+    create_contract_phase.nameDescendingSortCheck();
+  });
+
+  it("07.34. Verify Contract Phase View breadcrumb and grid-to-view data.", function () {
+    create_contract_phase.viewPageDataAndBreadcrumbCheck();
+  });
+
+  it("07.35. Verify Contract Phase Edit Mode fields and Reset behavior.", function () {
+    create_contract_phase.editModeFieldsAndResetCheck();
+  });
+
+  it("07.36. Verify that the Contract Phase grid list content switches correctly between English and Bangla.", function () {
     create_contract_phase.gridLanguageSwitchCheck();
   });
 });

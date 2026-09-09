@@ -1,5 +1,7 @@
 import messages from "../../../../support/constants/messages";
 import { COMMON } from "../../../../support/constants/selectors";
+import { configurationGridChecks } from "../../../../support/page-objects/configuration-grid-checks";
+
 class DivisionCreation {
   test_data = Cypress.env("TEST_DATA");
 
@@ -291,6 +293,69 @@ class DivisionCreation {
     cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
     cy.imsId(COMMON.BUTTONS.GO_BACK).click();
     cy.log(messages.ui.createGoBackMessage);
+  }
+
+  listBreadcrumbCheck() {
+    configurationGridChecks.breadcrumb("Division");
+  }
+
+  requiredGridColumnsCheck() {
+    configurationGridChecks.columns([
+      "#", "Division Name", "Division Name (Bangla)", "Division Code",
+      "Establish Year", "Status", "Actions",
+    ]);
+  }
+
+  gridRecordDataCheck() {
+    configurationGridChecks.records(5, [1, 2, 3, 4]);
+  }
+
+  exactNameSearchCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      configurationGridChecks.exactSearch(data.mraAdmin.createdivisionFrom.nameEn, 1);
+    });
+  }
+
+  partialNameSearchCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      configurationGridChecks.partialSearch(data.mraAdmin.createdivisionFrom.nameEn);
+    });
+  }
+
+  noResultSearchCheck() {
+    configurationGridChecks.noResult("DIVISION");
+  }
+
+  resetRestoresGridCheck() {
+    configurationGridChecks.reset();
+  }
+
+  activeStatusResultCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      configurationGridChecks.activeFilter(data.mraAdmin.createdivisionFrom.statusSelect, 5);
+    });
+  }
+
+  nameAscendingSortCheck() {
+    configurationGridChecks.sort("Division Name", COMMON.SORT.ASCENDING);
+  }
+
+  nameDescendingSortCheck() {
+    configurationGridChecks.sort("Division Name", COMMON.SORT.DESCENDING);
+  }
+
+  firstPagePaginationCheck() {
+    configurationGridChecks.pagination();
+  }
+
+  viewPageDataAndBreadcrumbCheck() {
+    configurationGridChecks.view("Division", [1, 2, 3, 4, 5]);
+  }
+
+  editModeFieldsAndResetCheck() {
+    configurationGridChecks.editReset(COMMON.INPUTS.NAME_EN, COMMON.INPUTS.NAME_BN, [
+      "division_code", "establish_year",
+    ]);
   }
 
   gridLanguageSwitchCheck() {

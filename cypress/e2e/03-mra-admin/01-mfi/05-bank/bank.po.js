@@ -1,5 +1,7 @@
 import messages from "../../../../support/constants/messages";
 import { COMMON } from "../../../../support/constants/selectors";
+import { configurationGridChecks } from "../../../../support/page-objects/configuration-grid-checks";
+
 class BankCreation {
   test_data = Cypress.env("TEST_DATA");
 
@@ -306,6 +308,68 @@ class BankCreation {
       cy.imsId(COMMON.BUTTONS.SEARCH).click();
       cy.log(messages.ui.searchMessage);
     });
+  }
+
+  listBreadcrumbCheck() {
+    configurationGridChecks.breadcrumb("Bank");
+  }
+
+  requiredGridColumnsCheck() {
+    configurationGridChecks.columns([
+      "#", "Bank Name", "Bank Name (Bangla)", "Website", "Status", "Actions",
+    ]);
+  }
+
+  gridRecordDataCheck() {
+    configurationGridChecks.records(4, [1, 2, 3]);
+  }
+
+  exactNameSearchCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      configurationGridChecks.exactSearch(data.mraAdmin.createbankFrom.nameEn, 1);
+    });
+  }
+
+  partialNameSearchCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      configurationGridChecks.partialSearch(data.mraAdmin.createbankFrom.nameEn);
+    });
+  }
+
+  noResultSearchCheck() {
+    configurationGridChecks.noResult("BANK");
+  }
+
+  resetRestoresGridCheck() {
+    configurationGridChecks.reset();
+  }
+
+  activeStatusResultCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      configurationGridChecks.activeFilter(data.mraAdmin.createbankFrom.statusSelect, 4);
+    });
+  }
+
+  nameAscendingSortCheck() {
+    configurationGridChecks.sort("Bank Name", COMMON.SORT.ASCENDING);
+  }
+
+  nameDescendingSortCheck() {
+    configurationGridChecks.sort("Bank Name", COMMON.SORT.DESCENDING);
+  }
+
+  firstPagePaginationCheck() {
+    configurationGridChecks.pagination();
+  }
+
+  viewPageDataAndBreadcrumbCheck() {
+    configurationGridChecks.view("Bank", [1, 2, 3, 4]);
+  }
+
+  editModeFieldsAndResetCheck() {
+    configurationGridChecks.editReset(COMMON.INPUTS.NAME_EN, COMMON.INPUTS.NAME_BN, [
+      "website", "bank_code", "bank_short_code",
+    ]);
   }
 
   gridLanguageSwitchCheck() {

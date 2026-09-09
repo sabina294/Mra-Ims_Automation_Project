@@ -1,5 +1,7 @@
 import messages from "../../../../support/constants/messages";
 import { COMMON } from "../../../../support/constants/selectors";
+import { configurationGridChecks } from "../../../../support/page-objects/configuration-grid-checks";
+
 class EconomicPurposeCreation {
   test_data = Cypress.env("TEST_DATA");
 
@@ -399,6 +401,70 @@ class EconomicPurposeCreation {
       cy.imsId(COMMON.BUTTONS.SEARCH).click();
       cy.log(messages.ui.searchMessage);
     });
+  }
+
+  listBreadcrumbCheck() {
+    configurationGridChecks.breadcrumb("Economic Purpose");
+  }
+
+  requiredGridColumnsCheck() {
+    configurationGridChecks.columns([
+      "#", "Economic Purpose ID", "Economic Purpose Name", "Sector",
+      "Economic Activity", "Status", "Actions",
+    ]);
+  }
+
+  gridRecordDataCheck() {
+    // Existing records can have an empty Sector cell in the list.
+    configurationGridChecks.records(5, [1, 2, 4]);
+  }
+
+  exactNameSearchCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      configurationGridChecks.exactSearch(data.mraAdmin.createeconomicPurposeFrom.nameEn, 2);
+    });
+  }
+
+  partialNameSearchCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      configurationGridChecks.partialSearch(data.mraAdmin.createeconomicPurposeFrom.nameEn);
+    });
+  }
+
+  noResultSearchCheck() {
+    configurationGridChecks.noResult("ECONOMIC_PURPOSE");
+  }
+
+  resetRestoresGridCheck() {
+    configurationGridChecks.reset();
+  }
+
+  activeStatusResultCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      configurationGridChecks.activeFilter(data.mraAdmin.createeconomicPurposeFrom.statusSelect, 5);
+    });
+  }
+
+  nameAscendingSortCheck() {
+    configurationGridChecks.sort("Economic Purpose Name", COMMON.SORT.ASCENDING);
+  }
+
+  nameDescendingSortCheck() {
+    configurationGridChecks.sort("Economic Purpose Name", COMMON.SORT.DESCENDING);
+  }
+
+  firstPagePaginationCheck() {
+    configurationGridChecks.pagination();
+  }
+
+  viewPageDataAndBreadcrumbCheck() {
+    configurationGridChecks.view("Economic Purpose", [1, 2, 4, 5]);
+  }
+
+  editModeFieldsAndResetCheck() {
+    configurationGridChecks.editReset(COMMON.INPUTS.NAME_EN, COMMON.INPUTS.NAME_BN, [
+      "mra_code", "sector", "econ_activity", "lending_category_id",
+    ]);
   }
 
   gridLanguageSwitchCheck() {

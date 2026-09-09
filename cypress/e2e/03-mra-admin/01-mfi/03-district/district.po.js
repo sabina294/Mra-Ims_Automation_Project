@@ -1,5 +1,7 @@
 import messages from "../../../../support/constants/messages";
 import { COMMON } from "../../../../support/constants/selectors";
+import { configurationGridChecks } from "../../../../support/page-objects/configuration-grid-checks";
+
 class DistrictCreation {
   test_data = Cypress.env("TEST_DATA");
 
@@ -350,6 +352,69 @@ class DistrictCreation {
     });
   }
   
+  listBreadcrumbCheck() {
+    configurationGridChecks.breadcrumb("District");
+  }
+
+  requiredGridColumnsCheck() {
+    configurationGridChecks.columns([
+      "#", "District Name", "District Name (Bangla)", "District Code",
+      "Establish Year", "Division", "Status", "Actions",
+    ]);
+  }
+
+  gridRecordDataCheck() {
+    configurationGridChecks.records(6, [1, 3, 4, 5]);
+  }
+
+  exactNameSearchCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      configurationGridChecks.exactSearch(data.mraAdmin.createdistrictFrom.nameEn, 1);
+    });
+  }
+
+  partialNameSearchCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      configurationGridChecks.partialSearch(data.mraAdmin.createdistrictFrom.nameEn);
+    });
+  }
+
+  noResultSearchCheck() {
+    configurationGridChecks.noResult("DISTRICT");
+  }
+
+  resetRestoresGridCheck() {
+    configurationGridChecks.reset();
+  }
+
+  activeStatusResultCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      configurationGridChecks.activeFilter(data.mraAdmin.createdistrictFrom.statusSelect, 6);
+    });
+  }
+
+  nameAscendingSortCheck() {
+    configurationGridChecks.sort("District Name", COMMON.SORT.ASCENDING);
+  }
+
+  nameDescendingSortCheck() {
+    configurationGridChecks.sort("District Name", COMMON.SORT.DESCENDING);
+  }
+
+  firstPagePaginationCheck() {
+    configurationGridChecks.pagination();
+  }
+
+  viewPageDataAndBreadcrumbCheck() {
+    configurationGridChecks.view("District", [1, 2, 3, 4, 5, 6]);
+  }
+
+  editModeFieldsAndResetCheck() {
+    configurationGridChecks.editReset(COMMON.INPUTS.NAME_EN, COMMON.INPUTS.NAME_BN, [
+      "district_code", "establish_year", "division_oid",
+    ]);
+  }
+
   gridLanguageSwitchCheck() {
     cy.imsId(COMMON.BUTTONS.PROFILE).click();
     cy.imsId(COMMON.BUTTONS.LANGUAGE_CHANGE).click();

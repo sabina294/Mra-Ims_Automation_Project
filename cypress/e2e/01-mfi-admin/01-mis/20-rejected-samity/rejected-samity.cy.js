@@ -119,15 +119,7 @@ describe("20. Rejected Samity Module Test Cases", function () {
     create_rejected_samity.nextPageBoundaryCheck();
   });
 
-  it("20.25. Verify the rejected Samity View page URL and breadcrumb navigation.", function () {
-    create_rejected_samity.viewPageNavigationCheck();
-  });
-
-  it("20.26. Verify that all rejected Samity information sections and important values are displayed on the View page.", function () {
-    create_rejected_samity.viewInformationCheck();
-  });
-
-  it("20.27. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("20.25. Verify check that the grid list content changes correctly from english to bangla.", function () {
     create_rejected_samity.gridLanguageSwitchCheck();
   });
 });

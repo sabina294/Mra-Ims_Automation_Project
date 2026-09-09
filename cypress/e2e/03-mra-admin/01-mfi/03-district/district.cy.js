@@ -133,7 +133,59 @@ describe("03. District Module Test Cases.", function () {
     create_district.gridSearchButtonCheck();
   });
 
-  it("03.28. Verify that the district grid updates correctly when switching the language from English to Bangla.", function () {
+  it("03.28. Verify the District list breadcrumb.", function () {
+    create_district.listBreadcrumbCheck();
+  });
+
+  it("03.29. Verify the required District grid columns.", function () {
+    create_district.requiredGridColumnsCheck();
+  });
+
+  it("03.30. Verify valid District grid row data.", function () {
+    create_district.gridRecordDataCheck();
+  });
+
+  it("03.31. Verify exact District name search.", function () {
+    create_district.exactNameSearchCheck();
+  });
+
+  it("03.32. Verify partial District name search.", function () {
+    create_district.partialNameSearchCheck();
+  });
+
+  it("03.33. Verify non-existing District search shows no records.", function () {
+    create_district.noResultSearchCheck();
+  });
+
+  it("03.34. Verify Reset restores the District grid.", function () {
+    create_district.resetRestoresGridCheck();
+  });
+
+  it("03.35. Verify Active filter results.", function () {
+    create_district.activeStatusResultCheck();
+  });
+
+  it("03.36. Verify District Name ascending sorting.", function () {
+    create_district.nameAscendingSortCheck();
+  });
+
+  it("03.37. Verify District Name descending sorting.", function () {
+    create_district.nameDescendingSortCheck();
+  });
+
+  it("03.38. Verify District first-page pagination state.", function () {
+    create_district.firstPagePaginationCheck();
+  });
+
+  it("03.39. Verify District View breadcrumb and grid-to-view data.", function () {
+    create_district.viewPageDataAndBreadcrumbCheck();
+  });
+
+  it("03.40. Verify District Edit Mode fields and Reset behavior.", function () {
+    create_district.editModeFieldsAndResetCheck();
+  });
+
+  it("03.41. Verify that the district grid updates correctly when switching the language from English to Bangla.", function () {
     create_district.gridLanguageSwitchCheck();
   });
 

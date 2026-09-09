@@ -165,7 +165,47 @@ describe("06. Bank Branch Module Test Cases.", function () {
     create_bank_branch.gridSearchButtonCheck();
   });
 
-  it("06.36. Verify that the grid list content updates correctly when switching language from English to Bangla.", function () {
+  it("06.36. Verify the Bank Branch list breadcrumb.", function () {
+    create_bank_branch.listBreadcrumbCheck();
+  });
+
+  it("06.37. Verify the required Bank Branch grid columns.", function () {
+    create_bank_branch.requiredGridColumnsCheck();
+  });
+
+  it("06.38. Verify valid Bank Branch grid row data.", function () {
+    create_bank_branch.gridRecordDataCheck();
+  });
+
+  it("06.39. Verify exact Bank Branch name search.", function () {
+    create_bank_branch.exactNameSearchCheck();
+  });
+
+  it("06.40. Verify partial Bank Branch name search.", function () {
+    create_bank_branch.partialNameSearchCheck();
+  });
+
+  it("06.41. Verify non-existing Bank Branch search shows no records.", function () {
+    create_bank_branch.noResultSearchCheck();
+  });
+
+  it("06.42. Verify Reset restores the Bank Branch grid.", function () {
+    create_bank_branch.resetRestoresGridCheck();
+  });
+
+  it("06.43. Verify Active filter results.", function () {
+    create_bank_branch.activeStatusResultCheck();
+  });
+
+  it("06.44. Verify Bank Branch Name ascending sorting.", function () {
+    create_bank_branch.nameAscendingSortCheck();
+  });
+
+  it("06.45. Verify Bank Branch Name descending sorting.", function () {
+    create_bank_branch.nameDescendingSortCheck();
+  });
+
+  it("06.46. Verify that the grid list content updates correctly when switching language from English to Bangla.", function () {
     create_bank_branch.gridLanguageSwitchCheck();
   });
 

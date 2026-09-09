@@ -133,7 +133,59 @@ describe("05. Bank Module Test Cases.", function () {
     create_bank.gridSearchButtonCheck();
   });
 
-  it("05.28. Verify that the bank grid list content switches correctly between English and Bangla languages.", function () {
+  it("05.28. Verify the Bank list breadcrumb.", function () {
+    create_bank.listBreadcrumbCheck();
+  });
+
+  it("05.29. Verify the required Bank grid columns.", function () {
+    create_bank.requiredGridColumnsCheck();
+  });
+
+  it("05.30. Verify valid Bank grid row data.", function () {
+    create_bank.gridRecordDataCheck();
+  });
+
+  it("05.31. Verify exact Bank name search.", function () {
+    create_bank.exactNameSearchCheck();
+  });
+
+  it("05.32. Verify partial Bank name search.", function () {
+    create_bank.partialNameSearchCheck();
+  });
+
+  it("05.33. Verify non-existing Bank search shows no records.", function () {
+    create_bank.noResultSearchCheck();
+  });
+
+  it("05.34. Verify Reset restores the Bank grid.", function () {
+    create_bank.resetRestoresGridCheck();
+  });
+
+  it("05.35. Verify Active filter results.", function () {
+    create_bank.activeStatusResultCheck();
+  });
+
+  it("05.36. Verify Bank Name ascending sorting.", function () {
+    create_bank.nameAscendingSortCheck();
+  });
+
+  it("05.37. Verify Bank Name descending sorting.", function () {
+    create_bank.nameDescendingSortCheck();
+  });
+
+  it("05.38. Verify Bank first-page pagination state.", function () {
+    create_bank.firstPagePaginationCheck();
+  });
+
+  it("05.39. Verify Bank View breadcrumb and grid-to-view data.", function () {
+    create_bank.viewPageDataAndBreadcrumbCheck();
+  });
+
+  it("05.40. Verify Bank Edit Mode fields and Reset behavior.", function () {
+    create_bank.editModeFieldsAndResetCheck();
+  });
+
+  it("05.41. Verify that the bank grid list content switches correctly between English and Bangla languages.", function () {
     create_bank.gridLanguageSwitchCheck();
   });
 

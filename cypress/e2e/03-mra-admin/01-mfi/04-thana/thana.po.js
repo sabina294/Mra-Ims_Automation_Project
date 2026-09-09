@@ -1,5 +1,7 @@
 import messages from "../../../../support/constants/messages";
 import { COMMON } from "../../../../support/constants/selectors";
+import { configurationGridChecks } from "../../../../support/page-objects/configuration-grid-checks";
+
 class ThanaCreation {
   test_data = Cypress.env("TEST_DATA");
 
@@ -412,6 +414,68 @@ class ThanaCreation {
       cy.imsId(COMMON.BUTTONS.SEARCH).click();
       cy.log(messages.ui.searchMessage);
     });
+  }
+
+  listBreadcrumbCheck() {
+    configurationGridChecks.breadcrumb("Thana");
+  }
+
+  requiredGridColumnsCheck() {
+    configurationGridChecks.columns([
+      "#", "Upazila Name", "Postal code", "Upazila code", "Status", "Actions",
+    ]);
+  }
+
+  gridRecordDataCheck() {
+    configurationGridChecks.records(4, [1]);
+  }
+
+  exactNameSearchCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      configurationGridChecks.exactSearch(data.mraAdmin.createthanaFrom.nameEn, 1);
+    });
+  }
+
+  partialNameSearchCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      configurationGridChecks.partialSearch(data.mraAdmin.createthanaFrom.nameEn);
+    });
+  }
+
+  noResultSearchCheck() {
+    configurationGridChecks.noResult("THANA");
+  }
+
+  resetRestoresGridCheck() {
+    configurationGridChecks.reset();
+  }
+
+  activeStatusResultCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      configurationGridChecks.activeFilter(data.mraAdmin.createthanaFrom.statusSelect, 4);
+    });
+  }
+
+  nameAscendingSortCheck() {
+    configurationGridChecks.sort("Upazila Name", COMMON.SORT.ASCENDING);
+  }
+
+  nameDescendingSortCheck() {
+    configurationGridChecks.sort("Upazila Name", COMMON.SORT.DESCENDING);
+  }
+
+  firstPagePaginationCheck() {
+    configurationGridChecks.pagination();
+  }
+
+  viewPageDataAndBreadcrumbCheck() {
+    configurationGridChecks.view("Thana", [1, 2, 3, 4]);
+  }
+
+  editModeFieldsAndResetCheck() {
+    configurationGridChecks.editReset(COMMON.INPUTS.NAME_EN, COMMON.INPUTS.NAME_BN, [
+      "upazila_code", "postal_code", "website", "type", "district_oid",
+    ]);
   }
 
   gridLanguageSwitchCheck() {
