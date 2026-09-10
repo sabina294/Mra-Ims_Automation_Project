@@ -141,7 +141,59 @@ describe("10. Payment Period Module Test Cases.", function () {
     create_payment_period.gridSearchButtonCheck();
   });
 
-  it("10.30. Verify that the grid list content switches correctly between English and Bangla languages.", function () {
+  it("10.30. Verify the Payment Period list breadcrumb.", function () {
+    create_payment_period.listBreadcrumbCheck();
+  });
+
+  it("10.31. Verify the required Payment Period grid columns.", function () {
+    create_payment_period.requiredGridColumnsCheck();
+  });
+
+  it("10.32. Verify valid Payment Period grid row data.", function () {
+    create_payment_period.gridRecordDataCheck();
+  });
+
+  it("10.33. Verify exact Payment Period name search.", function () {
+    create_payment_period.exactNameSearchCheck();
+  });
+
+  it("10.34. Verify partial Payment Period name search.", function () {
+    create_payment_period.partialNameSearchCheck();
+  });
+
+  it("10.35. Verify non-existing Payment Period search shows no records.", function () {
+    create_payment_period.noResultSearchCheck();
+  });
+
+  it("10.36. Verify Reset restores the Payment Period grid.", function () {
+    create_payment_period.resetRestoresGridCheck();
+  });
+
+  it("10.37. Verify Active filter results.", function () {
+    create_payment_period.activeStatusResultCheck();
+  });
+
+  it("10.38. Verify Payment Period Name ascending sorting.", function () {
+    create_payment_period.nameAscendingSortCheck();
+  });
+
+  it("10.39. Verify Payment Period Name descending sorting.", function () {
+    create_payment_period.nameDescendingSortCheck();
+  });
+
+  it("10.40. Verify Payment Period first-page pagination state.", function () {
+    create_payment_period.firstPagePaginationCheck();
+  });
+
+  it("10.41. Verify Payment Period View breadcrumb and grid-to-view data.", function () {
+    create_payment_period.viewPageDataAndBreadcrumbCheck();
+  });
+
+  it("10.42. Verify Payment Period Edit Mode fields and Reset behavior.", function () {
+    create_payment_period.editModeFieldsAndResetCheck();
+  });
+
+  it("10.43. Verify that the grid list content switches correctly between English and Bangla languages.", function () {
     create_payment_period.gridLanguageSwitchCheck();
   });
 });

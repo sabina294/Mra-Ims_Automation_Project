@@ -15,6 +15,7 @@ class SamityCreation {
       cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
       const smData = data.mfiAdmin.createSamityFrom;
       cy.formController("office_id").type(smData.office).type("{enter}");
+      cy.wait(2000);
       cy.formController("samity_name_en").first().type(smData.samityNameEn);
       cy.formController("samity_name_bn").type(smData.samityNameBn);
       cy.formController("samity_type").type(smData.samityType).type("{enter}");

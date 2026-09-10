@@ -10,6 +10,7 @@ class RejectedSamity {
       // cy.imsId(COMMON.BUTTONS.SUBMIT).and('be.visible')
       const rsData = data.mfiAdmin.rejectedSamityFrom;
       cy.formController("office_id").type(rsData.office).type("{enter}");
+      cy.wait(2000);
       cy.formController("samity_name_en").first().type(rsData.samityNameEn);
       cy.formController("samity_name_bn").type(rsData.samityNameBn);
       cy.formController("samity_type").type(rsData.samityType).type("{enter}");
@@ -49,6 +50,7 @@ class RejectedSamity {
       cy.imsId(COMMON.MENUS.MY_TASK).click();
       cy.imsId(COMMON.MENUS.AWAITING_SAMITY_MANAGEMENT).click();
       cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(rsData.samityNameEn);
+      cy.imsId(COMMON.BUTTONS.SEARCH).click();
       cy.imsId(COMMON.TOGGLES.ACTION).first().click();
       cy.imsId(COMMON.GRID.ACTION_VIEW).click();
       cy.imsId(COMMON.BUTTONS.LOCK).click();

@@ -137,7 +137,55 @@ describe("11. Payment Method Module Test Cases.", function () {
     create_payment_method.gridSearchButtonCheck();
   });
 
-  it("11.29. Verify that the grid list content switches correctly between English and Bangla languages.", function () {
+  it("11.29. Verify the Payment Method list breadcrumb.", function () {
+    create_payment_method.listBreadcrumbCheck();
+  });
+
+  it("11.30. Verify the required Payment Method grid columns.", function () {
+    create_payment_method.requiredGridColumnsCheck();
+  });
+
+  it("11.31. Verify valid Payment Method grid row data.", function () {
+    create_payment_method.gridRecordDataCheck();
+  });
+
+  it("11.32. Verify exact Payment Method name search.", function () {
+    create_payment_method.exactNameSearchCheck();
+  });
+
+  it("11.33. Verify partial Payment Method name search.", function () {
+    create_payment_method.partialNameSearchCheck();
+  });
+
+  it("11.34. Verify non-existing Payment Method search shows no records.", function () {
+    create_payment_method.noResultSearchCheck();
+  });
+
+  it("11.35. Verify Reset restores the Payment Method grid.", function () {
+    create_payment_method.resetRestoresGridCheck();
+  });
+
+  it("11.36. Verify Active filter results.", function () {
+    create_payment_method.activeStatusResultCheck();
+  });
+
+  it("11.37. Verify Payment Method Name ascending sorting.", function () {
+    create_payment_method.nameAscendingSortCheck();
+  });
+
+  it("11.38. Verify Payment Method Name descending sorting.", function () {
+    create_payment_method.nameDescendingSortCheck();
+  });
+
+  it("11.39. Verify Payment Method first-page pagination state.", function () {
+    create_payment_method.firstPagePaginationCheck();
+  });
+
+  it("11.40. Verify Payment Method Edit Mode fields and Reset behavior.", function () {
+    create_payment_method.editModeFieldsAndResetCheck();
+  });
+
+  it("11.41. Verify that the grid list content switches correctly between English and Bangla languages.", function () {
     create_payment_method.gridLanguageSwitchCheck();
   });
 });

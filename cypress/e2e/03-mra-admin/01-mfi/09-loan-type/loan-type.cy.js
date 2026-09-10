@@ -129,7 +129,59 @@ describe("9. Loan Type Module Test Cases.", function () {
     create_loan_type.gridSearchButtonCheck();
   });
 
-  it("09.27. Verify that the Loan Type grid list content switches correctly between English and Bangla languages.", function () {
+  it("09.27. Verify the Loan Type list breadcrumb.", function () {
+    create_loan_type.listBreadcrumbCheck();
+  });
+
+  it("09.28. Verify the required Loan Type grid columns.", function () {
+    create_loan_type.requiredGridColumnsCheck();
+  });
+
+  it("09.29. Verify valid Loan Type grid row data.", function () {
+    create_loan_type.gridRecordDataCheck();
+  });
+
+  it("09.30. Verify exact Loan Type name search.", function () {
+    create_loan_type.exactNameSearchCheck();
+  });
+
+  it("09.31. Verify partial Loan Type name search.", function () {
+    create_loan_type.partialNameSearchCheck();
+  });
+
+  it("09.32. Verify non-existing Loan Type search shows no records.", function () {
+    create_loan_type.noResultSearchCheck();
+  });
+
+  it("09.33. Verify Reset restores the Loan Type grid.", function () {
+    create_loan_type.resetRestoresGridCheck();
+  });
+
+  it("09.34. Verify Active filter results.", function () {
+    create_loan_type.activeStatusResultCheck();
+  });
+
+  it("09.35. Verify Loan Type Name ascending sorting.", function () {
+    create_loan_type.nameAscendingSortCheck();
+  });
+
+  it("09.36. Verify Loan Type Name descending sorting.", function () {
+    create_loan_type.nameDescendingSortCheck();
+  });
+
+  it("09.37. Verify Loan Type first-page pagination state.", function () {
+    create_loan_type.firstPagePaginationCheck();
+  });
+
+  it("09.38. Verify Loan Type View breadcrumb and grid-to-view data.", function () {
+    create_loan_type.viewPageDataAndBreadcrumbCheck();
+  });
+
+  it("09.39. Verify Loan Type Edit Mode fields and Reset behavior.", function () {
+    create_loan_type.editModeFieldsAndResetCheck();
+  });
+
+  it("09.40. Verify that the Loan Type grid list content switches correctly between English and Bangla languages.", function () {
     create_loan_type.gridLanguageSwitchCheck();
   });
 });
