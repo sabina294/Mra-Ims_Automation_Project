@@ -117,7 +117,67 @@ describe("18. Occupation Module Test Cases.", function () {
     create_occupation.gridSearchButtonCheck();
   });
 
-  it("18.24. Should switch grid list content correctly between English and Bangla.", function () {
+  it("18.24. Verify the Occupation list breadcrumb.", function () {
+    create_occupation.listBreadcrumbCheck();
+  });
+
+  it("18.25. Verify the required Occupation grid columns.", function () {
+    create_occupation.requiredGridColumnsCheck();
+  });
+
+  it("18.26. Verify valid Occupation grid row data.", function () {
+    create_occupation.gridRecordDataCheck();
+  });
+
+  it("18.27. Verify Occupation exact name search.", function () {
+    create_occupation.exactNameSearchCheck();
+  });
+
+  it("18.28. Verify Occupation partial name search.", function () {
+    create_occupation.partialNameSearchCheck();
+  });
+
+  it("18.29. Verify non-existing Occupation search shows no records.", function () {
+    create_occupation.noResultSearchCheck();
+  });
+
+  it("18.30. Verify Reset restores the Occupation grid.", function () {
+    create_occupation.resetRestoresGridCheck();
+  });
+
+  it("18.31. Verify Occupation Active filter results.", function () {
+    create_occupation.activeStatusResultCheck();
+  });
+
+  it("18.32. Verify Occupation name ascending sorting.", function () {
+    create_occupation.nameAscendingSortCheck();
+  });
+
+  it("18.33. Verify Occupation name descending sorting.", function () {
+    create_occupation.nameDescendingSortCheck();
+  });
+
+  it("18.34. Verify Occupation first-page pagination state.", function () {
+    create_occupation.firstPagePaginationCheck();
+  });
+
+  it("18.35. Verify Occupation View breadcrumb and grid-to-view data.", function () {
+    create_occupation.viewPageDataAndBreadcrumbCheck();
+  });
+
+  it("18.36. Verify Occupation Edit Mode fields and Reset behavior.", function () {
+    create_occupation.editModeFieldsAndResetCheck();
+  });
+
+  it("18.37. Verify Occupation Create breadcrumb, empty names, default Active status and form buttons.", function () {
+    create_occupation.createPageFieldsAndDefaultsCheck();
+  });
+
+  it("18.38. Verify Occupation Edit breadcrumb and prefilled English name, Bangla name and status match the grid.", function () {
+    create_occupation.editPrefilledValuesCheck();
+  });
+
+  it("18.39. Should switch grid list content correctly between English and Bangla.", function () {
     create_occupation.gridLanguageSwitchCheck();
   });
 

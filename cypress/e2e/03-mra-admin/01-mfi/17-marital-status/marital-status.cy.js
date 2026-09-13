@@ -117,7 +117,67 @@ describe("17. Marital Status Module Test Cases.", function () {
     create_marital_status.gridSearchButtonCheck();
   });
 
-  it("17.24. Verify that the grid list content switches correctly between English and Bangla.", function () {
+  it("17.24. Verify the Marital Status list breadcrumb.", function () {
+    create_marital_status.listBreadcrumbCheck();
+  });
+
+  it("17.25. Verify the required Marital Status grid columns.", function () {
+    create_marital_status.requiredGridColumnsCheck();
+  });
+
+  it("17.26. Verify valid Marital Status grid row data.", function () {
+    create_marital_status.gridRecordDataCheck();
+  });
+
+  it("17.27. Verify Marital Status exact name search.", function () {
+    create_marital_status.exactNameSearchCheck();
+  });
+
+  it("17.28. Verify Marital Status partial name search.", function () {
+    create_marital_status.partialNameSearchCheck();
+  });
+
+  it("17.29. Verify non-existing Marital Status search shows no records.", function () {
+    create_marital_status.noResultSearchCheck();
+  });
+
+  it("17.30. Verify Reset restores the Marital Status grid.", function () {
+    create_marital_status.resetRestoresGridCheck();
+  });
+
+  it("17.31. Verify Marital Status Active filter results.", function () {
+    create_marital_status.activeStatusResultCheck();
+  });
+
+  it("17.32. Verify Marital Status name ascending sorting.", function () {
+    create_marital_status.nameAscendingSortCheck();
+  });
+
+  it("17.33. Verify Marital Status name descending sorting.", function () {
+    create_marital_status.nameDescendingSortCheck();
+  });
+
+  it("17.34. Verify Marital Status first-page pagination state.", function () {
+    create_marital_status.firstPagePaginationCheck();
+  });
+
+  it("17.35. Verify Marital Status View breadcrumb and grid-to-view data.", function () {
+    create_marital_status.viewPageDataAndBreadcrumbCheck();
+  });
+
+  it("17.36. Verify Marital Status Edit Mode fields and Reset behavior.", function () {
+    create_marital_status.editModeFieldsAndResetCheck();
+  });
+
+  it("17.37. Verify Marital Status Create breadcrumb, empty names, default Active status and form buttons.", function () {
+    create_marital_status.createPageFieldsAndDefaultsCheck();
+  });
+
+  it("17.38. Verify Marital Status View breadcrumb in edit mode and prefilled English name, Bangla name and status match the grid.", function () {
+    create_marital_status.editPrefilledValuesCheck();
+  });
+
+  it("17.39. Verify that the grid list content switches correctly between English and Bangla.", function () {
     create_marital_status.gridLanguageSwitchCheck();
   });
 

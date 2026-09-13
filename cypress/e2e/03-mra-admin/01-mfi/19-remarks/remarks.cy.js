@@ -117,7 +117,67 @@ describe("19. Remarks Module Test Cases.", function () {
     create_remarks.gridSearchButtonCheck();
   });
 
-  it("19.24. Verify that the grid list content switches correctly from English to Bangla.", function () {
+  it("19.24. Verify the Remarks list breadcrumb.", function () {
+    create_remarks.listBreadcrumbCheck();
+  });
+
+  it("19.25. Verify the required Remarks grid columns.", function () {
+    create_remarks.requiredGridColumnsCheck();
+  });
+
+  it("19.26. Verify valid Remarks grid row data.", function () {
+    create_remarks.gridRecordDataCheck();
+  });
+
+  it("19.27. Verify Remarks exact name search.", function () {
+    create_remarks.exactNameSearchCheck();
+  });
+
+  it("19.28. Verify Remarks partial name search.", function () {
+    create_remarks.partialNameSearchCheck();
+  });
+
+  it("19.29. Verify non-existing Remarks search shows no records.", function () {
+    create_remarks.noResultSearchCheck();
+  });
+
+  it("19.30. Verify Reset restores the Remarks grid.", function () {
+    create_remarks.resetRestoresGridCheck();
+  });
+
+  it("19.31. Verify Remarks Active filter results.", function () {
+    create_remarks.activeStatusResultCheck();
+  });
+
+  it("19.32. Verify Remarks name ascending sorting.", function () {
+    create_remarks.nameAscendingSortCheck();
+  });
+
+  it("19.33. Verify Remarks name descending sorting.", function () {
+    create_remarks.nameDescendingSortCheck();
+  });
+
+  it("19.34. Verify Remarks first-page pagination state.", function () {
+    create_remarks.firstPagePaginationCheck();
+  });
+
+  it("19.35. Verify Remarks View breadcrumb and grid-to-view data.", function () {
+    create_remarks.viewPageDataAndBreadcrumbCheck();
+  });
+
+  it("19.36. Verify Remarks Edit Mode fields and Reset behavior.", function () {
+    create_remarks.editModeFieldsAndResetCheck();
+  });
+
+  it("19.37. Verify Remarks Create breadcrumb, empty names, default Active status and form buttons.", function () {
+    create_remarks.createPageFieldsAndDefaultsCheck();
+  });
+
+  it("19.38. Verify Remarks Edit breadcrumb and prefilled English name, Bangla name and status match the grid.", function () {
+    create_remarks.editPrefilledValuesCheck();
+  });
+
+  it("19.39. Verify that the grid list content switches correctly from English to Bangla.", function () {
     create_remarks.gridLanguageSwitchCheck();
   });
 
