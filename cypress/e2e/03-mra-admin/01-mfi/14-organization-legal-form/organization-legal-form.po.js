@@ -1,5 +1,7 @@
 import messages from "../../../../support/constants/messages";
 import { COMMON } from "../../../../support/constants/selectors";
+import { configurationGridChecks } from "../../../../support/page-objects/configuration-grid-checks";
+
 class OrganizationLegalFormCreation {
   test_data = Cypress.env("TEST_DATA");
 
@@ -271,6 +273,64 @@ class OrganizationLegalFormCreation {
       cy.imsId(COMMON.BUTTONS.SEARCH).click();
       cy.log(messages.ui.searchMessage);
     });
+  }
+
+  listBreadcrumbCheck() {
+    configurationGridChecks.breadcrumb("Organization Legal Form");
+  }
+
+  requiredGridColumnsCheck() {
+    configurationGridChecks.columns(["#", "Organinzation Legal Form Name", "Organinzation Legal Form Name (Bangla)", "Status", "Actions"]);
+  }
+
+  gridRecordDataCheck() {
+    configurationGridChecks.records(3, [1, 2]);
+  }
+
+  exactNameSearchCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      configurationGridChecks.exactSearch(data.mraAdmin.createOrgLegForm.nameEn, 1);
+    });
+  }
+
+  partialNameSearchCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      configurationGridChecks.partialSearch(data.mraAdmin.createOrgLegForm.nameEn);
+    });
+  }
+
+  noResultSearchCheck() {
+    configurationGridChecks.noResult("ORGANIZATION_LEGAL_FORM");
+  }
+
+  resetRestoresGridCheck() {
+    configurationGridChecks.reset();
+  }
+
+  activeStatusResultCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      configurationGridChecks.activeFilter(data.mraAdmin.createOrgLegForm.statusSelect, 3);
+    });
+  }
+
+  nameAscendingSortCheck() {
+    configurationGridChecks.sort("Organinzation Legal Form Name", COMMON.SORT.ASCENDING);
+  }
+
+  nameDescendingSortCheck() {
+    configurationGridChecks.sort("Organinzation Legal Form Name", COMMON.SORT.DESCENDING);
+  }
+
+  firstPagePaginationCheck() {
+    configurationGridChecks.pagination();
+  }
+
+  viewPageDataAndBreadcrumbCheck() {
+    configurationGridChecks.view("Organization Legal Form", [1, 2, 3]);
+  }
+
+  editModeFieldsAndResetCheck() {
+    configurationGridChecks.editReset(COMMON.INPUTS.NAME_EN, COMMON.INPUTS.NAME_BN, []);
   }
 
   gridLanguageSwitchCheck() {

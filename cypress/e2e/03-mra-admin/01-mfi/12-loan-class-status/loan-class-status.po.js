@@ -1,5 +1,7 @@
 import messages from "../../../../support/constants/messages";
 import { COMMON } from "../../../../support/constants/selectors";
+import { configurationGridChecks } from "../../../../support/page-objects/configuration-grid-checks";
+
 class LoanClassStatusCreation {
   test_data = Cypress.env("TEST_DATA");
 
@@ -370,6 +372,64 @@ class LoanClassStatusCreation {
       cy.imsId(COMMON.BUTTONS.SEARCH).click();
       cy.log(messages.ui.searchMessage);
     });
+  }
+
+  listBreadcrumbCheck() {
+    configurationGridChecks.breadcrumb("Loan Class Status");
+  }
+
+  requiredGridColumnsCheck() {
+    configurationGridChecks.columns(["#", "Loan Class ID", "Loan Class Name", "Description", "Status", "Actions"]);
+  }
+
+  gridRecordDataCheck() {
+    configurationGridChecks.records(4, [1, 2, 3]);
+  }
+
+  exactNameSearchCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      configurationGridChecks.exactSearch(data.mraAdmin.createloanClassStatusFrom.loanClassNameEn, 2);
+    });
+  }
+
+  partialNameSearchCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      configurationGridChecks.partialSearch(data.mraAdmin.createloanClassStatusFrom.loanClassNameEn);
+    });
+  }
+
+  noResultSearchCheck() {
+    configurationGridChecks.noResult("LOAN_CLASS_STATUS");
+  }
+
+  resetRestoresGridCheck() {
+    configurationGridChecks.reset();
+  }
+
+  activeStatusResultCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      configurationGridChecks.activeFilter(data.mraAdmin.createloanClassStatusFrom.statusSelect, 4);
+    });
+  }
+
+  nameAscendingSortCheck() {
+    configurationGridChecks.sort("Loan Class Name", COMMON.SORT.ASCENDING);
+  }
+
+  nameDescendingSortCheck() {
+    configurationGridChecks.sort("Loan Class Name", COMMON.SORT.DESCENDING);
+  }
+
+  firstPagePaginationCheck() {
+    configurationGridChecks.pagination();
+  }
+
+  viewPageDataAndBreadcrumbCheck() {
+    configurationGridChecks.view("Loan Class Status", [1, 2, 3, 4]);
+  }
+
+  editModeFieldsAndResetCheck() {
+    configurationGridChecks.editReset(COMMON.INPUTS.NAME_EN, COMMON.INPUTS.NAME_BN, ["loan_class_status_id", "description"]);
   }
 
   gridLanguageSwitchCheck() {

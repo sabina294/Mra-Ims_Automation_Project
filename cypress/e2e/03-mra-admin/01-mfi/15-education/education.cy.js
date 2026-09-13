@@ -65,7 +65,7 @@ describe("15. Education Module Test Cases.", function () {
     create_education.turnOffOnEditMode();
   });
 
-  it("15.11. Verify edit the education name and description successfully.", function () {
+  it("15.11. Verify submit the existing education details successfully.", function () {
     create_education.editEducation();
   });
 
@@ -117,9 +117,68 @@ describe("15. Education Module Test Cases.", function () {
     create_education.gridSearchButtonCheck();
   });
 
-  it("15.24. Verify switch the grid list content correctly between English and Bangla.", function () {
-    create_education.gridLanguageSwitchCheck();
+  it("15.24. Verify the Education list breadcrumb.", function () {
+    create_education.listBreadcrumbCheck();
   });
 
+  it("15.25. Verify the required Education grid columns.", function () {
+    create_education.requiredGridColumnsCheck();
+  });
+
+  it("15.26. Verify valid Education grid row data.", function () {
+    create_education.gridRecordDataCheck();
+  });
+
+  it("15.27. Verify Education exact name search.", function () {
+    create_education.exactNameSearchCheck();
+  });
+
+  it("15.28. Verify Education partial name search.", function () {
+    create_education.partialNameSearchCheck();
+  });
+
+  it("15.29. Verify non-existing Education search shows no records.", function () {
+    create_education.noResultSearchCheck();
+  });
+
+  it("15.30. Verify Reset restores the Education grid.", function () {
+    create_education.resetRestoresGridCheck();
+  });
+
+  it("15.31. Verify Education Active filter results.", function () {
+    create_education.activeStatusResultCheck();
+  });
+
+  it("15.32. Verify Education name ascending sorting.", function () {
+    create_education.nameAscendingSortCheck();
+  });
+
+  it("15.33. Verify Education name descending sorting.", function () {
+    create_education.nameDescendingSortCheck();
+  });
+
+  it("15.34. Verify Education first-page pagination state.", function () {
+    create_education.firstPagePaginationCheck();
+  });
+
+  it("15.35. Verify Education View breadcrumb and grid-to-view data.", function () {
+    create_education.viewPageDataAndBreadcrumbCheck();
+  });
+
+  it("15.36. Verify Education Edit Mode fields and Reset behavior.", function () {
+    create_education.editModeFieldsAndResetCheck();
+  });
+
+  it("15.37. Verify Education Create breadcrumb, empty names, default Active status and form buttons.", function () {
+    create_education.createPageFieldsAndDefaultsCheck();
+  });
+
+  it("15.38. Verify Education Edit breadcrumb and prefilled English name, Bangla name and status match the grid.", function () {
+    create_education.editPrefilledValuesCheck();
+  });
+
+  it("15.39. Verify switch the grid list content correctly between English and Bangla.", function () {
+    create_education.gridLanguageSwitchCheck();
+  });
 
 });

@@ -5,7 +5,7 @@
 import "cypress-file-upload";
 import { update_loan_chart } from "./loan-chart.po";
 
-describe("13. Loan Cassification Chart Module Test Cases.", function () {
+describe("13. Loan Classification Chart Module Test Cases.", function () {
   const baseURL = Cypress.env("BASE_URL");
   const test_data = Cypress.env("TEST_DATA");
 
@@ -50,7 +50,7 @@ describe("13. Loan Cassification Chart Module Test Cases.", function () {
     update_loan_chart.editResetButton();
   });
 
-  it("13.07. Verify that the Loan Classification Chart edit submit button updates the data successfully with valid inputs.", function () {
+  it("13.07. Verify that the Loan Classification Chart edit submit button displays validation after required inputs are reset.", function () {
     update_loan_chart.editSubmitButton();
   });
 
@@ -78,7 +78,7 @@ describe("13. Loan Cassification Chart Module Test Cases.", function () {
     update_loan_chart.gridRefreshButtonCheck();
   });
 
-  it("13.14. Verify that clicking the Go Back button on the Loan Classification Chart create page redirects the user to the list page.", function () {
+  it("13.14. Verify that clicking the Go Back button on the Loan Classification Chart update page redirects the user to the list page.", function () {
     update_loan_chart.createGoBackButtonCheck();
   });
 
@@ -86,7 +86,55 @@ describe("13. Loan Cassification Chart Module Test Cases.", function () {
     update_loan_chart.gridSearchButtonCheck();
   });
 
-  it("13.16. Verify that the grid list content switches correctly between English and Bangla.", function () {
+  it("13.16. Verify the Loan Classification Chart list breadcrumb.", function () {
+    update_loan_chart.listBreadcrumbCheck();
+  });
+
+  it("13.17. Verify the required Loan Classification Chart grid columns.", function () {
+    update_loan_chart.requiredGridColumnsCheck();
+  });
+
+  it("13.18. Verify valid Loan Classification Chart grid row data.", function () {
+    update_loan_chart.gridRecordDataCheck();
+  });
+
+  it("13.19. Verify Loan Classification Chart exact name search.", function () {
+    update_loan_chart.exactNameSearchCheck();
+  });
+
+  it("13.20. Verify Loan Classification Chart partial name search.", function () {
+    update_loan_chart.partialNameSearchCheck();
+  });
+
+  it("13.21. Verify non-existing Loan Classification Chart search shows no records.", function () {
+    update_loan_chart.noResultSearchCheck();
+  });
+
+  it("13.22. Verify Reset restores the Loan Classification Chart grid.", function () {
+    update_loan_chart.resetRestoresGridCheck();
+  });
+
+  it("13.23. Verify Loan Classification Chart Active filter results.", function () {
+    update_loan_chart.activeStatusResultCheck();
+  });
+
+  it("13.24. Verify Loan Classification Chart name ascending sorting.", function () {
+    update_loan_chart.nameAscendingSortCheck();
+  });
+
+  it("13.25. Verify Loan Classification Chart name descending sorting.", function () {
+    update_loan_chart.nameDescendingSortCheck();
+  });
+
+  it("13.26. Verify Loan Classification Chart first-page pagination state.", function () {
+    update_loan_chart.firstPagePaginationCheck();
+  });
+
+  it("13.27. Verify Loan Classification Chart View breadcrumb and grid-to-view data.", function () {
+    update_loan_chart.viewPageDataAndBreadcrumbCheck();
+  });
+
+  it("13.29. Verify that the grid list content switches correctly between English and Bangla.", function () {
     update_loan_chart.gridLanguageSwitchCheck();
   });
 });

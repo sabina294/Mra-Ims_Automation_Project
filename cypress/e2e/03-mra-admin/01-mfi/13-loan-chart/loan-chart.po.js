@@ -1,5 +1,7 @@
 import messages from "../../../../support/constants/messages";
 import { COMMON } from "../../../../support/constants/selectors";
+import { configurationGridChecks } from "../../../../support/page-objects/configuration-grid-checks";
+
 class LoanChartUpdate {
   test_data = Cypress.env("TEST_DATA");
 
@@ -125,6 +127,60 @@ class LoanChartUpdate {
       cy.imsId(COMMON.BUTTONS.SEARCH).click();
       cy.log(messages.ui.searchMessage);
     });
+  }
+
+  listBreadcrumbCheck() {
+    configurationGridChecks.breadcrumb("Loan Classification Chart");
+  }
+
+  requiredGridColumnsCheck() {
+    configurationGridChecks.columns(["#", "Loan Classification Chart Name", "Min Over Due Day", "Max Over Due Day", "Accumulation Rate", "Status", "Actions"]);
+  }
+
+  gridRecordDataCheck() {
+    configurationGridChecks.records(5, [1, 2, 3, 4]);
+  }
+
+  exactNameSearchCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      configurationGridChecks.exactSearch(data.mraAdmin.updateloanChartFrom.chartNameEn, 1);
+    });
+  }
+
+  partialNameSearchCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      configurationGridChecks.partialSearch(data.mraAdmin.updateloanChartFrom.chartNameEn);
+    });
+  }
+
+  noResultSearchCheck() {
+    configurationGridChecks.noResult("LOAN_CHART");
+  }
+
+  resetRestoresGridCheck() {
+    configurationGridChecks.reset();
+  }
+
+  activeStatusResultCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      configurationGridChecks.activeFilter(data.mraAdmin.updateloanChartFrom.statusSelect, 5);
+    });
+  }
+
+  nameAscendingSortCheck() {
+    configurationGridChecks.sort("Loan Classification Chart Name", COMMON.SORT.ASCENDING);
+  }
+
+  nameDescendingSortCheck() {
+    configurationGridChecks.sort("Loan Classification Chart Name", COMMON.SORT.DESCENDING);
+  }
+
+  firstPagePaginationCheck() {
+    configurationGridChecks.pagination();
+  }
+
+  viewPageDataAndBreadcrumbCheck() {
+    configurationGridChecks.view("Loan Classification Chart", [1, 2, 3, 4, 5]);
   }
 
   gridLanguageSwitchCheck() {

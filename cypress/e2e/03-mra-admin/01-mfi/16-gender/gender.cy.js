@@ -65,7 +65,7 @@ describe("16. Gender Module Test Cases", function () {
     create_gender.turnOffOnEditMode();
   });
 
-  it("16.12. Verify successfully edit the gender name and description", function () {
+  it("16.12. Verify successfully submit the existing gender details", function () {
     create_gender.editGender();
   });
 
@@ -117,7 +117,67 @@ describe("16. Gender Module Test Cases", function () {
     create_gender.gridSearchButtonCheck();
   });
 
-  it("16.25. Verify change grid list content correctly when switching language between English and Bangla", function () {
+  it("16.25. Verify the Gender list breadcrumb.", function () {
+    create_gender.listBreadcrumbCheck();
+  });
+
+  it("16.26. Verify the required Gender grid columns.", function () {
+    create_gender.requiredGridColumnsCheck();
+  });
+
+  it("16.27. Verify valid Gender grid row data.", function () {
+    create_gender.gridRecordDataCheck();
+  });
+
+  it("16.28. Verify Gender exact name search.", function () {
+    create_gender.exactNameSearchCheck();
+  });
+
+  it("16.29. Verify Gender partial name search.", function () {
+    create_gender.partialNameSearchCheck();
+  });
+
+  it("16.30. Verify non-existing Gender search shows no records.", function () {
+    create_gender.noResultSearchCheck();
+  });
+
+  it("16.31. Verify Reset restores the Gender grid.", function () {
+    create_gender.resetRestoresGridCheck();
+  });
+
+  it("16.32. Verify Gender Active filter results.", function () {
+    create_gender.activeStatusResultCheck();
+  });
+
+  it("16.33. Verify Gender name ascending sorting.", function () {
+    create_gender.nameAscendingSortCheck();
+  });
+
+  it("16.34. Verify Gender name descending sorting.", function () {
+    create_gender.nameDescendingSortCheck();
+  });
+
+  it("16.35. Verify Gender first-page pagination state.", function () {
+    create_gender.firstPagePaginationCheck();
+  });
+
+  it("16.36. Verify Gender View breadcrumb and grid-to-view data.", function () {
+    create_gender.viewPageDataAndBreadcrumbCheck();
+  });
+
+  it("16.37. Verify Gender Edit Mode fields and Reset behavior.", function () {
+    create_gender.editModeFieldsAndResetCheck();
+  });
+
+  it("16.38. Verify Gender Create breadcrumb, empty names and Gender ID, default Active status and form buttons.", function () {
+    create_gender.createPageFieldsAndDefaultsCheck();
+  });
+
+  it("16.39. Verify Gender View breadcrumb in edit mode and prefilled English name, Bangla name, Gender ID and status match the grid.", function () {
+    create_gender.editPrefilledValuesCheck();
+  });
+
+  it("16.40. Verify change grid list content correctly when switching language between English and Bangla", function () {
     create_gender.gridLanguageSwitchCheck();
   });
 });

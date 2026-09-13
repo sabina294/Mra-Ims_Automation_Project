@@ -61,7 +61,7 @@ describe("14. Organization Legal Form Module Test Cases", function () {
     create_organization_legal_form.turnOffOnEditMode();
   });
 
-  it("14.11. Verify allow editing the organization legal form name and description successfully", function () {
+  it("14.11. Verify allow editing the organization legal form English and Bangla names successfully", function () {
     create_organization_legal_form.editOrganizationLegalForm();
   });
 
@@ -109,11 +109,63 @@ describe("14. Organization Legal Form Module Test Cases", function () {
     create_organization_legal_form.createGoBackButtonCheck();
   });
 
-  it("14.23. Verify that when the user clicks the Search button on the Loan Classification Chart  grid page, the system redirects to the Loan Classification Chart  List page..", function () {
+  it("14.23. Verify that when the user clicks the Search button on the Organization Legal Form grid page, the system redirects to the Organization Legal Form List page.", function () {
     create_organization_legal_form.gridSearchButtonCheck();
   });
 
-  it("14.24. Verify switch grid content language correctly from English to Bangla", function () {
+  it("14.24. Verify the Organization Legal Form list breadcrumb.", function () {
+    create_organization_legal_form.listBreadcrumbCheck();
+  });
+
+  it("14.25. Verify the required Organization Legal Form grid columns.", function () {
+    create_organization_legal_form.requiredGridColumnsCheck();
+  });
+
+  it("14.26. Verify valid Organization Legal Form grid row data.", function () {
+    create_organization_legal_form.gridRecordDataCheck();
+  });
+
+  it("14.27. Verify Organization Legal Form exact name search.", function () {
+    create_organization_legal_form.exactNameSearchCheck();
+  });
+
+  it("14.28. Verify Organization Legal Form partial name search.", function () {
+    create_organization_legal_form.partialNameSearchCheck();
+  });
+
+  it("14.29. Verify non-existing Organization Legal Form search shows no records.", function () {
+    create_organization_legal_form.noResultSearchCheck();
+  });
+
+  it("14.30. Verify Reset restores the Organization Legal Form grid.", function () {
+    create_organization_legal_form.resetRestoresGridCheck();
+  });
+
+  it("14.31. Verify Organization Legal Form Active filter results.", function () {
+    create_organization_legal_form.activeStatusResultCheck();
+  });
+
+  it("14.32. Verify Organization Legal Form name ascending sorting.", function () {
+    create_organization_legal_form.nameAscendingSortCheck();
+  });
+
+  it("14.33. Verify Organization Legal Form name descending sorting.", function () {
+    create_organization_legal_form.nameDescendingSortCheck();
+  });
+
+  it("14.34. Verify Organization Legal Form first-page pagination state.", function () {
+    create_organization_legal_form.firstPagePaginationCheck();
+  });
+
+  it("14.35. Verify Organization Legal Form View breadcrumb and grid-to-view data.", function () {
+    create_organization_legal_form.viewPageDataAndBreadcrumbCheck();
+  });
+
+  it("14.36. Verify Organization Legal Form Edit Mode fields and Reset behavior.", function () {
+    create_organization_legal_form.editModeFieldsAndResetCheck();
+  });
+
+  it("14.37. Verify switch grid content language correctly from English to Bangla", function () {
     create_organization_legal_form.gridLanguageSwitchCheck();
   });
 });

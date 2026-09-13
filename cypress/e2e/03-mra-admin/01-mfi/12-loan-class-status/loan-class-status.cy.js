@@ -45,7 +45,7 @@ describe("12. Loan Class Status Module Test Cases.", function () {
     create_loan_class_status.createWithoutLoanNameEn();
   });
 
-  it("12.06. Verify loan class status creation fails when the Bangla loan class name is not provided.", function () {
+  it("12.06. Verify loan class status creation succeeds when the optional Bangla loan class name is not provided.", function () {
     create_loan_class_status.createWithoutLoanNameBn();
   });
 
@@ -129,7 +129,59 @@ describe("12. Loan Class Status Module Test Cases.", function () {
     create_loan_class_status.gridSearchButtonCheck();
   });
 
-  it("12.27. Verify the grid list language switches correctly between English and Bangla.", function () {
+  it("12.27. Verify the Loan Class Status list breadcrumb.", function () {
+    create_loan_class_status.listBreadcrumbCheck();
+  });
+
+  it("12.28. Verify the required Loan Class Status grid columns.", function () {
+    create_loan_class_status.requiredGridColumnsCheck();
+  });
+
+  it("12.29. Verify valid Loan Class Status grid row data.", function () {
+    create_loan_class_status.gridRecordDataCheck();
+  });
+
+  it("12.30. Verify Loan Class Status exact name search.", function () {
+    create_loan_class_status.exactNameSearchCheck();
+  });
+
+  it("12.31. Verify Loan Class Status partial name search.", function () {
+    create_loan_class_status.partialNameSearchCheck();
+  });
+
+  it("12.32. Verify non-existing Loan Class Status search shows no records.", function () {
+    create_loan_class_status.noResultSearchCheck();
+  });
+
+  it("12.33. Verify Reset restores the Loan Class Status grid.", function () {
+    create_loan_class_status.resetRestoresGridCheck();
+  });
+
+  it("12.34. Verify Loan Class Status Active filter results.", function () {
+    create_loan_class_status.activeStatusResultCheck();
+  });
+
+  it("12.35. Verify Loan Class Status name ascending sorting.", function () {
+    create_loan_class_status.nameAscendingSortCheck();
+  });
+
+  it("12.36. Verify Loan Class Status name descending sorting.", function () {
+    create_loan_class_status.nameDescendingSortCheck();
+  });
+
+  it("12.37. Verify Loan Class Status first-page pagination state.", function () {
+    create_loan_class_status.firstPagePaginationCheck();
+  });
+
+  it("12.38. Verify Loan Class Status View breadcrumb and grid-to-view data.", function () {
+    create_loan_class_status.viewPageDataAndBreadcrumbCheck();
+  });
+
+  it("12.39. Verify Loan Class Status Edit Mode fields and Reset behavior.", function () {
+    create_loan_class_status.editModeFieldsAndResetCheck();
+  });
+
+  it("12.40. Verify the grid list language switches correctly between English and Bangla.", function () {
     create_loan_class_status.gridLanguageSwitchCheck();
   });
 });
