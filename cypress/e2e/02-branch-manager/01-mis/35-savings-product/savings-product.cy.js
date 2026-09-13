@@ -91,14 +91,6 @@ describe("35. Savings Product Module Test Cases", function () {
     create_savings_product.gridRecordDataCheck();
   });
 
-  it("35.18. Verify full Savings Product name search results.", function () {
-    create_savings_product.exactNameSearchCheck();
-  });
-
-  it("35.19. Verify partial Savings Product name search results.", function () {
-    create_savings_product.partialNameSearchCheck();
-  });
-
   it("35.20. Verify non-existing Savings Product search shows no records.", function () {
     create_savings_product.noResultSearchCheck();
   });

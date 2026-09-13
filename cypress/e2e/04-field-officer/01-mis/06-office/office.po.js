@@ -121,17 +121,6 @@ class OfficeGrid {
     cy.log(messages.ui.checkboxMessage);
   }
 
-  gridCheckboxLockButtonCheck() {
-    cy.imsId(COMMON.BUTTONS.LOCK).click();
-    cy.log(messages.ui.lockSuccess);
-  }
-
-  gridCheckboxUnlockButtonCheck() {
-    cy.imsId(COMMON.CHECKBOXES.ROW_2).click();
-    cy.imsId(COMMON.BUTTONS.UNLOCK).click();
-    cy.log(messages.ui.unlockSuccess);
-  }
-
   gridDraftButton() {
     cy.imsId(COMMON.GRID.DRAFT_TOGGLE)
       .check({ force: true });

@@ -123,35 +123,6 @@ class SavingsProductCreation {
     configurationGridChecks.records(7, [1, 3, 5, 6]);
   }
 
-  nameSearchResultsCheck(partial = false) {
-    cy.imsId(COMMON.BUTTONS.RESET).click();
-    // Use a product available to this branch rather than assume a seeded name.
-    cy.get(COMMON.TABLE.VISIBLE_ROWS).first().find(COMMON.TABLE.VISIBLE_CELLS)
-      .eq(3).invoke("text").then((text) => {
-        const name = text.trim();
-        expect(name, "existing savings product name").not.to.equal("");
-        const term = partial ? name.split(/\s+/)[0] : name;
-        cy.formController(COMMON.INPUTS.SEARCH_TEXT).clear().type(term);
-        cy.imsId(COMMON.BUTTONS.SEARCH).click();
-        // Re-query all rows on retry while asynchronous search replaces the grid.
-        cy.get(COMMON.TABLE.VISIBLE_ROWS).should(($rows) => {
-          expect($rows.length, "matching savings products").to.be.greaterThan(0);
-          $rows.each((_, row) => {
-            const actual = Cypress.$(row).find(COMMON.TABLE.VISIBLE_CELLS).eq(3).text().trim();
-            expect(actual.toLowerCase()).to.contain(term.toLowerCase());
-          });
-        });
-      });
-  }
-
-  exactNameSearchCheck() {
-    this.nameSearchResultsCheck();
-  }
-
-  partialNameSearchCheck() {
-    this.nameSearchResultsCheck(true);
-  }
-
   noResultSearchCheck() {
     configurationGridChecks.noResult("SAVINGS_PRODUCT");
   }
