@@ -8,7 +8,9 @@ class RejectedSamity {
       cy.selectMenu(COMMON.MENUS.SAMITY, COMMON.MENUS.SAMITY_MANAGEMENT);
       cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
       const rsData = data.branchManager.rejectedSamityFrom;
-      cy.formController("office_id").type(rsData.office).type("{enter}");
+      // Requery before Enter because typing can replace the dropdown DOM.
+      cy.formController("office_id").type(rsData.office);
+      cy.formController("office_id").type("{enter}");
       cy.wait(2000);
       cy.formController("samity_name_en").first().type(rsData.samityNameEn);
       cy.formController("samity_name_bn").type(rsData.samityNameBn);

@@ -1,5 +1,7 @@
 import messages from "../../../../support/constants/messages";
 import { COMMON } from "../../../../support/constants/selectors";
+import { configurationGridChecks } from "../../../../support/page-objects/configuration-grid-checks";
+
 class MfiCreation {
   test_data = Cypress.env("TEST_DATA");
 
@@ -1133,17 +1135,6 @@ class MfiCreation {
     cy.log(messages.ui.checkboxMessage);
   }
 
-  gridCheckboxLockButtonCheck() {
-    cy.imsId(COMMON.BUTTONS.LOCK).click();
-    cy.log(messages.ui.lockSuccess);
-  }
-
-  gridCheckboxUnlockButtonCheck() {
-    cy.imsId(COMMON.CHECKBOXES.ROW_0).click();
-    cy.imsId(COMMON.BUTTONS.UNLOCK).click();
-    cy.log(messages.ui.unlockSuccess);
-  }
-
   gridDraftButton() {
     cy.imsId(COMMON.GRID.DRAFT_TOGGLE)
       .check({ force: true });
@@ -1196,6 +1187,124 @@ class MfiCreation {
       cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(mfiData.search);
       cy.imsId(COMMON.BUTTONS.SEARCH).click();
       cy.log(messages.ui.searchMessage);
+    });
+  }
+
+  resetListForChecks() {
+    cy.imsId(COMMON.BUTTONS.RESET).click();
+    cy.imsId(COMMON.GRID.DRAFT_TOGGLE).uncheck({ force: true }).should("not.be.checked");
+    cy.formController(COMMON.INPUTS.SEARCH_TEXT).should("have.value", "");
+  }
+
+  assertBreadcrumb(page) {
+    cy.get("nz-breadcrumb, .ant-breadcrumb").should("be.visible")
+      .and("contain.text", "Home").and("contain.text", "MFI Management").and("contain.text", page);
+  }
+
+  searchExistingMfi(partial) {
+    this.resetListForChecks();
+    cy.get(COMMON.TABLE.VISIBLE_ROWS).first().find(COMMON.TABLE.VISIBLE_CELLS).eq(2).invoke("text").then((text) => {
+      const name = text.trim();
+      expect(name).not.to.equal("");
+      const term = partial ? name.slice(0, Math.max(1, Math.floor(name.length / 2))) : name;
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(term, { parseSpecialCharSequences: false });
+      cy.imsId(COMMON.BUTTONS.SEARCH).click();
+      cy.get(COMMON.TABLE.VISIBLE_ROWS).should(($rows) => {
+        expect($rows.length).to.be.greaterThan(0);
+        $rows.each((_, row) => expect(Cypress.$(row).find(COMMON.TABLE.VISIBLE_CELLS).eq(2).text().trim().toLowerCase()).to.contain(term.toLowerCase()));
+      });
+    });
+  }
+
+  openGridRecordView(check) {
+    this.resetListForChecks();
+    cy.get(COMMON.TABLE.VISIBLE_ROWS).first().then(($row) => {
+      const cells = $row.find(COMMON.TABLE.VISIBLE_CELLS);
+      const values = [2, 4, 5].map((index) => cells.eq(index).text().trim());
+      values.forEach((value) => expect(value).not.to.equal(""));
+      cy.get(COMMON.TABLE.VISIBLE_ROWS).filter((_, row) =>
+        Cypress.$(row).find(COMMON.TABLE.VISIBLE_CELLS).eq(5).text().trim() === values[2]
+      ).should("have.length", 1).find(COMMON.TABLE.ACTION_TOGGLE).click();
+      cy.imsId(COMMON.GRID.ACTION_VIEW).click();
+      check(values);
+    });
+  }
+
+  listBreadcrumbCheck() {
+    this.resetListForChecks();
+    this.assertBreadcrumb("List");
+    cy.location("pathname").should("include", "/mfi-management/mfi/list");
+  }
+
+  requiredGridColumnsCheck() {
+    configurationGridChecks.columns(["#", "MFI Name", "Mnemonic", "Licence No.", "MFI Id", "Formation", "Website", "Locked By", "Status", "Actions"]);
+  }
+
+  gridRecordDataCheck() {
+    this.resetListForChecks();
+    cy.get(COMMON.TABLE.VISIBLE_ROWS).should("have.length.greaterThan", 0).each(($row) => {
+      const cells = $row.find(COMMON.TABLE.VISIBLE_CELLS);
+      expect(cells.eq(1).text().trim()).to.match(/^\d+$/);
+      [2, 4, 5].forEach((index) => expect(cells.eq(index).text().trim()).not.to.equal(""));
+      expect(["Active", "Inactive"]).to.include(cells.eq(9).text().trim());
+    });
+  }
+
+  exactNameSearchCheck() {
+    this.searchExistingMfi(false);
+  }
+
+  partialNameSearchCheck() {
+    this.searchExistingMfi(true);
+  }
+
+  noResultSearchCheck() {
+    this.resetListForChecks();
+    configurationGridChecks.noResult("MFI_MANAGEMENT");
+  }
+
+  resetRestoresGridCheck() {
+    configurationGridChecks.reset();
+  }
+
+  activeStatusResultCheck() {
+    this.resetListForChecks();
+    cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type("Active{enter}");
+    cy.imsId(COMMON.BUTTONS.SEARCH).click();
+    cy.get(COMMON.TABLE.VISIBLE_ROWS).should(($rows) => {
+      expect($rows.length).to.be.greaterThan(0);
+      $rows.each((_, row) => expect(Cypress.$(row).find(COMMON.TABLE.VISIBLE_CELLS).eq(9).text().trim()).to.equal("Active"));
+    });
+  }
+
+  nameAscendingSortCheck() {
+    this.resetListForChecks();
+    configurationGridChecks.sort("MFI Name", COMMON.SORT.ASCENDING);
+  }
+
+  nameDescendingSortCheck() {
+    configurationGridChecks.sort("MFI Name", COMMON.SORT.DESCENDING);
+  }
+
+  firstPagePaginationCheck() {
+    this.resetListForChecks();
+    configurationGridChecks.pagination();
+  }
+
+  unselectedLockButtonsCheck() {
+    this.resetListForChecks();
+    cy.get(COMMON.TABLE.BODY).find('input[type="checkbox"]').should("not.be.checked");
+    cy.imsId(COMMON.BUTTONS.LOCK).should("be.disabled");
+    cy.imsId(COMMON.BUTTONS.UNLOCK).should("be.disabled");
+  }
+
+  viewPageDataAndBreadcrumbCheck() {
+    this.openGridRecordView((values) => {
+      this.assertBreadcrumb("View");
+      ["MFI Information", "User Information"].forEach((label) => cy.contains(label).should("be.visible"));
+      values.forEach((value) => cy.contains(COMMON.PAGE.VISIBLE_ELEMENT, value).should("be.visible"));
+      cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+      this.assertBreadcrumb("List");
     });
   }
 

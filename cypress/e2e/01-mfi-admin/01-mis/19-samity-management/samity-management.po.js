@@ -14,31 +14,30 @@ class SamityCreation {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
       const smData = data.mfiAdmin.createSamityFrom;
-      cy.formController("office_id").type(smData.office).type("{enter}");
+      // Requery before Enter because typing can replace the dropdown DOM.
+      cy.formController("office_id").type(smData.office);
+      cy.formController("office_id").type("{enter}");
       cy.wait(2000);
       cy.formController("samity_name_en").first().type(smData.samityNameEn);
       cy.formController("samity_name_bn").type(smData.samityNameBn);
-      cy.formController("samity_type").type(smData.samityType).type("{enter}");
+      cy.formController("samity_type").type(smData.samityType);
+      cy.formController("samity_type").type("{enter}");
       cy.wait(2000);
-      cy.formController("field_officer_id")
-        .type(smData.fieldOfficer)
-        .type("{enter}");
+      cy.formController("field_officer_id").type(smData.fieldOfficer);
+      cy.formController("field_officer_id").type("{enter}");
       cy.wait(2000);
-      cy.formController("mfi_program_id")
-        .type(smData.mfiProgram)
-        .type("{enter}");
-      cy.formController("samity_day").type(smData.samityDay).type("{enter}");
-      cy.formController("samity_meeting_frequency")
-        .type(smData.samityFrequency)
-        .type("{enter}");
+      cy.formController("mfi_program_id").type(smData.mfiProgram);
+      cy.formController("mfi_program_id").type("{enter}");
+      cy.formController("samity_day").type(smData.samityDay);
+      cy.formController("samity_day").type("{enter}");
+      cy.formController("samity_meeting_frequency").type(smData.samityFrequency);
+      cy.formController("samity_meeting_frequency").type("{enter}");
       cy.formController("maximum_member").type(smData.maxMember);
-      cy.formController("working_area_id")
-        .type(smData.workingArea)
-        .type("{enter}");
+      cy.formController("working_area_id").type(smData.workingArea);
+      cy.formController("working_area_id").type("{enter}");
       cy.formController("address_line_1").type(smData.adressEn);
-      cy.formController("geo_area_type")
-        .type(smData.geoAreaType)
-        .type("{enter}");
+      cy.formController("geo_area_type").type(smData.geoAreaType);
+      cy.formController("geo_area_type").type("{enter}");
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
       cy.imsId(COMMON.CONFIRMATION.YES).click();
       cy.imsId(COMMON.CONFIRMATION.OK).click();

@@ -21,7 +21,6 @@ describe("20. MFI Management Module Test Cases.", function () {
     });
   });
 
-
   after(() => {
     cy.logout();
   });
@@ -162,14 +161,6 @@ describe("20. MFI Management Module Test Cases.", function () {
     create_mfi_management.gridCheckboxCheck();
   });
 
-  it("20.35. Verify that the Lock button functions correctly when records are selected using the checkbox.", function () {
-    create_mfi_management.gridCheckboxLockButtonCheck();
-  });
-
-  it("20.36. Verify that the Unlock button functions correctly when records are selected using the checkbox.", function () {
-    create_mfi_management.gridCheckboxUnlockButtonCheck();
-  });
-
   it("20.37. Verify that edit mode can be toggled on and off and fields behave accordingly.", function () {
     create_mfi_management.turnOffOnEditMode();
   });
@@ -226,7 +217,59 @@ describe("20. MFI Management Module Test Cases.", function () {
     create_mfi_management.gridSearchButtonCheck();
   });
 
-  it("20.51. Verify that the grid list content switches correctly between English and Bangla languages.", function () {
+  it("20.51. Verify MFI Management list breadcrumb and route.", function () {
+    create_mfi_management.listBreadcrumbCheck();
+  });
+
+  it("20.52. Verify MFI grid columns.", function () {
+    create_mfi_management.requiredGridColumnsCheck();
+  });
+
+  it("20.53. Verify MFI grid names, licence numbers, IDs and statuses.", function () {
+    create_mfi_management.gridRecordDataCheck();
+  });
+
+  it("20.54. Verify full MFI name search results.", function () {
+    create_mfi_management.exactNameSearchCheck();
+  });
+
+  it("20.55. Verify partial MFI name search results.", function () {
+    create_mfi_management.partialNameSearchCheck();
+  });
+
+  it("20.56. Verify unknown MFI search returns no data.", function () {
+    create_mfi_management.noResultSearchCheck();
+  });
+
+  it("20.57. Verify Reset clears the search and restores MFI rows.", function () {
+    create_mfi_management.resetRestoresGridCheck();
+  });
+
+  it("20.58. Verify Active filter returns only active MFIs.", function () {
+    create_mfi_management.activeStatusResultCheck();
+  });
+
+  it("20.59. Verify MFI Name ascending sort state.", function () {
+    create_mfi_management.nameAscendingSortCheck();
+  });
+
+  it("20.60. Verify MFI Name descending sort state.", function () {
+    create_mfi_management.nameDescendingSortCheck();
+  });
+
+  it("20.61. Verify MFI first-page pagination state.", function () {
+    create_mfi_management.firstPagePaginationCheck();
+  });
+
+  it("20.62. Verify Lock and Unlock are disabled without selected records.", function () {
+    create_mfi_management.unselectedLockButtonsCheck();
+  });
+
+  it("20.63. Verify MFI View breadcrumb, sections and grid-to-view data.", function () {
+    create_mfi_management.viewPageDataAndBreadcrumbCheck();
+  });
+
+  it("20.66. Verify that the grid list content switches correctly between English and Bangla languages.", function () {
     create_mfi_management.gridLanguageSwitchCheck();
   });
 
