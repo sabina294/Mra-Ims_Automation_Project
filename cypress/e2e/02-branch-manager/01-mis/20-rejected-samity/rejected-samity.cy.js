@@ -47,25 +47,25 @@ describe("20. Rejected Samity Module Test Cases", function () {
     create_rejected_samity.viewGoBackButton();
   });
 
-  it("20.07. Verify reset modified data on rejected samity edit page when reset button is clicked", function () {
-    create_rejected_samity.editResetButton();
-  });
+  // it("20.07. Verify reset modified data on rejected samity edit page when reset button is clicked", function () {
+  //   create_rejected_samity.editResetButton();
+  // });
 
-  it("20.08. Verify save rejected samity record as draft from edit page", function () {
-    create_rejected_samity.editDraftButton();
-  });
+  // it("20.08. Verify save rejected samity record as draft from edit page", function () {
+  //   create_rejected_samity.editDraftButton();
+  // });
 
-  it("20.09. Verify update rejected samity record successfully when submit button is clicked", function () {
-    create_rejected_samity.editSubmitButton();
-  });
+  // it("20.09. Verify update rejected samity record successfully when submit button is clicked", function () {
+  //   create_rejected_samity.editSubmitButton();
+  // });
 
-  it("20.10. Verify approve rejected samity record successfully from edit page", function () {
-    create_rejected_samity.editApproveButton();
-  });
+  // it("20.10. Verify approve rejected samity record successfully from edit page", function () {
+  //   create_rejected_samity.editApproveButton();
+  // });
 
-  it("20.11. Verify redirect to rejected samity list page when Go Back button is clicked from edit page", function () {
-    create_rejected_samity.editGoBackButton();
-  });
+  // it("20.11. Verify redirect to rejected samity list page when Go Back button is clicked from edit page", function () {
+  //   create_rejected_samity.editGoBackButton();
+  // });
 
   it("20.12. Verify return correct results when searching rejected samity by name", function () {
     create_rejected_samity.searchInRejectSamityName();

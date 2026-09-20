@@ -79,7 +79,59 @@ describe("05. Amount based loan proposal approval Module Test Cases ", function 
     grid_amount_based_loan.gridSearchButtonCheck();
   });
 
-  it("05.15. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("05.15. Verify the Amount Based Loan Proposal Approval list breadcrumb.", function () {
+    grid_amount_based_loan.listBreadcrumbCheck();
+  });
+
+  it("05.16. Verify the required Amount Based Loan Proposal Approval grid columns.", function () {
+    grid_amount_based_loan.requiredGridColumnsCheck();
+  });
+
+  it("05.17. Verify that each approval row has a valid loan range and status.", function () {
+    grid_amount_based_loan.gridRecordDataCheck();
+  });
+
+  it("05.18. Verify exact Role search.", function () {
+    grid_amount_based_loan.exactNameSearchCheck();
+  });
+
+  it("05.19. Verify partial Role search.", function () {
+    grid_amount_based_loan.partialNameSearchCheck();
+  });
+
+  it("05.20. Verify non-existing Role search shows no records.", function () {
+    grid_amount_based_loan.noResultSearchCheck();
+  });
+
+  it("05.21. Verify Reset restores the approval grid.", function () {
+    grid_amount_based_loan.resetRestoresGridCheck();
+  });
+
+  it("05.22. Verify Active filter results.", function () {
+    grid_amount_based_loan.activeStatusResultCheck();
+  });
+
+  it("05.23. Verify Role ascending sorting.", function () {
+    grid_amount_based_loan.nameAscendingSortCheck();
+  });
+
+  it("05.24. Verify Role descending sorting.", function () {
+    grid_amount_based_loan.nameDescendingSortCheck();
+  });
+
+  it("05.25. Verify approval grid first-page pagination state.", function () {
+    grid_amount_based_loan.firstPagePaginationCheck();
+  });
+
+  it("05.26. Verify approval View breadcrumb and grid-to-view data.", function () {
+    grid_amount_based_loan.viewPageDataAndBreadcrumbCheck();
+  });
+
+  it("05.27. Verify approval Edit Mode fields and Reset behavior.", function () {
+    grid_amount_based_loan.editModeFieldsAndResetCheck();
+  });
+
+  it("05.28. Verify that the grid content switches correctly between English and Bangla languages.", function () {
     grid_amount_based_loan.gridLanguageSwitchCheck();
   });
 });

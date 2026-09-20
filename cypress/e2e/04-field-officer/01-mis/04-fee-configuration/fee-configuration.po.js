@@ -1,5 +1,7 @@
 import messages from "../../../../support/constants/messages";
 import { COMMON } from "../../../../support/constants/selectors";
+import { configurationGridChecks } from "../../../../support/page-objects/configuration-grid-checks";
+
 class FeeConfiguration {
   test_data = Cypress.env("TEST_DATA");
 
@@ -12,9 +14,7 @@ class FeeConfiguration {
 
   actionButtonCheck() {
     cy.imsId(COMMON.TOGGLES.ACTION).first().click();
-    cy.log(
-      messages.ui.actionMessage
-    );
+    cy.log(messages.ui.actionMessage);
   }
 
   viewFeeConfiguration() {
@@ -88,11 +88,10 @@ class FeeConfiguration {
     cy.imsId(COMMON.BUTTONS.RESET).click();
     cy.log(messages.ui.gridResetSuccess);
   }
+
   gridRefreshButtonCheck() {
     cy.imsId(COMMON.BUTTONS.REFRESH).click();
-    cy.log(
-      messages.ui.gridRefreshSuccess
-    );
+    cy.log(messages.ui.gridRefreshSuccess);
   }
 
   gridSearchButtonCheck() {
@@ -103,6 +102,80 @@ class FeeConfiguration {
       cy.imsId(COMMON.BUTTONS.SEARCH).click();
       cy.log(messages.ui.searchMessage);
     });
+  }
+
+  listBreadcrumbCheck() {
+    cy.changeLanguage("english");
+    configurationGridChecks.breadcrumb("Fee Configuration");
+  }
+
+  requiredGridColumnsCheck() {
+    configurationGridChecks.columns([
+      "#", "Fee Collection Code", "Fee Type Name (English)", "Ledger ID",
+      "Subledger ID", "Amount", "Remarks", "Status", "Actions",
+    ]);
+  }
+
+  gridRecordDataCheck() {
+    configurationGridChecks.records(7, [1, 2, 3, 5]);
+  }
+
+  exactNameSearchCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      configurationGridChecks.exactSearch(
+        data.fieldOfficer.gridFeeConfigurationFrom.feeTypeNameEn,
+        2
+      );
+    });
+  }
+
+  partialNameSearchCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      configurationGridChecks.partialSearch(
+        data.fieldOfficer.gridFeeConfigurationFrom.feeTypeNameEn
+      );
+    });
+  }
+
+  noResultSearchCheck() {
+    configurationGridChecks.noResult("FEE_CONFIGURATION");
+  }
+
+  resetRestoresGridCheck() {
+    configurationGridChecks.reset();
+  }
+
+  activeStatusResultCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      configurationGridChecks.activeFilter(
+        data.fieldOfficer.gridFeeConfigurationFrom.statusSelect,
+        7
+      );
+    });
+  }
+
+  nameAscendingSortCheck() {
+    configurationGridChecks.sort("Fee Type Name (English)", COMMON.SORT.ASCENDING);
+  }
+
+  nameDescendingSortCheck() {
+    configurationGridChecks.sort("Fee Type Name (English)", COMMON.SORT.DESCENDING);
+  }
+
+  firstPagePaginationCheck() {
+    configurationGridChecks.pagination();
+  }
+
+  viewPageDataAndBreadcrumbCheck() {
+    configurationGridChecks.view("Fee Configuration", [1, 2, 5, 7]);
+  }
+
+  editModeFieldsAndResetCheck() {
+    configurationGridChecks.editReset(
+      "fee_type_name_en",
+      "fee_type_name_bn",
+      ["fee_collection_code", "amount", "ledger_id", "subledger_id"]
+    );
   }
 
   gridLanguageSwitchCheck() {

@@ -79,7 +79,59 @@ describe("04. Fee Configuration Module Test Cases ", function () {
     grid_fee_configuration.gridSearchButtonCheck();
   });
 
-  it("04.15. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("04.15. Verify the Fee Configuration list breadcrumb.", function () {
+    grid_fee_configuration.listBreadcrumbCheck();
+  });
+
+  it("04.16. Verify the required Fee Configuration grid columns.", function () {
+    grid_fee_configuration.requiredGridColumnsCheck();
+  });
+
+  it("04.17. Verify valid Fee Configuration grid row data.", function () {
+    grid_fee_configuration.gridRecordDataCheck();
+  });
+
+  it("04.18. Verify exact Fee Configuration name search.", function () {
+    grid_fee_configuration.exactNameSearchCheck();
+  });
+
+  it("04.19. Verify partial Fee Configuration name search.", function () {
+    grid_fee_configuration.partialNameSearchCheck();
+  });
+
+  it("04.20. Verify non-existing Fee Configuration search shows no records.", function () {
+    grid_fee_configuration.noResultSearchCheck();
+  });
+
+  it("04.21. Verify Reset restores the Fee Configuration grid.", function () {
+    grid_fee_configuration.resetRestoresGridCheck();
+  });
+
+  it("04.22. Verify Active filter results.", function () {
+    grid_fee_configuration.activeStatusResultCheck();
+  });
+
+  it("04.23. Verify Fee Type Name ascending sorting.", function () {
+    grid_fee_configuration.nameAscendingSortCheck();
+  });
+
+  it("04.24. Verify Fee Type Name descending sorting.", function () {
+    grid_fee_configuration.nameDescendingSortCheck();
+  });
+
+  it("04.25. Verify Fee Configuration first-page pagination state.", function () {
+    grid_fee_configuration.firstPagePaginationCheck();
+  });
+
+  it("04.26. Verify Fee Configuration View breadcrumb and grid-to-view data.", function () {
+    grid_fee_configuration.viewPageDataAndBreadcrumbCheck();
+  });
+
+  it("04.27. Verify Fee Configuration Edit Mode fields and Reset behavior.", function () {
+    grid_fee_configuration.editModeFieldsAndResetCheck();
+  });
+
+  it("04.28. Verify that the grid content language switches correctly between English and Bangla.", function () {
     grid_fee_configuration.gridLanguageSwitchCheck();
   });
 });

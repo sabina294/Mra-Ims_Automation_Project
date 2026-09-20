@@ -193,10 +193,37 @@ class AmountBasedLoanProposalApproval {
   }
 
   viewPageDataAndBreadcrumbCheck() {
-    configurationGridChecks.view(
-      "Amount Based Loan Proposal Approval",
-      [1, 2, 3, 4, 5, 6, 7]
-    );
+    cy.imsId(COMMON.BUTTONS.RESET).click();
+    const valueIndexes = [1, 2, 3, 4, 5, 6, 7];
+    const rowValues = (row) => {
+      const cells = Cypress.$(row).find(COMMON.TABLE.VISIBLE_CELLS);
+      return valueIndexes.map((index) => cells.eq(index).text().trim());
+    };
+
+    cy.get(COMMON.TABLE.VISIBLE_ROWS).first().then(($row) => {
+      const expectedValues = rowValues($row);
+      // Role IDs can be blank or repeated. Match the complete row on retry
+      // so a Reset rerender cannot redirect the click to a different record.
+      cy.get(COMMON.TABLE.VISIBLE_ROWS)
+        .filter((index, row) =>
+          rowValues(row).every((value, position) => value === expectedValues[position])
+        )
+        .first()
+        .find(COMMON.TABLE.ACTION_TOGGLE)
+        .click();
+      cy.imsId(COMMON.GRID.ACTION_VIEW).click();
+      cy.get("nz-breadcrumb, .ant-breadcrumb")
+        .should("contain.text", "Home")
+        .and("contain.text", "Configuration")
+        .and("contain.text", "Amount Based Loan Proposal Approval")
+        .and("contain.text", "View");
+      expectedValues.filter(Boolean).forEach((value) => {
+        cy.contains(COMMON.PAGE.VISIBLE_ELEMENT, value).should("be.visible");
+      });
+      cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+      cy.get(COMMON.TABLE.BODY).should("be.visible");
+    });
+    cy.log(messages.ui.viewMessage);
   }
 
   editModeFieldsAndResetCheck() {
