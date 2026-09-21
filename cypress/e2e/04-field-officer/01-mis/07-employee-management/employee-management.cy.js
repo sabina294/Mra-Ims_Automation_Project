@@ -107,7 +107,52 @@ describe("07. Employee Management Module Test Cases", function () {
     grid_employee_management.gridSearchButtonCheck();
   });
 
-  it("07.22. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("07.22. Verify that the list breadcrumb is correct.", function () {
+    grid_employee_management.listBreadcrumbCheck();
+  });
+
+  it("07.23. Verify that all required grid columns are visible.", function () {
+    grid_employee_management.requiredGridColumnsCheck();
+  });
+
+  it("07.24. Verify that grid rows contain valid identifiers, names and status.", function () {
+    grid_employee_management.gridRecordDataCheck();
+  });
+
+  it("07.25. Verify that a partial name search returns matching records.", function () {
+    grid_employee_management.partialNameSearchCheck();
+  });
+
+  it("07.26. Verify that a non-existing search displays no records.", function () {
+    grid_employee_management.noResultSearchCheck();
+  });
+
+  it("07.27. Verify that Reset clears the search and restores the grid.", function () {
+    grid_employee_management.resetRestoresGridCheck();
+  });
+
+  it("07.28. Verify that the Active filter returns only active records.", function () {
+    grid_employee_management.activeStatusResultCheck();
+  });
+
+  it("07.29. Verify that the name column supports ascending sorting.", function () {
+    grid_employee_management.nameAscendingSortCheck();
+  });
+
+  it("07.30. Verify that the name column supports descending sorting.", function () {
+    grid_employee_management.nameDescendingSortCheck();
+  });
+
+  it("07.31. Verify that first-page pagination is correct.", function () {
+    grid_employee_management.firstPagePaginationCheck();
+  });
+
+  it("07.32. Verify that View data matches the selected row and Go Back returns to the list.", function () {
+    grid_employee_management.viewPageDataCheck();
+  });
+
+  it("07.33. Verify that the grid language switches from English to Bangla.", function () {
     grid_employee_management.gridLanguageSwitchCheck();
   });
+
 });

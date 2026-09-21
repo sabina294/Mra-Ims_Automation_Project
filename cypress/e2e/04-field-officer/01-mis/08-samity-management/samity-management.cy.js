@@ -107,7 +107,52 @@ describe("08. Samity management Module Test Cases", function () {
     grid_samity_management.gridSearchButtonCheck();
   });
 
-  it("08.22. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("08.22. Verify that the list breadcrumb is correct.", function () {
+    grid_samity_management.listBreadcrumbCheck();
+  });
+
+  it("08.23. Verify that all required grid columns are visible.", function () {
+    grid_samity_management.requiredGridColumnsCheck();
+  });
+
+  it("08.24. Verify that grid rows contain valid identifiers, names and status.", function () {
+    grid_samity_management.gridRecordDataCheck();
+  });
+
+  it("08.25. Verify that a partial name search returns matching records.", function () {
+    grid_samity_management.partialNameSearchCheck();
+  });
+
+  it("08.26. Verify that a non-existing search displays no records.", function () {
+    grid_samity_management.noResultSearchCheck();
+  });
+
+  it("08.27. Verify that Reset clears the search and restores the grid.", function () {
+    grid_samity_management.resetRestoresGridCheck();
+  });
+
+  it("08.28. Verify that the Active filter returns only active records.", function () {
+    grid_samity_management.activeStatusResultCheck();
+  });
+
+  it("08.29. Verify that the name column supports ascending sorting.", function () {
+    grid_samity_management.nameAscendingSortCheck();
+  });
+
+  it("08.30. Verify that the name column supports descending sorting.", function () {
+    grid_samity_management.nameDescendingSortCheck();
+  });
+
+  it("08.31. Verify that first-page pagination is correct.", function () {
+    grid_samity_management.firstPagePaginationCheck();
+  });
+
+  it("08.32. Verify that View data matches the selected row and Go Back returns to the list.", function () {
+    grid_samity_management.viewPageDataCheck();
+  });
+
+  it("08.33. Verify that the grid language switches from English to Bangla.", function () {
     grid_samity_management.gridLanguageSwitchCheck();
   });
+
 });

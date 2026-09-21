@@ -1,5 +1,7 @@
 import messages from "../../../../support/constants/messages";
 import { COMMON } from "../../../../support/constants/selectors";
+import { configurationGridChecks } from "../../../../support/page-objects/configuration-grid-checks";
+
 class EmployeeManagement {
   test_data = Cypress.env("TEST_DATA");
 
@@ -172,6 +174,126 @@ class EmployeeManagement {
       cy.imsId(COMMON.BUTTONS.SEARCH).click();
       cy.log(messages.ui.searchMessage);
     });
+  }
+
+  listBreadcrumbCheck() {
+    cy.imsId(COMMON.BUTTONS.RESET).click();
+    cy.get("nz-breadcrumb, .ant-breadcrumb").should("be.visible")
+      .and("contain.text", "Home").and("contain.text", "Employee")
+      .and("contain.text", "List");
+    cy.log(messages.ui.listPageNavigationCheck);
+  }
+
+  requiredGridColumnsCheck() {
+    configurationGridChecks.columns([
+      "#",
+      "Employee ID",
+      "Employee Name",
+      "Office ID",
+      "Office",
+      "Gender",
+      "Smart Card ID",
+      "Marital Status",
+      "Locked by",
+      "Status",
+      "Actions",
+    ]);
+  }
+
+  gridRecordDataCheck() {
+    cy.imsId(COMMON.BUTTONS.RESET).click();
+    // Employee has a leading checkbox column before the row number.
+    cy.get(COMMON.TABLE.VISIBLE_ROWS).should("have.length.greaterThan", 0)
+      .should(($rows) => {
+        $rows.each((_, row) => {
+          const cells = Cypress.$(row).find(COMMON.TABLE.VISIBLE_CELLS);
+          expect(cells.eq(1).text().trim()).to.match(/^\d+$/);
+          [2, 3, 4, 5, 6].forEach((index) =>
+            expect(cells.eq(index).text().trim()).not.to.equal(""));
+          expect(["Active", "Inactive"]).to.include(cells.eq(10).text().trim());
+        });
+      });
+    cy.log(messages.ui.recordStatusCheck);
+  }
+
+  partialNameSearchCheck() {
+    cy.visit("/mfi-mis/employee/employee-management/list");
+    cy.get(COMMON.TABLE.VISIBLE_ROWS).should("have.length.greaterThan", 0);
+    cy.get(COMMON.TABLE.VISIBLE_ROWS).first()
+      .find(COMMON.TABLE.VISIBLE_CELLS).eq(3).invoke("text").then((name) => {
+        const fullName = name.trim();
+        expect(fullName.length, "name for partial search").to.be.greaterThan(1);
+        const partialName = fullName.slice(0, Math.max(1, Math.floor(fullName.length / 2)));
+        cy.formController(COMMON.INPUTS.SEARCH_TEXT).clear().type(partialName).blur();
+        cy.formController(COMMON.INPUTS.SEARCH_TEXT).should("have.value", partialName);
+        cy.imsId(COMMON.BUTTONS.SEARCH).click();
+        cy.get(COMMON.TABLE.VISIBLE_ROWS).should(($rows) => {
+          expect($rows.length, "matching records").to.be.greaterThan(0);
+          $rows.each((index, row) => {
+            const result = Cypress.$(row).find(COMMON.TABLE.VISIBLE_CELLS).eq(3).text().trim();
+            expect(result.toLowerCase(), `row ${index + 1} name`)
+              .to.include(partialName.toLowerCase());
+          });
+        });
+      });
+    cy.log(messages.ui.partialSearch);
+  }
+
+  noResultSearchCheck() {
+    configurationGridChecks.noResult("EMPLOYEE");
+  }
+
+  resetRestoresGridCheck() {
+    configurationGridChecks.reset();
+  }
+
+  activeStatusResultCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      configurationGridChecks.activeFilter(data.fieldOfficer.gridEmpMangFrom.statusSelect, 10);
+    });
+  }
+
+  nameAscendingSortCheck() {
+    configurationGridChecks.sort("Employee Name", COMMON.SORT.ASCENDING);
+  }
+
+  nameDescendingSortCheck() {
+    configurationGridChecks.sort("Employee Name", COMMON.SORT.DESCENDING);
+  }
+
+  firstPagePaginationCheck() {
+    cy.imsId(COMMON.BUTTONS.RESET).click();
+    configurationGridChecks.pagination();
+  }
+
+  viewPageDataCheck() {
+    cy.imsId(COMMON.BUTTONS.RESET).click();
+    cy.get(COMMON.TABLE.VISIBLE_ROWS).first().then(($row) => {
+      const cells = $row.find(COMMON.TABLE.VISIBLE_CELLS);
+      const values = [3, 6, 10].map((index) => cells.eq(index).text().trim());
+      const employeeId = cells.eq(2).text().trim();
+      expect(employeeId, "Employee ID").not.to.equal("");
+      cy.get(COMMON.TABLE.VISIBLE_ROWS)
+        .filter((index, row) =>
+          Cypress.$(row).find(COMMON.TABLE.VISIBLE_CELLS).eq(2).text().trim() === employeeId
+        )
+        .first()
+        .find(COMMON.TABLE.ACTION_TOGGLE)
+        .click();
+      cy.imsId(COMMON.GRID.ACTION_VIEW).click();
+      cy.url().should("include", "/employee/employee-management/view/");
+      cy.contains("Basic Information").should("be.visible");
+      cy.get("nz-breadcrumb, .ant-breadcrumb").should("contain.text", "Home")
+        .and("contain.text", "Employee").and("contain.text", "View");
+      values.forEach((value) => {
+        expect(value, "grid value to verify in Employee details").not.to.equal("");
+        cy.contains(COMMON.PAGE.VISIBLE_ELEMENT, value).should("be.visible");
+      });
+      cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+      cy.url().should("include", "/employee/employee-management/list");
+      cy.get(COMMON.TABLE.BODY).should("be.visible");
+    });
+    cy.log(messages.ui.viewMessage);
   }
 
   gridLanguageSwitchCheck() {
