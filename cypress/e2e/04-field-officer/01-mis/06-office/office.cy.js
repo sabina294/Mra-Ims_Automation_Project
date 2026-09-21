@@ -75,7 +75,52 @@ describe("06. Office Module Test Cases", function () {
     grid_office.gridSearchButtonCheck();
   });
 
-  it("06.14. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("06.14. Verify that the Office List breadcrumb is displayed correctly.", function () {
+    grid_office.listBreadcrumbCheck();
+  });
+
+  it("06.15. Verify that all required Office grid columns are visible.", function () {
+    grid_office.requiredGridColumnsCheck();
+  });
+
+  it("06.16. Verify that Office rows contain a valid number, ID, name, type and status.", function () {
+    grid_office.gridRecordDataCheck();
+  });
+
+  it("06.18. Verify that searching by a partial office name returns matching offices.", function () {
+    grid_office.partialNameSearchCheck();
+  });
+
+  it("06.19. Verify that a non-existing office search displays no records.", function () {
+    grid_office.noResultSearchCheck();
+  });
+
+  it("06.20. Verify that Reset clears the search and restores the Office grid.", function () {
+    grid_office.resetRestoresGridCheck();
+  });
+
+  it("06.21. Verify that the Active filter displays only active offices.", function () {
+    grid_office.activeStatusResultCheck();
+  });
+
+  it("06.22. Verify that the Office Name column supports ascending sorting.", function () {
+    grid_office.nameAscendingSortCheck();
+  });
+
+  it("06.23. Verify that the Office Name column supports descending sorting.", function () {
+    grid_office.nameDescendingSortCheck();
+  });
+
+  it("06.24. Verify that the Office grid has the correct first-page pagination state.", function () {
+    grid_office.firstPagePaginationCheck();
+  });
+
+  it("06.25. Verify that Office details match the selected row and Go Back returns to the list.", function () {
+    grid_office.viewPageDataCheck();
+  });
+
+  it("06.26. Verify that the grid content switches from English to Bangla.", function () {
     grid_office.gridLanguageSwitchCheck();
   });
+
 });
