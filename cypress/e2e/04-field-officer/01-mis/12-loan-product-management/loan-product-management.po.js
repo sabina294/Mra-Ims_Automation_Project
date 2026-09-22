@@ -1,5 +1,7 @@
 import messages from "../../../../support/constants/messages";
 import { COMMON } from "../../../../support/constants/selectors";
+import { configurationGridChecks } from "../../../../support/page-objects/configuration-grid-checks";
+
 class LoanProductManagement {
   test_data = Cypress.env("TEST_DATA");
 
@@ -110,6 +112,93 @@ class LoanProductManagement {
       cy.imsId(COMMON.BUTTONS.SEARCH).click();
       cy.log(messages.ui.searchMessage);
     });
+  }
+
+  listBreadcrumbCheck() {
+    configurationGridChecks.breadcrumb("Loan Product", []);
+  }
+
+  requiredGridColumnsCheck() {
+    configurationGridChecks.columns(["#", "Loan Product ID", "Loan Product Name", "Product Display Name", "MFI Program ID", "Product Nature", "Repayment Frequency", "Status", "Actions"]);
+  }
+
+  gridRecordDataCheck() {
+    configurationGridChecks.records(7, [1, 2]);
+  }
+
+  exactProductSearchCheck() {
+    this.productNameSearchCheck(false);
+  }
+
+  partialProductSearchCheck() {
+    this.productNameSearchCheck(true);
+  }
+
+  productNameSearchCheck(partial) {
+    cy.imsId(COMMON.BUTTONS.RESET).click();
+    // Use an existing product; fixture names may not exist in this environment.
+    cy.get(COMMON.TABLE.VISIBLE_ROWS).first()
+      .find(COMMON.TABLE.VISIBLE_CELLS).eq(2)
+      .should(($cell) => {
+        expect($cell.text().trim().length, "product name length")
+          .to.be.greaterThan(partial ? 1 : 0);
+      })
+      .then(($cell) => {
+        const name = $cell.text().trim();
+        const searchText = partial ? name.slice(0, Math.ceil(name.length / 2)) : name;
+        cy.formController(COMMON.INPUTS.SEARCH_TEXT).clear().type(searchText);
+        cy.imsId(COMMON.BUTTONS.SEARCH).click();
+        // Retry against fresh rows while the search updates the grid.
+        cy.get(COMMON.TABLE.VISIBLE_ROWS).should(($rows) => {
+          const names = [...$rows].map((row) =>
+            Cypress.$(row).find(COMMON.TABLE.VISIBLE_CELLS).eq(2).text().trim()
+          );
+          expect(names, "search includes the selected product").to.include(name);
+          names.forEach((result) => {
+            expect(result, "matching product name").to.contain(searchText);
+          });
+        });
+      });
+    cy.log(partial ? messages.ui.partialSearch : messages.ui.exactSearchCheck);
+  }
+
+  noResultSearchCheck() {
+    configurationGridChecks.noResult("LOAN_PRODUCT");
+  }
+
+  resetRestoresGridCheck() {
+    configurationGridChecks.reset();
+  }
+
+  activeStatusResultCheck() {
+    configurationGridChecks.activeFilter("Active", 7);
+  }
+
+  productNameAscendingSortCheck() {
+    configurationGridChecks.sort("Loan Product Name", COMMON.SORT.ASCENDING);
+  }
+
+  productNameDescendingSortCheck() {
+    configurationGridChecks.sort("Loan Product Name", COMMON.SORT.DESCENDING);
+  }
+
+  firstPagePaginationCheck() {
+    configurationGridChecks.pagination();
+  }
+
+  viewPageDataAndBreadcrumbCheck() {
+    // The loan product View page does not display the grid's Status field.
+    configurationGridChecks.view("Loan Product", [1, 2, 4, 5, 6], []);
+  }
+
+  editModeFieldsAndResetCheck() {
+    // Start from the list even when a preceding View assertion fails.
+    cy.selectMenu1(COMMON.MENUS.LOAN_PRODUCT);
+    cy.get(COMMON.TABLE.BODY).should("be.visible");
+    // Loan product edit forms have no Status dropdown.
+    configurationGridChecks.editReset(
+      "loan_product_name_en", "loan_product_name_bn", [], { hasStatus: false }
+    );
   }
 
   gridLanguageSwitchCheck() {

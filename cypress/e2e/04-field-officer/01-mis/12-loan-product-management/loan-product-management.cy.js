@@ -55,7 +55,7 @@ describe("12. Loan Product Management Module Test Cases", function () {
     grid_loan_product_management.editGoBackButton();
   });
 
-  it("12.09. Verify the user can filter inactive employee records using the status dropdown on the loan product management List page.", function () {
+  it("12.09. Verify the user can filter inactive loan products using the status dropdown on the loan product management List page.", function () {
     grid_loan_product_management.statusInactiveDropdownCheck();
   });
 
@@ -63,7 +63,7 @@ describe("12. Loan Product Management Module Test Cases", function () {
     grid_loan_product_management.statusActiveDropdownCheck();
   });
 
-  it("12.12. Verify that the search results are displayed correctly when searching by loan product management name.", function () {
+  it("12.11. Verify that the search results are displayed correctly when searching by loan product management name.", function () {
     grid_loan_product_management.searchInLoanProductName();
   });
 
@@ -71,7 +71,7 @@ describe("12. Loan Product Management Module Test Cases", function () {
     grid_loan_product_management.gridResetButtonCheck();
   });
 
-  it("12.13. Verify a new loan product management record is created successfully when all required fields are filled with valid data", function () {
+  it("12.13. Verify the loan product management grid refreshes successfully", function () {
     grid_loan_product_management.gridRefreshButtonCheck();
   });
 
@@ -79,7 +79,59 @@ describe("12. Loan Product Management Module Test Cases", function () {
     grid_loan_product_management.gridSearchButtonCheck();
   });
 
-  it("12.15. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("12.15. Verify Loan Product: the list displays the correct breadcrumb.", function () {
+    grid_loan_product_management.listBreadcrumbCheck();
+  });
+
+  it("12.16. Verify Loan Product: the grid displays all required columns.", function () {
+    grid_loan_product_management.requiredGridColumnsCheck();
+  });
+
+  it("12.17. Verify Loan Product: each displayed row contains valid product data.", function () {
+    grid_loan_product_management.gridRecordDataCheck();
+  });
+
+  it("12.18. Verify Loan Product: an exact product-name search returns the selected product.", function () {
+    grid_loan_product_management.exactProductSearchCheck();
+  });
+
+  it("12.19. Verify Loan Product: a partial product-name search returns matching products.", function () {
+    grid_loan_product_management.partialProductSearchCheck();
+  });
+
+  it("12.20. Verify Loan Product: a non-existing product search displays no records.", function () {
+    grid_loan_product_management.noResultSearchCheck();
+  });
+
+  it("12.21. Verify Loan Product: Reset clears search criteria and restores the list.", function () {
+    grid_loan_product_management.resetRestoresGridCheck();
+  });
+
+  it("12.22. Verify Loan Product: the Active filter displays only active products.", function () {
+    grid_loan_product_management.activeStatusResultCheck();
+  });
+
+  it("12.23. Verify Loan Product: the product name column supports ascending sorting.", function () {
+    grid_loan_product_management.productNameAscendingSortCheck();
+  });
+
+  it("12.24. Verify Loan Product: the product name column supports descending sorting.", function () {
+    grid_loan_product_management.productNameDescendingSortCheck();
+  });
+
+  it("12.25. Verify Loan Product: pagination is in the correct first-page state.", function () {
+    grid_loan_product_management.firstPagePaginationCheck();
+  });
+
+  it("12.26. Verify Loan Product: View breadcrumb and data match the selected grid record.", function () {
+    grid_loan_product_management.viewPageDataAndBreadcrumbCheck();
+  });
+
+  it("12.27. Verify Loan Product: Edit Mode exposes product fields and Reset clears unsaved names.", function () {
+    grid_loan_product_management.editModeFieldsAndResetCheck();
+  });
+
+  it("12.28. Verify check that the grid list content changes correctly from english to bangla.", function () {
     grid_loan_product_management.gridLanguageSwitchCheck();
   });
 });

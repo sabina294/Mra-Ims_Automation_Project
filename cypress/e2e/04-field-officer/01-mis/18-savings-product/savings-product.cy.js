@@ -78,7 +78,51 @@ describe("18. Savings product Module Test Cases", function () {
     create_savings_product.gridSearchButtonCheck();
   });
 
-  it("18.15. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("18.15. Verify Savings Product: the list displays the correct breadcrumb.", function () {
+    create_savings_product.listBreadcrumbCheck();
+  });
+
+  it("18.16. Verify Savings Product: the grid displays all required columns.", function () {
+    create_savings_product.requiredGridColumnsCheck();
+  });
+
+  it("18.17. Verify Savings Product: each displayed row contains valid product data.", function () {
+    create_savings_product.gridRecordDataCheck();
+  });
+
+  it("18.18. Verify Savings Product: a non-existing product search displays no records.", function () {
+    create_savings_product.noResultSearchCheck();
+  });
+
+  it("18.19. Verify Savings Product: Reset clears search criteria and restores the list.", function () {
+    create_savings_product.resetRestoresGridCheck();
+  });
+
+  it("18.20. Verify Savings Product: the Active filter displays only active products.", function () {
+    create_savings_product.activeStatusResultCheck();
+  });
+
+  it("18.21. Verify Savings Product: the product name column supports ascending sorting.", function () {
+    create_savings_product.productNameAscendingSortCheck();
+  });
+
+  it("18.22. Verify Savings Product: the product name column supports descending sorting.", function () {
+    create_savings_product.productNameDescendingSortCheck();
+  });
+
+  it("18.23. Verify Savings Product: pagination is in the correct first-page state.", function () {
+    create_savings_product.firstPagePaginationCheck();
+  });
+
+  it("18.24. Verify Savings Product: View breadcrumb and data match the selected grid record.", function () {
+    create_savings_product.viewPageDataAndBreadcrumbCheck();
+  });
+
+  it("18.25. Verify Savings Product: Edit Mode exposes product fields and Reset clears unsaved names.", function () {
+    create_savings_product.editModeFieldsAndResetCheck();
+  });
+
+  it("18.26. Verify check that the grid list content changes correctly from english to bangla.", function () {
     create_savings_product.gridLanguageSwitchCheck();
   });
 });

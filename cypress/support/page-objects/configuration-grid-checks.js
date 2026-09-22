@@ -2,11 +2,12 @@ import messages from "../constants/messages";
 import { COMMON } from "../constants/selectors";
 
 export const configurationGridChecks = {
-  breadcrumb(label) {
+  breadcrumb(label, ancestors = ["Configuration"]) {
     cy.imsId(COMMON.BUTTONS.RESET).click();
     cy.get("nz-breadcrumb, .ant-breadcrumb").should("be.visible")
-      .and("contain.text", "Home").and("contain.text", "Configuration")
+      .and("contain.text", "Home")
       .and("contain.text", label).and("contain.text", "List");
+    ancestors.forEach((ancestor) => cy.get("nz-breadcrumb, .ant-breadcrumb").should("contain.text", ancestor));
     cy.log(messages.ui.listPageNavigationCheck);
   },
 
@@ -106,7 +107,7 @@ export const configurationGridChecks = {
     cy.log(messages.ui.pagination);
   },
 
-  view(label, valueIndexes) {
+  view(label, valueIndexes, ancestors = ["Configuration"]) {
     cy.imsId(COMMON.BUTTONS.RESET).click();
     cy.get(COMMON.TABLE.VISIBLE_ROWS).first().then(($row) => {
       const cells = $row.find(COMMON.TABLE.VISIBLE_CELLS);
@@ -122,14 +123,15 @@ export const configurationGridChecks = {
         .click();
       cy.imsId(COMMON.GRID.ACTION_VIEW).click();
       cy.get("nz-breadcrumb, .ant-breadcrumb").should("contain.text", "Home")
-        .and("contain.text", "Configuration").and("contain.text", label).and("contain.text", "View");
+        .and("contain.text", label).and("contain.text", "View");
+      ancestors.forEach((ancestor) => cy.get("nz-breadcrumb, .ant-breadcrumb").should("contain.text", ancestor));
       values.forEach((value) => cy.contains(COMMON.PAGE.VISIBLE_ELEMENT, value).should("be.visible"));
       cy.imsId(COMMON.BUTTONS.GO_BACK).click();
     });
     cy.log(messages.ui.viewMessage);
   },
 
-  editReset(nameEnControl, nameBnControl, extraControls = []) {
+  editReset(nameEnControl, nameBnControl, extraControls = [], { hasStatus = true } = {}) {
     cy.imsId(COMMON.BUTTONS.RESET).click();
     cy.imsId(COMMON.TOGGLES.ACTION).first().click();
     cy.imsId(COMMON.GRID.ACTION_VIEW).click();
@@ -138,7 +140,9 @@ export const configurationGridChecks = {
       .clear().type("Unsaved Configuration Name");
     cy.formController(nameBnControl).should("be.visible").and("not.be.disabled");
     extraControls.forEach((control) => cy.formController(control).should("be.visible"));
-    cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).should("be.visible");
+    if (hasStatus) {
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).should("be.visible");
+    }
     cy.imsId(COMMON.BUTTONS.RESET).click();
     cy.formController(nameEnControl).should("have.value", "");
     cy.formController(nameBnControl).should("have.value", "");

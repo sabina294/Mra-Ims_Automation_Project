@@ -1,5 +1,7 @@
 import messages from "../../../../support/constants/messages";
 import { COMMON } from "../../../../support/constants/selectors";
+import { configurationGridChecks } from "../../../../support/page-objects/configuration-grid-checks";
+
 class SavingsProductCreation {
   test_data = Cypress.env("TEST_DATA");
 
@@ -106,6 +108,60 @@ class SavingsProductCreation {
       cy.imsId(COMMON.BUTTONS.SEARCH).click();
       cy.log(messages.ui.searchMessage);
     });
+  }
+
+  listBreadcrumbCheck() {
+    configurationGridChecks.breadcrumb("Savings Product", []);
+  }
+
+  requiredGridColumnsCheck() {
+    configurationGridChecks.columns(["#", "Savings Product ID", "Company Product ID", "Savings Product Name", "MFI Program ID", "Interest Rate Terms", "Interest Rate Frequency", "Status", "Actions"]);
+  }
+
+  gridRecordDataCheck() {
+    configurationGridChecks.records(7, [1, 3]);
+  }
+
+  noResultSearchCheck() {
+    configurationGridChecks.noResult("SAVINGS_PRODUCT");
+  }
+
+  resetRestoresGridCheck() {
+    configurationGridChecks.reset();
+  }
+
+  activeStatusResultCheck() {
+    cy.imsId(COMMON.BUTTONS.RESET).click();
+    cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type("Active").type(COMMON.KEYS.ENTER);
+    cy.imsId(COMMON.BUTTONS.SEARCH).click();
+    // Requery the rows while the filter replaces the grid contents.
+    cy.get(COMMON.TABLE.VISIBLE_ROWS).should(($rows) => {
+      expect($rows.length, "active savings products").to.be.greaterThan(0);
+      $rows.each((_, row) => {
+        expect(Cypress.$(row).find(COMMON.TABLE.VISIBLE_CELLS).eq(7).text().trim())
+          .to.equal("Active");
+      });
+    });
+  }
+
+  productNameAscendingSortCheck() {
+    configurationGridChecks.sort("Savings Product Name", COMMON.SORT.ASCENDING);
+  }
+
+  productNameDescendingSortCheck() {
+    configurationGridChecks.sort("Savings Product Name", COMMON.SORT.DESCENDING);
+  }
+
+  firstPagePaginationCheck() {
+    configurationGridChecks.pagination();
+  }
+
+  viewPageDataAndBreadcrumbCheck() {
+    configurationGridChecks.view("Savings Product", [1, 3, 5, 6], []);
+  }
+
+  editModeFieldsAndResetCheck() {
+    configurationGridChecks.editReset("savings_prod_name_en", "savings_prod_name_bn");
   }
 
   gridLanguageSwitchCheck() {
