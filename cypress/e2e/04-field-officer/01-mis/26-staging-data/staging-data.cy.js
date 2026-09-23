@@ -39,7 +39,43 @@ describe("26. Staging Data Module Test Cases", function () {
     grid_staging_data.refreshButtonCheck();
   });
 
-  it("26.05. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("26.05. Verify Staging Data: the list displays the correct breadcrumb.", function () {
+    grid_staging_data.listBreadcrumbCheck();
+  });
+
+  it("26.06. Verify Staging Data: the grid displays all required columns.", function () {
+    grid_staging_data.requiredGridColumnsCheck();
+  });
+
+  it("26.07. Verify Staging Data: grid rows contain valid record data.", function () {
+    grid_staging_data.gridRecordDataCheck();
+  });
+
+  it("26.08. Verify Staging Data: total members is a non-negative integer.", function () {
+    grid_staging_data.memberCountCheck();
+  });
+
+  it("26.09. Verify Staging Data: clearing search restores the original record.", function () {
+    grid_staging_data.clearSearchRestoresGridCheck();
+  });
+
+  it("26.10. Verify Staging Data: Refresh keeps the list available.", function () {
+    grid_staging_data.refreshRetainsListCheck();
+  });
+
+  it("26.11. Verify Staging Data: Samity Name supports ascending sorting.", function () {
+    grid_staging_data.ascendingSortCheck();
+  });
+
+  it("26.12. Verify Staging Data: Samity Name supports descending sorting.", function () {
+    grid_staging_data.descendingSortCheck();
+  });
+
+  it("26.13. Verify Staging Data: pagination starts on page one with Previous disabled.", function () {
+    grid_staging_data.firstPagePaginationCheck();
+  });
+
+  it("26.14. Verify check that the grid list content changes correctly from english to bangla.", function () {
     grid_staging_data.gridLanguageSwitchCheck();
   });
 });
