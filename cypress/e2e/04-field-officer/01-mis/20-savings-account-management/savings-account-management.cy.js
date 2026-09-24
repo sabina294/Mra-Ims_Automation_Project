@@ -39,7 +39,7 @@ describe("20. Savings Account Management Module Test Cases", function () {
     create_savings_account_management.viewGoBackButton();
   });
 
-  it("20.05. Verify the user can filter inactive employee records using the status dropdown on the savings account  management List page.", function () {
+  it("20.05. Verify the user can filter inactive savings account records using the status dropdown on the savings account  management List page.", function () {
     create_savings_account_management.statusInactiveDropdownCheck();
   });
 
@@ -63,7 +63,43 @@ describe("20. Savings Account Management Module Test Cases", function () {
     create_savings_account_management.gridSearchButtonCheck();
   });
 
-  it("20.11. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("20.11. Verify the list displays the correct breadcrumb.", function () {
+    create_savings_account_management.listBreadcrumbCheck();
+  });
+
+  it("20.12. Verify all required savings account columns are visible.", function () {
+    create_savings_account_management.requiredGridColumnsCheck();
+  });
+
+  it("20.13. Verify grid rows contain account, member, product and status data.", function () {
+    create_savings_account_management.gridRecordDataCheck();
+  });
+
+  it("20.14. Verify Savings Amount contains valid numeric values.", function () {
+    create_savings_account_management.savingsAmountCheck();
+  });
+
+  it("20.15. Verify the Active filter returns only active savings accounts.", function () {
+    create_savings_account_management.activeStatusResultCheck();
+  });
+
+  it("20.16. Verify Reset clears entered search text and retains the account list.", function () {
+    create_savings_account_management.resetSearchInputCheck();
+  });
+
+  it("20.17. Verify Savings Account ID supports ascending sorting.", function () {
+    create_savings_account_management.accountIdAscendingSortCheck();
+  });
+
+  it("20.18. Verify Savings Account ID supports descending sorting.", function () {
+    create_savings_account_management.accountIdDescendingSortCheck();
+  });
+
+  it("20.19. Verify pagination starts on page one with Previous disabled.", function () {
+    create_savings_account_management.firstPagePaginationCheck();
+  });
+
+  it("20.20. Verify check that the grid list content changes correctly from english to bangla.", function () {
     create_savings_account_management.gridLanguageSwitchCheck();
   });
 });

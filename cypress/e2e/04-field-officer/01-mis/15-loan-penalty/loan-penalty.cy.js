@@ -35,7 +35,6 @@ describe("15. Loan Penalty Module Test Cases", function () {
       cy.loginAsFieldOfficer(baseURL, d);
     });
   });
-
   it("15.02. Verify that the Loan Penalty Grid List page loads successfully.", function () {
     create_loan_penalty.gridLoanPenaltyListPage();
   });

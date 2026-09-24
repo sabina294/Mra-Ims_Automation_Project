@@ -119,7 +119,43 @@ describe("19. Savings Account Application Management Module Test Cases", functio
     create_savings_account_application_management.gridSearchButtonCheck();
   });
 
-  it("19.25. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("19.25. Verify the list displays the correct breadcrumb.", function () {
+    create_savings_account_application_management.listBreadcrumbCheck();
+  });
+
+  it("19.26. Verify all required savings application columns are visible.", function () {
+    create_savings_account_application_management.requiredGridColumnsCheck();
+  });
+
+  it("19.27. Verify grid rows contain application, member, product and status data.", function () {
+    create_savings_account_application_management.gridRecordDataCheck();
+  });
+
+  it("19.28. Verify Opening Balance contains non-negative numeric values.", function () {
+    create_savings_account_application_management.openingBalanceCheck();
+  });
+
+  it("19.29. Verify the Approved filter returns only approved savings applications.", function () {
+    create_savings_account_application_management.approvedStatusResultCheck();
+  });
+
+  it("19.30. Verify Reset clears entered search text and retains the application list.", function () {
+    create_savings_account_application_management.resetSearchInputCheck();
+  });
+
+  it("19.31. Verify Savings Application ID supports ascending sorting.", function () {
+    create_savings_account_application_management.applicationIdAscendingSortCheck();
+  });
+
+  it("19.32. Verify Savings Application ID supports descending sorting.", function () {
+    create_savings_account_application_management.applicationIdDescendingSortCheck();
+  });
+
+  it("19.33. Verify pagination starts on page one with Previous disabled.", function () {
+    create_savings_account_application_management.firstPagePaginationCheck();
+  });
+
+  it("19.34. Verify check that the grid list content changes correctly from english to bangla.", function () {
     create_savings_account_application_management.gridLanguageSwitchCheck();
   });
 });
