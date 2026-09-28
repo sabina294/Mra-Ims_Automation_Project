@@ -99,7 +99,31 @@ describe("31. Fee Collection Module Test Cases ", function () {
         grid_fee_collection.gridSearchButtonCheck();
     });
 
-    it("31.20. Verify that the grid list content changes correctly when switching the language from English to Bangla.", function () {
+    it("31.20. Verify the Fee Collection breadcrumb is correct.", function () {
+        grid_fee_collection.listBreadcrumbCheck();
+    });
+
+    it("31.21. Verify all required Fee Collection columns are visible.", function () {
+        grid_fee_collection.requiredGridColumnsCheck();
+    });
+
+    it("31.22. Verify search and reset controls are available.", function () {
+        grid_fee_collection.searchControlsCheck();
+    });
+
+    it("31.23. Verify Add Fee Collection is visible and enabled.", function () {
+        grid_fee_collection.addButtonAvailableCheck();
+    });
+
+    it("31.24. Verify the grid displays valid fee records and amounts or No Data.", function () {
+        grid_fee_collection.recordsOrEmptyStateCheck();
+    });
+
+    it("31.25. Verify Refresh retains the list route and renders records or No Data.", function () {
+        grid_fee_collection.refreshListStateCheck();
+    });
+
+    it("31.26. Verify that the grid list content changes correctly when switching the language from English to Bangla.", function () {
         grid_fee_collection.gridLanguageSwitchCheck();
     });
 });

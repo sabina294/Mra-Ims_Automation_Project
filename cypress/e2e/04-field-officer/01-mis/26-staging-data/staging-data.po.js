@@ -141,6 +141,89 @@ class StagingData {
     cy.get(COMMON.PAGINATION.TOTAL_TEXT).should("be.visible");
   }
 
+  uniqueSamityIdsCheck() {
+    this.openListForChecks();
+    cy.get(COMMON.TABLE.VISIBLE_ROWS).should(($rows) => {
+      const ids = [...$rows].map((row) => Cypress.$(row).children("td").eq(1).text().trim());
+      expect(ids.length, "displayed samities").to.be.greaterThan(0);
+      ids.forEach((id) => expect(id, "Samity ID").not.to.equal(""));
+      expect(new Set(ids).size, "unique Samity IDs on this page").to.equal(ids.length);
+    });
+  }
+
+  fieldOfficerResultCheck() {
+    this.filterByDisplayedValue("field_officer_id", 4, 3);
+  }
+
+  samityResultCheck() {
+    this.filterByDisplayedValue("samity_id", 2, 1);
+  }
+
+  statusResultCheck() {
+    this.filterByDisplayedValue(COMMON.INPUTS.STATUS_DROPDOWN, 6, 6);
+  }
+
+  filterByDisplayedValue(control, labelIndex, keyIndex) {
+    this.openListForChecks();
+    cy.get(COMMON.TABLE.VISIBLE_ROWS).first().then(($row) => {
+      const cells = $row.children("td");
+      const label = cells.eq(labelIndex).text().trim();
+      const key = cells.eq(keyIndex).text().trim();
+      expect(label, "filter label from current data").not.to.equal("");
+      expect(key, "expected filtered identifier").not.to.equal("");
+      if (control === "field_officer_id" || control === "samity_id") {
+        // Select a rendered option explicitly; Enter can run before options load.
+        cy.formController(control).type(label, { parseSpecialCharSequences: false });
+        cy.get(COMMON.SELECT.VISIBLE_DROPDOWN)
+          .contains(COMMON.SELECT.OPTION, label)
+          .should("be.visible")
+          .and("not.have.class", "ant-select-item-option-disabled")
+          .click();
+        cy.formController(control).find(".ant-select-selection-item")
+          .should("contain.text", label);
+      } else {
+        cy.formController(control).type(label, { parseSpecialCharSequences: false });
+        cy.formController(control).type(COMMON.KEYS.ENTER);
+      }
+      cy.imsId(COMMON.BUTTONS.SEARCH).click();
+      cy.get(COMMON.TABLE.VISIBLE_ROWS).should(($rows) => {
+        expect($rows.length, "filtered records").to.be.greaterThan(0);
+        $rows.each((_, row) => {
+          expect(Cypress.$(row).children("td").eq(keyIndex).text().trim(), `${control} result`)
+            .to.equal(key);
+        });
+      });
+    });
+  }
+
+  nextPreviousPageCheck() {
+    this.openListForChecks();
+    cy.get(COMMON.PAGINATION.ACTIVE_PAGE).should("contain.text", "1");
+    cy.get(COMMON.TABLE.VISIBLE_ROWS).should("have.length.greaterThan", 0).then(($rows) => {
+      const ids = [...$rows].map((row) => Cypress.$(row).children("td").eq(1).text().trim());
+      cy.get(COMMON.PAGINATION.NEXT_PAGE).then(($next) => {
+        if ($next.hasClass(COMMON.PAGINATION.DISABLED_CLASS)) {
+          cy.get(COMMON.PAGINATION.PREVIOUS_PAGE).should("have.class", COMMON.PAGINATION.DISABLED_CLASS);
+          cy.log("Single page: pagination boundaries verified; next-page traversal requires more records.");
+          return;
+        }
+        cy.get(COMMON.PAGINATION.NEXT_PAGE).click();
+        cy.get(COMMON.PAGINATION.ACTIVE_PAGE).should("contain.text", "2");
+        cy.get(COMMON.TABLE.VISIBLE_ROWS).should(($nextRows) => {
+          const nextIds = [...$nextRows].map((row) => Cypress.$(row).children("td").eq(1).text().trim());
+          expect(nextIds.length).to.be.greaterThan(0);
+          nextIds.forEach((id) => expect(ids, "page two contains different samities").not.to.include(id));
+        });
+        cy.get(COMMON.PAGINATION.PREVIOUS_PAGE).click();
+        cy.get(COMMON.PAGINATION.ACTIVE_PAGE).should("contain.text", "1");
+        cy.get(COMMON.TABLE.VISIBLE_ROWS).should(($returned) => {
+          const returnedIds = [...$returned].map((row) => Cypress.$(row).children("td").eq(1).text().trim());
+          expect(returnedIds, "original page restored").to.deep.equal(ids);
+        });
+      });
+    });
+  }
+
   gridLanguageSwitchCheck() {
     cy.imsId(COMMON.BUTTONS.PROFILE).click();
     cy.imsId(COMMON.BUTTONS.LANGUAGE_CHANGE).click();

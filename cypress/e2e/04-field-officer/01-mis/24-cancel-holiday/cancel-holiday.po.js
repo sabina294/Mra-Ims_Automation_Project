@@ -40,14 +40,11 @@ class CancelHoliday {
         cy.log(messages.validation.requiredField);
     }
 
-    createApproveButtonCheck() {
-        cy.imsId(COMMON.BUTTONS.APPROVE).click();
-        cy.log(messages.ui.submitSuccess);
-    }
-
-    createOkButton() {
-        cy.imsId(COMMON.CONFIRMATION.OK).click();
-        cy.log(messages.ui.submitSuccess);
+    createFormControlsCheck() {
+        cy.imsId(COMMON.BUTTONS.SUBMIT).should("be.visible").and("not.be.disabled");
+        cy.imsId(COMMON.BUTTONS.DRAFT).should("be.visible").and("not.be.disabled");
+        cy.imsId(COMMON.BUTTONS.GO_BACK).should("be.visible");
+        cy.imsId(COMMON.BUTTONS.APPROVE).should("not.exist");
     }
 
     createSubmitButtonCheck() {
@@ -79,6 +76,78 @@ class CancelHoliday {
             cy.imsId(COMMON.BUTTONS.SEARCH).click();
             cy.log(messages.ui.searchMessage);
         });
+    }
+
+    openListForChecks() {
+      cy.visit("/mfi-mis/calendar/cancel-holiday/list");
+      cy.location("pathname").should("eq", "/mfi-mis/calendar/cancel-holiday/list");
+      cy.imsId(COMMON.BUTTONS.RESET).should("be.visible").click();
+      cy.imsId(COMMON.GRID.DRAFT_TOGGLE).uncheck({ force: true }).should("not.be.checked");
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT).should("have.value", "");
+      cy.get("thead th:visible").should("have.length.greaterThan", 0);
+    }
+
+    listBreadcrumbCheck() {
+      this.openListForChecks();
+      cy.get("nz-breadcrumb, .ant-breadcrumb").should("be.visible")
+        .and("contain.text", "Home").and("contain.text", "Calendar")
+        .and("contain.text", "Cancel Holiday").and("contain.text", "List");
+    }
+
+    requiredGridColumnsCheck() {
+      this.openListForChecks();
+      this.assertGridColumns();
+    }
+
+    assertGridColumns() {
+      ["#", "Applicable Scope", "Office", "Reason", "Approver", "Status", "Actions"].forEach((label) => {
+        cy.contains("thead th:visible", new RegExp(`^\\s*${Cypress._.escapeRegExp(label)}\\s*$`))
+          .should("be.visible");
+      });
+    }
+
+    refreshListCheck() {
+      this.openListForChecks();
+      cy.imsId(COMMON.BUTTONS.REFRESH).click();
+      cy.location("pathname").should("eq", "/mfi-mis/calendar/cancel-holiday/list");
+      this.assertGridColumns();
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT).should("have.value", "");
+    }
+
+    draftToggleStateCheck() {
+      this.openListForChecks();
+      cy.imsId(COMMON.GRID.DRAFT_TOGGLE).check({ force: true }).should("be.checked");
+      cy.get(COMMON.TABLE.HEAD).should("be.visible");
+      cy.imsId(COMMON.GRID.DRAFT_TOGGLE).uncheck({ force: true }).should("not.be.checked");
+      this.assertGridColumns();
+    }
+
+    addButtonAvailableCheck() {
+      this.openListForChecks();
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).should("be.visible").and("not.be.disabled")
+        .and("contain.text", "Cancel Holiday");
+    }
+
+    recordsOrEmptyStateCheck() {
+      this.openListForChecks();
+      // Both populated and empty lists are valid: do not require cancellation data.
+      cy.get(COMMON.TABLE.BODY).should(($body) => {
+        const rows = $body.find("tr:not(.ant-table-placeholder):visible");
+        if (rows.length === 0) {
+          const empty = $body.find(".ant-empty:visible");
+          expect(empty.length, "visible empty state").to.be.greaterThan(0);
+          expect(empty.text(), "empty list message").to.contain("No Data");
+        } else {
+          rows.each((_, row) => {
+            const cells = Cypress.$(row).children("td");
+            expect(cells.eq(0).text().trim(), "row number").to.match(/^\d+$/);
+            // Office and Approver can be blank depending on scope/workflow state.
+            [1, 3, 5].forEach((index) => {
+              expect(cells.eq(index).text().trim(), `cancellation column ${index}`).not.to.equal("");
+            });
+          });
+        }
+      });
     }
 
     gridLanguageSwitchCheck() {

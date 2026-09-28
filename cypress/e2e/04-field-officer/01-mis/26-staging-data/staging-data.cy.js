@@ -75,7 +75,27 @@ describe("26. Staging Data Module Test Cases", function () {
     grid_staging_data.firstPagePaginationCheck();
   });
 
-  it("26.14. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("26.14. Verify Samity IDs are unique on the displayed page.", function () {
+    grid_staging_data.uniqueSamityIdsCheck();
+  });
+
+  it("26.15. Verify the Field Officer filter returns the selected officer records.", function () {
+    grid_staging_data.fieldOfficerResultCheck();
+  });
+
+  it("26.16. Verify the Samity filter returns the selected Samity.", function () {
+    grid_staging_data.samityResultCheck();
+  });
+
+  it("26.17. Verify the Status filter returns only the selected status.", function () {
+    grid_staging_data.statusResultCheck();
+  });
+
+  it("26.18. Verify Next and Previous change pages or remain disabled at the single-page boundary.", function () {
+    grid_staging_data.nextPreviousPageCheck();
+  });
+
+  it("26.19. Verify check that the grid list content changes correctly from english to bangla.", function () {
     grid_staging_data.gridLanguageSwitchCheck();
   });
 });

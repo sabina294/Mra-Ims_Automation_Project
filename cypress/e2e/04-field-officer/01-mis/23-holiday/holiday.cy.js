@@ -75,7 +75,39 @@ describe("23. Holiday Module Test Cases", function () {
     create_holiday.createGoBackButtonCheck();
   });
 
-  it("23.14. Verify that the Holiday grid list content changes correctly from English to Bangla.", function () {
+  it("23.14. Verify Holiday: the list breadcrumb is correct.", function () {
+    create_holiday.listBreadcrumbCheck();
+  });
+
+  it("23.15. Verify Holiday: all required grid columns are visible.", function () {
+    create_holiday.requiredGridColumnsCheck();
+  });
+
+  it("23.16. Verify Holiday: Reset clears entered search text.", function () {
+    create_holiday.resetSearchInputCheck();
+  });
+
+  it("23.17. Verify Holiday: Refresh retains the list route and columns.", function () {
+    create_holiday.refreshListCheck();
+  });
+
+  it("23.18. Verify Holiday: Draft can be enabled and disabled.", function () {
+    create_holiday.draftToggleStateCheck();
+  });
+
+  it("23.19. Verify Holiday: the add button is visible and enabled.", function () {
+    create_holiday.addButtonAvailableCheck();
+  });
+
+  it("23.20. Verify Holiday: holiday dates match their years and rows contain holiday data.", function () {
+    create_holiday.holidayDateAndYearCheck();
+  });
+
+  it("23.21. Verify Holiday: pagination starts on page one with Previous disabled.", function () {
+    create_holiday.firstPagePaginationCheck();
+  });
+
+  it("23.22. Verify that the Holiday grid list content changes correctly from English to Bangla.", function () {
     create_holiday.gridLanguageSwitchCheck();
   });
 });
