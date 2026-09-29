@@ -14,25 +14,31 @@ class SamityCreation {
     cy.fixture(this.test_data).then((data) => {
       cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
       const smData = data.mfiAdmin.createSamityFrom;
-      // Requery before Enter because typing can replace the dropdown DOM.
-      // Requery before Enter because typing can replace the dropdown DOM.
-      cy.formController("office_id").type(smData.office).type("{enter}");
+      cy.formController("office_id").should("not.be.disabled").type(smData.office);
+      cy.formController("office_id").should("not.be.disabled").type("{enter}");
       cy.wait(2000);
       cy.formController("samity_name_en").first().type(smData.samityNameEn);
       cy.formController("samity_name_bn").type(smData.samityNameBn);
-      cy.formController("samity_type").type(smData.samityType).type("{enter}");
+      cy.formController("samity_type").should("not.be.disabled").type(smData.samityType);
+      cy.formController("samity_type").should("not.be.disabled").type("{enter}");
       cy.wait(2000);
-      cy.formController("field_officer_id").type(smData.fieldOfficer).type("{enter}");
+      cy.formController("field_officer_id").should("not.be.disabled").type(smData.fieldOfficer);
+      cy.formController("field_officer_id").should("not.be.disabled").type("{enter}");
       cy.wait(2000);
-      cy.formController("mfi_program_id").type(smData.mfiProgram).type("{enter}");
-      cy.formController("samity_day").type(smData.samityDay).type("{enter}");
-      cy.formController("samity_meeting_frequency").type(smData.samityFrequency).type("{enter}");
+      cy.formController("mfi_program_id").should("not.be.disabled").type(smData.mfiProgram);
+      cy.formController("mfi_program_id").should("not.be.disabled").type("{enter}");
+      cy.formController("samity_day").should("not.be.disabled").type(smData.samityDay);
+      cy.formController("samity_day").should("not.be.disabled").type("{enter}");
+      cy.formController("samity_meeting_frequency").should("not.be.disabled").type(smData.samityFrequency);
+      cy.formController("samity_meeting_frequency").should("not.be.disabled").type("{enter}");
       cy.formController("maximum_member").type(smData.maxMember);
       cy.wait(2000);
-      cy.formController("working_area_id").type(smData.workingArea).type("{enter}");
+      cy.formController("working_area_id").should("not.be.disabled").type(smData.workingArea);
+      cy.formController("working_area_id").should("not.be.disabled").type("{enter}");
       cy.wait(2000);
       cy.formController("address_line_1").type(smData.adressEn);
-      cy.formController("geo_area_type").type(smData.geoAreaType).type("{enter}");
+      cy.formController("geo_area_type").should("not.be.disabled").type(smData.geoAreaType);
+      cy.formController("geo_area_type").should("not.be.disabled").type("{enter}");
       cy.imsId(COMMON.BUTTONS.SUBMIT).click();
       cy.imsId(COMMON.CONFIRMATION.YES).click();
       cy.imsId(COMMON.CONFIRMATION.OK).click();
@@ -81,6 +87,9 @@ class SamityCreation {
   approveSamity() {
     cy.fixture(this.test_data).then((data) => {
       const smData = data.mfiAdmin.createSamityFrom;
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT).clear().type(smData.samityNameEn);
+      cy.imsId(COMMON.BUTTONS.SEARCH).click();
       cy.imsId(COMMON.TOGGLES.ACTION).first().click();
       cy.imsId(COMMON.GRID.ACTION_VIEW).click();
       cy.imsId(COMMON.BUTTONS.LOCK).click();
@@ -505,32 +514,51 @@ class SamityCreation {
 
   }
 
-  editResetButton() {
+  openSamityEditForCheck() {
+    this.openListPage();
+    cy.imsId(COMMON.BUTTONS.RESET).click();
+    cy.imsId(COMMON.GRID.DRAFT_TOGGLE).uncheck({ force: true });
+    cy.fixture(this.test_data).then((data) => {
+      cy.formController("office_id").type(data.mfiAdmin.createSamityFrom.office);
+      cy.formController("office_id").type("{enter}");
+    });
     cy.imsId(COMMON.TOGGLES.ACTION).first().click();
     cy.imsId(COMMON.GRID.ACTION_EDIT).click();
+    cy.formController("samity_name_en").should("be.visible");
+  }
+
+  editResetButton() {
+    this.openSamityEditForCheck();
     cy.imsId(COMMON.BUTTONS.RESET).click();
     cy.log(messages.ui.editResetMessage);
   }
 
   editDraftButton() {
+    this.openSamityEditForCheck();
+    cy.formController("samity_name_en").first().clear();
     cy.imsId(COMMON.BUTTONS.DRAFT).click();
     cy.imsId(COMMON.CONFIRMATION.OK).click();
     cy.log(messages.ui.editMessage);
   }
 
   editSubmitButton() {
+    this.openSamityEditForCheck();
+    cy.formController("samity_name_en").first().clear();
     cy.imsId(COMMON.BUTTONS.SUBMIT).click();
     cy.imsId(COMMON.CONFIRMATION.OK).click();
     cy.log(messages.ui.editSubmitMessage);
   }
 
   editApproveButton() {
+    this.openSamityEditForCheck();
+    cy.formController("samity_name_en").first().clear();
     cy.imsId(COMMON.BUTTONS.APPROVE).click();
     cy.imsId(COMMON.CONFIRMATION.OK).click();
     cy.log(messages.ui.editMessage);
   }
 
   editGoBackButton() {
+    this.openSamityEditForCheck();
     cy.imsId(COMMON.BUTTONS.GO_BACK).click();
     cy.log(messages.ui.editGoBackMessage);
   }
@@ -640,70 +668,28 @@ class SamityCreation {
   }
 
   gridCheckboxCheck() {
-
-    cy.get("[data-ims-id^='row-checkbox-']",
-      { timeout: 30000 })
-      .should('have.length.greaterThan', 0)
-      .first()
-      .scrollIntoView()
-      .should('be.visible')
-      .click({ force: true });
-
-    cy.imsId(COMMON.BUTTONS.RESET)
-      .scrollIntoView()
-      .should('be.visible')
-      .click({ force: true });
-
+    this.openListPage();
+    cy.imsId(COMMON.BUTTONS.RESET).click();
+    cy.imsId(COMMON.GRID.DRAFT_TOGGLE).check({ force: true });
+    cy.get("tbody input.ant-checkbox-input:not(:disabled)", { timeout: 30000 })
+      .first().check({ force: true });
+    cy.get("tbody input.ant-checkbox-input:checked").should("have.length.greaterThan", 0);
+    cy.get("tbody input.ant-checkbox-input:checked").uncheck({ force: true });
     cy.log(messages.ui.checkboxMessage);
   }
 
   gridCheckboxLockButtonCheck() {
-
-    cy.wait(3000);
-
-    // click actual checkbox
-    cy.get(".ant-checkbox-input", { timeout: 30000 })
-      .first()
-      .check({ force: true });
-
-    cy.wait(1000);
-
-    // verify checked
-    cy.get(".ant-checkbox-wrapper")
-      .first()
-      .should('have.class', 'ant-checkbox-wrapper-checked');
-
-    // click lock button
-    cy.imsId(COMMON.BUTTONS.LOCK)
-      .should('be.visible')
-      .and('not.be.disabled')
-      .click({ force: true });
-
+    cy.get("tbody input.ant-checkbox-input:not(:disabled)", { timeout: 30000 })
+      .first().check({ force: true });
+    cy.imsId(COMMON.BUTTONS.LOCK).should("be.visible").and("not.be.disabled").click();
     cy.log(messages.ui.lockSuccess);
   }
 
   gridCheckboxUnlockButtonCheck() {
-
-    cy.wait(3000);
-
-    // click actual checkbox
-    cy.get(".ant-checkbox-input", { timeout: 30000 })
-      .first()
-      .check({ force: true });
-
-    cy.wait(1000);
-
-    // verify checked
-    cy.get(".ant-checkbox-wrapper")
-      .first()
-      .should('have.class', 'ant-checkbox-wrapper-checked');
-
-    // click unlock button
-    cy.imsId(COMMON.BUTTONS.UNLOCK)
-      .should('be.visible')
-      .and('not.be.disabled')
-      .click({ force: true });
-
+    cy.get("tbody input.ant-checkbox-input:not(:disabled)", { timeout: 30000 })
+      .first().check({ force: true });
+    cy.imsId(COMMON.BUTTONS.UNLOCK).should("be.visible").and("not.be.disabled").click();
+    cy.imsId(COMMON.GRID.DRAFT_TOGGLE).uncheck({ force: true });
     cy.log(messages.ui.unlockSuccess);
   }
 
@@ -798,6 +784,12 @@ class SamityCreation {
 
   gridRecordCheck() {
     this.openListPage();
+    cy.imsId(COMMON.BUTTONS.RESET).click();
+    cy.imsId(COMMON.GRID.DRAFT_TOGGLE).uncheck({ force: true });
+    cy.fixture(this.test_data).then((data) => {
+      cy.formController("office_id").type(data.mfiAdmin.createSamityFrom.office);
+      cy.formController("office_id").type("{enter}");
+    });
     cy.get(COMMON.TABLE.VISIBLE_ROWS).first().within(() => {
       cy.get(COMMON.TABLE.VISIBLE_CELLS).eq(2).invoke("text").should("not.be.empty");
       cy.get(COMMON.TABLE.VISIBLE_CELLS).eq(3).invoke("text").should("not.be.empty");
@@ -811,6 +803,12 @@ class SamityCreation {
 
   firstPagePaginationCheck() {
     this.openListPage();
+    cy.imsId(COMMON.BUTTONS.RESET).click();
+    cy.imsId(COMMON.GRID.DRAFT_TOGGLE).uncheck({ force: true });
+    cy.fixture(this.test_data).then((data) => {
+      cy.formController("office_id").type(data.mfiAdmin.createSamityFrom.office);
+      cy.formController("office_id").type("{enter}");
+    });
     cy.get(COMMON.PAGINATION.ACTIVE_PAGE).should("contain.text", "1");
     cy.get(COMMON.PAGINATION.PREVIOUS_PAGE).should(
       "have.class",
@@ -864,10 +862,14 @@ class SamityCreation {
       "Address Line 2", "Latitude", "Longitude",
     ];
     required.forEach((label) => {
-      this.exactLabel(label).should("have.class", COMMON.FORM.REQUIRED_LABEL_CLASS);
+      cy.get(COMMON.FORM.LABEL).filter((_, element) =>
+        element.textContent.replace(/\s+/g, " ").replace(/\s*\*\s*$/, "").trim() === label
+      ).first().should("have.class", COMMON.FORM.REQUIRED_LABEL_CLASS);
     });
     optional.forEach((label) => {
-      this.exactLabel(label).should("not.have.class", COMMON.FORM.REQUIRED_LABEL_CLASS);
+      cy.get(COMMON.FORM.LABEL).filter((_, element) =>
+        element.textContent.replace(/\s+/g, " ").replace(/\s*\*\s*$/, "").trim() === label
+      ).first().should("not.have.class", COMMON.FORM.REQUIRED_LABEL_CLASS);
     });
     cy.log(messages.ui.requiredFieldIndicatorCheck);
     cy.log(messages.ui.optionalFieldIndicatorCheck);

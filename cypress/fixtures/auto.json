@@ -2200,6 +2200,10 @@
       "samity": "1020-101 (Ashulia Mohila Samity)",
       "samityDropdown": "1020-101 (Ashulia Mohila Samity)"
     },
+    "authorization": {
+      "fieldOfficer": "EMP-0122 - GAIS UDDIN KHAN",
+      "samity": "1020-101 (Ashulia Mohila Samity)"
+    },
     "loanAdjustment": {
       "selectSamity": "1020-105 (Sadarpur Mohila Samity)",
       "selectMember": "1-1001 (Srabonti)",

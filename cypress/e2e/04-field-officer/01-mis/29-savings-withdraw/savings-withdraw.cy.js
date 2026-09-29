@@ -19,7 +19,7 @@ describe("29. Savings Withdraw Module Test Cases", function () {
         });
     });
 
-    after(() => {
+    after(() => {2
         cy.logout();
     });
 
@@ -127,7 +127,35 @@ describe("29. Savings Withdraw Module Test Cases", function () {
         create_savings_withdraw.gridHistoryButtonOffCheck();
     });
 
-    it("29.27. Verify that the grid list content changes correctly when switching the language from English to Bangla.", function () {
+    it("29.27. Verify Savings Withdraw: the breadcrumb is correct.", function () {
+        create_savings_withdraw.listBreadcrumbCheck();
+    });
+
+    it("29.28. Verify Savings Withdraw: all required grid columns are visible.", function () {
+        create_savings_withdraw.requiredGridColumnsCheck();
+    });
+
+    it("29.29. Verify Savings Withdraw: the grid shows valid records and amounts or No Data.", function () {
+        create_savings_withdraw.recordsAndAmountsCheck();
+    });
+
+    it("29.30. Verify Savings Withdraw: search and reset controls are available.", function () {
+        create_savings_withdraw.searchControlsCheck();
+    });
+
+    it("29.31. Verify Savings Withdraw: the New button is visible and enabled.", function () {
+        create_savings_withdraw.newButtonAvailableCheck();
+    });
+
+    it("29.32. Verify Savings Withdraw: Refresh retains the list and renders records or No Data.", function () {
+        create_savings_withdraw.refreshListStateCheck();
+    });
+
+    it("29.33. Verify Savings Withdraw: pagination starts on page one or the empty state is displayed.", function () {
+        create_savings_withdraw.paginationOrEmptyStateCheck();
+    });
+
+    it("29.34. Verify that the grid list content changes correctly when switching the language from English to Bangla.", function () {
         create_savings_withdraw.gridLanguageSwitchCheck();
     });
 });

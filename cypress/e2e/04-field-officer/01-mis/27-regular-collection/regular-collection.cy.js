@@ -107,7 +107,35 @@ describe("27. Regular Collection Module Test Cases", function () {
         create_regular_collection.gridSamityDropdownCheck();
     });
 
-    it("27.22. Verify that the Regular Collection grid list content switches correctly between English and Bangla languages.", function () {
+    it("27.22. Verify the Regular Collection breadcrumb is correct.", function () {
+        create_regular_collection.listBreadcrumbCheck();
+    });
+
+    it("27.23. Verify all required collection columns are visible.", function () {
+        create_regular_collection.requiredGridColumnsCheck();
+    });
+
+    it("27.24. Verify rows contain Samity, field officer and status data.", function () {
+        create_regular_collection.gridRecordDataCheck();
+    });
+
+    it("27.25. Verify numeric collection totals equal loan plus savings collection.", function () {
+        create_regular_collection.collectionTotalsCheck();
+    });
+
+    it("27.26. Verify search and reset controls are available.", function () {
+        create_regular_collection.searchControlsCheck();
+    });
+
+    it("27.27. Verify Refresh retains the list route, columns and records.", function () {
+        create_regular_collection.refreshListCheck();
+    });
+
+    it("27.28. Verify pagination starts on page one with Previous disabled.", function () {
+        create_regular_collection.firstPagePaginationCheck();
+    });
+
+    it("27.29. Verify that the Regular Collection grid list content switches correctly between English and Bangla languages.", function () {
         create_regular_collection.gridLanguageSwitchCheck();
     });
 });

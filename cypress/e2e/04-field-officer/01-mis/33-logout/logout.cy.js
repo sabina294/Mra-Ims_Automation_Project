@@ -1,10 +1,10 @@
 // npm run auto
 // npm run dev
-// npx cypress run --spec cypress/e2e/04-field-officer/01-mis/32-logout/logout.cy.js --headed
+// npx cypress run --spec cypress/e2e/04-field-officer/01-mis/33-logout/logout.cy.js --headed
 
 import { logout_page } from "./logout.po";
 
-describe("32. Logout Test", function () {
+describe("33. Logout Test", function () {
   const baseURL = Cypress.env("BASE_URL");
   const test_data = Cypress.env("TEST_DATA");
 
@@ -18,11 +18,11 @@ describe("32. Logout Test", function () {
     });
   });
 
-  it("32.01. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("33.01. Verify check that the grid list content changes correctly from english to bangla.", function () {
     logout_page.gridLanguageSwitchCheck();
   });
 
-  it("32.02. Verify the user can log out successfully.", function () {
+  it("33.02. Verify the user can log out successfully.", function () {
     logout_page.logout();
   });
 });

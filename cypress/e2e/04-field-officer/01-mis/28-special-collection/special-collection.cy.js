@@ -106,7 +106,35 @@ describe("28. Special Collection Module Test Cases", function () {
         create_special_collection.gridSamityDropdownCheck();
     });
 
-    it("28.22. Verify that the grid list content changes correctly from English to Bangla.", function () {
+    it("28.22. Verify Special Collection: the breadcrumb is correct.", function () {
+        create_special_collection.listBreadcrumbCheck();
+    });
+
+    it("28.23. Verify Special Collection: all required grid columns are visible.", function () {
+        create_special_collection.requiredGridColumnsCheck();
+    });
+
+    it("28.24. Verify Special Collection: the grid shows valid records and amounts or No Data.", function () {
+        create_special_collection.recordsAndAmountsCheck();
+    });
+
+    it("28.25. Verify Special Collection: search and reset controls are available.", function () {
+        create_special_collection.searchControlsCheck();
+    });
+
+    it("28.26. Verify Special Collection: the New button is visible and enabled.", function () {
+        create_special_collection.newButtonAvailableCheck();
+    });
+
+    it("28.27. Verify Special Collection: Refresh retains the list and renders records or No Data.", function () {
+        create_special_collection.refreshListStateCheck();
+    });
+
+    it("28.28. Verify Special Collection: pagination starts on page one or the empty state is displayed.", function () {
+        create_special_collection.paginationOrEmptyStateCheck();
+    });
+
+    it("28.29. Verify that the grid list content changes correctly from English to Bangla.", function () {
         create_special_collection.gridLanguageSwitchCheck();
     });
 
