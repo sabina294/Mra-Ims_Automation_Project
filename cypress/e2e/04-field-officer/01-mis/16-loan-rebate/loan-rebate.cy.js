@@ -91,7 +91,39 @@ describe("16. Loan Rebate Module Test Cases", function () {
     create_loan_rebate.gridSearchButtonCheck();
   });
 
-  it("16.18. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("16.18. Verify Loan Rebate: the list displays the correct breadcrumb.", function () {
+    create_loan_rebate.listBreadcrumbCheck();
+  });
+
+  it("16.19. Verify Loan Rebate: the grid displays all required columns.", function () {
+    create_loan_rebate.requiredGridColumnsCheck();
+  });
+
+  it("16.20. Verify Loan Rebate: the grid displays valid records and amounts or a visible empty state.", function () {
+    create_loan_rebate.recordsOrEmptyStateCheck();
+  });
+
+  it("16.21. Verify Loan Rebate: office, samity, status, date and search controls are visible.", function () {
+    create_loan_rebate.filterControlsCheck();
+  });
+
+  it("16.22. Verify Loan Rebate: a non-existing search displays No Data.", function () {
+    create_loan_rebate.noResultSearchCheck();
+  });
+
+  it("16.23. Verify Loan Rebate: Reset clears search and displays records or No Data.", function () {
+    create_loan_rebate.resetSearchCheck();
+  });
+
+  it("16.24. Verify Loan Rebate: Refresh retains the list columns and valid grid state.", function () {
+    create_loan_rebate.refreshListStateCheck();
+  });
+
+  it("16.25. Verify Loan Rebate: the Add New button is visible and enabled.", function () {
+    create_loan_rebate.addButtonCheck();
+  });
+
+  it("16.26. Verify check that the grid list content changes correctly from english to bangla.", function () {
     create_loan_rebate.gridLanguageSwitchCheck();
   });
 });

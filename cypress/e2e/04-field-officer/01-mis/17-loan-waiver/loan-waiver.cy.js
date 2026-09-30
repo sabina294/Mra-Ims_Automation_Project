@@ -91,7 +91,39 @@ describe("17. Loan waiver Module Test Cases", function () {
     create_loan_waiver.gridSearchButtonCheck();
   });
 
-  it("17.18. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("17.18. Verify Loan Waiver: the list displays the correct breadcrumb.", function () {
+    create_loan_waiver.listBreadcrumbCheck();
+  });
+
+  it("17.19. Verify Loan Waiver: the grid displays all required columns.", function () {
+    create_loan_waiver.requiredGridColumnsCheck();
+  });
+
+  it("17.20. Verify Loan Waiver: the grid displays valid records and amounts or a visible empty state.", function () {
+    create_loan_waiver.recordsOrEmptyStateCheck();
+  });
+
+  it("17.21. Verify Loan Waiver: office, samity, status, date and search controls are visible.", function () {
+    create_loan_waiver.filterControlsCheck();
+  });
+
+  it("17.22. Verify Loan Waiver: a non-existing search displays No Data.", function () {
+    create_loan_waiver.noResultSearchCheck();
+  });
+
+  it("17.23. Verify Loan Waiver: Reset clears search and displays records or No Data.", function () {
+    create_loan_waiver.resetSearchCheck();
+  });
+
+  it("17.24. Verify Loan Waiver: Refresh retains the list columns and valid grid state.", function () {
+    create_loan_waiver.refreshListStateCheck();
+  });
+
+  it("17.25. Verify Loan Waiver: the Add New button is visible and enabled.", function () {
+    create_loan_waiver.addButtonCheck();
+  });
+
+  it("17.26. Verify check that the grid list content changes correctly from english to bangla.", function () {
     create_loan_waiver.gridLanguageSwitchCheck();
   });
 });

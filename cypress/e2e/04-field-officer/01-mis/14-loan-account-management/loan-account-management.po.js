@@ -1,3 +1,4 @@
+import { configurationGridChecks } from "../../../../support/page-objects/configuration-grid-checks";
 import messages from "../../../../support/constants/messages";
 import { COMMON } from "../../../../support/constants/selectors";
 class LoanAccountManagement {
@@ -97,6 +98,75 @@ class LoanAccountManagement {
       cy.imsId(COMMON.BUTTONS.SEARCH).click();
       cy.log(messages.ui.searchMessage);
     });
+  }
+
+  openListForChecks() {
+    cy.visit("/mfi-mis/loan-account/loan-account-management/list");
+    cy.location("pathname").should("eq", "/mfi-mis/loan-account/loan-account-management/list");
+    cy.imsId(COMMON.BUTTONS.RESET).should("be.visible").click();
+  }
+
+  listBreadcrumbCheck() {
+    this.openListForChecks();
+    configurationGridChecks.breadcrumb("Loan Account Management", ["Loan Account"]);
+  }
+
+  requiredGridColumnsCheck() {
+    this.openListForChecks();
+    configurationGridChecks.columns(["#", "Loan Account ID", "Member ID", "Member Name", "Product Name", "Loan Amount", "Loan Term", "Installment Amount", "Status", "Actions"]);
+  }
+
+  gridRecordDataCheck() {
+    this.openListForChecks();
+    cy.get(COMMON.TABLE.VISIBLE_ROWS).should(($rows) => {
+      expect($rows.length, "available loan records").to.be.greaterThan(0);
+      $rows.each((_, row) => {
+        const cells = Cypress.$(row).find(COMMON.TABLE.VISIBLE_CELLS);
+        expect(cells.eq(0).text().trim(), "serial number").to.match(/^\d+$/);
+        [1, 2, 3, 4].forEach((index) => {
+          expect(cells.eq(index).text().trim(), `column ${index}`).not.to.equal("");
+        });
+        expect(cells.eq(8).text().trim(), "record status").not.to.equal("");
+      });
+    });
+  }
+
+  loanAmountsCheck() {
+    this.openListForChecks();
+    cy.get(COMMON.TABLE.VISIBLE_ROWS).should(($rows) => {
+      expect($rows.length, "available loan records").to.be.greaterThan(0);
+      $rows.each((_, row) => {
+        const cells = Cypress.$(row).find(COMMON.TABLE.VISIBLE_CELLS);
+        [5, 6, 7].forEach((index) => {
+          const value = cells.eq(index).text().trim().replace(/,/g, "");
+          expect(value, `numeric loan column ${index}`).to.match(/^\d+(\.\d+)?$/);
+          expect(Number(value)).to.be.at.least(0);
+        });
+      });
+    });
+  }
+
+  searchControlsCheck() {
+    this.openListForChecks();
+    cy.formController(COMMON.INPUTS.SEARCH_TEXT).should("be.visible").and("be.enabled");
+    cy.formController("office_id").should("be.visible");
+    cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).should("be.visible");
+    cy.imsId(COMMON.BUTTONS.SEARCH).should("be.visible").and("be.enabled");
+  }
+
+  noResultSearchCheck() {
+    this.openListForChecks();
+    configurationGridChecks.noResult("LOAN_RECORD");
+  }
+
+  resetRestoresGridCheck() {
+    this.noResultSearchCheck();
+    configurationGridChecks.reset();
+  }
+
+  firstPagePaginationCheck() {
+    this.openListForChecks();
+    configurationGridChecks.pagination();
   }
 
   gridLanguageSwitchCheck() {

@@ -127,7 +127,39 @@ describe("15. Loan Penalty Module Test Cases", function () {
     create_loan_penalty.gridSearchButtonCheck();
   });
 
-  it("15.25. Verify that the Grid List content changes correctly when switching the language from English to Bangla.", function () {
+  it("15.25. Verify Loan Penalty: the list displays the correct breadcrumb.", function () {
+    create_loan_penalty.listBreadcrumbCheck();
+  });
+
+  it("15.26. Verify Loan Penalty: the grid displays all required columns.", function () {
+    create_loan_penalty.requiredGridColumnsCheck();
+  });
+
+  it("15.27. Verify Loan Penalty: the grid displays valid records and amounts or a visible empty state.", function () {
+    create_loan_penalty.recordsOrEmptyStateCheck();
+  });
+
+  it("15.28. Verify Loan Penalty: office, samity, status, date and search controls are visible.", function () {
+    create_loan_penalty.filterControlsCheck();
+  });
+
+  it("15.29. Verify Loan Penalty: a non-existing search displays No Data.", function () {
+    create_loan_penalty.noResultSearchCheck();
+  });
+
+  it("15.30. Verify Loan Penalty: Reset clears search and displays records or No Data.", function () {
+    create_loan_penalty.resetSearchCheck();
+  });
+
+  it("15.31. Verify Loan Penalty: Refresh retains the list columns and valid grid state.", function () {
+    create_loan_penalty.refreshListStateCheck();
+  });
+
+  it("15.32. Verify Loan Penalty: the Add New button is visible and enabled.", function () {
+    create_loan_penalty.addButtonCheck();
+  });
+
+  it("15.33. Verify that the Grid List content changes correctly when switching the language from English to Bangla.", function () {
     create_loan_penalty.gridLanguageSwitchCheck();
   });
 });

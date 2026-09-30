@@ -1,3 +1,4 @@
+import { configurationGridChecks } from "../../../../support/page-objects/configuration-grid-checks";
 import messages from "../../../../support/constants/messages";
 import { COMMON } from "../../../../support/constants/selectors";
 class LoanPenalty {
@@ -244,6 +245,87 @@ class LoanPenalty {
       cy.imsId(COMMON.BUTTONS.SEARCH).click();
       cy.log(messages.ui.searchMessage);
     });
+  }
+
+  openListForChecks() {
+    cy.visit("/mfi-mis/loan-account/loan-penalty/list");
+    cy.location("pathname").should("eq", "/mfi-mis/loan-account/loan-penalty/list");
+    cy.imsId(COMMON.BUTTONS.RESET).should("be.visible").click();
+  }
+
+  listBreadcrumbCheck() {
+    this.openListForChecks();
+    configurationGridChecks.breadcrumb("Loan Penalty", ["Loan Account"]);
+  }
+
+  requiredGridColumnsCheck() {
+    this.openListForChecks();
+    configurationGridChecks.columns(["#", "Loan Account ID", "Member ID", "Member Name", "Samity", "Business Date", "Amount", "Status", "Actions"]);
+  }
+
+  assertRecordsOrEmpty() {
+    cy.get(COMMON.TABLE.BODY).should(($body) => {
+      const rows = $body.find("tr:not(.ant-table-placeholder):visible");
+      if (!rows.length) {
+        expect($body.find(".ant-empty:visible").length, "visible empty state").to.be.greaterThan(0);
+        expect($body.text()).to.contain("No Data");
+        return;
+      }
+      rows.each((_, row) => {
+        const cells = Cypress.$(row).find(COMMON.TABLE.VISIBLE_CELLS);
+        expect(cells.eq(0).text().trim(), "serial number").to.match(/^\d+$/);
+        [1, 2, 3, 4, 5, 7].forEach((index) => {
+          expect(cells.eq(index).text().trim(), `column ${index}`).not.to.equal("");
+        });
+        [6].forEach((index) => {
+          const amount = cells.eq(index).text().trim().replace(/,/g, "");
+          expect(amount, `amount column ${index}`).to.match(/^\d+(\.\d+)?$/);
+          expect(Number(amount)).to.be.at.least(0);
+        });
+      });
+    });
+  }
+
+  recordsOrEmptyStateCheck() {
+    this.openListForChecks();
+    this.assertRecordsOrEmpty();
+  }
+
+  filterControlsCheck() {
+    this.openListForChecks();
+    ["office_id", "samity_id", COMMON.INPUTS.STATUS_DROPDOWN].forEach((control) => {
+      cy.formController(control).should("be.visible");
+    });
+    cy.get('input[placeholder="From Date"]').should("be.visible");
+    cy.get('input[placeholder="To Date"]').should("be.visible");
+    cy.formController(COMMON.INPUTS.SEARCH_TEXT).should("be.visible").and("be.enabled");
+    cy.imsId(COMMON.BUTTONS.SEARCH).should("be.visible").and("be.enabled");
+  }
+
+  noResultSearchCheck() {
+    this.openListForChecks();
+    configurationGridChecks.noResult("loan-penalty");
+  }
+
+  resetSearchCheck() {
+    this.noResultSearchCheck();
+    cy.imsId(COMMON.BUTTONS.RESET).click();
+    cy.formController(COMMON.INPUTS.SEARCH_TEXT).should("have.value", "");
+    this.assertRecordsOrEmpty();
+  }
+
+  refreshListStateCheck() {
+    this.openListForChecks();
+    cy.imsId(COMMON.BUTTONS.REFRESH).should("be.enabled").click();
+    cy.location("pathname").should("eq", "/mfi-mis/loan-account/loan-penalty/list");
+    configurationGridChecks.columns(["#", "Loan Account ID", "Member ID", "Member Name", "Samity", "Business Date", "Amount", "Status", "Actions"]);
+    this.assertRecordsOrEmpty();
+  }
+
+  addButtonCheck() {
+    this.openListForChecks();
+    cy.imsId(COMMON.BUTTONS.ADD_NEW).should("be.visible").and("be.enabled")
+      .and("contain.text", "Add New Loan Penalty");
   }
 
   gridLanguageSwitchCheck() {

@@ -131,7 +131,39 @@ describe("13. Loan Account Proposal Management Module Test Cases", function () {
     create_loan_account_proposal_management.gridSearchButtonCheck();
   });
 
-  it("13.28. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("13.28. Verify Loan Account Proposal Management: the list displays the correct breadcrumb.", function () {
+    create_loan_account_proposal_management.listBreadcrumbCheck();
+  });
+
+  it("13.29. Verify Loan Account Proposal Management: the grid displays all required columns.", function () {
+    create_loan_account_proposal_management.requiredGridColumnsCheck();
+  });
+
+  it("13.30. Verify Loan Account Proposal Management: displayed rows contain identifiers, names and status.", function () {
+    create_loan_account_proposal_management.gridRecordDataCheck();
+  });
+
+  it("13.31. Verify Loan Account Proposal Management: loan terms and amounts contain valid non-negative numbers.", function () {
+    create_loan_account_proposal_management.loanAmountsCheck();
+  });
+
+  it("13.32. Verify Loan Account Proposal Management: the list displays office, status and search controls.", function () {
+    create_loan_account_proposal_management.searchControlsCheck();
+  });
+
+  it("13.33. Verify Loan Account Proposal Management: a non-existing record search displays No Data.", function () {
+    create_loan_account_proposal_management.noResultSearchCheck();
+  });
+
+  it("13.34. Verify Loan Account Proposal Management: Reset clears an unsuccessful search and restores records.", function () {
+    create_loan_account_proposal_management.resetRestoresGridCheck();
+  });
+
+  it("13.35. Verify Loan Account Proposal Management: pagination starts on the first page.", function () {
+    create_loan_account_proposal_management.firstPagePaginationCheck();
+  });
+
+  it("13.36. Verify check that the grid list content changes correctly from english to bangla.", function () {
     create_loan_account_proposal_management.gridLanguageSwitchCheck();
   });
 });

@@ -67,7 +67,39 @@ describe("14. Loan Account Management Module Test Cases", function () {
     grid_loan_account_management.gridSearchButtonCheck();
   });
 
-  it("14.12. Verify that the grid list content correctly switches between English and Bangla languages.", function () {
+  it("14.12. Verify Loan Account Management: the list displays the correct breadcrumb.", function () {
+    grid_loan_account_management.listBreadcrumbCheck();
+  });
+
+  it("14.13. Verify Loan Account Management: the grid displays all required columns.", function () {
+    grid_loan_account_management.requiredGridColumnsCheck();
+  });
+
+  it("14.14. Verify Loan Account Management: displayed rows contain identifiers, names and status.", function () {
+    grid_loan_account_management.gridRecordDataCheck();
+  });
+
+  it("14.15. Verify Loan Account Management: loan terms and amounts contain valid non-negative numbers.", function () {
+    grid_loan_account_management.loanAmountsCheck();
+  });
+
+  it("14.16. Verify Loan Account Management: the list displays office, status and search controls.", function () {
+    grid_loan_account_management.searchControlsCheck();
+  });
+
+  it("14.17. Verify Loan Account Management: a non-existing record search displays No Data.", function () {
+    grid_loan_account_management.noResultSearchCheck();
+  });
+
+  it("14.18. Verify Loan Account Management: Reset clears an unsuccessful search and restores records.", function () {
+    grid_loan_account_management.resetRestoresGridCheck();
+  });
+
+  it("14.19. Verify Loan Account Management: pagination starts on the first page.", function () {
+    grid_loan_account_management.firstPagePaginationCheck();
+  });
+
+  it("14.20. Verify that the grid list content correctly switches between English and Bangla languages.", function () {
     grid_loan_account_management.gridLanguageSwitchCheck();
   });
 });
