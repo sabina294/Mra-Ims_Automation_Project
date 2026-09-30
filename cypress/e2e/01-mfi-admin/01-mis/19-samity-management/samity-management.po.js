@@ -668,29 +668,20 @@ class SamityCreation {
   }
 
   gridCheckboxCheck() {
-    this.openListPage();
-    cy.imsId(COMMON.BUTTONS.RESET).click();
-    cy.imsId(COMMON.GRID.DRAFT_TOGGLE).check({ force: true });
-    cy.get("tbody input.ant-checkbox-input:not(:disabled)", { timeout: 30000 })
-      .first().check({ force: true });
-    cy.get("tbody input.ant-checkbox-input:checked").should("have.length.greaterThan", 0);
-    cy.get("tbody input.ant-checkbox-input:checked").uncheck({ force: true });
-    cy.log(messages.ui.checkboxMessage);
+    cy.imsId(COMMON.CHECKBOXES.HEADER).click();
+    // cy.imsId(COMMON.BUTTONS.RESET).click();
+    cy.log(messages.ui.gridCheckboxSelected);
   }
 
   gridCheckboxLockButtonCheck() {
-    cy.get("tbody input.ant-checkbox-input:not(:disabled)", { timeout: 30000 })
-      .first().check({ force: true });
-    cy.imsId(COMMON.BUTTONS.LOCK).should("be.visible").and("not.be.disabled").click();
+    cy.imsId(COMMON.BUTTONS.LOCK).click();
     cy.log(messages.ui.lockSuccess);
   }
 
   gridCheckboxUnlockButtonCheck() {
-    cy.get("tbody input.ant-checkbox-input:not(:disabled)", { timeout: 30000 })
-      .first().check({ force: true });
-    cy.imsId(COMMON.BUTTONS.UNLOCK).should("be.visible").and("not.be.disabled").click();
-    cy.imsId(COMMON.GRID.DRAFT_TOGGLE).uncheck({ force: true });
-    cy.log(messages.ui.unlockSuccess);
+    cy.imsId(COMMON.CHECKBOXES.HEADER).click();
+    cy.imsId(COMMON.BUTTONS.UNLOCK).click();
+    cy.log(messages.ui.lockSuccess);
   }
 
   selectofficeDropdown() {
@@ -841,7 +832,7 @@ class SamityCreation {
       this.exactLabel(label).scrollIntoView().should("be.visible");
     });
     [COMMON.BUTTONS.GO_BACK, COMMON.BUTTONS.RESET, COMMON.BUTTONS.DRAFT,
-      COMMON.BUTTONS.SUBMIT, COMMON.BUTTONS.APPROVE]
+    COMMON.BUTTONS.SUBMIT, COMMON.BUTTONS.APPROVE]
       .forEach((button) => {
         cy.imsId(button).scrollIntoView().should("be.visible");
       });

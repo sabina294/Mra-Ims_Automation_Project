@@ -35,8 +35,8 @@ describe("03. Branch Manager Complete Workflow", function () {
     // Cancel Samity
     // ==========================
     cancel_samity.gridCancelSamityListPage();
-    cancel_samity.gridCheckboxCheck();
-    cancel_samity.cancelMultipleSamity();
+    cancel_samity.cancelSamity();
+    cancel_samity.submitCancelSamity();
 
     // ==========================
     // Authorization

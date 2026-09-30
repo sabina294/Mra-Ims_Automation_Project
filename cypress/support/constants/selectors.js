@@ -358,6 +358,7 @@ export const COMMON = {
     ROW_6: "row-checkbox-6",
     ROW_7: "row-checkbox-7",
     ROW_9: "row-checkbox-9",
+    HEADER: "header-checkbox",
   },
 
   UPLOADS: {
