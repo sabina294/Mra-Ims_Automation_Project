@@ -1966,6 +1966,7 @@
     }
   },
   "fieldOfficer": {
+   
     "gridDepartmentFrom": {
       "nameEn": "Test Department",
       "nameBn": "পরীক্ষা বিভাগ",
@@ -2064,6 +2065,12 @@
       "messageSaveLoanAccount": "Loan account proposal has been saved",
       "messageUpdateLoanAccount": "Do you want to update this loan account?"
     },
+     "rejectedLoanAccountFrom": {
+      "selectStatus": "Inactive",
+      "statusSelect": "Active",
+      "memberNameEn": "Fariya"
+    },
+
     "loanAccountManagementFrom": {
       "samity": "Rustampur Mohila Samity",
       "selectStatus": "Inactive",

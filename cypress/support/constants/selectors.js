@@ -97,6 +97,7 @@ export const COMMON = {
     LEDGER_SUB_GROUP: "submenu-ledger-sub-group",
     LOAN_ACCOUNT_MANAGEMENT: "submenu-loan-account-management",
     LOAN_ACCOUNT_PROPOSAL_MANAGEMENT: "submenu-loan-account-proposal-management",
+    REJECTED_LOAN_ACCOUNT_PROPOSAL: "submenu-rejected-loan-account-proposal",
     LOAN_ADJUSTMENT: "submenu-loan-adjustment",
     LOAN_CLASS_STATUS: "submenu-loan-class-status",
     LOAN_CLASSIFICATION_CHART: "submenu-loan-classification-chart",

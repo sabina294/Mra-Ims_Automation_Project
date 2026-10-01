@@ -1,5 +1,5 @@
 // Shared across 02-branch-manager/01-mis/44-staging-data, workflow.cy.js,
-// and 04-field-officer/01-mis/15-loan-penalty (uses it as a setup precondition).
+// and 04-field-officer/01-mis/16-loan-penalty (uses it as a setup precondition).
 import messages from "../constants/messages";
 import { COMMON } from "../constants/selectors";
 class StagingData {

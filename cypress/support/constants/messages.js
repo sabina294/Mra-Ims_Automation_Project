@@ -10,6 +10,11 @@ const messages = {
   },
 
   ui: {
+    guarantorAdded: "Guarantor row has been added.",
+    guarantorRemoved: "Guarantor row has been removed.",
+    gridRecordsOrEmptyCheck: "Verified displayed record fields or the visible No Data state.",
+    gridAmountsOrEmptyCheck: "Verified displayed numeric amounts or the visible No Data state.",
+    searchControlsCheck: "Verified that the list search and filter controls are visible.",
     draftOnMessage: "Draft mode has been enabled successfully.",
     draftOffMessage: "Draft mode has been disabled successfully.",
 
