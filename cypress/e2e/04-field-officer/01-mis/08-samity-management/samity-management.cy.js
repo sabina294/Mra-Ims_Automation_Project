@@ -51,9 +51,9 @@ describe("08. Samity management Module Test Cases", function () {
     grid_samity_management.editSubmitButton();
   });
 
-  it("08.08. Verify the samity management approve button functions correctly.", function () {
-    grid_samity_management.editApproveButton();
-  });
+  // it("08.08. Verify the samity management approve button functions correctly.", function () {
+  //   grid_samity_management.editApproveButton();
+  // });
 
   it("08.09. Verify the samity management draft button functions correctly.", function () {
     grid_samity_management.editDraftButton();

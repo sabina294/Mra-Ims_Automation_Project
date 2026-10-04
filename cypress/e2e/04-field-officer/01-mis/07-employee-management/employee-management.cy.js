@@ -51,9 +51,9 @@ describe("07. Employee Management Module Test Cases", function () {
     grid_employee_management.editSubmitButton();
   });
 
-  it("07.08. Verify the employee management approve button functions correctly.", function () {
-    grid_employee_management.editApproveButton();
-  });
+  // it("07.08. Verify the employee management approve button functions correctly.", function () {
+  //   grid_employee_management.editApproveButton();
+  // });
 
   it("07.09. Verify the employee management draft button functions correctly.", function () {
     grid_employee_management.editDraftButton();

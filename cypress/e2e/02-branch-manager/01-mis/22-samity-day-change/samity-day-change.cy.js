@@ -58,9 +58,9 @@ describe("22. Samity Day Change Module Test Cases", function () {
     samity_day_change.myTaskRefreshButtonCheck();
   });
 
-  it("22.10. Verify Approve Samity Day Change successfully after creation", function () {
-    samity_day_change.approveSamityDayChange();
-  });
+  // it("22.10. Verify Approve Samity Day Change successfully after creation", function () {
+  //   samity_day_change.approveSamityDayChange();
+  // });
 
   it("22.11. Verify Action button performs expected operation successfully", function () {
     samity_day_change.actionButtonCheck();

@@ -124,13 +124,18 @@ class RrejectedMember {
   }
 
   editResetButton() {
-    cy.imsId(COMMON.BUTTONS.RESET).click();
-    cy.imsId(COMMON.TOGGLES.ACTION).first().click();
-    cy.imsId(COMMON.GRID.ACTION_MIS_EDIT).click();
-    cy.imsId(COMMON.BUTTONS.RESET).click();
-    cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+    cy.fixture(this.test_data).then((data) => {
+      const rejmData = data.branchManager.createRejectedMemberFrom;
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(rejmData.memberNameEn);
+      cy.imsId(COMMON.BUTTONS.SEARCH).first().click();
+      cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+      cy.imsId(COMMON.GRID.ACTION_MIS_EDIT).click();
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      cy.imsId(COMMON.BUTTONS.GO_BACK).click();
 
-    cy.log(messages.ui.editResetMessage);
+      cy.log(messages.ui.editResetMessage);
+    });
   }
 
   editGoBackButton() {
@@ -170,7 +175,7 @@ class RrejectedMember {
     );
   }
 
-    gridSearchButtonCheck() {
+  gridSearchButtonCheck() {
     cy.fixture(this.test_data).then((data) => {
       const rejmData = data.branchManager.createRejectedMemberFrom;
       cy.imsId(COMMON.BUTTONS.RESET).click();

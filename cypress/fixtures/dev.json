@@ -1966,6 +1966,21 @@
     }
   },
   "fieldOfficer": {
+    "savingsAccountClosureFrom": {
+      "invalidSearch": "NO_SUCH_SAVINGS_CLOSURE_987654321",
+      "gridColumns": [
+        "#",
+        "Savings Account ID",
+        "Member ID",
+        "Member Name",
+        "Savings Product ID",
+        "Account Start Date",
+        "Account End Date",
+        "Closing Amount",
+        "Status",
+        "Actions"
+      ]
+    },
    
     "gridDepartmentFrom": {
       "nameEn": "Test Department",

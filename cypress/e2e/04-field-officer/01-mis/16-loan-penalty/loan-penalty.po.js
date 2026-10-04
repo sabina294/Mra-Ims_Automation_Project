@@ -293,9 +293,11 @@ class LoanPenalty {
 
   filterControlsCheck() {
     this.openListForChecks();
-    ["office_id", "samity_id", COMMON.INPUTS.STATUS_DROPDOWN].forEach((control) => {
+    ["office_id", COMMON.INPUTS.STATUS_DROPDOWN].forEach((control) => {
       cy.formController(control).should("be.visible");
     });
+    cy.contains("nz-select .ant-select-selection-placeholder", /^\s*Select Samity\s*$/)
+      .should("be.visible");
     cy.get('input[placeholder="From Date"]').should("be.visible");
     cy.get('input[placeholder="To Date"]').should("be.visible");
     cy.formController(COMMON.INPUTS.SEARCH_TEXT).should("be.visible").and("be.enabled");
