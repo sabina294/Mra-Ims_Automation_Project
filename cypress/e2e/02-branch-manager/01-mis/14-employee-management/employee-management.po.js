@@ -1,3 +1,4 @@
+import { configurationGridChecks } from "../../../../support/page-objects/configuration-grid-checks";
 import messages from "../../../../support/constants/messages";
 import { COMMON } from "../../../../support/constants/selectors";
 class EmployeeManagementCreation {
@@ -345,6 +346,95 @@ class EmployeeManagementCreation {
       cy.imsId(COMMON.BUTTONS.SEARCH).click();
       cy.log(messages.ui.searchMessage);
     });
+  }
+
+  openListForChecks() {
+    cy.visit("/mfi-mis/employee/employee-management/list");
+    cy.location("pathname").should("eq", "/mfi-mis/employee/employee-management/list");
+    cy.imsId(COMMON.BUTTONS.RESET).should("be.visible").click();
+    cy.imsId(COMMON.GRID.DRAFT_TOGGLE).uncheck({ force: true });
+  }
+
+  listBreadcrumbCheck() {
+    this.openListForChecks();
+    configurationGridChecks.breadcrumb("Employee Management", ["Employee"]);
+  }
+
+  requiredGridColumnsCheck() {
+    this.openListForChecks();
+    configurationGridChecks.columns(["#", "Employee ID", "Employee Name", "Office ID", "Office", "Gender", "Smart Card ID", "Marital Status", "Locked by", "Status", "Actions"]);
+  }
+
+  gridRecordDataCheck() {
+    this.openListForChecks();
+    cy.get(COMMON.TABLE.VISIBLE_ROWS).should(($rows) => {
+      expect($rows.length, "employee records").to.be.greaterThan(0);
+      $rows.each((_, row) => {
+        const cells = Cypress.$(row).find("td");
+        expect(cells.eq(1).text().trim(), "serial number").to.match(/^\d+$/);
+        expect(cells.eq(3).text().trim(), "employee name").not.to.equal("");
+        [2, 4, 5].forEach((index) => expect(cells.eq(index).text().trim(), `column ${index}`).not.to.equal(""));
+        expect(["Active", "Inactive"]).to.include(cells.eq(10).text().trim());
+      });
+    });
+    cy.log(messages.ui.recordStatusCheck);
+  }
+
+  exactNameSearchCheck() {
+    this.openListForChecks();
+    cy.get(COMMON.TABLE.VISIBLE_ROWS).first().find("td").eq(3).invoke("text").then((text) => {
+      const name = text.trim();
+      expect(name).not.to.equal("");
+      configurationGridChecks.exactSearch(name, 3);
+    });
+  }
+
+  partialNameSearchCheck() {
+    this.openListForChecks();
+    cy.get(COMMON.TABLE.VISIBLE_ROWS).first().find("td").eq(3).invoke("text").then((text) => {
+      const name = text.trim();
+      expect(name).not.to.equal("");
+      configurationGridChecks.partialSearch(name);
+    });
+  }
+
+  noResultSearchCheck() {
+    this.openListForChecks();
+    configurationGridChecks.noResult("BM_EMPLOYEE");
+  }
+
+  resetRestoresGridCheck() {
+    this.noResultSearchCheck();
+    configurationGridChecks.reset();
+  }
+
+  activeStatusResultCheck() {
+    this.openListForChecks();
+    cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type("Active");
+    cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(COMMON.KEYS.ENTER);
+    cy.imsId(COMMON.BUTTONS.SEARCH).click();
+    cy.get(COMMON.TABLE.VISIBLE_ROWS).should(($rows) => {
+      expect($rows.length, "active employees").to.be.greaterThan(0);
+      $rows.each((_, row) => {
+        expect(Cypress.$(row).find("td").eq(10).text().trim()).to.equal("Active");
+      });
+    });
+  }
+
+  nameAscendingSortCheck() {
+    this.openListForChecks();
+    configurationGridChecks.sort("Employee Name", COMMON.SORT.ASCENDING);
+  }
+
+  nameDescendingSortCheck() {
+    this.openListForChecks();
+    configurationGridChecks.sort("Employee Name", COMMON.SORT.ASCENDING);
+    configurationGridChecks.sort("Employee Name", COMMON.SORT.DESCENDING);
+  }
+
+  firstPagePaginationCheck() {
+    this.openListForChecks();
+    configurationGridChecks.pagination();
   }
 
   gridLanguageSwitchCheck() {

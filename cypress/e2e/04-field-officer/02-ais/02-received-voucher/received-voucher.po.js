@@ -1,3 +1,4 @@
+import { configurationGridChecks } from "../../../../support/page-objects/configuration-grid-checks";
 import messages from "../../../../support/constants/messages";
 import { COMMON } from "../../../../support/constants/selectors";
 class ReceivedVoucherCreation {
@@ -600,6 +601,78 @@ class ReceivedVoucherCreation {
         cy.imsId(COMMON.BUTTONS.GO_BACK).click();
         cy.log(messages.ui.submitSuccess);
     }
+
+  openListForChecks() {
+    cy.visit("/mfi-ais/voucher/received-voucher/list");
+    cy.location("pathname").should("eq", "/mfi-ais/voucher/received-voucher/list");
+    cy.imsId(COMMON.BUTTONS.RESET).should("be.visible").click();
+    cy.imsId(COMMON.GRID.DRAFT_TOGGLE).uncheck({ force: true });
+  }
+
+  listBreadcrumbCheck() {
+    this.openListForChecks();
+    configurationGridChecks.breadcrumb("Received Voucher", ["Voucher"]);
+  }
+
+  requiredGridColumnsCheck() {
+    this.openListForChecks();
+    configurationGridChecks.columns([
+      "#", "Voucher ID", "Voucher Name", "Prepared By", "Received Date",
+      "Created By", "Received Amount", "Locked By", "Status", "Actions",
+    ]);
+  }
+
+  gridRecordDataCheck() {
+    this.openListForChecks();
+    cy.get(COMMON.TABLE.VISIBLE_ROWS).should(($rows) => {
+      expect($rows.length, "received vouchers").to.be.greaterThan(0);
+      $rows.each((_, row) => {
+        const cells = Cypress.$(row).find(COMMON.TABLE.VISIBLE_CELLS);
+        expect(cells.eq(0).text().trim(), "serial number").to.match(/^\d+$/);
+        [1, 2].forEach((index) => {
+          expect(cells.eq(index).text().trim(), "voucher identifier/name").not.to.equal("");
+        });
+        const amount = cells.eq(6).text().trim().replace(/,/g, "");
+        expect(amount, "received amount").to.match(/^\d+(\.\d+)?$/);
+        expect(Number(amount)).to.be.at.least(0);
+        expect(["Active", "Inactive"]).to.include(cells.eq(8).text().trim());
+      });
+    });
+    cy.log(messages.ui.recordIdCheck);
+  }
+
+  searchControlsCheck() {
+    this.openListForChecks();
+    cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).should("be.visible");
+    cy.formController(COMMON.INPUTS.SEARCH_TEXT).should("be.visible").and("be.enabled");
+    cy.imsId(COMMON.BUTTONS.SEARCH).should("be.visible").and("be.enabled");
+    cy.log(messages.ui.searchControlsCheck);
+  }
+
+  voucherNameSearchCheck() {
+    this.openListForChecks();
+    cy.get(COMMON.TABLE.VISIBLE_ROWS).first().find(COMMON.TABLE.VISIBLE_CELLS)
+      .eq(2).invoke("text").then((text) => {
+        const name = text.trim();
+        expect(name, "voucher name to search").not.to.equal("");
+        configurationGridChecks.exactSearch(name, 2);
+      });
+  }
+
+  noResultSearchCheck() {
+    this.openListForChecks();
+    configurationGridChecks.noResult("RECEIVED_VOUCHER");
+  }
+
+  resetRestoresGridCheck() {
+    this.noResultSearchCheck();
+    configurationGridChecks.reset();
+  }
+
+  firstPagePaginationCheck() {
+    this.openListForChecks();
+    configurationGridChecks.pagination();
+  }
 
     gridLanguageSwitchCheck() {
         cy.imsId(COMMON.BUTTONS.PROFILE).click();

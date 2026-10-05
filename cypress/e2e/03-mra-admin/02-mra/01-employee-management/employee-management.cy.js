@@ -143,7 +143,51 @@ describe("01. Employee Management Module Test Cases.", function () {
     create_employee_management.gridSearchButtonCheck();
   });
 
-  it("01.31. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("01.31. Verify MRA Employee Management: the list breadcrumb.", function () {
+    create_employee_management.listBreadcrumbCheck();
+  });
+
+  it("01.32. Verify MRA Employee Management: the required grid columns.", function () {
+    create_employee_management.requiredGridColumnsCheck();
+  });
+
+  it("01.33. Verify MRA Employee Management: valid employee row data.", function () {
+    create_employee_management.gridRecordDataCheck();
+  });
+
+  it("01.34. Verify MRA Employee Management: exact employee name search.", function () {
+    create_employee_management.exactNameSearchCheck();
+  });
+
+  it("01.35. Verify MRA Employee Management: partial employee name search.", function () {
+    create_employee_management.partialNameSearchCheck();
+  });
+
+  it("01.36. Verify MRA Employee Management: non-existing search shows No Data.", function () {
+    create_employee_management.noResultSearchCheck();
+  });
+
+  it("01.37. Verify MRA Employee Management: Reset restores the employee list.", function () {
+    create_employee_management.resetRestoresGridCheck();
+  });
+
+  it("01.38. Verify MRA Employee Management: Active filter returns only active employees.", function () {
+    create_employee_management.activeStatusResultCheck();
+  });
+
+  it("01.39. Verify MRA Employee Management: Employee Name ascending sort indicator.", function () {
+    create_employee_management.nameAscendingSortCheck();
+  });
+
+  it("01.40. Verify MRA Employee Management: Employee Name descending sort indicator.", function () {
+    create_employee_management.nameDescendingSortCheck();
+  });
+
+  it("01.41. Verify MRA Employee Management: first-page pagination state.", function () {
+    create_employee_management.firstPagePaginationCheck();
+  });
+
+  it("01.42. Verify check that the grid list content changes correctly from english to bangla.", function () {
     create_employee_management.gridLanguageSwitchCheck();
   });
 });

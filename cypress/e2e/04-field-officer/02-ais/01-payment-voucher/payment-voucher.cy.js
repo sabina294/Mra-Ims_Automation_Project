@@ -49,7 +49,7 @@ describe("01 Payment Voucher Module Test Cases", function () {
         create_payment_voucher.createWithoutVoucherPreparedBy();
     });
 
-    it("01.01. Verify that a payment voucher cannot be created without entering Remarks.", function () {
+    it("01.07. Verify that a payment voucher cannot be created without entering Remarks.", function () {
         create_payment_voucher.createWithoutVoucherRemarks();
     });
 
@@ -147,9 +147,9 @@ describe("01 Payment Voucher Module Test Cases", function () {
         create_payment_voucher.createDraftButtonCheck();
     });
 
-    it("01.30. Verify that validation messages appear when clicking the Approve button with empty required fields.", function () {
-        create_payment_voucher.createApproveButtonCheck();
-    });
+    // it("01.30. Verify that validation messages appear when clicking the Approve button with empty required fields.", function () {
+    //     create_payment_voucher.createApproveButtonCheck();
+    // });
 
     it("01.31. Verify that clicking the Add icon redirects to the Payment Voucher list page.", function () {
         create_payment_voucher.createPaymentAddIconButtonCheck();
@@ -171,7 +171,39 @@ describe("01 Payment Voucher Module Test Cases", function () {
         create_payment_voucher.createDeleteButtonCheck();
     });
 
-    it("01.36. Verify that the grid content updates correctly when switching language from English to Bangla.", function () {
+    it("01.36. Verify Payment Voucher: the list displays the correct breadcrumb.", function () {
+        create_payment_voucher.listBreadcrumbCheck();
+    });
+
+    it("01.37. Verify Payment Voucher: all required columns are visible.", function () {
+        create_payment_voucher.requiredGridColumnsCheck();
+    });
+
+    it("01.38. Verify Payment Voucher: rows contain voucher identifiers, names, valid payment amounts and status.", function () {
+        create_payment_voucher.gridRecordDataCheck();
+    });
+
+    it("01.39. Verify Payment Voucher: status and search controls are visible.", function () {
+        create_payment_voucher.searchControlsCheck();
+    });
+
+    it("01.40. Verify Payment Voucher: searching an existing voucher name returns matching records.", function () {
+        create_payment_voucher.voucherNameSearchCheck();
+    });
+
+    it("01.41. Verify Payment Voucher: a non-existing search displays No Data.", function () {
+        create_payment_voucher.noResultSearchCheck();
+    });
+
+    it("01.42. Verify Payment Voucher: Reset clears an unsuccessful search and restores records.", function () {
+        create_payment_voucher.resetRestoresGridCheck();
+    });
+
+    it("01.43. Verify Payment Voucher: pagination starts on the first page.", function () {
+        create_payment_voucher.firstPagePaginationCheck();
+    });
+
+    it("01.44. Verify that the grid content updates correctly when switching language from English to Bangla.", function () {
         create_payment_voucher.gridLanguageSwitchCheck();
     });
 

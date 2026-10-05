@@ -182,8 +182,16 @@ class StagingData {
         cy.formController(control).find(".ant-select-selection-item")
           .should("contain.text", label);
       } else {
-        cy.formController(control).type(label, { parseSpecialCharSequences: false });
-        cy.formController(control).type(COMMON.KEYS.ENTER);
+        // Status is a fixed option list; choose the option instead of typing
+        // into its search input and relying on the highlighted Enter result.
+        cy.formController(control).click();
+        cy.get(COMMON.SELECT.VISIBLE_DROPDOWN)
+          .contains(COMMON.SELECT.OPTION, new RegExp(`^\\s*${Cypress._.escapeRegExp(label)}\\s*$`))
+          .should("be.visible")
+          .and("not.have.class", "ant-select-item-option-disabled")
+          .click();
+        cy.formController(control).find(".ant-select-selection-item")
+          .should("contain.text", label);
       }
       cy.imsId(COMMON.BUTTONS.SEARCH).click();
       cy.get(COMMON.TABLE.VISIBLE_ROWS).should(($rows) => {

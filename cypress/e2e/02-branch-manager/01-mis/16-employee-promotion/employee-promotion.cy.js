@@ -83,7 +83,7 @@ describe("16. Employee Promotion Module Test Cases", function () {
         grid_employee_promotion.gridRefreshButtonCheck();
     });
 
-    it("16.16. Verify that clicking the Search button on the rejected employee grid redirects to the Rejected Employee List page.", function () {
+    it("16.16. Verify that clicking the Search button displays matching employee promotion records.", function () {
         grid_employee_promotion.gridSearchButtonCheck();
     });
 
@@ -95,7 +95,55 @@ describe("16. Employee Promotion Module Test Cases", function () {
         grid_employee_promotion.gridDraftButtonOff();
     });
 
-    it("16.19. Verify that the grid content updates correctly when switching language from English to Bangla.", function () {
+    it("16.19. Verify that the Employee Promotion breadcrumb displays the correct navigation hierarchy.", function () {
+        grid_employee_promotion.listBreadcrumbCheck();
+    });
+
+    it("16.20. Verify that the employee promotion grid displays all required columns.", function () {
+        grid_employee_promotion.requiredGridColumnsCheck();
+    });
+
+    it("16.21. Verify that employee records contain a serial, employee ID, name and status, or show No Data.", function () {
+        grid_employee_promotion.gridRecordDataCheck();
+    });
+
+    it("16.22. Verify that the office, Draft and search controls are available.", function () {
+        grid_employee_promotion.searchControlsCheck();
+    });
+
+    it("16.23. Verify that searching by an existing employee name returns matching records.", function () {
+        grid_employee_promotion.employeeNameSearchCheck();
+    });
+
+    it("16.24. Verify that searching by a partial employee name returns matching records.", function () {
+        grid_employee_promotion.employeePartialNameSearchCheck();
+    });
+
+    it("16.25. Verify that a nonexistent search displays No Data.", function () {
+        grid_employee_promotion.noResultSearchCheck();
+    });
+
+    it("16.26. Verify that Reset clears an unmatched search and restores the list.", function () {
+        grid_employee_promotion.resetRestoresGridCheck();
+    });
+
+    it("16.27. Verify that Refresh keeps the Employee Promotion list available.", function () {
+        grid_employee_promotion.refreshListStateCheck();
+    });
+
+    it("16.28. Verify that Employee Name displays the ascending sort indicator.", function () {
+        grid_employee_promotion.nameAscendingSortCheck();
+    });
+
+    it("16.29. Verify that Employee Name displays the descending sort indicator.", function () {
+        grid_employee_promotion.nameDescendingSortCheck();
+    });
+
+    it("16.30. Verify that the first-page pagination controls or empty state display correctly.", function () {
+        grid_employee_promotion.paginationOrEmptyStateCheck();
+    });
+
+    it("16.31. Verify that the grid content updates correctly when switching language from English to Bangla.", function () {
         grid_employee_promotion.gridLanguageSwitchCheck();
     });
 });

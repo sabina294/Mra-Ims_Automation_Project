@@ -40,13 +40,6 @@ class CancelHoliday {
         cy.log(messages.validation.requiredField);
     }
 
-    createFormControlsCheck() {
-        cy.imsId(COMMON.BUTTONS.SUBMIT).should("be.visible").and("not.be.disabled");
-        cy.imsId(COMMON.BUTTONS.DRAFT).should("be.visible").and("not.be.disabled");
-        cy.imsId(COMMON.BUTTONS.GO_BACK).should("be.visible");
-        cy.imsId(COMMON.BUTTONS.APPROVE).should("not.exist");
-    }
-
     createSubmitButtonCheck() {
         cy.imsId(COMMON.BUTTONS.SUBMIT).click();
         // cy.imsId(COMMON.CONFIRMATION.OK).click();

@@ -94,7 +94,47 @@ describe("15. Rejected Employee Module Test Cases", function () {
         create_rejected_employee.gridSearchButtonCheck();
     });
 
-    it("15.19. Verify that the grid content updates correctly when switching language from English to Bangla", function () {
+    it("15.19. Verify Branch Manager Rejected Employee: the list breadcrumb.", function () {
+        create_rejected_employee.listBreadcrumbCheck();
+    });
+
+    it("15.20. Verify Branch Manager Rejected Employee: all required grid columns.", function () {
+        create_rejected_employee.requiredGridColumnsCheck();
+    });
+
+    it("15.21. Verify Branch Manager Rejected Employee: valid row data or a visible No Data state.", function () {
+        create_rejected_employee.gridRecordDataCheck();
+    });
+
+    it("15.22. Verify Branch Manager Rejected Employee: office and search controls are visible.", function () {
+        create_rejected_employee.searchControlsCheck();
+    });
+
+    it("15.23. Verify Branch Manager Rejected Employee: a non-existing search displays No Data.", function () {
+        create_rejected_employee.noResultSearchCheck();
+    });
+
+    it("15.24. Verify Branch Manager Rejected Employee: Reset clears search and restores the list state.", function () {
+        create_rejected_employee.resetRestoresGridCheck();
+    });
+
+    it("15.25. Verify Branch Manager Rejected Employee: Refresh retains the correct list and grid state.", function () {
+        create_rejected_employee.refreshListStateCheck();
+    });
+
+    it("15.26. Verify Branch Manager Rejected Employee: Employee Name ascending sort indicator.", function () {
+        create_rejected_employee.nameAscendingSortCheck();
+    });
+
+    it("15.27. Verify Branch Manager Rejected Employee: Employee Name descending sort indicator.", function () {
+        create_rejected_employee.nameDescendingSortCheck();
+    });
+
+    it("15.28. Verify Branch Manager Rejected Employee: first-page pagination or a visible empty state.", function () {
+        create_rejected_employee.paginationOrEmptyStateCheck();
+    });
+
+    it("15.29. Verify that the grid content updates correctly when switching language from English to Bangla", function () {
         create_rejected_employee.gridLanguageSwitchCheck();
     });
 });

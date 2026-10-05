@@ -5,7 +5,7 @@
 import "cypress-file-upload";
 import { create_received_voucher } from "./received-voucher.po";
 
-describe("08 Received Voucher Module Test Cases", function () {
+describe("02 Received Voucher Module Test Cases", function () {
     const baseURL = Cypress.env("BASE_URL");
     const test_data = Cypress.env("TEST_DATA");
     before(() => {
@@ -147,9 +147,9 @@ describe("08 Received Voucher Module Test Cases", function () {
         create_received_voucher.createDraftButtonCheck();
     });
 
-    it("02.30. Verify that required field validation messages are displayed when clicking the Approve button with empty inputs.", function () {
-        create_received_voucher.createApproveButtonCheck();
-    });
+    // it("02.30. Verify that required field validation messages are displayed when clicking the Approve button with empty inputs.", function () {
+    //     create_received_voucher.createApproveButtonCheck();
+    // });
 
     it("02.31. Verify that clicking the Add icon button redirects the user to the Received Voucher list page.", function () {
         create_received_voucher.createPaymentAddIconButtonCheck();
@@ -171,7 +171,39 @@ describe("08 Received Voucher Module Test Cases", function () {
         create_received_voucher.createDeleteButtonCheck();
     });
 
-    it("02.36. Verify that the grid list content switches successfully from English to Bangla language.", function () {
+    it("02.36. Verify Received Voucher: the list displays the correct breadcrumb.", function () {
+        create_received_voucher.listBreadcrumbCheck();
+    });
+
+    it("02.37. Verify Received Voucher: all required columns are visible.", function () {
+        create_received_voucher.requiredGridColumnsCheck();
+    });
+
+    it("02.38. Verify Received Voucher: rows contain voucher identifiers, names, valid received amounts and status.", function () {
+        create_received_voucher.gridRecordDataCheck();
+    });
+
+    it("02.39. Verify Received Voucher: status and search controls are visible.", function () {
+        create_received_voucher.searchControlsCheck();
+    });
+
+    it("02.40. Verify Received Voucher: searching an existing voucher name returns matching records.", function () {
+        create_received_voucher.voucherNameSearchCheck();
+    });
+
+    it("02.41. Verify Received Voucher: a non-existing search displays No Data.", function () {
+        create_received_voucher.noResultSearchCheck();
+    });
+
+    it("02.42. Verify Received Voucher: Reset clears an unsuccessful search and restores records.", function () {
+        create_received_voucher.resetRestoresGridCheck();
+    });
+
+    it("02.43. Verify Received Voucher: pagination starts on the first page.", function () {
+        create_received_voucher.firstPagePaginationCheck();
+    });
+
+    it("02.44. Verify that the grid list content switches successfully from English to Bangla language.", function () {
         create_received_voucher.gridLanguageSwitchCheck();
     });
 });

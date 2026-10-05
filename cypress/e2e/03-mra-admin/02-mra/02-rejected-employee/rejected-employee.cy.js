@@ -100,7 +100,47 @@ describe("02. Rejected Employee Module Test Cases.", function () {
         create_rejected_employee.gridSearchButtonCheck();
     });
 
-    it("02.20. Verify check that the grid list content changes correctly from english to bangla.", function () {
+    it("02.20. Verify MRA Rejected Employee: the list breadcrumb.", function () {
+        create_rejected_employee.listBreadcrumbCheck();
+    });
+
+    it("02.21. Verify MRA Rejected Employee: all required grid columns.", function () {
+        create_rejected_employee.requiredGridColumnsCheck();
+    });
+
+    it("02.22. Verify MRA Rejected Employee: valid row data or a visible No Data state.", function () {
+        create_rejected_employee.gridRecordDataCheck();
+    });
+
+    it("02.23. Verify MRA Rejected Employee: status and search controls are visible.", function () {
+        create_rejected_employee.searchControlsCheck();
+    });
+
+    it("02.24. Verify MRA Rejected Employee: a non-existing search displays No Data.", function () {
+        create_rejected_employee.noResultSearchCheck();
+    });
+
+    it("02.25. Verify MRA Rejected Employee: Reset clears search and restores the list state.", function () {
+        create_rejected_employee.resetRestoresGridCheck();
+    });
+
+    it("02.26. Verify MRA Rejected Employee: Refresh retains the correct list and grid state.", function () {
+        create_rejected_employee.refreshListStateCheck();
+    });
+
+    it("02.27. Verify MRA Rejected Employee: Employee Name ascending sort indicator.", function () {
+        create_rejected_employee.nameAscendingSortCheck();
+    });
+
+    it("02.28. Verify MRA Rejected Employee: Employee Name descending sort indicator.", function () {
+        create_rejected_employee.nameDescendingSortCheck();
+    });
+
+    it("02.29. Verify MRA Rejected Employee: first-page pagination or a visible empty state.", function () {
+        create_rejected_employee.paginationOrEmptyStateCheck();
+    });
+
+    it("02.30. Verify check that the grid list content changes correctly from english to bangla.", function () {
         create_rejected_employee.gridLanguageSwitchCheck();
     });
 });

@@ -159,7 +159,51 @@ describe("14. Employee Management Module Test Cases", function () {
     create_employee_management.gridSearchButtonCheck();
   });
 
-  it("14.35. Verify that the Employee Management List is displayed correctly after switching the language from English to Bangla.", function () {
+  it("14.35. Verify Branch Manager Employee Management: the list breadcrumb.", function () {
+    create_employee_management.listBreadcrumbCheck();
+  });
+
+  it("14.36. Verify Branch Manager Employee Management: all required grid columns.", function () {
+    create_employee_management.requiredGridColumnsCheck();
+  });
+
+  it("14.37. Verify Branch Manager Employee Management: employee identifiers, names, office data and status.", function () {
+    create_employee_management.gridRecordDataCheck();
+  });
+
+  it("14.38. Verify Branch Manager Employee Management: exact employee name search.", function () {
+    create_employee_management.exactNameSearchCheck();
+  });
+
+  it("14.39. Verify Branch Manager Employee Management: partial employee name search.", function () {
+    create_employee_management.partialNameSearchCheck();
+  });
+
+  it("14.40. Verify Branch Manager Employee Management: a non-existing search displays No Data.", function () {
+    create_employee_management.noResultSearchCheck();
+  });
+
+  it("14.41. Verify Branch Manager Employee Management: Reset clears search and restores records.", function () {
+    create_employee_management.resetRestoresGridCheck();
+  });
+
+  it("14.42. Verify Branch Manager Employee Management: Active filter returns only active employees.", function () {
+    create_employee_management.activeStatusResultCheck();
+  });
+
+  it("14.43. Verify Branch Manager Employee Management: Employee Name ascending sort indicator.", function () {
+    create_employee_management.nameAscendingSortCheck();
+  });
+
+  it("14.44. Verify Branch Manager Employee Management: Employee Name descending sort indicator.", function () {
+    create_employee_management.nameDescendingSortCheck();
+  });
+
+  it("14.45. Verify Branch Manager Employee Management: first-page pagination state.", function () {
+    create_employee_management.firstPagePaginationCheck();
+  });
+
+  it("14.46. Verify that the Employee Management List is displayed correctly after switching the language from English to Bangla.", function () {
     create_employee_management.gridLanguageSwitchCheck();
   });
   
