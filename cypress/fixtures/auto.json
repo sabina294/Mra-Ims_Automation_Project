@@ -2096,9 +2096,9 @@
     },
     "createLoanPenaltyForm": {
       "SelectOffice": "1020 (Ashulia)",
-      "selectSamity": "1020-101 (Ashulia Mohila Samity)",
-      "selectMember": "1-1001 (Fariya)",
-      "selectLoanAccount": "AGRO-1020-101-1001-1 (Loan Account) ",
+      "selectSamity": "1020-103 (Kuturia Mohila Samity)",
+      "selectMember": "1-1001 (Jule Akter )",
+      "selectLoanAccount": "AGRO-1020-103-1001-1 (Loan Account)",
       "inputLoanAccount": "20",
       "inputAmount": "50",
       "search": "Amira Rahman",

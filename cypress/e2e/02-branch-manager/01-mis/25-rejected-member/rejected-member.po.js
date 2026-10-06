@@ -1,5 +1,7 @@
 import messages from "../../../../support/constants/messages";
 import { COMMON } from "../../../../support/constants/selectors";
+import { configurationGridChecks } from "../../../../support/page-objects/configuration-grid-checks";
+
 class RrejectedMember {
   test_data = Cypress.env("TEST_DATA");
 
@@ -182,6 +184,99 @@ class RrejectedMember {
       cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(rejmData.memberNameEn);
       cy.imsId(COMMON.BUTTONS.SEARCH).click();
       cy.log(messages.ui.searchMessage);
+    });
+  }
+
+  openListForChecks() {
+    cy.visit("/mfi-mis/member/rejected-member/list");
+    cy.location("pathname").should("eq", "/mfi-mis/member/rejected-member/list");
+    cy.imsId(COMMON.BUTTONS.RESET).should("be.visible").click();
+  }
+
+  listBreadcrumbCheck() {
+    this.openListForChecks();
+    configurationGridChecks.breadcrumb("Rejected Member", ["Member"]);
+  }
+
+  requiredGridColumnsCheck() {
+    this.openListForChecks();
+    configurationGridChecks.columns(["#", "Member Id", "Name", "Office Id", "Samity Id", "Contact No", "Status", "Actions"]);
+  }
+
+  assertRecordsOrEmpty() {
+    cy.get(COMMON.TABLE.BODY).should(($body) => {
+      const rows = $body.find("tr:not(.ant-table-placeholder):visible");
+      if (!rows.length) {
+        expect($body.find(".ant-empty:visible").length, "visible empty state").to.be.greaterThan(0);
+        expect($body.text()).to.contain("No Data");
+        return;
+      }
+      rows.each((_, row) => {
+        const cells = Cypress.$(row).find("td");
+        expect(cells.eq(0).text().trim(), "serial number").to.match(/^\d+$/);
+        // Rejected applications can have no assigned Member ID.
+        expect(cells.eq(3).text().trim(), "office ID").not.to.equal("");
+        expect(cells.eq(2).text().trim(), "member name").not.to.equal("");
+        expect(cells.eq(6).text().trim(), "status").to.equal("Rejected");
+      });
+    });
+  }
+
+  gridRecordDataCheck() {
+    this.openListForChecks();
+    this.assertRecordsOrEmpty();
+    cy.log(messages.ui.gridRecordsOrEmptyCheck);
+  }
+
+  searchControlsCheck() {
+    this.openListForChecks();
+    cy.formController("office_id").should("be.visible");
+    cy.formController(COMMON.INPUTS.SEARCH_TEXT).should("be.visible").and("be.enabled");
+    cy.imsId(COMMON.BUTTONS.SEARCH).should("be.visible").and("be.enabled");
+    cy.log(messages.ui.searchControlsCheck);
+  }
+
+  noResultSearchCheck() {
+    this.openListForChecks();
+    configurationGridChecks.noResult("BM_REJECTED_MEMBER");
+  }
+
+  resetRestoresGridCheck() {
+    this.noResultSearchCheck();
+    cy.imsId(COMMON.BUTTONS.RESET).click();
+    cy.formController(COMMON.INPUTS.SEARCH_TEXT).should("have.value", "");
+    this.assertRecordsOrEmpty();
+    cy.log(messages.ui.gridResetSuccess);
+  }
+
+  refreshListStateCheck() {
+    this.openListForChecks();
+    cy.imsId(COMMON.BUTTONS.REFRESH).click();
+    cy.location("pathname").should("eq", "/mfi-mis/member/rejected-member/list");
+    this.assertRecordsOrEmpty();
+    cy.log(messages.ui.gridRefreshSuccess);
+  }
+
+  nameAscendingSortCheck() {
+    this.openListForChecks();
+    configurationGridChecks.sort("Name", COMMON.SORT.ASCENDING);
+  }
+
+  nameDescendingSortCheck() {
+    this.openListForChecks();
+    configurationGridChecks.sort("Name", COMMON.SORT.ASCENDING);
+    configurationGridChecks.sort("Name", COMMON.SORT.DESCENDING);
+  }
+
+  paginationOrEmptyStateCheck() {
+    this.openListForChecks();
+    this.assertRecordsOrEmpty();
+    cy.get(COMMON.TABLE.BODY).then(($body) => {
+      if ($body.find("tr:not(.ant-table-placeholder):visible").length) {
+        configurationGridChecks.pagination();
+      } else {
+        cy.get(COMMON.TABLE.BODY).find(".ant-empty").should("be.visible").and("contain.text", "No Data");
+      }
     });
   }
 

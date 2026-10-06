@@ -146,7 +146,59 @@ describe("24. Member Management Module Test Cases", function () {
     create_member_management.gridDraftButtonOff();
   });
 
-  it("24.32. Verify that grid language switching works correctly from English to Bangla", function () {
+  it("24.32. Verify that the Member Management breadcrumb displays the correct navigation hierarchy.", function () {
+    create_member_management.listBreadcrumbCheck();
+  });
+
+  it("24.33. Verify that the member management grid displays all required columns.", function () {
+    create_member_management.requiredGridColumnsCheck();
+  });
+
+  it("24.34. Verify that member records contain a serial, member ID, name and status, or show No Data.", function () {
+    create_member_management.gridRecordDataCheck();
+  });
+
+  it("24.35. Verify that the office, Draft and search controls are available.", function () {
+    create_member_management.searchControlsCheck();
+  });
+
+  it("24.36. Verify that searching by an existing member name returns matching records.", function () {
+    create_member_management.memberNameSearchCheck();
+  });
+
+  it("24.37. Verify that searching by a partial member name returns matching records.", function () {
+    create_member_management.memberPartialNameSearchCheck();
+  });
+
+  it("24.38. Verify that a nonexistent search displays No Data.", function () {
+    create_member_management.noResultSearchCheck();
+  });
+
+  it("24.39. Verify that Reset clears an unmatched search and restores the list.", function () {
+    create_member_management.resetRestoresGridCheck();
+  });
+
+  it("24.40. Verify that Refresh keeps the Member Management list available.", function () {
+    create_member_management.refreshListStateCheck();
+  });
+
+  it("24.41. Verify that Name displays the ascending sort indicator.", function () {
+    create_member_management.nameAscendingSortCheck();
+  });
+
+  it("24.42. Verify that Name displays the descending sort indicator.", function () {
+    create_member_management.nameDescendingSortCheck();
+  });
+
+  it("24.43. Verify that the first-page pagination controls or empty state display correctly.", function () {
+    create_member_management.paginationOrEmptyStateCheck();
+  });
+
+  it("24.44. Verify that the Active status filter returns only Active member records.", function () {
+    create_member_management.activeStatusResultCheck();
+  });
+
+  it("24.45. Verify that grid language switching works correctly from English to Bangla", function () {
     create_member_management.gridLanguageSwitchCheck();
   });
 

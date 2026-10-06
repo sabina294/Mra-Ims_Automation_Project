@@ -106,7 +106,59 @@ describe("22. Samity Day Change Module Test Cases", function () {
     samity_day_change.gridDraftButtonOff();
   });
 
-  it("22.22. Verify Grid updates correctly when switching language from English to Bangla", function () {
+  it("22.22. Verify that the Samity Day Change breadcrumb displays the correct navigation hierarchy.", function () {
+    samity_day_change.listBreadcrumbCheck();
+  });
+
+  it("22.23. Verify that the Samity Day Change grid displays all required columns.", function () {
+    samity_day_change.requiredGridColumnsCheck();
+  });
+
+  it("22.24. Verify that samity records contain a serial, samity ID, name and status, or show No Data.", function () {
+    samity_day_change.gridRecordDataCheck();
+  });
+
+  it("22.25. Verify that the office, Draft and search controls are available.", function () {
+    samity_day_change.searchControlsCheck();
+  });
+
+  it("22.26. Verify that searching by an existing samity name returns matching records.", function () {
+    samity_day_change.samityNameSearchCheck();
+  });
+
+  it("22.27. Verify that searching by a partial samity name returns matching records.", function () {
+    samity_day_change.samityPartialNameSearchCheck();
+  });
+
+  it("22.28. Verify that a nonexistent search displays No Data.", function () {
+    samity_day_change.noResultSearchCheck();
+  });
+
+  it("22.29. Verify that Reset clears an unmatched search and restores the list.", function () {
+    samity_day_change.resetRestoresGridCheck();
+  });
+
+  it("22.30. Verify that Refresh keeps the Samity Day Change list available.", function () {
+    samity_day_change.refreshListStateCheck();
+  });
+
+  it("22.31. Verify that Samity Name displays the ascending sort indicator.", function () {
+    samity_day_change.nameAscendingSortCheck();
+  });
+
+  it("22.32. Verify that Samity Name displays the descending sort indicator.", function () {
+    samity_day_change.nameDescendingSortCheck();
+  });
+
+  it("22.33. Verify that the first-page pagination controls or empty state display correctly.", function () {
+    samity_day_change.paginationOrEmptyStateCheck();
+  });
+
+  it("22.34. Verify that the Active status filter returns only Active samity records.", function () {
+    samity_day_change.activeStatusResultCheck();
+  });
+
+  it("22.35. Verify Grid updates correctly when switching language from English to Bangla", function () {
     samity_day_change.gridLanguageSwitchCheck();
   });
 });

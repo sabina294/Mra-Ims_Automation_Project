@@ -187,7 +187,59 @@ describe("19. Samity management Module Test Cases", function () {
     create_samity_management.gridSearchButtonCheck();
   });
 
-  it("19.42. Verify that grid updates correctly when switching language from English to Bangla", function () {
+  it("19.42. Verify that the Samity Management breadcrumb displays the correct navigation hierarchy.", function () {
+    create_samity_management.listBreadcrumbCheck();
+  });
+
+  it("19.43. Verify that the samity management grid displays all required columns.", function () {
+    create_samity_management.requiredGridColumnsCheck();
+  });
+
+  it("19.44. Verify that samity records contain a serial, samity ID, name and status, or show No Data.", function () {
+    create_samity_management.gridRecordDataCheck();
+  });
+
+  it("19.45. Verify that the office, Draft and search controls are available.", function () {
+    create_samity_management.searchControlsCheck();
+  });
+
+  it("19.46. Verify that searching by an existing samity name returns matching records.", function () {
+    create_samity_management.samityNameSearchCheck();
+  });
+
+  it("19.47. Verify that searching by a partial samity name returns matching records.", function () {
+    create_samity_management.samityPartialNameSearchCheck();
+  });
+
+  it("19.48. Verify that a nonexistent search displays No Data.", function () {
+    create_samity_management.noResultSearchCheck();
+  });
+
+  it("19.49. Verify that Reset clears an unmatched search and restores the list.", function () {
+    create_samity_management.resetRestoresGridCheck();
+  });
+
+  it("19.50. Verify that Refresh keeps the Samity Management list available.", function () {
+    create_samity_management.refreshListStateCheck();
+  });
+
+  it("19.51. Verify that Samity Name displays the ascending sort indicator.", function () {
+    create_samity_management.nameAscendingSortCheck();
+  });
+
+  it("19.52. Verify that Samity Name displays the descending sort indicator.", function () {
+    create_samity_management.nameDescendingSortCheck();
+  });
+
+  it("19.53. Verify that the first-page pagination controls or empty state display correctly.", function () {
+    create_samity_management.paginationOrEmptyStateCheck();
+  });
+
+  it("19.54. Verify that the Active status filter returns only Active samity records.", function () {
+    create_samity_management.activeStatusResultCheck();
+  });
+
+  it("19.55. Verify that grid updates correctly when switching language from English to Bangla", function () {
     create_samity_management.gridLanguageSwitchCheck();
   });
 });

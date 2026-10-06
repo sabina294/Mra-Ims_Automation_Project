@@ -111,7 +111,59 @@ describe("26. Member Samity Transfer Module Test Cases", function () {
     member_samity_transfer.gridSearchButtonCheck();
   });
 
-  it("26.23. Verify switch grid content language between English and Bangla correctly", function () {
+  it("26.23. Verify that the Member Samity Transfer breadcrumb displays the correct navigation hierarchy.", function () {
+    member_samity_transfer.listBreadcrumbCheck();
+  });
+
+  it("26.24. Verify that the member samity transfer grid displays all required columns.", function () {
+    member_samity_transfer.requiredGridColumnsCheck();
+  });
+
+  it("26.25. Verify that member records contain a serial, member ID, name and status, or show No Data.", function () {
+    member_samity_transfer.gridRecordDataCheck();
+  });
+
+  it("26.26. Verify that the office, Draft and search controls are available.", function () {
+    member_samity_transfer.searchControlsCheck();
+  });
+
+  it("26.27. Verify that searching by an existing member name returns matching records.", function () {
+    member_samity_transfer.memberNameSearchCheck();
+  });
+
+  it("26.28. Verify that searching by a partial member name returns matching records.", function () {
+    member_samity_transfer.memberPartialNameSearchCheck();
+  });
+
+  it("26.29. Verify that a nonexistent search displays No Data.", function () {
+    member_samity_transfer.noResultSearchCheck();
+  });
+
+  it("26.30. Verify that Reset clears an unmatched search and restores the list.", function () {
+    member_samity_transfer.resetRestoresGridCheck();
+  });
+
+  it("26.31. Verify that Refresh keeps the Member Samity Transfer list available.", function () {
+    member_samity_transfer.refreshListStateCheck();
+  });
+
+  it("26.32. Verify that Name displays the ascending sort indicator.", function () {
+    member_samity_transfer.nameAscendingSortCheck();
+  });
+
+  it("26.33. Verify that Name displays the descending sort indicator.", function () {
+    member_samity_transfer.nameDescendingSortCheck();
+  });
+
+  it("26.34. Verify that the first-page pagination controls or empty state display correctly.", function () {
+    member_samity_transfer.paginationOrEmptyStateCheck();
+  });
+
+  it("26.35. Verify that the Active status filter returns only Active member records.", function () {
+    member_samity_transfer.activeStatusResultCheck();
+  });
+
+  it("26.36. Verify switch grid content language between English and Bangla correctly", function () {
     member_samity_transfer.gridLanguageSwitchCheck();
   });
 });

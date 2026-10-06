@@ -1,5 +1,7 @@
 import messages from "../../../../support/constants/messages";
 import { COMMON } from "../../../../support/constants/selectors";
+import { configurationGridChecks } from "../../../../support/page-objects/configuration-grid-checks";
+
 class RejectedSamity {
   test_data = Cypress.env("TEST_DATA");
 
@@ -160,6 +162,100 @@ class RejectedSamity {
       cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(rsData.search);
       cy.imsId(COMMON.BUTTONS.SEARCH).click();
       cy.log(messages.ui.searchMessage);
+    });
+  }
+
+  openListForChecks() {
+    cy.visit("/mfi-mis/samity/rejected-samity/list");
+    cy.location("pathname").should("eq", "/mfi-mis/samity/rejected-samity/list");
+    cy.imsId(COMMON.BUTTONS.RESET).should("be.visible").click();
+  }
+
+  listBreadcrumbCheck() {
+    this.openListForChecks();
+    configurationGridChecks.breadcrumb("Rejected Samity", ["Samity"]);
+  }
+
+  requiredGridColumnsCheck() {
+    this.openListForChecks();
+    configurationGridChecks.columns(["#", "Samity Id", "Samity Name", "Samity Type", "Office Id", "Office", "MFI Program", "Samity Day", "Status", "Actions"]);
+  }
+
+  assertRecordsOrEmpty() {
+    cy.get(COMMON.TABLE.BODY).should(($body) => {
+      const rows = $body.find("tr:not(.ant-table-placeholder):visible");
+      if (!rows.length) {
+        expect($body.find(".ant-empty:visible").length, "visible empty state").to.be.greaterThan(0);
+        expect($body.text()).to.contain("No Data");
+        return;
+      }
+      rows.each((_, row) => {
+        const cells = Cypress.$(row).find("td");
+        expect(cells.eq(0).text().trim(), "serial number").to.match(/^\d+$/);
+        // Rejected applications can have no assigned Samity ID.
+        expect(cells.eq(4).text().trim(), "office ID").not.to.equal("");
+        expect(cells.eq(5).text().trim(), "office").not.to.equal("");
+        expect(cells.eq(2).text().trim(), "samity name").not.to.equal("");
+        expect(cells.eq(8).text().trim(), "status").to.equal("Rejected");
+      });
+    });
+  }
+
+  gridRecordDataCheck() {
+    this.openListForChecks();
+    this.assertRecordsOrEmpty();
+    cy.log(messages.ui.gridRecordsOrEmptyCheck);
+  }
+
+  searchControlsCheck() {
+    this.openListForChecks();
+    cy.formController("office_id").should("be.visible");
+    cy.formController(COMMON.INPUTS.SEARCH_TEXT).should("be.visible").and("be.enabled");
+    cy.imsId(COMMON.BUTTONS.SEARCH).should("be.visible").and("be.enabled");
+    cy.log(messages.ui.searchControlsCheck);
+  }
+
+  noResultSearchCheck() {
+    this.openListForChecks();
+    configurationGridChecks.noResult("BM_REJECTED_SAMITY");
+  }
+
+  resetRestoresGridCheck() {
+    this.noResultSearchCheck();
+    cy.imsId(COMMON.BUTTONS.RESET).click();
+    cy.formController(COMMON.INPUTS.SEARCH_TEXT).should("have.value", "");
+    this.assertRecordsOrEmpty();
+    cy.log(messages.ui.gridResetSuccess);
+  }
+
+  refreshListStateCheck() {
+    this.openListForChecks();
+    cy.imsId(COMMON.BUTTONS.REFRESH).click();
+    cy.location("pathname").should("eq", "/mfi-mis/samity/rejected-samity/list");
+    this.assertRecordsOrEmpty();
+    cy.log(messages.ui.gridRefreshSuccess);
+  }
+
+  nameAscendingSortCheck() {
+    this.openListForChecks();
+    configurationGridChecks.sort("Samity Name", COMMON.SORT.ASCENDING);
+  }
+
+  nameDescendingSortCheck() {
+    this.openListForChecks();
+    configurationGridChecks.sort("Samity Name", COMMON.SORT.ASCENDING);
+    configurationGridChecks.sort("Samity Name", COMMON.SORT.DESCENDING);
+  }
+
+  paginationOrEmptyStateCheck() {
+    this.openListForChecks();
+    this.assertRecordsOrEmpty();
+    cy.get(COMMON.TABLE.BODY).then(($body) => {
+      if ($body.find("tr:not(.ant-table-placeholder):visible").length) {
+        configurationGridChecks.pagination();
+      } else {
+        cy.get(COMMON.TABLE.BODY).find(".ant-empty").should("be.visible").and("contain.text", "No Data");
+      }
     });
   }
 

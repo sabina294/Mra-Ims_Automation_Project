@@ -107,7 +107,59 @@ describe("21. Samity Field Officer Change Module Test Cases", function () {
     samity_field_officer_change.gridDraftButtonOff();
   });
 
-  it("21.22. Verify switch language correctly between English and Bangla in the grid view", function () {
+  it("21.22. Verify that the Samity Field Officer Change breadcrumb displays the correct navigation hierarchy.", function () {
+    samity_field_officer_change.listBreadcrumbCheck();
+  });
+
+  it("21.23. Verify that the Samity Field Officer Change grid displays all required columns.", function () {
+    samity_field_officer_change.requiredGridColumnsCheck();
+  });
+
+  it("21.24. Verify that samity records contain a serial, samity ID, name and status, or show No Data.", function () {
+    samity_field_officer_change.gridRecordDataCheck();
+  });
+
+  it("21.25. Verify that the office, Draft and search controls are available.", function () {
+    samity_field_officer_change.searchControlsCheck();
+  });
+
+  it("21.26. Verify that searching by an existing samity name returns matching records.", function () {
+    samity_field_officer_change.samityNameSearchCheck();
+  });
+
+  it("21.27. Verify that searching by a partial samity name returns matching records.", function () {
+    samity_field_officer_change.samityPartialNameSearchCheck();
+  });
+
+  it("21.28. Verify that a nonexistent search displays No Data.", function () {
+    samity_field_officer_change.noResultSearchCheck();
+  });
+
+  it("21.29. Verify that Reset clears an unmatched search and restores the list.", function () {
+    samity_field_officer_change.resetRestoresGridCheck();
+  });
+
+  it("21.30. Verify that Refresh keeps the Samity Field Officer Change list available.", function () {
+    samity_field_officer_change.refreshListStateCheck();
+  });
+
+  it("21.31. Verify that Samity Name displays the ascending sort indicator.", function () {
+    samity_field_officer_change.nameAscendingSortCheck();
+  });
+
+  it("21.32. Verify that Samity Name displays the descending sort indicator.", function () {
+    samity_field_officer_change.nameDescendingSortCheck();
+  });
+
+  it("21.33. Verify that the first-page pagination controls or empty state display correctly.", function () {
+    samity_field_officer_change.paginationOrEmptyStateCheck();
+  });
+
+  it("21.34. Verify that the Active status filter returns only Active samity records.", function () {
+    samity_field_officer_change.activeStatusResultCheck();
+  });
+
+  it("21.35. Verify switch language correctly between English and Bangla in the grid view", function () {
     samity_field_officer_change.gridLanguageSwitchCheck();
   });
 

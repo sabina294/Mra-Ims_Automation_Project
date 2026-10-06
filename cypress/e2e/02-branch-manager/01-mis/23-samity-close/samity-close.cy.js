@@ -55,43 +55,95 @@ describe("23. Samity Close Module Test Cases", function () {
     Samity_close.viewSamityClose();
   });
 
-  it("23.08. Verify that clicking the Go Back button redirects the user to the Samity Close list page", function () {
+  it("23.09. Verify that clicking the Go Back button redirects the user to the Samity Close list page", function () {
     Samity_close.viewGoBackButton();
   });
 
-  it("23.09. Verify that inactive Samity Close records can be filtered using the Status dropdown", function () {
+  it("23.10. Verify that inactive Samity Close records can be filtered using the Status dropdown", function () {
     Samity_close.statusInactiveDropdownCheck();
   });
 
-  it("23.10. Verify that active Samity Close records can be filtered using the Status dropdown", function () {
+  it("23.11. Verify that active Samity Close records can be filtered using the Status dropdown", function () {
     Samity_close.statusActiveDropdownCheck();
   });
 
-  it("23.11. Verify that correct results are displayed when searching by Samity Close name", function () {
+  it("23.12. Verify that correct results are displayed when searching by Samity Close name", function () {
     Samity_close.searchInSamityCloseName();
   });
 
-  it("23.11. Verify that the grid list resets successfully when the Reset button is clicked", function () {
+  it("23.13. Verify that the grid list resets successfully when the Reset button is clicked", function () {
     Samity_close.gridResetButtonCheck();
   });
 
-  it("23.12. Verify that the grid list refreshes successfully when the Refresh button is clicked", function () {
+  it("23.14. Verify that the grid list refreshes successfully when the Refresh button is clicked", function () {
     Samity_close.gridRefreshButtonCheck();
   });
 
-  it("23.13. Verify that clicking the Search button redirects the user to the Samity Close list page", function () {
+  it("23.15. Verify that clicking the Search button redirects the user to the Samity Close list page", function () {
     Samity_close.gridSearchButtonCheck();
   });
 
-  it("23.14. Verify that the grid displays draft records when the Draft filter is enabled", function () {
+  it("23.16. Verify that the grid displays draft records when the Draft filter is enabled", function () {
     Samity_close.gridDraftButton();
   });
 
-  it("23.15. Verify that the grid hides draft records when the Draft filter is disabled", function () {
+  it("23.17. Verify that the grid hides draft records when the Draft filter is disabled", function () {
     Samity_close.gridDraftButtonOff();
   });
 
-  it("23.16. Verify that the grid content updates correctly when switching language from English to Bangla", function () {
+  it("23.18. Verify that the Samity Close breadcrumb displays the correct navigation hierarchy.", function () {
+    Samity_close.listBreadcrumbCheck();
+  });
+
+  it("23.19. Verify that the Samity Close grid displays all required columns.", function () {
+    Samity_close.requiredGridColumnsCheck();
+  });
+
+  it("23.20. Verify that samity records contain a serial, samity ID, name and status, or show No Data.", function () {
+    Samity_close.gridRecordDataCheck();
+  });
+
+  it("23.21. Verify that the office, Draft and search controls are available.", function () {
+    Samity_close.searchControlsCheck();
+  });
+
+  it("23.22. Verify that searching by an existing samity name returns matching records.", function () {
+    Samity_close.samityNameSearchCheck();
+  });
+
+  it("23.23. Verify that searching by a partial samity name returns matching records.", function () {
+    Samity_close.samityPartialNameSearchCheck();
+  });
+
+  it("23.24. Verify that a nonexistent search displays No Data.", function () {
+    Samity_close.noResultSearchCheck();
+  });
+
+  it("23.25. Verify that Reset clears an unmatched search and restores the list.", function () {
+    Samity_close.resetRestoresGridCheck();
+  });
+
+  it("23.26. Verify that Refresh keeps the Samity Close list available.", function () {
+    Samity_close.refreshListStateCheck();
+  });
+
+  it("23.27. Verify that Samity Name displays the ascending sort indicator.", function () {
+    Samity_close.nameAscendingSortCheck();
+  });
+
+  it("23.28. Verify that Samity Name displays the descending sort indicator.", function () {
+    Samity_close.nameDescendingSortCheck();
+  });
+
+  it("23.29. Verify that the first-page pagination controls or empty state display correctly.", function () {
+    Samity_close.paginationOrEmptyStateCheck();
+  });
+
+  it("23.30. Verify that the Active status filter returns only Active samity records.", function () {
+    Samity_close.activeStatusResultCheck();
+  });
+
+  it("23.31. Verify that the grid content updates correctly when switching language from English to Bangla", function () {
     Samity_close.gridLanguageSwitchCheck();
   });
 });
