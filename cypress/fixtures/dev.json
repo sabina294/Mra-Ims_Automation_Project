@@ -1062,6 +1062,12 @@
     }
   },
   "branchManager": {
+    "rejectedLoanAccountFrom": {
+      "selectStatus": "Inactive",
+      "statusSelect": "Active",
+      "memberNameEn": "Fariya"
+},
+
     "gridDepartmentFrom": {
       "nameEn": "Board of Directors",
       "nameBn": "পরিচালনা বোর্ড",

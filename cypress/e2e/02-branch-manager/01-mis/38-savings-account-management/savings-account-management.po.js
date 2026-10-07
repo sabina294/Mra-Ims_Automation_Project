@@ -1,0 +1,229 @@
+import messages from "../../../../support/constants/messages";
+import { COMMON } from "../../../../support/constants/selectors";
+import { configurationGridChecks } from "../../../../support/page-objects/configuration-grid-checks";
+
+class SavingsAccountManagementCreation {
+  test_data = Cypress.env("TEST_DATA");
+
+  gridSavingsAccountManagementListPage() {
+    cy.fixture(this.test_data).then((data) => {
+      cy.selectMenu(COMMON.MENUS.SAVINGS_ACCOUNT, COMMON.MENUS.SAVINGS_ACCOUNT_MANAGEMENT);
+      cy.log(messages.ui.gridListMessage);
+    });
+  }
+
+  actionButtonCheck() {
+    cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+    cy.log(
+      messages.ui.actionMessage
+    );
+  }
+
+  viewSavingsAccountManag() {
+    cy.fixture(this.test_data).then((data) => {
+      const samData = data.branchManager.createSavingsAccountManagement;
+      cy.imsId(COMMON.GRID.ACTION_VIEW).click();
+      cy.log(messages.ui.viewMessage);
+    });
+  }
+
+  viewGoBackButton() {
+    cy.imsId(COMMON.BUTTONS.GO_BACK).click();
+    cy.log(messages.ui.goBackSuccess);
+  }
+
+  statusInactiveDropdownCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      const samData = data.branchManager.createSavingsAccountManagement;
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(samData.selectStatus).type("{enter}");
+      cy.log(
+        messages.ui.dropdownInactiveMessage
+      );
+    });
+  }
+
+  statusActiveDropdownCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      const samData = data.branchManager.createSavingsAccountManagement;
+      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(samData.statusSelect).type("{enter}");
+      cy.log(
+        messages.ui.dropdownActiveMessage
+      );
+    });
+  }
+
+  searchSavingsAccManag() {
+    cy.fixture(this.test_data).then((data) => {
+      const samData = data.branchManager.createSavingsAccountManagement;
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(samData.search);
+      cy.log(messages.ui.searchSuccess);
+    });
+  }
+
+  gridResetButtonCheck() {
+    cy.imsId(COMMON.BUTTONS.RESET).click();
+    cy.log(messages.ui.gridResetSuccess);
+  }
+
+  gridRefreshButtonCheck() {
+    cy.imsId(COMMON.BUTTONS.REFRESH).click();
+    cy.log(
+      messages.ui.gridRefreshSuccess
+    );
+  }
+
+    gridSearchButtonCheck() {
+    cy.fixture(this.test_data).then((data) => {
+      const samData = data.branchManager.createSavingsAccountManagement;
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(samData.search);
+      cy.imsId(COMMON.BUTTONS.SEARCH).click();
+
+      cy.log(messages.ui.searchMessage);
+    });
+  }
+
+  openListForChecks() {
+    cy.visit("/mfi-mis/savings-account/savings-account-management/list");
+    cy.location("pathname").should("eq", "/mfi-mis/savings-account/savings-account-management/list");
+    cy.imsId(COMMON.BUTTONS.RESET).should("be.visible").click();
+    cy.formController(COMMON.INPUTS.SEARCH_TEXT).should("have.value", "");
+    cy.get("thead th:visible").should("have.length.greaterThan", 0);
+  }
+
+  listBreadcrumbCheck() {
+    this.openListForChecks();
+    cy.get("nz-breadcrumb, .ant-breadcrumb").should("be.visible")
+      .and("contain.text", "Home").and("contain.text", "Savings Account")
+      .and("contain.text", "Savings Account Management").and("contain.text", "List");
+  }
+
+  requiredGridColumnsCheck() {
+    this.openListForChecks();
+    ["#", "Savings Account ID", "Member Name", "Savings Product ID",
+      "Savings Product Name", "Savings Type ID", "Savings Amount", "Status", "Actions"]
+      .forEach((label) => {
+        cy.contains("thead th:visible", new RegExp(`^\\s*${Cypress._.escapeRegExp(label)}\\s*$`))
+          .should("be.visible");
+      });
+  }
+
+  gridRecordDataCheck() {
+    this.openListForChecks();
+    cy.get(COMMON.TABLE.VISIBLE_ROWS).should(($rows) => {
+      expect($rows.length, "savings accounts required for this check").to.be.greaterThan(0);
+      $rows.each((_, row) => {
+        const cells = Cypress.$(row).children("td");
+        expect(cells.eq(0).text().trim(), "row number").to.match(/^\d+$/);
+        [1, 2, 3, 4, 5, 7].forEach((index) => {
+          expect(cells.eq(index).text().trim(), `account data column ${index}`).not.to.equal("");
+        });
+      });
+    });
+  }
+
+  savingsAmountCheck() {
+    this.openListForChecks();
+    cy.get(COMMON.TABLE.VISIBLE_ROWS).should(($rows) => {
+      expect($rows.length, "savings accounts").to.be.greaterThan(0);
+      $rows.each((_, row) => {
+        const amount = Cypress.$(row).children("td").eq(6).text().trim().replace(/,/g, "");
+        expect(amount, "numeric savings amount").to.match(/^\d+(?:\.\d+)?$/);
+        expect(Number.isFinite(Number(amount)), "finite savings amount").to.equal(true);
+      });
+    });
+  }
+
+  activeStatusResultCheck() {
+    this.openListForChecks();
+    cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type("Active").type(COMMON.KEYS.ENTER);
+    cy.imsId(COMMON.BUTTONS.SEARCH).click();
+    cy.get(COMMON.TABLE.VISIBLE_ROWS).should(($rows) => {
+      expect($rows.length, "active savings accounts").to.be.greaterThan(0);
+      $rows.each((_, row) => {
+        expect(Cypress.$(row).children("td").eq(7).text().trim(), "account status").to.equal("Active");
+      });
+    });
+  }
+
+  accountIdAscendingSortCheck() {
+    this.accountIdSortCheck(COMMON.SORT.ASCENDING);
+  }
+
+  accountIdDescendingSortCheck() {
+    this.accountIdSortCheck(COMMON.SORT.DESCENDING);
+  }
+
+  accountIdSortCheck(direction) {
+    this.openListForChecks();
+    const header = () => cy.contains("thead th:visible", /^\s*Savings Account ID\s*$/);
+    const hasDirection = ($header) => $header.attr(COMMON.SORT.ATTRIBUTE) === direction
+      || $header.find(direction === COMMON.SORT.ASCENDING
+        ? COMMON.SORT.ASCENDING_ICON : COMMON.SORT.DESCENDING_ICON).length > 0;
+    // Handle a default or retained sorting state, with at most one full cycle.
+    const selectDirection = (remaining) => {
+      header().then(($header) => {
+        if (hasDirection($header) || remaining === 0) return;
+        header().click();
+        selectDirection(remaining - 1);
+      });
+    };
+    selectDirection(3);
+    header().should(($header) => expect(hasDirection($header), `${direction} sort indicator`).to.equal(true));
+  }
+
+  firstPagePaginationCheck() {
+    this.openListForChecks();
+    cy.get(COMMON.TABLE.VISIBLE_ROWS).should("have.length.greaterThan", 0);
+    cy.get(COMMON.PAGINATION.ACTIVE_PAGE).should("contain.text", "1");
+    cy.get(COMMON.PAGINATION.PREVIOUS_PAGE).should("have.class", COMMON.PAGINATION.DISABLED_CLASS);
+    cy.get(COMMON.PAGINATION.PAGE_SIZE_SELECT).should("be.visible");
+    cy.get(COMMON.PAGINATION.TOTAL_TEXT).should("be.visible");
+  }
+
+  searchControlsCheck() {
+    this.openListForChecks();
+    cy.formController("office_id").should("be.visible");
+    cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).should("be.visible");
+    cy.formController(COMMON.INPUTS.SEARCH_TEXT).should("be.visible").and("be.enabled");
+    cy.imsId(COMMON.BUTTONS.SEARCH).should("be.visible").and("be.enabled");
+  }
+
+  noResultSearchCheck() {
+    this.openListForChecks();
+    configurationGridChecks.noResult("BM_SAVINGS_ACCOUNT");
+  }
+
+  partialMemberNameSearchCheck() {
+    this.openListForChecks();
+    cy.get(COMMON.TABLE.VISIBLE_ROWS).first().find("td").eq(2).invoke("text").then((name) => {
+      expect(name.trim(), "member name for search").not.to.equal("");
+      configurationGridChecks.partialSearch(name.trim());
+    });
+  }
+
+  exactMemberNameSearchCheck() {
+    this.openListForChecks();
+    cy.get(COMMON.TABLE.VISIBLE_ROWS).first().find("td").eq(2).invoke("text").then((name) => {
+      expect(name.trim(), "member name for search").not.to.equal("");
+      configurationGridChecks.exactSearch(name.trim(), 2);
+    });
+  }
+
+  resetSearchInputCheck() {
+    this.openListForChecks();
+    configurationGridChecks.noResult("BM_SAVINGS_ACCOUNT_RESET");
+    configurationGridChecks.reset();
+  }
+
+  gridLanguageSwitchCheck() {
+    cy.imsId(COMMON.BUTTONS.PROFILE).click();
+    cy.imsId(COMMON.BUTTONS.LANGUAGE_CHANGE).click();
+    cy.log(messages.ui.languageSwitchMessage);
+  }
+}
+
+export const create_savings_account_management =
+  new SavingsAccountManagementCreation();

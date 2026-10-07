@@ -173,28 +173,6 @@ class RejectedEmployee {
     cy.log(messages.ui.editMessage);
   }
 
-  statusInactiveDropdownCheck() {
-    cy.fixture(this.test_data).then((data) => {
-      const emData = data.branchManager.rejectedEmployeeFrom;
-      cy.imsId(COMMON.BUTTONS.RESET).click();
-      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(emData.selectStatus).type("{enter}");
-      cy.log(
-        messages.ui.dropdownInactiveMessage
-      );
-    });
-  }
-
-  statusActiveDropdownCheck() {
-    cy.fixture(this.test_data).then((data) => {
-      const emData = data.branchManager.rejectedEmployeeFrom;
-      cy.imsId(COMMON.BUTTONS.RESET).click();
-      cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(emData.statusSelect).type("{enter}");
-      cy.log(
-        messages.ui.dropdownActiveMessage
-      );
-    });
-  }
-
   searchInEmployeeName() {
     cy.fixture(this.test_data).then((data) => {
       const emData = data.branchManager.rejectedEmployeeFrom;

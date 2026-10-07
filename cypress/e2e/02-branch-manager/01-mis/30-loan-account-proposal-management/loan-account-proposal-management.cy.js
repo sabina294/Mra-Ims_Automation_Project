@@ -159,7 +159,59 @@ describe("30. Loan Account Proposal Management Module Test Cases", function () {
     create_loan_account_proposal_management.gridSearchButtonCheck();
   });
 
-  it("30.35. Verify that grid list language switches correctly between English and Bangla", function () {
+  it("30.35. Verify that the Loan Account Proposal Management breadcrumb displays the correct navigation hierarchy.", function () {
+    create_loan_account_proposal_management.listBreadcrumbCheck();
+  });
+
+  it("30.36. Verify that the loan proposal grid displays all required columns.", function () {
+    create_loan_account_proposal_management.requiredGridColumnsCheck();
+  });
+
+  it("30.37. Verify that member records contain a serial, member ID, name and status, or show No Data.", function () {
+    create_loan_account_proposal_management.gridRecordDataCheck();
+  });
+
+  it("30.38. Verify that the office, Draft and search controls are available.", function () {
+    create_loan_account_proposal_management.searchControlsCheck();
+  });
+
+  it("30.39. Verify that searching by an existing member name returns matching records.", function () {
+    create_loan_account_proposal_management.memberNameSearchCheck();
+  });
+
+  it("30.40. Verify that searching by a partial member name returns matching records.", function () {
+    create_loan_account_proposal_management.memberPartialNameSearchCheck();
+  });
+
+  it("30.41. Verify that a nonexistent search displays No Data.", function () {
+    create_loan_account_proposal_management.noResultSearchCheck();
+  });
+
+  it("30.42. Verify that Reset clears an unmatched search and restores the list.", function () {
+    create_loan_account_proposal_management.resetRestoresGridCheck();
+  });
+
+  it("30.43. Verify that Refresh keeps the Loan Account Proposal Management list available.", function () {
+    create_loan_account_proposal_management.refreshListStateCheck();
+  });
+
+  it("30.44. Verify that Member Name displays the ascending sort indicator.", function () {
+    create_loan_account_proposal_management.nameAscendingSortCheck();
+  });
+
+  it("30.45. Verify that Member Name displays the descending sort indicator.", function () {
+    create_loan_account_proposal_management.nameDescendingSortCheck();
+  });
+
+  it("30.46. Verify that the first-page pagination controls or empty state display correctly.", function () {
+    create_loan_account_proposal_management.paginationOrEmptyStateCheck();
+  });
+
+  it("30.47. Verify that the Approved status filter returns only Approved loan proposals.", function () {
+    create_loan_account_proposal_management.approvedStatusResultCheck();
+  });
+
+  it("30.48. Verify that grid list language switches correctly between English and Bangla", function () {
     create_loan_account_proposal_management.gridLanguageSwitchCheck();
   });
 });

@@ -58,9 +58,9 @@ describe("15. Rejected Employee Module Test Cases", function () {
         create_rejected_employee.editDraftButtonCheck();
     });
 
-    // it("15.10. Verify that clicking the Approve button on the edit page redirects to the list page", function () {
-    //     create_rejected_employee.editApproveButtonCheck();
-    // });
+    it("15.10. Verify that clicking the Approve button on the edit page redirects to the list page", function () {
+        create_rejected_employee.editApproveButtonCheck();
+    });
 
     it("15.11. Verify that clicking the Go Back button on the edit page redirects to the Rejected Employee List page", function () {
         create_rejected_employee.editGoBackButton();
@@ -70,71 +70,63 @@ describe("15. Rejected Employee Module Test Cases", function () {
         create_rejected_employee.editEmployeeManagement();
     });
 
-    // it("15.13. Verify that inactive employee records can be filtered using the status dropdown", function () {
-    //     create_rejected_employee.statusInactiveDropdownCheck();
-    // });
-
-    // it("15.14. Verify that active employee records are displayed correctly when selected from the status dropdown", function () {
-    //     create_rejected_employee.statusActiveDropdownCheck();
-    // });
-
-    it("15.15. Verify that search results are displayed correctly when searching by rejected employee name", function () {
+    it("15.13. Verify that search results are displayed correctly when searching by rejected employee name", function () {
         create_rejected_employee.searchInEmployeeName();
     });
 
-    it("15.16. Verify that the grid list resets successfully when the reset button is clicked", function () {
+    it("15.14. Verify that the grid list resets successfully when the reset button is clicked", function () {
         create_rejected_employee.gridResetButtonCheck();
     });
 
-    it("15.17. Verify that the grid list refreshes successfully when the refresh button is clicked", function () {
+    it("15.15. Verify that the grid list refreshes successfully when the refresh button is clicked", function () {
         create_rejected_employee.gridRefreshButtonCheck();
     });
 
-    it("15.18. Verify that clicking the Search button on the rejected employee grid redirects to the Rejected Employee List page", function () {
+    it("15.16. Verify that clicking the Search button on the rejected employee grid redirects to the Rejected Employee List page", function () {
         create_rejected_employee.gridSearchButtonCheck();
     });
 
-    it("15.19. Verify Branch Manager Rejected Employee: the list breadcrumb.", function () {
+    it("15.17. Verify Branch Manager Rejected Employee: the list breadcrumb.", function () {
         create_rejected_employee.listBreadcrumbCheck();
     });
 
-    it("15.20. Verify Branch Manager Rejected Employee: all required grid columns.", function () {
+    it("15.18. Verify Branch Manager Rejected Employee: all required grid columns.", function () {
         create_rejected_employee.requiredGridColumnsCheck();
     });
 
-    it("15.21. Verify Branch Manager Rejected Employee: valid row data or a visible No Data state.", function () {
+    it("15.19. Verify Branch Manager Rejected Employee: valid row data or a visible No Data state.", function () {
         create_rejected_employee.gridRecordDataCheck();
     });
 
-    it("15.22. Verify Branch Manager Rejected Employee: office and search controls are visible.", function () {
+    it("15.20. Verify Branch Manager Rejected Employee: office and search controls are visible.", function () {
         create_rejected_employee.searchControlsCheck();
     });
 
-    it("15.23. Verify Branch Manager Rejected Employee: a non-existing search displays No Data.", function () {
+    it("15.21. Verify Branch Manager Rejected Employee: a non-existing search displays No Data.", function () {
         create_rejected_employee.noResultSearchCheck();
     });
 
-    it("15.24. Verify Branch Manager Rejected Employee: Reset clears search and restores the list state.", function () {
+    it("15.22. Verify Branch Manager Rejected Employee: Reset clears search and restores the list state.", function () {
         create_rejected_employee.resetRestoresGridCheck();
     });
 
-    it("15.25. Verify Branch Manager Rejected Employee: Refresh retains the correct list and grid state.", function () {
+    it("15.23. Verify Branch Manager Rejected Employee: Refresh retains the correct list and grid state.", function () {
         create_rejected_employee.refreshListStateCheck();
     });
 
-    it("15.26. Verify Branch Manager Rejected Employee: Employee Name ascending sort indicator.", function () {
+    it("15.24. Verify Branch Manager Rejected Employee: Employee Name ascending sort indicator.", function () {
         create_rejected_employee.nameAscendingSortCheck();
     });
 
-    it("15.27. Verify Branch Manager Rejected Employee: Employee Name descending sort indicator.", function () {
+    it("15.25. Verify Branch Manager Rejected Employee: Employee Name descending sort indicator.", function () {
         create_rejected_employee.nameDescendingSortCheck();
     });
 
-    it("15.28. Verify Branch Manager Rejected Employee: first-page pagination or a visible empty state.", function () {
+    it("15.26. Verify Branch Manager Rejected Employee: first-page pagination or a visible empty state.", function () {
         create_rejected_employee.paginationOrEmptyStateCheck();
     });
 
-    it("15.29. Verify that the grid content updates correctly when switching language from English to Bangla", function () {
+    it("15.27. Verify that the grid content updates correctly when switching language from English to Bangla", function () {
         create_rejected_employee.gridLanguageSwitchCheck();
     });
 });
