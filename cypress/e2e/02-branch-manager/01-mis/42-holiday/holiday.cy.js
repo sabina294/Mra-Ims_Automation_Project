@@ -111,7 +111,27 @@ describe("42. holiday Module Test Cases", function () {
     create_holiday.firstPagePaginationCheck();
   });
 
-  it("42.23. Verify that the grid list content is correctly translated when switching the language from English to Bangla.", function () {
+  it("42.23. Verify that holiday rows contain serial numbers, years and required record data.", function () {
+    create_holiday.holidayRecordDataCheck();
+  });
+
+  it("42.24. Verify that holiday dates are valid and match their Year column.", function () {
+    create_holiday.holidayDateYearCheck();
+  });
+
+  it("42.25. Verify that office, calendar year, draft and search controls are available.", function () {
+    create_holiday.searchControlsCheck();
+  });
+
+  it("42.26. Verify that the Add Holiday button is visible and enabled.", function () {
+    create_holiday.addHolidayButtonCheck();
+  });
+
+  it("42.27. Verify that Refresh retains the Holiday list route and displays valid records.", function () {
+    create_holiday.refreshRecordsCheck();
+  });
+
+  it("42.28. Verify that the grid list content is correctly translated when switching the language from English to Bangla.", function () {
     create_holiday.gridLanguageSwitchCheck();
   });
 });

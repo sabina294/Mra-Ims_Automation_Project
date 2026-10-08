@@ -1,4 +1,4 @@
-// Shared across 02-branch-manager/01-mis/54-day-end-process-mis and workflow.cy.js.
+// Shared across 02-branch-manager/01-mis/55-day-end-process-mis and workflow.cy.js.
 import messages from "../constants/messages";
 import { COMMON } from "../constants/selectors";
 class DayEndProcessMis {
@@ -42,6 +42,86 @@ class DayEndProcessMis {
       cy.imsId(COMMON.BUTTONS.REFRESH).click();
       cy.log(messages.ui.revertMessage);
     });
+  }
+
+  openListForChecks() {
+    cy.visit("/mfi-mis/process/day-end-process/list");
+    cy.location("pathname").should("eq", "/mfi-mis/process/day-end-process/list");
+    cy.get(COMMON.TABLE.HEAD).should("be.visible");
+  }
+
+  listBreadcrumbCheck() {
+    this.openListForChecks();
+    cy.get("nz-breadcrumb, .ant-breadcrumb").should("be.visible")
+      .and("contain.text", "Home").and("contain.text", "Process")
+      .and("contain.text", "Day End Process (MIS)").and("contain.text", "List");
+  }
+
+  summaryLabelsCheck() {
+    this.openListForChecks();
+    ["Branch Status", "Business Day", "System Status"].forEach((label) => {
+      cy.contains("span:visible, div:visible, h3:visible, h4:visible",
+        new RegExp("^\\s*" + label + "\\s*$")).should("be.visible");
+    });
+  }
+
+  requiredColumnsCheck() {
+    this.openListForChecks();
+    ["#", "Samity ID", "Samity", "Field Officer", "Samity Day", "Total Withdraw",
+      "Total Disbursement", "Total Adjustment", "Total Collection", "Status"].forEach((label) => {
+      cy.contains("thead th:visible", new RegExp("^\\s*" + label + "\\s*$")).should("be.visible");
+    });
+  }
+
+  searchControlsCheck() {
+    this.openListForChecks();
+    cy.contains("nz-select:visible", "Select Samity").should("be.visible");
+    cy.contains("nz-select:visible", "Select Field Officer").should("be.visible");
+    cy.formController(COMMON.INPUTS.SEARCH_TEXT).should("be.visible").and("be.enabled");
+    cy.imsId(COMMON.BUTTONS.SEARCH).should("be.visible").and("be.enabled");
+  }
+
+  assertRecordsOrEmpty() {
+    cy.get(COMMON.TABLE.BODY).should(($body) => {
+      const rows = $body.find("tr:not(.ant-table-placeholder):visible");
+      if (!rows.length) {
+        expect($body.find(".ant-empty:visible").length, "visible empty state").to.be.greaterThan(0);
+        expect($body.text()).to.contain("No Data");
+        return;
+      }
+      rows.each((_, row) => {
+        const cells = Cypress.$(row).children("td");
+        expect(cells.eq(0).text().trim(), "serial").to.match(/^\d+$/);
+        [1, 2, 3, 4, 9].forEach((index) => {
+          expect(cells.eq(index).text().trim(), "day end column " + index).not.to.equal("");
+        });
+        [5, 6, 7, 8].forEach((index) => {
+          const amount = cells.eq(index).text().trim().replace(/,/g, "");
+          expect(amount, "transaction total").to.match(/^-?\d+(?:\.\d+)?$/);
+          expect(Number.isFinite(Number(amount)), "finite total").to.equal(true);
+        });
+      });
+    });
+  }
+
+  recordsOrEmptyCheck() {
+    this.openListForChecks();
+    this.assertRecordsOrEmpty();
+  }
+
+  resetSearchCheck() {
+    this.openListForChecks();
+    cy.formController(COMMON.INPUTS.SEARCH_TEXT).type("DAY_END_RESET_CHECK");
+    cy.imsId(COMMON.BUTTONS.RESET).click();
+    cy.formController(COMMON.INPUTS.SEARCH_TEXT).should("have.value", "");
+    this.assertRecordsOrEmpty();
+  }
+
+  refreshResultCheck() {
+    this.openListForChecks();
+    cy.imsId(COMMON.BUTTONS.REFRESH).click();
+    cy.location("pathname").should("eq", "/mfi-mis/process/day-end-process/list");
+    this.assertRecordsOrEmpty();
   }
 
   gridLanguageSwitchCheck() {

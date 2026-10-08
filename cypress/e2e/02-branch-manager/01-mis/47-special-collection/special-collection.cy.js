@@ -123,7 +123,31 @@ describe("47. Special Collection Module Test Cases", function () {
         create_special_collection.gridSamityDropdownCheck();
     });
 
-    it("47.26. Verify that the grid list content changes correctly from English to Bangla.", function () {
+    it("47.26. Verify that the Special Collection breadcrumb is displayed.", function () {
+        create_special_collection.listBreadcrumbCheck();
+    });
+
+    it("47.27. Verify that all Special Collection columns are visible.", function () {
+        create_special_collection.columnsCheck();
+    });
+
+    it("47.28. Verify that records show required data and numeric amounts or a visible empty state.", function () {
+        create_special_collection.recordsOrEmptyCheck();
+    });
+
+    it("47.29. Verify that office, field officer, samity and search controls are available.", function () {
+        create_special_collection.controlsCheck();
+    });
+
+    it("47.30. Verify that Refresh retains the list route and displays records or the empty state.", function () {
+        create_special_collection.refreshResultCheck();
+    });
+
+    it("47.31. Verify that the New Collection button is visible and enabled.", function () {
+        create_special_collection.newCollectionButtonCheck();
+    });
+
+    it("47.32. Verify that the grid list content changes correctly from English to Bangla.", function () {
         create_special_collection.gridLanguageSwitchCheck();
     });
 

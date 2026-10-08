@@ -27,7 +27,23 @@ describe("41. Calendar Management Module Test Cases", function () {
     grid_calendar_management.gridCalendarManagListPage();
   });
 
-  it("41.02. Verify that the grid list content switches correctly from English to Bangla language", function () {
+  it("41.02. Verify that the Calendar Management breadcrumb is visible.", function () {
+    grid_calendar_management.breadcrumbCheck();
+  });
+
+  it("41.03. Verify that office is disabled and year and month selectors have selected values.", function () {
+    grid_calendar_management.calendarControlsCheck();
+  });
+
+  it("41.04. Verify that holiday details display Date, Holiday Title and Holiday Type columns.", function () {
+    grid_calendar_management.holidayColumnsCheck();
+  });
+
+  it("41.05. Verify that holiday details display valid dates and required data or a visible empty state.", function () {
+    grid_calendar_management.holidayRecordsOrEmptyCheck();
+  });
+
+  it("41.06. Verify that the grid list content switches correctly from English to Bangla language", function () {
     grid_calendar_management.gridLanguageSwitchCheck();
   });
 });

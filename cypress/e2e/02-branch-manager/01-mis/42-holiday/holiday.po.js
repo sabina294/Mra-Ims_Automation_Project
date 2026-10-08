@@ -185,6 +185,75 @@ class HolidayCreation {
     configurationGridChecks.pagination();
   }
 
+  openListForChecks() {
+    cy.visit("/mfi-mis/calendar/holiday/list");
+    cy.location("pathname").should("eq", "/mfi-mis/calendar/holiday/list");
+    cy.imsId(COMMON.BUTTONS.RESET).should("be.visible").click();
+    cy.imsId(COMMON.GRID.DRAFT_TOGGLE).uncheck({ force: true }).should("not.be.checked");
+    cy.formController(COMMON.INPUTS.SEARCH_TEXT).should("have.value", "");
+    cy.get(COMMON.TABLE.VISIBLE_ROWS).should("have.length.greaterThan", 0);
+  }
+
+  assertHolidayRecords() {
+    cy.get(COMMON.TABLE.VISIBLE_ROWS).should(($rows) => {
+      expect($rows.length, "holiday records").to.be.greaterThan(0);
+      $rows.each((_, row) => {
+        const cells = Cypress.$(row).children("td");
+        expect(cells.eq(0).text().trim(), "serial number").to.match(/^\d+$/);
+        expect(cells.eq(1).text().trim(), "holiday year").to.match(/^\d{4}$/);
+        [2, 3, 4, 5, 6].forEach((index) => {
+          expect(cells.eq(index).text().trim(), "holiday column " + index).not.to.equal("");
+        });
+      });
+    });
+  }
+
+  holidayRecordDataCheck() {
+    this.openListForChecks();
+    this.assertHolidayRecords();
+  }
+
+  holidayDateYearCheck() {
+    this.openListForChecks();
+    const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+    cy.get(COMMON.TABLE.VISIBLE_ROWS).should(($rows) => {
+      expect($rows.length, "holiday records").to.be.greaterThan(0);
+      $rows.each((_, row) => {
+        const cells = Cypress.$(row).children("td");
+        const date = cells.eq(2).text().trim();
+        expect(date, "holiday date format").to.match(/^\d{2}-[A-Z][a-z]{2}-\d{4}$/);
+        const [day, month, year] = date.split("-");
+        expect(year, "date matches the Year column").to.equal(cells.eq(1).text().trim());
+        expect(months, "valid month").to.include(month);
+        const parsed = new Date(Number(year), months.indexOf(month), Number(day));
+        expect([parsed.getFullYear(), parsed.getMonth(), parsed.getDate()], "valid calendar date")
+          .to.deep.equal([Number(year), months.indexOf(month), Number(day)]);
+      });
+    });
+  }
+
+  searchControlsCheck() {
+    this.openListForChecks();
+    cy.formController("office_id").should("be.visible");
+    cy.contains("nz-select", "Select Calendar Year").should("be.visible");
+    cy.imsId(COMMON.GRID.DRAFT_TOGGLE).should("not.be.checked");
+    cy.formController(COMMON.INPUTS.SEARCH_TEXT).should("be.visible").and("be.enabled");
+    cy.imsId(COMMON.BUTTONS.SEARCH).should("be.visible").and("be.enabled");
+  }
+
+  addHolidayButtonCheck() {
+    this.openListForChecks();
+    cy.imsId(COMMON.BUTTONS.ADD_NEW).should("be.visible").and("be.enabled")
+      .and("contain.text", "Add Holiday");
+  }
+
+  refreshRecordsCheck() {
+    this.openListForChecks();
+    cy.imsId(COMMON.BUTTONS.REFRESH).should("be.visible").click();
+    cy.location("pathname").should("eq", "/mfi-mis/calendar/holiday/list");
+    this.assertHolidayRecords();
+  }
+
   gridLanguageSwitchCheck() {
     cy.imsId(COMMON.BUTTONS.PROFILE).click();
     cy.imsId(COMMON.BUTTONS.LANGUAGE_CHANGE).click();

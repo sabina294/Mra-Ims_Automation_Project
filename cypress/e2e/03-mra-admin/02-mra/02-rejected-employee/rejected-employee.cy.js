@@ -64,9 +64,9 @@ describe("02. Rejected Employee Module Test Cases.", function () {
         create_rejected_employee.editSubmitButton();
     });
 
-    // it("02.11. Verify the rejected employee edit approve button functions correctly.", function () {
-    //     create_rejected_employee.editApproveButton();
-    // });
+    it("02.11. Verify the rejected employee edit approve button functions correctly.", function () {
+        create_rejected_employee.editApproveButton();
+    });
 
     it("02.12. Verify that clicking the go back button on the rejected employee edit page redirects the user to the rejected employee list page.", function () {
         create_rejected_employee.editGoBackButton();

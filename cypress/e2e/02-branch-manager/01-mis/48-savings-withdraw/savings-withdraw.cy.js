@@ -126,7 +126,31 @@ describe("48. Savings Withdraw Module Test Cases", function () {
         create_savings_withdraw.gridHistoryButtonOffCheck();
     });
 
-    it("48.27. Verify that the grid list content changes correctly when switching the language from English to Bangla.", function () {
+    it("48.27. Verify that the Savings Withdraw breadcrumb is displayed.", function () {
+        create_savings_withdraw.listBreadcrumbCheck();
+    });
+
+    it("48.28. Verify that all Savings Withdraw columns are visible.", function () {
+        create_savings_withdraw.columnsCheck();
+    });
+
+    it("48.29. Verify that records show required data and numeric withdrawal amounts or a visible empty state.", function () {
+        create_savings_withdraw.recordsOrEmptyCheck();
+    });
+
+    it("48.30. Verify that office, samity and search controls are available.", function () {
+        create_savings_withdraw.controlsCheck();
+    });
+
+    it("48.31. Verify that Refresh retains the list route and displays records or the empty state.", function () {
+        create_savings_withdraw.refreshResultCheck();
+    });
+
+    it("48.32. Verify that the New Withdraw button is visible and enabled.", function () {
+        create_savings_withdraw.newWithdrawButtonCheck();
+    });
+
+    it("48.33. Verify that the grid list content changes correctly when switching the language from English to Bangla.", function () {
         create_savings_withdraw.gridLanguageSwitchCheck();
     });
 });

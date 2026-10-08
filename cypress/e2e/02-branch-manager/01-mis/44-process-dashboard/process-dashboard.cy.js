@@ -27,7 +27,39 @@ describe("44. Process Dashboard Module Test Cases", function () {
     grid_process_dashboard.gridProcessDashboardListPage();
   });
 
-  it("44.02. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("44.02. Verify that the breadcrumb shows Home, Process and Process Dashboard.", function () {
+    grid_process_dashboard.dashboardBreadcrumbCheck();
+  });
+
+  it("44.03. Verify that the four system overview cards display their labels and captions.", function () {
+    grid_process_dashboard.overviewCardsCheck();
+  });
+
+  it("44.04. Verify that system overview counts are non-negative integers.", function () {
+    grid_process_dashboard.overviewCountsCheck();
+  });
+
+  it("44.05. Verify that the Branch Processes section displays branch office and business date information.", function () {
+    grid_process_dashboard.branchSectionCheck();
+  });
+
+  it("44.06. Verify that the branch search input and Search button are available.", function () {
+    grid_process_dashboard.searchControlsCheck();
+  });
+
+  it("44.07. Verify that branch cards display staging, day end and day forward process labels.", function () {
+    grid_process_dashboard.branchProcessLabelsCheck();
+  });
+
+  it("44.08. Verify that a branch Details control is visible and enabled.", function () {
+    grid_process_dashboard.detailsControlCheck();
+  });
+
+  it("44.09. Verify that the real-time status section displays a last-updated value.", function () {
+    grid_process_dashboard.lastUpdatedCheck();
+  });
+
+  it("44.10. Verify check that the grid list content changes correctly from english to bangla.", function () {
     grid_process_dashboard.gridLanguageSwitchCheck();
   });
 });

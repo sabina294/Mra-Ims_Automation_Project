@@ -43,7 +43,35 @@ describe("57. Day Forward Module Test Cases", function () {
         grid_day_forward.gridDeleteButtonCheck();
     });
 
-    it("57.06. Verify that the grid list content updates correctly when switching from English to Bangla.", function () {
+    it("57.06. Verify that the Day Forward breadcrumb is displayed.", function () {
+        grid_day_forward.breadcrumbCheck();
+    });
+
+    it("57.07. Verify that branch, business day and system status headings are visible.", function () {
+        grid_day_forward.summaryLabelsCheck();
+    });
+
+    it("57.08. Verify that all Day Forward grid columns are visible.", function () {
+        grid_day_forward.columnsCheck();
+    });
+
+    it("57.09. Verify that records show serial numbers, business weekdays, dates and start timestamps.", function () {
+        grid_day_forward.recordDataCheck();
+    });
+
+    it("57.10. Verify that collection, disbursement and withdrawal totals are numeric.", function () {
+        grid_day_forward.transactionTotalsCheck();
+    });
+
+    it("57.11. Verify that Forward Day Routine and Delete controls are visible.", function () {
+        grid_day_forward.actionControlsCheck();
+    });
+
+    it("57.12. Verify that the first page displays pagination controls with Previous disabled.", function () {
+        grid_day_forward.firstPagePaginationCheck();
+    });
+
+    it("57.13. Verify that the grid list content updates correctly when switching from English to Bangla.", function () {
         grid_day_forward.gridLanguageSwitchCheck();
     });
 });

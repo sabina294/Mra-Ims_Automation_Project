@@ -48,7 +48,31 @@ describe("53. Cancel Samity Module Test Cases", function () {
         cancel_samity.submitCancelSamity();
     });
 
-    it("53.07. Verify that the grid list content changes correctly when switching language from English to Bangla.", function () {
+    it("53.07. Verify that the Cancel Samity breadcrumb is displayed.", function () {
+        cancel_samity.breadcrumbCheck();
+    });
+
+    it("53.08. Verify that branch, business day and system status headings are visible.", function () {
+        cancel_samity.summaryLabelsCheck();
+    });
+
+    it("53.09. Verify that all Cancel Samity columns are visible.", function () {
+        cancel_samity.columnsCheck();
+    });
+
+    it("53.10. Verify that samity, field officer and search controls are available.", function () {
+        cancel_samity.searchControlsCheck();
+    });
+
+    it("53.11. Verify that the grid displays required samity data and weekdays or a visible empty state.", function () {
+        cancel_samity.recordsOrEmptyCheck();
+    });
+
+    it("53.12. Verify that Cancel Multiple and Restore Multiple controls are visible.", function () {
+        cancel_samity.bulkControlsCheck();
+    });
+
+    it("53.13. Verify that the grid list content changes correctly when switching language from English to Bangla.", function () {
         cancel_samity.gridLanguageSwitchCheck();
     });
 });

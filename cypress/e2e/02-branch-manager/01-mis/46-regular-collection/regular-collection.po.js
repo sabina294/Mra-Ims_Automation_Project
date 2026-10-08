@@ -1,5 +1,7 @@
 import messages from "../../../../support/constants/messages";
 import { COMMON } from "../../../../support/constants/selectors";
+import { configurationGridChecks } from "../../../../support/page-objects/configuration-grid-checks";
+
 class RegularCollection {
     test_data = Cypress.env("TEST_DATA");
 
@@ -118,6 +120,100 @@ class RegularCollection {
         cy.imsId(COMMON.GRID.HISTORY_TOGGLE)
             .uncheck({ force: true });
         cy.log(messages.ui.historyOffMessage);
+    }
+
+    openListForChecks() {
+        cy.visit("/mfi-mis/transaction/regular-collection/list");
+        cy.location("pathname").should("eq", "/mfi-mis/transaction/regular-collection/list");
+        cy.imsId(COMMON.BUTTONS.RESET).click();
+        cy.imsId(COMMON.GRID.HISTORY_TOGGLE).uncheck({ force: true }).should("not.be.checked");
+        cy.formController(COMMON.INPUTS.SEARCH_TEXT).should("have.value", "");
+    }
+
+    listBreadcrumbCheck() {
+        this.openListForChecks();
+        cy.get("nz-breadcrumb, .ant-breadcrumb").should("be.visible")
+            .and("contain.text", "Home").and("contain.text", "Transaction")
+            .and("contain.text", "Regular Collection").and("contain.text", "List");
+    }
+
+    columnsCheck() {
+        this.openListForChecks();
+        configurationGridChecks.columns(["#", "Samity ID", "Samity Name", "Field Officer",
+            "Loan Collection", "Savings Collection", "Total Collection", "Status", "Actions"]);
+    }
+
+    recordsCheck() {
+        this.openListForChecks();
+        cy.get(COMMON.TABLE.VISIBLE_ROWS).should(($rows) => {
+            expect($rows.length, "collection records").to.be.greaterThan(0);
+            $rows.each((_, row) => {
+                const cells = Cypress.$(row).children("td");
+                expect(cells.eq(0).text().trim(), "serial").to.match(/^\d+$/);
+                [1, 2, 3, 7].forEach((index) => {
+                    expect(cells.eq(index).text().trim(), "collection column " + index).not.to.equal("");
+                });
+            });
+        });
+    }
+
+    collectionTotalsCheck() {
+        this.openListForChecks();
+        cy.get(COMMON.TABLE.VISIBLE_ROWS).should(($rows) => {
+            expect($rows.length, "collection records").to.be.greaterThan(0);
+            $rows.each((_, row) => {
+                const cells = Cypress.$(row).children("td");
+                const amounts = [4, 5, 6].map((index) => {
+                    const value = cells.eq(index).text().trim().replace(/,/g, "");
+                    expect(value, "collection amount").to.match(/^\d+(?:\.\d+)?$/);
+                    expect(Number.isFinite(Number(value)), "finite amount").to.equal(true);
+                    return Number(value);
+                });
+                expect(amounts[2], "loan plus savings equals total").to.be.closeTo(amounts[0] + amounts[1], 0.01);
+            });
+        });
+    }
+
+    controlsCheck() {
+        this.openListForChecks();
+        ["office_id", "field_officer_id", "staging_samity_id"].forEach((name) => {
+            cy.formController(name).should("be.visible");
+        });
+        cy.formController(COMMON.INPUTS.SEARCH_TEXT).should("be.visible").and("be.enabled");
+        cy.imsId(COMMON.BUTTONS.SEARCH).should("be.visible").and("be.enabled");
+    }
+
+    exactSamitySearchCheck() {
+        this.openListForChecks();
+        cy.get(COMMON.TABLE.VISIBLE_ROWS).first().find("td").eq(2).invoke("text").then((name) => {
+            expect(name.trim(), "samity name").not.to.equal("");
+            configurationGridChecks.exactSearch(name.trim(), 2);
+        });
+    }
+
+    partialSamitySearchCheck() {
+        this.openListForChecks();
+        cy.get(COMMON.TABLE.VISIBLE_ROWS).first().find("td").eq(2).invoke("text").then((name) => {
+            expect(name.trim(), "samity name").not.to.equal("");
+            configurationGridChecks.partialSearch(name.trim());
+        });
+    }
+
+    noResultSearchCheck() {
+        this.openListForChecks();
+        configurationGridChecks.noResult("BM_REGULAR_COLLECTION");
+    }
+
+    resetSearchCheck() {
+        this.openListForChecks();
+        configurationGridChecks.noResult("BM_REGULAR_COLLECTION_RESET");
+        configurationGridChecks.reset();
+    }
+
+    firstPagePaginationCheck() {
+        this.openListForChecks();
+        cy.get(COMMON.TABLE.VISIBLE_ROWS).should("have.length.greaterThan", 0);
+        configurationGridChecks.pagination();
     }
 
     gridLanguageSwitchCheck() {

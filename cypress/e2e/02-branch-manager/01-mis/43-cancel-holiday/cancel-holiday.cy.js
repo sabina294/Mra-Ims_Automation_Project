@@ -76,7 +76,39 @@ describe("43. Cancel Holiday Module Test Cases", function () {
         create_cancel_holiday.gridSearchButtonCheck();
     });
 
-    it("43.14. Verify that the grid list content changes successfully from English to Bangla.", function () {
+    it("43.14. Verify that the Cancel Holiday breadcrumb is displayed.", function () {
+        create_cancel_holiday.listBreadcrumbCheck();
+    });
+
+    it("43.15. Verify that all Cancel Holiday grid columns are visible.", function () {
+        create_cancel_holiday.requiredGridColumnsCheck();
+    });
+
+    it("43.16. Verify that the grid shows required cancellation data or a visible empty state.", function () {
+        create_cancel_holiday.gridRecordsOrEmptyCheck();
+    });
+
+    it("43.17. Verify that draft, search, Reset and Refresh controls are available.", function () {
+        create_cancel_holiday.searchControlsCheck();
+    });
+
+    it("43.18. Verify that an unmatched search displays No Data.", function () {
+        create_cancel_holiday.noResultSearchCheck();
+    });
+
+    it("43.19. Verify that Reset clears an unmatched search and displays records or the empty state.", function () {
+        create_cancel_holiday.resetSearchInputCheck();
+    });
+
+    it("43.20. Verify that Refresh retains the Cancel Holiday route and displays records or the empty state.", function () {
+        create_cancel_holiday.refreshListStateCheck();
+    });
+
+    it("43.21. Verify that the Cancel Holiday button is visible and enabled.", function () {
+        create_cancel_holiday.cancelHolidayButtonCheck();
+    });
+
+    it("43.22. Verify that the grid list content changes successfully from English to Bangla.", function () {
         create_cancel_holiday.gridLanguageSwitchCheck();
     });
 });

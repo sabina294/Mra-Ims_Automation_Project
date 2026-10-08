@@ -99,7 +99,23 @@ describe("40. Calendar Year Module Test Cases", function () {
     grid_calendar_year.firstPagePaginationCheck();
   });
 
-  it("40.20. Verify the grid content switches between English and Bangla.", function () {
+  it("40.20. Verify that calendar rows display serial numbers, years, dates, offices, MFI IDs and statuses.", function () {
+    grid_calendar_year.calendarRecordDataCheck();
+  });
+
+  it("40.21. Verify that each calendar year starts on 1 January and ends on 31 December of that year.", function () {
+    grid_calendar_year.calendarDateRangeCheck();
+  });
+
+  it("40.22. Verify that office, draft, search, Reset and Refresh controls are available.", function () {
+    grid_calendar_year.searchControlsCheck();
+  });
+
+  it("40.23. Verify that Refresh retains the Calendar Year route and displays valid calendar records.", function () {
+    grid_calendar_year.refreshRecordsCheck();
+  });
+
+  it("40.24. Verify the grid content switches between English and Bangla.", function () {
     grid_calendar_year.gridLanguageSwitchCheck();
   });
 

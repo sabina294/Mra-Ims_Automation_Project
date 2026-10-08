@@ -155,6 +155,65 @@ class CalendarYear {
     configurationGridChecks.pagination();
   }
 
+  openListForChecks() {
+    cy.visit("/mfi-mis/calendar/calendar-year/list");
+    cy.location("pathname").should("eq", "/mfi-mis/calendar/calendar-year/list");
+    cy.imsId(COMMON.BUTTONS.RESET).should("be.visible").click();
+    cy.imsId(COMMON.GRID.DRAFT_TOGGLE).uncheck({ force: true }).should("not.be.checked");
+    cy.formController(COMMON.INPUTS.SEARCH_TEXT).should("have.value", "");
+    cy.get(COMMON.TABLE.VISIBLE_ROWS).should("have.length.greaterThan", 0);
+  }
+
+  assertCalendarRecords() {
+    cy.get(COMMON.TABLE.VISIBLE_ROWS).should(($rows) => {
+      expect($rows.length, "calendar records").to.be.greaterThan(0);
+      $rows.each((_, row) => {
+        const cells = Cypress.$(row).children("td");
+        expect(cells.eq(0).text().trim(), "serial number").to.match(/^\d+$/);
+        expect(cells.eq(1).text().trim(), "calendar year").to.match(/^\d{4}$/);
+        [2, 3, 4, 5, 6].forEach((index) => {
+          expect(cells.eq(index).text().trim(), "calendar column " + index).not.to.equal("");
+        });
+      });
+    });
+  }
+
+  calendarRecordDataCheck() {
+    this.openListForChecks();
+    this.assertCalendarRecords();
+  }
+
+  calendarDateRangeCheck() {
+    this.openListForChecks();
+    cy.get(COMMON.TABLE.VISIBLE_ROWS).should(($rows) => {
+      expect($rows.length, "calendar records").to.be.greaterThan(0);
+      $rows.each((_, row) => {
+        const cells = Cypress.$(row).children("td");
+        const year = cells.eq(1).text().trim();
+        expect(year, "calendar year").to.match(/^\d{4}$/);
+        expect(cells.eq(2).text().trim(), "calendar start date").to.equal("01-Jan-" + year);
+        expect(cells.eq(3).text().trim(), "calendar end date").to.equal("31-Dec-" + year);
+      });
+    });
+  }
+
+  searchControlsCheck() {
+    this.openListForChecks();
+    cy.formController("office_id").should("be.visible");
+    cy.imsId(COMMON.GRID.DRAFT_TOGGLE).should("not.be.checked");
+    cy.formController(COMMON.INPUTS.SEARCH_TEXT).should("be.visible").and("be.enabled");
+    cy.imsId(COMMON.BUTTONS.SEARCH).should("be.visible").and("be.enabled");
+    cy.imsId(COMMON.BUTTONS.RESET).should("be.visible");
+    cy.imsId(COMMON.BUTTONS.REFRESH).should("be.visible");
+  }
+
+  refreshRecordsCheck() {
+    this.openListForChecks();
+    cy.imsId(COMMON.BUTTONS.REFRESH).click();
+    cy.location("pathname").should("eq", "/mfi-mis/calendar/calendar-year/list");
+    this.assertCalendarRecords();
+  }
+
   gridLanguageSwitchCheck() {
     cy.imsId(COMMON.BUTTONS.PROFILE).click();
     cy.imsId(COMMON.BUTTONS.LANGUAGE_CHANGE).click();

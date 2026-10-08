@@ -1,5 +1,7 @@
 import messages from "../../../../support/constants/messages";
 import { COMMON } from "../../../../support/constants/selectors";
+import { configurationGridChecks } from "../../../../support/page-objects/configuration-grid-checks";
+
 class savingsWithdraw {
     test_data = Cypress.env("TEST_DATA");
 
@@ -199,6 +201,73 @@ class savingsWithdraw {
         cy.imsId(COMMON.GRID.HISTORY_TOGGLE)
             .uncheck({ force: true });
         cy.log(messages.ui.historyOffMessage);
+    }
+
+    openListForChecks() {
+        cy.visit("/mfi-mis/transaction/savings-withdraw/list");
+        cy.location("pathname").should("eq", "/mfi-mis/transaction/savings-withdraw/list");
+        cy.imsId(COMMON.BUTTONS.RESET).click();
+        cy.imsId(COMMON.GRID.HISTORY_TOGGLE).uncheck({ force: true }).should("not.be.checked");
+        cy.formController(COMMON.INPUTS.SEARCH_TEXT).should("have.value", "");
+    }
+
+    listBreadcrumbCheck() {
+        this.openListForChecks();
+        configurationGridChecks.breadcrumb("Savings Withdraw", ["Transaction"]);
+    }
+
+    columnsCheck() {
+        this.openListForChecks();
+        configurationGridChecks.columns(["#", "Savings Account ID", "Member ID", "Member", "Samity Name",
+            "Transacted By", "Amount", "Status", "Actions"]);
+    }
+
+    assertRecordsOrEmpty() {
+        cy.get(COMMON.TABLE.BODY).should(($body) => {
+            const rows = $body.find("tr:not(.ant-table-placeholder):visible");
+            if (!rows.length) {
+                expect($body.find(".ant-empty:visible").length, "visible empty state").to.be.greaterThan(0);
+                expect($body.text()).to.contain("No Data");
+                return;
+            }
+            rows.each((_, row) => {
+                const cells = Cypress.$(row).children("td");
+                expect(cells.eq(0).text().trim(), "serial").to.match(/^\d+$/);
+                [1, 2, 3, 4, 5, 7].forEach((index) => {
+                    expect(cells.eq(index).text().trim(), "withdrawal column " + index).not.to.equal("");
+                });
+                const amount = cells.eq(6).text().trim().replace(/,/g, "");
+                expect(amount, "withdrawal amount").to.match(/^\d+(?:\.\d+)?$/);
+                expect(Number.isFinite(Number(amount)), "finite amount").to.equal(true);
+            });
+        });
+    }
+
+    recordsOrEmptyCheck() {
+        this.openListForChecks();
+        this.assertRecordsOrEmpty();
+    }
+
+    controlsCheck() {
+        this.openListForChecks();
+        ["office_id", "samity_id"].forEach((name) => {
+            cy.formController(name).should("be.visible");
+        });
+        cy.formController(COMMON.INPUTS.SEARCH_TEXT).should("be.visible").and("be.enabled");
+        cy.imsId(COMMON.BUTTONS.SEARCH).should("be.visible").and("be.enabled");
+    }
+
+    refreshResultCheck() {
+        this.openListForChecks();
+        cy.imsId(COMMON.BUTTONS.REFRESH).click();
+        cy.location("pathname").should("eq", "/mfi-mis/transaction/savings-withdraw/list");
+        this.assertRecordsOrEmpty();
+    }
+
+    newWithdrawButtonCheck() {
+        this.openListForChecks();
+        cy.imsId(COMMON.BUTTONS.ADD_NEW).should("be.visible").and("be.enabled")
+            .and("contain.text", "New Withdraw");
     }
 
     gridLanguageSwitchCheck() {

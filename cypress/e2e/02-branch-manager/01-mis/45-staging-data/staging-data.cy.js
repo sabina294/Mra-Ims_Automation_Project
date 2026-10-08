@@ -55,7 +55,23 @@ describe("45. Staging Data Module Test Cases", function () {
     create_staging_data.deleteButtonCheck();
   });
 
-  it("45.09. Verify that the grid list content changes correctly from English to Bangla", function () {
+  it("45.09. Verify that the Staging Data breadcrumb is displayed.", function () {
+    create_staging_data.breadcrumbCheck();
+  });
+
+  it("45.10. Verify that all staging grid columns are visible.", function () {
+    create_staging_data.columnsCheck();
+  });
+
+  it("45.11. Verify that office, field officer, samity, status and search controls are available.", function () {
+    create_staging_data.controlsCheck();
+  });
+
+  it("45.12. Verify that staging records contain required data and integer member counts or a visible empty state.", function () {
+    create_staging_data.recordsOrEmptyCheck();
+  });
+
+  it("45.13. Verify that the grid list content changes correctly from English to Bangla", function () {
     create_staging_data.gridLanguageSwitchCheck();
   });
 

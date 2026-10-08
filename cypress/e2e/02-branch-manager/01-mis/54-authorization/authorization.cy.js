@@ -92,7 +92,27 @@ describe("54. Authorization Module Test Cases", function () {
     //     authorization.UnauthorizeSamity();
     // });
 
-    it("54.17. Verify that the grid content updates correctly when switching the language from English to Bangla.", function () {
+    it("54.17. Verify that the Authorization breadcrumb is displayed.", function () {
+        authorization.listBreadcrumbCheck();
+    });
+
+    it("54.18. Verify that all Authorization grid columns are visible.", function () {
+        authorization.columnsCheck();
+    });
+
+    it("54.19. Verify that rows display required data and numeric totals or a visible empty state.", function () {
+        authorization.recordsOrEmptyCheck();
+    });
+
+    it("54.20. Verify that office, field officer, samity and search controls are available.", function () {
+        authorization.controlsCheck();
+    });
+
+    it("54.21. Verify that Refresh retains the list route and displays records or the empty state.", function () {
+        authorization.refreshResultCheck();
+    });
+
+    it("54.22. Verify that the grid content updates correctly when switching the language from English to Bangla.", function () {
         authorization.gridLanguageSwitchCheck();
     });
 });
