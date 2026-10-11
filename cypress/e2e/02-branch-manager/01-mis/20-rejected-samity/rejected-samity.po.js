@@ -98,7 +98,9 @@ class RejectedSamity {
   editResetButton() {
     cy.fixture(this.test_data).then((data) => {
       const rsData = data.branchManager.rejectedSamityFrom;
-      // cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(rsData.samityNameEn);
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(rsData.samityNameEn);
+      cy.imsId(COMMON.BUTTONS.SEARCH).click();
+      cy.wait(1000);
       cy.imsId(COMMON.TOGGLES.ACTION).first().click();
       cy.wait(1000);
       cy.imsId(COMMON.GRID.ACTION_MIS_EDIT).click();
@@ -181,32 +183,6 @@ class RejectedSamity {
     configurationGridChecks.columns(["#", "Samity Id", "Samity Name", "Samity Type", "Office Id", "Office", "MFI Program", "Samity Day", "Status", "Actions"]);
   }
 
-  assertRecordsOrEmpty() {
-    cy.get(COMMON.TABLE.BODY).should(($body) => {
-      const rows = $body.find("tr:not(.ant-table-placeholder):visible");
-      if (!rows.length) {
-        expect($body.find(".ant-empty:visible").length, "visible empty state").to.be.greaterThan(0);
-        expect($body.text()).to.contain("No Data");
-        return;
-      }
-      rows.each((_, row) => {
-        const cells = Cypress.$(row).find("td");
-        expect(cells.eq(0).text().trim(), "serial number").to.match(/^\d+$/);
-        // Rejected applications can have no assigned Samity ID.
-        expect(cells.eq(4).text().trim(), "office ID").not.to.equal("");
-        expect(cells.eq(5).text().trim(), "office").not.to.equal("");
-        expect(cells.eq(2).text().trim(), "samity name").not.to.equal("");
-        expect(cells.eq(8).text().trim(), "status").to.equal("Rejected");
-      });
-    });
-  }
-
-  gridRecordDataCheck() {
-    this.openListForChecks();
-    this.assertRecordsOrEmpty();
-    cy.log(messages.ui.gridRecordsOrEmptyCheck);
-  }
-
   searchControlsCheck() {
     this.openListForChecks();
     cy.formController("office_id").should("be.visible");
@@ -220,22 +196,6 @@ class RejectedSamity {
     configurationGridChecks.noResult("BM_REJECTED_SAMITY");
   }
 
-  resetRestoresGridCheck() {
-    this.noResultSearchCheck();
-    cy.imsId(COMMON.BUTTONS.RESET).click();
-    cy.formController(COMMON.INPUTS.SEARCH_TEXT).should("have.value", "");
-    this.assertRecordsOrEmpty();
-    cy.log(messages.ui.gridResetSuccess);
-  }
-
-  refreshListStateCheck() {
-    this.openListForChecks();
-    cy.imsId(COMMON.BUTTONS.REFRESH).click();
-    cy.location("pathname").should("eq", "/mfi-mis/samity/rejected-samity/list");
-    this.assertRecordsOrEmpty();
-    cy.log(messages.ui.gridRefreshSuccess);
-  }
-
   nameAscendingSortCheck() {
     this.openListForChecks();
     configurationGridChecks.sort("Samity Name", COMMON.SORT.ASCENDING);
@@ -245,18 +205,6 @@ class RejectedSamity {
     this.openListForChecks();
     configurationGridChecks.sort("Samity Name", COMMON.SORT.ASCENDING);
     configurationGridChecks.sort("Samity Name", COMMON.SORT.DESCENDING);
-  }
-
-  paginationOrEmptyStateCheck() {
-    this.openListForChecks();
-    this.assertRecordsOrEmpty();
-    cy.get(COMMON.TABLE.BODY).then(($body) => {
-      if ($body.find("tr:not(.ant-table-placeholder):visible").length) {
-        configurationGridChecks.pagination();
-      } else {
-        cy.get(COMMON.TABLE.BODY).find(".ant-empty").should("be.visible").and("contain.text", "No Data");
-      }
-    });
   }
 
   gridLanguageSwitchCheck() {

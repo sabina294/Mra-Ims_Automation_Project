@@ -490,10 +490,16 @@ class SamityCreation {
   }
 
   editResetButton() {
-    cy.imsId(COMMON.TOGGLES.ACTION).first().click();
-    cy.imsId(COMMON.GRID.ACTION_EDIT).click();
-    cy.imsId(COMMON.BUTTONS.RESET).click();
-    cy.log(messages.ui.editResetMessage);
+    cy.fixture(this.test_data).then((data) => {
+      const rsData = data.branchManager.createSamityFrom;
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(rsData.samityNameEn);
+      cy.imsId(COMMON.BUTTONS.SEARCH).click();
+      cy.wait(1000);
+      cy.imsId(COMMON.TOGGLES.ACTION).first().click();
+      cy.imsId(COMMON.GRID.ACTION_EDIT).click();
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      cy.log(messages.ui.editResetMessage);
+    });
   }
 
   editGoBackButton() {

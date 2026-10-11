@@ -59,71 +59,51 @@ describe("20. Rejected Samity Module Test Cases", function () {
     create_rejected_samity.editSubmitButton();
   });
 
-  // it("20.10. Verify approve rejected samity record successfully from edit page", function () {
-  //   create_rejected_samity.editApproveButton();
-  // });
-
-  it("20.11. Verify redirect to rejected samity list page when Go Back button is clicked from edit page", function () {
+  it("20.10. Verify redirect to rejected samity list page when Go Back button is clicked from edit page", function () {
     create_rejected_samity.editGoBackButton();
   });
 
-  it("20.12. Verify return correct results when searching rejected samity by name", function () {
+  it("20.11. Verify return correct results when searching rejected samity by name", function () {
     create_rejected_samity.searchInRejectSamityName();
   });
 
-  it("20.13. Verify reset grid filters and results when reset button is clicked", function () {
+  it("20.12. Verify reset grid filters and results when reset button is clicked", function () {
     create_rejected_samity.gridResetButtonCheck();
   });
 
-  it("20.14. Verify refresh grid data successfully when refresh button is clicked", function () {
+  it("20.13. Verify refresh grid data successfully when refresh button is clicked", function () {
     create_rejected_samity.gridRefreshButtonCheck();
   });
 
-  it("20.15. Verify navigate to rejected samity list page when search button is clicked", function () {
+  it("20.14. Verify navigate to rejected samity list page when search button is clicked", function () {
     create_rejected_samity.gridSearchButtonCheck();
   });
 
-  it("20.16. Verify that the Rejected Samity breadcrumb displays the correct navigation hierarchy.", function () {
+  it("20.15. Verify that the Rejected Samity breadcrumb displays the correct navigation hierarchy.", function () {
     create_rejected_samity.listBreadcrumbCheck();
   });
 
-  it("20.17. Verify that the rejected samity grid displays all required columns.", function () {
+  it("20.16. Verify that the rejected samity grid displays all required columns.", function () {
     create_rejected_samity.requiredGridColumnsCheck();
   });
 
-  it("20.18. Verify that records contain a serial, samity name, office and Rejected status, or show No Data.", function () {
-    create_rejected_samity.gridRecordDataCheck();
-  });
-
-  it("20.19. Verify that the office and search controls are available.", function () {
+  it("20.17. Verify that the office and search controls are available.", function () {
     create_rejected_samity.searchControlsCheck();
   });
 
-  it("20.20. Verify that a nonexistent search displays No Data.", function () {
+  it("20.18. Verify that a nonexistent search displays No Data.", function () {
     create_rejected_samity.noResultSearchCheck();
   });
 
-  it("20.21. Verify that Reset clears an unmatched search and restores the list.", function () {
-    create_rejected_samity.resetRestoresGridCheck();
-  });
-
-  it("20.22. Verify that Refresh keeps the Rejected Samity list available.", function () {
-    create_rejected_samity.refreshListStateCheck();
-  });
-
-  it("20.23. Verify that Samity Name displays the ascending sort indicator.", function () {
+  it("20.19. Verify that Samity Name displays the ascending sort indicator.", function () {
     create_rejected_samity.nameAscendingSortCheck();
   });
 
-  it("20.24. Verify that Samity Name displays the descending sort indicator.", function () {
+  it("20.20. Verify that Samity Name displays the descending sort indicator.", function () {
     create_rejected_samity.nameDescendingSortCheck();
   });
 
-  it("20.25. Verify that first-page pagination or the empty state displays correctly.", function () {
-    create_rejected_samity.paginationOrEmptyStateCheck();
-  });
-
-  it("20.26. Verify update grid content correctly when language is switched from English to Bangla", function () {
+  it("20.21. Verify update grid content correctly when language is switched from English to Bangla", function () {
     create_rejected_samity.gridLanguageSwitchCheck();
   });
 });

@@ -47,21 +47,21 @@ describe("20. Rejected Samity Module Test Cases", function () {
     create_rejected_samity.viewGoBackButton();
   });
 
-  // it("20.07. Verify the rejected samity edit reset button functions correctly.", function () {
-  //   create_rejected_samity.editResetButton();
-  // });
+  it("20.07. Verify the rejected samity edit reset button functions correctly.", function () {
+    create_rejected_samity.editResetButton();
+  });
 
-  // it("20.08. Verify the rejected samity edit draft button functions correctly.", function () {
-  //   create_rejected_samity.editDraftButton();
-  // });
+  it("20.08. Verify the rejected samity edit draft button functions correctly.", function () {
+    create_rejected_samity.editDraftButton();
+  });
 
-  // it("20.09. Verify the rejected samity edit submit button functions correctly.", function () {
-  //   create_rejected_samity.editSubmitButton();
-  // });
+  it("20.09. Verify the rejected samity edit submit button functions correctly.", function () {
+    create_rejected_samity.editSubmitButton();
+  });
 
-  // it("20.10. Verify that clicking the go back button on the rejected samity edit page redirects the user to the rejected samity list page.", function () {
-  //   create_rejected_samity.editGoBackButton();
-  // });
+  it("20.10. Verify that clicking the go back button on the rejected samity edit page redirects the user to the rejected samity list page.", function () {
+    create_rejected_samity.editGoBackButton();
+  });
 
   it("20.11. Verify that the search results are displayed correctly when searching by rejected samity name.", function () {
     create_rejected_samity.searchInRejectSamityName();

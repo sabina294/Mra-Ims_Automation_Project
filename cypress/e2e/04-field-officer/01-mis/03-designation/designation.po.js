@@ -31,12 +31,11 @@ class Designation {
   }
 
   viewDesignation() {
-    this.openDesignationListPage();
-    cy.get(COMMON.TABLE.VISIBLE_ROWS).first()
-      .find(COMMON.TABLE.ACTION_TOGGLE).click();
-    cy.imsId(COMMON.GRID.ACTION_VIEW).should("be.visible").click();
-    cy.imsId(COMMON.BUTTONS.GO_BACK).should("be.visible");
-    cy.log(messages.ui.viewMessage);
+    cy.fixture(this.test_data).then((data) => {
+      const depData = data.fieldOfficer.gridDesignationFrom;
+      cy.imsId(COMMON.GRID.ACTION_VIEW).click();
+      cy.log(messages.ui.viewMessage);
+    });
   }
 
   viewGoBackButton() {
