@@ -136,6 +136,28 @@ class cancelSamity {
         cy.contains("button:visible", /^\s*Restore Multiple\s*$/).should("be.visible");
     }
 
+    selectedBranchCheck() {
+        this.openListForChecks();
+        cy.get("nz-select:visible").filter((_, select) => {
+            const text = Cypress.$(select).text();
+            return !text.includes("All Samities") && !text.includes("All Field Officers");
+        }).should("have.length", 1)
+            .find(".ant-select-selection-item").should("be.visible")
+            .invoke("text").should("match", /\S+/);
+    }
+
+    bulkControlsWithoutSelectionCheck() {
+        this.openListForChecks();
+        cy.get(COMMON.TABLE.HEAD).find("input[type='checkbox']")
+            .should("exist").and("not.be.checked");
+        cy.get(COMMON.TABLE.BODY).should(($body) => {
+            expect($body.find("input[type='checkbox']:checked").length,
+                "selected samities").to.equal(0);
+        });
+        cy.imsId(COMMON.BUTTONS.CANCEL_MULTIPLE).should("be.disabled");
+        cy.contains("button:visible", /^\s*Restore Multiple\s*$/).should("be.disabled");
+    }
+
     gridLanguageSwitchCheck() {
         cy.imsId(COMMON.BUTTONS.PROFILE).click();
         cy.imsId(COMMON.BUTTONS.LANGUAGE_CHANGE).click();

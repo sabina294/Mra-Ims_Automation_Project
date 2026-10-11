@@ -65,7 +65,23 @@ describe("56. Day End Process (AIS)  Module Test Cases", function () {
     create_day_end_process_ais.DayEndProcessDelete();
   });
 
-  it("56.11. Verify that the grid list content switches correctly from English to Bangla", () => {
+  it("56.11. Verify that the breadcrumb displays the correct navigation hierarchy", () => {
+    create_day_end_process_ais.listBreadcrumbCheck();
+  });
+
+  it("56.12. Verify that the Auto Voucher List displays all required columns", () => {
+    create_day_end_process_ais.requiredGridColumnsCheck();
+  });
+
+  it("56.13. Verify that voucher records contain required data and numeric amounts, or display No Data", () => {
+    create_day_end_process_ais.gridRecordDataCheck();
+  });
+
+  it("56.15. Verify that Previous, Preview, Day End Process and Delete controls are visible", () => {
+    create_day_end_process_ais.actionControlsCheck();
+  });
+
+  it("56.16. Verify that the grid list content switches correctly from English to Bangla", () => {
     create_day_end_process_ais.gridLanguageSwitchCheck();
   });
 

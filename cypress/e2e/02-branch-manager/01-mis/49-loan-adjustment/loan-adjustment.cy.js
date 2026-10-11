@@ -119,7 +119,23 @@ describe("49. Loan Adjustment Module Test Cases", function () {
         create_loan_adjustment.gridRefreshButtonCheck();
     });
 
-    it("49.25. Verify that the grid list content changes correctly when switching the language from English to Bangla.", function () {
+    it("49.25. Verify that the Loan Adjustment breadcrumb displays the correct navigation hierarchy.", function () {
+        create_loan_adjustment.listBreadcrumbCheck();
+    });
+
+    it("49.26. Verify that the Loan Adjustment grid displays all required columns.", function () {
+        create_loan_adjustment.requiredGridColumnsCheck();
+    });
+
+    it("49.27. Verify that adjustment records contain required data and numeric amounts, or display No Data.", function () {
+        create_loan_adjustment.gridRecordDataCheck();
+    });
+
+    it("49.28. Verify that a selected office, search controls and New Adjustment button are available.", function () {
+        create_loan_adjustment.listControlsCheck();
+    });
+
+    it("49.29. Verify that the grid list content changes correctly when switching the language from English to Bangla.", function () {
         create_loan_adjustment.gridLanguageSwitchCheck();
     });
 });

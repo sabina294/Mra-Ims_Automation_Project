@@ -91,7 +91,13 @@ class RegularCollection {
     }
 
     gridResetButtonCheck() {
+        cy.formController(COMMON.INPUTS.SEARCH_TEXT)
+            .should("be.visible").and("be.enabled")
+            .clear().type("RESET_CHECK");
         cy.imsId(COMMON.BUTTONS.RESET).click();
+        cy.formController(COMMON.INPUTS.SEARCH_TEXT).should("have.value", "");
+        cy.location("pathname").should("eq", "/mfi-mis/transaction/regular-collection/list");
+        cy.get(COMMON.TABLE.HEAD).should("be.visible");
         cy.log(messages.ui.gridResetSuccess);
     }
 
@@ -181,33 +187,6 @@ class RegularCollection {
         });
         cy.formController(COMMON.INPUTS.SEARCH_TEXT).should("be.visible").and("be.enabled");
         cy.imsId(COMMON.BUTTONS.SEARCH).should("be.visible").and("be.enabled");
-    }
-
-    exactSamitySearchCheck() {
-        this.openListForChecks();
-        cy.get(COMMON.TABLE.VISIBLE_ROWS).first().find("td").eq(2).invoke("text").then((name) => {
-            expect(name.trim(), "samity name").not.to.equal("");
-            configurationGridChecks.exactSearch(name.trim(), 2);
-        });
-    }
-
-    partialSamitySearchCheck() {
-        this.openListForChecks();
-        cy.get(COMMON.TABLE.VISIBLE_ROWS).first().find("td").eq(2).invoke("text").then((name) => {
-            expect(name.trim(), "samity name").not.to.equal("");
-            configurationGridChecks.partialSearch(name.trim());
-        });
-    }
-
-    noResultSearchCheck() {
-        this.openListForChecks();
-        configurationGridChecks.noResult("BM_REGULAR_COLLECTION");
-    }
-
-    resetSearchCheck() {
-        this.openListForChecks();
-        configurationGridChecks.noResult("BM_REGULAR_COLLECTION_RESET");
-        configurationGridChecks.reset();
     }
 
     firstPagePaginationCheck() {

@@ -51,9 +51,9 @@ describe("17. Loan Rebate Module Test Cases", function () {
     create_loan_rebate.createRemoveIconRebate();
   });
 
-  // it("17.08. Verify successful creation of a Loan rebate", function () {
-  //   create_loan_rebate.createLoanRebate();
-  // });
+  it("17.08. Verify successful creation of a Loan rebate", function () {
+    create_loan_rebate.createLoanRebate();
+  });
 
   it("17.09. Verify successfully performs the action when the action button is clicked.", function () {
     create_loan_rebate.actionButtonCheck();

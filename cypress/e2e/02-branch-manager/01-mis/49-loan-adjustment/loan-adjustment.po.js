@@ -251,6 +251,70 @@ class loanAdjustment {
         cy.log(messages.ui.gridRefreshSuccess);
     }
 
+    openListForChecks() {
+        cy.visit("/mfi-mis/transaction/loan-adjustment/list");
+        cy.location("pathname").should("eq", "/mfi-mis/transaction/loan-adjustment/list");
+        cy.get(COMMON.TABLE.HEAD).should("be.visible");
+    }
+
+    listBreadcrumbCheck() {
+        this.openListForChecks();
+        cy.get("nz-breadcrumb, .ant-breadcrumb").should("be.visible")
+            .and("contain.text", "Home").and("contain.text", "Transaction")
+            .and("contain.text", "Loan Adjustment").and("contain.text", "List");
+    }
+
+    requiredGridColumnsCheck() {
+        this.openListForChecks();
+        ["#", "Loan Account ID", "Account Type", "Samity Name (English)",
+            "Member Name (English)", "Amount", "Status", "Actions"].forEach((label) => {
+            cy.get("thead th:visible").should(($headers) => {
+                const labels = Array.from($headers, (header) => header.textContent.trim());
+                expect(labels, "grid headings").to.include(label);
+            });
+        });
+    }
+
+    gridRecordDataCheck() {
+        this.openListForChecks();
+        cy.get(COMMON.TABLE.BODY).should(($body) => {
+            const rows = $body.find("tr:not(.ant-table-placeholder):visible");
+            if (!rows.length) {
+                expect($body.find(".ant-empty:visible").length, "visible empty state").to.be.greaterThan(0);
+                expect($body.text()).to.contain("No Data");
+                return;
+            }
+            rows.each((_, row) => {
+                const cells = Cypress.$(row).children("td");
+                expect(cells.length, "adjustment columns").to.equal(8);
+                expect(cells.eq(0).text().trim(), "serial").to.match(/^\d+$/);
+                [1, 2, 3, 4, 6].forEach((index) => {
+                    expect(cells.eq(index).text().trim(), "adjustment column " + index).not.to.equal("");
+                });
+                const amount = cells.eq(5).text().trim().replace(/,/g, "");
+                expect(amount, "adjustment amount").to.match(/^-?\d+(?:\.\d+)?$/);
+                expect(Number.isFinite(Number(amount)), "finite adjustment amount").to.equal(true);
+            });
+        });
+    }
+
+    listControlsCheck() {
+        this.openListForChecks();
+        // Scope to the office control; selected text markup differs across
+        // NG-ZORRO versions and does not always use ant-select-selection-item.
+        cy.formController("office_id").should("be.visible")
+            .should(($office) => {
+                const selectedOffice = $office.is("select")
+                    ? $office.find("option:selected").text()
+                    : $office.text();
+                expect(selectedOffice.trim(), "selected office").to.match(/\S+/);
+            });
+        cy.formController(COMMON.INPUTS.SEARCH_TEXT).should("be.visible").and("be.enabled");
+        cy.imsId(COMMON.BUTTONS.SEARCH).should("be.visible").and("be.enabled");
+        cy.imsId(COMMON.BUTTONS.ADD_NEW).should("be.visible").and("be.enabled")
+            .and("contain.text", "New Adjustment");
+    }
+
     gridLanguageSwitchCheck() {
 
         cy.imsId(COMMON.BUTTONS.PROFILE).click();

@@ -71,7 +71,11 @@ describe("57. Day Forward Module Test Cases", function () {
         grid_day_forward.firstPagePaginationCheck();
     });
 
-    it("57.13. Verify that the grid list content updates correctly when switching from English to Bangla.", function () {
+    it("57.13. Verify that the branch selector displays a selected branch.", function () {
+        grid_day_forward.selectedBranchCheck();
+    });
+
+    it("57.15. Verify that the grid list content updates correctly when switching from English to Bangla.", function () {
         grid_day_forward.gridLanguageSwitchCheck();
     });
 });

@@ -94,7 +94,31 @@ describe("46. Regular Collection Module Test Cases", function () {
         create_regular_collection.gridSamityDropdownCheck();
     });
 
-    it("46.19. Verify that the grid list content changes correctly from English to Bangla.", function () {
+    it("46.19. Verify that the breadcrumb displays the correct navigation hierarchy.", function () {
+        create_regular_collection.listBreadcrumbCheck();
+    });
+
+    it("46.20. Verify that all required Regular Collection grid columns are visible.", function () {
+        create_regular_collection.columnsCheck();
+    });
+
+    it("46.21. Verify that records display serial numbers, samity details, field officers and statuses.", function () {
+        create_regular_collection.recordsCheck();
+    });
+
+    it("46.22. Verify that collection amounts are numeric and Total Collection equals Loan Collection plus Savings Collection.", function () {
+        create_regular_collection.collectionTotalsCheck();
+    });
+
+    it("46.23. Verify that office, field officer, samity and search controls are available.", function () {
+        create_regular_collection.controlsCheck();
+    });
+
+    it("46.27. Verify that the first page displays pagination controls with Previous disabled.", function () {
+        create_regular_collection.firstPagePaginationCheck();
+    });
+
+    it("46.28. Verify that the grid list content changes correctly from English to Bangla.", function () {
         create_regular_collection.gridLanguageSwitchCheck();
     });
 

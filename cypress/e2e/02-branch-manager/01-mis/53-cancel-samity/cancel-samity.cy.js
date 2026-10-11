@@ -72,7 +72,15 @@ describe("53. Cancel Samity Module Test Cases", function () {
         cancel_samity.bulkControlsCheck();
     });
 
-    it("53.13. Verify that the grid list content changes correctly when switching language from English to Bangla.", function () {
+    it("53.13. Verify that the branch selector displays a selected branch.", function () {
+        cancel_samity.selectedBranchCheck();
+    });
+
+    it("53.14. Verify that Cancel Multiple and Restore Multiple are disabled when no samity is selected.", function () {
+        cancel_samity.bulkControlsWithoutSelectionCheck();
+    });
+
+    it("53.15. Verify that the grid list content changes correctly when switching language from English to Bangla.", function () {
         cancel_samity.gridLanguageSwitchCheck();
     });
 });

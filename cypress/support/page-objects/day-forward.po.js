@@ -120,6 +120,13 @@ class DayForwardMis {
         cy.get(COMMON.PAGINATION.TOTAL_TEXT).should("be.visible");
     }
 
+    selectedBranchCheck() {
+        this.openListForChecks();
+        cy.get("nz-select:visible").should("have.length", 1)
+            .find(".ant-select-selection-item").should("be.visible")
+            .invoke("text").should("match", /\S+/);
+    }
+
     gridLanguageSwitchCheck() {
         cy.imsId(COMMON.BUTTONS.PROFILE).click();
         cy.imsId(COMMON.BUTTONS.LANGUAGE_CHANGE).click();
