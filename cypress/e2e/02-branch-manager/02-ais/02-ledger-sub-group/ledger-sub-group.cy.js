@@ -124,7 +124,59 @@ describe("02. Ledger Sub Group Module Test Cases", function () {
         create_ledger_sub_group.createGoBackButtonCheck();
     });
 
-    it("02.26. Verify that grid content updates correctly when switching language from English to Bangla.", function () {
+    it("02.26. Verify that the breadcrumb displays the correct navigation hierarchy.", function () {
+        create_ledger_sub_group.listBreadcrumbCheck();
+    });
+
+    it("02.27. Verify that the grid displays all required columns.", function () {
+        create_ledger_sub_group.requiredGridColumnsCheck();
+    });
+
+    it("02.28. Verify that ledger sub group records contain valid IDs, names, group types, balance sheet flags and statuses.", function () {
+        create_ledger_sub_group.gridRecordDataCheck();
+    });
+
+    it("02.29. Verify that the status, ledger group and search controls are available.", function () {
+        create_ledger_sub_group.searchControlsCheck();
+    });
+
+    it("02.30. Verify that searching by an existing English name returns matching records.", function () {
+        create_ledger_sub_group.nameSearchCheck();
+    });
+
+    it("02.31. Verify that searching by a partial English name returns matching records.", function () {
+        create_ledger_sub_group.partialNameSearchCheck();
+    });
+
+    it("02.32. Verify that a nonexistent search displays No Data.", function () {
+        create_ledger_sub_group.noResultSearchCheck();
+    });
+
+    it("02.33. Verify that Reset clears an unmatched search and restores ledger records.", function () {
+        create_ledger_sub_group.resetRestoresGridCheck();
+    });
+
+    it("02.34. Verify that Refresh keeps the list and ledger records available.", function () {
+        create_ledger_sub_group.refreshListStateCheck();
+    });
+
+    it("02.35. Verify that Name (EN) displays the ascending sort indicator.", function () {
+        create_ledger_sub_group.nameAscendingSortCheck();
+    });
+
+    it("02.36. Verify that Name (EN) displays the descending sort indicator.", function () {
+        create_ledger_sub_group.nameDescendingSortCheck();
+    });
+
+    it("02.37. Verify that first-page pagination controls display correctly.", function () {
+        create_ledger_sub_group.paginationCheck();
+    });
+
+    it("02.38. Verify that the Active status filter returns only Active records.", function () {
+        create_ledger_sub_group.activeStatusResultCheck();
+    });
+
+    it("02.39. Verify that grid content updates correctly when switching language from English to Bangla.", function () {
         create_ledger_sub_group.gridLanguageSwitchCheck();
     });
 

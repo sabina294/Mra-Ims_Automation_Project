@@ -57,7 +57,19 @@ describe("13. Month End Process Module Test Cases", function () {
         grid_month_end_process_ais.previousOff();
     });
 
-    it("13.09. Verify that the grid list content changes correctly from English to Bangla.", function () {
+    it("13.09. Verify that the breadcrumb displays Home, Process, Month End Process (AIS) and List.", function () {
+        grid_month_end_process_ais.breadcrumbCheck();
+    });
+
+    it("13.10. Verify that the Auto Voucher List displays all required columns.", function () {
+        grid_month_end_process_ais.voucherColumnsCheck();
+    });
+
+    it("13.11. Verify that the Auto Voucher List displays records or a visible No Data state.", function () {
+        grid_month_end_process_ais.voucherListStateCheck();
+    });
+
+    it("13.12. Verify that the grid list content changes correctly from English to Bangla.", function () {
         grid_month_end_process_ais.gridLanguageSwitchCheck();
     });
 });

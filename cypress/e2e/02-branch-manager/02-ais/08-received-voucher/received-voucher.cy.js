@@ -166,7 +166,43 @@ describe("08 Received Voucher Module Test Cases", function () {
         create_received_voucher.createDeleteButtonCheck();
     });
 
-    it("08.36. Verify that the grid list content changes correctly from English to Bangla.", function () {
+    it("08.36. Verify that the breadcrumb displays Home, Voucher, Received Voucher and List.", function () {
+        create_received_voucher.listBreadcrumbCheck();
+    });
+
+    it("08.37. Verify that the grid displays all required columns.", function () {
+        create_received_voucher.requiredGridColumnsCheck();
+    });
+
+    it("08.38. Verify that received amounts display valid positive numbers with two decimal places.", function () {
+        create_received_voucher.receivedAmountCheck();
+    });
+
+    it("08.39. Verify that searching by an existing voucher name returns matching records.", function () {
+        create_received_voucher.voucherNameSearchCheck();
+    });
+
+    it("08.40. Verify that searching by a partial voucher name returns matching records.", function () {
+        create_received_voucher.partialVoucherNameSearchCheck();
+    });
+
+    it("08.41. Verify that a nonexistent search displays No Data.", function () {
+        create_received_voucher.noResultSearchCheck();
+    });
+
+    it("08.42. Verify that the Active filter returns only Active received vouchers.", function () {
+        create_received_voucher.activeStatusResultCheck();
+    });
+
+    it("08.43. Verify that Voucher ID displays the ascending sort indicator.", function () {
+        create_received_voucher.idAscendingSortCheck();
+    });
+
+    it("08.44. Verify that Voucher ID displays the descending sort indicator.", function () {
+        create_received_voucher.idDescendingSortCheck();
+    });
+
+    it("08.45. Verify that the grid list content changes correctly from English to Bangla.", function () {
         create_received_voucher.gridLanguageSwitchCheck();
     });
 });

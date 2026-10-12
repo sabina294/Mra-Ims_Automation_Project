@@ -29,7 +29,35 @@ describe("01. Chart Of Accounts Module Test Cases", function () {
         grid_chart_of_accounts.gridChartOfAccountsListPage();
     });
 
-    it("01.02. Verify check that the grid list content changes correctly from english to bangla.", function () {
+    it("01.02. Verify that breadcrumb displays Home, Accounting and Chart of Accounts.", function () {
+        grid_chart_of_accounts.listBreadcrumbCheck();
+    });
+
+    it("01.03. Verify that the business date picker is available.", function () {
+        grid_chart_of_accounts.businessDateControlCheck();
+    });
+
+    it("01.04. Verify that all ledger tables display the required columns.", function () {
+        grid_chart_of_accounts.requiredLedgerColumnsCheck();
+    });
+
+    it("01.05. Verify that asset ledger subgroups are displayed.", function () {
+        grid_chart_of_accounts.assetSubgroupsCheck();
+    });
+
+    it("01.06. Verify that ledger records contain a code and English and Bengali names.", function () {
+        grid_chart_of_accounts.ledgerRecordDataCheck();
+    });
+
+    it("01.07. Verify that ledger balances display numeric amounts with two decimal places.", function () {
+        grid_chart_of_accounts.ledgerBalanceFormatCheck();
+    });
+
+    it("01.08. Verify that reloading keeps the Chart of Accounts page and ledger data available.", function () {
+        grid_chart_of_accounts.reloadPageCheck();
+    });
+
+    it("01.09. Verify check that the grid list content changes correctly from english to bangla.", function () {
         grid_chart_of_accounts.gridLanguageSwitchCheck();
     });
 });

@@ -165,7 +165,47 @@ describe("07 Payment Voucher Module Test Cases", function () {
         create_payment_voucher.createDeleteButtonCheck();
     });
 
-    it("07.36. Verify that the grid content updates correctly when switching language from English to Bangla.", function () {
+    it("07.36. Verify that the breadcrumb displays Home, Voucher, Payment Voucher and List.", function () {
+        create_payment_voucher.listBreadcrumbCheck();
+    });
+
+    it("07.37. Verify that the grid displays all required columns.", function () {
+        create_payment_voucher.requiredGridColumnsCheck();
+    });
+
+    it("07.38. Verify that voucher records contain an ID, name, preparer, creator and status.", function () {
+        create_payment_voucher.gridRecordDataCheck();
+    });
+
+    it("07.39. Verify that payment amounts display valid positive numbers with two decimal places.", function () {
+        create_payment_voucher.paymentAmountCheck();
+    });
+
+    it("07.40. Verify that searching by an existing voucher name returns matching records.", function () {
+        create_payment_voucher.voucherNameSearchCheck();
+    });
+
+    it("07.41. Verify that searching by a partial voucher name returns matching records.", function () {
+        create_payment_voucher.partialVoucherNameSearchCheck();
+    });
+
+    it("07.42. Verify that a nonexistent search displays No Data.", function () {
+        create_payment_voucher.noResultSearchCheck();
+    });
+
+    it("07.43. Verify that the Active filter returns only Active payment vouchers.", function () {
+        create_payment_voucher.activeStatusResultCheck();
+    });
+
+    it("07.44. Verify that Voucher ID displays the ascending sort indicator.", function () {
+        create_payment_voucher.idAscendingSortCheck();
+    });
+
+    it("07.45. Verify that Voucher ID displays the descending sort indicator.", function () {
+        create_payment_voucher.idDescendingSortCheck();
+    });
+
+    it("07.46. Verify that the grid content updates correctly when switching language from English to Bangla.", function () {
         create_payment_voucher.gridLanguageSwitchCheck();
     });
 

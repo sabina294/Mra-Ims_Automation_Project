@@ -1,5 +1,7 @@
 import messages from "../../../../support/constants/messages";
 import { COMMON } from "../../../../support/constants/selectors";
+import { configurationGridChecks } from "../../../../support/page-objects/configuration-grid-checks";
+
 class ManualJournalCreation {
     test_data = Cypress.env("TEST_DATA");
 
@@ -280,6 +282,83 @@ class ManualJournalCreation {
         cy.imsId(COMMON.BUTTONS.ADD).eq(1).click();
         cy.imsId(COMMON.BUTTONS.GO_BACK).click();
         cy.log(messages.ui.submitSuccess);
+    }
+
+    openListForChecks() {
+        cy.visit("/mfi-ais/accounting/manual-journal/list");
+        cy.location("pathname").should("eq", "/mfi-ais/accounting/manual-journal/list");
+        cy.imsId(COMMON.BUTTONS.RESET).should("be.visible").click();
+        cy.imsId(COMMON.GRID.DRAFT_TOGGLE).uncheck({ force: true }).should("not.be.checked");
+    }
+
+    listBreadcrumbCheck() {
+        this.openListForChecks();
+        configurationGridChecks.breadcrumb("Manual Journal", ["Accounting"]);
+    }
+
+    requiredGridColumnsCheck() {
+        this.openListForChecks();
+        configurationGridChecks.columns(["#", "Journal Date", "Description", "Reference No", "Created By", "Amount", "Status", "Actions"]);
+    }
+
+    journalAmountCheck() {
+        this.openListForChecks();
+        cy.get(COMMON.TABLE.VISIBLE_ROWS).should(($rows) => {
+            expect($rows.length, "journals to verify").to.be.greaterThan(0);
+            $rows.each((_, row) => {
+                const amount = Cypress.$(row).find("td").eq(5).text().trim();
+                expect(amount, "formatted journal amount").to.match(/^(?:\d+|\d{1,3}(?:,\d{2,3})+)(?:\.\d{1,2})?$/);
+                expect(Number(amount.replace(/,/g, "")), "numeric amount").to.be.finite.and.at.least(0);
+            });
+        });
+    }
+
+    searchWithExistingDescription(partial = false) {
+        this.openListForChecks();
+        cy.get(COMMON.TABLE.VISIBLE_ROWS).should("have.length.greaterThan", 0)
+            .first().find("td").eq(2).invoke("text").then((text) => {
+                const description = text.trim();
+                expect(description, "existing journal description").not.to.equal("");
+                const search = partial && description.length > 1
+                    ? description.slice(0, Math.ceil(description.length / 2)) : description;
+                configurationGridChecks.exactSearch(search, 2);
+            });
+    }
+
+    descriptionSearchCheck() {
+        this.searchWithExistingDescription();
+    }
+
+    partialDescriptionSearchCheck() {
+        this.searchWithExistingDescription(true);
+    }
+
+    noResultSearchCheck() {
+        this.openListForChecks();
+        configurationGridChecks.noResult("BM_MANUAL_JOURNAL");
+    }
+
+    approvedStatusResultCheck() {
+        this.openListForChecks();
+        cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type("Approved").type(COMMON.KEYS.ENTER);
+        cy.imsId(COMMON.BUTTONS.SEARCH).click();
+        cy.get(COMMON.TABLE.VISIBLE_ROWS).should(($rows) => {
+            expect($rows.length, "approved journals").to.be.greaterThan(0);
+            $rows.each((_, row) => {
+                expect(Cypress.$(row).find("td").eq(6).text().trim(), "journal status").to.equal("Approved");
+            });
+        });
+    }
+
+    dateAscendingSortCheck() {
+        this.openListForChecks();
+        configurationGridChecks.sort("Journal Date", COMMON.SORT.ASCENDING);
+    }
+
+    dateDescendingSortCheck() {
+        this.openListForChecks();
+        configurationGridChecks.sort("Journal Date", COMMON.SORT.ASCENDING);
+        configurationGridChecks.sort("Journal Date", COMMON.SORT.DESCENDING);
     }
 
     gridLanguageSwitchCheck() {

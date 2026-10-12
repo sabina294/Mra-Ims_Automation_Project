@@ -1,5 +1,7 @@
 import messages from "../../../../support/constants/messages";
 import { COMMON } from "../../../../support/constants/selectors";
+import { configurationGridChecks } from "../../../../support/page-objects/configuration-grid-checks";
+
 class PaymentVoucherCreation {
     test_data = Cypress.env("TEST_DATA");
 
@@ -638,6 +640,90 @@ class PaymentVoucherCreation {
         cy.imsId(COMMON.BUTTONS.REMOVE_ICON_SECOND).click();
         cy.imsId(COMMON.BUTTONS.GO_BACK).click();
         cy.log(messages.ui.submitSuccess);
+    }
+
+    openListForChecks() {
+        cy.visit("/mfi-ais/voucher/payment-voucher/list");
+        cy.location("pathname").should("eq", "/mfi-ais/voucher/payment-voucher/list");
+        cy.imsId(COMMON.BUTTONS.RESET).should("be.visible").click();
+        cy.imsId(COMMON.GRID.DRAFT_TOGGLE).uncheck({ force: true }).should("not.be.checked");
+    }
+
+    listBreadcrumbCheck() {
+        this.openListForChecks();
+        configurationGridChecks.breadcrumb("Payment Voucher", ["Voucher"]);
+    }
+
+    requiredGridColumnsCheck() {
+        this.openListForChecks();
+        configurationGridChecks.columns(["#", "Voucher ID", "Voucher Name", "Prepared By", "Payment Date", "Created By", "Payment Amount", "Locked By", "Status", "Actions"]);
+    }
+
+    gridRecordDataCheck() {
+        this.openListForChecks();
+        cy.get(COMMON.TABLE.VISIBLE_ROWS).should(($rows) => {
+            expect($rows.length, "payment vouchers").to.be.greaterThan(0);
+            $rows.each((_, row) => {
+                const cells = Cypress.$(row).find("td");
+                expect(cells.eq(0).text().trim(), "serial").to.match(/^\d+$/);
+                expect(cells.eq(1).text().trim(), "payment voucher ID").to.match(/^PV-.+/);
+                [2, 3, 5, 8].forEach((index) => {
+                    expect(cells.eq(index).text().trim(), `column ${index + 1}`).not.to.equal("");
+                });
+            });
+        });
+    }
+
+    paymentAmountCheck() {
+        this.openListForChecks();
+        cy.get(COMMON.TABLE.VISIBLE_ROWS).should(($rows) => {
+            expect($rows.length, "payment vouchers to verify").to.be.greaterThan(0);
+            $rows.each((_, row) => {
+                const amount = Cypress.$(row).find("td").eq(6).text().trim();
+                expect(amount, "formatted payment amount").to.match(/^(?:\d+|\d{1,3}(?:,\d{2,3})+)\.\d{2}$/);
+                expect(Number(amount.replace(/,/g, "")), "positive payment amount").to.be.finite.and.greaterThan(0);
+            });
+        });
+    }
+
+    searchWithExistingVoucherName(partial = false) {
+        this.openListForChecks();
+        cy.get(COMMON.TABLE.VISIBLE_ROWS).should("have.length.greaterThan", 0)
+            .first().find("td").eq(2).invoke("text").then((text) => {
+                const name = text.trim();
+                expect(name, "existing voucher name").not.to.equal("");
+                const search = partial && name.length > 1 ? name.slice(0, Math.ceil(name.length / 2)) : name;
+                configurationGridChecks.exactSearch(search, 2);
+            });
+    }
+
+    voucherNameSearchCheck() {
+        this.searchWithExistingVoucherName();
+    }
+
+    partialVoucherNameSearchCheck() {
+        this.searchWithExistingVoucherName(true);
+    }
+
+    noResultSearchCheck() {
+        this.openListForChecks();
+        configurationGridChecks.noResult("BM_PAYMENT_VOUCHER");
+    }
+
+    activeStatusResultCheck() {
+        this.openListForChecks();
+        configurationGridChecks.activeFilter("Active", 8);
+    }
+
+    idAscendingSortCheck() {
+        this.openListForChecks();
+        configurationGridChecks.sort("Voucher ID", COMMON.SORT.ASCENDING);
+    }
+
+    idDescendingSortCheck() {
+        this.openListForChecks();
+        configurationGridChecks.sort("Voucher ID", COMMON.SORT.ASCENDING);
+        configurationGridChecks.sort("Voucher ID", COMMON.SORT.DESCENDING);
     }
 
     gridLanguageSwitchCheck() {

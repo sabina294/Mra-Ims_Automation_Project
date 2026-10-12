@@ -29,7 +29,7 @@ describe("06 Fund Module Test Cases", function () {
         create_fund_Transfer.gridFundListPage();
     });
 
-    it("06.02.Verify that a fund record is created successfully with valid required data.", function () {
+    it("06.02. Verify that a fund record is created successfully with valid required data.", function () {
         create_fund_Transfer.createFundTransfer();
     });
 
@@ -105,7 +105,43 @@ describe("06 Fund Module Test Cases", function () {
         create_fund_Transfer.createGoBackButtonCheck();
     });
 
-    it("06.21. Verify that the fund list grid content updates correctly when switching language from English to Bangla.", function () {
+    it("06.21. Verify that the breadcrumb displays Home, Fund and List.", function () {
+        create_fund_Transfer.listBreadcrumbCheck();
+    });
+
+    it("06.22. Verify that the grid displays all required columns.", function () {
+        create_fund_Transfer.requiredGridColumnsCheck();
+    });
+
+    it("06.23. Verify that fund transfer records contain IDs, offices, payment modes, creators and statuses.", function () {
+        create_fund_Transfer.gridRecordDataCheck();
+    });
+
+    it("06.24. Verify that transfer amounts display valid positive numbers with two decimal places.", function () {
+        create_fund_Transfer.transferAmountCheck();
+    });
+
+    it("06.25. Verify that searching by an existing transfer ID returns matching records.", function () {
+        create_fund_Transfer.transferIdSearchCheck();
+    });
+
+    it("06.26. Verify that a nonexistent search displays No Data.", function () {
+        create_fund_Transfer.noResultSearchCheck();
+    });
+
+    it("06.27. Verify that the Active filter returns only Active fund transfers.", function () {
+        create_fund_Transfer.activeStatusResultCheck();
+    });
+
+    it("06.28. Verify that Sender Office displays the ascending sort indicator.", function () {
+        create_fund_Transfer.senderAscendingSortCheck();
+    });
+
+    it("06.29. Verify that Sender Office displays the descending sort indicator.", function () {
+        create_fund_Transfer.senderDescendingSortCheck();
+    });
+
+    it("06.30. Verify that the fund list grid content updates correctly when switching language from English to Bangla.", function () {
         create_fund_Transfer.gridLanguageSwitchCheck();
     });
 

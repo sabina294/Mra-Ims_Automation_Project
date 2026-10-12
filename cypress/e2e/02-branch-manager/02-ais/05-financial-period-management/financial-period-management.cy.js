@@ -5,7 +5,7 @@
 import "cypress-file-upload";
 import { grid_financial_period_management } from "./financial-period-management.po";
 
-describe("05 Financial Financial Period Management Module Test Cases", function () {
+describe("05. Financial Period Management Module Test Cases", function () {
     const baseURL = Cypress.env("BASE_URL");
     const test_data = Cypress.env("TEST_DATA");
     before(() => {
@@ -81,7 +81,47 @@ describe("05 Financial Financial Period Management Module Test Cases", function 
         grid_financial_period_management.gridDraftButtonOff();
     });
 
-    it("05.15. Verify that the grid content updates correctly when switching language from English to Bangla.", function () {
+    it("05.15. Verify that the breadcrumb displays the correct navigation hierarchy.", function () {
+        grid_financial_period_management.listBreadcrumbCheck();
+    });
+
+    it("05.16. Verify that the grid displays all required columns.", function () {
+        grid_financial_period_management.requiredGridColumnsCheck();
+    });
+
+    it("05.17. Verify that financial period records contain the required data or show No Data.", function () {
+        grid_financial_period_management.gridRecordDataCheck();
+    });
+
+    it("05.18. Verify that financial period dates are valid and the end date follows the start date.", function () {
+        grid_financial_period_management.periodDateRangeCheck();
+    });
+
+    it("05.19. Verify that searching by an existing financial period returns matching records.", function () {
+        grid_financial_period_management.periodSearchCheck();
+    });
+
+    it("05.20. Verify that searching by a partial financial period returns matching records.", function () {
+        grid_financial_period_management.partialPeriodSearchCheck();
+    });
+
+    it("05.21. Verify that a nonexistent search displays No Data.", function () {
+        grid_financial_period_management.noResultSearchCheck();
+    });
+
+    it("05.22. Verify that the Opened status filter returns only Opened financial periods.", function () {
+        grid_financial_period_management.openedStatusResultCheck();
+    });
+
+    it("05.23. Verify that Financial Period displays the ascending sort indicator.", function () {
+        grid_financial_period_management.periodAscendingSortCheck();
+    });
+
+    it("05.24. Verify that Financial Period displays the descending sort indicator.", function () {
+        grid_financial_period_management.periodDescendingSortCheck();
+    });
+
+    it("05.25. Verify that the grid content updates correctly when switching language from English to Bangla.", function () {
         grid_financial_period_management.gridLanguageSwitchCheck();
     });
 

@@ -88,11 +88,11 @@ describe("04. Manual Journal Module Test Cases", function () {
         create_manual_journal.gridRefreshButtonCheck();
     });
 
-    it("04.17. Verify that the grid list is displayed successfully when the Draft button is enabled on the Member Management page.", function () {
+    it("04.17. Verify that the grid list is displayed successfully when the Draft button is enabled on the Manual Journal page.", function () {
         create_manual_journal.gridDraftButton();
     });
 
-    it("04.18. Verify that the grid list is displayed successfully when the Draft button is disabled on the Member Management page.", function () {
+    it("04.18. Verify that the grid list is displayed successfully when the Draft button is disabled on the Manual Journal page.", function () {
         create_manual_journal.gridDraftButtonOff();
     });
 
@@ -120,7 +120,43 @@ describe("04. Manual Journal Module Test Cases", function () {
         create_manual_journal.createNewJournalDetailsButtonCheck();
     });
 
-    it("04.25. Verify that the grid content updates correctly when switching language from English to Bangla.", function () {
+    it("04.25. Verify that the breadcrumb displays Home, Accounting, Manual Journal and List.", function () {
+        create_manual_journal.listBreadcrumbCheck();
+    });
+
+    it("04.26. Verify that the grid displays all required columns.", function () {
+        create_manual_journal.requiredGridColumnsCheck();
+    });
+
+    it("04.27. Verify that journal amounts are valid nonnegative numbers.", function () {
+        create_manual_journal.journalAmountCheck();
+    });
+
+    it("04.28. Verify that searching by an existing description returns matching records.", function () {
+        create_manual_journal.descriptionSearchCheck();
+    });
+
+    it("04.29. Verify that searching by a partial description returns matching records.", function () {
+        create_manual_journal.partialDescriptionSearchCheck();
+    });
+
+    it("04.30. Verify that a nonexistent search displays No Data.", function () {
+        create_manual_journal.noResultSearchCheck();
+    });
+
+    it("04.31. Verify that the Approved status filter returns only Approved journals.", function () {
+        create_manual_journal.approvedStatusResultCheck();
+    });
+
+    it("04.32. Verify that Journal Date displays the ascending sort indicator.", function () {
+        create_manual_journal.dateAscendingSortCheck();
+    });
+
+    it("04.33. Verify that Journal Date displays the descending sort indicator.", function () {
+        create_manual_journal.dateDescendingSortCheck();
+    });
+
+    it("04.34. Verify that the grid content updates correctly when switching language from English to Bangla.", function () {
         create_manual_journal.gridLanguageSwitchCheck();
     });
 

@@ -33,11 +33,27 @@ describe("10. Balance Sheet Module Test Cases", function () {
         create_balance_sheet.gridRefreshButtonCheck();
     });
 
-    it("10.03. Verify check that the grid list content changes correctly from english to bangla.", function () {
+    it("10.03. Verify that the breadcrumb displays Home, Financial Statement and Balance Sheet.", function () {
+        create_balance_sheet.breadcrumbCheck();
+    });
+
+    it("10.04. Verify that ledger tables display Code, Name and Amount columns.", function () {
+        create_balance_sheet.ledgerColumnsCheck();
+    });
+
+    it("10.05. Verify that asset sections display Liquid Assets, Current Assets and Receivables.", function () {
+        create_balance_sheet.assetSectionsCheck();
+    });
+
+    it("10.06. Verify that ledger rows display a numeric code, name and numeric amount.", function () {
+        create_balance_sheet.ledgerDataCheck();
+    });
+
+    it("10.07. Verify check that the grid list content changes correctly from english to bangla.", function () {
         create_balance_sheet.gridLanguageSwitchCheck();
     });
 
-    it("10.04. Verify that clicking the go back button on the Balance Sheet grid page redirects the user to the Balance Sheet list page.", function () {
+    it("10.08. Verify that clicking the go back button on the Balance Sheet grid page redirects the user to the Balance Sheet list page.", function () {
         create_balance_sheet.gridGoBackButtonCheck();
     });
 
