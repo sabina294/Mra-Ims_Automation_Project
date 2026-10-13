@@ -155,7 +155,31 @@ describe("21. Samity Field Officer Change Module Test Cases", function () {
     samity_field_officer_change.combinedFiltersCheck();
   });
 
-  it("21.34. Verify that the grid list content changes correctly when switching the language from English to Bangla.", function () {
+  it("21.34. Verify that the breadcrumb displays Home / Samity / Samity Field Officer Change / List.", function () {
+    samity_field_officer_change.listBreadcrumbCheck();
+  });
+
+  it("21.35. Verify that grid records display serial, Samity ID, name, type, field officer, day and status.", function () {
+    samity_field_officer_change.gridRecordDataCheck();
+  });
+
+  it("21.36. Verify that Office, Status, Draft and search controls are visible.", function () {
+    samity_field_officer_change.searchControlsCheck();
+  });
+
+  it("21.37. Verify that a partial Samity Name search returns matching records.", function () {
+    samity_field_officer_change.partialNameSearchCheck();
+  });
+
+  it("21.38. Verify that a Samity ID search displays matching records or No Data.", function () {
+    samity_field_officer_change.samityIdSearchCheck();
+  });
+
+  it("21.39. Verify that Samity Name displays the descending sort indicator.", function () {
+    samity_field_officer_change.nameDescendingSortCheck();
+  });
+
+  it("21.40. Verify that the grid list content changes correctly when switching the language from English to Bangla.", function () {
     samity_field_officer_change.gridLanguageSwitchCheck();
   });
 }); 

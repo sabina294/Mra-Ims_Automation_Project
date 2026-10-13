@@ -135,7 +135,27 @@ describe("23. Samity Close Module Test Cases", function () {
     Samity_close.combinedFiltersCheck();
   });
 
-  it("23.29. Verify that the grid list content changes successfully from English to Bangla.", function () {
+  it("23.29. Verify that the breadcrumb displays Home / Samity / Samity Close / List.", function () {
+    Samity_close.listBreadcrumbCheck();
+  });
+
+  it("23.30. Verify that grid records display serial, Samity ID, name, type, field officer, day and status.", function () {
+    Samity_close.gridRecordDataCheck();
+  });
+
+  it("23.31. Verify that Office, Status, Draft and search controls are available.", function () {
+    Samity_close.searchControlsCheck();
+  });
+
+  it("23.32. Verify that partial Samity Name search returns matching records.", function () {
+    Samity_close.partialNameSearchCheck();
+  });
+
+  it("23.33. Verify that Samity Name displays the descending sort indicator.", function () {
+    Samity_close.nameDescendingSortCheck();
+  });
+
+  it("23.34. Verify that the grid list content changes successfully from English to Bangla.", function () {
     Samity_close.gridLanguageSwitchCheck();
   });
 });

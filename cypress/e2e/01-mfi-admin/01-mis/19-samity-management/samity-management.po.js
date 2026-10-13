@@ -1,3 +1,4 @@
+import { configurationGridChecks } from "../../../../support/page-objects/configuration-grid-checks";
 import messages from "../../../../support/constants/messages";
 import { COMMON } from "../../../../support/constants/selectors";
 class SamityCreation {
@@ -889,6 +890,51 @@ class SamityCreation {
       cy.get(COMMON.TABLE.VISIBLE_ROWS).should("have.length.greaterThan", 0);
       cy.log(messages.ui.clearSearch);
     });
+  }
+
+  openListForSearchChecks() {
+    this.openListPage();
+    cy.imsId(COMMON.BUTTONS.RESET).click();
+    cy.imsId(COMMON.GRID.DRAFT_TOGGLE).uncheck({ force: true }).should("not.be.checked");
+  }
+
+  searchControlsCheck() {
+    this.openListForSearchChecks();
+    cy.formController("office_id").should("be.visible");
+    cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).should("be.visible");
+    cy.formController(COMMON.INPUTS.SEARCH_TEXT).should("be.visible").and("be.enabled");
+    cy.imsId(COMMON.BUTTONS.SEARCH).should("be.visible").and("be.enabled");
+  }
+
+  partialNameSearchCheck() {
+    this.openListForSearchChecks();
+    cy.get(COMMON.TABLE.VISIBLE_ROWS).first().find(COMMON.TABLE.VISIBLE_CELLS).eq(3)
+      .invoke("text").then((text) => {
+        const name = text.trim();
+        expect(name, "samity name to search").not.to.equal("");
+        configurationGridChecks.partialSearch(name);
+      });
+  }
+
+  samityIdSearchCheck() {
+    this.openListForSearchChecks();
+    cy.get(COMMON.TABLE.VISIBLE_ROWS).first().find(COMMON.TABLE.VISIBLE_CELLS).eq(2)
+      .invoke("text").then((text) => {
+        const samityId = text.trim();
+        expect(samityId, "samity ID to search").not.to.equal("");
+        configurationGridChecks.exactSearch(samityId, 2);
+      });
+  }
+
+  nameAscendingSortCheck() {
+    this.openListForSearchChecks();
+    configurationGridChecks.sort("Samity Name", COMMON.SORT.ASCENDING);
+  }
+
+  nameDescendingSortCheck() {
+    this.openListForSearchChecks();
+    configurationGridChecks.sort("Samity Name", COMMON.SORT.ASCENDING);
+    configurationGridChecks.sort("Samity Name", COMMON.SORT.DESCENDING);
   }
 
   gridLanguageSwitchCheck() {

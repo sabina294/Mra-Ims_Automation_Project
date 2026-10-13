@@ -46,7 +46,7 @@ describe("14. Employee Management Module Test Cases", function () {
   it("14.06. Verify that the Office filter displays office dropdown Employee Management records correctly in My Tasks.", function () {
     create_employee_management.myTaskOfficeDropdownCheck();
   });
-  2
+  
   it("14.07. Verify that the Search button displays the correct Employee Management records in My Tasks.", function () {
     create_employee_management.myTaskSearchButtonCheck();
   });
@@ -167,7 +167,75 @@ describe("14. Employee Management Module Test Cases", function () {
     create_employee_management.gridSearchButtonCheck();
   });
 
-  it("14.37. Verify that the Employee Management List is displayed correctly after switching the language from English to Bangla.", function () {
+  it("14.37. Verify MFI Admin Employee Management: the list breadcrumb.", function () {
+    create_employee_management.listBreadcrumbCheck();
+  });
+
+  it("14.38. Verify MFI Admin Employee Management: all required grid columns.", function () {
+    create_employee_management.requiredGridColumnsCheck();
+  });
+
+  it("14.39. Verify MFI Admin Employee Management: employee identifiers, names, office data and status.", function () {
+    create_employee_management.gridRecordDataCheck();
+  });
+
+  it("14.40. Verify MFI Admin Employee Management: exact employee name search.", function () {
+    create_employee_management.exactNameSearchCheck();
+  });
+
+  it("14.41. Verify MFI Admin Employee Management: partial employee name search.", function () {
+    create_employee_management.partialNameSearchCheck();
+  });
+
+  it("14.42. Verify MFI Admin Employee Management: a non-existing search displays No Data.", function () {
+    create_employee_management.noResultSearchCheck();
+  });
+
+  it("14.43. Verify MFI Admin Employee Management: Reset clears search and restores records.", function () {
+    create_employee_management.resetRestoresGridCheck();
+  });
+
+  it("14.44. Verify MFI Admin Employee Management: Active filter returns only active employees.", function () {
+    create_employee_management.activeStatusResultCheck();
+  });
+
+  it("14.45. Verify MFI Admin Employee Management: Employee Name ascending sort indicator.", function () {
+    create_employee_management.nameAscendingSortCheck();
+  });
+
+  it("14.46. Verify MFI Admin Employee Management: Employee Name descending sort indicator.", function () {
+    create_employee_management.nameDescendingSortCheck();
+  });
+
+  it("14.47. Verify MFI Admin Employee Management: first-page pagination state.", function () {
+    create_employee_management.firstPagePaginationCheck();
+  });
+
+  it("14.48. Verify that the office, status, blood group, Draft and search controls are available.", function () {
+    create_employee_management.searchControlsCheck();
+  });
+
+  it("14.49. Verify that Refresh reloads the Employee Management list successfully.", function () {
+    create_employee_management.refreshListStateCheck();
+  });
+
+  it("14.50. Verify that searching by an existing Employee ID returns matching records.", function () {
+    create_employee_management.employeeIdSearchCheck();
+  });
+
+  it("14.51. Verify that the Inactive filter returns only inactive employees or No Data.", function () {
+    create_employee_management.inactiveStatusResultCheck();
+  });
+
+  it("14.52. Verify that employee records or the No Data empty state display correctly.", function () {
+    create_employee_management.recordsOrEmptyStateCheck();
+  });
+
+  it("14.53. Verify that pagination or the No Data empty state displays correctly.", function () {
+    create_employee_management.paginationOrEmptyStateCheck();
+  });
+
+  it("14.54. Verify that the Employee Management List is displayed correctly after switching the language from English to Bangla.", function () {
     create_employee_management.gridLanguageSwitchCheck();
   });
 });

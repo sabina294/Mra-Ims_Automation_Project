@@ -100,7 +100,59 @@ describe("17. Employee Transfer Module Test Cases", function () {
         grid_employee_transfer.gridDraftButtonOff();
     });
 
-    it("17.20. Verify that the grid content updates correctly when switching the language from English to Bangla.", function () {
+    it("17.20. Verify that the breadcrumb displays Home / Employee / Employee Transfer / List.", function () {
+        grid_employee_transfer.listBreadcrumbCheck();
+    });
+
+    it("17.21. Verify that the grid displays all required columns.", function () {
+        grid_employee_transfer.requiredGridColumnsCheck();
+    });
+
+    it("17.22. Verify that the grid displays employee records or No Data.", function () {
+        grid_employee_transfer.gridRecordDataCheck();
+    });
+
+    it("17.23. Verify that office, Draft and search controls are available.", function () {
+        grid_employee_transfer.searchControlsCheck();
+    });
+
+    it("17.24. Verify that full employee name search returns matching records or No Data for an empty list.", function () {
+        grid_employee_transfer.exactNameSearchCheck();
+    });
+
+    it("17.25. Verify that partial employee name search returns matching records or No Data for an empty list.", function () {
+        grid_employee_transfer.partialNameSearchCheck();
+    });
+
+    it("17.26. Verify that a nonexistent search displays No Data.", function () {
+        grid_employee_transfer.noResultSearchCheck();
+    });
+
+    it("17.27. Verify that Reset clears the search and restores the list or empty state.", function () {
+        grid_employee_transfer.resetRestoresGridCheck();
+    });
+
+    it("17.28. Verify that Refresh keeps the Employee Transfer list available.", function () {
+        grid_employee_transfer.refreshListStateCheck();
+    });
+
+    it("17.29. Verify that Employee Name displays the ascending sort indicator.", function () {
+        grid_employee_transfer.nameAscendingSortCheck();
+    });
+
+    it("17.30. Verify that Employee Name displays the descending sort indicator.", function () {
+        grid_employee_transfer.nameDescendingSortCheck();
+    });
+
+    it("17.31. Verify that pagination or the No Data empty state displays correctly.", function () {
+        grid_employee_transfer.paginationOrEmptyStateCheck();
+    });
+
+    it("17.32. Verify that Employee ID search returns matching records or No Data for an empty list.", function () {
+        grid_employee_transfer.employeeIdSearchCheck();
+    });
+
+    it("17.33. Verify that the grid content updates correctly when switching the language from English to Bangla.", function () {
         grid_employee_transfer.gridLanguageSwitchCheck();
     });
 });

@@ -119,7 +119,23 @@ describe("20. Rejected Samity Module Test Cases", function () {
     create_rejected_samity.nextPageBoundaryCheck();
   });
 
-  it("20.25. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("20.25. Verify that the breadcrumb displays Home / Samity / Rejected Samity / List.", function () {
+    create_rejected_samity.listBreadcrumbCheck();
+  });
+
+  it("20.26. Verify that Office and search controls are visible and list buttons are enabled.", function () {
+    create_rejected_samity.searchControlsCheck();
+  });
+
+  it("20.27. Verify that partial Samity Name search returns matching records or No Data for an empty list.", function () {
+    create_rejected_samity.partialSamityNameSearchCheck();
+  });
+
+  it("20.28. Verify that a nonexistent search displays No Data.", function () {
+    create_rejected_samity.noResultSearchCheck();
+  });
+
+  it("20.29. Verify check that the grid list content changes correctly from english to bangla.", function () {
     create_rejected_samity.gridLanguageSwitchCheck();
   });
 });

@@ -79,7 +79,55 @@ describe("15. Rejected Employee Module Test Cases", function () {
         create_rejected_employee.gridSearchButtonCheck();
     });
 
-    it("15.15. Verify check that the grid list content changes correctly from english to bangla.", function () {
+    it("15.15. Verify that the breadcrumb displays Home / Employee / Rejected Employee / List.", function () {
+        create_rejected_employee.listBreadcrumbCheck();
+    });
+
+    it("15.16. Verify that the grid displays all required columns.", function () {
+        create_rejected_employee.requiredGridColumnsCheck();
+    });
+
+    it("15.17. Verify that the grid displays employee records or No Data.", function () {
+        create_rejected_employee.gridRecordDataCheck();
+    });
+
+    it("15.18. Verify that office and search controls are available.", function () {
+        create_rejected_employee.searchControlsCheck();
+    });
+
+    it("15.19. Verify that full employee name search returns matching records or No Data for an empty list.", function () {
+        create_rejected_employee.exactNameSearchCheck();
+    });
+
+    it("15.20. Verify that partial employee name search returns matching records or No Data for an empty list.", function () {
+        create_rejected_employee.partialNameSearchCheck();
+    });
+
+    it("15.21. Verify that a nonexistent search displays No Data.", function () {
+        create_rejected_employee.noResultSearchCheck();
+    });
+
+    it("15.22. Verify that Reset clears the search and restores the list or empty state.", function () {
+        create_rejected_employee.resetRestoresGridCheck();
+    });
+
+    it("15.23. Verify that Refresh keeps the Rejected Employee list available.", function () {
+        create_rejected_employee.refreshListStateCheck();
+    });
+
+    it("15.24. Verify that Employee Name displays the ascending sort indicator.", function () {
+        create_rejected_employee.nameAscendingSortCheck();
+    });
+
+    it("15.25. Verify that Employee Name displays the descending sort indicator.", function () {
+        create_rejected_employee.nameDescendingSortCheck();
+    });
+
+    it("15.26. Verify that pagination or the No Data empty state displays correctly.", function () {
+        create_rejected_employee.paginationOrEmptyStateCheck();
+    });
+
+    it("15.27. Verify check that the grid list content changes correctly from english to bangla.", function () {
         create_rejected_employee.gridLanguageSwitchCheck();
     });
 });

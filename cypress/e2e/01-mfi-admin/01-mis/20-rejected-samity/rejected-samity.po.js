@@ -1,3 +1,4 @@
+import { configurationGridChecks } from "../../../../support/page-objects/configuration-grid-checks";
 import messages from "../../../../support/constants/messages";
 import { COMMON } from "../../../../support/constants/selectors";
 class RejectedSamity {
@@ -316,6 +317,58 @@ class RejectedSamity {
       }
     });
     cy.log(messages.ui.nextPageDisabledCheck);
+  }
+
+  openListForChecks() {
+    cy.visit("/mfi-mis/samity/rejected-samity/list");
+    cy.location("pathname").should("eq", "/mfi-mis/samity/rejected-samity/list");
+    cy.imsId(COMMON.BUTTONS.RESET).should("be.visible").click();
+    cy.get(COMMON.TABLE.BODY).should(($body) => {
+      const rows = $body.find(COMMON.TABLE.VISIBLE_ROW);
+      if (!rows.length) {
+        expect($body.find(".ant-empty:visible").length, "visible empty state").to.be.greaterThan(0);
+        expect($body.text()).to.contain("No Data");
+      }
+    });
+  }
+
+  listBreadcrumbCheck() {
+    this.openListForChecks();
+    configurationGridChecks.breadcrumb("Rejected Samity", ["Samity"]);
+  }
+
+  searchControlsCheck() {
+    this.openListForChecks();
+    cy.formController("office_id").should("be.visible");
+    cy.formController(COMMON.INPUTS.SEARCH_TEXT).should("be.visible").and("be.enabled");
+    [COMMON.BUTTONS.SEARCH, COMMON.BUTTONS.RESET, COMMON.BUTTONS.REFRESH].forEach((button) => {
+      cy.imsId(button).should("be.visible").and("be.enabled");
+    });
+  }
+
+  searchExistingRecordCheck(column, partial = false) {
+    this.openListForChecks();
+    cy.get(COMMON.TABLE.BODY).then(($body) => {
+      const rows = $body.find(COMMON.TABLE.VISIBLE_ROW);
+      if (!rows.length) {
+        // Exercise search and verify No Data when there is no record to match.
+        configurationGridChecks.noResult("MFI_REJECTED_SAMITY_EMPTY");
+        return;
+      }
+      const value = rows.first().find(COMMON.TABLE.VISIBLE_CELLS).eq(column).text().trim();
+      expect(value, "record value to search").not.to.equal("");
+      if (partial) configurationGridChecks.partialSearch(value);
+      else configurationGridChecks.exactSearch(value, column);
+    });
+  }
+
+  partialSamityNameSearchCheck() {
+    this.searchExistingRecordCheck(COMMON.REJECTED_SAMITY.COLUMNS.SAMITY_NAME, true);
+  }
+
+  noResultSearchCheck() {
+    this.openListForChecks();
+    configurationGridChecks.noResult("MFI_REJECTED_SAMITY");
   }
 
   gridLanguageSwitchCheck() {

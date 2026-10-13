@@ -1,3 +1,4 @@
+import { configurationGridChecks } from "../../../../support/page-objects/configuration-grid-checks";
 import messages from "../../../../support/constants/messages";
 import { COMMON } from "../../../../support/constants/selectors";
 
@@ -350,6 +351,167 @@ class EmployeeManagementCreation {
       cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(emData.search);
       cy.imsId(COMMON.BUTTONS.SEARCH).click();
       cy.log(messages.ui.searchMessage);
+    });
+  }
+
+  openListForChecks() {
+    cy.visit("/mfi-mis/employee/employee-management/list");
+    cy.location("pathname").should("eq", "/mfi-mis/employee/employee-management/list");
+    cy.imsId(COMMON.BUTTONS.RESET).should("be.visible").click();
+    cy.imsId(COMMON.GRID.DRAFT_TOGGLE).uncheck({ force: true });
+  }
+
+  listBreadcrumbCheck() {
+    this.openListForChecks();
+    configurationGridChecks.breadcrumb("Employee Management", ["Employee"]);
+  }
+
+  requiredGridColumnsCheck() {
+    this.openListForChecks();
+    configurationGridChecks.columns(["#", "Employee ID", "Employee Name", "Office ID", "Office", "Gender", "Smart Card ID", "Marital Status", "Locked by", "Status", "Actions"]);
+  }
+
+  gridRecordDataCheck() {
+    this.openListForChecks();
+    cy.get(COMMON.TABLE.VISIBLE_ROWS).should(($rows) => {
+      expect($rows.length, "employee records").to.be.greaterThan(0);
+      $rows.each((_, row) => {
+        const cells = Cypress.$(row).find("td");
+        expect(cells.eq(1).text().trim(), "serial number").to.match(/^\d+$/);
+        expect(cells.eq(3).text().trim(), "employee name").not.to.equal("");
+        [2, 4, 5].forEach((index) => expect(cells.eq(index).text().trim(), `column ${index}`).not.to.equal(""));
+        expect(["Active", "Inactive"]).to.include(cells.eq(10).text().trim());
+      });
+    });
+    cy.log(messages.ui.recordStatusCheck);
+  }
+
+  exactNameSearchCheck() {
+    this.openListForChecks();
+    cy.get(COMMON.TABLE.VISIBLE_ROWS).first().find("td").eq(3).invoke("text").then((text) => {
+      const name = text.trim();
+      expect(name).not.to.equal("");
+      configurationGridChecks.exactSearch(name, 3);
+    });
+  }
+
+  partialNameSearchCheck() {
+    this.openListForChecks();
+    cy.get(COMMON.TABLE.VISIBLE_ROWS).first().find("td").eq(3).invoke("text").then((text) => {
+      const name = text.trim();
+      expect(name).not.to.equal("");
+      configurationGridChecks.partialSearch(name);
+    });
+  }
+
+  noResultSearchCheck() {
+    this.openListForChecks();
+    configurationGridChecks.noResult("BM_EMPLOYEE");
+  }
+
+  resetRestoresGridCheck() {
+    this.noResultSearchCheck();
+    configurationGridChecks.reset();
+  }
+
+  activeStatusResultCheck() {
+    this.openListForChecks();
+    cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type("Active");
+    cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type(COMMON.KEYS.ENTER);
+    cy.imsId(COMMON.BUTTONS.SEARCH).click();
+    cy.get(COMMON.TABLE.VISIBLE_ROWS).should(($rows) => {
+      expect($rows.length, "active employees").to.be.greaterThan(0);
+      $rows.each((_, row) => {
+        expect(Cypress.$(row).find("td").eq(10).text().trim()).to.equal("Active");
+      });
+    });
+  }
+
+  nameAscendingSortCheck() {
+    this.openListForChecks();
+    configurationGridChecks.sort("Employee Name", COMMON.SORT.ASCENDING);
+  }
+
+  nameDescendingSortCheck() {
+    this.openListForChecks();
+    configurationGridChecks.sort("Employee Name", COMMON.SORT.ASCENDING);
+    configurationGridChecks.sort("Employee Name", COMMON.SORT.DESCENDING);
+  }
+
+  firstPagePaginationCheck() {
+    this.openListForChecks();
+    configurationGridChecks.pagination();
+  }
+
+  searchControlsCheck() {
+    this.openListForChecks();
+    ["office_id", COMMON.INPUTS.STATUS_DROPDOWN, "blood_group"].forEach((control) => {
+      cy.formController(control).should("be.visible");
+    });
+    cy.imsId(COMMON.GRID.DRAFT_TOGGLE).should("not.be.checked");
+    cy.formController(COMMON.INPUTS.SEARCH_TEXT).should("be.visible").and("be.enabled");
+    cy.imsId(COMMON.BUTTONS.SEARCH).should("be.visible").and("be.enabled");
+  }
+
+  assertRecordsOrEmpty(expectedStatus) {
+    cy.get(COMMON.TABLE.BODY).should(($body) => {
+      const rows = $body.find(COMMON.TABLE.VISIBLE_ROW);
+      if (!rows.length) {
+        expect($body.find(".ant-empty:visible").length, "visible empty state").to.be.greaterThan(0);
+        expect($body.text()).to.contain("No Data");
+        return;
+      }
+      rows.each((_, row) => {
+        const cells = Cypress.$(row).find(COMMON.TABLE.VISIBLE_CELLS);
+        expect(cells.eq(1).text().trim(), "serial number").to.match(/^\d+$/);
+        [2, 3, 4, 5].forEach((index) => {
+          expect(cells.eq(index).text().trim(), `required column ${index}`).not.to.equal("");
+        });
+        const status = cells.eq(10).text().trim();
+        if (expectedStatus) expect(status, "filtered employee status").to.equal(expectedStatus);
+        else expect(["Active", "Inactive"]).to.include(status);
+      });
+    });
+  }
+
+  recordsOrEmptyStateCheck() {
+    this.openListForChecks();
+    this.assertRecordsOrEmpty();
+  }
+
+  refreshListStateCheck() {
+    this.openListForChecks();
+    cy.imsId(COMMON.BUTTONS.REFRESH).should("be.visible").click();
+    cy.location("pathname").should("eq", "/mfi-mis/employee/employee-management/list");
+    this.assertRecordsOrEmpty();
+  }
+
+  employeeIdSearchCheck() {
+    this.openListForChecks();
+    cy.get(COMMON.TABLE.VISIBLE_ROWS).first().find(COMMON.TABLE.VISIBLE_CELLS).eq(2)
+      .invoke("text").then((text) => {
+        const employeeId = text.trim();
+        expect(employeeId, "employee ID to search").not.to.equal("");
+        configurationGridChecks.exactSearch(employeeId, 2);
+      });
+  }
+
+  inactiveStatusResultCheck() {
+    this.openListForChecks();
+    cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).type("Inactive").type(COMMON.KEYS.ENTER);
+    cy.imsId(COMMON.BUTTONS.SEARCH).click();
+    this.assertRecordsOrEmpty("Inactive");
+  }
+
+  paginationOrEmptyStateCheck() {
+    this.openListForChecks();
+    this.assertRecordsOrEmpty();
+    cy.get(COMMON.TABLE.BODY).then(($body) => {
+      if ($body.find(COMMON.TABLE.VISIBLE_ROW).length) {
+        configurationGridChecks.pagination();
+      } else {
+        cy.get(COMMON.TABLE.BODY).find(".ant-empty").should("be.visible").and("contain.text", "No Data");
+      }
     });
   }
 

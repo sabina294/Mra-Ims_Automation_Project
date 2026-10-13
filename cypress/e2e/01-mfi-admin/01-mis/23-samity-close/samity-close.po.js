@@ -1,3 +1,4 @@
+import { configurationGridChecks } from "../../../../support/page-objects/configuration-grid-checks";
 import messages from "../../../../support/constants/messages";
 import { COMMON } from "../../../../support/constants/selectors";
 class SamityClose {
@@ -341,6 +342,52 @@ class SamityClose {
         });
     });
     cy.log(messages.ui.combinedFilterCheck);
+  }
+
+  listBreadcrumbCheck() {
+    this.openListPage();
+    configurationGridChecks.breadcrumb("Samity Close", ["Samity"]);
+  }
+
+  gridRecordDataCheck() {
+    this.openListPage();
+    cy.get(COMMON.TABLE.VISIBLE_ROWS).should(($rows) => {
+      expect($rows.length, "samity records").to.be.greaterThan(0);
+      $rows.each((_, row) => {
+        const cells = Cypress.$(row).find(COMMON.TABLE.VISIBLE_CELLS);
+        expect(cells.eq(0).text().trim(), "serial number").to.match(/^\d+$/);
+        [1, 2, 3, 4, 5].forEach((index) => {
+          expect(cells.eq(index).text().trim(), `required column ${index}`).not.to.equal("");
+        });
+        expect(["Active", "Inactive"]).to.include(cells.eq(6).text().trim());
+      });
+    });
+  }
+
+  searchControlsCheck() {
+    this.openListPage();
+    cy.formController("office_id").should("be.visible");
+    cy.formController(COMMON.INPUTS.STATUS_DROPDOWN).should("be.visible");
+    cy.imsId(COMMON.GRID.DRAFT_TOGGLE).should("exist").and("be.enabled");
+    cy.imsId(COMMON.GRID.DRAFT_TOGGLE).closest("label").should("be.visible").and("contain.text", "Draft");
+    cy.formController(COMMON.INPUTS.SEARCH_TEXT).should("be.visible").and("be.enabled");
+    cy.imsId(COMMON.BUTTONS.SEARCH).should("be.visible").and("be.enabled");
+  }
+
+  partialNameSearchCheck() {
+    this.openListPage();
+    cy.get(COMMON.TABLE.VISIBLE_ROWS).first().find(COMMON.TABLE.VISIBLE_CELLS).eq(2)
+      .invoke("text").then((text) => {
+        const name = text.trim();
+        expect(name, "samity name to search").not.to.equal("");
+        configurationGridChecks.partialSearch(name);
+      });
+  }
+
+  nameDescendingSortCheck() {
+    this.openListPage();
+    configurationGridChecks.sort("Samity Name", COMMON.SORT.ASCENDING);
+    configurationGridChecks.sort("Samity Name", COMMON.SORT.DESCENDING);
   }
 
   gridLanguageSwitchCheck() {

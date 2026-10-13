@@ -155,7 +155,31 @@ describe("22. Samity Day Change Module Test Cases", function () {
     samity_day_change.combinedFiltersCheck();
   });
 
-  it("22.34. Verify that the grid list content changes correctly from English to Bangla.", function () {
+  it("22.34. Verify that the breadcrumb displays Home / Samity / Samity Day Change / List.", function () {
+    samity_day_change.listBreadcrumbCheck();
+  });
+
+  it("22.35. Verify that grid records display serial, Samity ID, name, type, field officer, day and status.", function () {
+    samity_day_change.gridRecordDataCheck();
+  });
+
+  it("22.36. Verify that Office, Status, Draft and search controls are visible.", function () {
+    samity_day_change.searchControlsCheck();
+  });
+
+  it("22.37. Verify that a partial Samity Name search returns matching records.", function () {
+    samity_day_change.partialNameSearchCheck();
+  });
+
+  it("22.38. Verify that a Samity ID search displays matching records or No Data.", function () {
+    samity_day_change.samityIdSearchCheck();
+  });
+
+  it("22.39. Verify that Samity Name displays the descending sort indicator.", function () {
+    samity_day_change.nameDescendingSortCheck();
+  });
+
+  it("22.40. Verify that the grid list content changes correctly from English to Bangla.", function () {
     samity_day_change.gridLanguageSwitchCheck();
   });
 });

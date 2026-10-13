@@ -29,6 +29,7 @@ describe("16. Loan Penalty Module Test Cases", function () {
       cy.logout();
       cy.loginAsBranchManager(baseURL, d);
       create_staging_data.gridStagingDataListPage();
+      cy.wait(2000);
       create_staging_data.startProcessStagingData();
       create_staging_data.refreshButtonCheck();
       cy.logout();

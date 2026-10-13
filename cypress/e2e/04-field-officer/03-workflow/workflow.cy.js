@@ -4,7 +4,7 @@
 
 import "cypress-file-upload";
 
-// import { cancel_samity } from "../../../support/page-objects/cancel-samity.po";
+import { cancel_samity } from "../../../support/page-objects/cancel-samity.po";
 import { authorization } from "../../../support/page-objects/authorization.po";
 import { create_day_end_process_mis } from "../../../support/page-objects/day-end-process-mis.po";
 import { create_day_end_process_ais } from "../../../support/page-objects/day-end-process-ais.po";
@@ -34,9 +34,9 @@ describe("03. Branch Manager Complete Workflow", function () {
     // ==========================
     // Cancel Samity
     // ==========================
-    // cancel_samity.gridCancelSamityListPage();
-    // cancel_samity.cancelSamity();
-    // cancel_samity.submitCancelSamity();
+    cancel_samity.gridCancelSamityListPage();
+    cancel_samity.cancelSamity();
+    cancel_samity.submitCancelSamity();
 
     // ==========================
     // Authorization

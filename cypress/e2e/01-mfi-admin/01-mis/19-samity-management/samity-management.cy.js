@@ -247,7 +247,23 @@ describe("19. Samity management Module Test Cases", function () {
     create_samity_management.searchResetCheck();
   });
 
-  it("19.57. Verify that the Samity Management list is displayed correctly after switching the language from English to Bangla.", function () {
+  it("19.57. Verify that Office, Status, Draft and search controls are available.", function () {
+    create_samity_management.searchControlsCheck();
+  });
+
+  it("19.58. Verify that partial Samity Name search returns matching records.", function () {
+    create_samity_management.partialNameSearchCheck();
+  });
+
+  it("19.59. Verify that Samity Name displays the ascending sort indicator.", function () {
+    create_samity_management.nameAscendingSortCheck();
+  });
+
+  it("19.60. Verify that Samity Name displays the descending sort indicator.", function () {
+    create_samity_management.nameDescendingSortCheck();
+  });
+
+  it("19.61. Verify that the Samity Management list is displayed correctly after switching the language from English to Bangla.", function () {
     create_samity_management.gridLanguageSwitchCheck();
   });
 });
