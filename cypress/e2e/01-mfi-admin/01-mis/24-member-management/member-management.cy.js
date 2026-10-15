@@ -161,4 +161,40 @@ describe("24. Member Management Module Test Cases", function () {
   it("24.35. Verify that the grid list content changes successfully from English to Bangla.", function () {
     create_member_management.gridLanguageSwitchCheck();
   });
+
+  it("24.36. Verify that the list breadcrumb displays Home, Member, Member Management and List.", function () {
+    create_member_management.listBreadcrumbCheck();
+  });
+
+  it("24.37. Verify that all required Member Management grid columns are visible.", function () {
+    create_member_management.requiredGridColumnsCheck();
+  });
+
+  it("24.38. Verify that member rows display identifiers, names, office, samity and valid status.", function () {
+    create_member_management.gridRecordDataCheck();
+  });
+
+  it("24.39. Verify that a partial member name search returns matching members.", function () {
+    create_member_management.partialNameSearchCheck();
+  });
+
+  it("24.40. Verify that searching by an existing Member ID returns matching members.", function () {
+    create_member_management.memberIdSearchCheck();
+  });
+
+  it("24.41. Verify that a non-existing search displays No Data.", function () {
+    create_member_management.noResultSearchCheck();
+  });
+
+  it("24.42. Verify that the Name column displays the ascending sort indicator.", function () {
+    create_member_management.nameAscendingSortCheck();
+  });
+
+  it("24.43. Verify that the Name column displays the descending sort indicator.", function () {
+    create_member_management.nameDescendingSortCheck();
+  });
+
+  it("24.44. Verify that the first page is selected with Previous disabled and page size available.", function () {
+    create_member_management.firstPagePaginationCheck();
+  });
 });

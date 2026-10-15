@@ -1,3 +1,4 @@
+import { configurationGridChecks } from "../../../../support/page-objects/configuration-grid-checks";
 import messages from "../../../../support/constants/messages";
 import { COMMON } from "../../../../support/constants/selectors";
 class SavingsProductCreation {
@@ -808,6 +809,57 @@ class SavingsProductCreation {
       cy.get(COMMON.TABLE.VISIBLE_ROWS).should("have.length", 0);
       cy.log(messages.ui.searchNoResult);
     });
+  }
+
+  openListForChecks() {
+    cy.visit("/mfi-mis/savings-product/savings-product-management/list");
+    cy.changeLanguage("english");
+    cy.location("pathname").should("eq", "/mfi-mis/savings-product/savings-product-management/list");
+    cy.imsId(COMMON.BUTTONS.RESET).should("be.visible").click();
+  }
+
+  listBreadcrumbCheck() {
+    this.openListForChecks();
+    configurationGridChecks.breadcrumb("Savings Product", []);
+  }
+
+  gridRecordDataCheck() {
+    this.openListForChecks();
+    cy.get(COMMON.TABLE.VISIBLE_ROWS).should(($rows) => {
+      expect($rows.length, "savings product records").to.be.greaterThan(0);
+      $rows.each((_, row) => {
+        const cells = Cypress.$(row).find(COMMON.TABLE.VISIBLE_CELLS);
+        expect(cells.eq(0).text().trim(), "serial number").to.match(/^\d+$/);
+        // Company Product ID and MFI Program ID may be blank for existing products.
+        [1, 3, 5, 6].forEach((index) => {
+          expect(cells.eq(index).text().trim(), `required column ${index}`).not.to.equal("");
+        });
+        expect(["Active", "Inactive"]).to.include(cells.eq(7).text().trim());
+      });
+    });
+  }
+
+  partialNameSearchCheck() {
+    this.openListForChecks();
+    cy.get(COMMON.TABLE.VISIBLE_ROWS).first().find(COMMON.TABLE.VISIBLE_CELLS).eq(3)
+      .invoke("text").then((text) => {
+        const name = text.trim();
+        expect(name, "product name for partial search").to.have.length.greaterThan(1);
+        const partial = name.slice(0, Math.max(1, Math.floor(name.length / 2)));
+        configurationGridChecks.exactSearch(partial, 3);
+      });
+  }
+
+  savingsProductIdDescendingSortCheck() {
+    this.openListForChecks();
+    configurationGridChecks.sort("Savings Product ID", COMMON.SORT.ASCENDING);
+    configurationGridChecks.sort("Savings Product ID", COMMON.SORT.DESCENDING);
+  }
+
+  savingsProductNameDescendingSortCheck() {
+    this.openListForChecks();
+    configurationGridChecks.sort("Savings Product Name", COMMON.SORT.ASCENDING);
+    configurationGridChecks.sort("Savings Product Name", COMMON.SORT.DESCENDING);
   }
 
   gridLanguageSwitchCheck() {

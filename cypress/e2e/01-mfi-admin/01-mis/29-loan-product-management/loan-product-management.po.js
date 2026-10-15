@@ -1,3 +1,4 @@
+import { configurationGridChecks } from "../../../../support/page-objects/configuration-grid-checks";
 import messages from "../../../../support/constants/messages";
 import { COMMON } from "../../../../support/constants/selectors";
 class LoanProductManagementCreation {
@@ -822,6 +823,57 @@ class LoanProductManagementCreation {
         });
     });
     cy.log(messages.ui.combinedFilterCheck);
+  }
+
+  openListForChecks() {
+    cy.visit("/mfi-mis/loan-product/loan-product-management/list");
+    cy.changeLanguage("english");
+    cy.location("pathname").should("eq", "/mfi-mis/loan-product/loan-product-management/list");
+    cy.imsId(COMMON.BUTTONS.RESET).should("be.visible").click();
+  }
+
+  listBreadcrumbCheck() {
+    this.openListForChecks();
+    configurationGridChecks.breadcrumb("Loan Product Management", ["Loan Product"]);
+  }
+
+  gridRecordDataCheck() {
+    this.openListForChecks();
+    cy.get(COMMON.TABLE.VISIBLE_ROWS).should(($rows) => {
+      expect($rows.length, "loan product records").to.be.greaterThan(0);
+      $rows.each((_, row) => {
+        const cells = Cypress.$(row).find(COMMON.TABLE.VISIBLE_CELLS);
+        expect(cells.eq(0).text().trim(), "serial number").to.match(/^\d+$/);
+        // Product Display Name is optional and can be blank.
+        [1, 2, 4, 5, 6].forEach((index) => {
+          expect(cells.eq(index).text().trim(), `required column ${index}`).not.to.equal("");
+        });
+        expect(["Active", "Inactive"]).to.include(cells.eq(7).text().trim());
+      });
+    });
+  }
+
+  partialNameSearchCheck() {
+    this.openListForChecks();
+    cy.get(COMMON.TABLE.VISIBLE_ROWS).first().find(COMMON.TABLE.VISIBLE_CELLS).eq(2)
+      .invoke("text").then((text) => {
+        const name = text.trim();
+        expect(name, "product name for partial search").to.have.length.greaterThan(1);
+        const partial = name.slice(0, Math.max(1, Math.floor(name.length / 2)));
+        configurationGridChecks.exactSearch(partial, 2);
+      });
+  }
+
+  loanProductIdDescendingSortCheck() {
+    this.openListForChecks();
+    configurationGridChecks.sort("Loan Product ID", COMMON.SORT.ASCENDING);
+    configurationGridChecks.sort("Loan Product ID", COMMON.SORT.DESCENDING);
+  }
+
+  loanProductNameDescendingSortCheck() {
+    this.openListForChecks();
+    configurationGridChecks.sort("Loan Product Name", COMMON.SORT.ASCENDING);
+    configurationGridChecks.sort("Loan Product Name", COMMON.SORT.DESCENDING);
   }
 
   gridLanguageSwitchCheck() {

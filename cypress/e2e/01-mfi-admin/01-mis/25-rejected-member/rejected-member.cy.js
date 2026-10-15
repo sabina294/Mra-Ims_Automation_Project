@@ -85,4 +85,40 @@ describe("25. Rejected Member Module Test Cases", function () {
   it("25.16. Verify that the grid list content changes correctly from English to Bangla.", function () {
     create_rejected_member.gridLanguageSwitchCheck();
   });
+
+  it("25.17. Verify that the list breadcrumb displays Home, Member, Rejected Member and List.", function () {
+    create_rejected_member.listBreadcrumbCheck();
+  });
+
+  it("25.18. Verify that all required Rejected Member grid columns are visible.", function () {
+    create_rejected_member.requiredGridColumnsCheck();
+  });
+
+  it("25.19. Verify that rejected member rows display identifiers, names, office, samity and Rejected status.", function () {
+    create_rejected_member.gridRecordDataCheck();
+  });
+
+  it("25.20. Verify that a partial member name search returns matching rejected members.", function () {
+    create_rejected_member.partialNameSearchCheck();
+  });
+
+  it("25.21. Verify that searching by an existing Member ID returns matching rejected members.", function () {
+    create_rejected_member.memberIdSearchCheck();
+  });
+
+  it("25.22. Verify that a non-existing search displays No Data.", function () {
+    create_rejected_member.noResultSearchCheck();
+  });
+
+  it("25.23. Verify that the Name column displays the ascending sort indicator.", function () {
+    create_rejected_member.nameAscendingSortCheck();
+  });
+
+  it("25.24. Verify that the Name column displays the descending sort indicator.", function () {
+    create_rejected_member.nameDescendingSortCheck();
+  });
+
+  it("25.25. Verify that the first page is selected with Previous disabled and page size available.", function () {
+    create_rejected_member.firstPagePaginationCheck();
+  });
 });

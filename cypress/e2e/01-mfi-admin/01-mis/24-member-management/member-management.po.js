@@ -1,3 +1,4 @@
+import { configurationGridChecks } from "../../../../support/page-objects/configuration-grid-checks";
 import messages from "../../../../support/constants/messages";
 import { COMMON } from "../../../../support/constants/selectors";
 class MemberManagementCreation {
@@ -227,13 +228,40 @@ class MemberManagementCreation {
   }
 
   gridCheckboxLockButtonCheck() {
+    cy.get('[data-ims-id^="row-checkbox-"]:checked:visible')
+      .should("have.length", 1)
+      .closest("tr")
+      .find(COMMON.TABLE.VISIBLE_CELLS).eq(2)
+      .invoke("text").then((text) => {
+        this.lockedMemberId = text.trim();
+        expect(this.lockedMemberId, "member selected for locking").not.to.equal("");
+      });
     cy.imsClickWhenEnabled(COMMON.BUTTONS.LOCK);
+    cy.then(() => {
+      this.lockedMemberRow().find(COMMON.TABLE.VISIBLE_CELLS).eq(9)
+        .invoke("text").should("match", /\S/);
+    });
     cy.log(messages.ui.lockSuccess);
   }
 
+  lockedMemberRow() {
+    expect(this.lockedMemberId, "member locked in test 24.23").to.be.a("string").and.not.be.empty;
+    return cy.get(COMMON.TABLE.VISIBLE_ROWS)
+      .contains("td", new RegExp(`^\\s*${Cypress._.escapeRegExp(this.lockedMemberId)}\\s*$`))
+      .closest("tr");
+  }
+
   gridCheckboxUnlockButtonCheck() {
-    cy.selectFirstEnabledGridCheckbox();
+    // Select the same member even if locking refreshed or reordered the grid.
+    cy.get('[data-ims-id^="row-checkbox-"]:visible:not(:disabled)')
+      .uncheck();
+    this.lockedMemberRow().find('[data-ims-id^="row-checkbox-"]')
+      .should("not.be.disabled").check();
     cy.imsClickWhenEnabled(COMMON.BUTTONS.UNLOCK);
+    this.lockedMemberRow().find(COMMON.TABLE.VISIBLE_CELLS).eq(9)
+      .should(($cell) => {
+        expect($cell.text().trim(), "Locked By after unlocking").to.equal("");
+      });
     cy.log(messages.ui.unlockSuccess);
   }
 
@@ -316,6 +344,86 @@ class MemberManagementCreation {
       cy.imsId(COMMON.BUTTONS.SEARCH).click();
       cy.log(messages.ui.searchMessage);
     });
+  }
+
+  // Keep these list checks independent of the earlier create/edit workflow.
+  openListForChecks() {
+    cy.visit("/mfi-mis/member/member-management/list");
+    cy.changeLanguage("english");
+    cy.location("pathname").should("eq", "/mfi-mis/member/member-management/list");
+    cy.imsId(COMMON.BUTTONS.RESET).should("be.visible").click();
+    cy.imsId(COMMON.GRID.DRAFT_TOGGLE).uncheck({ force: true });
+  }
+
+  listBreadcrumbCheck() {
+    this.openListForChecks();
+    configurationGridChecks.breadcrumb("Member Management", ["Member"]);
+  }
+
+  requiredGridColumnsCheck() {
+    this.openListForChecks();
+    configurationGridChecks.columns([
+      "#", "Member Id", "Name", "Office Id", "Office", "Samity Id",
+      "Samity Name", "Contact No", "Locked By", "Status", "Actions",
+    ]);
+  }
+
+  gridRecordDataCheck() {
+    this.openListForChecks();
+    cy.get(COMMON.TABLE.VISIBLE_ROWS).should(($rows) => {
+      expect($rows.length, "member records").to.be.greaterThan(0);
+      $rows.each((_, row) => {
+        const cells = Cypress.$(row).find(COMMON.TABLE.VISIBLE_CELLS);
+        expect(cells.eq(1).text().trim(), "serial number").to.match(/^\d+$/);
+        [2, 3, 4, 5, 6, 7].forEach((index) => {
+          expect(cells.eq(index).text().trim(), `required column ${index}`).not.to.equal("");
+        });
+        expect(["Active", "Inactive"], "member status").to.include(cells.eq(10).text().trim());
+      });
+    });
+  }
+
+  partialNameSearchCheck() {
+    this.openListForChecks();
+    cy.get(COMMON.TABLE.VISIBLE_ROWS).first().find(COMMON.TABLE.VISIBLE_CELLS).eq(3)
+      .invoke("text").then((text) => {
+        const name = text.trim();
+        expect(name, "member name to search").not.to.equal("");
+        // Use a proper substring even when the member has a single-word name.
+        const partialName = name.slice(0, Math.max(1, Math.floor(name.length / 2)));
+        configurationGridChecks.exactSearch(partialName, 3);
+      });
+  }
+
+  memberIdSearchCheck() {
+    this.openListForChecks();
+    cy.get(COMMON.TABLE.VISIBLE_ROWS).first().find(COMMON.TABLE.VISIBLE_CELLS).eq(2)
+      .invoke("text").then((text) => {
+        const memberId = text.trim();
+        expect(memberId, "member ID to search").not.to.equal("");
+        configurationGridChecks.exactSearch(memberId, 2);
+      });
+  }
+
+  noResultSearchCheck() {
+    this.openListForChecks();
+    configurationGridChecks.noResult("MFI_MEMBER");
+  }
+
+  nameAscendingSortCheck() {
+    this.openListForChecks();
+    configurationGridChecks.sort("Name", COMMON.SORT.ASCENDING);
+  }
+
+  nameDescendingSortCheck() {
+    this.openListForChecks();
+    configurationGridChecks.sort("Name", COMMON.SORT.ASCENDING);
+    configurationGridChecks.sort("Name", COMMON.SORT.DESCENDING);
+  }
+
+  firstPagePaginationCheck() {
+    this.openListForChecks();
+    configurationGridChecks.pagination();
   }
 
   gridLanguageSwitchCheck() {

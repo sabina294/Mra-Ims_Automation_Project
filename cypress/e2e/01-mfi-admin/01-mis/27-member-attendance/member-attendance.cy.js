@@ -40,19 +40,51 @@ describe("27. Member Attendance Module Test Cases", function () {
         member_attendance.statusOfficeDropdownCheck();
     });
 
-    it("27.05. Verify that the Reset button successfully clears the filters and resets the Member Attendance grid list.", function () {
+    it("27.04. Verify that the Reset button successfully clears the filters and resets the Member Attendance grid list.", function () {
         member_attendance.gridResetButtonCheck();
     });
 
-    it("27.06. Verify that clicking the Search button on the Member Attendance grid page correctly loads the filtered list.", function () {
+    it("27.05. Verify that clicking the Search button on the Member Attendance grid page correctly loads the filtered list.", function () {
         member_attendance.gridSearchButtonCheck();
     });
 
-    it("27.07. Verify that the Refresh button successfully reloads the Member Attendance grid list.", function () {
+    it("27.06. Verify that the Refresh button successfully reloads the Member Attendance grid list.", function () {
         member_attendance.gridRefreshButtonCheck();
     });
 
-    it("27.08. Verify that the grid list content correctly switches between English and Bangla languages.", function () {
+    it("27.07. Verify that the grid list content correctly switches between English and Bangla languages.", function () {
         member_attendance.gridLanguageSwitchCheck();
+    });
+
+    it("27.08. Verify that the list breadcrumb displays Home, Member, Member Attendance and List.", function () {
+        member_attendance.listBreadcrumbCheck();
+    });
+
+    it("27.09. Verify that all required Member Attendance grid columns are visible.", function () {
+        member_attendance.requiredGridColumnsCheck();
+    });
+
+    it("27.10. Verify that samity rows display identifiers, names, types and a valid status.", function () {
+        member_attendance.gridRecordDataCheck();
+    });
+
+    it("27.11. Verify that a partial samity name search returns matching attendance records.", function () {
+        member_attendance.partialNameSearchCheck();
+    });
+
+    it("27.12. Verify that a non-existing search displays No Data.", function () {
+        member_attendance.noResultSearchCheck();
+    });
+
+    it("27.13. Verify that the Samity Id column displays the ascending sort indicator.", function () {
+        member_attendance.samityIdAscendingSortCheck();
+    });
+
+    it("27.14. Verify that the Samity Id column displays the descending sort indicator.", function () {
+        member_attendance.samityIdDescendingSortCheck();
+    });
+
+    it("27.15. Verify that the first page is selected with Previous disabled and page size available.", function () {
+        member_attendance.firstPagePaginationCheck();
     });
 });

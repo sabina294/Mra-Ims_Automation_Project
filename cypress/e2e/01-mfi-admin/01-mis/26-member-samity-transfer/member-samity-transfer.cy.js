@@ -123,4 +123,40 @@ describe("26. Member Samity Transfer Module Test Cases", function () {
   it("26.25. Verify check that the grid list content changes correctly from english to bangla.", function () {
     member_samity_transfer.gridLanguageSwitchCheck();
   });
+
+  it("26.26. Verify that the list breadcrumb displays Home, Member, Member Samity Transfer and List.", function () {
+    member_samity_transfer.listBreadcrumbCheck();
+  });
+
+  it("26.27. Verify that all required Member Samity Transfer grid columns are visible.", function () {
+    member_samity_transfer.requiredGridColumnsCheck();
+  });
+
+  it("26.28. Verify that member rows display identifiers, names, office, samity and valid status.", function () {
+    member_samity_transfer.gridRecordDataCheck();
+  });
+
+  it("26.29. Verify that a partial member name search returns matching members.", function () {
+    member_samity_transfer.partialNameSearchCheck();
+  });
+
+  it("26.30. Verify that searching by an existing Member ID returns matching members.", function () {
+    member_samity_transfer.memberIdSearchCheck();
+  });
+
+  it("26.31. Verify that a non-existing search displays No Data.", function () {
+    member_samity_transfer.noResultSearchCheck();
+  });
+
+  it("26.32. Verify that the Name column displays the ascending sort indicator.", function () {
+    member_samity_transfer.nameAscendingSortCheck();
+  });
+
+  it("26.33. Verify that the Name column displays the descending sort indicator.", function () {
+    member_samity_transfer.nameDescendingSortCheck();
+  });
+
+  it("26.34. Verify that the first page is selected with Previous disabled and page size available.", function () {
+    member_samity_transfer.firstPagePaginationCheck();
+  });
 });

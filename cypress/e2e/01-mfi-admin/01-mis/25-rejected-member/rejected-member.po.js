@@ -1,3 +1,4 @@
+import { configurationGridChecks } from "../../../../support/page-objects/configuration-grid-checks";
 import messages from "../../../../support/constants/messages";
 import { COMMON } from "../../../../support/constants/selectors";
 class RrejectedMember {
@@ -190,6 +191,85 @@ class RrejectedMember {
       cy.formController("office_id").type(rejmData.office);
       cy.log(messages.ui.rejectSuccess);
     });
+  }
+
+  // Keep these list checks independent of the earlier create/edit workflow.
+  openListForChecks() {
+    cy.visit("/mfi-mis/member/rejected-member/list");
+    cy.changeLanguage("english");
+    cy.location("pathname").should("eq", "/mfi-mis/member/rejected-member/list");
+    cy.imsId(COMMON.BUTTONS.RESET).should("be.visible").click();
+  }
+
+  listBreadcrumbCheck() {
+    this.openListForChecks();
+    configurationGridChecks.breadcrumb("Rejected Member", ["Member"]);
+  }
+
+  requiredGridColumnsCheck() {
+    this.openListForChecks();
+    configurationGridChecks.columns([
+      "#", "Member Id", "Name", "Office Id", "Samity Id",
+      "Contact No", "Status", "Actions",
+    ]);
+  }
+
+  gridRecordDataCheck() {
+    this.openListForChecks();
+    cy.get(COMMON.TABLE.VISIBLE_ROWS).should(($rows) => {
+      expect($rows.length, "member records").to.be.greaterThan(0);
+      $rows.each((_, row) => {
+        const cells = Cypress.$(row).find(COMMON.TABLE.VISIBLE_CELLS);
+        expect(cells.eq(0).text().trim(), "serial number").to.match(/^\d+$/);
+        [1, 2, 3, 4].forEach((index) => {
+          expect(cells.eq(index).text().trim(), `required column ${index}`).not.to.equal("");
+        });
+        expect(cells.eq(6).text().trim(), "member status").to.equal("Rejected");
+      });
+    });
+  }
+
+  partialNameSearchCheck() {
+    this.openListForChecks();
+    cy.get(COMMON.TABLE.VISIBLE_ROWS).first().find(COMMON.TABLE.VISIBLE_CELLS).eq(2)
+      .invoke("text").then((text) => {
+        const name = text.trim();
+        expect(name, "member name to search").not.to.equal("");
+        // Use a proper substring even when the member has a single-word name.
+        const partialName = name.slice(0, Math.max(1, Math.floor(name.length / 2)));
+        configurationGridChecks.exactSearch(partialName, 2);
+      });
+  }
+
+  memberIdSearchCheck() {
+    this.openListForChecks();
+    cy.get(COMMON.TABLE.VISIBLE_ROWS).first().find(COMMON.TABLE.VISIBLE_CELLS).eq(1)
+      .invoke("text").then((text) => {
+        const memberId = text.trim();
+        expect(memberId, "member ID to search").not.to.equal("");
+        configurationGridChecks.exactSearch(memberId, 1);
+      });
+  }
+
+  noResultSearchCheck() {
+    this.openListForChecks();
+    configurationGridChecks.noResult("MFI_REJECTED_MEMBER");
+  }
+
+  nameAscendingSortCheck() {
+    this.openListForChecks();
+    configurationGridChecks.sort("Name", COMMON.SORT.ASCENDING);
+  }
+
+  nameDescendingSortCheck() {
+    this.openListForChecks();
+    configurationGridChecks.sort("Name", COMMON.SORT.ASCENDING);
+    configurationGridChecks.sort("Name", COMMON.SORT.DESCENDING);
+  }
+
+  firstPagePaginationCheck() {
+    this.openListForChecks();
+    configurationGridChecks.pagination();
   }
 
   gridLanguageSwitchCheck() {

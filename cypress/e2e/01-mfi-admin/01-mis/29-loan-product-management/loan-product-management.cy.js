@@ -180,7 +180,27 @@ describe("29. Loan Product Management Module Test Cases", function () {
     create_loan_product_management.combinedFiltersCheck();
   });
 
-  it("29.40. Verify that the grid list content changes correctly when switching the language from English to Bangla.", function () {
+  it("29.40. Verify that the breadcrumb displays Home, Loan Product, Loan Product Management and List.", function () {
+    create_loan_product_management.listBreadcrumbCheck();
+  });
+
+  it("29.41. Verify that grid rows display product identifiers, names, program, nature, frequency and valid status.", function () {
+    create_loan_product_management.gridRecordDataCheck();
+  });
+
+  it("29.42. Verify that a partial Loan Product Name search returns matching records.", function () {
+    create_loan_product_management.partialNameSearchCheck();
+  });
+
+  it("29.43. Verify that the Loan Product ID column displays the descending sort indicator.", function () {
+    create_loan_product_management.loanProductIdDescendingSortCheck();
+  });
+
+  it("29.44. Verify that the Loan Product Name column displays the descending sort indicator.", function () {
+    create_loan_product_management.loanProductNameDescendingSortCheck();
+  });
+
+  it("29.45. Verify that the grid list content changes correctly when switching the language from English to Bangla.", function () {
     create_loan_product_management.gridLanguageSwitchCheck();
   });
 });

@@ -180,7 +180,27 @@ describe("39. Savings Product Module Test Cases", function () {
     create_savings_product.emptySearchResultCheck();
   });
 
-  it("39.40. Verify that the grid list content changes correctly when switching the language from English to Bangla.", function () {
+  it("39.40. Verify that the breadcrumb displays Home, Savings Product and List.", function () {
+    create_savings_product.listBreadcrumbCheck();
+  });
+
+  it("39.41. Verify that grid rows display savings product identifiers, names, interest terms, frequency and valid status.", function () {
+    create_savings_product.gridRecordDataCheck();
+  });
+
+  it("39.42. Verify that a partial Savings Product Name search returns matching records.", function () {
+    create_savings_product.partialNameSearchCheck();
+  });
+
+  it("39.43. Verify that the Savings Product ID column displays the descending sort indicator.", function () {
+    create_savings_product.savingsProductIdDescendingSortCheck();
+  });
+
+  it("39.44. Verify that the Savings Product Name column displays the descending sort indicator.", function () {
+    create_savings_product.savingsProductNameDescendingSortCheck();
+  });
+
+  it("39.45. Verify that the grid list content changes correctly when switching the language from English to Bangla.", function () {
     create_savings_product.gridLanguageSwitchCheck();
   });
 });
