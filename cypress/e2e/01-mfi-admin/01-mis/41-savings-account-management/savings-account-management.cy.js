@@ -23,7 +23,7 @@ describe("41. Savings Account Management Module Test Cases", function () {
     cy.logout();
   });
 
-  it("41.01. Verify the savings account application management list page loads correctly.", function () {
+  it("41.01. Verify the savings account management list page loads correctly.", function () {
     create_savings_account_management.gridSavingsAccountManagementListPage();
   });
 
@@ -31,7 +31,7 @@ describe("41. Savings Account Management Module Test Cases", function () {
     create_savings_account_management.actionButtonCheck();
   });
 
-  it("41.03. Verify the user can successfully view the savings account application management information, including the name and description.", function () {
+  it("41.03. Verify the user can successfully view the savings account management information, including the name and description.", function () {
     create_savings_account_management.viewSavingsAccountManag();
   });
 
@@ -39,11 +39,11 @@ describe("41. Savings Account Management Module Test Cases", function () {
     create_savings_account_management.viewGoBackButton();
   });
 
-  it("41.05. Verify the user can filter inactive employee records using the status dropdown on the savings account management List page.", function () {
+  it("41.05. Verify that the Approved status can be selected on the savings account management list page.", function () {
     create_savings_account_management.statusApprovedDropdownCheck();
   });
 
-  it("41.06. Verify check if the filter for active results works correctly with the status dropdown.", function () {
+  it("41.06. Verify that the Rejected status can be selected on the savings account management list page.", function () {
     create_savings_account_management.statusRejectedDropdownCheck();
   });
 
@@ -63,11 +63,67 @@ describe("41. Savings Account Management Module Test Cases", function () {
     create_savings_account_management.gridRefreshButtonCheck();
   });
 
-  it("41.11. Verify that when the user clicks the Search button on the savings account management grid page, the system redirects to the savings account management List page..", function () {
+  it("41.11. Verify that clicking Search updates the savings account management list.", function () {
     create_savings_account_management.gridSearchButtonCheck();
   });
 
-  it("41.12. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("41.12. Verify that the list breadcrumb shows the Savings Account Management hierarchy.", function () {
+    create_savings_account_management.listBreadcrumbCheck();
+  });
+
+  it("41.13. Verify that all savings account grid columns are visible.", function () {
+    create_savings_account_management.requiredGridColumnsCheck();
+  });
+
+  it("41.14. Verify that account rows display serial numbers and required record data.", function () {
+    create_savings_account_management.gridRecordDataCheck();
+  });
+
+  it("41.15. Verify that savings amounts are finite non-negative numbers.", function () {
+    create_savings_account_management.savingsAmountCheck();
+  });
+
+  it("41.16. Verify that the Active filter displays only active savings accounts.", function () {
+    create_savings_account_management.activeStatusResultCheck();
+  });
+
+  it("41.17. Verify that the account ID ascending sort indicator is selected.", function () {
+    create_savings_account_management.accountIdAscendingSortCheck();
+  });
+
+  it("41.18. Verify that the account ID descending sort indicator is selected.", function () {
+    create_savings_account_management.accountIdDescendingSortCheck();
+  });
+
+  it("41.19. Verify that the first page shows pagination controls with Previous disabled.", function () {
+    create_savings_account_management.firstPagePaginationCheck();
+  });
+
+  it("41.20. Verify that office, status and search controls are available.", function () {
+    create_savings_account_management.searchControlsCheck();
+  });
+
+  it("41.21. Verify that an unmatched search displays the No Data state.", function () {
+    create_savings_account_management.noResultSearchCheck();
+  });
+
+  it("41.22. Verify that a partial member name search returns matching savings accounts.", function () {
+    create_savings_account_management.partialMemberNameSearchCheck();
+  });
+
+  it("41.23. Verify that a full member name search returns matching savings accounts.", function () {
+    create_savings_account_management.exactMemberNameSearchCheck();
+  });
+
+  it("41.24. Verify that Reset clears an unmatched search and restores savings account records.", function () {
+    create_savings_account_management.resetSearchInputCheck();
+  });
+
+  it("41.25. Verify that searching by Savings Account ID returns matching accounts.", function () {
+    create_savings_account_management.accountIdSearchCheck();
+  });
+
+  it("41.26. Verify check that the grid list content changes correctly from english to bangla.", function () {
     create_savings_account_management.gridLanguageSwitchCheck();
   });
 });
