@@ -103,7 +103,31 @@ describe("44. Holiday Module Test Cases", function () {
     create_holiday.firstPagePaginationCheck();
   });
 
-  it("44.21. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("44.21. Verify that search and filter controls are available.", function () {
+    create_holiday.searchControlsCheck();
+  });
+
+  it("44.22. Verify that searching for a non-existing record displays No Data.", function () {
+    create_holiday.nonExistingSearchCheck();
+  });
+
+  it("44.23. Verify that Reset clears the search text and Draft filter.", function () {
+    create_holiday.searchResetValueCheck();
+  });
+
+  it("44.24. Verify that Holiday Title displays the ascending sort indicator.", function () {
+    create_holiday.gridAscendingSortCheck();
+  });
+
+  it("44.25. Verify that Holiday Title displays the descending sort indicator.", function () {
+    create_holiday.gridDescendingSortCheck();
+  });
+
+  it("44.26. Verify that Add and Go Back navigate between the create and list pages.", function () {
+    create_holiday.addNavigationCheck();
+  });
+
+  it("44.27. Verify check that the grid list content changes correctly from english to bangla.", function () {
     create_holiday.gridLanguageSwitchCheck();
   });
 });

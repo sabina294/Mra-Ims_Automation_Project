@@ -1,3 +1,4 @@
+import { processPageChecks } from "../../../../support/page-objects/process-page-checks";
 import messages from "../../../../support/constants/messages";
 import { COMMON } from "../../../../support/constants/selectors";
 class StagingData {
@@ -33,6 +34,25 @@ class StagingData {
       cy.formController("samity_id").type(sData.selectSamity).type("{enter}");
       cy.wait(2000);
       cy.log(messages.ui.samityDropdownMessage);
+    });
+  }
+
+  nonMatchingSearchCheck() {
+    processPageChecks.open(COMMON.MENUS.STAGING_DATA, "/mfi-mis/process/staging-data/list");
+    processPageChecks.noResults({ dashboard: false });
+    processPageChecks.clearSearch();
+  }
+
+  clearedSearchRestoresResultsCheck() {
+    processPageChecks.open(COMMON.MENUS.STAGING_DATA, "/mfi-mis/process/staging-data/list");
+    cy.get("body").then(($body) => {
+      const originalRows = $body.find(COMMON.TABLE.VISIBLE_ROWS).length;
+      processPageChecks.noResults();
+      processPageChecks.clearSearch();
+      cy.get("body").should(($result) => {
+        expect($result.find(COMMON.TABLE.VISIBLE_ROWS).length, "restored visible row count")
+          .to.equal(originalRows);
+      });
     });
   }
 

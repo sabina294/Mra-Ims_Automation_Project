@@ -5,7 +5,7 @@
 import "cypress-file-upload";
 import { create_cancel_holiday } from "./cancel-holiday.po";
 
-describe("24. Cancel Holiday Module Test Cases", function () {
+describe("45. Cancel Holiday Module Test Cases", function () {
     const baseURL = Cypress.env("BASE_URL");
     const test_data = Cypress.env("TEST_DATA");
 
@@ -88,7 +88,23 @@ describe("24. Cancel Holiday Module Test Cases", function () {
         create_cancel_holiday.firstPagePaginationCheck();
     });
 
-    it("45.17. Verify that the grid list content changes successfully from English to Bangla.", function () {
+  it("45.17. Verify that search and filter controls are available.", function () {
+    create_cancel_holiday.searchControlsCheck();
+  });
+
+  it("45.18. Verify that searching for a non-existing record displays No Data.", function () {
+    create_cancel_holiday.nonExistingSearchCheck();
+  });
+
+  it("45.19. Verify that Reset clears the search text and Draft filter.", function () {
+    create_cancel_holiday.searchResetValueCheck();
+  });
+
+  it("45.20. Verify that Add and Go Back navigate between the create and list pages.", function () {
+    create_cancel_holiday.addNavigationCheck();
+  });
+
+    it("45.21. Verify that the grid list content changes successfully from English to Bangla.", function () {
         create_cancel_holiday.gridLanguageSwitchCheck();
     });
 });

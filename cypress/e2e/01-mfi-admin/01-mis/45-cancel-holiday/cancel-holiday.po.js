@@ -1,3 +1,4 @@
+import { configurationGridChecks } from "../../../../support/page-objects/configuration-grid-checks";
 import messages from "../../../../support/constants/messages";
 import { COMMON } from "../../../../support/constants/selectors";
 class CancelHoliday {
@@ -79,6 +80,45 @@ class CancelHoliday {
             cy.imsId(COMMON.BUTTONS.SEARCH).click();
             cy.log(messages.ui.searchMessage);
         });
+    }
+
+    openListForChecks() {
+      cy.visit("/mfi-mis/calendar/cancel-holiday/list");
+      cy.url().should("include", "/calendar/cancel-holiday/list");
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      cy.imsId(COMMON.GRID.DRAFT_TOGGLE).uncheck({ force: true }).should("not.be.checked");
+      cy.get(COMMON.TABLE.HEAD).should("be.visible");
+    }
+
+    searchControlsCheck() {
+      this.openListForChecks();
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT).should("be.visible").and("be.enabled");
+      cy.imsId(COMMON.BUTTONS.SEARCH).should("be.visible").and("be.enabled");
+      cy.imsId(COMMON.GRID.DRAFT_TOGGLE).should("exist");
+    }
+
+    nonExistingSearchCheck() {
+      this.openListForChecks();
+      configurationGridChecks.noResult("CALENDAR_RECORD");
+    }
+
+    searchResetValueCheck() {
+      this.openListForChecks();
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT).type("CALENDAR_RECORD_THAT_DOES_NOT_EXIST_98765");
+      cy.imsId(COMMON.BUTTONS.SEARCH).click();
+      cy.get(COMMON.TABLE.VISIBLE_ROWS).should("have.length", 0);
+      cy.imsId(COMMON.BUTTONS.RESET).click();
+      cy.formController(COMMON.INPUTS.SEARCH_TEXT).should("have.value", "");
+      cy.imsId(COMMON.GRID.DRAFT_TOGGLE).should("not.be.checked");
+    }
+
+    addNavigationCheck() {
+      this.openListForChecks();
+      cy.imsId(COMMON.BUTTONS.ADD_NEW).should("be.visible").click();
+      cy.url().should("include", "/calendar/cancel-holiday/create");
+      cy.imsId(COMMON.BUTTONS.GO_BACK).should("be.visible").click();
+      cy.url().should("include", "/calendar/cancel-holiday/list");
+      cy.get(COMMON.TABLE.HEAD).should("be.visible");
     }
 
     gridLanguageSwitchCheck() {

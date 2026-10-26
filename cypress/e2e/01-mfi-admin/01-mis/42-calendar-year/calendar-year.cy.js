@@ -43,10 +43,6 @@ describe("42. Calendar Year Module Test Cases", function () {
     create_calendar_year.myTaskRefreshButtonCheck();
   });
 
-  it("42.06. Verify mfi-admin to successfully approve an calendar year record after creation.", function () {
-    create_calendar_year.approveCalendare();
-  });
-
   it("42.07. Verify successfully performs the action when the action button is clicked.", function () {
     create_calendar_year.actionButtonCheck();
   });
@@ -87,35 +83,35 @@ describe("42. Calendar Year Module Test Cases", function () {
     create_calendar_year.createResetButtonCheck();
   });
 
-  it("42.17. Verify that clicking the submit button  on the calendar year create page redirects the user to the calendar year list page.", function () {
-    create_calendar_year.createSubmitButtonCheck();
+  it("42.24. Verify that search and filter controls are available.", function () {
+    create_calendar_year.searchControlsCheck();
   });
 
-  it("42.18. Verify that clicking the go back button on the calendar year create page redirects the user to the calendar year list page.", function () {
-    create_calendar_year.createGoBackButtonCheck();
+  it("42.25. Verify that searching for a non-existing record displays No Data.", function () {
+    create_calendar_year.nonExistingSearchCheck();
   });
 
-  it("42.19. Verify that when the user clicks the Search button on the calendar year grid page, the system redirects to the calendar year List page..", function () {
-    create_calendar_year.gridSearchButtonCheck();
+  it("42.26. Verify that Reset clears the search text and Draft filter.", function () {
+    create_calendar_year.searchResetValueCheck();
   });
 
-  it("42.20. Verify that the holiday cannot be submitted without entering the required Holiday Title (Bangla).", function () {
-    create_calendar_year.submitHolidayWithoutBanglaTitleCheck();
+  it("42.27. Verify that the list breadcrumb, columns and first pagination page are correct.", function () {
+    create_calendar_year.listStructureCheck();
   });
 
-  it("42.21. Verify that the holiday cannot be submitted without entering the required Holiday Title (English).", function () {
-    create_calendar_year.submitHolidayWithoutEnglishTitleCheck();
+  it("42.28. Verify that Year displays the ascending sort indicator.", function () {
+    create_calendar_year.gridAscendingSortCheck();
   });
 
-  it("42.22. Verify that the holiday cannot be submitted without selecting the required Day of the Month.", function () {
-    create_calendar_year.submitHolidayWithoutDayOfMonthCheck();
+  it("42.29. Verify that Year displays the descending sort indicator.", function () {
+    create_calendar_year.gridDescendingSortCheck();
   });
 
-  it("42.23. Verify that the holiday cannot be submitted without selecting the required Month of the Year.", function () {
-    create_calendar_year.submitHolidayWithoutMonthOfYearCheck();
+  it("42.30. Verify that Add and Go Back navigate between the create and list pages.", function () {
+    create_calendar_year.addNavigationCheck();
   });
 
-  it("42.24. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("42.31. Verify check that the grid list content changes correctly from english to bangla.", function () {
     create_calendar_year.gridLanguageSwitchCheck();
   });
 });

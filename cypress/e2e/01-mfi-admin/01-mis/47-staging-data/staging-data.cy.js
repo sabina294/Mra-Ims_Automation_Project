@@ -40,7 +40,15 @@ describe("47. Staging Data Module Test Cases", function () {
         grid_staging_data.selectSamityDropdownCheck();
     });
 
-    it("47.05. Verify that the grid list content switches correctly between English and Bangla languages.", function () {
+  it("47.05. Verify that a non-matching search displays no process results.", function () {
+    grid_staging_data.nonMatchingSearchCheck();
+  });
+
+  it("47.06. Verify that clearing a non-matching search restores the original results.", function () {
+    grid_staging_data.clearedSearchRestoresResultsCheck();
+  });
+
+    it("47.07. Verify that the grid list content switches correctly between English and Bangla languages.", function () {
         grid_staging_data.gridLanguageSwitchCheck();
     });
 });

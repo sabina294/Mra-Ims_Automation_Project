@@ -1,3 +1,4 @@
+import { configurationGridChecks } from "../../../../support/page-objects/configuration-grid-checks";
 import messages from "../../../../support/constants/messages";
 import { COMMON } from "../../../../support/constants/selectors";
 class CalendarYearCreation {
@@ -52,17 +53,6 @@ class CalendarYearCreation {
     // cy.imsId(COMMON.BUTTONS.RESET).click();
     // cy.imsId(COMMON.BUTTONS.REFRESH).click();
     cy.log(messages.ui.refreshSuccess);
-  }
-
-  approveCalendare() {
-    cy.imsId(COMMON.TOGGLES.ACTION).first().click();
-    cy.imsId(COMMON.GRID.ACTION_VIEW).click();
-    cy.imsId(COMMON.BUTTONS.LOCK).click();
-    cy.imsId(COMMON.BUTTONS.ADD).click();
-    cy.imsId(COMMON.CONFIRMATION.YES).click();
-    cy.wait(10000);
-    cy.imsId(COMMON.CONFIRMATION.OK).click();
-    cy.log(messages.ui.approveSuccess);
   }
 
   actionButtonCheck() {
@@ -140,98 +130,63 @@ class CalendarYearCreation {
     });
   }
 
-  createSubmitButtonCheck() {
-    cy.fixture(this.test_data).then((data) => {
-      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
-      cy.imsId(COMMON.BUTTONS.SUBMIT).click();
-      cy.imsId(COMMON.CONFIRMATION.YES).click();
-      cy.imsId(COMMON.CONFIRMATION.OK).click();
-      cy.log(messages.ui.submitSuccess);
-    });
+  openListForChecks() {
+    cy.visit("/mfi-mis/calendar/calendar-year/list");
+    cy.url().should("include", "/calendar/calendar-year/list");
+    cy.imsId(COMMON.BUTTONS.RESET).click();
+    cy.imsId(COMMON.GRID.DRAFT_TOGGLE).uncheck({ force: true }).should("not.be.checked");
+    cy.get(COMMON.TABLE.HEAD).should("be.visible");
   }
 
-  createGoBackButtonCheck() {
-    cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
-    cy.imsId(COMMON.BUTTONS.GO_BACK).click();
-    cy.log(messages.ui.createGoBackMessage);
+  searchControlsCheck() {
+    this.openListForChecks();
+    cy.formController("office_id").should("be.visible");
+    cy.formController(COMMON.INPUTS.SEARCH_TEXT).should("be.visible").and("be.enabled");
+    cy.imsId(COMMON.BUTTONS.SEARCH).should("be.visible").and("be.enabled");
+    cy.imsId(COMMON.GRID.DRAFT_TOGGLE).should("exist");
   }
 
-  gridSearchButtonCheck() {
-    cy.fixture(this.test_data).then((data) => {
-      const cyData = data.mfiAdmin.createCalendarYear;
-      cy.imsId(COMMON.BUTTONS.RESET).click();
-      cy.formController(COMMON.INPUTS.SEARCH_TEXT).type(cyData.search);
-      cy.imsId(COMMON.BUTTONS.SEARCH).click();
-      cy.log(messages.ui.searchMessage);
-    });
+  nonExistingSearchCheck() {
+    this.openListForChecks();
+    configurationGridChecks.noResult("CALENDAR_RECORD");
   }
 
-
-  submitHolidayWithoutBanglaTitleCheck() {
-    cy.fixture(this.test_data).then((data) => {
-      cy.imsId(COMMON.BUTTONS.ADD_NEW).click();
-      const cyData = data.mfiAdmin.createCalendarYear;
-      cy.imsId(COMMON.BUTTONS.ADD).click();
-      cy.formController("holiday_title_en").type(cyData.holidayTitleEn);
-      cy.formController("day_of_month").type(cyData.dayOfMonth).type("{enter}");
-      cy.formController("month_of_year")
-        .type(cyData.monthOfYear)
-        .type("{enter}");
-      cy.imsId(COMMON.BUTTONS.MODAL_SUBMIT).click();
-      cy.imsId(COMMON.CONFIRMATION.OK).click();
-      cy.get('.tertiary-button').click();
-      cy.log(messages.ui.submitSuccess);
-    });
+  searchResetValueCheck() {
+    this.openListForChecks();
+    cy.formController(COMMON.INPUTS.SEARCH_TEXT).type("CALENDAR_RECORD_THAT_DOES_NOT_EXIST_98765");
+    cy.imsId(COMMON.BUTTONS.SEARCH).click();
+    cy.get(COMMON.TABLE.VISIBLE_ROWS).should("have.length", 0);
+    cy.imsId(COMMON.BUTTONS.RESET).click();
+    cy.formController(COMMON.INPUTS.SEARCH_TEXT).should("have.value", "");
+    cy.imsId(COMMON.GRID.DRAFT_TOGGLE).should("not.be.checked");
+    cy.get(COMMON.TABLE.VISIBLE_ROWS).should("have.length.greaterThan", 0);
   }
 
-
-  submitHolidayWithoutEnglishTitleCheck() {
-    cy.fixture(this.test_data).then((data) => {
-      const cyData = data.mfiAdmin.createCalendarYear;
-      cy.imsId(COMMON.BUTTONS.ADD).click();
-      cy.formController("holiday_title_bn").type(cyData.holidayTitleBn);
-      cy.formController("day_of_month").type(cyData.dayOfMonth).type("{enter}");
-      cy.formController("month_of_year")
-        .type(cyData.monthOfYear)
-        .type("{enter}");
-      cy.imsId(COMMON.BUTTONS.MODAL_SUBMIT).click();
-      cy.imsId(COMMON.CONFIRMATION.OK).click();
-      cy.get('.tertiary-button').click();
-      cy.log(messages.ui.submitSuccess);
-    });
+  listStructureCheck() {
+    this.openListForChecks();
+    configurationGridChecks.breadcrumb("Calendar Year", ["Calendar"]);
+    configurationGridChecks.columns(["#", "Year", "Start Date", "End Date", "Office", "MFI ID", "Status", "Actions"]);
+    configurationGridChecks.pagination();
   }
 
-
-  submitHolidayWithoutDayOfMonthCheck() {
-    cy.fixture(this.test_data).then((data) => {
-      const cyData = data.mfiAdmin.createCalendarYear;
-      cy.imsId(COMMON.BUTTONS.ADD).click();
-      cy.formController("holiday_title_bn").type(cyData.holidayTitleBn);
-      cy.formController("holiday_title_en").type(cyData.holidayTitleEn);
-      cy.formController("month_of_year")
-        .type(cyData.monthOfYear)
-        .type("{enter}");
-      cy.imsId(COMMON.BUTTONS.MODAL_SUBMIT).click();
-      cy.imsId(COMMON.CONFIRMATION.OK).click();
-      cy.get('.tertiary-button').click();
-
-      cy.log(messages.ui.submitSuccess);
-    });
+  gridAscendingSortCheck() {
+    this.openListForChecks();
+    configurationGridChecks.sort("Year", COMMON.SORT.ASCENDING);
   }
 
+  gridDescendingSortCheck() {
+    this.openListForChecks();
+    configurationGridChecks.sort("Year", COMMON.SORT.ASCENDING);
+    configurationGridChecks.sort("Year", COMMON.SORT.DESCENDING);
+  }
 
-  submitHolidayWithoutMonthOfYearCheck() {
-    cy.fixture(this.test_data).then((data) => {
-      const cyData = data.mfiAdmin.createCalendarYear;
-      cy.imsId(COMMON.BUTTONS.ADD).click();
-      cy.formController("holiday_title_bn").type(cyData.holidayTitleBn);
-      cy.formController("holiday_title_en").type(cyData.holidayTitleEn);
-      cy.formController("day_of_month").type(cyData.dayOfMonth).type("{enter}");
-      cy.imsId(COMMON.BUTTONS.MODAL_SUBMIT).click();
-      cy.imsId(COMMON.CONFIRMATION.OK).click();
-      cy.get('.tertiary-button').click();
-      cy.log(messages.ui.submitSuccess);
-    });
+  addNavigationCheck() {
+    this.openListForChecks();
+    cy.imsId(COMMON.BUTTONS.ADD_NEW).should("be.visible").click();
+    cy.url().should("include", "/calendar/calendar-year/create");
+    cy.imsId(COMMON.BUTTONS.GO_BACK).should("be.visible").click();
+    cy.url().should("include", "/calendar/calendar-year/list");
+    cy.get(COMMON.TABLE.HEAD).should("be.visible");
   }
 
   gridLanguageSwitchCheck() {

@@ -31,11 +31,19 @@ describe("43. Calendar Management Module Test Cases", function () {
     create_calendar_management.gridOfficeDropdown();
   });
 
-  // it("43.03. Verify check if the filter for calendar year results works correctly with the year dropdown ", function () {
-  //   create_calendar_management.calendarYearDropdownCheck();
-  // });
+  it("43.03. Verify that breadcrumb navigation is correct.", function () {
+    create_calendar_management.breadcrumbCheck();
+  });
 
-  it("43.04. Verify check that the grid list content changes correctly from english to bangla.", function () {
+  it("43.04. Verify that Holiday details displays Date, Holiday Title and Holiday Type columns.", function () {
+    create_calendar_management.holidayColumnsCheck();
+  });
+
+  it("43.05. Verify that holiday details displays valid records or the empty state.", function () {
+    create_calendar_management.holidayRecordsOrEmptyCheck();
+  });
+
+  it("43.06. Verify check that the grid list content changes correctly from english to bangla.", function () {
     create_calendar_management.gridLanguageSwitchCheck();
   });
 });
