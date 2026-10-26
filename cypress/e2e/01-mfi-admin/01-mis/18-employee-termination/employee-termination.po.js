@@ -12,19 +12,28 @@ class EmployeeTermination {
     }
 
     createEmployeeTermination() {
-        cy.imsId(COMMON.GRID.ACTION_TERMINATION)
-            .not(":disabled")
-            .first()
-            .click();
-
-        // ensure view page loaded
-        cy.url().should("include", "employee-termination/view");
-
-        cy.imsId(COMMON.BUTTONS.SUBMIT).click();
-        cy.imsId(COMMON.CONFIRMATION.YES).click();
-        cy.imsId(COMMON.CONFIRMATION.OK).click();
-
-        cy.log(messages.ui.submitSuccess);
+        this.openListForChecks();
+        cy.fixture(this.test_data).then((data) => {
+            const employee = data.mfiAdmin.gridEmpTerminationFrom.search;
+            expect(employee, "employee to submit for termination")
+                .to.be.a("string").and.not.be.empty;
+            cy.formController(COMMON.INPUTS.SEARCH_TEXT).clear().type(employee);
+            cy.imsId(COMMON.BUTTONS.SEARCH).click();
+            // Retry the complete query while search results replace the grid.
+            cy.get(COMMON.TABLE.VISIBLE_ROWS).filter((_, row) => {
+                return Cypress.$(row).children("td").eq(2).text().trim() === employee;
+            }).should("have.length", 1)
+                .find(`[data-ims-id='${COMMON.GRID.ACTION_TERMINATION}']`)
+                .should("be.visible").and("be.enabled").click();
+            cy.imsId(COMMON.BUTTONS.SUBMIT)
+                .should("be.visible").and("be.enabled").click();
+            cy.imsId(COMMON.CONFIRMATION.YES)
+                .should("be.visible").and("be.enabled").click();
+            cy.imsId(COMMON.CONFIRMATION.OK).should("be.visible").click();
+            cy.get("nz-breadcrumb, .ant-breadcrumb")
+                .should("be.visible").and("contain.text", "Employee Termination");
+            cy.log(messages.ui.submitSuccess);
+        });
     }
 
     terminationGoBackButton() {
